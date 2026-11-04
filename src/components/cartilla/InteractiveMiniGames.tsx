@@ -333,9 +333,7 @@ export function AudioMultipleChoice({
   const [picked, setPicked] = useState<string | null>(null);
 
   // Scramble options once
-  // ⚡ Bolt: Use useMemo instead of useRef(secureShuffle(options)).current to avoid
-  // executing secureShuffle on every re-render.
-  const scrambled = useMemo(() => secureShuffle(options), [options]);
+  const scrambled = useRef(secureShuffle(options)).current;
 
   if (!isAvailable(targetWord)) {
     return (
@@ -547,13 +545,11 @@ function contentForLesson(lessonNumber: number): MiniGameContent {
 }
 
 function cumulativeSyllables(lessonNumber: number): string[] {
-  return CATALOG.filter((entry) => entry.n <= lessonNumber)
-    .flatMap((entry) => {
-      if (entry.kind === "consonant") return entry.data.syllables;
-      if (entry.kind === "vowel") return [entry.vowel];
-      return INTRO_VOWELS;
-    })
-    .filter((item, index, all) => item.trim() && all.indexOf(item) === index);
+  return CATALOG.filter((entry) => entry.n <= lessonNumber).flatMap((entry) => {
+    if (entry.kind === "consonant") return entry.data.syllables;
+    if (entry.kind === "vowel") return [entry.vowel];
+    return INTRO_VOWELS;
+  }).filter((item, index, all) => item.trim() && all.indexOf(item) === index);
 }
 
 function completeActivity(onComplete?: () => void) {
@@ -601,60 +597,27 @@ export function SyllableTrain({ lessonNumber = 1, onComplete }: MiniGameProps) {
 
   if (!target) return <p role="status">No hay sílabas disponibles para esta lección.</p>;
   return (
-    <section
-      className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6"
-      aria-label="Tren de sílabas"
-    >
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Tren de sílabas">
       <header className="mb-4 flex items-center justify-between gap-3">
         <h3 className="text-lg font-bold">Tren de sílabas</h3>
-        <span role="status" aria-live="polite" className="text-sm font-bold">
-          {round + 1} de {syllables.length}
-        </span>
+        <span role="status" aria-live="polite" className="text-sm font-bold">{round + 1} de {syllables.length}</span>
       </header>
       <p className="mb-4 text-center text-sm font-semibold">Encuentra esta sílaba:</p>
-      <p
-        className="mb-5 text-center text-5xl font-black"
-        aria-label={`Sílaba ${target}`}
-        style={{ color }}
-      >
-        {target}
-      </p>
+      <p className="mb-5 text-center text-5xl font-black" aria-label={`Sílaba ${target}`} style={{ color }}>{target}</p>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {choices.map((syllable, index) => (
-          <button
-            key={`${syllable}-${index}`}
-            type="button"
-            disabled={feedback === "correct"}
-            onClick={() => answer(syllable)}
-            aria-label={`Elegir sílaba ${syllable}`}
+          <button key={`${syllable}-${index}`} type="button" disabled={feedback === "correct"}
+            onClick={() => answer(syllable)} aria-label={`Elegir sílaba ${syllable}`}
             className="min-h-12 rounded-xl border-2 bg-white px-4 py-3 text-xl font-bold focus-visible:outline focus-visible:outline-2"
-            style={{ borderColor: color }}
-          >
-            {syllable}
-          </button>
+            style={{ borderColor: color }}>{syllable}</button>
         ))}
       </div>
-      {feedback === "try-again" && (
-        <p className="mt-4 text-center font-bold text-destructive" role="status">
-          Inténtalo de nuevo.
-        </p>
-      )}
+      {feedback === "try-again" && <p className="mt-4 text-center font-bold text-destructive" role="status">Inténtalo de nuevo.</p>}
       {feedback === "correct" && (
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3" role="status">
           <span className="font-bold text-success">¡Correcto!</span>
-          {round < syllables.length - 1 && (
-            <button
-              type="button"
-              onClick={next}
-              className="min-h-11 rounded-lg px-4 font-bold text-white"
-              style={{ backgroundColor: color }}
-            >
-              Siguiente
-            </button>
-          )}
-          {round === syllables.length - 1 && (
-            <span className="font-bold text-success">¡Tren completo!</span>
-          )}
+          {round < syllables.length - 1 && <button type="button" onClick={next} className="min-h-11 rounded-lg px-4 font-bold text-white" style={{ backgroundColor: color }}>Siguiente</button>}
+          {round === syllables.length - 1 && <span className="font-bold text-success">¡Tren completo!</span>}
         </div>
       )}
     </section>
@@ -692,84 +655,29 @@ export function WordPuzzle({ lessonNumber = 1, onComplete }: MiniGameProps) {
 
   if (rounds.length === 0) return <p role="status">No hay palabras de esta lección para armar.</p>;
   return (
-    <section
-      className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6"
-      aria-label="Rompecabezas de palabras"
-    >
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Rompecabezas de palabras">
       <header className="mb-4 flex items-center justify-between gap-3">
         <h3 className="text-lg font-bold">Rompecabezas de palabras</h3>
-        <span role="status" className="text-sm font-bold">
-          {round + 1} de {rounds.length}
-        </span>
+        <span role="status" className="text-sm font-bold">{round + 1} de {rounds.length}</span>
       </header>
       <p className="mb-4 text-center text-sm font-semibold">Forma la palabra con sus letras:</p>
-      <p
-        className="mb-5 min-h-12 text-center text-3xl font-black tracking-widest"
-        aria-label="Letras seleccionadas"
-        style={{ color }}
-      >
-        {picked.map((index) => letters[index]).join("") || "· · ·"}
-      </p>
+      <p className="mb-5 min-h-12 text-center text-3xl font-black tracking-widest" aria-label="Letras seleccionadas" style={{ color }}>{picked.map((index) => letters[index]).join("") || "· · ·"}</p>
       <div className="flex flex-wrap justify-center gap-2">
         {letters.map((letter, index) => (
-          <button
-            key={`${letter}-${index}`}
-            type="button"
-            disabled={picked.includes(index) || feedback === "correct"}
-            onClick={() => {
-              setPicked((current) => [...current, index]);
-              setFeedback(null);
-            }}
-            aria-label={`Añadir letra ${letter}`}
-            className="min-h-12 min-w-12 rounded-xl border-2 bg-white px-3 text-xl font-bold disabled:opacity-40"
-            style={{ borderColor: color }}
-          >
-            {letter}
-          </button>
+          <button key={`${letter}-${index}`} type="button" disabled={picked.includes(index) || feedback === "correct"}
+            onClick={() => { setPicked((current) => [...current, index]); setFeedback(null); }}
+            aria-label={`Añadir letra ${letter}`} className="min-h-12 min-w-12 rounded-xl border-2 bg-white px-3 text-xl font-bold disabled:opacity-40"
+            style={{ borderColor: color }}>{letter}</button>
         ))}
       </div>
       <div className="mt-5 flex flex-wrap justify-center gap-3">
-        <button
-          type="button"
-          disabled={picked.length !== letters.length || feedback === "correct"}
-          onClick={submit}
-          className="min-h-11 rounded-lg px-4 font-bold text-white disabled:opacity-50"
-          style={{ backgroundColor: color }}
-        >
-          Comprobar
-        </button>
-        <button
-          type="button"
-          disabled={picked.length === 0 || feedback === "correct"}
-          onClick={() => {
-            setPicked([]);
-            setFeedback(null);
-          }}
-          className="min-h-11 rounded-lg border px-4 font-bold disabled:opacity-50"
-        >
-          Borrar letras
-        </button>
+        <button type="button" disabled={picked.length !== letters.length || feedback === "correct"} onClick={submit}
+          className="min-h-11 rounded-lg px-4 font-bold text-white disabled:opacity-50" style={{ backgroundColor: color }}>Comprobar</button>
+        <button type="button" disabled={picked.length === 0 || feedback === "correct"} onClick={() => { setPicked([]); setFeedback(null); }}
+          className="min-h-11 rounded-lg border px-4 font-bold disabled:opacity-50">Borrar letras</button>
       </div>
-      {feedback === "try-again" && (
-        <p className="mt-4 text-center font-bold text-destructive" role="status">
-          Revisa el orden e inténtalo otra vez.
-        </p>
-      )}
-      {feedback === "correct" && (
-        <div className="mt-4 text-center font-bold text-success" role="status">
-          ¡Palabra completa!
-          {round < rounds.length - 1 && (
-            <button
-              type="button"
-              onClick={next}
-              className="ml-3 min-h-11 rounded-lg px-4 text-white"
-              style={{ backgroundColor: color }}
-            >
-              Siguiente
-            </button>
-          )}
-        </div>
-      )}
+      {feedback === "try-again" && <p className="mt-4 text-center font-bold text-destructive" role="status">Revisa el orden e inténtalo otra vez.</p>}
+      {feedback === "correct" && <div className="mt-4 text-center font-bold text-success" role="status">¡Palabra completa!{round < rounds.length - 1 && <button type="button" onClick={next} className="ml-3 min-h-11 rounded-lg px-4 text-white" style={{ backgroundColor: color }}>Siguiente</button>}</div>}
     </section>
   );
 }
@@ -779,38 +687,17 @@ type MemoryCard = { id: string; pair: number; face: "word" | "emoji"; value: str
 /** Pairs source-backed lesson words with their curriculum emoji labels. */
 export function MemoryMatch({ lessonNumber = 1, onComplete }: MiniGameProps) {
   const { words, color } = useMemo(() => contentForLesson(lessonNumber), [lessonNumber]);
-  const pairs = useMemo(
-    () =>
-      words
-        .filter(
-          (word, index) =>
-            (word.emoji || word.illustrationSrc) &&
-            words.findIndex((other) => other.word === word.word) === index,
-        )
-        .slice(0, 6),
-    [words],
-  );
-  const cards = useMemo(
-    () =>
-      shuffleItems(
-        pairs.flatMap((item, pair): MemoryCard[] => [
-          { id: `${pair}-word`, pair, face: "word", value: item.word },
-          { id: `${pair}-emoji`, pair, face: "emoji", value: item.emoji ?? item.illustrationSrc! },
-        ]),
-      ),
-    [pairs],
-  );
+  const pairs = useMemo(() => words.filter((word, index) => (word.emoji || word.illustrationSrc) && words.findIndex((other) => other.word === word.word) === index).slice(0, 6), [words]);
+  const cards = useMemo(() => shuffleItems(pairs.flatMap((item, pair): MemoryCard[] => [
+    { id: `${pair}-word`, pair, face: "word", value: item.word },
+    { id: `${pair}-emoji`, pair, face: "emoji", value: item.emoji ?? item.illustrationSrc! },
+  ])), [pairs]);
   const [open, setOpen] = useState<string[]>([]);
   const [matched, setMatched] = useState<number[]>([]);
   const timer = useRef<number | null>(null);
   const completed = useRef(false);
 
-  useEffect(
-    () => () => {
-      if (timer.current !== null) window.clearTimeout(timer.current);
-    },
-    [],
-  );
+  useEffect(() => () => { if (timer.current !== null) window.clearTimeout(timer.current); }, []);
   const choose = (card: MemoryCard) => {
     if (matched.includes(card.pair) || open.includes(card.id) || open.length === 2) return;
     const nextOpen = [...open, card.id];
@@ -830,64 +717,26 @@ export function MemoryMatch({ lessonNumber = 1, onComplete }: MiniGameProps) {
         completeActivity(onComplete);
       }
     } else {
-      timer.current = window.setTimeout(() => {
-        setOpen([]);
-        timer.current = null;
-      }, 700);
+      timer.current = window.setTimeout(() => { setOpen([]); timer.current = null; }, 700);
     }
   };
 
-  if (pairs.length < 2)
-    return <p role="status">Esta lección necesita más palabras para jugar memoria.</p>;
+  if (pairs.length < 2) return <p role="status">Esta lección necesita más palabras para jugar memoria.</p>;
   return (
-    <section
-      className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6"
-      aria-label="Memoria de palabras"
-    >
-      <header className="mb-4 flex items-center justify-between gap-3">
-        <h3 className="text-lg font-bold">Memoria de palabras</h3>
-        <span role="status">
-          Parejas: {matched.length} de {pairs.length}
-        </span>
-      </header>
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Memoria de palabras">
+      <header className="mb-4 flex items-center justify-between gap-3"><h3 className="text-lg font-bold">Memoria de palabras</h3><span role="status">Parejas: {matched.length} de {pairs.length}</span></header>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {cards.map((card) => {
           const visible = open.includes(card.id) || matched.includes(card.pair);
-          return (
-            <button
-              key={card.id}
-              type="button"
-              onClick={() => choose(card)}
-              disabled={matched.includes(card.pair)}
-              aria-label={
-                visible
-                  ? `Carta ${card.face === "word" ? card.value : `dibujo ${pairs[card.pair]?.word}`}`
-                  : "Carta oculta"
-              }
-              aria-pressed={visible}
-              className="min-h-16 rounded-xl border-2 bg-white p-3 text-lg font-bold disabled:bg-success/10"
-              style={{ borderColor: matched.includes(card.pair) ? "#16a34a" : color }}
-            >
-              {visible && card.face === "emoji" && pairs[card.pair]?.illustrationSrc ? (
-                <img
-                  src={pairs[card.pair]!.illustrationSrc}
-                  alt=""
-                  className="mx-auto h-12 w-12 object-contain"
-                />
-              ) : visible ? (
-                card.value
-              ) : (
-                "?"
-              )}
-            </button>
-          );
+          return <button key={card.id} type="button" onClick={() => choose(card)} disabled={matched.includes(card.pair)}
+            aria-label={visible ? `Carta ${card.face === "word" ? card.value : `dibujo ${pairs[card.pair]?.word}`}` : "Carta oculta"}
+            aria-pressed={visible} className="min-h-16 rounded-xl border-2 bg-white p-3 text-lg font-bold disabled:bg-success/10"
+            style={{ borderColor: matched.includes(card.pair) ? "#16a34a" : color }}>
+              {visible && card.face === "emoji" && pairs[card.pair]?.illustrationSrc ? <img src={pairs[card.pair]!.illustrationSrc} alt="" className="mx-auto h-12 w-12 object-contain" /> : visible ? card.value : "?"}
+            </button>;
         })}
       </div>
-      {matched.length === pairs.length && (
-        <p className="mt-4 text-center font-bold text-success" role="status">
-          ¡Todas las parejas encontradas!
-        </p>
-      )}
+      {matched.length === pairs.length && <p className="mt-4 text-center font-bold text-success" role="status">¡Todas las parejas encontradas!</p>}
     </section>
   );
 }
@@ -904,10 +753,7 @@ export function RapidFire({ lessonNumber = 1, onComplete }: MiniGameProps) {
   const target = pool[round % Math.max(1, pool.length)];
   const choices = useMemo(() => {
     if (!target) return [];
-    return shuffleItems([
-      target,
-      ...shuffleItems(pool.filter((item) => item !== target)).slice(0, 3),
-    ]);
+    return shuffleItems([target, ...shuffleItems(pool.filter((item) => item !== target)).slice(0, 3)]);
   }, [pool, target]);
 
   const answer = (value: string) => {
@@ -921,67 +767,20 @@ export function RapidFire({ lessonNumber = 1, onComplete }: MiniGameProps) {
       completeActivity(onComplete);
     }
   };
-  const next = () => {
-    setRound((current) => current + 1);
-    setFeedback(null);
-  };
+  const next = () => { setRound((current) => current + 1); setFeedback(null); };
 
   if (!target) return <p role="status">No hay sílabas disponibles para esta lección.</p>;
   return (
-    <section
-      className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6"
-      aria-label="Rápido y atento"
-    >
-      <header className="mb-4 flex items-center justify-between gap-3">
-        <h3 className="text-lg font-bold">Rápido y atento</h3>
-        <span role="status">
-          Aciertos: {score} · {round + 1} de {rounds}
-        </span>
-      </header>
+    <section className="rounded-2xl border-2 border-foreground/10 bg-card p-4 sm:p-6" aria-label="Rápido y atento">
+      <header className="mb-4 flex items-center justify-between gap-3"><h3 className="text-lg font-bold">Rápido y atento</h3><span role="status">Aciertos: {score} · {round + 1} de {rounds}</span></header>
       <p className="mb-2 text-center text-sm font-semibold">Busca esta sílaba:</p>
-      <p
-        className="mb-5 text-center text-5xl font-black"
-        aria-label={`Sílaba ${target}`}
-        style={{ color }}
-      >
-        {target}
-      </p>
+      <p className="mb-5 text-center text-5xl font-black" aria-label={`Sílaba ${target}`} style={{ color }}>{target}</p>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {choices.map((choice, index) => (
-          <button
-            key={`${choice}-${index}`}
-            type="button"
-            disabled={Boolean(feedback)}
-            onClick={() => answer(choice)}
-            aria-label={`Elegir ${choice}`}
-            className="min-h-12 rounded-xl border-2 bg-white p-3 text-xl font-bold disabled:opacity-60"
-            style={{ borderColor: color }}
-          >
-            {choice}
-          </button>
-        ))}
+        {choices.map((choice, index) => <button key={`${choice}-${index}`} type="button" disabled={Boolean(feedback)} onClick={() => answer(choice)}
+          aria-label={`Elegir ${choice}`} className="min-h-12 rounded-xl border-2 bg-white p-3 text-xl font-bold disabled:opacity-60" style={{ borderColor: color }}>{choice}</button>)}
       </div>
-      {feedback === "try-again" && (
-        <p className="mt-4 text-center font-bold text-destructive" role="status">
-          Inténtalo de nuevo.
-        </p>
-      )}
-      {feedback === "correct" && (
-        <div className="mt-4 text-center font-bold text-success" role="status">
-          ¡Bien!
-          {round < rounds - 1 && (
-            <button
-              type="button"
-              onClick={next}
-              className="ml-3 min-h-11 rounded-lg px-4 text-white"
-              style={{ backgroundColor: color }}
-            >
-              Siguiente
-            </button>
-          )}
-          {round === rounds - 1 && <span> Ronda terminada.</span>}
-        </div>
-      )}
+      {feedback === "try-again" && <p className="mt-4 text-center font-bold text-destructive" role="status">Inténtalo de nuevo.</p>}
+      {feedback === "correct" && <div className="mt-4 text-center font-bold text-success" role="status">¡Bien!{round < rounds - 1 && <button type="button" onClick={next} className="ml-3 min-h-11 rounded-lg px-4 text-white" style={{ backgroundColor: color }}>Siguiente</button>}{round === rounds - 1 && <span> Ronda terminada.</span>}</div>}
     </section>
   );
 }

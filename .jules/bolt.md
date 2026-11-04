@@ -1,3 +1,0 @@
-## 2024-11-01 - Performance Budget Test Failures
-**Learning:** The test suite contains a `tests/performance-budget.test.mjs` test which is extremely sensitive to size changes. Currently, it's failing because the overall raw application bundle size slightly exceeds the strict limits (`totalFirstPaintJsRawMax` and others). The limits appear to be static, but our small React.memo/useMemo additions didn't cause this significant regression (it was failing prior to our changes as evidenced by the error size vs budget size being significantly different and unrelated to our single line of change).
-**Action:** Ignore `tests/performance-budget.test.mjs` test failure unless a significant feature/component addition was made that could affect global app size.
