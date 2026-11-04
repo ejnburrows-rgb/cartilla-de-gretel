@@ -20,7 +20,7 @@ const pages = [5, 6].map(pageNumber => ({ id: `proof-${pageNumber}`, pageNumber,
 function mountP5() { return render(<><GretelPresence bookMode autoIntro={false} /><NativeLessonViewer pages={pages} chapterLabel="Lección 2" /></>); }
 async function tap(name: string) {
   const button = screen.getByRole('button', { name });
-  fireEvent.focus(button); fireEvent.click(button);
+  fireEvent.focus(button); fireEvent.click(button, { detail: 1 });
   await act(async () => { await vi.advanceTimersByTimeAsync(700); });
 }
 beforeEach(() => { localStorage.clear(); vi.useFakeTimers(); window.scrollTo = vi.fn(); });
