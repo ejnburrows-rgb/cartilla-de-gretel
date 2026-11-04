@@ -849,9 +849,7 @@ export function DirectPencilConnector({
                       .filter(Boolean)
                       .join(" ")}
                     disabled={connected}
-                    onClick={(e) => {
-                      if (e.detail === 0) handleRightClick(t);
-                    }}
+                    onClick={() => handleRightClick(t)}
                     aria-label={t.label}
                     aria-pressed={connected}
                   >
@@ -891,9 +889,7 @@ export function DirectPencilConnector({
           .filter(Boolean)
           .join(" ")}
         disabled={isMarked}
-        onClick={(e) => {
-          if (e.detail === 0) handleTargetClick(t);
-        }}
+        onClick={() => handleTargetClick(t)}
         aria-label={t.label}
         aria-pressed={isMarked}
         data-correct={t.correct === undefined ? undefined : String(t.correct)}
