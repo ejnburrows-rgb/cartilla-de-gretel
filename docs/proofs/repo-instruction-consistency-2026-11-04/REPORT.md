@@ -4,7 +4,17 @@
 
 Verified: 2026-11-04T05:33:11-05:00. Source baseline: `a13f0553959e251337104e08f219b9269bc8d0df`.
 
-## Result and limits
+## Follow-up — November 4 pencil-contract correction
+
+The original receipt and hash tables below describe candidate `631ad90ce6d693cce00b34e91fa641adf6819a78`; they are preserved as historical evidence, not current-byte claims after this follow-up. The approved execution handoff exposed a pre-existing omission: neither main nor that candidate contained the November 1 single-cursor/charcoal-first rules. The three existing standards now record that contract and replace the conflicting immediate-color, teal-line and separate-pencil instructions. No runtime, original artwork, voice, Tutor, Mariposas or deployment configuration is changed. Current runtime compliance remains unverified and source inspection still finds older connector behavior.
+
+Follow-up document SHA-256:
+
+- `STUDENT_INTERACTION_STANDARD.md`: `8724bd3648fd19314c2a355ba06ca0518913b9699f0e79c86f4bb6c519515207`
+- `UX-CONTRACT.md`: `f5d0607f1fb1515809f76e41598a4a3dd567832ed75e1e8aade9d1d2f7317544`
+- `WORKBOOK_ARCHETYPE_STANDARD.md`: `9592273cd60eab5ffbf8ba8f67ebe35f2edfc46943eaa57b5bb6ab81a661d719`
+
+## Original result and limits
 
 - The known conflicting active instructions identified in this review have been reconciled. The independent reviewer examined instruction-bearing text in all 35 active documents.
 - The existing policy regression suite passes 95 tests, zero failures or skips. The expanded document/configuration check reports zero errors.

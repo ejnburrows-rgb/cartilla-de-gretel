@@ -57,6 +57,8 @@ Everything below those annotation bars is the approved visual direction for the 
 
 ## Shared Workbook visual treatment
 
+The November 1 pencil and mark contract in `STUDENT_INTERACTION_STANDARD.md` governs all shared marks: ONE realistic pencil-tip cursor, velocity-modulated charcoal with paper grain, 400ms hold, then persistent Forest Green or Crimson Red erased with 12 pink crumbs. This supersedes older teal connector presentation; source teal frames and printed decoration remain unchanged. Runtime compliance requires separate real-route verification.
+
 Across all eight archetypes:
 - warm off-white / very subtle clean paper surface;
 - preserve the original teal source-side wave/outline;
@@ -115,7 +117,7 @@ Use when one central letter/vowel/object is surrounded by picture choices.
 Canonical structure:
 - one clearly raised central target;
 - surrounding pictures retain the source-faithful 3–2–3 or exact physical arrangement;
-- direct teal pencil connectors originate from the central target;
+- direct charcoal-first pencil connectors originate from the central target and follow the shared 400ms hold/result/erase sequence;
 - surrounding targets highlight on approach;
 - correct lines remain; incorrect lines retract/erase for retry.
 

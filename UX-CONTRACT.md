@@ -10,14 +10,14 @@ This file defines shared state/interaction behavior across the Student Workbook 
 
 ## 1. Student interaction kernel
 
-One shared interaction kernel owns cross-activity behavior.
+One shared interaction kernel owns cross-activity behavior. The latest pencil and mark contract in `STUDENT_INTERACTION_STANDARD.md` defines the ONE cursor anchored at `(0,0)`, graphite hotspot, charcoal stroke/filter and hover-to-write continuity. Older immediate-color and separate-pencil behavior is superseded; this contract does not certify runtime implementation.
 
 Canonical observable states:
 1. **idle** — learner can act; Gretel quiet.
-2. **marking** — pencil/handwriting action is being rendered.
-3. **neutral-hold** — short internal pause after the mark is drawn, before the result event. Owner 2026-10-06: Real Workbook Mark circles are already green (right) or red (wrong) from the first line; no gray waiting period is shown.
-4. **success** — correct work persists; correct-selection mark may turn green; Gretel receives the approved positive event.
-5. **retry-erase** — wrong work is visibly erased with the physical eraser language; Gretel receives the approved retry event.
+2. **marking** — the shared single pencil cursor draws the velocity-modulated charcoal mark with paper grain.
+3. **neutral-hold** — the completed charcoal mark remains visible for 400ms before the result color, per the November 1 contract.
+4. **success** — the mark transitions to Forest Green (`#258351`) and stays; Gretel receives the approved positive event only where allowed.
+5. **retry-erase** — the mark transitions to Crimson Red (`#c4320a`) and the physical pink school eraser removes it with 12 small animated SVG crumbs; Gretel receives the approved retry event only where allowed.
 6. **complete** — activity/page completion is recorded and navigation eligibility updates.
 
 The kernel owns:
