@@ -2,6 +2,8 @@
 
 > Durable text-only summary of the competitive research supplied through NotebookLM and subsequently validated against other research in this project.
 
+**Research context only — not approved product scope or current assignments.** The recommendations below preserve the research findings; they do not authorize implementation or override owner decisions. In particular, the no-Gretel-guide rule for lesson and Cuaderno pages in `STUDENT_INTERACTION_STANDARD.md` and `UX-CONTRACT.md` prevails over the embedded-guide suggestions below. Any conflicting suggestion is retained as research history, not an active requirement. `AGENTS.md` governs working rules and #877 holds current work and proof.
+
 ## Core conclusion
 Cartilla should not compete primarily on generic adaptive phonics, mascots, dashboards, gamification, assignments, huge content libraries, or open-ended AI tutoring. Established competitors already provide these capabilities.
 

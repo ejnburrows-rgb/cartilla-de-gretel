@@ -31,6 +31,8 @@ Flipchart presentation statements below. Reference title bars are annotations.
 
 This file is the durable source of truth for how repeated Student Workbook exercise families must look. It complements the physical Workbook source, `CARTILLA_DIGITAL_DIRECTIVE.md`, `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md`.
 
+These eight exercise families are distinct from the two official Workbook view formats recorded in `docs/ops/WORKBOOK_ARCHETYPE_STANDARD.md` by the later October 30 owner selection ([PR #1224](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1224)). The official-page/guided-view formats do not replace these source-faithful exercise families; preserve both standards within their respective scope.
+
 ## Non-negotiable interpretation
 
 The physical Workbook page remains authoritative for **content and page identity**.
@@ -54,6 +56,8 @@ The owner-supplied eight-panel reference board from 2026-10-06 is the visual sou
 Everything below those annotation bars is the approved visual direction for the matching repeated exercise family, while page-specific wording, artwork, options, lesson/page numbers, and source structure always come from that exact physical source page.
 
 ## Shared Workbook visual treatment
+
+The November 1 pencil and mark contract in `STUDENT_INTERACTION_STANDARD.md` governs all shared marks: ONE realistic pencil-tip cursor, velocity-modulated charcoal with paper grain, 400ms hold, then persistent Forest Green or Crimson Red erased with 12 pink crumbs. This supersedes older teal connector presentation; source teal frames and printed decoration remain unchanged. Runtime compliance requires separate real-route verification.
 
 Across all eight archetypes:
 - warm off-white / very subtle clean paper surface;
@@ -113,7 +117,7 @@ Use when one central letter/vowel/object is surrounded by picture choices.
 Canonical structure:
 - one clearly raised central target;
 - surrounding pictures retain the source-faithful 3–2–3 or exact physical arrangement;
-- direct teal pencil connectors originate from the central target;
+- direct charcoal-first pencil connectors originate from the central target and follow the shared 400ms hold/result/erase sequence;
 - surrounding targets highlight on approach;
 - correct lines remain; incorrect lines retract/erase for retry.
 
