@@ -35,8 +35,7 @@ function completePage(pageNumber: number) {
 
 const next = () => screen.getByRole("button", { name: /Siguiente|Terminar lección/ });
 const back = () => screen.getByRole("button", { name: /Anterior/ });
-const current = () =>
-  Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
+const current = () => Number(document.querySelector("[data-native-page]")?.getAttribute("data-native-page"));
 const finishTurn = () => act(() => vi.advanceTimersByTime(LESSON_PAGE_TURN_TOTAL_MS + 200));
 
 beforeEach(() => {
@@ -58,10 +57,7 @@ describe("page requirements come from the verified page layout", () => {
     expect(requiredActivitiesForPage(24).every((a) => a.kind === "syllable-match")).toBe(true);
     expect(requiredActivitiesForPage(24)).toHaveLength(5);
     expect(requiredActivitiesForPage(25)).toEqual([]);
-    expect(requiredActivitiesForPage(26).map((a) => a.kind)).toEqual([
-      "fill-in-blank",
-      "writing-response",
-    ]);
+    expect(requiredActivitiesForPage(26).map((a) => a.kind)).toEqual(["fill-in-blank", "writing-response"]);
     expect(pageCompletionState(25).complete).toBe(true);
   });
 
@@ -121,14 +117,7 @@ describe("NativeLessonViewer completion gate", () => {
   });
 
   it("a reading-only page never blocks", () => {
-    render(
-      <NativeLessonViewer
-        pages={PAGES}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        initialPage={2}
-      />,
-    );
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} initialPage={2} />);
     expect(current()).toBe(25);
     expect(next().hasAttribute("aria-disabled")).toBe(false);
   });
@@ -136,13 +125,7 @@ describe("NativeLessonViewer completion gate", () => {
   it("the final page cannot finish the lesson before its requirement is met", () => {
     const onFinish = vi.fn();
     render(
-      <NativeLessonViewer
-        pages={PAGES}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        initialPage={3}
-        onFinish={onFinish}
-      />,
+      <NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} initialPage={3} onFinish={onFinish} />,
     );
     expect(current()).toBe(26);
     expect(next().textContent).toMatch(/Terminar lección/);
@@ -170,14 +153,7 @@ describe("real workbook activities feed the gate through their own events", () =
   it("page 24: circling every syllable word with the real component unlocks Siguiente", async () => {
     const { buildPageArray } = await import("@/utils/buildPageArray");
     const pages = buildPageArray(8);
-    render(
-      <NativeLessonViewer
-        pages={pages}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        initialPage={1}
-      />,
-    );
+    render(<NativeLessonViewer pages={pages} chapterLabel="Lección 8" lessonNumber={8} initialPage={1} />);
     expect(current()).toBe(24);
     expect(next().getAttribute("aria-disabled")).toBe("true");
     const sections = [...document.querySelectorAll<HTMLElement>(".native-syllable")];
@@ -188,9 +164,7 @@ describe("real workbook activities feed the gate through their own events", () =
         // shared pencil draw/hold timing before this row accepts more work.
         fireEvent.click(button, { detail: 0 });
         expect(next().getAttribute("aria-disabled")).toBe("true");
-        act(() =>
-          vi.advanceTimersByTime(WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs),
-        );
+        act(() => vi.advanceTimersByTime(WORKBOOK_MARK_TIMING.drawMs + WORKBOOK_MARK_TIMING.holdMs));
         expect(button.getAttribute("aria-pressed")).toBe("true");
       }
     }
@@ -204,12 +178,10 @@ describe("real workbook activities feed the gate through their own events", () =
     completePage(23);
     expect(next().getAttribute("data-locked")).toBeNull();
     const activity = requiredActivitiesForPage(23)[0]!;
-    act(() =>
-      gretelEvent("activity:retry", {
-        activityId: activity.id,
-        reaction: "independent-retry",
-      }),
-    );
+    act(() => gretelEvent("activity:retry", {
+      activityId: activity.id,
+      reaction: "independent-retry",
+    }));
     expect(next().getAttribute("data-locked")).toBeNull();
   });
 
@@ -224,4 +196,5 @@ describe("real workbook activities feed the gate through their own events", () =
     expect(current()).toBe(23);
     expect(next().getAttribute("data-locked")).toBe("true");
   });
+
 });

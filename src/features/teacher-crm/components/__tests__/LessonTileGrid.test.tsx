@@ -8,13 +8,7 @@ import { LessonTileGrid, LessonTileLegend } from "../LessonTileGrid";
 import type { LessonTileState } from "@/lib/progress-calculation";
 
 vi.mock("@tanstack/react-router", () => ({
-  Link: ({
-    to,
-    params,
-    children,
-    title,
-    className,
-  }: {
+  Link: ({ to, params, children, title, className }: {
     to: string;
     params?: { classId: string; studentId: string; lessonId: string };
     children: React.ReactNode;
@@ -22,14 +16,7 @@ vi.mock("@tanstack/react-router", () => ({
     className?: string;
   }) => (
     <a
-      href={
-        params
-          ? to
-              .replace("$classId", params.classId)
-              .replace("$studentId", params.studentId)
-              .replace("$lessonId", params.lessonId)
-          : to
-      }
+      href={params ? to.replace("$classId", params.classId).replace("$studentId", params.studentId).replace("$lessonId", params.lessonId) : to}
       title={title}
       className={className}
       data-testid={`lesson-tile-${params?.lessonId}`}
@@ -67,7 +54,9 @@ describe("LessonTileGrid", () => {
   });
 
   it("adds the assigned indicator and title suffix for assigned lessons", () => {
-    const tiles: LessonTileState[] = [{ lessonNumber: 1, status: "not_started", assigned: true }];
+    const tiles: LessonTileState[] = [
+      { lessonNumber: 1, status: "not_started", assigned: true },
+    ];
 
     render(<LessonTileGrid tiles={tiles} classId={classId} studentId={studentId} />);
 

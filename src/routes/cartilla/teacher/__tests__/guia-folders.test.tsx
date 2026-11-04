@@ -41,9 +41,7 @@ describe("/cartilla/teacher/guia — ?folder= param sync (#835)", () => {
 
   it("updates the visible folder when the ?folder= param changes without remount", async () => {
     const router = renderGuia("/cartilla/teacher/guia/?folder=guia");
-    expect((await screen.findAllByText("Ver guion completo de la lección")).length).toBeGreaterThan(
-      0,
-    );
+    expect((await screen.findAllByText("Ver guion completo de la lección")).length).toBeGreaterThan(0);
 
     await act(async () => {
       router.history.push("/cartilla/teacher/guia/?folder=tablas");

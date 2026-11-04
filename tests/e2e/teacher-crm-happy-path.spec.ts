@@ -17,12 +17,8 @@ test("open faculty demo shows the normalized six-student local roster", async ({
     JSON.parse(localStorage.getItem("cartilla.seed.state.v1") || "{}"),
   );
   expect(state.students).toHaveLength(6);
-  expect(
-    state.students.filter((s: { class_id: string }) => s.class_id === "seed-class-demo"),
-  ).toHaveLength(3);
-  expect(
-    state.students.filter((s: { class_id: string }) => s.class_id === "seed-class-emilio"),
-  ).toHaveLength(3);
+  expect(state.students.filter((s: { class_id: string }) => s.class_id === "seed-class-demo")).toHaveLength(3);
+  expect(state.students.filter((s: { class_id: string }) => s.class_id === "seed-class-emilio")).toHaveLength(3);
   expect(state.students.some((s: { id: string }) => s.id === "seed-student-valentina")).toBe(false);
   expect(state.students.some((s: { id: string }) => s.id === "seed-student-diego")).toBe(false);
 
@@ -35,9 +31,7 @@ test("open faculty demo shows the normalized six-student local roster", async ({
   });
 });
 
-test("faculty demo remains usable without the nested desktop sidebar on mobile", async ({
-  page,
-}) => {
+test("faculty demo remains usable without the nested desktop sidebar on mobile", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/cartilla/teacher/crm");
 

@@ -47,9 +47,7 @@ export function TeacherNoteField({
     setSaved({ key: draftKey, shown: true });
     hideTimer.current = setTimeout(() => {
       hideTimer.current = null;
-      setSaved((current) =>
-        current?.key === draftKey ? { key: draftKey, shown: false } : current,
-      );
+      setSaved((current) => (current?.key === draftKey ? { key: draftKey, shown: false } : current));
     }, SAVED_INDICATOR_MS);
   };
 

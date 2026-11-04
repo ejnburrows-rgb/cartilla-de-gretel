@@ -12,9 +12,7 @@ function source(path: string): string {
  */
 describe("owner-locked pencil-only Workbook runtime", () => {
   it("does not contain the deleted rope component", () => {
-    expect(existsSync(resolve(process.cwd(), "src/cartilla/interactions/LassoConnect.tsx"))).toBe(
-      false,
-    );
+    expect(existsSync(resolve(process.cwd(), "src/cartilla/interactions/LassoConnect.tsx"))).toBe(false);
   });
 
   it("does not ship the retired rope markup or animation CSS", () => {
@@ -37,11 +35,7 @@ describe("owner-locked pencil-only Workbook runtime", () => {
     };
     for (const printedPage of [4, 7, 10, 13, 16]) {
       const page = layouts.pages[String(printedPage)];
-      expect(
-        page?.regions.some(
-          (r) => r.regionType === "instruction" && /marca con una x/i.test(r.text ?? ""),
-        ),
-      ).toBe(true);
+      expect(page?.regions.some(r => r.regionType === "instruction" && /marca con una x/i.test(r.text ?? ""))).toBe(true);
     }
     const renderer = source("src/components/cartilla/FaithfulPageRenderer.tsx");
     expect(renderer).toContain("pictureMarkFor(precedingInstruction)");

@@ -2,8 +2,7 @@ import { test, expect } from "@playwright/test";
 import * as fs from "fs";
 import * as path from "path";
 
-const PROOF_DIR =
-  process.env.PROOF_DIR || path.join(process.cwd(), "test-results/lesson-page-turn-proof");
+const PROOF_DIR = process.env.PROOF_DIR || path.join(process.cwd(), "test-results/lesson-page-turn-proof");
 
 test.beforeAll(() => {
   if (!fs.existsSync(PROOF_DIR)) {
@@ -12,9 +11,7 @@ test.beforeAll(() => {
 });
 
 test.describe("Lesson Page Real-Paper Turn - Proof & Verification", () => {
-  test("Desktop 1280x900: corner tap, buttons, keyboard turns & console safety", async ({
-    browser,
-  }) => {
+  test("Desktop 1280x900: corner tap, buttons, keyboard turns & console safety", async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 1280, height: 900 },
       recordVideo: { dir: PROOF_DIR, size: { width: 1280, height: 900 } },
@@ -123,9 +120,7 @@ test.describe("Lesson Page Real-Paper Turn - Proof & Verification", () => {
       await page.mouse.up();
 
       await page.waitForTimeout(500);
-      await page.screenshot({
-        path: path.join(PROOF_DIR, "tablet-02-drag-springback-settled.png"),
-      });
+      await page.screenshot({ path: path.join(PROOF_DIR, "tablet-02-drag-springback-settled.png") });
 
       // 2. Drag > 50% (Complete turn): drag 450px left
       await page.mouse.move(startX, startY);
@@ -170,9 +165,7 @@ test.describe("Workbook corner safety regressions", () => {
     await page.mouse.down();
     await page.mouse.move(startX - 400, startY, { steps: 10 });
     await next.dispatchEvent("pointercancel", {
-      pointerId: 1,
-      pointerType: "mouse",
-      bubbles: true,
+      pointerId: 1, pointerType: "mouse", bubbles: true,
     });
     await page.mouse.up();
     await page.waitForTimeout(3300);

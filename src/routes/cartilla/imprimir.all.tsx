@@ -26,6 +26,4 @@ export const Route = createFileRoute("/cartilla/imprimir/all")({
   },
 });
 
-function ImprimirAllPage() {
-  return <PrintableWorkbook />;
-}
+function ImprimirAllPage() { return <PrintableWorkbook />; }

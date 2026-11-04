@@ -53,9 +53,7 @@ export function BookPageImage({
           draggable={false}
           loading={priority ? "eager" : loading || "lazy"}
           decoding={priority ? "auto" : "async"}
-          {...(priority
-            ? ({ fetchPriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>)
-            : {})}
+          {...(priority ? ({ fetchPriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>) : {})}
           onLoad={(e) => {
             setIsLoaded(true);
             props.onLoad?.(e);

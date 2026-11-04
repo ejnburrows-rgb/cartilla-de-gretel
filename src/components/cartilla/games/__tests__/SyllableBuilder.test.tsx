@@ -5,15 +5,13 @@ import { recordEvent } from "@/lib/student-session";
 import type { GameContent } from "@/lib/games/gameContent";
 
 // Mock matchMedia to prevent errors from usePrefersReducedMotion
-window.matchMedia =
-  window.matchMedia ||
-  function () {
-    return {
-      matches: false,
-      addListener: function () {},
-      removeListener: function () {},
-    };
+window.matchMedia = window.matchMedia || function() {
+  return {
+    matches: false,
+    addListener: function() {},
+    removeListener: function() {}
   };
+};
 
 vi.mock("@/lib/student-session", () => ({
   recordEvent: vi.fn(),
@@ -30,7 +28,9 @@ const mockContent = {
   letter: "m",
   instructions: ["Forma la palabra."],
   tiles: ["ma", "me", "mi"],
-  words: [{ word: "mama", syllables: ["ma", "ma"] }],
+  words: [
+    { word: "mama", syllables: ["ma", "ma"] }
+  ]
 } as GameContent;
 
 describe("SyllableBuilder completion logic", () => {
@@ -46,18 +46,14 @@ describe("SyllableBuilder completion logic", () => {
     // Tap the tray buttons to fill the slots.
 
     // Find the tray buttons for "ma"
-    const trayButtons = screen
-      .getAllByRole("button")
-      .filter((btn) => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    const trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
 
     // Tap twice to fill the two slots
     fireEvent.pointerDown(trayButtons[0]);
     fireEvent.pointerUp(trayButtons[0]);
 
     // Since one was taken, we might need to find the remaining one
-    const trayButtonsAfterFirst = screen
-      .getAllByRole("button")
-      .filter((btn) => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    const trayButtonsAfterFirst = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
     fireEvent.pointerDown(trayButtonsAfterFirst[0]);
     fireEvent.pointerUp(trayButtonsAfterFirst[0]);
 
@@ -80,29 +76,23 @@ describe("SyllableBuilder completion logic", () => {
       kind: "exercise",
       meta: {
         exercise: "syllable-builder",
-        completed: true,
-      },
+        completed: true
+      }
     });
 
     // verify that recordEvent was not called with lesson_completed
-    expect(recordEvent).not.toHaveBeenCalledWith(
-      expect.objectContaining({ kind: "lesson_completed" }),
-    );
+    expect(recordEvent).not.toHaveBeenCalledWith(expect.objectContaining({ kind: "lesson_completed" }));
   });
 
   it("only records one check event for the same answer even if Comprobar is clicked multiple times", async () => {
     render(<SyllableBuilder content={mockContent} />);
 
     // Get the tray buttons for "ma"
-    let trayButtons = screen
-      .getAllByRole("button")
-      .filter((btn) => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    let trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
 
     // Fill the slots
     fireEvent.click(trayButtons[0], { detail: 0 });
-    trayButtons = screen
-      .getAllByRole("button")
-      .filter((btn) => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
     fireEvent.click(trayButtons[0], { detail: 0 });
 
     const checkBtn = screen.getByRole("button", { name: /comprobar/i });
@@ -125,8 +115,8 @@ describe("SyllableBuilder completion logic", () => {
       meta: {
         exercise: "syllable-builder",
         word: "mama",
-        completed: true,
-      },
+        completed: true
+      }
     });
 
     vi.mocked(recordEvent).mockClear();
@@ -143,9 +133,7 @@ describe("SyllableBuilder completion logic", () => {
     expect(recordEvent).not.toHaveBeenCalled();
 
     // Now complete the word again with the tile that returned
-    trayButtons = screen
-      .getAllByRole("button")
-      .filter((btn) => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
     fireEvent.click(trayButtons[0], { detail: 0 });
 
     // The Comprobar button should be enabled again
@@ -162,17 +150,13 @@ describe("SyllableBuilder completion logic", () => {
     render(<SyllableBuilder content={mockContent} />);
 
     // Get the tray buttons for "ma"
-    const trayButtons = screen
-      .getAllByRole("button")
-      .filter((btn) => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    const trayButtons = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
 
     // Simulate keyboard activation using Enter on the first tile
     // A real keyboard click on a button fires a click event with detail: 0
     fireEvent.click(trayButtons[0], { detail: 0 });
 
-    const trayButtonsAfterFirst = screen
-      .getAllByRole("button")
-      .filter((btn) => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
+    const trayButtonsAfterFirst = screen.getAllByRole("button").filter(btn => btn.getAttribute("aria-label")?.startsWith("Sílaba ma"));
     // Simulate keyboard activation using Space (also detail: 0)
     fireEvent.click(trayButtonsAfterFirst[0], { detail: 0 });
 

@@ -1,5 +1,8 @@
 const STATE_KEY = "cartilla.seed.state.v1";
-const RETIRED_STUDENT_IDS = new Set(["seed-student-valentina", "seed-student-diego"]);
+const RETIRED_STUDENT_IDS = new Set([
+  "seed-student-valentina",
+  "seed-student-diego",
+]);
 
 type StoredSeedState = {
   students?: Array<{ id?: string }>;
@@ -25,14 +28,19 @@ export function normalizeFacultyDemoRoster(): void {
     const events = Array.isArray(state.events) ? state.events : [];
 
     const nextStudents = students.filter(
-      (student) => typeof student?.id !== "string" || !RETIRED_STUDENT_IDS.has(student.id),
+      (student) =>
+        typeof student?.id !== "string" || !RETIRED_STUDENT_IDS.has(student.id),
     );
     const nextEvents = events.filter(
       (event) =>
-        typeof event?.student_id !== "string" || !RETIRED_STUDENT_IDS.has(event.student_id),
+        typeof event?.student_id !== "string" ||
+        !RETIRED_STUDENT_IDS.has(event.student_id),
     );
 
-    if (nextStudents.length === students.length && nextEvents.length === events.length) {
+    if (
+      nextStudents.length === students.length &&
+      nextEvents.length === events.length
+    ) {
       return;
     }
 

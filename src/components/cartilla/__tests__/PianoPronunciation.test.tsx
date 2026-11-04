@@ -232,7 +232,9 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       hear("sapo");
       expect(mockPlayCorrectChord).toHaveBeenCalledTimes(1);
       fireEvent.click(screen.getByTestId("piano-next"));
-      expect(screen.getByTestId("piano-key-0").getAttribute("data-key-state")).toBe("next");
+      expect(screen.getByTestId("piano-key-0").getAttribute("data-key-state")).toBe(
+        "next",
+      );
       expect(keyState(0)).toBe("next");
       expect(screen.queryByTestId("piano-sparkle")).toBeNull();
       hear("masa");
@@ -274,6 +276,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(keyState(1)).toBe("pending");
       expect(mockPlayCorrectChord).not.toHaveBeenCalled();
     });
+
   });
 
   describe("Microphone only with confirmed on-device recognition", () => {
@@ -315,6 +318,7 @@ describe.each([["piano"], ["cancionero"]] as const)("PianoPronunciation (%s desi
       expect(mockPlayCorrectChord).not.toHaveBeenCalled();
       expect(mockStart).not.toHaveBeenCalled();
     });
+
   });
 
   describe("Native keyboard navigation and accessibility", () => {

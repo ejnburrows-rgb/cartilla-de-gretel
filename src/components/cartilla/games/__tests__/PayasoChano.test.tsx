@@ -15,15 +15,13 @@ beforeEach(() => {
   window.Audio = MockAudio as unknown as typeof Audio;
 });
 // Mock matchMedia for DndKit
-window.matchMedia =
-  window.matchMedia ||
-  function () {
-    return {
-      matches: false,
-      addListener: function () {},
-      removeListener: function () {},
-    };
+window.matchMedia = window.matchMedia || function() {
+  return {
+    matches: false,
+    addListener: function() {},
+    removeListener: function() {}
   };
+};
 
 const mockContent = {
   id: "test-content",
@@ -37,7 +35,9 @@ const mockContent = {
   ],
 };
 
-const wrapper = ({ children }: { children: React.ReactNode }) => <div>{children}</div>;
+const wrapper = ({ children }: { children: React.ReactNode }) => (
+  <div>{children}</div>
+);
 
 describe("PayasoChano completion logic", () => {
   beforeEach(() => {
@@ -50,9 +50,7 @@ describe("PayasoChano completion logic", () => {
       // Find the tray item matching the syllable. It has role "button" and text of the syllable.
       // DndKit renders tray items, we simulate pressing enter to select and enter on the slot.
       const trayItems = screen.getAllByRole("button");
-      const trayItem = trayItems.find(
-        (t) => t.textContent === syllable && t.getAttribute("aria-disabled") !== "true",
-      );
+      const trayItem = trayItems.find((t) => t.textContent === syllable && t.getAttribute("aria-disabled") !== "true");
       if (!trayItem) {
         throw new Error(`Syllable ${syllable} not found in tray`);
       }
@@ -60,9 +58,7 @@ describe("PayasoChano completion logic", () => {
       fireEvent.keyDown(trayItem, { key: "Enter", code: "Enter" });
 
       // Select the slot
-      const slots = screen
-        .getAllByRole("generic")
-        .filter((el) => el.getAttribute("aria-label")?.startsWith("Casilla "));
+      const slots = screen.getAllByRole("generic").filter(el => el.getAttribute("aria-label")?.startsWith("Casilla "));
       // Slot index matches slotIdx
       fireEvent.keyDown(slots[slotIdx], { key: "Enter", code: "Enter" });
     }
@@ -129,15 +125,11 @@ describe("PayasoChano completion logic", () => {
     for (let slotIdx = 0; slotIdx < incorrectSyllables.length; slotIdx++) {
       const syllable = incorrectSyllables[slotIdx];
       const trayItems = screen.getAllByRole("button");
-      const trayItem = trayItems.find(
-        (t) => t.textContent === syllable && t.getAttribute("aria-disabled") !== "true",
-      );
+      const trayItem = trayItems.find((t) => t.textContent === syllable && t.getAttribute("aria-disabled") !== "true");
       if (!trayItem) throw new Error(`Syllable ${syllable} not found in tray`);
 
       fireEvent.keyDown(trayItem, { key: "Enter", code: "Enter" });
-      const slots = screen
-        .getAllByRole("generic")
-        .filter((el) => el.getAttribute("aria-label")?.startsWith("Casilla "));
+      const slots = screen.getAllByRole("generic").filter(el => el.getAttribute("aria-label")?.startsWith("Casilla "));
       fireEvent.keyDown(slots[slotIdx], { key: "Enter", code: "Enter" });
     }
 
@@ -162,9 +154,7 @@ describe("PayasoChano completion logic", () => {
     expect(checkBtn.hasAttribute("disabled")).toBe(false);
 
     // Reset tiles
-    const resetBtn = screen.getByRole("button", {
-      name: /Resorte: colocar las sílabas en su lugar otra vez/i,
-    });
+    const resetBtn = screen.getByRole("button", { name: /Resorte: colocar las sílabas en su lugar otra vez/i });
     fireEvent.click(resetBtn);
 
     // Now solve correctly to make sure the attempt count and completion are in a valid state

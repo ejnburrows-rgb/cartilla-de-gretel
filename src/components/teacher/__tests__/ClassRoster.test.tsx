@@ -47,7 +47,7 @@ const renderComponent = () => {
   return render(
     <QueryClientProvider client={queryClient}>
       <ClassRoster />
-    </QueryClientProvider>,
+    </QueryClientProvider>
   );
 };
 
@@ -59,11 +59,7 @@ describe("ClassRoster error handling", () => {
 
     // Verify error message
     expect(await screen.findByText("Error al cargar tus clases")).toBeTruthy();
-    expect(
-      await screen.findByText(
-        "Hubo un problema de conexión al intentar obtener tu lista de clases.",
-      ),
-    ).toBeTruthy();
+    expect(await screen.findByText("Hubo un problema de conexión al intentar obtener tu lista de clases.")).toBeTruthy();
 
     // The select box should also show an error state
     expect(await screen.findByText("Error al cargar clases")).toBeTruthy();
@@ -82,13 +78,7 @@ describe("ClassRoster error handling", () => {
 
   it("displays error state when getClass rejects", async () => {
     vi.mocked(listClasses).mockResolvedValueOnce([
-      {
-        id: "class-1",
-        name: "Class 1",
-        join_code: "1234",
-        student_count: 0,
-        created_at: "2024-01-01T00:00:00Z",
-      },
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0, created_at: "2024-01-01T00:00:00Z" }
     ]);
     vi.mocked(getClass).mockRejectedValueOnce(new Error("Network Error"));
 
@@ -96,9 +86,7 @@ describe("ClassRoster error handling", () => {
 
     // Verify error message for students
     expect(await screen.findByText("Error al cargar los alumnos")).toBeTruthy();
-    expect(
-      await screen.findByText("No pudimos cargar la lista de alumnos de esta clase."),
-    ).toBeTruthy();
+    expect(await screen.findByText("No pudimos cargar la lista de alumnos de esta clase.")).toBeTruthy();
 
     // Verify retry button for students
     const retryButton = await screen.findByText("Reintentar");
@@ -109,9 +97,9 @@ describe("ClassRoster error handling", () => {
         id: "class-1",
         name: "Class 1",
         join_code: "1234",
-        created_at: "2024-01-01T00:00:00Z",
+        created_at: "2024-01-01T00:00:00Z"
       },
-      students: [],
+      students: []
     });
     fireEvent.click(retryButton);
 
@@ -130,22 +118,16 @@ describe("ClassRoster error handling", () => {
 
   it("displays empty state when getClass succeeds but is empty", async () => {
     vi.mocked(listClasses).mockResolvedValueOnce([
-      {
-        id: "class-1",
-        name: "Class 1",
-        join_code: "1234",
-        student_count: 0,
-        created_at: "2024-01-01T00:00:00Z",
-      },
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0, created_at: "2024-01-01T00:00:00Z" }
     ]);
     vi.mocked(getClass).mockResolvedValueOnce({
       class: {
         id: "class-1",
         name: "Class 1",
         join_code: "1234",
-        created_at: "2024-01-01T00:00:00Z",
+        created_at: "2024-01-01T00:00:00Z"
       },
-      students: [],
+      students: []
     });
 
     renderComponent();
@@ -157,13 +139,7 @@ describe("ClassRoster error handling", () => {
   it("keeps cached classes visible when a background refetch fails", async () => {
     vi.mocked(listClasses)
       .mockResolvedValueOnce([
-        {
-          id: "class-1",
-          name: "Class 1",
-          join_code: "1234",
-          student_count: 0,
-          created_at: "2024-01-01T00:00:00Z",
-        },
+        { id: "class-1", name: "Class 1", join_code: "1234", student_count: 0, created_at: "2024-01-01T00:00:00Z" }
       ])
       .mockRejectedValueOnce(new Error("Network Error"));
     vi.mocked(getClass).mockResolvedValue({
@@ -171,9 +147,9 @@ describe("ClassRoster error handling", () => {
         id: "class-1",
         name: "Class 1",
         join_code: "1234",
-        created_at: "2024-01-01T00:00:00Z",
+        created_at: "2024-01-01T00:00:00Z"
       },
-      students: [],
+      students: []
     });
 
     renderComponent();
@@ -199,31 +175,23 @@ describe("ClassRoster error handling", () => {
         id: "class-1",
         name: "Class 1",
         join_code: "1234",
-        created_at: "2024-01-01T00:00:00Z",
+        created_at: "2024-01-01T00:00:00Z"
       },
-      students: [
-        {
-          id: "s-1",
-          display_name: "Ana",
-          student_code: "A1",
-          created_at: "2024-01-01T00:00:00Z",
-          archived_at: null,
-          teacher_notes: null,
-          events: 0,
-          lessons: 0,
-          lastSeen: null,
-          completionPercent: 0,
-        },
-      ],
+      students: [{
+        id: "s-1",
+        display_name: "Ana",
+        student_code: "A1",
+        created_at: "2024-01-01T00:00:00Z",
+        archived_at: null,
+        teacher_notes: null,
+        events: 0,
+        lessons: 0,
+        lastSeen: null,
+        completionPercent: 0
+      }]
     };
     vi.mocked(listClasses).mockResolvedValueOnce([
-      {
-        id: "class-1",
-        name: "Class 1",
-        join_code: "1234",
-        student_count: 1,
-        created_at: "2024-01-01T00:00:00Z",
-      },
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 1, created_at: "2024-01-01T00:00:00Z" }
     ]);
     vi.mocked(getClass)
       .mockResolvedValueOnce(classData)

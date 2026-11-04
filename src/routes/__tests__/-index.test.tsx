@@ -61,9 +61,7 @@ describe('Approved single welcome ("/")', () => {
 
   it("keeps title and greeting as real HTML text", async () => {
     await renderSplash();
-    expect((await screen.findByRole("heading", { level: 1 })).textContent).toBe(
-      "La Cartilla de Gretel",
-    );
+    expect((await screen.findByRole("heading", { level: 1 })).textContent).toBe("La Cartilla de Gretel");
   });
 
   it("uses only the owner-approved Gretel master", async () => {
@@ -84,8 +82,6 @@ describe('Approved single welcome ("/")', () => {
 
   it("is Spanish-only", async () => {
     await renderSplash();
-    expect((await screen.findByTestId("welcome-splash")).textContent).not.toMatch(
-      /\b(welcome|enter|start|login|sign in)\b/i,
-    );
+    expect((await screen.findByTestId("welcome-splash")).textContent).not.toMatch(/\b(welcome|enter|start|login|sign in)\b/i);
   });
 });

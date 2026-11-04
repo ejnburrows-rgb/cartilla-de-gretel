@@ -122,7 +122,11 @@ test.describe("Teacher shell/home/roster route smoke", () => {
       { name: "projector", width: 1920, height: 1080 },
     ];
 
-    const pagesToTest = ["/cartilla/teacher", "/cartilla/teacher/crm", "/cartilla/teacher/roster"];
+    const pagesToTest = [
+      "/cartilla/teacher",
+      "/cartilla/teacher/crm",
+      "/cartilla/teacher/roster",
+    ];
 
     for (const url of pagesToTest) {
       for (const vp of viewports) {

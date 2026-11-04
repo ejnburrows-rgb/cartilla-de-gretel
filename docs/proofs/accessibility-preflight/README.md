@@ -1,13 +1,11 @@
 # Accessibility & Keyboard Preflight Proof (#561 Excluded Scope)
 
 ## Overview
-
 This preflight suite verifies that non-Workbook product surfaces meet accessibility, keyboard reachability, visible focus, semantic naming/roles, and reduced-motion bar before final release.
 
-_Note: Student Workbook page navigation and keyboard behavior are owned separately by #561 and excluded from this spec._
+*Note: Student Workbook page navigation and keyboard behavior are owned separately by #561 and excluded from this spec.*
 
 ## Executed Suite & Result
-
 - **Playwright Spec**: `tests/e2e/accessibility-preflight.spec.ts`
 - **Result**: `6 passed (17.4s)`
 - **Proof Screenshots Directory**: `docs/proofs/accessibility-preflight/`
@@ -17,7 +15,6 @@ _Note: Student Workbook page navigation and keyboard behavior are owned separate
 ## Non-Workbook Surface Coverage & Findings
 
 ### 1. Welcome & Primary Entry Actions
-
 - **Routes Tested**: `/`, `/entrar`
 - **Proof Artifacts**: `01-welcome-primary-entry.png`, `01b-entry-entrar.png`
 - **Findings**:
@@ -26,7 +23,6 @@ _Note: Student Workbook page navigation and keyboard behavior are owned separate
   - Keyboard focus via `Tab` produces a distinct visible focus outline on both actions.
 
 ### 2. Teacher Shell & Navigation
-
 - **Routes Tested**: `/cartilla/teacher/crm`
 - **Proof Artifact**: `02-teacher-shell-navigation.png`
 - **Findings**:
@@ -36,7 +32,6 @@ _Note: Student Workbook page navigation and keyboard behavior are owned separate
   - Sequential `Tab` traversal navigates through all interactive shell elements without focus traps.
 
 ### 3. Guide Tabs & Sections
-
 - **Routes Tested**: `/cartilla/teacher/guia`, `/cartilla/teacher/guia/1`
 - **Proof Artifact**: `03-guide-tabs-sections.png`
 - **Findings**:
@@ -45,7 +40,6 @@ _Note: Student Workbook page navigation and keyboard behavior are owned separate
   - Mobile viewports (< 1024px) expose accessible select dropdowns for guide navigation.
 
 ### 4. Progress & Report Controls
-
 - **Routes Tested**: `/cartilla/teacher/progreso`, `/cartilla/teacher/reportes`
 - **Proof Artifacts**: `04a-progress-controls.png`, `04b-reports-controls.png`
 - **Findings**:
@@ -53,7 +47,6 @@ _Note: Student Workbook page navigation and keyboard behavior are owned separate
   - Reports panel exposes focusable `Exportar CSV` and `Imprimir` action buttons with proper accessible names and focus rings.
 
 ### 5. Flip Chart Presenter Controls
-
 - **Routes Tested**: `/cartilla/presentar/1`, `/cartilla/presentar/7`
 - **Proof Artifact**: `05-flipchart-controls.png`
 - **Findings**:
@@ -63,7 +56,6 @@ _Note: Student Workbook page navigation and keyboard behavior are owned separate
   - Keyboard `ArrowRight`/`ArrowDown` and `ArrowLeft`/`ArrowUp` key bindings smoothly navigate between sheets.
 
 ### 6. Reduced Motion Preference
-
 - **Routes Tested**: `/cartilla/presentar/1` with `prefers-reduced-motion: reduce`
 - **Proof Artifact**: `06-reduced-motion-chrome.png`
 - **Findings**:
@@ -73,6 +65,5 @@ _Note: Student Workbook page navigation and keyboard behavior are owned separate
 ---
 
 ## Summary Defect Report
-
 - **Defects Found**: `0` blocking product defects identified on tested non-Workbook surfaces.
 - **Verification Status**: PASSED.

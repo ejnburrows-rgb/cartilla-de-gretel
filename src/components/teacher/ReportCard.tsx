@@ -68,11 +68,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Fetch Student Progress if selected
-  const {
-    data: realStudentData,
-    isLoading: loadingRealStudent,
-    isError: studentError,
-  } = useQuery({
+  const { data: realStudentData, isLoading: loadingRealStudent, isError: studentError } = useQuery({
     queryKey: ["teacher-student-progress", studentId],
     queryFn: () => getStudentProgress({ data: { id: studentId! } }),
     enabled: !isSeed && !!studentId,
@@ -91,11 +87,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   const loadingStudent = !isSeed && loadingRealStudent;
 
   // 2. Fetch Class Progress if no student selected
-  const {
-    data: realClassProgressData,
-    isLoading: loadingRealClass,
-    isError: classError,
-  } = useQuery({
+  const { data: realClassProgressData, isLoading: loadingRealClass, isError: classError } = useQuery({
     queryKey: ["teacher-class-progress", classId],
     queryFn: () => getClassProgress({ data: { id: classId } }),
     enabled: !isSeed && !studentId && !!classId,
@@ -125,10 +117,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
 
   if (studentError || classError) {
     return (
-      <div
-        role="alert"
-        className="rounded-3xl border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800"
-      >
+      <div role="alert" className="rounded-3xl border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800">
         No se pudo cargar este reporte.
       </div>
     );
@@ -141,7 +130,9 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
     // Completion is authoritative from normalized lesson-progress rows, not
     // inferred from potentially duplicated/missing event history.
     const completedLessons = new Set(
-      lessonProgress.filter((row) => row.status === "completed").map((row) => row.lesson_id),
+      lessonProgress
+        .filter((row) => row.status === "completed")
+        .map((row) => row.lesson_id),
     );
     const exerciseEvents = events.filter((e: ReportEvent) => e.event_kind === "exercise");
     const totalScore = exerciseEvents.reduce(
@@ -235,15 +226,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                     <td className="p-3 font-mono text-xs">
                       {new Date(e.created_at ?? 0).toLocaleDateString()}
                     </td>
-                    <td className="p-3 capitalize font-bold text-stone-700">
-                      {{
-                        exercise: "Actividad",
-                        time: "Tiempo de trabajo",
-                        lesson_completed: "Lección completada",
-                        badge: "Reconocimiento",
-                        level: "Nivel",
-                      }[e.event_kind ?? ""] ?? "Actividad"}
-                    </td>
+                    <td className="p-3 capitalize font-bold text-stone-700">{{ exercise: "Actividad", time: "Tiempo de trabajo", lesson_completed: "Lección completada", badge: "Reconocimiento", level: "Nivel" }[e.event_kind ?? ""] ?? "Actividad"}</td>
                     <td className="p-3">Lección {e.lesson_id}</td>
                     <td className="p-3">
                       {e.event_kind === "exercise" && (e.total ?? 0) > 0
@@ -449,10 +432,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   }
 
   return (
-    <div
-      role="alert"
-      className="rounded-3xl border border-stone-200 bg-white p-8 text-center font-bold text-stone-600"
-    >
+    <div role="alert" className="rounded-3xl border border-stone-200 bg-white p-8 text-center font-bold text-stone-600">
       {studentId ? "Alumno no encontrado." : "No hay datos de reporte disponibles para esta clase."}
     </div>
   );

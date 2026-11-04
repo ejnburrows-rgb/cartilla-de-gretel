@@ -49,7 +49,7 @@ function renderProgreso() {
   return render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </QueryClientProvider>,
+    </QueryClientProvider>
   );
 }
 
@@ -61,13 +61,7 @@ describe("/cartilla/teacher/progreso", () => {
   it("shows error UI when query fails", async () => {
     vi.mocked(seedData.isSeedSessionActive).mockReturnValue(false);
     vi.mocked(teacherFunctions.listClasses).mockResolvedValue([
-      {
-        id: "class-1",
-        name: "Class 1",
-        student_count: 5,
-        join_code: "123",
-        created_at: "2023-01-01",
-      },
+      { id: "class-1", name: "Class 1", student_count: 5, join_code: "123", created_at: "2023-01-01" },
     ]);
     vi.mocked(teacherFunctions.getClassProgress).mockRejectedValue(new Error("Network Error"));
 

@@ -30,7 +30,11 @@
     ],
     "vocabSource": {
       "book": "workbook",
-      "workbookPages": [7, 8, 9],
+      "workbookPages": [
+        7,
+        8,
+        9
+      ],
       "note": "Pictures that begin with the vowel on the Workbook vowel pages (page-layouts.json)."
     },
     "matchPairs": [
@@ -104,7 +108,11 @@
     ],
     "vocabSource": {
       "book": "workbook",
-      "workbookPages": [10, 11, 12],
+      "workbookPages": [
+        10,
+        11,
+        12
+      ],
       "note": "Pictures that begin with the vowel on the Workbook vowel pages (page-layouts.json)."
     },
     "matchPairs": [
@@ -179,7 +187,11 @@
     ],
     "vocabSource": {
       "book": "workbook",
-      "workbookPages": [13, 14, 15],
+      "workbookPages": [
+        13,
+        14,
+        15
+      ],
       "note": "Pictures that begin with the vowel on the Workbook vowel pages (page-layouts.json)."
     },
     "matchPairs": [
@@ -254,7 +266,11 @@
     ],
     "vocabSource": {
       "book": "workbook",
-      "workbookPages": [4, 5, 6],
+      "workbookPages": [
+        4,
+        5,
+        6
+      ],
       "note": "Pictures that begin with the vowel on the Workbook vowel pages (page-layouts.json)."
     },
     "matchPairs": [
@@ -329,7 +345,11 @@
     ],
     "vocabSource": {
       "book": "workbook",
-      "workbookPages": [16, 17, 18],
+      "workbookPages": [
+        16,
+        17,
+        18
+      ],
       "note": "Pictures that begin with the vowel on the Workbook vowel pages (page-layouts.json)."
     },
     "matchPairs": [

@@ -99,7 +99,9 @@ export function flushProgressEvents(): Promise<void> {
         if (!session) return;
         // Anonymous and other students' work must never become this child's record.
         const event = readQueue().find(
-          (e) => e.studentId === session.studentId && (!e.classId || e.classId === session.classId),
+          (e) =>
+            e.studentId === session.studentId &&
+            (!e.classId || e.classId === session.classId),
         );
         if (!event) return;
         try {
@@ -121,7 +123,9 @@ export function flushProgressEvents(): Promise<void> {
             },
           });
         } catch {
-          console.warn("No se pudo sincronizar el ejercicio; se conserva para reintentar.");
+          console.warn(
+            "No se pudo sincronizar el ejercicio; se conserva para reintentar.",
+          );
           return;
         }
         // Preserve events appended while the request was running, including old queue entries.

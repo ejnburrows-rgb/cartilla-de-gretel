@@ -11,7 +11,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": null,
-    "recorded_placement_ids": ["FC-FRONT-001"],
+    "recorded_placement_ids": [
+      "FC-FRONT-001"
+    ],
     "screening_evidence": "contact/FC-001.jpg"
   },
   {
@@ -215,7 +217,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 9,
-    "recorded_placement_ids": ["FC-011-01"],
+    "recorded_placement_ids": [
+      "FC-011-01"
+    ],
     "screening_evidence": "contact/FC-001.jpg"
   },
   {
@@ -267,7 +271,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 12,
-    "recorded_placement_ids": ["FC-014-01"],
+    "recorded_placement_ids": [
+      "FC-014-01"
+    ],
     "screening_evidence": "contact/FC-013.jpg"
   },
   {
@@ -319,7 +325,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 15,
-    "recorded_placement_ids": ["FC-017-01"],
+    "recorded_placement_ids": [
+      "FC-017-01"
+    ],
     "screening_evidence": "contact/FC-013.jpg"
   },
   {
@@ -371,7 +379,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 18,
-    "recorded_placement_ids": ["FC-020-01"],
+    "recorded_placement_ids": [
+      "FC-020-01"
+    ],
     "screening_evidence": "contact/FC-013.jpg"
   },
   {
@@ -423,7 +433,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 21,
-    "recorded_placement_ids": ["FC-023-01"],
+    "recorded_placement_ids": [
+      "FC-023-01"
+    ],
     "screening_evidence": "contact/FC-013.jpg"
   },
   {
@@ -475,7 +487,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 24,
-    "recorded_placement_ids": ["FC-026-01"],
+    "recorded_placement_ids": [
+      "FC-026-01"
+    ],
     "screening_evidence": "contact/FC-025.jpg"
   },
   {
@@ -527,7 +541,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 27,
-    "recorded_placement_ids": ["FC-029-01"],
+    "recorded_placement_ids": [
+      "FC-029-01"
+    ],
     "screening_evidence": "contact/FC-025.jpg"
   },
   {
@@ -579,7 +595,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 30,
-    "recorded_placement_ids": ["FC-032-01"],
+    "recorded_placement_ids": [
+      "FC-032-01"
+    ],
     "screening_evidence": "contact/FC-025.jpg"
   },
   {
@@ -631,7 +649,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 33,
-    "recorded_placement_ids": ["FC-035-01"],
+    "recorded_placement_ids": [
+      "FC-035-01"
+    ],
     "screening_evidence": "contact/FC-025.jpg"
   },
   {
@@ -683,7 +703,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 36,
-    "recorded_placement_ids": ["FC-038-01"],
+    "recorded_placement_ids": [
+      "FC-038-01"
+    ],
     "screening_evidence": "contact/FC-037.jpg"
   },
   {
@@ -735,7 +757,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 39,
-    "recorded_placement_ids": ["FC-041-01"],
+    "recorded_placement_ids": [
+      "FC-041-01"
+    ],
     "screening_evidence": "contact/FC-037.jpg"
   },
   {
@@ -787,7 +811,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 42,
-    "recorded_placement_ids": ["FC-044-01"],
+    "recorded_placement_ids": [
+      "FC-044-01"
+    ],
     "screening_evidence": "contact/FC-037.jpg"
   },
   {
@@ -839,7 +865,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 45,
-    "recorded_placement_ids": ["FC-047-01"],
+    "recorded_placement_ids": [
+      "FC-047-01"
+    ],
     "screening_evidence": "contact/FC-037.jpg"
   },
   {
@@ -891,7 +919,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 48,
-    "recorded_placement_ids": ["FC-050-01"],
+    "recorded_placement_ids": [
+      "FC-050-01"
+    ],
     "screening_evidence": "contact/FC-049.jpg"
   },
   {
@@ -943,7 +973,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 51,
-    "recorded_placement_ids": ["FC-053-01"],
+    "recorded_placement_ids": [
+      "FC-053-01"
+    ],
     "screening_evidence": "contact/FC-049.jpg"
   },
   {
@@ -995,7 +1027,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 54,
-    "recorded_placement_ids": ["FC-056-01"],
+    "recorded_placement_ids": [
+      "FC-056-01"
+    ],
     "screening_evidence": "contact/FC-049.jpg"
   },
   {
@@ -1047,7 +1081,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 57,
-    "recorded_placement_ids": ["FC-059-01"],
+    "recorded_placement_ids": [
+      "FC-059-01"
+    ],
     "screening_evidence": "contact/FC-049.jpg"
   },
   {
@@ -1099,7 +1135,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": 60,
-    "recorded_placement_ids": ["FC-062-01"],
+    "recorded_placement_ids": [
+      "FC-062-01"
+    ],
     "screening_evidence": "contact/FC-061.jpg"
   },
   {
@@ -1114,7 +1152,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": null,
-    "recorded_placement_ids": ["WB-FRONT-001"],
+    "recorded_placement_ids": [
+      "WB-FRONT-001"
+    ],
     "screening_evidence": "contact/WB-001.jpg"
   },
   {
@@ -1144,7 +1184,9 @@
     "lesson": null,
     "inventory_review": "FULL-PAGE CONTACT SCREENING COMPLETED; individual crop inventory reconciliation pending",
     "printed_page_proposal": null,
-    "recorded_placement_ids": ["WB-FRONT-003"],
+    "recorded_placement_ids": [
+      "WB-FRONT-003"
+    ],
     "screening_evidence": "contact/WB-001.jpg"
   },
   {

@@ -29,7 +29,7 @@ describe("ActivityCarousel component remounts", () => {
 
   it("remounts DragBuildWord when lessonNumber changes", () => {
     const { rerender } = render(
-      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["armar"]} />,
+      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["armar"]} />
     );
 
     // Initial mount and effects can cause re-renders. Let's record the baseline.
@@ -45,7 +45,7 @@ describe("ActivityCarousel component remounts", () => {
 
   it("remounts SoundSearch when lessonNumber changes", () => {
     const { rerender } = render(
-      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["sonido"]} />,
+      <ActivityCarousel {...baseProps} lessonNumber={1} activities={["sonido"]} />
     );
 
     const initialCalls = vi.mocked(SoundSearch).mock.calls.length;

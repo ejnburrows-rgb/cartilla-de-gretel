@@ -1132,7 +1132,12 @@
       "word": "Ilustración de la página 3",
       "page": "3",
       "sourcePage": 3,
-      "crop": [13, 56, 514, 337],
+      "crop": [
+        13,
+        56,
+        514,
+        337
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "539x539",
       "bytes": 177783,
@@ -1152,7 +1157,12 @@
       "word": "avión",
       "page": "3",
       "sourcePage": 3,
-      "crop": [66, 644, 225, 207],
+      "crop": [
+        66,
+        644,
+        225,
+        207
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 43248,
@@ -1172,7 +1182,12 @@
       "word": "escoba",
       "page": "3",
       "sourcePage": 3,
-      "crop": [408, 644, 178, 212],
+      "crop": [
+        408,
+        644,
+        178,
+        212
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55553,
@@ -1192,7 +1207,12 @@
       "word": "imán",
       "page": "3",
       "sourcePage": 3,
-      "crop": [706, 638, 222, 214],
+      "crop": [
+        706,
+        638,
+        222,
+        214
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49205,
@@ -1212,7 +1232,12 @@
       "word": "olla",
       "page": "3",
       "sourcePage": 3,
-      "crop": [235, 1140, 204, 171],
+      "crop": [
+        235,
+        1140,
+        204,
+        171
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55420,
@@ -1232,7 +1257,12 @@
       "word": "uña",
       "page": "3",
       "sourcePage": 3,
-      "crop": [568, 1130, 170, 182],
+      "crop": [
+        568,
+        1130,
+        170,
+        182
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49948,
@@ -1252,7 +1282,12 @@
       "word": "Ilustración de la página 4",
       "page": "4",
       "sourcePage": 4,
-      "crop": [18, 50, 469, 460],
+      "crop": [
+        18,
+        50,
+        469,
+        460
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 203733,
@@ -1272,7 +1307,12 @@
       "word": "olla",
       "page": "4",
       "sourcePage": 4,
-      "crop": [64, 647, 223, 182],
+      "crop": [
+        64,
+        647,
+        223,
+        182
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46668,
@@ -1292,7 +1332,12 @@
       "word": "Oto",
       "page": "4",
       "sourcePage": 4,
-      "crop": [377, 640, 225, 184],
+      "crop": [
+        377,
+        640,
+        225,
+        184
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 48351,
@@ -1312,7 +1357,12 @@
       "word": "oveja",
       "page": "4",
       "sourcePage": 4,
-      "crop": [706, 628, 227, 211],
+      "crop": [
+        706,
+        628,
+        227,
+        211
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 41334,
@@ -1332,7 +1382,12 @@
       "word": "oso",
       "page": "4",
       "sourcePage": 4,
-      "crop": [58, 979, 220, 257],
+      "crop": [
+        58,
+        979,
+        220,
+        257
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 79390,
@@ -1352,7 +1407,12 @@
       "word": "oreja",
       "page": "4",
       "sourcePage": 4,
-      "crop": [418, 987, 158, 243],
+      "crop": [
+        418,
+        987,
+        158,
+        243
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 56308,
@@ -1372,7 +1432,12 @@
       "word": "ocho",
       "page": "4",
       "sourcePage": 4,
-      "crop": [714, 973, 208, 260],
+      "crop": [
+        714,
+        973,
+        208,
+        260
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62819,
@@ -1392,7 +1457,12 @@
       "word": "Ilustración de la página 5",
       "page": "5",
       "sourcePage": 5,
-      "crop": [66, 36, 396, 516],
+      "crop": [
+        66,
+        36,
+        396,
+        516
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "556x556",
       "bytes": 223023,
@@ -1412,7 +1482,12 @@
       "word": "abanico",
       "page": "5",
       "sourcePage": 5,
-      "crop": [65, 642, 232, 236],
+      "crop": [
+        65,
+        642,
+        232,
+        236
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 66045,
@@ -1432,7 +1507,12 @@
       "word": "anillo",
       "page": "5",
       "sourcePage": 5,
-      "crop": [394, 658, 216, 191],
+      "crop": [
+        394,
+        658,
+        216,
+        191
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42308,
@@ -1452,7 +1532,12 @@
       "word": "araña",
       "page": "5",
       "sourcePage": 5,
-      "crop": [718, 675, 188, 192],
+      "crop": [
+        718,
+        675,
+        188,
+        192
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 35567,
@@ -1472,7 +1557,12 @@
       "word": "ala",
       "page": "5",
       "sourcePage": 5,
-      "crop": [39, 1029, 285, 217],
+      "crop": [
+        39,
+        1029,
+        285,
+        217
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 37012,
@@ -1492,7 +1582,12 @@
       "word": "aro",
       "page": "5",
       "sourcePage": 5,
-      "crop": [390, 1010, 220, 265],
+      "crop": [
+        390,
+        1010,
+        220,
+        265
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 66758,
@@ -1512,7 +1607,12 @@
       "word": "Ana",
       "page": "5",
       "sourcePage": 5,
-      "crop": [706, 1025, 243, 252],
+      "crop": [
+        706,
+        1025,
+        243,
+        252
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 57436,
@@ -1532,7 +1632,12 @@
       "word": "Ilustración de la página 6",
       "page": "6",
       "sourcePage": 6,
-      "crop": [48, 46, 402, 506],
+      "crop": [
+        48,
+        46,
+        402,
+        506
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 200364,
@@ -1552,7 +1657,12 @@
       "word": "elefante",
       "page": "6",
       "sourcePage": 6,
-      "crop": [50, 645, 235, 228],
+      "crop": [
+        50,
+        645,
+        235,
+        228
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55059,
@@ -1572,7 +1682,12 @@
       "word": "espejo",
       "page": "6",
       "sourcePage": 6,
-      "crop": [368, 630, 231, 236],
+      "crop": [
+        368,
+        630,
+        231,
+        236
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42808,
@@ -1592,7 +1707,12 @@
       "word": "Ema",
       "page": "6",
       "sourcePage": 6,
-      "crop": [733, 624, 183, 238],
+      "crop": [
+        733,
+        624,
+        183,
+        238
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 50267,
@@ -1612,7 +1732,12 @@
       "word": "estrella",
       "page": "6",
       "sourcePage": 6,
-      "crop": [55, 996, 225, 256],
+      "crop": [
+        55,
+        996,
+        225,
+        256
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 53872,
@@ -1632,7 +1757,12 @@
       "word": "erizo",
       "page": "6",
       "sourcePage": 6,
-      "crop": [369, 988, 237, 256],
+      "crop": [
+        369,
+        988,
+        237,
+        256
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 83658,
@@ -1652,7 +1782,12 @@
       "word": "escalera",
       "page": "6",
       "sourcePage": 6,
-      "crop": [711, 977, 215, 286],
+      "crop": [
+        711,
+        977,
+        215,
+        286
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51385,
@@ -1672,7 +1807,12 @@
       "word": "Ilustración de la página 7",
       "page": "7",
       "sourcePage": 7,
-      "crop": [41, 29, 417, 523],
+      "crop": [
+        41,
+        29,
+        417,
+        523
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 129226,
@@ -1692,7 +1832,12 @@
       "word": "imán",
       "page": "7",
       "sourcePage": 7,
-      "crop": [71, 642, 224, 212],
+      "crop": [
+        71,
+        642,
+        224,
+        212
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 39281,
@@ -1712,7 +1857,12 @@
       "word": "iglú",
       "page": "7",
       "sourcePage": 7,
-      "crop": [380, 645, 218, 222],
+      "crop": [
+        380,
+        645,
+        218,
+        222
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 35084,
@@ -1732,7 +1882,12 @@
       "word": "indio",
       "page": "7",
       "sourcePage": 7,
-      "crop": [712, 575, 202, 297],
+      "crop": [
+        712,
+        575,
+        202,
+        297
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 33627,
@@ -1752,7 +1907,12 @@
       "word": "insecto",
       "page": "7",
       "sourcePage": 7,
-      "crop": [56, 1001, 256, 224],
+      "crop": [
+        56,
+        1001,
+        256,
+        224
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 67825,
@@ -1772,7 +1932,12 @@
       "word": "isla",
       "page": "7",
       "sourcePage": 7,
-      "crop": [355, 997, 279, 253],
+      "crop": [
+        355,
+        997,
+        279,
+        253
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49951,
@@ -1792,7 +1957,12 @@
       "word": "Irma",
       "page": "7",
       "sourcePage": 7,
-      "crop": [696, 994, 235, 274],
+      "crop": [
+        696,
+        994,
+        235,
+        274
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 56587,
@@ -1812,7 +1982,12 @@
       "word": "Ilustración de la página 8",
       "page": "8",
       "sourcePage": 8,
-      "crop": [14, 28, 441, 439],
+      "crop": [
+        14,
+        28,
+        441,
+        439
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "480x480",
       "bytes": 191446,
@@ -1832,7 +2007,12 @@
       "word": "uno",
       "page": "8",
       "sourcePage": 8,
-      "crop": [72, 570, 232, 240],
+      "crop": [
+        72,
+        570,
+        232,
+        240
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 80479,
@@ -1852,7 +2032,12 @@
       "word": "uva",
       "page": "8",
       "sourcePage": 8,
-      "crop": [391, 568, 237, 230],
+      "crop": [
+        391,
+        568,
+        237,
+        230
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 78680,
@@ -1872,7 +2057,12 @@
       "word": "urraca",
       "page": "8",
       "sourcePage": 8,
-      "crop": [719, 557, 223, 227],
+      "crop": [
+        719,
+        557,
+        223,
+        227
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 33697,
@@ -1892,7 +2082,12 @@
       "word": "unicornio",
       "page": "8",
       "sourcePage": 8,
-      "crop": [56, 904, 258, 260],
+      "crop": [
+        56,
+        904,
+        258,
+        260
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 60538,
@@ -1912,7 +2107,12 @@
       "word": "uniforme",
       "page": "8",
       "sourcePage": 8,
-      "crop": [429, 906, 163, 252],
+      "crop": [
+        429,
+        906,
+        163,
+        252
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42650,
@@ -1932,7 +2132,12 @@
       "word": "Ulises",
       "page": "8",
       "sourcePage": 8,
-      "crop": [711, 927, 243, 200],
+      "crop": [
+        711,
+        927,
+        243,
+        200
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 69778,
@@ -1952,7 +2157,12 @@
       "word": "Ilustración de la página 9",
       "page": "9",
       "sourcePage": 9,
-      "crop": [20, 30, 528, 500],
+      "crop": [
+        20,
+        30,
+        528,
+        500
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "530x530",
       "bytes": 269934,
@@ -1972,7 +2182,12 @@
       "word": "mamá",
       "page": "9",
       "sourcePage": 9,
-      "crop": [46, 561, 217, 286],
+      "crop": [
+        46,
+        561,
+        217,
+        286
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "344x344",
       "bytes": 58231,
@@ -1992,7 +2207,12 @@
       "word": "amo",
       "page": "9",
       "sourcePage": 9,
-      "crop": [351, 550, 270, 285],
+      "crop": [
+        351,
+        550,
+        270,
+        285
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64626,
@@ -2012,7 +2232,12 @@
       "word": "mima",
       "page": "9",
       "sourcePage": 9,
-      "crop": [661, 529, 304, 304],
+      "crop": [
+        661,
+        529,
+        304,
+        304
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "328x328",
       "bytes": 101089,
@@ -2032,7 +2257,12 @@
       "word": "Meme",
       "page": "9",
       "sourcePage": 9,
-      "crop": [230, 958, 150, 309],
+      "crop": [
+        230,
+        958,
+        150,
+        309
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42639,
@@ -2052,7 +2282,12 @@
       "word": "Mumi",
       "page": "9",
       "sourcePage": 9,
-      "crop": [533, 960, 281, 296],
+      "crop": [
+        533,
+        960,
+        281,
+        296
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64622,
@@ -2072,7 +2307,12 @@
       "word": "Ilustración de la página 11",
       "page": "11",
       "sourcePage": 11,
-      "crop": [295, 186, 636, 529],
+      "crop": [
+        295,
+        186,
+        636,
+        529
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "630x630",
       "bytes": 199944,
@@ -2092,7 +2332,12 @@
       "word": "Ilustración de la página 12",
       "page": "12",
       "sourcePage": 12,
-      "crop": [6, 28, 552, 520],
+      "crop": [
+        6,
+        28,
+        552,
+        520
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 188737,
@@ -2112,7 +2357,12 @@
       "word": "papá",
       "page": "12",
       "sourcePage": 12,
-      "crop": [56, 541, 182, 278],
+      "crop": [
+        56,
+        541,
+        182,
+        278
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 52592,
@@ -2132,7 +2382,12 @@
       "word": "pie",
       "page": "12",
       "sourcePage": 12,
-      "crop": [347, 632, 265, 179],
+      "crop": [
+        347,
+        632,
+        265,
+        179
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 35828,
@@ -2152,7 +2407,12 @@
       "word": "Pepe",
       "page": "12",
       "sourcePage": 12,
-      "crop": [681, 515, 305, 306],
+      "crop": [
+        681,
+        515,
+        305,
+        306
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64078,
@@ -2172,7 +2432,12 @@
       "word": "puma",
       "page": "12",
       "sourcePage": 12,
-      "crop": [69, 968, 272, 295],
+      "crop": [
+        69,
+        968,
+        272,
+        295
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62327,
@@ -2192,7 +2457,12 @@
       "word": "pomo",
       "page": "12",
       "sourcePage": 12,
-      "crop": [626, 985, 154, 277],
+      "crop": [
+        626,
+        985,
+        154,
+        277
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46993,
@@ -2212,7 +2482,12 @@
       "word": "Ilustración de la página 14",
       "page": "14",
       "sourcePage": 14,
-      "crop": [355, 63, 626, 523],
+      "crop": [
+        355,
+        63,
+        626,
+        523
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "654x654",
       "bytes": 272998,
@@ -2232,7 +2507,12 @@
       "word": "Ilustración de la página 15",
       "page": "15",
       "sourcePage": 15,
-      "crop": [63, 53, 457, 499],
+      "crop": [
+        63,
+        53,
+        457,
+        499
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 287347,
@@ -2252,7 +2532,12 @@
       "word": "Sesi",
       "page": "15",
       "sourcePage": 15,
-      "crop": [99, 566, 241, 294],
+      "crop": [
+        99,
+        566,
+        241,
+        294
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "342x342",
       "bytes": 58380,
@@ -2272,7 +2557,12 @@
       "word": "sopa",
       "page": "15",
       "sourcePage": 15,
-      "crop": [374, 667, 241, 149],
+      "crop": [
+        374,
+        667,
+        241,
+        149
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 61061,
@@ -2292,7 +2582,12 @@
       "word": "sapo",
       "page": "15",
       "sourcePage": 15,
-      "crop": [680, 621, 271, 211],
+      "crop": [
+        680,
+        621,
+        271,
+        211
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51491,
@@ -2312,7 +2607,12 @@
       "word": "pisa",
       "page": "15",
       "sourcePage": 15,
-      "crop": [134, 1022, 319, 220],
+      "crop": [
+        134,
+        1022,
+        319,
+        220
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 23189,
@@ -2332,7 +2632,12 @@
       "word": "Susi",
       "page": "15",
       "sourcePage": 15,
-      "crop": [555, 953, 230, 308],
+      "crop": [
+        555,
+        953,
+        230,
+        308
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 68028,
@@ -2352,7 +2657,12 @@
       "word": "Ilustración de la página 17",
       "page": "17",
       "sourcePage": 17,
-      "crop": [590, 28, 398, 698],
+      "crop": [
+        590,
+        28,
+        398,
+        698
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "645x645",
       "bytes": 173867,
@@ -2372,7 +2682,12 @@
       "word": "Ilustración de la página 18",
       "page": "18",
       "sourcePage": 18,
-      "crop": [72, 28, 466, 521],
+      "crop": [
+        72,
+        28,
+        466,
+        521
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "558x558",
       "bytes": 217046,
@@ -2392,7 +2707,12 @@
       "word": "tomate",
       "page": "18",
       "sourcePage": 18,
-      "crop": [35, 575, 270, 245],
+      "crop": [
+        35,
+        575,
+        270,
+        245
+      ],
       "classification": "PASS",
       "dimensions": "1536x1395",
       "bytes": 96285,
@@ -2412,7 +2732,12 @@
       "word": "tapa",
       "page": "18",
       "sourcePage": 18,
-      "crop": [350, 570, 285, 230],
+      "crop": [
+        350,
+        570,
+        285,
+        230
+      ],
       "classification": "PASS",
       "dimensions": "1536x1240",
       "bytes": 127625,
@@ -2432,7 +2757,12 @@
       "word": "topo",
       "page": "18",
       "sourcePage": 18,
-      "crop": [690, 545, 260, 270],
+      "crop": [
+        690,
+        545,
+        260,
+        270
+      ],
       "classification": "PASS",
       "dimensions": "1478x1536",
       "bytes": 169656,
@@ -2452,7 +2782,12 @@
       "word": "tipi",
       "page": "18",
       "sourcePage": 18,
-      "crop": [95, 890, 320, 305],
+      "crop": [
+        95,
+        890,
+        320,
+        305
+      ],
       "classification": "PASS",
       "dimensions": "1536x1464",
       "bytes": 146747,
@@ -2472,7 +2807,12 @@
       "word": "Tuto",
       "page": "18",
       "sourcePage": 18,
-      "crop": [540, 911, 315, 304],
+      "crop": [
+        540,
+        911,
+        315,
+        304
+      ],
       "classification": "PASS",
       "dimensions": "1536x1482",
       "bytes": 201825,
@@ -2492,7 +2832,12 @@
       "word": "Ilustración de la página 20",
       "page": "20",
       "sourcePage": 20,
-      "crop": [340, 92, 660, 505],
+      "crop": [
+        340,
+        92,
+        660,
+        505
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "658x658",
       "bytes": 356866,
@@ -2512,7 +2857,12 @@
       "word": "Ilustración de la página 21",
       "page": "21",
       "sourcePage": 21,
-      "crop": [165, 28, 313, 510],
+      "crop": [
+        165,
+        28,
+        313,
+        510
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "559x559",
       "bytes": 104462,
@@ -2532,7 +2882,12 @@
       "word": "Didi",
       "page": "21",
       "sourcePage": 21,
-      "crop": [42, 545, 207, 231],
+      "crop": [
+        42,
+        545,
+        207,
+        231
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1360",
       "bytes": 125316,
@@ -2552,7 +2907,12 @@
       "word": "dados",
       "page": "21",
       "sourcePage": 21,
-      "crop": [376, 516, 245, 250],
+      "crop": [
+        376,
+        516,
+        245,
+        250
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1440",
       "bytes": 136317,
@@ -2572,7 +2932,12 @@
       "word": "dedo",
       "page": "21",
       "sourcePage": 21,
-      "crop": [740, 513, 180, 256],
+      "crop": [
+        740,
+        513,
+        180,
+        256
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1281x1536",
       "bytes": 127794,
@@ -2592,7 +2957,12 @@
       "word": "doce",
       "page": "21",
       "sourcePage": 21,
-      "crop": [122, 909, 232, 290],
+      "crop": [
+        122,
+        909,
+        232,
+        290
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1355x1536",
       "bytes": 195221,
@@ -2612,7 +2982,12 @@
       "word": "Dunia",
       "page": "21",
       "sourcePage": 21,
-      "crop": [508, 914, 361, 256],
+      "crop": [
+        508,
+        914,
+        361,
+        256
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1536x1324",
       "bytes": 218652,
@@ -2632,7 +3007,12 @@
       "word": "Ilustración de la página 23",
       "page": "23",
       "sourcePage": 23,
-      "crop": [452, 28, 471, 559],
+      "crop": [
+        452,
+        28,
+        471,
+        559
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "621x621",
       "bytes": 307816,
@@ -2652,7 +3032,12 @@
       "word": "Ilustración de la página 24",
       "page": "24",
       "sourcePage": 24,
-      "crop": [71, 28, 209, 519],
+      "crop": [
+        71,
+        28,
+        209,
+        519
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "549x549",
       "bytes": 180981,
@@ -2672,7 +3057,12 @@
       "word": "maleta",
       "page": "24",
       "sourcePage": 24,
-      "crop": [45, 555, 245, 275],
+      "crop": [
+        45,
+        555,
+        245,
+        275
+      ],
       "classification": "PASS",
       "dimensions": "1369x1536",
       "bytes": 140465,
@@ -2692,7 +3082,12 @@
       "word": "lata",
       "page": "24",
       "sourcePage": 24,
-      "crop": [385, 555, 245, 270],
+      "crop": [
+        385,
+        555,
+        245,
+        270
+      ],
       "classification": "PASS",
       "dimensions": "1395x1536",
       "bytes": 158721,
@@ -2712,7 +3107,12 @@
       "word": "Luli",
       "page": "24",
       "sourcePage": 24,
-      "crop": [720, 500, 220, 320],
+      "crop": [
+        720,
+        500,
+        220,
+        320
+      ],
       "classification": "PASS",
       "dimensions": "1058x1536",
       "bytes": 132783,
@@ -2732,7 +3132,12 @@
       "word": "loma",
       "page": "24",
       "sourcePage": 24,
-      "crop": [90, 950, 360, 290],
+      "crop": [
+        90,
+        950,
+        360,
+        290
+      ],
       "classification": "PASS",
       "dimensions": "1536x1238",
       "bytes": 91971,
@@ -2752,7 +3157,12 @@
       "word": "Lala",
       "page": "24",
       "sourcePage": 24,
-      "crop": [565, 970, 280, 245],
+      "crop": [
+        565,
+        970,
+        280,
+        245
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "550x495",
       "bytes": 281675,
@@ -2772,7 +3182,12 @@
       "word": "Ilustración de la página 26",
       "page": "26",
       "sourcePage": 26,
-      "crop": [512, 220, 455, 396],
+      "crop": [
+        512,
+        220,
+        455,
+        396
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "638x638",
       "bytes": 189595,
@@ -2792,7 +3207,12 @@
       "word": "Ilustración de la página 27",
       "page": "27",
       "sourcePage": 27,
-      "crop": [15, 28, 501, 524],
+      "crop": [
+        15,
+        28,
+        501,
+        524
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 279018,
@@ -2812,7 +3232,12 @@
       "word": "nido",
       "page": "27",
       "sourcePage": 27,
-      "crop": [57, 635, 245, 168],
+      "crop": [
+        57,
+        635,
+        245,
+        168
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 43656,
@@ -2832,7 +3257,12 @@
       "word": "nudo",
       "page": "27",
       "sourcePage": 27,
-      "crop": [353, 617, 260, 204],
+      "crop": [
+        353,
+        617,
+        260,
+        204
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 44142,
@@ -2852,7 +3282,12 @@
       "word": "mono",
       "page": "27",
       "sourcePage": 27,
-      "crop": [714, 524, 181, 300],
+      "crop": [
+        714,
+        524,
+        181,
+        300
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 40787,
@@ -2872,7 +3307,12 @@
       "word": "Napi",
       "page": "27",
       "sourcePage": 27,
-      "crop": [122, 969, 264, 280],
+      "crop": [
+        122,
+        969,
+        264,
+        280
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 70916,
@@ -2892,7 +3332,12 @@
       "word": "tenedor",
       "page": "27",
       "sourcePage": 27,
-      "crop": [642, 926, 69, 323],
+      "crop": [
+        642,
+        926,
+        69,
+        323
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 12037,
@@ -2912,7 +3357,12 @@
       "word": "Ilustración de la página 29",
       "page": "29",
       "sourcePage": 29,
-      "crop": [495, 28, 481, 544],
+      "crop": [
+        495,
+        28,
+        481,
+        544
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "665x665",
       "bytes": 264645,
@@ -2932,7 +3382,12 @@
       "word": "Ilustración de la página 30",
       "page": "30",
       "sourcePage": 30,
-      "crop": [100, 28, 347, 512],
+      "crop": [
+        100,
+        28,
+        347,
+        512
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "545x545",
       "bytes": 260707,
@@ -2952,7 +3407,12 @@
       "word": "piñata",
       "page": "30",
       "sourcePage": 30,
-      "crop": [46, 562, 217, 236],
+      "crop": [
+        46,
+        562,
+        217,
+        236
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 43865,
@@ -2972,7 +3432,12 @@
       "word": "Ñuno",
       "page": "30",
       "sourcePage": 30,
-      "crop": [405, 510, 192, 288],
+      "crop": [
+        405,
+        510,
+        192,
+        288
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 36499,
@@ -2992,7 +3457,12 @@
       "word": "niñito",
       "page": "30",
       "sourcePage": 30,
-      "crop": [719, 535, 192, 261],
+      "crop": [
+        719,
+        535,
+        192,
+        261
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55302,
@@ -3012,7 +3482,12 @@
       "word": "moño",
       "page": "30",
       "sourcePage": 30,
-      "crop": [125, 925, 242, 292],
+      "crop": [
+        125,
+        925,
+        242,
+        292
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 84380,
@@ -3032,7 +3507,12 @@
       "word": "Meñe",
       "page": "30",
       "sourcePage": 30,
-      "crop": [567, 906, 196, 315],
+      "crop": [
+        567,
+        906,
+        196,
+        315
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51822,
@@ -3052,7 +3532,12 @@
       "word": "Ilustración de la página 32",
       "page": "32",
       "sourcePage": 32,
-      "crop": [491, 28, 502, 511],
+      "crop": [
+        491,
+        28,
+        502,
+        511
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "682x682",
       "bytes": 231822,
@@ -3072,7 +3557,12 @@
       "word": "Ilustración de la página 33",
       "page": "33",
       "sourcePage": 33,
-      "crop": [102, 29, 470, 520],
+      "crop": [
+        102,
+        29,
+        470,
+        520
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "549x549",
       "bytes": 227395,
@@ -3092,7 +3582,12 @@
       "word": "Beba",
       "page": "33",
       "sourcePage": 33,
-      "crop": [57, 572, 237, 223],
+      "crop": [
+        57,
+        572,
+        237,
+        223
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46539,
@@ -3112,7 +3607,12 @@
       "word": "Bubi",
       "page": "33",
       "sourcePage": 33,
-      "crop": [365, 562, 251, 230],
+      "crop": [
+        365,
+        562,
+        251,
+        230
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 42247,
@@ -3132,7 +3632,12 @@
       "word": "bate",
       "page": "33",
       "sourcePage": 33,
-      "crop": [700, 527, 215, 264],
+      "crop": [
+        700,
+        527,
+        215,
+        264
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 25693,
@@ -3152,7 +3657,12 @@
       "word": "bota",
       "page": "33",
       "sourcePage": 33,
-      "crop": [134, 963, 238, 260],
+      "crop": [
+        134,
+        963,
+        238,
+        260
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 92719,
@@ -3172,7 +3682,12 @@
       "word": "bebita",
       "page": "33",
       "sourcePage": 33,
-      "crop": [535, 920, 279, 307],
+      "crop": [
+        535,
+        920,
+        279,
+        307
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 75124,
@@ -3192,7 +3707,12 @@
       "word": "Ilustración de la página 35",
       "page": "35",
       "sourcePage": 35,
-      "crop": [474, 193, 498, 315],
+      "crop": [
+        474,
+        193,
+        498,
+        315
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "666x666",
       "bytes": 177075,
@@ -3212,7 +3732,12 @@
       "word": "Ilustración de la página 36",
       "page": "36",
       "sourcePage": 36,
-      "crop": [30, 64, 487, 327],
+      "crop": [
+        30,
+        64,
+        487,
+        327
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "526x526",
       "bytes": 191915,
@@ -3232,7 +3757,12 @@
       "word": "vaso",
       "page": "36",
       "sourcePage": 36,
-      "crop": [113, 601, 101, 194],
+      "crop": [
+        113,
+        601,
+        101,
+        194
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 23211,
@@ -3252,7 +3782,12 @@
       "word": "vela",
       "page": "36",
       "sourcePage": 36,
-      "crop": [397, 569, 218, 235],
+      "crop": [
+        397,
+        569,
+        218,
+        235
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 30920,
@@ -3272,7 +3807,12 @@
       "word": "Vita",
       "page": "36",
       "sourcePage": 36,
-      "crop": [707, 554, 220, 252],
+      "crop": [
+        707,
+        554,
+        220,
+        252
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 63379,
@@ -3292,7 +3832,12 @@
       "word": "pavo",
       "page": "36",
       "sourcePage": 36,
-      "crop": [149, 975, 231, 260],
+      "crop": [
+        149,
+        975,
+        231,
+        260
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 93181,
@@ -3312,7 +3857,12 @@
       "word": "Vuli",
       "page": "36",
       "sourcePage": 36,
-      "crop": [536, 1035, 307, 209],
+      "crop": [
+        536,
+        1035,
+        307,
+        209
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "330x330",
       "bytes": 36595,
@@ -3332,7 +3882,12 @@
       "word": "Ilustración de la página 38",
       "page": "38",
       "sourcePage": 38,
-      "crop": [486, 28, 487, 522],
+      "crop": [
+        486,
+        28,
+        487,
+        522
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "636x636",
       "bytes": 209332,
@@ -3352,7 +3907,12 @@
       "word": "Ilustración de la página 39",
       "page": "39",
       "sourcePage": 39,
-      "crop": [87, 28, 434, 474],
+      "crop": [
+        87,
+        28,
+        434,
+        474
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "519x519",
       "bytes": 178166,
@@ -3372,7 +3932,12 @@
       "word": "rana",
       "page": "39",
       "sourcePage": 39,
-      "crop": [47, 553, 231, 221],
+      "crop": [
+        47,
+        553,
+        231,
+        221
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62419,
@@ -3392,7 +3957,12 @@
       "word": "remos",
       "page": "39",
       "sourcePage": 39,
-      "crop": [364, 550, 243, 225],
+      "crop": [
+        364,
+        550,
+        243,
+        225
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 65623,
@@ -3412,7 +3982,12 @@
       "word": "Rita",
       "page": "39",
       "sourcePage": 39,
-      "crop": [675, 550, 270, 221],
+      "crop": [
+        675,
+        550,
+        270,
+        221
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "324x324",
       "bytes": 52168,
@@ -3432,7 +4007,12 @@
       "word": "rosa",
       "page": "39",
       "sourcePage": 39,
-      "crop": [152, 932, 187, 244],
+      "crop": [
+        152,
+        932,
+        187,
+        244
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 54742,
@@ -3452,7 +4032,12 @@
       "word": "rueda",
       "page": "39",
       "sourcePage": 39,
-      "crop": [515, 932, 303, 249],
+      "crop": [
+        515,
+        932,
+        303,
+        249
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 87137,
@@ -3472,7 +4057,12 @@
       "word": "Ilustración de la página 41",
       "page": "41",
       "sourcePage": 41,
-      "crop": [444, 28, 531, 504],
+      "crop": [
+        444,
+        28,
+        531,
+        504
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "586x586",
       "bytes": 254340,
@@ -3492,7 +4082,12 @@
       "word": "Ilustración de la página 42",
       "page": "42",
       "sourcePage": 42,
-      "crop": [12, 97, 509, 401],
+      "crop": [
+        12,
+        97,
+        509,
+        401
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "529x529",
       "bytes": 261932,
@@ -3512,7 +4107,12 @@
       "word": "burro",
       "page": "42",
       "sourcePage": 42,
-      "crop": [37, 566, 262, 240],
+      "crop": [
+        37,
+        566,
+        262,
+        240
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46838,
@@ -3532,7 +4132,12 @@
       "word": "carrusel",
       "page": "42",
       "sourcePage": 42,
-      "crop": [363, 570, 244, 238],
+      "crop": [
+        363,
+        570,
+        244,
+        238
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 87851,
@@ -3552,7 +4157,12 @@
       "word": "torre",
       "page": "42",
       "sourcePage": 42,
-      "crop": [759, 526, 111, 283],
+      "crop": [
+        759,
+        526,
+        111,
+        283
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 24379,
@@ -3572,7 +4182,12 @@
       "word": "barril",
       "page": "42",
       "sourcePage": 42,
-      "crop": [163, 975, 176, 270],
+      "crop": [
+        163,
+        975,
+        176,
+        270
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 64861,
@@ -3592,7 +4207,12 @@
       "word": "Tierra",
       "page": "42",
       "sourcePage": 42,
-      "crop": [535, 963, 277, 290],
+      "crop": [
+        535,
+        963,
+        277,
+        290
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 95440,
@@ -3612,7 +4232,12 @@
       "word": "Ilustración de la página 44",
       "page": "44",
       "sourcePage": 44,
-      "crop": [452, 28, 531, 544],
+      "crop": [
+        452,
+        28,
+        531,
+        544
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "653x653",
       "bytes": 552239,
@@ -3632,7 +4257,12 @@
       "word": "Ilustración de la página 45",
       "page": "45",
       "sourcePage": 45,
-      "crop": [131, 31, 403, 511],
+      "crop": [
+        131,
+        31,
+        403,
+        511
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "557x557",
       "bytes": 166965,
@@ -3652,7 +4282,12 @@
       "word": "gaveta",
       "page": "45",
       "sourcePage": 45,
-      "crop": [37, 572, 265, 223],
+      "crop": [
+        37,
+        572,
+        265,
+        223
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "321x321",
       "bytes": 80865,
@@ -3672,7 +4307,12 @@
       "word": "gusano",
       "page": "45",
       "sourcePage": 45,
-      "crop": [356, 639, 277, 141],
+      "crop": [
+        356,
+        639,
+        277,
+        141
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "333x333",
       "bytes": 27873,
@@ -3692,7 +4332,12 @@
       "word": "Goloso",
       "page": "45",
       "sourcePage": 45,
-      "crop": [701, 524, 242, 270],
+      "crop": [
+        701,
+        524,
+        242,
+        270
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 71135,
@@ -3712,7 +4357,12 @@
       "word": "gorra",
       "page": "45",
       "sourcePage": 45,
-      "crop": [127, 969, 255, 201],
+      "crop": [
+        127,
+        969,
+        255,
+        201
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 55671,
@@ -3732,7 +4382,12 @@
       "word": "mago",
       "page": "45",
       "sourcePage": 45,
-      "crop": [560, 919, 238, 272],
+      "crop": [
+        560,
+        919,
+        238,
+        272
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 75805,
@@ -3752,7 +4407,12 @@
       "word": "Ilustración de la página 47",
       "page": "47",
       "sourcePage": 47,
-      "crop": [473, 29, 506, 532],
+      "crop": [
+        473,
+        29,
+        506,
+        532
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "667x667",
       "bytes": 238929,
@@ -3772,7 +4432,12 @@
       "word": "Ilustración de la página 48",
       "page": "48",
       "sourcePage": 48,
-      "crop": [137, 28, 338, 522],
+      "crop": [
+        137,
+        28,
+        338,
+        522
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "552x552",
       "bytes": 122839,
@@ -3792,7 +4457,12 @@
       "word": "foto",
       "page": "48",
       "sourcePage": 48,
-      "crop": [66, 584, 199, 261],
+      "crop": [
+        66,
+        584,
+        199,
+        261
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 65853,
@@ -3812,7 +4482,12 @@
       "word": "fideos",
       "page": "48",
       "sourcePage": 48,
-      "crop": [428, 566, 212, 276],
+      "crop": [
+        428,
+        566,
+        212,
+        276
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "325x325",
       "bytes": 69470,
@@ -3832,7 +4507,12 @@
       "word": "familia",
       "page": "48",
       "sourcePage": 48,
-      "crop": [726, 510, 175, 329],
+      "crop": [
+        726,
+        510,
+        175,
+        329
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "323x323",
       "bytes": 69178,
@@ -3852,7 +4532,12 @@
       "word": "Felo",
       "page": "48",
       "sourcePage": 48,
-      "crop": [158, 960, 300, 295],
+      "crop": [
+        158,
+        960,
+        300,
+        295
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "321x321",
       "bytes": 80269,
@@ -3872,7 +4557,12 @@
       "word": "funda",
       "page": "48",
       "sourcePage": 48,
-      "crop": [588, 990, 244, 245],
+      "crop": [
+        588,
+        990,
+        244,
+        245
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 56851,
@@ -3892,7 +4582,12 @@
       "word": "Ilustración de la página 50",
       "page": "50",
       "sourcePage": 50,
-      "crop": [441, 28, 530, 529],
+      "crop": [
+        441,
+        28,
+        530,
+        529
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "644x644",
       "bytes": 330647,
@@ -3912,7 +4607,12 @@
       "word": "Ilustración de la página 51",
       "page": "51",
       "sourcePage": 51,
-      "crop": [63, 31, 465, 496],
+      "crop": [
+        63,
+        31,
+        465,
+        496
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "537x537",
       "bytes": 239137,
@@ -3932,7 +4632,12 @@
       "word": "jicotea",
       "page": "51",
       "sourcePage": 51,
-      "crop": [37, 562, 269, 221],
+      "crop": [
+        37,
+        562,
+        269,
+        221
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "322x322",
       "bytes": 82182,
@@ -3952,7 +4657,12 @@
       "word": "jugo",
       "page": "51",
       "sourcePage": 51,
-      "crop": [399, 561, 196, 224],
+      "crop": [
+        399,
+        561,
+        196,
+        224
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 41769,
@@ -3972,7 +4682,12 @@
       "word": "Jesús",
       "page": "51",
       "sourcePage": 51,
-      "crop": [728, 510, 250, 276],
+      "crop": [
+        728,
+        510,
+        250,
+        276
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46181,
@@ -3992,7 +4707,12 @@
       "word": "ajo",
       "page": "51",
       "sourcePage": 51,
-      "crop": [141, 974, 246, 211],
+      "crop": [
+        141,
+        974,
+        246,
+        211
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51115,
@@ -4012,7 +4732,12 @@
       "word": "jarra",
       "page": "51",
       "sourcePage": 51,
-      "crop": [584, 937, 200, 270],
+      "crop": [
+        584,
+        937,
+        200,
+        270
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 54311,
@@ -4032,7 +4757,12 @@
       "word": "Ilustración de la página 53",
       "page": "53",
       "sourcePage": 53,
-      "crop": [481, 28, 504, 562],
+      "crop": [
+        481,
+        28,
+        504,
+        562
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "671x671",
       "bytes": 335717,
@@ -4052,7 +4782,12 @@
       "word": "Ilustración de la página 54",
       "page": "54",
       "sourcePage": 54,
-      "crop": [36, 42, 503, 397],
+      "crop": [
+        36,
+        42,
+        503,
+        397
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "561x561",
       "bytes": 252038,
@@ -4072,7 +4807,12 @@
       "word": "cuna",
       "page": "54",
       "sourcePage": 54,
-      "crop": [48, 552, 251, 196],
+      "crop": [
+        48,
+        552,
+        251,
+        196
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 66603,
@@ -4092,7 +4832,12 @@
       "word": "conejo",
       "page": "54",
       "sourcePage": 54,
-      "crop": [415, 512, 172, 247],
+      "crop": [
+        415,
+        512,
+        172,
+        247
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 39496,
@@ -4112,7 +4857,12 @@
       "word": "casa",
       "page": "54",
       "sourcePage": 54,
-      "crop": [667, 510, 293, 254],
+      "crop": [
+        667,
+        510,
+        293,
+        254
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "339x339",
       "bytes": 70088,
@@ -4132,7 +4882,12 @@
       "word": "cubo",
       "page": "54",
       "sourcePage": 54,
-      "crop": [141, 919, 230, 278],
+      "crop": [
+        141,
+        919,
+        230,
+        278
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 52382,
@@ -4152,7 +4907,12 @@
       "word": "Catalina",
       "page": "54",
       "sourcePage": 54,
-      "crop": [599, 886, 147, 309],
+      "crop": [
+        599,
+        886,
+        147,
+        309
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 46615,
@@ -4172,7 +4932,12 @@
       "word": "Ilustración de la página 56",
       "page": "56",
       "sourcePage": 56,
-      "crop": [502, 28, 482, 677],
+      "crop": [
+        502,
+        28,
+        482,
+        677
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "1034x1536",
       "bytes": 290425,
@@ -4192,7 +4957,12 @@
       "word": "Ilustración de la página 57",
       "page": "57",
       "sourcePage": 57,
-      "crop": [48, 28, 484, 515],
+      "crop": [
+        48,
+        28,
+        484,
+        515
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "560x560",
       "bytes": 213847,
@@ -4212,7 +4982,12 @@
       "word": "yate",
       "page": "57",
       "sourcePage": 57,
-      "crop": [37, 579, 287, 186],
+      "crop": [
+        37,
+        579,
+        287,
+        186
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "338x338",
       "bytes": 68646,
@@ -4232,7 +5007,12 @@
       "word": "yema",
       "page": "57",
       "sourcePage": 57,
-      "crop": [352, 661, 284, 107],
+      "crop": [
+        352,
+        661,
+        284,
+        107
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "333x333",
       "bytes": 14093,
@@ -4252,7 +5032,12 @@
       "word": "Yayita",
       "page": "57",
       "sourcePage": 57,
-      "crop": [702, 538, 251, 230],
+      "crop": [
+        702,
+        538,
+        251,
+        230
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 80945,
@@ -4272,7 +5057,12 @@
       "word": "mayúscula",
       "page": "57",
       "sourcePage": 57,
-      "crop": [131, 936, 229, 253],
+      "crop": [
+        131,
+        936,
+        229,
+        253
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 62566,
@@ -4292,7 +5082,12 @@
       "word": "yoyo",
       "page": "57",
       "sourcePage": 57,
-      "crop": [556, 925, 243, 254],
+      "crop": [
+        556,
+        925,
+        243,
+        254
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51013,
@@ -4312,7 +5107,12 @@
       "word": "Ilustración de la página 59",
       "page": "59",
       "sourcePage": 59,
-      "crop": [441, 28, 508, 571],
+      "crop": [
+        441,
+        28,
+        508,
+        571
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "567x567",
       "bytes": 281079,
@@ -4332,7 +5132,12 @@
       "word": "Ilustración de la página 60",
       "page": "60",
       "sourcePage": 60,
-      "crop": [81, 28, 481, 472],
+      "crop": [
+        81,
+        28,
+        481,
+        472
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "505x505",
       "bytes": 187254,
@@ -4352,7 +5157,12 @@
       "word": "zapato",
       "page": "60",
       "sourcePage": 60,
-      "crop": [40, 552, 249, 231],
+      "crop": [
+        40,
+        552,
+        249,
+        231
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 61591,
@@ -4372,7 +5182,12 @@
       "word": "zig-zag",
       "page": "60",
       "sourcePage": 60,
-      "crop": [395, 545, 209, 238],
+      "crop": [
+        395,
+        545,
+        209,
+        238
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "344x344",
       "bytes": 35412,
@@ -4392,7 +5207,12 @@
       "word": "zorro",
       "page": "60",
       "sourcePage": 60,
-      "crop": [717, 520, 222, 261],
+      "crop": [
+        717,
+        520,
+        222,
+        261
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 49029,
@@ -4412,7 +5232,12 @@
       "word": "zepelín",
       "page": "60",
       "sourcePage": 60,
-      "crop": [105, 965, 310, 242],
+      "crop": [
+        105,
+        965,
+        310,
+        242
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "362x362",
       "bytes": 74842,
@@ -4432,7 +5257,12 @@
       "word": "Zulema",
       "page": "60",
       "sourcePage": 60,
-      "crop": [573, 932, 190, 282],
+      "crop": [
+        573,
+        932,
+        190,
+        282
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "320x320",
       "bytes": 51690,
@@ -4452,7 +5282,12 @@
       "word": "Ilustración de la página 62",
       "page": "62",
       "sourcePage": 62,
-      "crop": [437, 28, 542, 568],
+      "crop": [
+        437,
+        28,
+        542,
+        568
+      ],
       "classification": "PENDING NO VERIFIED SOURCE",
       "dimensions": "633x633",
       "bytes": 350896,

@@ -25,7 +25,9 @@ describe("DragMatchPairs Stability", () => {
 
     const onComplete = vi.fn();
 
-    const { rerender } = render(<DragMatchPairs pairs={pairs1} onComplete={onComplete} />);
+    const { rerender } = render(
+      <DragMatchPairs pairs={pairs1} onComplete={onComplete} />
+    );
 
     // Make a match
     const osoWord = screen.getByText("Oso", { selector: "div" });
@@ -41,9 +43,7 @@ describe("DragMatchPairs Stability", () => {
     });
 
     // Check if match was successful (Oso should be in the drop zone)
-    expect(screen.getAllByText("Oso", { selector: "div.bg-emerald-500" }).length).toBeGreaterThan(
-      0,
-    );
+    expect(screen.getAllByText("Oso", { selector: "div.bg-emerald-500" }).length).toBeGreaterThan(0);
 
     // Now re-render with a NEW array reference but same content
     const pairs2: Pair[] = [
@@ -54,21 +54,23 @@ describe("DragMatchPairs Stability", () => {
     rerender(<DragMatchPairs pairs={pairs2} onComplete={onComplete} />);
 
     // Match should still exist!
-    expect(screen.getAllByText("Oso", { selector: "div.bg-emerald-500" }).length).toBeGreaterThan(
-      0,
-    );
+    expect(screen.getAllByText("Oso", { selector: "div.bg-emerald-500" }).length).toBeGreaterThan(0);
 
     // Test onComplete not triggered unnecessarily
     expect(onComplete).not.toHaveBeenCalled();
   });
 
   it("resets state when pairs content actually changes", () => {
-    const pairs1: Pair[] = [{ word: "Oso", emoji: "🐻", illustrationSrc: "oso.png" }];
+    const pairs1: Pair[] = [
+      { word: "Oso", emoji: "🐻", illustrationSrc: "oso.png" },
+    ];
 
     const { rerender } = render(<DragMatchPairs pairs={pairs1} />);
     expect(screen.getByText("Oso", { selector: "div" })).not.toBeNull();
 
-    const pairs2: Pair[] = [{ word: "Luna", emoji: "🌙", illustrationSrc: "luna.png" }];
+    const pairs2: Pair[] = [
+      { word: "Luna", emoji: "🌙", illustrationSrc: "luna.png" },
+    ];
 
     rerender(<DragMatchPairs pairs={pairs2} />);
     expect(screen.queryByText("Oso", { selector: "div" })).toBeNull();

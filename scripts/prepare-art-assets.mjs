@@ -231,9 +231,7 @@ function cropForBounds(bounds, width, height) {
   const left = touches.left ? 0 : Math.max(0, bounds.x - SAFE_PADDING);
   const top = touches.top ? 0 : Math.max(0, bounds.y - SAFE_PADDING);
   const right = touches.right ? width : Math.min(width, bounds.x + bounds.width + SAFE_PADDING);
-  const bottom = touches.bottom
-    ? height
-    : Math.min(height, bounds.y + bounds.height + SAFE_PADDING);
+  const bottom = touches.bottom ? height : Math.min(height, bounds.y + bounds.height + SAFE_PADDING);
   return {
     left,
     top,
@@ -369,7 +367,9 @@ async function prepareFlipchartDelivery(_checkOnly) {
       sourceWidth: meta.width,
       sourceHeight: meta.height,
       productionSurface:
-        pageNumber <= 2 ? "native-frontmatter-component" : "native-object-composition+digital-text",
+        pageNumber <= 2
+          ? "native-frontmatter-component"
+          : "native-object-composition+digital-text",
     });
   }
 
@@ -414,15 +414,9 @@ export async function prepareFlipchartNativeCrops(checkOnly) {
           continue;
         }
         const metadata = await sharp(out).metadata();
-        generated.push({
-          page: pageNumber,
-          word: asset.word,
-          src: asset.src,
-          width: metadata.width,
-          height: metadata.height,
-          bytes: fs.statSync(out).size,
-          approvedInput: true,
-        });
+        generated.push({ page: pageNumber, word: asset.word, src: asset.src,
+          width: metadata.width, height: metadata.height,
+          bytes: fs.statSync(out).size, approvedInput: true });
         continue;
       }
       const [x, y, w, h] = asset.crop.map(Number);
@@ -441,7 +435,11 @@ export async function prepareFlipchartNativeCrops(checkOnly) {
         extracted.info.width,
         extracted.info.height,
       );
-      const bounds = alphaBounds(cleaned.data, extracted.info.width, extracted.info.height);
+      const bounds = alphaBounds(
+        cleaned.data,
+        extracted.info.width,
+        extracted.info.height,
+      );
       const crop = cropForBounds(bounds, extracted.info.width, extracted.info.height);
       const buffer = await sharp(Buffer.from(cleaned.data), {
         raw: {
@@ -519,9 +517,7 @@ async function processEntry(entry, checkOnly) {
       height: crop.height,
     });
   }
-  const normalizedLossless = await normalized
-    .webp({ lossless: true, alphaQuality: 100 })
-    .toBuffer();
+  const normalizedLossless = await normalized.webp({ lossless: true, alphaQuality: 100 }).toBuffer();
   const normalizedMeta = await sharp(normalizedLossless).metadata();
 
   const derivatives = [];
@@ -666,8 +662,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
     lessonNumber: record.entry?.lessonNumber ?? null,
     sourceAsset: record.entry?.source ?? record.entry?.sourceFlipchartPage ?? null,
     provenanceStatus: record.entry?.provenanceStatus ?? null,
-    reason:
-      "Manifest record exists but no canonical production cutout is retained in the repository.",
+    reason: "Manifest record exists but no canonical production cutout is retained in the repository.",
   }));
 
   const errors = [
@@ -740,8 +735,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
     unresolvedSourceIssues,
     assets: records.filter((record) => record.canonical),
     flipchart: {
-      canonicalPolicy:
-        "62 repository-controlled HD masters are provenance only; the active teacher surface is native object composition plus digital text.",
+      canonicalPolicy: "62 repository-controlled HD masters are provenance only; the active teacher surface is native object composition plus digital text.",
       assets: flipchart.assets,
       nativeCrops: flipchartNative.generated,
     },

@@ -18,7 +18,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
         "sourceFlipchartPage": "rr-page-40.jpg",
-        "cropBox": [230, 1492, 574, 398]
+        "cropBox": [
+          230,
+          1492,
+          574,
+          398
+        ]
       }
     },
     {
@@ -34,7 +39,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-7-m/moto.webp",
         "sourceFlipchartPage": "m-page-10.jpg",
-        "cropBox": [1381, 1095, 575, 398]
+        "cropBox": [
+          1381,
+          1095,
+          575,
+          398
+        ]
       }
     },
     {
@@ -50,7 +60,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-7-m/mapa.webp",
         "sourceFlipchartPage": "m-page-10.jpg",
-        "cropBox": [231, 1493, 575, 398]
+        "cropBox": [
+          231,
+          1493,
+          575,
+          398
+        ]
       }
     },
     {
@@ -66,7 +81,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-8-p/pino.webp",
         "sourceFlipchartPage": "p-page-11.jpg",
-        "cropBox": [1381, 1094, 575, 398]
+        "cropBox": [
+          1381,
+          1094,
+          575,
+          398
+        ]
       }
     },
     {
@@ -82,7 +102,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
         "sourceFlipchartPage": "p-page-11.jpg",
-        "cropBox": [231, 1492, 575, 398]
+        "cropBox": [
+          231,
+          1492,
+          575,
+          398
+        ]
       }
     },
     {
@@ -98,7 +123,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-9-s/sol.webp",
         "sourceFlipchartPage": "ss-page-14.jpg",
-        "cropBox": [804, 1095, 574, 398]
+        "cropBox": [
+          804,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -114,7 +144,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-9-s/silla.webp",
         "sourceFlipchartPage": "ss-page-14.jpg",
-        "cropBox": [230, 1493, 574, 398]
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
       }
     },
     {
@@ -130,7 +165,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-10-t/tapa.webp",
         "sourceFlipchartPage": "t-page-17.jpg",
-        "cropBox": [230, 1095, 574, 398]
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -146,7 +186,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-10-t/tomate.webp",
         "sourceFlipchartPage": "t-page-17.jpg",
-        "cropBox": [804, 1095, 574, 398]
+        "cropBox": [
+          804,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -162,7 +207,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-10-t/tina.webp",
         "sourceFlipchartPage": "t-page-17.jpg",
-        "cropBox": [1378, 1095, 574, 398]
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -178,7 +228,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
         "sourceFlipchartPage": "t-page-17.jpg",
-        "cropBox": [230, 1493, 574, 398]
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
       }
     },
     {
@@ -194,7 +249,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-11-d/delfin.webp",
         "sourceFlipchartPage": "d-page-19.jpg",
-        "cropBox": [803, 1095, 573, 398]
+        "cropBox": [
+          803,
+          1095,
+          573,
+          398
+        ]
       }
     },
     {
@@ -210,7 +270,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-11-d/dona.webp",
         "sourceFlipchartPage": "d-page-19.jpg",
-        "cropBox": [1376, 1095, 573, 398]
+        "cropBox": [
+          1376,
+          1095,
+          573,
+          398
+        ]
       }
     },
     {
@@ -226,7 +291,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-11-d/ducha.webp",
         "sourceFlipchartPage": "d-page-19.jpg",
-        "cropBox": [230, 1493, 573, 398]
+        "cropBox": [
+          230,
+          1493,
+          573,
+          398
+        ]
       }
     },
     {
@@ -242,7 +312,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-12-l/luna.webp",
         "sourceFlipchartPage": "l-page-22.jpg",
-        "cropBox": [230, 1094, 574, 398]
+        "cropBox": [
+          230,
+          1094,
+          574,
+          398
+        ]
       }
     },
     {
@@ -258,7 +333,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-12-l/lobo.webp",
         "sourceFlipchartPage": "l-page-22.jpg",
-        "cropBox": [804, 1094, 574, 398]
+        "cropBox": [
+          804,
+          1094,
+          574,
+          398
+        ]
       }
     },
     {
@@ -274,7 +354,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-12-l/loro.webp",
         "sourceFlipchartPage": "l-page-22.jpg",
-        "cropBox": [1378, 1094, 574, 398]
+        "cropBox": [
+          1378,
+          1094,
+          574,
+          398
+        ]
       }
     },
     {
@@ -290,7 +375,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-12-l/lupa.webp",
         "sourceFlipchartPage": "l-page-22.jpg",
-        "cropBox": [230, 1492, 574, 398]
+        "cropBox": [
+          230,
+          1492,
+          574,
+          398
+        ]
       }
     },
     {
@@ -306,7 +396,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-13-n/nariz.webp",
         "sourceFlipchartPage": "n-page-25.jpg",
-        "cropBox": [230, 1095, 574, 398]
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -322,7 +417,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-13-n/nube.webp",
         "sourceFlipchartPage": "n-page-25.jpg",
-        "cropBox": [1378, 1095, 574, 398]
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -338,7 +438,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-13-n/nata.webp",
         "sourceFlipchartPage": "n-page-25.jpg",
-        "cropBox": [230, 1493, 574, 398]
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
       }
     },
     {
@@ -354,7 +459,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-14-n/pina.webp",
         "sourceFlipchartPage": "ñ-page-28.jpg",
-        "cropBox": [230, 1095, 574, 398]
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -370,7 +480,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-14-n/muneca.webp",
         "sourceFlipchartPage": "ñ-page-28.jpg",
-        "cropBox": [804, 1095, 574, 398]
+        "cropBox": [
+          804,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -386,7 +501,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-15-b/barco.webp",
         "sourceFlipchartPage": "b-page-31.jpg",
-        "cropBox": [230, 1095, 574, 398]
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -402,7 +522,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-15-b/bici.webp",
         "sourceFlipchartPage": "b-page-31.jpg",
-        "cropBox": [1378, 1095, 574, 398]
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -418,7 +543,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-16-v/vaca.webp",
         "sourceFlipchartPage": "v-page-34.jpg",
-        "cropBox": [230, 1095, 574, 398]
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -434,7 +564,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-16-v/vino.webp",
         "sourceFlipchartPage": "v-page-34.jpg",
-        "cropBox": [1378, 1095, 574, 398]
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
       }
     },
     {
@@ -450,7 +585,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-16-v/volcan.webp",
         "sourceFlipchartPage": "v-page-34.jpg",
-        "cropBox": [230, 1493, 574, 398]
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
       }
     },
     {
@@ -466,7 +606,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-19-c/cono.webp",
         "sourceFlipchartPage": "c-page-52.jpg",
-        "cropBox": [804, 1094, 574, 398]
+        "cropBox": [
+          804,
+          1094,
+          574,
+          398
+        ]
       }
     },
     {
@@ -482,7 +627,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-19-c/camisa.webp",
         "sourceFlipchartPage": "c-page-52.jpg",
-        "cropBox": [230, 1492, 574, 398]
+        "cropBox": [
+          230,
+          1492,
+          574,
+          398
+        ]
       }
     },
     {
@@ -498,7 +648,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-22-y/yegua.webp",
         "sourceFlipchartPage": "y-page-55.jpg",
-        "cropBox": [1378, 1094, 574, 398]
+        "cropBox": [
+          1378,
+          1094,
+          574,
+          398
+        ]
       }
     },
     {
@@ -514,7 +669,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
         "sourceFlipchartPage": "z-page-58.jpg",
-        "cropBox": [806, 1094, 575, 398]
+        "cropBox": [
+          806,
+          1094,
+          575,
+          398
+        ]
       }
     },
     {
@@ -530,7 +690,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-23-z/cisne.webp",
         "sourceFlipchartPage": "z-page-58.jpg",
-        "cropBox": [1381, 1094, 575, 398]
+        "cropBox": [
+          1381,
+          1094,
+          575,
+          398
+        ]
       }
     },
     {
@@ -546,7 +711,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-23-z/cepillo.webp",
         "sourceFlipchartPage": "z-page-58.jpg",
-        "cropBox": [231, 1492, 575, 398]
+        "cropBox": [
+          231,
+          1492,
+          575,
+          398
+        ]
       }
     },
     {
@@ -562,7 +732,12 @@
         "pageNumber": null,
         "src": "/cartilla/art/faithful/leccion-21-j/ajo.webp",
         "sourceFlipchartPage": "j-page-49.jpg",
-        "cropBox": [280, 2180, 620, 520],
+        "cropBox": [
+          280,
+          2180,
+          620,
+          520
+        ],
         "sourceNote": "garlic bulb"
       }
     }

@@ -5,7 +5,10 @@
   "book": {
     "title": "La Cartilla de Gretel",
     "author": "Leonor Lopetegui",
-    "contributors": ["Aída Fernández", "Silvia Diez"],
+    "contributors": [
+      "Aída Fernández",
+      "Silvia Diez"
+    ],
     "illustrator": "Estela de Armas Plasencia",
     "adaptationCredit": "Digital Adaptation of the First Printed Edition / Prepared by Emilio José Novo",
     "imprint": "La Cartilla de Gretel",
@@ -16,7 +19,13 @@
       "lessons": 24
     }
   },
-  "vowelOrder": ["O", "A", "E", "I", "U"],
+  "vowelOrder": [
+    "O",
+    "A",
+    "E",
+    "I",
+    "U"
+  ],
   "consonantOrder": [
     "M",
     "P",
@@ -102,7 +111,9 @@
       "lesson": 7,
       "title": "Mm",
       "focus": "M",
-      "sightWords": ["y"],
+      "sightWords": [
+        "y"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -112,7 +123,9 @@
       "lesson": 8,
       "title": "Pp",
       "focus": "P",
-      "sightWords": ["yo"],
+      "sightWords": [
+        "yo"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -122,7 +135,15 @@
       "lesson": 9,
       "title": "Ss",
       "focus": "S",
-      "sightWords": ["es", "de", "un", "está", "en", "la", "el"],
+      "sightWords": [
+        "es",
+        "de",
+        "un",
+        "está",
+        "en",
+        "la",
+        "el"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -132,7 +153,11 @@
       "lesson": 10,
       "title": "Tt",
       "focus": "T",
-      "sightWords": ["tiene", "patio", "no"],
+      "sightWords": [
+        "tiene",
+        "patio",
+        "no"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -142,7 +167,10 @@
       "lesson": 11,
       "title": "Dd",
       "focus": "D",
-      "sightWords": ["son", "están"],
+      "sightWords": [
+        "son",
+        "están"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -152,7 +180,9 @@
       "lesson": 12,
       "title": "Ll",
       "focus": "L",
-      "sightWords": ["también"],
+      "sightWords": [
+        "también"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -172,7 +202,9 @@
       "lesson": 14,
       "title": "Ññ",
       "focus": "Ñ",
-      "sightWords": ["del"],
+      "sightWords": [
+        "del"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -182,7 +214,11 @@
       "lesson": 15,
       "title": "Bb",
       "focus": "B",
-      "sightWords": ["alto", "con", "bueno"],
+      "sightWords": [
+        "alto",
+        "con",
+        "bueno"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -202,7 +238,9 @@
       "lesson": 17,
       "title": "R inicial",
       "focus": "R",
-      "sightWords": ["bien"],
+      "sightWords": [
+        "bien"
+      ],
       "palabrasSection": true,
       "miniStory": true,
       "closing": "poema",
@@ -232,7 +270,9 @@
       "lesson": 20,
       "title": "Ff",
       "focus": "F",
-      "sightWords": ["hay"],
+      "sightWords": [
+        "hay"
+      ],
       "palabrasSection": true,
       "miniStory": false,
       "closing": "poema",
@@ -352,8 +392,23 @@
       "introducedInLesson": 20
     }
   },
-  "miniStoryLessons": [17, 19, 21, 22, 23, 24],
-  "emptyPalabrasLessons": [16, 18, 19, 21, 22, 23, 24],
+  "miniStoryLessons": [
+    17,
+    19,
+    21,
+    22,
+    23,
+    24
+  ],
+  "emptyPalabrasLessons": [
+    16,
+    18,
+    19,
+    21,
+    22,
+    23,
+    24
+  ],
   "lessons": [
     {
       "position": 2,
@@ -364,7 +419,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/rima/rima-page-2.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/rima/rima-page-2.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -387,7 +444,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/o/o-page-3.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/o/o-page-3.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -410,7 +469,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/a/a-page-4.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/a/a-page-4.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -433,7 +494,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/e/e-page-5.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/e/e-page-5.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -456,7 +519,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/i/i-page-6.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/i/i-page-6.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -479,7 +544,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/u/u-page-7.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/u/u-page-7.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -502,7 +569,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/m/m-page-8.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/m/m-page-8.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -525,7 +594,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/m/m-page-9.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/m/m-page-9.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -548,7 +619,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/m/m-page-10.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/m/m-page-10.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -571,7 +644,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/p/p-page-11.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/p/p-page-11.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -594,7 +669,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/p/p-page-12.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/p/p-page-12.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -617,7 +694,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/p/p-page-13.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/p/p-page-13.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -640,8 +719,16 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/ss/ss-page-14.jpg"],
-      "textBlocks": ["Sesi", "sopa", "sapo", "pisa", "Susi"],
+      "remasteredImages": [
+        "cartilla/images/source/ss/ss-page-14.jpg"
+      ],
+      "textBlocks": [
+        "Sesi",
+        "sopa",
+        "sapo",
+        "pisa",
+        "Susi"
+      ],
       "workbookExercises": [],
       "teacherGuideNotes": [],
       "audioTargets": [],
@@ -663,7 +750,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/ss/ss-page-15.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/ss/ss-page-15.jpg"
+      ],
       "textBlocks": [
         "masa, sapo, así, puso, Sisi",
         "mesa, seso, sopa, supo, ese",
@@ -698,7 +787,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/ss/ss-page-16.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/ss/ss-page-16.jpg"
+      ],
       "textBlocks": [
         "Sapo Samapo",
         "Sapo Samapo",
@@ -727,7 +818,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/t/t-page-17.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/t/t-page-17.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -750,7 +843,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/t/t-page-18.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/t/t-page-18.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -773,7 +868,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/d/d-page-19.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/d/d-page-19.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -796,7 +893,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/d/d-page-20.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/d/d-page-20.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -819,7 +918,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/d/d-page-21.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/d/d-page-21.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -842,7 +943,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/l/l-page-22.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/l/l-page-22.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -865,7 +968,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/l/l-page-23.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/l/l-page-23.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -888,7 +993,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/l/l-page-24.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/l/l-page-24.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -911,7 +1018,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/n/n-page-25.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/n/n-page-25.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -934,7 +1043,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/n/n-page-26.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/n/n-page-26.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -957,7 +1068,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/n/n-page-27.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/n/n-page-27.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -980,7 +1093,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/ñ/ñ-page-28.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/ñ/ñ-page-28.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1003,7 +1118,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/ñ/ñ-page-29.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/ñ/ñ-page-29.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1026,7 +1143,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/ñ/ñ-page-30.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/ñ/ñ-page-30.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1049,7 +1168,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/b/b-page-31.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/b/b-page-31.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1072,7 +1193,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/b/b-page-32.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/b/b-page-32.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1095,7 +1218,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/b/b-page-33.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/b/b-page-33.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1118,7 +1243,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/v/v-page-34.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/v/v-page-34.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1141,7 +1268,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/v/v-page-35.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/v/v-page-35.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1164,7 +1293,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/v/v-page-36.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/v/v-page-36.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1187,8 +1318,16 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/r/r-page-37.jpg"],
-      "textBlocks": ["rana", "remo", "Rita", "rosa", "rueda"],
+      "remasteredImages": [
+        "cartilla/images/source/r/r-page-37.jpg"
+      ],
+      "textBlocks": [
+        "rana",
+        "remo",
+        "Rita",
+        "rosa",
+        "rueda"
+      ],
       "workbookExercises": [],
       "teacherGuideNotes": [],
       "audioTargets": [],
@@ -1210,7 +1349,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/r/r-page-38.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/r/r-page-38.jpg"
+      ],
       "textBlocks": [
         "ramo, remo, ropa",
         "rosa, rana, rosado",
@@ -1243,7 +1384,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/r/r-page-39.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/r/r-page-39.jpg"
+      ],
       "textBlocks": [
         "La r para la rama",
         "para el roer del ratón",
@@ -1275,7 +1418,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/rr/rr-page-40.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/rr/rr-page-40.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1298,7 +1443,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/rr/rr-page-41.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/rr/rr-page-41.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1321,7 +1468,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/rr/rr-page-42.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/rr/rr-page-42.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1344,7 +1493,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/g/g-page-43.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/g/g-page-43.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1367,7 +1518,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/g/g-page-44.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/g/g-page-44.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1390,7 +1543,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/g/g-page-45.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/g/g-page-45.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1413,7 +1568,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/f/f-page-46.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/f/f-page-46.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1436,7 +1593,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/f/f-page-47.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/f/f-page-47.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1459,7 +1618,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/f/f-page-48.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/f/f-page-48.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1482,7 +1643,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/j/j-page-49.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/j/j-page-49.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1505,7 +1668,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/j/j-page-50.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/j/j-page-50.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1528,7 +1693,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/j/j-page-51.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/j/j-page-51.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1551,7 +1718,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/c/c-page-52.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/c/c-page-52.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1574,7 +1743,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/c/c-page-53.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/c/c-page-53.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1597,7 +1768,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/c/c-page-54.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/c/c-page-54.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1620,7 +1793,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/y/y-page-55.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/y/y-page-55.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1643,7 +1818,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/y/y-page-56.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/y/y-page-56.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1666,7 +1843,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/y/y-page-57.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/y/y-page-57.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1689,7 +1868,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/z/z-page-58.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/z/z-page-58.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1712,7 +1893,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/z/z-page-59.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/z/z-page-59.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],
@@ -1735,7 +1918,9 @@
       "colors": null,
       "sourcePages": [],
       "originalImages": [],
-      "remasteredImages": ["cartilla/images/source/z/z-page-60.jpg"],
+      "remasteredImages": [
+        "cartilla/images/source/z/z-page-60.jpg"
+      ],
       "textBlocks": [],
       "workbookExercises": [],
       "teacherGuideNotes": [],

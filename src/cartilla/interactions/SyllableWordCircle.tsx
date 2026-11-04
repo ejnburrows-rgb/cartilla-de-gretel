@@ -8,10 +8,7 @@ import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
 
 export function validSyllableStarts(word: string, syllable: string): number[] {
   const normalize = (value: string) =>
-    value
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase("es");
+    value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es");
   const text = normalize(word);
   const target = normalize(syllable);
   return target
@@ -30,13 +27,7 @@ function clampMarkStart(word: string, syllable: string, start: number): number {
   return Math.max(0, Math.min(start, Math.max(0, word.length - span)));
 }
 
-export function SyllableWordCircle({
-  region,
-  lessonId,
-}: {
-  region: PageRegion;
-  lessonId?: string;
-}) {
+export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const words = (region.matchRows ?? []).flat();
   const isTarget = (i: number) => words[i]?.correct !== false;
@@ -49,14 +40,10 @@ export function SyllableWordCircle({
       const current = localStorage.getItem(key);
       if (current !== null) {
         const stored: unknown = JSON.parse(current);
-        return new Set(
-          Array.isArray(stored)
-            ? stored.filter(
-                (i): i is number =>
-                  Number.isInteger(i) && i >= 0 && i < words.length && isTarget(i),
-              )
-            : [],
-        );
+        return new Set(Array.isArray(stored)
+          ? stored.filter((i): i is number =>
+              Number.isInteger(i) && i >= 0 && i < words.length && isTarget(i))
+          : []);
       }
 
       // Legacy source IDs: <region-id>-<row>-<column>.
@@ -70,8 +57,7 @@ export function SyllableWordCircle({
             legacy.has(`${region.id}-${rowIndex}-${columnIndex}`) &&
             entry.correct !== false &&
             validSyllableStarts(entry.word, region.syllable ?? "").length > 0
-          )
-            restored.add(flatIndex);
+          ) restored.add(flatIndex);
           flatIndex++;
         }
       }
@@ -163,7 +149,10 @@ export function SyllableWordCircle({
     setPending({ wordIndex, start: normalizedStart, correct });
   };
 
-  const handlePointerUp = (event: ReactPointerEvent<HTMLButtonElement>, wordIndex: number) => {
+  const handlePointerUp = (
+    event: ReactPointerEvent<HTMLButtonElement>,
+    wordIndex: number,
+  ) => {
     if (pending) return;
     const word = words[wordIndex]?.word ?? "";
     if (!word) return;
@@ -192,15 +181,12 @@ export function SyllableWordCircle({
     if (!word) return null;
     const pendingHere = pending?.wordIndex === wordIndex ? pending : null;
     const committedStart = marked.has(wordIndex)
-      ? (selectedStarts[wordIndex] ?? validSyllableStarts(word, syllable)[0])
+      ? selectedStarts[wordIndex] ?? validSyllableStarts(word, syllable)[0]
       : undefined;
     const start = pendingHere?.start ?? committedStart;
     if (start === undefined) return null;
     const normalizedStart = clampMarkStart(word, syllable, start);
-    const spanLength = Math.max(
-      1,
-      Math.min(Math.max(1, syllable.length), word.length - normalizedStart),
-    );
+    const spanLength = Math.max(1, Math.min(Math.max(1, syllable.length), word.length - normalizedStart));
     const style = {
       left: `${(normalizedStart / word.length) * 100}%`,
       width: `${(spanLength / word.length) * 100}%`,
@@ -215,9 +201,7 @@ export function SyllableWordCircle({
             isCorrect={pendingHere.correct}
             itemId={`${region.id}-${wordIndex}`}
             onSuccess={() => commitCorrect(wordIndex, pendingHere.start)}
-            onRetry={() =>
-              setPending((current) => (current?.wordIndex === wordIndex ? null : current))
-            }
+            onRetry={() => setPending((current) => (current?.wordIndex === wordIndex ? null : current))}
           />
         ) : (
           <WorkbookPencilMark

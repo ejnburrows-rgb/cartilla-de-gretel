@@ -82,7 +82,11 @@ export function FlipchartPlate({
       />
     );
 
-  const points = [...frame.topPoints, [frame.right, frame.bottom], [frame.left, frame.bottom]]
+  const points = [
+    ...frame.topPoints,
+    [frame.right, frame.bottom],
+    [frame.left, frame.bottom],
+  ]
     .map((point) => point.join(","))
     .join(" ");
 

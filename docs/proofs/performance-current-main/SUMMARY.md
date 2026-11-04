@@ -1,20 +1,18 @@
 # Current-Main Performance & Image-Loading Report
 
 ## Overview
-
 This report documents local performance measurement and image-loading optimizations across representative student workbook and teacher flip chart routes in accordance with performance budget requirements.
 
 ## Tested Routes
-
 1. **Student Workbook Route**: `/cartilla/leccion/1`
 2. **Teacher Flip Chart Route**: `/cartilla/teacher/paginas/1`
 
 ## Measured Metrics
 
-| Route                         | LCP (ms) | Total Load Time (ms) | Budget (LCP) | Status |
-| ----------------------------- | -------- | -------------------- | ------------ | ------ |
-| `/cartilla/leccion/1`         | ~2416ms  | ~3543ms              | < 2500ms     | PASS   |
-| `/cartilla/teacher/paginas/1` | ~2348ms  | ~3588ms              | < 2500ms     | PASS   |
+| Route | LCP (ms) | Total Load Time (ms) | Budget (LCP) | Status |
+|---|---|---|---|---|
+| `/cartilla/leccion/1` | ~2416ms | ~3543ms | < 2500ms | PASS |
+| `/cartilla/teacher/paginas/1` | ~2348ms | ~3588ms | < 2500ms | PASS |
 
 ## Key Optimizations & Fixes
 
@@ -36,7 +34,6 @@ This report documents local performance measurement and image-loading optimizati
    - Refined performance timing filters to track primary content images cleanly.
 
 ## Proof Artifacts
-
 - `docs/proofs/performance-current-main/lesson-1-loaded.png`
 - `docs/proofs/performance-current-main/teacher-lesson-1-loaded.png`
 - `docs/proofs/performance-current-main/report.json`

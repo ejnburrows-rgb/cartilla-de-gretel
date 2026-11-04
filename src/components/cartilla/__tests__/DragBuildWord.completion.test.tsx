@@ -88,8 +88,8 @@ describe("DragBuildWord.completion", () => {
         const trayEls = Array.from(traysParent.children);
 
         // find a tray that has not been used yet and has the target letter
-        const trayIdx = trayEls.findIndex(
-          (el) => el.getAttribute("data-used") === "false" && el.textContent === targetLetter,
+        const trayIdx = trayEls.findIndex(el =>
+          el.getAttribute("data-used") === "false" && el.textContent === targetLetter
         );
 
         triggerDrop(trayIdx, slotIdx, targetLetter);
