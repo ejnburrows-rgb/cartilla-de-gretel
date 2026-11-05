@@ -1,170 +1,213 @@
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
-import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
+import { useState } from "react";
 import {
-  GraduationCap,
-  BookOpen,
   MonitorPlay,
-  FileSpreadsheet,
-  HelpCircle,
-  Rows3,
-  Home,
-  ClipboardCheck,
-  Music,
+  BookOpen,
+  Printer,
+  ChevronRight,
+  GraduationCap,
+  Sparkles,
 } from "lucide-react";
+import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 
 export const Route = createLazyFileRoute("/cartilla/teacher/")({
   component: TeacherHub,
 });
 
-interface EntryPoint {
-  title: string;
-  description: string;
-  to: string;
-  icon: React.ReactNode;
-  accent: string;
-}
-
-const ENTRY_POINTS: EntryPoint[] = [
-  {
-    title: "Clase",
-    description: "Crea o abre una clase, agrega alumnos, asigna lecciones.",
-    to: "/cartilla/teacher/crm",
-    icon: <GraduationCap className="w-6 h-6" />,
-    accent: "#0f766e",
-  },
-  {
-    title: "Guía",
-    description: "Guía del profesor, tablas, tareas, evaluaciones y poemas — lección por lección.",
-    to: "/cartilla/teacher/guia",
-    icon: <BookOpen className="w-6 h-6" />,
-    accent: "#4f46e5",
-  },
-  {
-    title: "Presentar",
-    description: "Abre el flipchart para proyectar la lección frente a la clase.",
-    to: "/cartilla/teacher/flipchart",
-    icon: <MonitorPlay className="w-6 h-6" />,
-    accent: "#d97706",
-  },
-  {
-    title: "Reportes",
-    description: "Progreso por alumno y por lección, reporte imprimible y exportación CSV.",
-    to: "/cartilla/teacher/reportes",
-    icon: <FileSpreadsheet className="w-6 h-6" />,
-    accent: "#9333ea",
-  },
-  {
-    title: "Ayuda",
-    description: "Cómo usar la app: clase, asignar, presentar, guía y progreso, paso a paso.",
-    to: "/cartilla/teacher/ayuda",
-    icon: <HelpCircle className="w-6 h-6" />,
-    accent: "#dc2626",
-  },
-];
-
-interface DriveFolder {
-  title: string;
-  color: string;
-  iconColor: string;
-  icon: React.ReactNode;
-  folderKey: "guia" | "tablas" | "tareas" | "evaluaciones" | "poemas";
-}
-
-const FOLDERS: DriveFolder[] = [
-  {
-    title: "Guía del Profesor",
-    color: "bg-[#16a34a]",
-    iconColor: "text-green-200",
-    icon: <BookOpen className="w-10 h-10" />,
-    folderKey: "guia",
-  },
-  {
-    title: "Tablas Silábicas y de Vocales",
-    color: "bg-[#059669]",
-    iconColor: "text-emerald-200",
-    icon: <Rows3 className="w-10 h-10" />,
-    folderKey: "tablas",
-  },
-  {
-    title: "Tareas para el Hogar",
-    color: "bg-[#d97706]",
-    iconColor: "text-amber-100",
-    icon: <Home className="w-10 h-10" />,
-    folderKey: "tareas",
-  },
-  {
-    title: "Evaluaciones",
-    color: "bg-[#9333ea]",
-    iconColor: "text-purple-200",
-    icon: <ClipboardCheck className="w-10 h-10" />,
-    folderKey: "evaluaciones",
-  },
-  {
-    title: "Poemas y Audio",
-    color: "bg-[#e11d48]",
-    iconColor: "text-rose-200",
-    icon: <Music className="w-10 h-10" />,
-    folderKey: "poemas",
-  },
-];
-
 function TeacherHub() {
+  const [selectedLesson, setSelectedLesson] = useState<number>(1);
+  const activeEntry: CatalogEntry = CATALOG.find((e) => e.n === selectedLesson) ?? CATALOG[0];
+
+  const vowelLessons = CATALOG.filter((e) => e.n <= 6);
+  const consonantLessons = CATALOG.filter((e) => e.n >= 7);
+
   return (
-    <div className="w-full space-y-8 pb-16">
-      <DemoControlCenter />
-      <header>
-        <h1 className="teacher-chrome__title text-3xl sm:text-4xl font-black">Panel del Docente</h1>
-        <p className="text-[var(--tc-ink-soft)] font-bold mt-1">
-          Todo lo que necesitas para dar clase con La Cartilla de Gretel, en un solo lugar.
-        </p>
+    <div className="maestro-minimal-shell">
+      <header className="maestro-minimal-header">
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-amber-700">
+              La Cartilla de Gretel · Espacio del Maestro
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-black text-stone-900 mt-1">
+              Enseñar en el Aula
+            </h1>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link
+              to="/cartilla/teacher/crm"
+              className="inline-flex items-center gap-2 rounded-xl bg-white border border-stone-300 px-4 py-2 text-xs font-bold text-stone-800 shadow-2xs hover:bg-stone-50"
+            >
+              <GraduationCap className="w-4 h-4 text-amber-700" /> Mis Alumnos
+            </Link>
+            <Link
+              to="/cartilla/imprimir/all"
+              className="inline-flex items-center gap-2 rounded-xl bg-white border border-stone-300 px-4 py-2 text-xs font-bold text-stone-800 shadow-2xs hover:bg-stone-50"
+            >
+              <Printer className="w-4 h-4 text-amber-700" /> Imprimir Hojas
+            </Link>
+          </div>
+        </div>
       </header>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        {ENTRY_POINTS.map((entry) => (
-          <Link
-            key={entry.title}
-            to={entry.to as never}
-            className="teacher-chrome__card rounded-3xl p-5 hover:-translate-y-1 hover:shadow-lg transition-all"
-          >
-            <div
-              className="w-11 h-11 rounded-2xl flex items-center justify-center text-white mb-3 shadow-md"
-              style={{ background: entry.accent }}
-            >
-              {entry.icon}
-            </div>
-            <h2 className="font-black text-lg text-[var(--tc-ink)]">{entry.title}</h2>
-            <p className="text-xs font-medium text-[var(--tc-ink-soft)] mt-1 leading-snug">
-              {entry.description}
-            </p>
-          </Link>
-        ))}
-      </section>
+      {/* 2-Column Editorial Teacher Workspace */}
+      <div className="maestro-grid-workspace">
+        {/* Left Sidebar: Lessons selector */}
+        <aside className="maestro-sidebar-lessons" aria-label="Seleccionar Lección">
+          <div className="sidebar-group-label">Etapa 1 · Las Vocales (1–6)</div>
+          <div className="space-y-1">
+            {vowelLessons.map((entry) => {
+              const isSelected = entry.n === selectedLesson;
+              return (
+                <button
+                  key={entry.n}
+                  type="button"
+                  onClick={() => setSelectedLesson(entry.n)}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-xs font-bold transition ${
+                    isSelected
+                      ? "bg-amber-900 text-white shadow-sm"
+                      : "bg-white/70 text-stone-700 hover:bg-white hover:text-stone-900"
+                  }`}
+                >
+                  <span className="truncate">
+                    {entry.n}. {entry.title}
+                  </span>
+                  <span className={`text-[10px] ml-2 ${isSelected ? "text-amber-200" : "text-stone-400"}`}>
+                    Pág. {entry.pages}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
 
-      <section>
-        <h2 className="teacher-chrome__title text-xl font-black mb-1">Materiales de la Guía</h2>
-        <p className="text-sm font-bold text-[var(--tc-ink-soft)] mb-6">
-          Toca una carpeta para ver las 24 lecciones dentro de esa categoría.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {FOLDERS.map((folder) => (
-            <Link
-              key={folder.title}
-              to="/cartilla/teacher/guia"
-              search={{ folder: folder.folderKey }}
-              className="group relative flex flex-col w-full pt-6 cursor-pointer transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.03]"
-            >
-              <div
-                className={`relative z-10 w-full min-h-[160px] ${folder.color} rounded-3xl shadow-md flex flex-col items-center justify-center p-5 gap-3 border-b-4 border-black/20`}
-              >
-                <div className={folder.iconColor}>{folder.icon}</div>
-                <h3 className="text-sm sm:text-base font-black leading-tight uppercase text-white text-center">
-                  {folder.title}
-                </h3>
+          <div className="sidebar-group-label mt-5">Etapa 2 · Consonantes (7–24)</div>
+          <div className="space-y-1 max-h-[380px] overflow-y-auto pr-1">
+            {consonantLessons.map((entry) => {
+              const isSelected = entry.n === selectedLesson;
+              return (
+                <button
+                  key={entry.n}
+                  type="button"
+                  onClick={() => setSelectedLesson(entry.n)}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-xs font-bold transition ${
+                    isSelected
+                      ? "bg-amber-900 text-white shadow-sm"
+                      : "bg-white/70 text-stone-700 hover:bg-white hover:text-stone-900"
+                  }`}
+                >
+                  <span className="truncate">
+                    {entry.n}. {entry.title}
+                  </span>
+                  <span className={`text-[10px] ml-2 ${isSelected ? "text-amber-200" : "text-stone-400"}`}>
+                    {entry.kind === "consonant" ? entry.data.syllables[0] : ""}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </aside>
+
+        {/* Main Stage: Selected Lesson Actions */}
+        <section className="maestro-main-stage" aria-label="Materiales de la lección seleccionada">
+          <div className="bg-white rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-stone-100">
+              <div>
+                <span className="text-xs font-extrabold uppercase tracking-wider text-amber-700">
+                  {activeEntry.n <= 6 ? "Etapa de Vocales" : "Etapa de Consonantes"} · Páginas {activeEntry.pages}
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-black text-stone-900 mt-1">
+                  Lección {activeEntry.n} — {activeEntry.title}
+                </h2>
+                <p className="text-xs text-stone-500 font-medium mt-1">
+                  {activeEntry.subtitle}
+                </p>
               </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/cartilla/presentar/$n"
+                  params={{ n: String(activeEntry.n) }}
+                  className="inline-flex items-center gap-2 rounded-xl bg-amber-900 px-5 py-2.5 text-xs font-black text-white shadow-sm hover:bg-amber-800 transition"
+                >
+                  <MonitorPlay className="w-4 h-4" /> Proyectar en Aula
+                </Link>
+                <Link
+                  to="/cartilla/leccion/$n"
+                  params={{ n: String(activeEntry.n) }}
+                  className="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-black text-stone-800 hover:bg-stone-50 transition"
+                >
+                  <BookOpen className="w-4 h-4" /> Cuaderno Alumno
+                </Link>
+              </div>
+            </div>
+
+            {/* 3 Clear Classroom Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
+              {/* Card 1: Rotafolio */}
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-5 flex flex-col justify-between hover:border-amber-700/40 transition">
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold mb-3">
+                    <MonitorPlay className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-black text-stone-900">1. Rotafolio para Proyectar</h3>
+                  <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                    Lámina oficial a pantalla completa con paso de página superior y poema para lectura compartida frente a la clase.
+                  </p>
+                </div>
+                <Link
+                  to="/cartilla/presentar/$n"
+                  params={{ n: String(activeEntry.n) }}
+                  className="mt-4 inline-flex items-center justify-between w-full rounded-xl bg-white border border-stone-200 px-3.5 py-2 text-xs font-bold text-stone-800 hover:bg-amber-900 hover:text-white transition group"
+                >
+                  <span>Abrir Rotafolio</span>
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Card 2: Cuaderno de Trabajo */}
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-5 flex flex-col justify-between hover:border-amber-700/40 transition">
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold mb-3">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-black text-stone-900">2. Cuaderno del Alumno</h3>
+                  <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                    Ejercicios interactivos con lápiz de grafito y borrador: rodear en círculo, caligrafía y trazo de renglones.
+                  </p>
+                </div>
+                <Link
+                  to="/cartilla/leccion/$n"
+                  params={{ n: String(activeEntry.n) }}
+                  className="mt-4 inline-flex items-center justify-between w-full rounded-xl bg-white border border-stone-200 px-3.5 py-2 text-xs font-bold text-stone-800 hover:bg-emerald-800 hover:text-white transition group"
+                >
+                  <span>Ver Cuaderno</span>
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Card 3: Guía y Juegos */}
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-5 flex flex-col justify-between hover:border-amber-700/40 transition">
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-900 flex items-center justify-center font-bold mb-3">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-black text-stone-900">3. Guía Docente y Actividades</h3>
+                  <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                    Indicaciones didácticas de Leonor Lopetegui, dictados, discriminación auditiva y acceso a los 5 juegos fonéticos.
+                  </p>
+                </div>
+                <Link
+                  to="/cartilla/teacher/guia"
+                  className="mt-4 inline-flex items-center justify-between w-full rounded-xl bg-white border border-stone-200 px-3.5 py-2 text-xs font-bold text-stone-800 hover:bg-purple-800 hover:text-white transition group"
+                >
+                  <span>Abrir Guía Docente</span>
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

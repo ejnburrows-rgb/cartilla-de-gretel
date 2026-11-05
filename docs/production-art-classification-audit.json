@@ -9,13 +9,13 @@
     "drawingGroups": 201,
     "engravedOnMain": "2026-10-15"
   },
-  "timestamp": "2026-11-03T13:28:45.206Z",
+  "timestamp": "2026-11-05T17:53:30.252Z",
   "counts": {
-    "faithfulWired": 110,
+    "faithfulWired": 114,
     "flipchartNativeWired": 167,
     "breakdownFaithful": {
+      "PENDING NO VERIFIED SOURCE": 16,
       "PASS": 96,
-      "PENDING NO VERIFIED SOURCE": 12,
       "VERIFIED COLOR TRANSFER": 1,
       "CROP FIX": 1
     },
@@ -25,6 +25,46 @@
     }
   },
   "faithfulAudit": [
+    {
+      "src": "/cartilla/art/faithful/flipchart/p035-full-sheet.jpg",
+      "word": "p035-full-sheet.jpg",
+      "classification": "PENDING NO VERIFIED SOURCE",
+      "provenance": "",
+      "qaVerdict": "",
+      "dimensions": "3406x4345",
+      "bytes": 1373297,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/flipchart/p041-full-sheet.jpg",
+      "word": "p041-full-sheet.jpg",
+      "classification": "PENDING NO VERIFIED SOURCE",
+      "provenance": "",
+      "qaVerdict": "",
+      "dimensions": "3410x4343",
+      "bytes": 1432745,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/flipchart/p047-full-sheet.jpg",
+      "word": "p047-full-sheet.jpg",
+      "classification": "PENDING NO VERIFIED SOURCE",
+      "provenance": "",
+      "qaVerdict": "",
+      "dimensions": "3408x4343",
+      "bytes": 1330112,
+      "isQuarantined": false
+    },
+    {
+      "src": "/cartilla/art/faithful/flipchart/p053-full-sheet.jpg",
+      "word": "p053-full-sheet.jpg",
+      "classification": "PENDING NO VERIFIED SOURCE",
+      "provenance": "",
+      "qaVerdict": "",
+      "dimensions": "3406x4344",
+      "bytes": 1513031,
+      "isQuarantined": false
+    },
     {
       "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
       "word": "abrigo",

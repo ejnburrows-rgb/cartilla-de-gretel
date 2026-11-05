@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La Cartilla — Revisión de Arte Página por Página</title>
+<style>
+  :root { --ink:#2a1d14; --muted:#6f5d4f; --line:#e8dfd0; --bg:#faf7f1; --ok:#15803d; --no:#b91c1c; --new:#1d4ed8; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family: Georgia, "Iowan Old Style", serif; background:var(--bg); color:var(--ink); }
+  header { position:sticky; top:0; z-index:10; background:#fffdf9ee; backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:14px 24px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+  h1 { font-size:20px; margin:0; font-weight:600; letter-spacing:.01em; }
+  .sub { font: 13px system-ui, sans-serif; color:var(--muted); }
+  .controls { display:flex; flex-wrap:wrap; gap:8px; font:13px system-ui,sans-serif; align-items:center; }
+  select, button { font:600 13px system-ui,sans-serif; border:1px solid var(--line); background:#fff; border-radius:10px; padding:8px 12px; cursor:pointer; color:var(--ink); }
+  button.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .counts span { margin-right:10px; }
+  main { max-width:1280px; margin:0 auto; padding:20px 24px 80px; }
+  .page { background:#fff; border:1px solid var(--line); border-radius:18px; margin-bottom:26px; overflow:hidden; }
+  .page h2 { margin:0; padding:14px 20px; font-size:17px; font-weight:600; border-bottom:1px solid var(--line); background:#fffcf6; }
+  .row { display:grid; grid-template-columns: 300px 1fr 1fr 230px; gap:16px; padding:16px 20px; border-bottom:1px solid #f1ebe0; align-items:center; }
+  .row:last-child { border-bottom:0; }
+  @media (max-width:900px) { .row { grid-template-columns:1fr 1fr; } }
+  .pagewrap { position:relative; width:100%; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fafafa; }
+  .pagewrap img { width:100%; display:block; }
+  .circle { position:absolute; border:3px solid #e11d48; border-radius:50%; box-shadow:0 0 0 3px #fff8; }
+  .tile { text-align:center; font:12px system-ui,sans-serif; color:var(--muted); }
+  .tile .box { height:170px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:12px; background:#fff; margin-bottom:6px; }
+  .tile.approved .box { border:2px solid #d6b56c; background:#fffaf0; }
+  .tile img { max-width:92%; max-height:150px; object-fit:contain; }
+  .label { font:600 15px Georgia,serif; color:var(--ink); margin-bottom:6px; }
+  .actions { display:flex; flex-direction:column; gap:6px; font:13px system-ui,sans-serif; }
+  .actions button { width:100%; }
+  .actions .ok.on { background:var(--ok); color:#fff; border-color:var(--ok); }
+  .actions .no.on { background:var(--no); color:#fff; border-color:var(--no); }
+  .actions label.up { border:1px dashed var(--new); color:var(--new); border-radius:10px; padding:8px; text-align:center; cursor:pointer; font-weight:600; }
+  .actions label.up.on { background:#eff6ff; }
+  .actions input[type=file] { display:none; }
+  textarea { width:100%; font:12px system-ui,sans-serif; border:1px solid var(--line); border-radius:8px; padding:6px; resize:vertical; min-height:34px; }
+  .flag { display:inline-block; background:#fef3c7; color:#92400e; border-radius:6px; padding:2px 6px; font:700 10px system-ui,sans-serif; margin-left:6px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Revisión de Arte — Página por Página</h1>
+    <div class="sub">Izquierda: página original con el dibujo circulado · Centro: recorte original · Derecha: versión aprobada en la app. Aprueba, rechaza o sube una más nueva.</div>
+  </div>
+  <div class="controls">
+    <select id="book"><option value="all">Ambos libros</option><option>Workbook</option><option>Flip Chart</option></select>
+    <select id="filter"><option value="all">Todos</option><option value="pending">Sin decidir</option><option value="rejected">Rechazados</option><option value="approved">Aprobados</option><option value="upload">Con archivo nuevo</option></select>
+    <span class="counts" id="counts"></span>
+    <button class="primary" id="export">Exportar rechazados (para optimizar)</button>
+    <button id="exportAll">Exportar todas mis decisiones</button>
+  </div>
+</header>
+<main id="main"><p class="sub">Cargando…</p></main>
+<script>
+const KEY = "cartilla-art-review-v1";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const uploads = {}; // id -> {name, dataUrl}
+const save = () => { localStorage.setItem(KEY, JSON.stringify(state)); renderCounts(); };
+const url = p => p ? "/" + p.replace(/^public\//, "") : "";
+const docUrl = p => p ? "/" + p : "";
+let rows = [];
+
+fetch("/art-board/board-data.json").then(r => r.json()).then(d => { rows = d.rows; render(); });
+
+function renderCounts() {
+  const v = Object.values(state);
+  document.getElementById("counts").innerHTML =
+    `<span>✔ ${v.filter(s=>s.decision==="approved").length}</span><span>✖ ${v.filter(s=>s.decision==="rejected").length}</span><span>⬆ ${v.filter(s=>s.upload).length}</span><span>de ${rows.length}</span>`;
+}
+
+function render() {
+  const book = document.getElementById("book").value, filter = document.getElementById("filter").value;
+  const groups = new Map();
+  for (const r of rows) {
+    if (book !== "all" && r.book !== book) continue;
+    const s = state[r.id] || {};
+    if (filter === "pending" && s.decision) continue;
+    if (filter === "rejected" && s.decision !== "rejected") continue;
+    if (filter === "approved" && s.decision !== "approved") continue;
+    if (filter === "upload" && !s.upload) continue;
+    const k = `${r.book} — página ${r.page}`;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(r);
+  }
+  const main = document.getElementById("main");
+  main.innerHTML = "";
+  for (const [title, list] of groups) {
+    const sec = document.createElement("section"); sec.className = "page";
+    sec.innerHTML = `<h2>${title} <span class="sub">(${list.length} dibujos)</span></h2>`;
+    for (const r of list) sec.appendChild(rowEl(r));
+    main.appendChild(sec);
+  }
+  if (!groups.size) main.innerHTML = '<p class="sub">Nada que mostrar con este filtro.</p>';
+  renderCounts();
+}
+
+function rowEl(r) {
+  const s = state[r.id] || {};
+  const el = document.createElement("div"); el.className = "row";
+  const [x,y,w,h] = r.circlePct || [0,0,0,0];
+  el.innerHTML = `
+    <div class="pagewrap"><img loading="lazy" src="${docUrl(r.fullPage)}" alt=""><div class="circle" style="left:${x-1}%;top:${y-1}%;width:${w+2}%;height:${h+2}%"></div></div>
+    <div class="tile"><div class="box"><img loading="lazy" src="${docUrl(r.original)}" alt=""></div>Recorte del libro original</div>
+    <div class="tile approved"><div class="box"><img loading="lazy" src="${uploads[r.id]?.dataUrl || url(r.current)}" alt=""></div>${uploads[r.id] ? "Tu archivo nuevo" : "Versión aprobada en la app"}</div>
+    <div class="actions">
+      <div class="label">${r.appLabel || r.label}${r.flag ? `<span class="flag">${r.flag}</span>` : ""}</div>
+      <button class="ok ${s.decision==="approved"?"on":""}">✔ Aprobar</button>
+      <button class="no ${s.decision==="rejected"?"on":""}">✖ Rechazar</button>
+      <label class="up ${s.upload?"on":""}">⬆ ${s.upload ? "Archivo: " + s.upload : "Subir versión nueva"}<input type="file" accept="image/*"></label>
+      <textarea placeholder="Nota (opcional)">${s.note || ""}</textarea>
+    </div>`;
+  const set = patch => { state[r.id] = { ...(state[r.id]||{}), ...patch, id:r.id, at:new Date().toISOString() }; save(); };
+  el.querySelector(".ok").onclick = () => { set({decision:"approved"}); el.replaceWith(rowEl(r)); };
+  el.querySelector(".no").onclick = () => { set({decision:"rejected"}); el.replaceWith(rowEl(r)); };
+  el.querySelector("textarea").onchange = e => set({note:e.target.value});
+  el.querySelector("input").onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    const rd = new FileReader();
+    rd.onload = () => { uploads[r.id] = { name:f.name, dataUrl:rd.result }; set({upload:f.name, decision:"rejected"}); el.replaceWith(rowEl(r)); };
+    rd.readAsDataURL(f);
+  };
+  return el;
+}
+
+function download(name, text, type="application/json") {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], {type})); a.download = name; a.click();
+}
+function exportRows(onlyRejected) {
+  const out = rows.filter(r => !onlyRejected || state[r.id]?.decision === "rejected").map(r => ({
+    id:r.id, book:r.book, page:r.page, word:r.appLabel || r.label, decision:state[r.id]?.decision || "pending",
+    note:state[r.id]?.note || "", currentFile:r.current, originalCrop:r.original, fullPage:r.fullPage, circlePct:r.circlePct,
+    ownerUpload: uploads[r.id] ? { fileName: uploads[r.id].name, dataUrl: uploads[r.id].dataUrl } : (state[r.id]?.upload ? { fileName: state[r.id].upload, note:"re-select file to embed" } : null),
+  }));
+  return out;
+}
+document.getElementById("export").onclick = () => {
+  const items = exportRows(true);
+  const brief = {
+    title: "La Cartilla de Gretel — bulk optimization batch (owner-rejected art)",
+    repository: "ejnburrows-rgb/cartilla-de-gretel",
+    instructions: [
+      "For each item, produce a clean optimized replacement of the SAME original drawing (see originalCrop + fullPage/circlePct). Never invent new art or redraw the subject.",
+      "If ownerUpload is present, use the owner's file as the source.",
+      "Output: transparent or cream background, 1254x1254 master, then run: node scripts/replace-and-purge-single-art.mjs --input <file> --word <word>",
+      "That script writes the canonical master + 384w/768w WebP tiers, updates manifests and purges the old crop.",
+      "Do not touch Tutor #1073 files or Mariposas assets. Do not deploy."
+    ],
+    count: items.length, exportedAt: new Date().toISOString(), items };
+  download(`cartilla-rejected-art-${items.length}.json`, JSON.stringify(brief, null, 2));
+  const csv = ["id,book,page,word,currentFile,originalCrop,note"].concat(items.map(i => [i.id,i.book,i.page,i.word,i.currentFile,i.originalCrop,(i.note||"").replace(/[,\n]/g," ")].join(","))).join("\n");
+  download(`cartilla-rejected-art-${items.length}.csv`, csv, "text/csv");
+};
+document.getElementById("exportAll").onclick = () => download("cartilla-art-decisions.json", JSON.stringify(exportRows(false), null, 2));
+document.getElementById("book").onchange = render;
+document.getElementById("filter").onchange = render;
+</script>
+</body>
+</html>

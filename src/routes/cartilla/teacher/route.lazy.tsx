@@ -43,52 +43,22 @@ const NAV_ITEMS: Array<{
   match: string;
 }> = [
   {
-    to: "/cartilla/teacher/crm",
-    icon: <GraduationCap className="w-4 h-4" />,
-    label: "Clase",
-    match: "/crm",
-  },
-  {
-    to: "/cartilla/teacher/roster",
-    icon: <Users className="w-4 h-4" />,
-    label: "Alumnos",
-    match: "/roster",
-  },
-  {
-    to: "/cartilla/teacher/guia",
-    icon: <BookOpen className="w-4 h-4" />,
-    label: "Guía",
-    match: "/guia",
-  },
-  {
-    to: "/cartilla/teacher/flipchart",
+    to: "/cartilla/teacher",
     icon: <MonitorPlay className="w-4 h-4" />,
-    label: "Presentar",
-    match: "/flipchart",
+    label: "1. Enseñar Lección",
+    match: "/cartilla/teacher",
+  },
+  {
+    to: "/cartilla/teacher/crm",
+    icon: <Users className="w-4 h-4" />,
+    label: "2. Mis Alumnos y Clases",
+    match: "/crm",
   },
   {
     to: "/cartilla/imprimir/all",
     icon: <Printer className="w-4 h-4" />,
-    label: "Imprimir",
+    label: "3. Imprimir Hojas",
     match: "/imprimir",
-  },
-  {
-    to: "/cartilla/teacher/progreso",
-    icon: <GraduationCap className="w-4 h-4" />,
-    label: "Progreso",
-    match: "/progreso",
-  },
-  {
-    to: "/cartilla/teacher/reportes",
-    icon: <FileSpreadsheet className="w-4 h-4" />,
-    label: "Reportes",
-    match: "/reportes",
-  },
-  {
-    to: "/cartilla/teacher/ayuda",
-    icon: <HelpCircle className="w-4 h-4" />,
-    label: "Ayuda",
-    match: "/ayuda",
   },
 ];
 

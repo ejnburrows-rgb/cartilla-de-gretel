@@ -65,4 +65,4 @@ export const fastTest = lessons.flatMap((l) =>
   })),
 );
 
-export const VOWELS = ["a", "e", "i", "o", "u"] as const;
+export const VOWELS = ["o", "a", "e", "i", "u"] as const;

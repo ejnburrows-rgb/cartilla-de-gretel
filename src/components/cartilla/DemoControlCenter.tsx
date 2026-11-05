@@ -239,7 +239,7 @@ export function DemoControlCenter({
 
   if (floating && !floatingOpen) {
     return (
-      <div className="no-print fixed bottom-2.5 left-2.5 z-50">
+      <div className="no-print fixed bottom-3 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
         <button
           type="button"
           onClick={() => setFloatingOpen(true)}

@@ -218,7 +218,7 @@ export function Leccion() {
   const pct = Math.round((n / TOTAL_LESSONS) * 100);
   const reviewWords = getPracticePictureWords(n);
   const reviewSyllables = entry.kind === "intro"
-    ? ["a", "e", "i", "o", "u"]
+    ? ["o", "a", "e", "i", "u"]
     : entry.kind === "vowel"
       ? [entry.vowel]
       : entry.data.syllables;

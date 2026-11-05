@@ -75,7 +75,17 @@ export default defineConfig(({ mode }) => {
               // runs. They are not app inputs; watching them can crash Windows
               // with EBUSY and makes startup traverse historical proof archives.
               ignored: (file: string) => {
-                const relative = path.relative(root, file).replaceAll("\\", "/");
+                const normFile = file.replaceAll("\\", "/");
+                const normRoot = root.replaceAll("\\", "/");
+                const normCwd = process.cwd().replaceAll("\\", "/");
+                let rel = normFile;
+                if (normFile.toLowerCase().startsWith(normRoot.toLowerCase() + "/")) {
+                  rel = normFile.slice(normRoot.length + 1);
+                } else if (normFile.toLowerCase().startsWith(normCwd.toLowerCase() + "/")) {
+                  rel = normFile.slice(normCwd.length + 1);
+                } else {
+                  rel = path.relative(root, file).replaceAll("\\", "/");
+                }
                 return [
                   "docs/proofs",
                   "test-results",
@@ -84,7 +94,7 @@ export default defineConfig(({ mode }) => {
                   "output",
                   "work",
                   "tests/e2e/proofs",
-                ].some((directory) => relative === directory || relative.startsWith(`${directory}/`));
+                ].some((directory) => rel === directory || rel.startsWith(`${directory}/`));
               },
             },
           }
@@ -131,7 +141,7 @@ export default defineConfig(({ mode }) => {
     hookTimeout: 180_000,
     // Playwright E2E specs live in tests/e2e and must not be run by Vitest
     // (they use @playwright/test, not the jsdom unit runner).
-    exclude: [...configDefaults.exclude, "tests/e2e/**", "scripts/__tests__/check-merge-policy.test.mjs"],
+    exclude: [...configDefaults.exclude, "docs/**", "tests/e2e/**", "scripts/__tests__/check-merge-policy.test.mjs"],
   },
   esbuild: {
     // Only strip debugger statements and no-op console.log/debug/info calls.

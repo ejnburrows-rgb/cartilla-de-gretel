@@ -114,8 +114,8 @@ export const CATALOG: CatalogEntry[] = [
   {
     n: 1,
     kind: "intro" as const,
-    title: "Las vocales: A E I O U",
-    subtitle: "Las cinco vocales: a, e, i, o, u",
+    title: "Las hermanitas vocales",
+    subtitle: "Las cinco vocales: o, a, e, i, u",
     pages: "1-3",
     color: getLessonAccent(1),
     activities: LECCION_1_ACTIVITIES,
