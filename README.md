@@ -4,6 +4,16 @@
 
 Digital classroom edition of *La Cartilla de Gretel* by Leonor Lopetegui.
 
+## Start here
+
+- [Working rules and approvals](AGENTS.md)
+- [What the finished product must include](PROJECT_FINISH_DEFINITION.md)
+- [Approved curriculum and product decisions](PROJECT_SOURCE_OF_TRUTH.md)
+- [Current work and proof — #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877)
+- [Existing visual operations hub](https://nbo-operations-hub.vercel.app/) — check the evidence date; source changes do not prove publication.
+
+These links have separate responsibilities; this README is not a status tracker.
+
 ## Artwork evidence (historical, October 14, 2026)
 
 The original reconciliation [PR #751](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/751) is **closed and unmerged**; its [mapping report](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/evidence/artwork-coverage-20261014/docs/proofs/artwork-coverage-2026-10-14/MASTER-MAPPING.md) is historical evidence, not the current production inventory. Confirmed art repairs were integrated through [PR #1205](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1205). For current missing source art and verified placements, check [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) and the actual built app. Never use old report totals as a current completion score.

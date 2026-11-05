@@ -32,7 +32,7 @@
 - Evaluations 1–6 as full printable masters.
 - Homework/Rima masters 1–6 and 10–24.
 - Most individual Blackline Masters / lesson-specific syllabic reproducibles.
-- Original/master audio files.
+- Original/master audio files were absent from this extracted curriculum package snapshot. This is not a claim that the owner never supplied the master: recover and verify the supplied `Gretel_558674_Original.m4a` through the existing audio work in #769; current access, mapping and playback require fresh evidence.
 
 ### Corrections to earlier NotebookLM claims
 - Evaluation 13 is NOT missing; it is present and transcribed below.
@@ -488,8 +488,9 @@ The workbook repeats a consistent instructional progression:
 - Pages 71–74: F f.
 - Pages 75–78: J j.
 - Pages 79–82: C c (ca/co/cu).
-- Pages 83–86: Y y.
-- Pages 87–90: Z z.
+- Pages 83–85: Y y.
+- Pages 88–90: Z z.
+- Printed pages 86–87: `SOURCE_BLOCKED`; absent from the authoritative rescan. Do not infer their curriculum, artwork, or page identity. Use `src/data/reconstruction/pdf-sheet-to-printed-page.json`.
 
 ---
 

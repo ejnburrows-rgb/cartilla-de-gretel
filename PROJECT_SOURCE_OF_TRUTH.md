@@ -2,7 +2,7 @@
 
 This document governs approved product content and presentation, not agent orchestration.
 
-> **Owner scope, 2026-10-30: TWO authorized tracks.** The October 29 organization-only and Tutor-only freezes are superseded. **Track A:** finish existing product PRs and authorized Jules J1–J13 lanes, with coordinator-owned art Yes/No wiring; **Track B:** Tutor #1073 continues only with its existing specialist on `feat/gretel-tutor-l1-3` (Track A never edits Tutor files). Current exact priority, owner approvals, dependency/merge order and safeguards live in [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) and [AGENTS.md](AGENTS.md). **#1218 first; independent review + explicit owner yes per merge; no deploy without “deploy it”; retain disabled auto-deployment.**
+For permanent working rules use [AGENTS.md](AGENTS.md). For current work, approvals and proof use [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). This specification does not assign workers or define execution order.
 
 ## Goal
 
@@ -38,20 +38,12 @@ For curriculum, wording, page order, exercise content, and source-page structure
    - Preserve historic scenic assets on disk, but do not mount them as *default* Flip Chart wallpaper. This default does not revoke any **specifically approved** page/context background treatment under `repo.md`.
 7. Gretel uses the exact approved master in `src/data/gretel-approved-master.json`. For newly wired audio use only `Gretel_558674_Original.m4a` with verified transcript match. Never use `rec_gretel_*`, synthetic/device TTS or invented recordings; missing audio remains silent/unavailable. Historical #769 recovery is not a license to substitute unapproved clips.
 8. Google Flow's current production scope is one owner-approved 5–6 second silent welcome loop from the exact approved final still. In-app lesson reactions use the existing Gretel state system; no 31-clip requirement remains.
-9. Automatic Vercel deployment stays off (`vercel.json` `git.deploymentEnabled:false`). Never deploy until the owner explicitly says "deploy it"; product PR merge permission is separate.
+9. Release and deployment approvals are governed only by [AGENTS.md](AGENTS.md), not by this product specification.
 10. Student activity families must reuse one shared interaction kernel rather than independently re-implementing pencil/eraser feedback, timing, Gretel feedback events, persistence, or reduced motion.
 11. Page advancement must use the owner-approved physical-paper transition system: Workbook pages turn side-bound across the spine; Flip Chart sheets flip upward over the top binding. The animation is presentation only and never bypasses completion/save/navigation logic.
-12. Do not reopen historical audits/branches unless current source or a failing test proves a current problem.
+12. Historical-work reuse and audit boundaries are governed only by [AGENTS.md](AGENTS.md).
 
-## Current work
-
-The owner explicitly authorized concurrent, non-overlapping Track A product-finishing and Track B Tutor work on 2026-10-30. The binding existing-PR and J1–J13 queue is #877. Do not convert this product specification into a second task board.
-
-Historical October 4 work snapshot (NOT a live open-PR list; check GitHub for today's open candidates):
-- #476 — shared student interaction kernel + Workbook p1/p2;
-- #477 — Gretel behavior and motion discipline;
-- #478 — welcome-media code integration; the owner-supplied 5–6 second silent MP4 remains an external dependency;
-- #479 — physical Workbook and Flip Chart page-turn transitions.
+## Approved Workbook visual system
 
 The owner locked the recurring Student Workbook visual system on 2026-10-06 in `WORKBOOK_ARCHETYPE_STANDARD.md`. The eight canonical visual archetypes are: (1) picture grid / circle-X, (2) vowel/letter + row choices, (3) multi-pair matching/connect, (4) single central target + surrounding pictures, (5) handwriting/tracing + open drawing, (6) syllable recognition/circle, (7) phonics/reading practice, and (8) complete-the-word + sentence writing. The numbered teal title bars on the reference board are annotations only and never appear in production.
 
@@ -69,22 +61,18 @@ Historical verification references: #587 and #389 record earlier harness work; #
 
 Supabase/live-auth expansion remains deferred from the current product-completion path for demo/non-real-data pilot use. Current real-data security/privacy issues must be resolved before any production/school pilot uses real child/student data; deferral alone is not a real-data release clearance.
 
-## Proof rule
+## Verification and execution references
 
-For meaningful code/behavior PRs, the controller independently reviews the material diff and current head, reuses relevant Jules test and UI evidence, confirms scope/approvals, and fixes independently confirmed serious defects. SonarCloud/SonarQube analysis stays available as **advisory and non-blocking** information: its quality gate, duplication threshold, missing report, or failed status alone never blocks dispatch or merge. A confirmed substantive defect still blocks the affected change. Recheck only evidence invalidated by a material change; unrelated documentation/head movement does not invalidate focused proof. The lightweight `node scripts/check-merge-policy.mjs --docs` consistency check detects contradictory policy, while `--evidence <receipt.json>` evaluates a particular proposed merge without running product tests.
+[AGENTS.md](AGENTS.md) owns execution, review, reporting and approval rules. [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) owns current work and proof. [PROJECT_FINISH_DEFINITION.md](PROJECT_FINISH_DEFINITION.md) owns completion. SonarCloud/SonarQube is advisory and non-blocking; actual defects and required safeguards remain gates.
 
-No task is "done" without visible or test evidence:
-- what changed;
-- what source it was checked against;
-- relevant test/build result;
-- rendered/screenshotted proof for visual work, including milestone screenshots before final completion;
-- remaining blockers, if any.
+## Preserved owner decisions
 
-## Do not waste time on
+These are product decisions, not current assignment or completion claims. Newer explicit owner chat decisions prevail.
+- Product: Spanish K–2 reading book and classroom app; retain both Workbook and teacher experience.
+- Games: retain Cow, Rima, Palabras por minuto, Chano and Mariposas. Accepted Chano direction does not prove the delivered gameplay. Preserve existing work; reconcile overlapping candidates before any integration.
+- Voice: recover existing authentic recordings rather than defaulting to owner rerecording or generated speech. Lesson narration remains silent when a verified phrase is missing.
+- Artwork: present each proposed picture beside its authentic original for owner acceptance before page integration. The seven Flip Chart fixes accepted October 20 remain approved decisions, not a current wiring claim.
+- Wording: singular `ojo` with `ojo.png` in both approved positions; the conflicting `ojos` proposal requires an explicit owner reversal.
+- Presentation: cream background; pencil pages 7–8 stay separate.
+- Existing technical context is Vite, React, TypeScript, TanStack Router, Supabase and Vercel; verify current implementation rather than treating this list as a new technology mandate.
 
-- another full repository or visual-source audit without a specific new defect/source gap;
-- another rewrite/replatform;
-- repeated Vercel previews;
-- new duplicate Gretel systems;
-- speculative database work before the instructional product is correct;
-- stale branches or superseded handoff documents.

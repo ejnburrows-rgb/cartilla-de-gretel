@@ -1,5 +1,7 @@
 # Teacher's Guide content schema — for Anti-Gravity coordination
 
+**Historical schema coordination context.** References to Anti-Gravity or a future delivery describe the original schema proposal, not an active worker, dispatch permission or verified current implementation. The verbatim-source and missing-data requirements remain applicable. Use root `AGENTS.md` for working rules and GitHub #877 for current assignments and proof; no worker is authorized by this document.
+
 The teacher's 5-folder hub (`/cartilla/teacher/guia`, built in
 `src/content/teacher-folder-data.ts` + `src/routes/cartilla/teacher/guia.*`)
 currently sources its data from two places:
