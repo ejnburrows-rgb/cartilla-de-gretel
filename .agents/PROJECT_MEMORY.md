@@ -226,3 +226,14 @@
 - **Gretel Reading Companion**: Natural eyelid blinking animation on Gretel's portrait (`lc-gretel-blink`) with companion breathing, strictly respecting the single-`<img>` test invariant (`gretel-approved-master.png`).
 - **Cross-Drive NTFS Junction Harmonization**: Fixed `vite.config.ts` path normalization (`realpathSync`) for root, alias (`@`), and `setupFiles`, resolving `npx vitest` execution and cross-drive relative import errors.
 
+
+## Owner Coordinator Reassignment & Executive Decisions Checkpoint (2026-11-05)
+
+### Owner Decisions Locked In
+- **Main Coordinator Reassignment**: Emilio explicitly appointed **Antigravity** as the main owner-facing technical coordinator from now on, replacing ChatGPT/Codex in `AGENTS.md` (Sections 3 and 11).
+- **PR #1280 Instruction Consistency Merged**: Integrated `origin/fix/repo-instruction-consistency-20261104` (`631ad90c`) into active branch, reconciling 20 documentation files and 95 automated policy checks.
+- **4 Overlapping Flip Chart Pages Approved (Pages 35, 41, 47, 53)**: Approved displaying complete original printed sheets as-is so zero artwork is cut off (`33-Bb.pdf` `[0,0,3406,4345]`, `39-Rr.pdf` `[0,0,3410,4343]`, `45-Gg.pdf` `[0,0,3408,4343]`, `51-Jj.pdf` `[0,0,3406,4344]`).
+- **Page-Turn Audio Approved**: Approved retaining CC0 Freesound OwlStorm #151221 natural paper page-turn sound.
+- **Silence `/cartilla/voces` Approved**: Approved disabling all browser `speechSynthesis` (`allowTts: false`) and removing ElevenLabs/paid voice references in `src/routes/cartilla/voces.tsx`.
+- **14 Clean PRs Approved (#1264–#1277)**: Approved sequential integration of the 14 verified clean PRs after exact-head review and typecheck/tests.
+- **Deployment Gate**: `vercel.json` remains `git.deploymentEnabled: false`.
