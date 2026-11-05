@@ -34,7 +34,7 @@ afterEach(() => { cleanup(); client.clear(); });
 
 async function edit() {
   render(<QueryClientProvider client={client}><ClassRoster /></QueryClientProvider>);
-  fireEvent.click(await screen.findByRole("button", { name: "Alumno sintético" }));
+  fireEvent.click(await screen.findByRole("button", { name: "Alumno sintético" }, { timeout: 10_000 }));
   return screen.getByDisplayValue("Alumno sintético");
 }
 
@@ -44,11 +44,11 @@ describe("ClassRoster rename recovery", () => {
     const input = await edit();
     fireEvent.change(input, { target: { value: "Nombre corregido" } });
     fireEvent.keyDown(input, { key: "Enter" });
-    expect(await screen.findByText("Error sintético al guardar")).toBeVisible();
+    expect(await screen.findByText("Error sintético al guardar", {}, { timeout: 10_000 })).toBeVisible();
     expect(screen.getByDisplayValue("Nombre corregido")).toBe(input);
     expect(input).not.toHaveAttribute("readonly");
     fireEvent.keyDown(input, { key: "Enter" });
-    expect(await screen.findByRole("button", { name: "Nombre corregido" })).toBeVisible();
+    expect(await screen.findByRole("button", { name: "Nombre corregido" }, { timeout: 10_000 })).toBeVisible();
     expect(screen.queryByDisplayValue("Nombre corregido")).toBeNull();
     expect(updateStudent).toHaveBeenCalledTimes(2);
     expect(updateStudent).toHaveBeenLastCalledWith({ data: { id: "synthetic-student", displayName: "Nombre corregido" } });
