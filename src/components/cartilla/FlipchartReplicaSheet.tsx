@@ -144,8 +144,24 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
         style={{ "--sheet-h": sheet.height } as CSSProperties}
         data-card-tint={sheet.cardTint}
       >
-        <div className="fc-replica__spiral" aria-hidden="true" />
+        {!sheet.fullSheet && <div className="fc-replica__spiral" aria-hidden="true" />}
         <div className="fc-replica__canvas">
+          {sheet.fullSheet ? (
+            <div className="fc-replica__full-sheet">
+              <img
+                src={sheet.fullSheet.src}
+                alt={decorative ? "" : sheet.fullSheet.alt}
+                className="fc-replica__full-sheet-img"
+                loading={decorative ? "lazy" : "eager"}
+              />
+              {!decorative && (
+                <div className="sr-only">
+                  {sheet.tokens.map((t) => t.text).join(" ")}
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
           {sheet.panels.map((panel) => (
             <div
               key={`panel-${panel.id}`}
@@ -242,8 +258,10 @@ export function FlipchartReplicaSheet({ pageNumber, decorative = false }: { page
               </figure>
             ),
           )}
+            </>
+          )}
         </div>
-        {!decorative && (
+        {!decorative && !sheet.fullSheet && (
           <div className="fc-native-board__pagenum fc-replica__pagenum" aria-hidden="true">
             {pageNumber}
           </div>

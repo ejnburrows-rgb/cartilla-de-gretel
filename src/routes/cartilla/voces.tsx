@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { AUDIO_POLICY } from "@/content/audio-manifest";
 import {
   speakAsGretel,
   cancelGretelSpeech,
@@ -131,6 +132,12 @@ function VoiceAudition() {
   const candidates = useMemo(() => buildCandidates(voices), [voices]);
 
   const play = async (c: Candidate) => {
+    if (!AUDIO_POLICY.allowTts) {
+      setError(
+        "La síntesis de voz en el navegador está desactivada por política del proyecto (AGENTS.md Invariante #8). Solo se permiten grabaciones auténticas de Gretel."
+      );
+      return;
+    }
     setError(null);
     cancelGretelSpeech();
     setPlayingKey(c.key);
@@ -226,20 +233,12 @@ function VoiceAudition() {
         </div>
 
         <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 text-sm text-stone-600 space-y-2">
-          <p className="font-black text-stone-800">Honestidad, no promesas:</p>
+          <p className="font-black text-stone-800">Política de audio auténtico (AGENTS.md Invariante #8):</p>
           <p>
-            Las voces gratuitas incorporadas del navegador (arriba) son voces de mujer adulta —
-            ninguna suena genuinamente como una niña pequeña, ni afinando el tono. Es un límite real
-            de lo que el navegador ofrece gratis, no algo que se pueda arreglar con más código.
+            En La Cartilla de Gretel no se utilizan voces sintéticas, robóticas ni generadas por computadora (TTS), ni clones de voz de servicios externos de pago.
           </p>
           <p>
-            Lo que SÍ sonaría como una niña de verdad: (1) un servicio de voz pagado con voces
-            infantiles reales — por ejemplo ElevenLabs (voces por suscripción, desde unos $5–22
-            USD/mes) o Google Cloud / Azure Neural TTS (se cobra por caracteres leídos, típicamente
-            unos $4–16 USD por cada millón de caracteres, que para esta app es un costo pequeño pero
-            real cada mes); o (2) grabar la voz real de una niña y usar esos audios grabados en vez
-            de texto-a-voz. Ninguna de las dos opciones se ha contratado ni pagado — es tu decisión,
-            no la mía.
+            El audio oficial está restringido exclusivamente a las grabaciones físicas originales de Gretel (archivo maestro <code className="bg-stone-200 px-1 py-0.5 rounded text-stone-800">Gretel_558674_Original.m4a</code>) con transcripción verificada. Cuando una frase no dispone de grabación auténtica, la aplicación permanece en respetuoso silencio educativo en lugar de sustituirla con una voz artificial.
           </p>
         </div>
       </div>

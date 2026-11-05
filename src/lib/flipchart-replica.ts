@@ -54,6 +54,34 @@ const CARD_TINT: Record<number, "mist"> = { 3: "mist" };
 /** Drawn-area rect of each picture on its printed scan: [x, y, w, h, score]. */
 const ART_PLACEMENT = artPlacement as unknown as Record<string, [number, number, number, number, number]>;
 
+
+export const APPROVED_FULL_SHEETS: Record<number, { src: string; width: number; height: number; alt: string }> = {
+  35: {
+    src: "/cartilla/art/faithful/flipchart/p035-full-sheet.jpg",
+    width: 3406,
+    height: 4345,
+    alt: "Lámina 35: Sube la bola (Bebo con bate y pelota)",
+  },
+  41: {
+    src: "/cartilla/art/faithful/flipchart/p041-full-sheet.jpg",
+    width: 3410,
+    height: 4343,
+    alt: "Lámina 41: La rosca de Manolo (ratón, rosa y rueda)",
+  },
+  47: {
+    src: "/cartilla/art/faithful/flipchart/p047-full-sheet.jpg",
+    width: 3408,
+    height: 4343,
+    alt: "Lámina 47: El gato enamorado (gatos y plato)",
+  },
+  53: {
+    src: "/cartilla/art/faithful/flipchart/p053-full-sheet.jpg",
+    width: 3406,
+    height: 4344,
+    alt: "Lámina 53: La jicotea Jabela (niña bañando a la tortuga)",
+  },
+};
+
 export const REPLICA_WIDTH = 1000;
 
 export type ReplicaSegment = { text: string; color: string; bold: boolean; /** Bold inside a regular line (the lesson's letter): keep it bold. */ emph?: boolean };
@@ -152,6 +180,7 @@ export type ReplicaSheet = {
   art: ReplicaArt[];
   dividers: ReplicaDivider[];
   cardTint?: "mist";
+  fullSheet?: { src: string; width: number; height: number; alt: string };
 };
 
 const RED_LIKE = /^#(b|c|d)[0-9a-f]00?[0-9a-f]{2,3}$/i;
@@ -367,7 +396,8 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   const raw = RAW_TEXT[String(page)];
   const frame = FRAMES[String(page)];
   if (!raw || !frame) return null;
-  const height = frame.height * (REPLICA_WIDTH / frame.width);
+  const fullSheet = APPROVED_FULL_SHEETS[page];
+  const height = fullSheet ? (1000 * fullSheet.height) / fullSheet.width : frame.height * (REPLICA_WIDTH / frame.width);
 
   // 1. Panels: empty text runs that only paint a background.
   const panelItems = raw.filter((item) => !item.text.trim() && !isWhite(item.backgroundColor) && item.width > 60 && item.height > 50);
@@ -837,7 +867,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     }
   }
 
-  return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page] };
+  return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page], fullSheet };
 }
 
 type Box = { x: number; y: number; w: number; h: number };

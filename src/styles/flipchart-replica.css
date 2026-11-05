@@ -46,6 +46,28 @@
   pointer-events: auto;
 }
 
+
+/* Full approved printed sheet mode (owner approved pages 35, 41, 47, 53). */
+.fc-replica__full-sheet {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.fc-replica__full-sheet-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .fc-replica__canvas {
   position: absolute;
   inset: 0;

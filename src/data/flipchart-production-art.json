@@ -215,6 +215,13 @@
       "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png"
     }
   },
+  "11": {
+    "vocab": [],
+    "scene": {
+      "word": "mi mama scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png"
+    }
+  },
   "12": {
     "vocab": [
       {
@@ -241,6 +248,13 @@
     "scene": {
       "word": "pollito p",
       "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png"
+    }
+  },
+  "14": {
+    "vocab": [],
+    "scene": {
+      "word": "mi papa scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png"
     }
   },
   "15": {
@@ -271,6 +285,13 @@
       "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png"
     }
   },
+  "17": {
+    "vocab": [],
+    "scene": {
+      "word": "sapo samapo scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png"
+    }
+  },
   "18": {
     "vocab": [
       {
@@ -297,6 +318,13 @@
     "scene": {
       "word": "nino tambor t",
       "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png"
+    }
+  },
+  "20": {
+    "vocab": [],
+    "scene": {
+      "word": "sopa de pato scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png"
     }
   },
   "21": {
@@ -327,6 +355,13 @@
       "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png"
     }
   },
+  "23": {
+    "vocab": [],
+    "scene": {
+      "word": "made y papa scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png"
+    }
+  },
   "24": {
     "vocab": [
       {
@@ -353,6 +388,13 @@
     "scene": {
       "word": "nina l",
       "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png"
+    }
+  },
+  "26": {
+    "vocab": [],
+    "scene": {
+      "word": "leo lee gretel scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png"
     }
   },
   "27": {
@@ -383,6 +425,13 @@
       "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png"
     }
   },
+  "29": {
+    "vocab": [],
+    "scene": {
+      "word": "nino nada scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png"
+    }
+  },
   "30": {
     "vocab": [
       {
@@ -409,6 +458,13 @@
     "scene": {
       "word": "nina enmarcada ny",
       "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png"
+    }
+  },
+  "32": {
+    "vocab": [],
+    "scene": {
+      "word": "nina suena scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png"
     }
   },
   "33": {
@@ -439,6 +495,20 @@
       "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png"
     }
   },
+  "35": {
+    "vocab": [],
+    "scene": {
+      "word": "sube la bola scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p035-full-sheet.jpg",
+      "width": 3406,
+      "height": 4345,
+      "sha256": "d42b78a8d8f14fe4562a709258a58bd5767b218443c5a0a6beb92383e4af1805",
+      "alt": "Lámina 35: Sube la bola (Bebo con bate y pelota)"
+    }
+  },
   "36": {
     "vocab": [
       {
@@ -465,6 +535,13 @@
     "scene": {
       "word": "viento v",
       "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png"
+    }
+  },
+  "38": {
+    "vocab": [],
+    "scene": {
+      "word": "mi bote de vela scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png"
     }
   },
   "39": {
@@ -495,6 +572,20 @@
       "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png"
     }
   },
+  "41": {
+    "vocab": [],
+    "scene": {
+      "word": "rosca manolo scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p041-full-sheet.jpg",
+      "width": 3410,
+      "height": 4343,
+      "sha256": "c83ac3f90721e4e92f817895bb7461bcf4e01c535e52c6c21be917651e914952",
+      "alt": "Lámina 41: La rosca de Manolo (ratón, rosa y rueda)"
+    }
+  },
   "42": {
     "vocab": [
       {
@@ -521,6 +612,13 @@
     "scene": {
       "word": "carro rr",
       "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png"
+    }
+  },
+  "44": {
+    "vocab": [],
+    "scene": {
+      "word": "rapido arriba scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png"
     }
   },
   "45": {
@@ -551,6 +649,20 @@
       "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png"
     }
   },
+  "47": {
+    "vocab": [],
+    "scene": {
+      "word": "gato enamorado scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p047-full-sheet.jpg",
+      "width": 3408,
+      "height": 4343,
+      "sha256": "a45f84f08071e160228586a8befbc8ea4e3a333c8a6938323c3fe1e626389c9a",
+      "alt": "Lámina 47: El gato enamorado (gatos y plato)"
+    }
+  },
   "48": {
     "vocab": [
       {
@@ -577,6 +689,13 @@
     "scene": {
       "word": "flor abeja f",
       "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png"
+    }
+  },
+  "50": {
+    "vocab": [],
+    "scene": {
+      "word": "a la fiesta scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png"
     }
   },
   "51": {
@@ -607,6 +726,20 @@
       "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png"
     }
   },
+  "53": {
+    "vocab": [],
+    "scene": {
+      "word": "jicotea jabela scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p053-full-sheet.jpg",
+      "width": 3406,
+      "height": 4344,
+      "sha256": "d8352af3318611db766e6fc33444bea6f09982c9c9f072d1c68171b7ac349ded",
+      "alt": "Lámina 53: La jicotea Jabela (niña bañando a la tortuga)"
+    }
+  },
   "54": {
     "vocab": [
       {
@@ -633,6 +766,13 @@
     "scene": {
       "word": "gallina c",
       "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png"
+    }
+  },
+  "56": {
+    "vocab": [],
+    "scene": {
+      "word": "los caramelos scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp"
     }
   },
   "57": {
@@ -663,6 +803,13 @@
       "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png"
     }
   },
+  "59": {
+    "vocab": [],
+    "scene": {
+      "word": "yate de yayo scene",
+      "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png"
+    }
+  },
   "60": {
     "vocab": [
       {
@@ -690,125 +837,6 @@
     "scene": {
       "word": "abejas z",
       "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png"
-    }
-  },
-  "11": {
-    "vocab": [],
-    "scene": {
-      "word": "mi mama scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png"
-    }
-  },
-  "14": {
-    "vocab": [],
-    "scene": {
-      "word": "mi papa scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png"
-    }
-  },
-  "17": {
-    "vocab": [],
-    "scene": {
-      "word": "sapo samapo scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png"
-    }
-  },
-  "20": {
-    "vocab": [],
-    "scene": {
-      "word": "sopa de pato scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png"
-    }
-  },
-  "23": {
-    "vocab": [],
-    "scene": {
-      "word": "made y papa scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png"
-    }
-  },
-  "26": {
-    "vocab": [],
-    "scene": {
-      "word": "leo lee gretel scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png"
-    }
-  },
-  "29": {
-    "vocab": [],
-    "scene": {
-      "word": "nino nada scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png"
-    }
-  },
-  "32": {
-    "vocab": [],
-    "scene": {
-      "word": "nina suena scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png"
-    }
-  },
-  "35": {
-    "vocab": [],
-    "scene": {
-      "word": "sube la bola scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png"
-    }
-  },
-  "38": {
-    "vocab": [],
-    "scene": {
-      "word": "mi bote de vela scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png"
-    }
-  },
-  "41": {
-    "vocab": [],
-    "scene": {
-      "word": "rosca manolo scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png"
-    }
-  },
-  "44": {
-    "vocab": [],
-    "scene": {
-      "word": "rapido arriba scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png"
-    }
-  },
-  "47": {
-    "vocab": [],
-    "scene": {
-      "word": "gato enamorado scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png"
-    }
-  },
-  "50": {
-    "vocab": [],
-    "scene": {
-      "word": "a la fiesta scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png"
-    }
-  },
-  "53": {
-    "vocab": [],
-    "scene": {
-      "word": "jicotea jabela scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png"
-    }
-  },
-  "56": {
-    "vocab": [],
-    "scene": {
-      "word": "los caramelos scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp"
-    }
-  },
-  "59": {
-    "vocab": [],
-    "scene": {
-      "word": "yate de yayo scene",
-      "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png"
     }
   },
   "62": {
