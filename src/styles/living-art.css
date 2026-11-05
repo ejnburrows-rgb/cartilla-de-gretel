@@ -70,23 +70,23 @@
 }
 
 .living-illustration--ambient {
-  --living-duration: 5.6s;
+  --living-duration: 3.6s;
   --living-delay: -0.8s;
   cursor: pointer;
   touch-action: manipulation;
 }
 
 .living-illustration--reacting .living-illustration__art {
-  animation: living-react 360ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
+  animation: living-react 520ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
 }
 
 .living-illustration--phase-1 {
-  --living-duration: 6.4s;
+  --living-duration: 4.1s;
   --living-delay: -2.1s;
 }
 
 .living-illustration--phase-2 {
-  --living-duration: 7.1s;
+  --living-duration: 4.6s;
   --living-delay: -3.4s;
 }
 
@@ -110,25 +110,26 @@
 }
 
 @keyframes living-creature-micro {
-  0%, 72%, 100% { transform: translateY(0) rotate(0deg); }
-  78% { transform: translateY(-1px) rotate(-0.35deg); }
-  84% { transform: translateY(0) rotate(0.28deg); }
-  90% { transform: translateY(-0.5px) rotate(-0.12deg); }
+  0%, 60%, 100% { transform: translateY(0) rotate(0deg); }
+  70% { transform: translateY(-3px) rotate(-1.2deg); }
+  80% { transform: translateY(0) rotate(1deg); }
+  90% { transform: translateY(-1.5px) rotate(-0.4deg); }
 }
 
 @keyframes living-breathe {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-1px) scale(1.01); }
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  40% { transform: translateY(-4px) scale(1.035, 1.025); }
+  70% { transform: translateY(-1.5px) scale(1.015, 0.995); }
 }
 
 @keyframes living-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
+  0%, 100% { transform: translateY(0) rotate(-0.8deg); }
+  50% { transform: translateY(-7px) rotate(0.8deg); }
 }
 
 @keyframes living-sway {
-  0%, 100% { transform: rotate(-0.25deg); }
-  50% { transform: rotate(0.35deg); }
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.8deg) translateY(-2px); }
 }
 
 
@@ -145,21 +146,21 @@
 .living-illustration--wag .living-illustration__art { animation: living-wag 4.2s ease-in-out var(--living-delay) infinite; transform-origin: 50% 80%; }
 .living-illustration--nod .living-illustration__art { animation: living-nod 5.4s ease-in-out var(--living-delay) infinite; transform-origin: 50% 78%; }
 
-@keyframes living-crawl { 0%,100% { transform: translateX(-0.6%) scaleY(1); } 50% { transform: translateX(1.2%) scaleY(.985); } }
-@keyframes living-flutter { 0%,100% { transform: translateY(0) rotate(-0.4deg); } 50% { transform: translateY(-1.2%) rotate(0.4deg); } }
-@keyframes living-swim { 0%,100% { transform: translateX(-1%) rotate(-.25deg); } 50% { transform: translateX(1%) rotate(.25deg); } }
-@keyframes living-hover { 0%,100% { transform: translate(0,0) rotate(-0.25deg); } 50% { transform: translate(0.3%,-0.8%) rotate(0.25deg); } }
-@keyframes living-glide { 0%,100% { transform: translateX(-1%) translateY(0.5%); } 50% { transform: translateX(1%) translateY(-1%); } }
-@keyframes living-roll { 0%,100% { transform: translateX(-0.8%); } 50% { transform: translateX(1.5%); } }
+@keyframes living-crawl { 0%,100% { transform: translateX(-2%) scaleY(1); } 50% { transform: translateX(3%) scaleY(.96); } }
+@keyframes living-flutter { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-4%) rotate(2deg) scale(1.03); } }
+@keyframes living-swim { 0%,100% { transform: translateX(-3%) rotate(-1.5deg); } 50% { transform: translateX(3%) rotate(1.5deg); } }
+@keyframes living-hover { 0%,100% { transform: translate(0,0) rotate(-2deg); } 25% { transform: translate(2%,-4%) rotate(2deg); } 50% { transform: translate(-1.5%,-6%) rotate(-1.5deg) scale(1.03); } 75% { transform: translate(-2.5%,-2%) rotate(2deg); } }
+@keyframes living-glide { 0%,100% { transform: translateX(-3%) translateY(1.5%) rotate(-2deg); } 50% { transform: translateX(3%) translateY(-4%) rotate(2deg); } }
+@keyframes living-roll { 0%,100% { transform: translateX(-2.5%) rotate(-4deg); } 50% { transform: translateX(3%) rotate(4deg); } }
 @keyframes living-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes living-hop { 0%,82%,100% { transform: translateY(0) scaleY(1); } 89% { transform: translateY(-4%) scaleY(.985); } 95% { transform: translateY(0.5%) scaleY(1.01); } }
-@keyframes living-wag { 0%,78%,100% { transform: rotate(0deg); } 85% { transform: rotate(-0.8deg); } 92% { transform: rotate(0.8deg); } }
-@keyframes living-nod { 0%,80%,100% { transform: rotate(0deg); } 87% { transform: rotate(0.7deg); } 94% { transform: rotate(-.35deg); } }
+@keyframes living-hop { 0%,70%,100% { transform: translateY(0) scale(1,1); } 78% { transform: translateY(1%) scale(1.04,.95); } 86% { transform: translateY(-10%) scale(.97,1.04); } 94% { transform: translateY(1%) scale(1.03,.97); } }
+@keyframes living-wag { 0%,60%,100% { transform: rotate(0deg); } 70% { transform: rotate(-3.5deg); } 80% { transform: rotate(3.5deg); } 90% { transform: rotate(-1.5deg); } }
+@keyframes living-nod { 0%,65%,100% { transform: rotate(0deg) translateY(0); } 75% { transform: rotate(2.5deg) translateY(1.5%); } 87% { transform: rotate(-1.5deg) translateY(0); } }
 
 @keyframes living-react {
   0% { transform: translateY(0) scale(1) rotate(0deg); }
-  40% { transform: translateY(-4px) scale(1.035) rotate(-0.8deg); }
-  72% { transform: translateY(1px) scale(0.992) rotate(0.45deg); }
+  38% { transform: translateY(-9px) scale(1.08) rotate(-2.5deg); }
+  72% { transform: translateY(2px) scale(0.98) rotate(1.5deg); }
   100% { transform: translateY(0) scale(1) rotate(0deg); }
 }
 
@@ -489,66 +490,51 @@
 }
 
 @keyframes living-part-wings {
-  0%, 100% { transform: rotate(-0.5deg) scaleY(.995); }
-  50% { transform: rotate(0.6deg) scaleY(1.008); }
+  0%, 100% { transform: rotate(-6deg) scaleY(.92); } 50% { transform: rotate(7deg) scaleY(1.06); }
 }
 
 @keyframes living-part-tail {
-  0%, 100% { transform: rotate(-1.2deg); }
-  50% { transform: rotate(1.5deg); }
+  0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(9deg); }
 }
 
 @keyframes living-part-head {
-  0%, 76%, 100% { transform: rotate(0deg) translateY(0); }
-  84% { transform: rotate(1.0deg) translateY(0.6%); }
-  92% { transform: rotate(-0.5deg) translateY(0); }
+  0%, 60%, 100% { transform: rotate(0deg) translateY(0); } 72% { transform: rotate(4deg) translateY(1.5%); } 86% { transform: rotate(-2.5deg) translateY(0); }
 }
 
 @keyframes living-part-ears {
-  0%, 72%, 100% { transform: rotate(0deg) scaleY(1); }
-  82% { transform: rotate(-1.4deg) scaleY(.98); }
-  91% { transform: rotate(1.0deg) scaleY(1.01); }
+  0%, 60%, 100% { transform: rotate(0deg) scaleY(1); } 72% { transform: rotate(-6deg) scaleY(.95); } 86% { transform: rotate(4deg) scaleY(1.03); }
 }
 
 @keyframes living-part-trunk {
-  0%, 72%, 100% { transform: rotate(0deg); }
-  82% { transform: rotate(-1.5deg); }
-  91% { transform: rotate(1.0deg); }
+  0%, 55%, 100% { transform: rotate(0deg); } 70% { transform: rotate(-6deg); } 85% { transform: rotate(4.5deg); }
 }
 
 @keyframes living-part-legs {
-  0%, 100% { transform: rotate(-0.6deg) scaleY(1); }
-  50% { transform: rotate(0.6deg) scaleY(1.01); }
+  0%, 100% { transform: rotate(-3deg) scaleY(1); } 50% { transform: rotate(3deg) scaleY(1.03); }
 }
 
 @keyframes living-part-crest {
-  0%, 100% { transform: translateY(0) scaleY(1); }
-  50% { transform: translateY(-1.0%) scaleY(1.015); }
+  0%, 100% { transform: translateY(0) scaleY(1); } 50% { transform: translateY(-4%) scaleY(1.05); }
 }
 
 @keyframes living-part-foliage {
-  0%, 100% { transform: rotate(-0.5deg); }
-  50% { transform: rotate(0.5deg); }
+  0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); }
 }
 
 @keyframes living-part-shimmer {
-  0%, 100% { opacity: 0.96; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.015); }
+  0%, 100% { opacity: 0.85; transform: scale(1); filter: brightness(1); } 50% { opacity: 1; transform: scale(1.05); filter: brightness(1.12); }
 }
 
 @keyframes living-part-flame {
-  0%, 100% { transform: scale(1) rotate(-0.8deg); opacity: 0.94; }
-  50% { transform: scale(1.02, 1.04) rotate(0.8deg); opacity: 1; }
+  0%, 100% { transform: scale(1) rotate(-3deg); opacity: 0.9; } 50% { transform: scale(1.06, 1.12) rotate(3deg); opacity: 1; }
 }
 
 @keyframes living-part-steam {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
-  50% { transform: translateY(-1.8%) scale(1.01, 1.03); opacity: 0.95; }
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; } 50% { transform: translateY(-6%) scale(1.04, 1.1); opacity: 1; }
 }
 
 @keyframes living-part-glint {
-  0%, 75%, 100% { opacity: 0.92; transform: scale(1); }
-  85% { opacity: 1; transform: scale(1.02) rotate(0.4deg); }
+  0%, 65%, 100% { opacity: 0.9; transform: scale(1); filter: brightness(1); } 80% { opacity: 1; transform: scale(1.05) rotate(1.5deg); filter: brightness(1.15); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -558,3 +544,8 @@
   }
 }
 .living-illustration__clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+
+/* Owner-approved premium tactile hover (2026-11-05) */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .living-illustration--ambient:hover .living-illustration__art { filter: drop-shadow(0 6px 10px rgba(180, 83, 9, 0.22)); }
+}

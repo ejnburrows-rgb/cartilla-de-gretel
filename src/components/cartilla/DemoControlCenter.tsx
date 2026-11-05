@@ -13,6 +13,9 @@ import {
   CheckCircle2,
   MonitorPlay,
   ClipboardList,
+  Home,
+  Compass,
+  Gamepad2,
 } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import * as seedData from "@/lib/seed-data";
@@ -241,9 +244,9 @@ export function DemoControlCenter({
           type="button"
           onClick={() => setFloatingOpen(true)}
           aria-label="Abrir Panel de Control de Demostración"
-          className="inline-flex items-center gap-1.5 rounded-full border border-amber-300/90 bg-amber-950/90 px-3 py-1.5 text-[11px] font-extrabold text-amber-50 shadow-md backdrop-blur-xs transition hover:bg-amber-900"
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-amber-300 bg-amber-950/95 px-3.5 py-2 text-xs font-extrabold text-amber-50 shadow-lg backdrop-blur-xs transition hover:scale-105 hover:bg-amber-900"
         >
-          <FastForward size={12} /> Demo · L{activeLessonNum}
+          <FastForward size={14} className="text-amber-300" /> Presentación Cliente · L{activeLessonNum}
         </button>
       </div>
     );
@@ -304,6 +307,28 @@ export function DemoControlCenter({
           </label>
 
           <Link
+            to="/"
+            className={`inline-flex items-center gap-1 rounded-xl border px-3 py-1.5 text-xs font-bold transition ${
+              location.pathname === "/"
+                ? "border-amber-700 bg-amber-800 text-white"
+                : "border-amber-300 bg-white text-amber-950 hover:bg-amber-100"
+            }`}
+          >
+            <Home size={14} /> Portada
+          </Link>
+
+          <Link
+            to="/cartilla/lecciones"
+            className={`inline-flex items-center gap-1 rounded-xl border px-3 py-1.5 text-xs font-bold transition ${
+              location.pathname.startsWith("/cartilla/lecciones")
+                ? "border-amber-700 bg-amber-800 text-white"
+                : "border-amber-300 bg-white text-amber-950 hover:bg-amber-100"
+            }`}
+          >
+            <Compass size={14} /> Mapa (24)
+          </Link>
+
+          <Link
             to="/cartilla/leccion/$n"
             params={{ n: String(activeLessonNum) }}
             className={`inline-flex items-center gap-1 rounded-xl border px-3 py-1.5 text-xs font-bold transition ${
@@ -344,6 +369,17 @@ export function DemoControlCenter({
             className="inline-flex items-center gap-1 rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-bold text-amber-950 hover:bg-amber-100"
           >
             <GraduationCap size={14} /> Panel Maestro
+          </Link>
+
+          <Link
+            to="/cartilla/practica"
+            className={`inline-flex items-center gap-1 rounded-xl border px-3 py-1.5 text-xs font-bold transition ${
+              location.pathname.startsWith("/cartilla/practica") || location.pathname.startsWith("/cartilla/juego")
+                ? "border-amber-700 bg-amber-800 text-white"
+                : "border-amber-300 bg-white text-amber-950 hover:bg-amber-100"
+            }`}
+          >
+            <Gamepad2 size={14} /> Juegos (5)
           </Link>
 
           <button

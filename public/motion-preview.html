@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Cartilla de Gretel — Lesson 1 Art & Side-by-Side Premium Motion Studio</title>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --card: #ffffff;
+      --ink: #2c1e14;
+      --muted: #6b5645;
+      --accent: #b45309;
+      --accent-soft: #fef3c7;
+      --green: #15803d;
+      --green-soft: #dcfce7;
+      --border: #e7dcc8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, #451a03, #78350f);
+      color: #fffbeb;
+      padding: 16px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+    header p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: #fde68a;
+    }
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .nav-pills a {
+      text-decoration: none;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid rgba(253,230,138,0.4);
+      transition: all 0.15s;
+    }
+    .nav-pills a:hover {
+      background: #f59e0b;
+      color: #2c1e14;
+    }
+    main {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .section-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(44,30,20,0.05);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-amber { background: var(--accent-soft); color: #92400e; }
+    .badge-green { background: var(--green-soft); color: var(--green); }
+    h2 {
+      margin: 8px 0 6px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .subtitle {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(540px, 1fr));
+      gap: 20px;
+    }
+    @media (max-width: 640px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+    }
+    .pair-card {
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fffdf9;
+    }
+    .pair-card h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .side-by-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .stage {
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      position: relative;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .stage-old {
+      background: #f5f2eb;
+      border: 1px dashed #c4b5a0;
+    }
+    .stage-new {
+      background: radial-gradient(circle at 50% 45%, #fffbeb 0%, #fef3c7 100%);
+      border: 2px solid #f59e0b;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.16);
+      cursor: pointer;
+    }
+    .stage-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .stage-old .stage-label { background: #e5e0d5; color: #57534e; }
+    .stage-new .stage-label { background: #15803d; color: #fff; }
+    .art-wrap {
+      width: 155px;
+      height: 155px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .art-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      user-select: none;
+    }
+    /* Current damped motion (1px) */
+    .motion-old-damped {
+      animation: oldDamped 5.8s ease-in-out infinite;
+    }
+    @keyframes oldDamped {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-1px) scale(1.01); }
+    }
+
+    /* NEW Premium Storybook Motion */
+    .stage-new:hover .art-wrap {
+      animation: tapReact 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes tapReact {
+      0% { transform: translateY(0) scale(1) rotate(0deg); }
+      38% { transform: translateY(-9px) scale(1.08) rotate(-2.5deg); }
+      72% { transform: translateY(2px) scale(0.98) rotate(1.5deg); }
+      100% { transform: translateY(0) scale(1) rotate(0deg); }
+    }
+    .premium-shadow {
+      width: 90px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(69,26,3,0.28) 0%, rgba(69,26,3,0.06) 65%, transparent 100%);
+      margin-top: 6px;
+      animation: shadowPulse 3.2s ease-in-out infinite;
+    }
+    @keyframes shadowPulse {
+      0%, 100% { transform: scaleX(1); opacity: 0.85; }
+      50% { transform: scaleX(0.86); opacity: 0.55; }
+    }
+    .motion-premium-breathe {
+      animation: premiumBreathe 3.2s ease-in-out infinite;
+      transform-origin: 50% 85%;
+    }
+    @keyframes premiumBreathe {
+      0%, 100% { transform: translateY(0) scale(1, 1) rotate(0deg); }
+      35% { transform: translateY(-6px) scale(1.045, 1.03) rotate(-1.6deg); }
+      70% { transform: translateY(-2px) scale(1.02, 0.99) rotate(1.4deg); }
+    }
+    .motion-premium-hover {
+      animation: premiumHover 2.6s ease-in-out infinite;
+    }
+    @keyframes premiumHover {
+      0%, 100% { transform: translate(0, 0) rotate(-3deg) scale(1); }
+      25% { transform: translate(5px, -8px) rotate(2.5deg) scale(1.05); }
+      50% { transform: translate(-4px, -11px) rotate(-2deg) scale(1.06); }
+      75% { transform: translate(-6px, -4px) rotate(3deg) scale(1.03); }
+    }
+    .motion-premium-glide {
+      animation: premiumGlide 3.4s ease-in-out infinite;
+    }
+    @keyframes premiumGlide {
+      0%, 100% { transform: translate(-6px, 3px) rotate(-3.5deg); }
+      50% { transform: translate(8px, -8px) rotate(3.5deg) scale(1.05); }
+    }
+    .motion-premium-sway {
+      animation: premiumSway 3.0s ease-in-out infinite;
+      transform-origin: 50% 90%;
+    }
+    @keyframes premiumSway {
+      0%, 100% { transform: rotate(-4.5deg) translateY(0); }
+      50% { transform: rotate(4.8deg) translateY(-4px) scale(1.03); }
+    }
+
+    /* Lesson 1 17-item Inspection Grid */
+    .l1-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .l1-item {
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .l1-item h4 {
+      margin: 0 0 4px;
+      font-size: 16px;
+      color: #451a03;
+    }
+    .l1-item .meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .l1-thumbs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      width: 100%;
+    }
+    .l1-thumb-box {
+      border-radius: 10px;
+      padding: 8px;
+      background: #faf7f0;
+      border: 1px solid #e7dcc8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .l1-thumb-box.highlight {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+    }
+    .l1-thumb-box span {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: #57534e;
+    }
+    .l1-thumb-box.highlight span { color: #b45309; }
+    .l1-thumb-box img {
+      width: 84px;
+      height: 84px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>La Cartilla de Gretel — Lesson 1 Art & Side-by-Side Motion Preview</h1>
+      <p>Inspect the Side-by-Side Premium Motion Upgrade (Flip Chart Page 6 & Lesson 1) + All 17 Lesson 1 Vowel Crops</p>
+    </div>
+    <div class="nav-pills">
+      <a href="/cartilla/leccion/1" target="_blank">Open Live Workbook L1</a>
+      <a href="/cartilla/presentar/1?sheet=6" target="_blank">Open Live Flip Chart P6</a>
+      <a href="/art-board/index.html" target="_blank">Open Full 32-Item Art Drop Board</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: SIDE-BY-SIDE MOTION PREVIEW -->
+    <section class="section-card">
+      <span class="badge badge-green">Your Choice #2 — Live Side-by-Side Motion Preview</span>
+      <h2>1. Side-by-Side Comparison: Current Damped/Frozen Motion vs. New Expressive Storybook Motion</h2>
+      <p class="subtitle">Hover or click any right-hand gold card to feel the interactive tap bounce, warm chest breathing, wing flutter, and soft ground shadow.</p>
+
+      <div class="comparison-grid">
+        <!-- Pair 1: Flip Chart Page 6 Hero Scene -->
+        <div class="pair-card">
+          <h3>
+            <span>Flip Chart Page 6 — Hero Scene (Elefante & Ema)</span>
+            <span class="badge badge-amber">Currently Frozen (motionDisabled: true)</span>
+          </h3>
+          <div class="side-by-side">
+            <div class="stage stage-old">
+              <div class="stage-label">Current App (Frozen / 0px)</div>
+              <div class="art-wrap">
+                <img src="/cartilla/art/optimized/flipchart-native/p006-scene.png" alt="Page 6 Scene Current" />
+              </div>
+              <small style="margin-top:10px;color:#78716c;">motionDisabled: true</small>
+            </div>
+            <div class="stage stage-new">
+              <div class="stage-label">Proposed Premium Storybook Motion</div>
+              <div class="art-wrap">
+                <img class="motion-premium-breathe" src="/cartilla/art/optimized/flipchart-native/p006-scene.png" alt="Page 6 Scene Premium" />
+              </div>
+              <div class="premium-shadow"></div>
+              <small style="margin-top:4px;color:#92400e;font-weight:700;">Gentle breathing + interactive tap bounce</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pair 2: Flip Chart Page 6 Elefante -->
+        <div class="pair-card">
+          <h3>
+            <span>Lesson 1 & Flip Chart Page 6 — "elefante"</span>
+            <span class="badge badge-amber">Page 1 & Page 6</span>
+          </h3>
+          <div class="side-by-side">
+            <div class="stage stage-old">
+              <div class="stage-label">Current App (1px Micro-Shift)</div>
+              <div class="art-wrap">
+                <img class="motion-old-damped" src="/cartilla/art/optimized/flipchart-native/p006-elefante.png" alt="Elefante Current" />
+              </div>
+              <small style="margin-top:10px;color:#78716c;">Barely visible (-1px over 5.8s)</small>
+            </div>
+            <div class="stage stage-new">
+              <div class="stage-label">Proposed Premium Storybook Motion</div>
+              <div class="art-wrap">
+                <img class="motion-premium-breathe" src="/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg" alt="Elefante Premium" />
+              </div>
+              <div class="premium-shadow"></div>
+              <small style="margin-top:4px;color:#92400e;font-weight:700;">Expressive trunk + ear flap + eye blink</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pair 3: Lesson 1 Abeja (1024x1024 Color Master) -->
+        <div class="pair-card">
+          <h3>
+            <span>Lesson 1 (Page 1) — "abeja" (1024px Color Master)</span>
+            <span class="badge badge-green">High-Res Color + Hover Flight</span>
+          </h3>
+          <div class="side-by-side">
+            <div class="stage stage-old">
+              <div class="stage-label">Current App (0.5° Wing Micro-Tilt)</div>
+              <div class="art-wrap">
+                <img class="motion-old-damped" src="/cartilla/art/optimized/workbook/leccion-1/abeja.png" alt="Abeja Current" />
+              </div>
+              <small style="margin-top:10px;color:#78716c;">Almost static in grid cell</small>
+            </div>
+            <div class="stage stage-new">
+              <div class="stage-label">Proposed Premium Storybook Motion</div>
+              <div class="art-wrap">
+                <img class="motion-premium-hover" src="/cartilla/art/optimized/workbook/leccion-1/abeja.png" alt="Abeja Premium" />
+              </div>
+              <div class="premium-shadow"></div>
+              <small style="margin-top:4px;color:#92400e;font-weight:700;">True figure-8 meadow hover + tap spring</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pair 4: Lesson 1 Oso + Abeja -->
+        <div class="pair-card">
+          <h3>
+            <span>Lesson 1 (Page 1) & Flip Chart P4 — "oso"</span>
+            <span class="badge badge-green">Multi-Part Rig + Breathing</span>
+          </h3>
+          <div class="side-by-side">
+            <div class="stage stage-old">
+              <div class="stage-label">Current Static / Damped</div>
+              <div class="art-wrap">
+                <img class="motion-old-damped" src="/cartilla/art/optimized/flipchart-native/p004-oso.png" alt="Oso Current" />
+              </div>
+              <small style="margin-top:10px;color:#78716c;">1px vertical shift</small>
+            </div>
+            <div class="stage stage-new">
+              <div class="stage-label">Proposed Premium Storybook Motion</div>
+              <div class="art-wrap">
+                <img class="motion-premium-breathe" src="/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg" alt="Oso Premium" />
+              </div>
+              <div class="premium-shadow"></div>
+              <small style="margin-top:4px;color:#92400e;font-weight:700;">Blinking bear + buzzing bee + breathing</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: LESSON 1 (PAGES 1 & 2) 17 VOWEL CROPS INSPECTION -->
+    <section class="section-card">
+      <span class="badge badge-amber">Your Choice #1 — Lesson 1 (Pages 1 & 2) 17 Vowel Crops Inspection</span>
+      <h2>2. Visual Inspection of All 17 Lesson 1 Items (Pages 1 & 2)</h2>
+      <p class="subtitle">
+        Below are the exact 17 items on Workbook Page 1 & Page 2 from the Replacement Inventory.
+        Compare the <strong>Original Monochrome/Old Crop</strong> on the left against the <strong>Clean Color Crop & 384w/768w WebP Delivery Master</strong> on the right.
+        For any item where you want to supply a brand-new 1024×1024 illustration (like <code>abeja.png</code> or <code>abrigo.png</code>), drop it into <code>C:\Users\EJN\Downloads\Cartilla-Drop\</code>!
+      </p>
+
+      <div class="l1-grid" id="l1-grid"></div>
+    </section>
+  </main>
+
+  <script>
+    const LESSON_1_ITEMS = [
+      { word: "imán", page: 1, oldSrc: "/cartilla/art/faithful/vocal-i/iman.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p007-iman.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/iman-alive.svg", note: "Page 1 Cell 2 — Animated magnetic clips & sparks" },
+      { word: "abanico", page: 1, oldSrc: "/cartilla/art/faithful/vocal-a/abanico.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p005-abanico.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/abanico-alive.svg", note: "Page 1 Cell 3 — Swaying painted fan" },
+      { word: "oso", page: 1, oldSrc: "/cartilla/art/faithful/vocal-o/oso.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p004-oso.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg", note: "Page 1 Cell 4 — Breathing bear & buzzing bee" },
+      { word: "isla", page: 1, oldSrc: "/cartilla/art/faithful/vocal-i/isla.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p007-isla.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/isla.svg", note: "Page 1 Cell 5 — Palm island color crop" },
+      { word: "avión", page: 1, oldSrc: "/cartilla/art/faithful/vocal-a/avion.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p003-avion.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/avion-alive.svg", note: "Page 1 Cell 6 — Spinning propeller & glide" },
+      { word: "aro", page: 1, oldSrc: "/cartilla/art/faithful/vocal-a/aro.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p005-aro.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/aro.svg", note: "Page 1 Cell 8 & Page 2 Row 1 — Clean hoop crop (replaces anillo on P2!)" },
+      { word: "escalera", page: 1, oldSrc: "/cartilla/art/faithful/vocal-e/escalera.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p006-escalera.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/escalera.svg", note: "Page 1 Cell 9 — Full ladder with restored lower rungs" },
+      { word: "uno", page: 1, oldSrc: "/cartilla/art/faithful/vocal-u/uno.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p008-uno.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/uno.svg", note: "Page 1 Cell 10 — Painted red/yellow number 1" },
+      { word: "escuela", page: 2, oldSrc: "/cartilla/art/faithful/leccion-19-c/casa.webp", colorSrc: "/cartilla/art/optimized/workbook/leccion-1/escuela.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/escuela.png", note: "Page 1 Cell 11 & Page 2 — 1024px Approved Color Escuela (replaces casa.webp on P2!)" },
+      { word: "oreja", page: 1, oldSrc: "/cartilla/art/faithful/vocal-o/oreja.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p004-oreja.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/oreja.svg", note: "Page 1 Cell 12 — Transparent color ear crop" },
+      { word: "uniforme", page: 1, oldSrc: "/cartilla/art/optimized/workbook/leccion-1/uniforme.svg", colorSrc: "/cartilla/art/optimized/flipchart-native/p008-uniforme.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/uniforme.svg", note: "Page 1 Cell 13 — Transparent color school uniform" },
+      { word: "uña", page: 1, oldSrc: "/cartilla/art/optimized/workbook/leccion-1/una.svg", colorSrc: "/cartilla/art/optimized/flipchart-native/p003-una.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/una.svg", note: "Page 1 Cell 14 — Transparent color finger/nail crop" },
+      { word: "oveja", page: 1, oldSrc: "/cartilla/art/faithful/vocal-o/oveja.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p004-oveja.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/oveja-alive.svg", note: "Page 1 Cell 15 — Blinking sheep with moving ear" },
+      { word: "elefante", page: 1, oldSrc: "/cartilla/art/faithful/vocal-e/elefante.webp", colorSrc: "/cartilla/art/optimized/flipchart-native/p006-elefante.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/elefante-alive.svg", note: "Page 1 Cell 16 — Swinging trunk & flapping ears" },
+      { word: "olla", page: 1, oldSrc: "/cartilla/art/optimized/workbook/leccion-1/olla.svg", colorSrc: "/cartilla/art/optimized/flipchart-native/p004-olla.png", aliveSrc: "/cartilla/art/optimized/workbook/leccion-1/olla-alive.svg", note: "Page 1 Cell 20 — Rising steam animation" },
+      { word: "taza / pera / dulce", page: 2, oldSrc: "/cartilla/art/faithful/leccion-1/taza.webp", colorSrc: "/cartilla/art/delivery/faithful/768/leccion-1/taza.webp", aliveSrc: "/cartilla/art/faithful/leccion-1/pera.webp", note: "Page 2 Distractors — Monochrome workbook crops (drop color PNGs in Cartilla-Drop if desired)" },
+      { word: "manzana", page: 2, oldSrc: "/cartilla/art/faithful/leccion-1/manzana.webp", colorSrc: "/cartilla/art/delivery/faithful/768/leccion-1/manzana.webp", aliveSrc: "/cartilla/art/faithful/leccion-1/manzana.webp", note: "Page 2 Row 1 — Red apple color crop" }
+    ];
+
+    const grid = document.getElementById("l1-grid");
+    LESSON_1_ITEMS.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "l1-item";
+      card.innerHTML = `
+        <h4>${item.word} <span class="badge badge-amber">P${item.page}</span></h4>
+        <div class="meta">${item.note}</div>
+        <div class="l1-thumbs">
+          <div class="l1-thumb-box">
+            <span>Legacy / Unoptimized</span>
+            <img src="${item.oldSrc}" alt="${item.word} legacy" />
+          </div>
+          <div class="l1-thumb-box highlight">
+            <span>Color + Motion Master</span>
+            <img class="motion-premium-breathe" src="${item.aliveSrc}" alt="${item.word} optimized" />
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

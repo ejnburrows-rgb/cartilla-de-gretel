@@ -13,6 +13,7 @@ import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { SkipLink } from "@/components/a11y/SkipLink";
 import { StudentCursor } from "@/components/StudentCursor";
+import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 
 function NotFoundComponent() {
   return (
@@ -98,6 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const hasDedicatedDemoBar = pathname.startsWith("/cartilla/leccion/") || pathname.startsWith("/cartilla/presentar/") || pathname.startsWith("/cartilla/teacher");
 
   React.useEffect(() => {
     const needsAccountState =
@@ -134,6 +136,7 @@ function RootComponent() {
         <div id="main-content" tabIndex={-1}>
           <Outlet />
         </div>
+        {!hasDedicatedDemoBar && <DemoControlCenter floating />}
       </LanguageProvider>
     </QueryClientProvider>
   );

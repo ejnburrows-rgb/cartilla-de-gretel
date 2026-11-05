@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Cartilla de Gretel — Propuesta de Rediseño Premium (Vocales O·A·E·I·U, Maestro & Presentación)</title>
+  <style>
+    :root {
+      --paper: #fdfaf3;
+      --paper-warm: #f7f0e2;
+      --card: #ffffff;
+      --ink: #2a1d14;
+      --muted: #6f5d4f;
+      --gold: #b45309;
+      --gold-soft: #fef3c7;
+      --gold-border: #d97706;
+      --green: #15803d;
+      --border: #e5dac7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+      background: var(--paper);
+      color: var(--ink);
+      padding-bottom: 90px;
+    }
+    .ui-sans {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    /* Top Studio Switcher Header */
+    .studio-top {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #2a1d14;
+      color: #fffbeb;
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .studio-top h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .studio-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .studio-tabs button, .studio-tabs a {
+      font: 700 13px system-ui, sans-serif;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(253,230,138,0.35);
+      background: rgba(255,255,255,0.1);
+      color: #fffbeb;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .studio-tabs button.active, .studio-tabs button:hover, .studio-tabs a:hover {
+      background: #f59e0b;
+      color: #2a1d14;
+      border-color: #f59e0b;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 24px;
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ==========================================
+       MOCKUP 1: PREMIUM VOWELS-ONLY INTRODUCTION
+       (NO GRETEL AVATAR/STICKER, NO AEIOU)
+       ========================================== */
+    .intro-hero {
+      background: linear-gradient(180deg, #fffdf8 0%, #f9f2e3 100%);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(42,29,20,0.06);
+      margin-bottom: 28px;
+    }
+    .eyebrow {
+      font: 700 11px system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .intro-title {
+      font-size: 38px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .intro-poem {
+      font-style: italic;
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 26px;
+      line-height: 1.55;
+    }
+    /* Lesson 1 Hero Banner: Las Hermanitas Vocales (Original Flip Chart P3 Scene) */
+    .hermanitas-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      align-items: center;
+      background: #ffffff;
+      border: 2px solid #e6d3b3;
+      border-radius: 22px;
+      padding: 24px 28px;
+      max-width: 980px;
+      margin: 0 auto 32px;
+      text-align: left;
+      box-shadow: 0 8px 24px rgba(180,83,9,0.08);
+    }
+    @media (max-width: 780px) {
+      .hermanitas-card { grid-template-columns: 1fr; text-align: center; }
+    }
+    .hermanitas-art {
+      background: #fffcf5;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+    }
+    .hermanitas-art img {
+      max-width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+    }
+    .vowel-sequence-pills {
+      display: flex;
+      gap: 10px;
+      margin: 14px 0 18px;
+      flex-wrap: wrap;
+    }
+    .v-pill {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font: 800 20px Georgia, serif;
+      background: #fef3c7;
+      color: #92400e;
+      border: 2px solid #f59e0b;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2a1d14;
+      color: #fffbeb;
+      font: 700 14px system-ui, sans-serif;
+      padding: 12px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .btn-primary:hover {
+      background: #b45309;
+      transform: translateY(-1px);
+    }
+
+    /* 5 Individual Vowel Cards in Authentic O -> A -> E -> I -> U Order */
+    .vowels-5-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    @media (max-width: 960px) {
+      .vowels-5-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .vowels-5-grid { grid-template-columns: 1fr; }
+    }
+    .vowel-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .vowel-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-border);
+      box-shadow: 0 14px 30px rgba(180,83,9,0.12);
+    }
+    .vowel-step {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font: 700 11px system-ui, sans-serif;
+      color: var(--muted);
+      background: var(--paper-warm);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .vowel-glyph {
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1;
+      margin: 12px 0 8px;
+      color: #7c2d12;
+    }
+    .vowel-art-box {
+      width: 130px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 6px 0 12px;
+    }
+    .vowel-art-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .vowel-poem-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .vowel-words {
+      font: 500 12px system-ui, sans-serif;
+      color: var(--muted);
+    }
+
+    /* ==========================================
+       MOCKUP 2: MINIMALIST MAESTRO WORKSPACE
+       ========================================== */
+    .maestro-shell {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(42,29,20,0.06);
+    }
+    .maestro-topbar {
+      padding: 18px 28px;
+      background: #fffcf7;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .maestro-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .maestro-brand h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .maestro-nav {
+      display: flex;
+      gap: 8px;
+      font: 600 13px system-ui, sans-serif;
+    }
+    .maestro-nav a {
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid transparent;
+    }
+    .maestro-nav a.active {
+      background: var(--ink);
+      color: #fff;
+    }
+    .maestro-body {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      min-height: 560px;
+    }
+    @media (max-width: 860px) {
+      .maestro-body { grid-template-columns: 1fr; }
+    }
+    .maestro-sidebar {
+      border-right: 1px solid var(--border);
+      background: #fcf9f2;
+      padding: 20px;
+    }
+    .sidebar-group-title {
+      font: 800 11px system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin: 14px 0 8px;
+    }
+    .lesson-list-btn {
+      width: 100%;
+      text-align: left;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: transparent;
+      font: 600 13px system-ui, sans-serif;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .lesson-list-btn:hover { background: #f3ece0; }
+    .lesson-list-btn.active {
+      background: #fff;
+      border-color: var(--gold-border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .maestro-stage {
+      padding: 28px;
+    }
+    .maestro-stage-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .action-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .action-pill {
+      font: 700 13px system-ui, sans-serif;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .action-pill.primary {
+      background: #b45309;
+      color: #fff;
+      border-color: #b45309;
+    }
+    .preview-cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .preview-cards-3 { grid-template-columns: 1fr; }
+    }
+    .p-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fffdf9;
+    }
+    .p-card h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+    .p-card p {
+      font: 13px system-ui, sans-serif;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+    .p-card-thumb {
+      height: 180px;
+      background: #f7f2e7;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+    }
+    .p-card-thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* ==========================================
+       MOCKUP 3: ULTRA-CLEAN CLIENT PRESENTER PILL
+       (FLOATING BOTTOM-CENTER DOCK)
+       ========================================== */
+    .clean-presenter-dock {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      background: rgba(42, 29, 20, 0.96);
+      backdrop-filter: blur(12px);
+      color: #fffbeb;
+      padding: 8px 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      font: 600 13px system-ui, sans-serif;
+      max-width: 96vw;
+      overflow-x: auto;
+    }
+    .clean-presenter-dock select {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font: 700 12px system-ui, sans-serif;
+      cursor: pointer;
+    }
+    .clean-presenter-dock select option { color: #2a1d14; background: #fff; }
+    .clean-presenter-dock a {
+      color: #fde68a;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .clean-presenter-dock a:hover, .clean-presenter-dock a.active {
+      background: #f59e0b;
+      color: #2a1d14;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header class="studio-top ui-sans">
+    <div>
+      <h1>PROPUESTA VISUAL INTERACTIVA — La Cartilla de Gretel</h1>
+      <div style="font-size:12px;color:#fde68a;">Haz clic en las 3 pestañas para inspeccionar el nuevo diseño antes de aplicarlo al código</div>
+    </div>
+    <div class="studio-tabs">
+      <button class="active" onclick="showTab('tab-intro', this)">1. Nueva Introducción (Solo Vocales O·A·E·I·U, Sin Avatar)</button>
+      <button onclick="showTab('tab-maestro', this)">2. Nuevo Panel Maestro Minimalista</button>
+      <button onclick="showTab('tab-demo', this)">3. Nueva Barra Limpia de Presentación al Cliente</button>
+      <a href="/art-board/review.html" target="_blank">Abrir Revisión de Arte Página por Página ↗</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TAB 1: VOWELS-ONLY INTRODUCTION IN AUTHENTIC O-A-E-I-U ORDER -->
+    <div id="tab-intro" class="panel active">
+      <div class="intro-hero">
+        <div class="eyebrow">Edición Digital Oficial · Método Fonético Leonor Lopetegui</div>
+        <h2 class="intro-title">Las Hermanitas Vocales</h2>
+        <p class="intro-poem">
+          “Cinco hermanitas todas aplicadas,<br/>
+          las cinco bonitas nunca están calladas.”
+        </p>
+
+        <!-- Lesson 1 Hero Card -->
+        <div class="hermanitas-card">
+          <div class="hermanitas-art">
+            <img src="/cartilla/art/optimized/flipchart-native/p003-scene.png" alt="Las hermanitas vocales — Ilustración original" />
+          </div>
+          <div>
+            <div class="eyebrow" style="margin-bottom:4px;">Lección 1 · Páginas 1 a 3 del Cuaderno y Lámina 3 del Rotafolio</div>
+            <h3 style="margin:0 0 8px;font-size:24px;">Presentación de las Cinco Vocales</h3>
+            <p class="ui-sans" style="margin:0;color:var(--muted);font-size:14px;">
+              Sin caricaturas artificiales ni orden alfabético tradicional (AEIOU). La Cartilla enseña primero las 5 hermanitas juntas y luego cada vocal según su trazo y asociación fonética:
+            </p>
+            <div class="vowel-sequence-pills">
+              <span class="v-pill" title="Lección 2: La vocal O (redondita)">o</span>
+              <span class="v-pill" title="Lección 3: La vocal A">a</span>
+              <span class="v-pill" title="Lección 4: La vocal E">e</span>
+              <span class="v-pill" title="Lección 5: La vocal I">i</span>
+              <span class="v-pill" title="Lección 6: La vocal U">u</span>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a class="btn-primary" href="/cartilla/leccion/1" target="_blank">Abrir Cuaderno · Lección 1</a>
+              <a class="btn-primary" style="background:#fff;color:#2a1d14;border:1.5px solid #2a1d14;" href="/cartilla/presentar/1" target="_blank">Proyectar Lámina · Lección 1</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Individual Vowel Lessons in Authentic Order: O, A, E, I, U -->
+        <div class="vowels-5-grid">
+          <a class="vowel-card" href="/cartilla/leccion/2" target="_blank">
+            <span class="vowel-step">Lección 2 · 1.ª Vocal</span>
+            <div class="vowel-glyph">O o</div>
+            <div class="vowel-art-box">
+              <img src="/cartilla/art/optimized/flipchart-native/p004-oso.png" alt="oso" />
+            </div>
+            <div class="vowel-poem-title">“Arre caballito”</div>
+            <div class="vowel-words">olla · Oto · oveja · oso · oreja · ocho</div>
+          </a>
+
+          <a class="vowel-card" href="/cartilla/leccion/3" target="_blank">
+            <span class="vowel-step">Lección 3 · 2.ª Vocal</span>
+            <div class="vowel-glyph">A a</div>
+            <div class="vowel-art-box">
+              <img src="/cartilla/art/optimized/flipchart-native/p005-abanico.png" alt="abanico" />
+            </div>
+            <div class="vowel-poem-title">“La niña enfermita”</div>
+            <div class="vowel-words">abanico · anillo · araña · ala · aro · Ana</div>
+          </a>
+
+          <a class="vowel-card" href="/cartilla/leccion/4" target="_blank">
+            <span class="vowel-step">Lección 4 · 3.ª Vocal</span>
+            <div class="vowel-glyph">E e</div>
+            <div class="vowel-art-box">
+              <img src="/cartilla/art/optimized/flipchart-native/p006-elefante.png" alt="elefante" />
+            </div>
+            <div class="vowel-poem-title">“La niña distraída”</div>
+            <div class="vowel-words">elefante · espejo · Ema · estrella · erizo · escalera</div>
+          </a>
+
+          <a class="vowel-card" href="/cartilla/leccion/5" target="_blank">
+            <span class="vowel-step">Lección 5 · 4.ª Vocal</span>
+            <div class="vowel-glyph">I i</div>
+            <div class="vowel-art-box">
+              <img src="/cartilla/art/optimized/flipchart-native/p007-iman.png" alt="imán" />
+            </div>
+            <div class="vowel-poem-title">“La niña llorona”</div>
+            <div class="vowel-words">imán · iglú · indio · insecto · isla · Irma</div>
+          </a>
+
+          <a class="vowel-card" href="/cartilla/leccion/6" target="_blank">
+            <span class="vowel-step">Lección 6 · 5.ª Vocal</span>
+            <div class="vowel-glyph">U u</div>
+            <div class="vowel-art-box">
+              <img src="/cartilla/art/optimized/flipchart-native/p008-uno.png" alt="uno" />
+            </div>
+            <div class="vowel-poem-title">“La brujita”</div>
+            <div class="vowel-words">uno · uva · uniforme · uña · unicornio</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: MINIMALIST MAESTRO INTERFACE -->
+    <div id="tab-maestro" class="panel">
+      <div class="maestro-shell">
+        <div class="maestro-topbar">
+          <div class="maestro-brand">
+            <div>
+              <div class="eyebrow" style="margin:0;">La Cartilla de Gretel</div>
+              <h2>Espacio del Maestro</h2>
+            </div>
+          </div>
+          <nav class="maestro-nav">
+            <a href="#maestro" class="active">1. Enseñar Lección</a>
+            <a href="/cartilla/teacher/crm" target="_blank">2. Mis Alumnos y Clases</a>
+            <a href="/cartilla/imprimir/all" target="_blank">3. Imprimir Hojas</a>
+          </nav>
+        </div>
+
+        <div class="maestro-body">
+          <aside class="maestro-sidebar">
+            <div class="sidebar-group-title">Etapa 1 · Las Vocales (1–6)</div>
+            <button class="lesson-list-btn active"><span>1. Las hermanitas vocales</span><span>Pág. 1–3</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/2','_blank')"><span>2. Vocal O o</span><span>Pág. 4–6</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/3','_blank')"><span>3. Vocal A a</span><span>Pág. 7–9</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/4','_blank')"><span>4. Vocal E e</span><span>Pág. 10–12</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/5','_blank')"><span>5. Vocal I i</span><span>Pág. 13–15</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/6','_blank')"><span>6. Vocal U u</span><span>Pág. 16–18</span></button>
+
+            <div class="sidebar-group-title">Etapa 2 · Sílabas y Consonantes (7–24)</div>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/7','_blank')"><span>7. Consonante M m</span><span>ma·me·mi·mo·mu</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/8','_blank')"><span>8. Consonante P p</span><span>pa·pe·pi·po·pu</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/9','_blank')"><span>9. Consonante S s</span><span>sa·se·si·so·su</span></button>
+            <button class="lesson-list-btn" onclick="window.open('/cartilla/teacher/guia/10','_blank')"><span>10. Consonante T t</span><span>ta·te·ti·to·tu</span></button>
+          </aside>
+
+          <div class="maestro-stage">
+            <div class="maestro-stage-header">
+              <div>
+                <div class="eyebrow" style="margin:0;">Lección Activa · Etapa de Vocales</div>
+                <h3 style="margin:4px 0 0;font-size:26px;">Lección 1 — Las hermanitas vocales (o · a · e · i · u)</h3>
+              </div>
+              <div class="action-pills">
+                <a class="action-pill primary" href="/cartilla/presentar/1" target="_blank">Proyectar Rotafolio en Aula</a>
+                <a class="action-pill" href="/cartilla/leccion/1" target="_blank">Abrir Cuaderno del Alumno</a>
+                <a class="action-pill" href="/cartilla/imprimir/1" target="_blank">Imprimir Páginas 1–3</a>
+              </div>
+            </div>
+
+            <div class="preview-cards-3">
+              <div class="p-card">
+                <h4>1. Rotafolio para Proyectar</h4>
+                <p>Lámina 3 a pantalla completa con giro superior de espiral y poema “Las hermanitas vocales”.</p>
+                <div class="p-card-thumb">
+                  <img src="/cartilla/art/optimized/flipchart-native/p003-scene.png" alt="Rotafolio L1" />
+                </div>
+                <a class="action-pill" style="width:100%;justify-content:center;" href="/cartilla/presentar/1" target="_blank">Proyectar ahora →</a>
+              </div>
+
+              <div class="p-card">
+                <h4>2. Cuaderno de Trabajo (Págs. 1–3)</h4>
+                <p>Ejercicios interactivos con lápiz de madera y borrador: rodear con círculo, filas de vocales y unir con línea.</p>
+                <div class="p-card-thumb">
+                  <img src="/cartilla/art/optimized/workbook/leccion-1/oso-alive.svg" alt="Cuaderno L1" />
+                </div>
+                <a class="action-pill" style="width:100%;justify-content:center;" href="/cartilla/leccion/1" target="_blank">Ver cuaderno →</a>
+              </div>
+
+              <div class="p-card">
+                <h4>3. Guía Docente y Actividades</h4>
+                <p>Indicaciones paso a paso para el maestro, poema, dictado y acceso directo a los 5 juegos fonéticos.</p>
+                <div class="p-card-thumb">
+                  <img src="/cartilla/art/optimized/workbook/leccion-1/abeja.png" alt="Guía y Juegos" />
+                </div>
+                <a class="action-pill" style="width:100%;justify-content:center;" href="/cartilla/teacher/guia/1" target="_blank">Abrir guía paso a paso →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: ULTRA-CLEAN CLIENT PRESENTATION MODE -->
+    <div id="tab-demo" class="panel">
+      <div class="intro-hero" style="text-align:left;">
+        <div class="eyebrow">Modo de Demostración para Clientes — Sin Desorden</div>
+        <h2 style="margin:0 0 12px;font-size:28px;">Una Sola Barra Flotante Inferior de 1 Clic (Observa la parte inferior de esta pantalla)</h2>
+        <p class="ui-sans" style="color:var(--muted);font-size:15px;max-width:820px;">
+          Eliminamos el cajón gigante de formularios (“Añadir alumno”, “Añadir maestro”, “Visitante libre”) de la vista principal. Durante tu presentación con el cliente, tienes una elegante cápsula flotante en la parte inferior con acceso instantáneo a cualquier lección y vista sincronizada:
+        </p>
+        <ul class="ui-sans" style="font-size:14px;line-height:1.8;color:var(--ink);">
+          <li><strong>Selector de Lección (1–24 en orden real O·A·E·I·U):</strong> Cambia de lección al instante sin bloqueos y manteniendo la vista actual.</li>
+          <li><strong>4 Vistas Sincronizadas en 1 Clic:</strong> <em>Vocales (Inicio)</em> · <em>Cuaderno del Alumno</em> · <em>Rotafolio (Proyector)</em> · <em>Espacio del Maestro</em> · <em>Juegos (5)</em>.</li>
+          <li><strong>Reinicio Rápido (↺):</strong> Un botón discreto para limpiar los trazos de demostración cuando pasas al siguiente cliente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING BOTTOM-CENTER CLIENT PRESENTER DOCK (ALWAYS VISIBLE IN THIS STUDIO) -->
+  <nav class="clean-presenter-dock" aria-label="Barra de Presentación para Clientes">
+    <span style="color:#f59e0b;font-weight:800;padding-left:6px;">Presentación:</span>
+    <select id="demo-lesson-select" onchange="updateDemoLinks(this.value)">
+      <option value="1">L1 · Las hermanitas vocales</option>
+      <option value="2">L2 · Vocal O o</option>
+      <option value="3">L3 · Vocal A a</option>
+      <option value="4">L4 · Vocal E e</option>
+      <option value="5">L5 · Vocal I i</option>
+      <option value="6">L6 · Vocal U u</option>
+      <option value="7">L7 · Consonante M m</option>
+      <option value="8">L8 · Consonante P p</option>
+      <option value="9">L9 · Consonante S s</option>
+      <option value="10">L10 · Consonante T t</option>
+    </select>
+    <a id="dk-intro" href="#intro" class="active" onclick="showTab('tab-intro', document.querySelectorAll('.studio-tabs button')[0]); return false;">Vocales (Inicio)</a>
+    <a id="dk-workbook" href="/cartilla/leccion/1" target="_blank">Cuaderno (L1)</a>
+    <a id="dk-flipchart" href="/cartilla/presentar/1" target="_blank">Rotafolio (L1)</a>
+    <a id="dk-maestro" href="/cartilla/teacher/guia/1" target="_blank">Maestro (L1)</a>
+    <a id="dk-games" href="/cartilla/practica" target="_blank">Juegos (5)</a>
+    <a id="dk-art" href="/art-board/review.html" target="_blank">Revisión Arte (330)</a>
+  </nav>
+
+  <script>
+    function showTab(id, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.studio-tabs button').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+    function updateDemoLinks(n) {
+      document.getElementById('dk-workbook').href = '/cartilla/leccion/' + n;
+      document.getElementById('dk-workbook').textContent = 'Cuaderno (L' + n + ')';
+      document.getElementById('dk-flipchart').href = '/cartilla/presentar/' + n;
+      document.getElementById('dk-flipchart').textContent = 'Rotafolio (L' + n + ')';
+      document.getElementById('dk-maestro').href = '/cartilla/teacher/guia/' + n;
+      document.getElementById('dk-maestro').textContent = 'Maestro (L' + n + ')';
+    }
+  </script>
+</body>
+</html>
