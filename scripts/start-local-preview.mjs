@@ -5,6 +5,7 @@ import path from "node:path";
 const PORT = 3000;
 const PUBLIC_DIR = path.resolve("public");
 const DIST_DIR = path.resolve("dist");
+const ROOT_DIR = path.resolve(".");
 
 process.on("uncaughtException", (err) => {
   console.error("Preview server uncaughtException:", err.message);
@@ -45,6 +46,18 @@ const server = http.createServer((req, res) => {
       }
     } catch {
       filePath = path.join(DIST_DIR, safePath);
+    }
+
+    try {
+      const isPublicOrDist = fs.existsSync(filePath) && fs.statSync(filePath).isFile();
+      if (!isPublicOrDist && (safePath.startsWith("/docs") || safePath.startsWith("\\docs"))) {
+        const candidate = path.join(ROOT_DIR, safePath);
+        if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+          filePath = candidate;
+        }
+      }
+    } catch {
+      /* ignore */
     }
 
     let isFile = false;

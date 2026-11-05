@@ -61,3 +61,57 @@
   color: var(--tc-ink);
   border-color: var(--tc-accent);
 }
+
+/* Maestro Minimal Workspace Layout */
+.maestro-minimal-shell {
+  width: 100%;
+}
+
+.maestro-minimal-header {
+  margin-bottom: 24px;
+}
+
+.maestro-grid-workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.maestro-sidebar-lessons {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--tc-border);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 4px 16px -8px rgba(23, 49, 59, 0.08);
+  order: 2;
+}
+
+.sidebar-group-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #92400e;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.maestro-main-stage {
+  min-width: 0;
+  order: 1;
+}
+
+@media (min-width: 960px) {
+  .maestro-grid-workspace {
+    grid-template-columns: 290px 1fr;
+    align-items: start;
+  }
+  .maestro-sidebar-lessons {
+    order: 1;
+    position: sticky;
+    top: 80px;
+  }
+  .maestro-main-stage {
+    order: 2;
+  }
+}
