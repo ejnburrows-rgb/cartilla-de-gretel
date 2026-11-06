@@ -472,6 +472,20 @@ if os.path.exists(match_proposals_file) and os.path.exists(board_data_file):
                 register_candidate_file(top_gid, fpath, "Nueva IA (image-gen-1)", f"Nueva ilustración generada ({top_label}, score={top_score})", priority=1)
 
 
+
+# 5c. Latest bulk upload from review board UI
+latest_bulk_dir = os.path.join(REPO_ROOT, 'public', 'cartilla', 'art', 'owner-intake', 'latest-bulk-upload')
+latest_bulk_manifest = os.path.join(latest_bulk_dir, 'bulk-match-manifest.json')
+if os.path.exists(latest_bulk_manifest):
+    latest_items = json.load(open(latest_bulk_manifest, 'r', encoding='utf-8', errors='replace'))
+    for item in latest_items:
+        fpath = item.get('path')
+        gid = item.get('matched_group_id')
+        lbl = item.get('label', '')
+        sc = item.get('score', 0)
+        if fpath and gid and os.path.exists(fpath):
+            register_candidate_file(gid, fpath, 'Lote Subido (Auto-organizado)', f'Organizado automáticamente ({lbl}, coincidencia={sc})', priority=1)
+
 # 6. CartillaOptimized high-res matching
 for p in avail_data.get("placements", []):
     gid = p["drawing_group_id"]

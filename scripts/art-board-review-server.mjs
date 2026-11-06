@@ -3,6 +3,7 @@
 import { createServer } from "node:http";
 import { readFile, writeFile, rename, mkdir, copyFile, appendFile, stat } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { exec } from "node:child_process";
 import { homedir } from "node:os";
 import { dirname, extname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -81,6 +82,31 @@ export function createArtReviewServer({ rootDir = DEFAULT_ROOT, storageDir = DEF
           if(imported){s.updated_at=new Date().toISOString();await persist(s,{kind:"legacy-migration",imported});}
           return {saved:true,imported,existing:Object.keys(s.decisions).length};
         });send(res,200,result);return;
+      }
+            if(path==="/api/art-review/bulk-upload" && method==="POST"){
+        const fileName = url.searchParams.get("name") || "bulk-upload.zip";
+        const isZip = fileName.toLowerCase().endsWith(".zip") || fileName.toLowerCase().endsWith(".tar");
+        const ext = isZip ? ".zip" : ".png";
+        const uploadDir = join(rootDir, "public", "cartilla", "art", "owner-intake");
+        await mkdir(uploadDir, { recursive: true });
+        const tempPath = join(uploadDir, "temp_bulk_upload" + ext);
+        const data = await readBody(req, 150_000_000);
+        await writeFile(tempPath, data);
+        exec(`python scripts/bulk-organize-intake.py "${tempPath}" && python scripts/build-side-by-side-decision-board.py`, { cwd: rootDir }, async (err, stdout, stderr) => {
+          if (err) {
+            console.error("Bulk organize error:", stderr || err.message);
+            send(res, 500, { error: "Error organizando imagenes: " + (stderr || err.message) });
+            return;
+          }
+          const manifestPath = join(uploadDir, "latest-bulk-upload", "bulk-match-manifest.json");
+          let items = [];
+          try {
+            const rawM = await readFile(manifestPath, "utf8");
+            items = JSON.parse(rawM);
+          } catch(e) {}
+          send(res, 200, { success: true, count: items.length, organized: items });
+        });
+        return;
       }
       if(path==="/api/art-review/upload" && method==="POST"){
         const id=url.searchParams.get("group"),fileName=url.searchParams.get("name")||"replacement";
