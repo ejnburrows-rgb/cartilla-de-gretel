@@ -1,0 +1,27 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Imágenes nuevas — propuestas</title>
+<style>body{margin:0;font-family:Segoe UI,Arial;background:#faf7f1;color:#2a1d14}header{position:sticky;top:0;background:#fff;border-bottom:2px solid #e0d6c6;padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;z-index:3}
+button,select{font:inherit;padding:9px 14px;border-radius:8px;border:1px solid #c9bda9;background:#fff;font-weight:700;cursor:pointer}.go{background:#15803d;color:#fff}
+.c{display:grid;grid-template-columns:1fr 1fr 1fr 260px;gap:14px;margin:14px 20px;padding:14px;background:#fff;border:2px solid #e5dccd;border-radius:12px}.c.y{border-color:#2f9e5f;background:#f4fcf7}.c.n{border-color:#c4452d;background:#fff7f4}.c.d{opacity:.55}
+.b{background:#fffdf7;border:2px solid #d8b86a;border-radius:10px;display:flex;align-items:center;justify-content:center;min-height:230px;padding:6px}.b img{max-width:100%;max-height:300px}h3{margin:0 0 6px;font-size:12px;text-transform:uppercase;color:#6b5a48}
+.t{width:100%;padding:13px;margin:5px 0;font-size:16px}.on.yes{background:#15803d;color:#fff}.on.no{background:#b91c1c;color:#fff}.w{color:#a24d26;font-size:12px}</style></head><body>
+<header><b style="font-size:19px">Tus imágenes nuevas → ¿a qué dibujo reemplazan?</b><span id="cnt"></span><button class="go" id="apply">APLICAR LAS APROBADAS A LA APP</button><span id="msg"></span></header><main id="m"></main>
+<script>
+const PD='/public/cartilla/art/owner-intake/imagegen-2026-11-06/',U=p=>'/'+encodeURI(p);let items=[],st={};
+const sv=()=>fetch('/api/proposal-state',{method:'POST',body:JSON.stringify(st)});
+fetch('/api/proposals').then(r=>r.json()).then(d=>{items=d.items;st=d.state;draw()});
+function draw(){const m=document.getElementById('m');m.innerHTML='';items.forEach((o,i)=>m.appendChild(card(o,i)));cnt()}
+function cnt(){const v=Object.values(st);cnt.textContent;document.getElementById('cnt').textContent=`✓ ${v.filter(x=>x.d==='Y'&&!x.done).length} por aplicar · ${v.filter(x=>x.done).length} aplicadas · ✗ ${v.filter(x=>x.d==='N').length}`}
+function card(o,i){const s=st[o.file]||(st[o.file]={pick:0});const t=o.top[s.pick||0],e=document.createElement('div');e.className='c '+(s.done?'d ':'')+(s.d==='Y'?'y':s.d==='N'?'n':'');
+e.innerHTML=`<div><h3>Tu imagen nueva</h3><div class="b"><img src="${PD+encodeURI(o.file)}"></div><div class="w">${o.file}</div></div>
+<div><h3>Dibujo original del libro (propuesto)</h3><div class="b"><img src="${U(t.original)}"></div></div>
+<div><h3>Imagen actual en la app</h3><div class="b"><img src="${U(t.current)}"></div></div>
+<div><b style="font-size:18px">${t.label}</b><div class="w">${t.book} · pág. ${t.page} · parecido ${t.score}${t.score<0.6?' ⚠ dudoso':''}</div>
+<select class="t sel">${o.top.map((x,k)=>`<option value="${k}" ${k==(s.pick||0)?'selected':''}>${x.label} (pág. ${x.page}, ${x.score})</option>`).join('')}</select>
+<button class="t yes ${s.d==='Y'?'on':''}">✓ SÍ, REEMPLAZAR</button><button class="t no ${s.d==='N'?'on':''}">✗ NO</button>${s.done?'<div class="w">✔ Ya aplicada</div>':''}</div>`;
+e.querySelector('.sel').onchange=x=>{s.pick=+x.target.value;sv();e.replaceWith(card(o,i))};
+e.querySelector('.yes').onclick=()=>{s.d='Y';sv();e.replaceWith(card(o,i));cnt()};e.querySelector('.no').onclick=()=>{s.d='N';sv();e.replaceWith(card(o,i));cnt()};return e}
+document.getElementById('apply').onclick=async()=>{const msg=document.getElementById('msg');let ok=0,bad=0;
+for(const o of items){const s=st[o.file];if(!s||s.d!=='Y'||s.done)continue;const t=o.top[s.pick||0];msg.textContent=' aplicando '+t.label+'…';
+const r=await (await fetch('/api/apply',{method:'POST',body:JSON.stringify({file:o.file,word:t.label})})).json();if(r.ok){s.done=true;ok++}else{bad++;s.err=r.err}sv()}
+msg.textContent=` ✔ ${ok} aplicadas, ${bad} con problema`;draw()};
+</script></body></html>

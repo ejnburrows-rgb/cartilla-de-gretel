@@ -1,0 +1,46 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Revisión de Arte</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#faf7f1;color:#2a1d14}
+header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:2px solid #e0d6c6;padding:10px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+h1{font-size:20px;margin:0 14px 0 0}select,input,button{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid #c9bda9;background:#fff}
+button{cursor:pointer;font-weight:700}.exp{background:#b91c1c;color:#fff;border-color:#b91c1c}#msg{font-weight:700;color:#15603a}
+.card{display:grid;grid-template-columns:minmax(260px,1fr) minmax(260px,1fr) 300px;gap:18px;margin:16px 20px;padding:16px;background:#fff;border:2px solid #e5dccd;border-radius:14px}
+.card.ok{border-color:#2f9e5f;background:#f4fcf7}.card.no{border-color:#c4452d;background:#fff7f4}
+.pg{position:relative;line-height:0}.pg img{width:100%}.ring{position:absolute;border:4px solid #e11d48;border-radius:50%;box-shadow:0 0 0 2px #fff9;pointer-events:none}
+.cur{display:flex;align-items:center;justify-content:center;background:#fffdf7;border:2px solid #d8b86a;border-radius:10px;min-height:260px;padding:8px}.cur img{max-width:100%;max-height:420px}
+h3{margin:0 0 6px;font-size:13px;color:#6b5a48;text-transform:uppercase}.name{font-size:20px;font-weight:800;margin-bottom:8px}
+.b{width:100%;margin:5px 0;padding:14px;font-size:17px}.yes.on{background:#15803d;color:#fff}.nob.on{background:#b91c1c;color:#fff}
+.up{display:block;text-align:center;border:3px dashed #2563eb;color:#1d4ed8;border-radius:10px;padding:14px;font-weight:800;cursor:pointer;margin:5px 0;background:#f2f7ff}.up input{display:none}
+textarea{width:100%;box-sizing:border-box;min-height:50px}.small{font-size:12px;color:#7a6a58}
+@media(max-width:900px){.card{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>La Cartilla de Gretel — Revisión de Arte</h1>
+<select id="book"><option value="">Ambos libros</option><option>Workbook</option><option>Flip Chart</option></select>
+<select id="st"><option value="">Todos</option><option value="P">Sin revisar</option><option value="YES">Aprobados</option><option value="NO">Rechazados</option></select>
+<input id="q" type="search" placeholder="Buscar…"><span id="cnt"></span>
+<button class="exp" id="exp">EXPORTAR RECHAZADOS (carpeta para otro agente)</button><span id="msg"></span></header>
+<main id="m"></main>
+<script>
+let rows=[],dec={};const $=id=>document.getElementById(id),U=p=>'/'+encodeURI(p);
+const post=(u,b)=>fetch(u,{method:'POST',body:JSON.stringify(b)});
+fetch('/api/rows').then(r=>r.json()).then(d=>{rows=d.rows.sort((a,b)=>(a.book==='Workbook'?0:1)-(b.book==='Workbook'?0:1)||a.page-b.page||a.id.localeCompare(b.id));dec=d.decisions;draw()});
+function cnt(){const v=Object.values(dec);$('cnt').textContent=`✓ ${v.filter(x=>x.decision==='YES').length}  ✗ ${v.filter(x=>x.decision==='NO').length}  / ${rows.length}`}
+function draw(){const b=$('book').value,s=$('st').value,q=$('q').value.toLowerCase();const m=$('m');m.innerHTML='';
+for(const r of rows){const d=dec[r.id]||{};if(b&&r.book!==b)continue;if(s&&(s==='P'?d.decision:d.decision!==s))continue;
+if(q&&![r.id,r.label,r.appLabel,r.page].join(' ').toLowerCase().includes(q))continue;m.appendChild(card(r))}cnt()}
+function card(r){const d=dec[r.id]||{},c=r.circlePct||[0,0,0,0],e=document.createElement('div');e.className='card '+(d.decision==='YES'?'ok':d.decision==='NO'?'no':'');
+const newImg=d.upload?`<div class="small">Tu archivo subido: <b>${d.upload}</b></div><img src="/ART_REVIEW_APP/MIS_IMAGENES_NUEVAS/${encodeURI(d.upload)}?t=${Date.now()}" style="max-height:140px">`:'';
+e.innerHTML=`<div><h3>Página original — dibujo circulado</h3><div class="pg"><img loading="lazy" src="${U(r.fullPage)}"><span class="ring" style="left:${c[0]}%;top:${c[1]}%;width:${c[2]}%;height:${c[3]}%"></span></div></div>
+<div><h3>Imagen aprobada ahora en la app</h3><div class="cur"><img loading="lazy" src="${U(r.current)}"></div>${newImg}</div>
+<div><div class="name">${r.appLabel||r.label}</div><div class="small">${r.book} · pág. ${r.page} · ${r.id}</div>
+<button class="b yes ${d.decision==='YES'?'on':''}">✓ APROBAR</button><button class="b nob ${d.decision==='NO'?'on':''}">✗ RECHAZAR</button>
+<label class="up">⬆ SUBIR IMAGEN NUEVA<input type="file" accept="image/*"></label>
+<textarea placeholder="Nota (opcional)">${d.note||''}</textarea></div>`;
+const set=async v=>{dec[r.id]={...(dec[r.id]||{}),decision:v};await post('/api/decide',{id:r.id,decision:v});e.replaceWith(card(r));cnt()};
+e.querySelector('.yes').onclick=()=>set('YES');e.querySelector('.nob').onclick=()=>set('NO');
+e.querySelector('textarea').onchange=ev=>{dec[r.id]={...(dec[r.id]||{}),note:ev.target.value};post('/api/decide',{id:r.id,note:ev.target.value})};
+e.querySelector('input').onchange=async ev=>{const f=ev.target.files[0];if(!f)return;const x=await fetch(`/api/upload?id=${encodeURIComponent(r.id)}&name=${encodeURIComponent(f.name)}`,{method:'POST',body:f});dec[r.id]={...(dec[r.id]||{}),upload:await x.text(),decision:'NO'};e.replaceWith(card(r));cnt()};
+return e}
+['book','st'].forEach(i=>$(i).onchange=draw);$('q').oninput=draw;
+$('exp').onclick=async()=>{const r=await (await fetch('/api/export',{method:'POST'})).json();$('msg').textContent=` ${r.count} exportados ✔ (se abrió la carpeta)`;fetch('/api/open-export')};
+</script></body></html>

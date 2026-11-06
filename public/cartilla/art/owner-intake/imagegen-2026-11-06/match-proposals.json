@@ -1,0 +1,2530 @@
+[
+ {
+  "file": "007-p020-scene(1).png",
+  "top": [
+   {
+    "score": 0.798,
+    "id": "FC-020-01",
+    "label": "sopa de pato scene",
+    "page": 20,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-020-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p020-scene.png"
+   },
+   {
+    "score": 0.655,
+    "id": "FC-004-02",
+    "label": "olla",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-olla.png"
+   },
+   {
+    "score": 0.643,
+    "id": "WB-S007-OBJ20-OLLA",
+    "label": "olla",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ20-OLLA.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/olla.svg"
+   }
+  ]
+ },
+ {
+  "file": "009-p021-didi(1).png",
+  "top": [
+   {
+    "score": 0.975,
+    "id": "FC-021-02",
+    "label": "Didi",
+    "page": 21,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-021-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p021-didi.webp"
+   },
+   {
+    "score": 0.411,
+    "id": "FC-045-06",
+    "label": "mago",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-mago.png"
+   },
+   {
+    "score": 0.406,
+    "id": "FC-030-02",
+    "label": "piñata",
+    "page": 30,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-030-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p030-pinata.png"
+   }
+  ]
+ },
+ {
+  "file": "Blue Octopus With Red Bow.png",
+  "top": [
+   {
+    "score": 0.77,
+    "id": "FC-057-04",
+    "label": "Yayita",
+    "page": 57,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-057-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p057-yayita.png"
+   },
+   {
+    "score": 0.611,
+    "id": "FC-008-03",
+    "label": "uva",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-uva.png"
+   },
+   {
+    "score": 0.596,
+    "id": "WB-S008-OBJ14-GLOBO",
+    "label": "globo",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ14-GLOBO.png",
+    "current": "public/cartilla/art/faithful/leccion-1/globo.webp"
+   }
+  ]
+ },
+ {
+  "file": "Colorful Latin American Folk Illustration.png",
+  "top": [
+   {
+    "score": 0.626,
+    "id": "FC-059-01",
+    "label": "yate de yayo scene",
+    "page": 59,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-059-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p059-scene.png"
+   },
+   {
+    "score": 0.579,
+    "id": "WB-S013-OBJ07-ARBOL",
+    "label": "árbol",
+    "page": 7,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S013-OBJ07-ARBOL.png",
+    "current": "public/cartilla/art/faithful/vocal-a/arbol.webp"
+   },
+   {
+    "score": 0.555,
+    "id": "WB-S008-OBJ05-ARBOL",
+    "label": "árbol",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ05-ARBOL.png",
+    "current": "public/cartilla/art/faithful/vocal-a/arbol.webp"
+   }
+  ]
+ },
+ {
+  "file": "Colorful Latin American folk art illustration.png",
+  "top": [
+   {
+    "score": 0.689,
+    "id": "FC-054-02",
+    "label": "cuna",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-cuna.png"
+   },
+   {
+    "score": 0.636,
+    "id": "FC-008-07",
+    "label": "Ulises",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-07.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-ulises.png"
+   },
+   {
+    "score": 0.631,
+    "id": "FC-051-02",
+    "label": "jicotea",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+   }
+  ]
+ },
+ {
+  "file": "Colorful Latin American folk illustration(1).png",
+  "top": [
+   {
+    "score": 0.519,
+    "id": "WB-S007-OBJ17-OJOS",
+    "label": "ojos",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ17-OJOS.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/ojos.png"
+   },
+   {
+    "score": 0.439,
+    "id": "FC-060-05",
+    "label": "zepelín",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zepelin.png"
+   },
+   {
+    "score": 0.432,
+    "id": "WB-S008-OBJ03-LIBRO",
+    "label": "libro",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ03-LIBRO.png",
+    "current": "public/cartilla/art/faithful/leccion-1/libro.webp"
+   }
+  ]
+ },
+ {
+  "file": "Colorful handcrafted children’s folk illustration.png",
+  "top": [
+   {
+    "score": 0.797,
+    "id": "FC-060-03",
+    "label": "zig-zag",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zigzag.png"
+   },
+   {
+    "score": 0.271,
+    "id": "FC-060-04",
+    "label": "zorro",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zorro.png"
+   },
+   {
+    "score": 0.257,
+    "id": "FC-030-05",
+    "label": "moño",
+    "page": 30,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-030-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p030-mono.png"
+   }
+  ]
+ },
+ {
+  "file": "Girl watering a flowered yellow-green letter Y.png",
+  "top": [
+   {
+    "score": 0.957,
+    "id": "FC-057-05",
+    "label": "mayúscula",
+    "page": 57,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-057-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p057-mayuscula.png"
+   },
+   {
+    "score": 0.629,
+    "id": "FC-036-05",
+    "label": "pavo",
+    "page": 36,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-036-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p036-pavo.png"
+   },
+   {
+    "score": 0.606,
+    "id": "WB-S010-OBJ11-OCHO",
+    "label": "ocho",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ11-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   }
+  ]
+ },
+ {
+  "file": "Girl, duck, and wash tub.png",
+  "top": [
+   {
+    "score": 0.537,
+    "id": "WB-S007-OBJ12-OREJA",
+    "label": "oreja",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ12-OREJA.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/oreja.svg"
+   },
+   {
+    "score": 0.531,
+    "id": "WB-S011-OBJ04-OREJA",
+    "label": "oreja",
+    "page": 5,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S011-OBJ04-OREJA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oreja.webp"
+   },
+   {
+    "score": 0.524,
+    "id": "FC-039-05",
+    "label": "rosa",
+    "page": 39,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-039-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p039-rosa.png"
+   }
+  ]
+ },
+ {
+  "file": "Hand-Painted Green Candle.png",
+  "top": [
+   {
+    "score": 0.951,
+    "id": "FC-036-03",
+    "label": "vela",
+    "page": 36,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-036-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p036-vela.png"
+   },
+   {
+    "score": 0.537,
+    "id": "FC-018-05",
+    "label": "tipi",
+    "page": 18,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-018-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p018-tipi.webp"
+   },
+   {
+    "score": 0.458,
+    "id": "WB-S019-OBJ12-ISLA",
+    "label": "isla",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ12-ISLA.png",
+    "current": "public/cartilla/art/faithful/vocal-i/isla.webp"
+   }
+  ]
+ },
+ {
+  "file": "Hand-painted Latin American children’s art.png",
+  "top": [
+   {
+    "score": 0.927,
+    "id": "FC-060-02",
+    "label": "zapato",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zapato.png"
+   },
+   {
+    "score": 0.903,
+    "id": "FC-042-06",
+    "label": "Tierra",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+   },
+   {
+    "score": 0.792,
+    "id": "FC-008-03",
+    "label": "uva",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-uva.png"
+   }
+  ]
+ },
+ {
+  "file": "Hand-painted Latin American children’s illustration.png",
+  "top": [
+   {
+    "score": 0.76,
+    "id": "FC-053-01",
+    "label": "jicotea jabela scene",
+    "page": 53,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-053-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p053-scene.png"
+   },
+   {
+    "score": 0.647,
+    "id": "WB-S010-OBJ05-UNA",
+    "label": "uña",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ05-UNA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/arco.webp"
+   },
+   {
+    "score": 0.646,
+    "id": "WB-S020-OBJ06-UNA",
+    "label": "uña",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ06-UNA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/arco.webp"
+   }
+  ]
+ },
+ {
+  "file": "Hand-painted Latin American folk art.png",
+  "top": [
+   {
+    "score": 0.832,
+    "id": "FC-045-03",
+    "label": "gusano",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-gusano.png"
+   },
+   {
+    "score": 0.301,
+    "id": "FC-015-04",
+    "label": "sapo",
+    "page": 15,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-015-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p015-sapo.png"
+   },
+   {
+    "score": 0.296,
+    "id": "WB-S020-OBJ04-IGUAL",
+    "label": "igual",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ04-IGUAL.png",
+    "current": "public/cartilla/art/faithful/vocal-i/igual.webp"
+   }
+  ]
+ },
+ {
+  "file": "Hand-painted Latin American folk illustration.png",
+  "top": [
+   {
+    "score": 0.918,
+    "id": "FC-051-04",
+    "label": "Jesús",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jesus.png"
+   },
+   {
+    "score": 0.497,
+    "id": "WB-S022-OBJ07-UNIFORME-1",
+    "label": "uniforme",
+    "page": 16,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S022-OBJ07-UNIFORME-1.png",
+    "current": "public/cartilla/art/faithful/leccion-1/traje.webp"
+   },
+   {
+    "score": 0.465,
+    "id": "WB-S008-OBJ02-MANZANA",
+    "label": "manzana",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ02-MANZANA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/manzana.webp"
+   }
+  ]
+ },
+ {
+  "file": "Hand-painted rooster with hearts.png",
+  "top": [
+   {
+    "score": 0.97,
+    "id": "FC-054-01",
+    "label": "gallina c",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-scene.png"
+   },
+   {
+    "score": 0.602,
+    "id": "FC-054-02",
+    "label": "cuna",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-cuna.png"
+   },
+   {
+    "score": 0.601,
+    "id": "WB-S008-OBJ07-TAZA",
+    "label": "taza",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ07-TAZA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/taza.webp"
+   }
+  ]
+ },
+ {
+  "file": "Hand-painted striped yacht on transparent background.png",
+  "top": [
+   {
+    "score": 0.633,
+    "id": "WB-S019-OBJ03-IGUANA",
+    "label": "iguana",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ03-IGUANA.png",
+    "current": "public/cartilla/art/faithful/vocal-i/iguana.webp"
+   },
+   {
+    "score": 0.632,
+    "id": "WB-S020-OBJ07-IGUANA",
+    "label": "iguana",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ07-IGUANA.png",
+    "current": "public/cartilla/art/faithful/vocal-i/iguana.webp"
+   },
+   {
+    "score": 0.605,
+    "id": "FC-018-02",
+    "label": "tomate",
+    "page": 18,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-018-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p018-tomate.webp"
+   }
+  ]
+ },
+ {
+  "file": "Handcrafted Latin American children's illustration.png",
+  "top": [
+   {
+    "score": 0.96,
+    "id": "FC-054-06",
+    "label": "Catalina",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-catalina.png"
+   },
+   {
+    "score": 0.551,
+    "id": "FC-015-02",
+    "label": "Sesi",
+    "page": 15,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-015-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p015-sesi.png"
+   },
+   {
+    "score": 0.543,
+    "id": "FC-024-04",
+    "label": "Luli",
+    "page": 24,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-024-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p024-luli.webp"
+   }
+  ]
+ },
+ {
+  "file": "Handcrafted Latin American children’s illustration.png",
+  "top": [
+   {
+    "score": 0.818,
+    "id": "FC-051-02",
+    "label": "jicotea",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+   },
+   {
+    "score": 0.771,
+    "id": "FC-060-02",
+    "label": "zapato",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zapato.png"
+   },
+   {
+    "score": 0.771,
+    "id": "FC-003-05",
+    "label": "olla",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-olla.png"
+   }
+  ]
+ },
+ {
+  "file": "Joyful Father and Son Shoulder Ride.png",
+  "top": [
+   {
+    "score": 0.9,
+    "id": "FC-012-02",
+    "label": "papá",
+    "page": 12,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-012-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p012-papa.png"
+   },
+   {
+    "score": 0.636,
+    "id": "FC-004-06",
+    "label": "oreja",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-oreja.png"
+   },
+   {
+    "score": 0.636,
+    "id": "WB-S011-OBJ04-OREJA",
+    "label": "oreja",
+    "page": 5,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S011-OBJ04-OREJA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oreja.webp"
+   }
+  ]
+ },
+ {
+  "file": "Orange Chicken with Heart Border.png",
+  "top": [
+   {
+    "score": 0.769,
+    "id": "FC-054-01",
+    "label": "gallina c",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-scene.png"
+   },
+   {
+    "score": 0.51,
+    "id": "FC-045-05",
+    "label": "gorra",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-gorra.png"
+   },
+   {
+    "score": 0.482,
+    "id": "FC-004-03",
+    "label": "Oto",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-oto.png"
+   }
+  ]
+ },
+ {
+  "file": "Restored Latin American Folk Illustration(1).png",
+  "top": [
+   {
+    "score": 0.953,
+    "id": "FC-048-05",
+    "label": "Felo",
+    "page": 48,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-048-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p048-felo.png"
+   },
+   {
+    "score": 0.687,
+    "id": "FC-048-06",
+    "label": "funda",
+    "page": 48,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-048-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p048-funda.png"
+   },
+   {
+    "score": 0.686,
+    "id": "WB-S017-OBJ03-ABEJA",
+    "label": "abeja",
+    "page": 11,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S017-OBJ03-ABEJA.png",
+    "current": "public/cartilla/art/faithful/vocal-a/abeja.webp"
+   }
+  ]
+ },
+ {
+  "file": "Restored Latin American Storybook Illustration.png",
+  "top": [
+   {
+    "score": 0.838,
+    "id": "FC-056-01",
+    "label": "los caramelos scene",
+    "page": 56,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-056-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p056-caramelos.webp"
+   },
+   {
+    "score": 0.477,
+    "id": "WB-FRONT-001",
+    "label": "Cover/title illustration composite",
+    "page": 0,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-FRONT-001.png",
+    "current": ""
+   },
+   {
+    "score": 0.448,
+    "id": "FC-042-05",
+    "label": "barril",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-barril.png"
+   }
+  ]
+ },
+ {
+  "file": "Restored Latin American children’s illustration.png",
+  "top": [
+   {
+    "score": 0.947,
+    "id": "FC-048-06",
+    "label": "funda",
+    "page": 48,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-048-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p048-funda.png"
+   },
+   {
+    "score": 0.809,
+    "id": "FC-042-06",
+    "label": "Tierra",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+   },
+   {
+    "score": 0.78,
+    "id": "WB-S008-OBJ14-GLOBO",
+    "label": "globo",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ14-GLOBO.png",
+    "current": "public/cartilla/art/faithful/leccion-1/globo.webp"
+   }
+  ]
+ },
+ {
+  "file": "Restored Latin American folk art illustration.png",
+  "top": [
+   {
+    "score": 0.916,
+    "id": "FC-045-06",
+    "label": "mago",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-mago.png"
+   },
+   {
+    "score": 0.591,
+    "id": "FC-024-02",
+    "label": "maleta",
+    "page": 24,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-024-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p024-maleta.webp"
+   },
+   {
+    "score": 0.589,
+    "id": "FC-009-06",
+    "label": "Mumi",
+    "page": 9,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-009-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p009-mumi.png"
+   }
+  ]
+ },
+ {
+  "file": "Restored Latin American folk illustration.png",
+  "top": [
+   {
+    "score": 0.702,
+    "id": "FC-057-01",
+    "label": "nino yoyo y",
+    "page": 57,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-057-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p057-scene.png"
+   },
+   {
+    "score": 0.489,
+    "id": "FC-045-04",
+    "label": "Goloso",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-goloso.png"
+   },
+   {
+    "score": 0.455,
+    "id": "FC-007-07",
+    "label": "Irma",
+    "page": 7,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-007-07.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p007-irma.png"
+   }
+  ]
+ },
+ {
+  "file": "Restored Latin American folk-art illustration.png",
+  "top": [
+   {
+    "score": 0.935,
+    "id": "FC-044-01",
+    "label": "rapido arriba scene",
+    "page": 44,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-044-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p044-scene.png"
+   },
+   {
+    "score": 0.845,
+    "id": "FC-003-06",
+    "label": "uña",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-una.png"
+   },
+   {
+    "score": 0.827,
+    "id": "FC-033-05",
+    "label": "bota",
+    "page": 33,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-033-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p033-bota.png"
+   }
+  ]
+ },
+ {
+  "file": "Restored Latin American one-stroke illustration.png",
+  "top": [
+   {
+    "score": 0.974,
+    "id": "FC-042-06",
+    "label": "Tierra",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+   },
+   {
+    "score": 0.849,
+    "id": "FC-060-02",
+    "label": "zapato",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zapato.png"
+   },
+   {
+    "score": 0.838,
+    "id": "WB-S008-OBJ02-MANZANA",
+    "label": "manzana",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ02-MANZANA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/manzana.webp"
+   }
+  ]
+ },
+ {
+  "file": "Restored hand-painted folk-art illustration.png",
+  "top": [
+   {
+    "score": 0.51,
+    "id": "FC-006-06",
+    "label": "erizo",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-erizo.png"
+   },
+   {
+    "score": 0.499,
+    "id": "WB-S019-OBJ13-UNA",
+    "label": "uña",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ13-UNA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/arco.webp"
+   },
+   {
+    "score": 0.494,
+    "id": "WB-S008-OBJ11-OSO",
+    "label": "oso",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ11-OSO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oso.webp"
+   }
+  ]
+ },
+ {
+  "file": "Tan Tan Taran Drummer and Tomato Vine.png",
+  "top": [
+   {
+    "score": 0.702,
+    "id": "FC-018-01",
+    "label": "nino tambor t",
+    "page": 18,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-018-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p018-scene.png"
+   },
+   {
+    "score": 0.486,
+    "id": "WB-S010-OBJ11-OCHO",
+    "label": "ocho",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ11-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   },
+   {
+    "score": 0.468,
+    "id": "WB-S009-OBJ02-OCHO",
+    "label": "ocho",
+    "page": 3,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S009-OBJ02-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   }
+  ]
+ },
+ {
+  "file": "Vibrant Hand-Painted Children’s Illustration.png",
+  "top": [
+   {
+    "score": 0.461,
+    "id": "FC-008-02",
+    "label": "uno",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-uno.png"
+   },
+   {
+    "score": 0.458,
+    "id": "WB-S007-OBJ10-UNO",
+    "label": "uno",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ10-UNO.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/uno.svg"
+   },
+   {
+    "score": 0.454,
+    "id": "FC-060-01",
+    "label": "abejas z",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-scene.png"
+   }
+  ]
+ },
+ {
+  "file": "Vibrant Latin American children’s artwork.png",
+  "top": [
+   {
+    "score": 0.91,
+    "id": "FC-045-05",
+    "label": "gorra",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-gorra.png"
+   },
+   {
+    "score": 0.689,
+    "id": "FC-004-03",
+    "label": "Oto",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-oto.png"
+   },
+   {
+    "score": 0.677,
+    "id": "FC-018-02",
+    "label": "tomate",
+    "page": 18,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-018-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p018-tomate.webp"
+   }
+  ]
+ },
+ {
+  "file": "Vibrant Latin American folk illustration.png",
+  "top": [
+   {
+    "score": 0.978,
+    "id": "FC-060-04",
+    "label": "zorro",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zorro.png"
+   },
+   {
+    "score": 0.663,
+    "id": "WB-S009-OBJ02-OCHO",
+    "label": "ocho",
+    "page": 3,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S009-OBJ02-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   },
+   {
+    "score": 0.658,
+    "id": "WB-S010-OBJ11-OCHO",
+    "label": "ocho",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ11-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   }
+  ]
+ },
+ {
+  "file": "Vibrant Latin American folk-art illustration.png",
+  "top": [
+   {
+    "score": 0.865,
+    "id": "FC-045-02",
+    "label": "gaveta",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-gaveta.png"
+   },
+   {
+    "score": 0.846,
+    "id": "FC-060-02",
+    "label": "zapato",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zapato.png"
+   },
+   {
+    "score": 0.785,
+    "id": "FC-051-02",
+    "label": "jicotea",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+   }
+  ]
+ },
+ {
+  "file": "Vibrant country-style painted illustration.png",
+  "top": [
+   {
+    "score": 0.9,
+    "id": "FC-054-03",
+    "label": "conejo",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-conejo.png"
+   },
+   {
+    "score": 0.532,
+    "id": "FC-006-04",
+    "label": "Ema",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-ema.png"
+   },
+   {
+    "score": 0.504,
+    "id": "WB-S007-OBJ13-UNIFORME-2",
+    "label": "uniforme",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ13-UNIFORME-2.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/uniforme.svg"
+   }
+  ]
+ },
+ {
+  "file": "Vibrant hand-painted children's illustration.png",
+  "top": [
+   {
+    "score": 0.964,
+    "id": "FC-048-04",
+    "label": "familia",
+    "page": 48,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-048-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p048-familia.png"
+   },
+   {
+    "score": 0.648,
+    "id": "FC-015-02",
+    "label": "Sesi",
+    "page": 15,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-015-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p015-sesi.png"
+   },
+   {
+    "score": 0.628,
+    "id": "FC-012-06",
+    "label": "pomo",
+    "page": 12,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-012-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p012-pomo.png"
+   }
+  ]
+ },
+ {
+  "file": "Vintage Latin American One-Stroke Illustration.png",
+  "top": [
+   {
+    "score": 0.908,
+    "id": "FC-057-06",
+    "label": "yoyo",
+    "page": 57,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-057-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p057-yoyo.png"
+   },
+   {
+    "score": 0.659,
+    "id": "FC-042-06",
+    "label": "Tierra",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+   },
+   {
+    "score": 0.653,
+    "id": "FC-030-05",
+    "label": "moño",
+    "page": 30,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-030-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p030-mono.png"
+   }
+  ]
+ },
+ {
+  "file": "Whimsical Hand-Painted Turtle Cutout.png",
+  "top": [
+   {
+    "score": 0.912,
+    "id": "FC-051-02",
+    "label": "jicotea",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+   },
+   {
+    "score": 0.782,
+    "id": "FC-003-05",
+    "label": "olla",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-olla.png"
+   },
+   {
+    "score": 0.779,
+    "id": "FC-004-02",
+    "label": "olla",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-olla.png"
+   }
+  ]
+ },
+ {
+  "file": "Zulema with a magenta ponytail.png",
+  "top": [
+   {
+    "score": 0.804,
+    "id": "FC-060-06",
+    "label": "Zulema",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zulema.png"
+   },
+   {
+    "score": 0.676,
+    "id": "WB-S007-OBJ13-UNIFORME-2",
+    "label": "uniforme",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ13-UNIFORME-2.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/uniforme.svg"
+   },
+   {
+    "score": 0.67,
+    "id": "FC-008-06",
+    "label": "uniforme",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-uniforme.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-1(2).png",
+  "top": [
+   {
+    "score": 0.913,
+    "id": "WB-S008-OBJ07-TAZA",
+    "label": "taza",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ07-TAZA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/taza.webp"
+   },
+   {
+    "score": 0.778,
+    "id": "FC-060-05",
+    "label": "zepelín",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zepelin.png"
+   },
+   {
+    "score": 0.765,
+    "id": "FC-051-02",
+    "label": "jicotea",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-1(20261106-073631).png",
+  "top": [
+   {
+    "score": 0.905,
+    "id": "FC-005-07",
+    "label": "Ana",
+    "page": 5,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-005-07.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p005-ana.png"
+   },
+   {
+    "score": 0.641,
+    "id": "FC-005-02",
+    "label": "abanico",
+    "page": 5,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-005-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p005-abanico.png"
+   },
+   {
+    "score": 0.614,
+    "id": "FC-042-06",
+    "label": "Tierra",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-1(20261106-083827).png",
+  "top": [
+   {
+    "score": 0.633,
+    "id": "FC-057-06",
+    "label": "yoyo",
+    "page": 57,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-057-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p057-yoyo.png"
+   },
+   {
+    "score": 0.626,
+    "id": "FC-007-02",
+    "label": "imán",
+    "page": 7,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-007-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p007-iman.png"
+   },
+   {
+    "score": 0.626,
+    "id": "WB-S022-OBJ08-ELEFANTE",
+    "label": "elefante",
+    "page": 16,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S022-OBJ08-ELEFANTE.png",
+    "current": "public/cartilla/art/faithful/vocal-e/elefante.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-1(3).png",
+  "top": [
+   {
+    "score": 0.874,
+    "id": "FC-006-06",
+    "label": "erizo",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-erizo.png"
+   },
+   {
+    "score": 0.78,
+    "id": "FC-042-06",
+    "label": "Tierra",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+   },
+   {
+    "score": 0.776,
+    "id": "WB-S010-OBJ11-OCHO",
+    "label": "ocho",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ11-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-10(2).png",
+  "top": [
+   {
+    "score": 0.89,
+    "id": "FC-009-05",
+    "label": "Meme",
+    "page": 9,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-009-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p009-meme.png"
+   },
+   {
+    "score": 0.612,
+    "id": "FC-015-02",
+    "label": "Sesi",
+    "page": 15,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-015-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p015-sesi.png"
+   },
+   {
+    "score": 0.567,
+    "id": "FC-048-04",
+    "label": "familia",
+    "page": 48,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-048-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p048-familia.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-10(20261106-073333).png",
+  "top": [
+   {
+    "score": 0.648,
+    "id": "WB-S019-OBJ03-IGUANA",
+    "label": "iguana",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ03-IGUANA.png",
+    "current": "public/cartilla/art/faithful/vocal-i/iguana.webp"
+   },
+   {
+    "score": 0.617,
+    "id": "WB-S020-OBJ07-IGUANA",
+    "label": "iguana",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ07-IGUANA.png",
+    "current": "public/cartilla/art/faithful/vocal-i/iguana.webp"
+   },
+   {
+    "score": 0.485,
+    "id": "FC-027-02",
+    "label": "nido",
+    "page": 27,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-027-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p027-nido.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-10(20261106-073640).png",
+  "top": [
+   {
+    "score": 0.636,
+    "id": "WB-S019-OBJ03-IGUANA",
+    "label": "iguana",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ03-IGUANA.png",
+    "current": "public/cartilla/art/faithful/vocal-i/iguana.webp"
+   },
+   {
+    "score": 0.605,
+    "id": "WB-S020-OBJ07-IGUANA",
+    "label": "iguana",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ07-IGUANA.png",
+    "current": "public/cartilla/art/faithful/vocal-i/iguana.webp"
+   },
+   {
+    "score": 0.49,
+    "id": "FC-027-02",
+    "label": "nido",
+    "page": 27,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-027-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p027-nido.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-10(20261106-083835).png",
+  "top": [
+   {
+    "score": 0.726,
+    "id": "FC-027-02",
+    "label": "nido",
+    "page": 27,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-027-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p027-nido.png"
+   },
+   {
+    "score": 0.722,
+    "id": "FC-060-05",
+    "label": "zepelín",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zepelin.png"
+   },
+   {
+    "score": 0.677,
+    "id": "WB-S008-OBJ07-TAZA",
+    "label": "taza",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ07-TAZA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/taza.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-2(2).png",
+  "top": [
+   {
+    "score": 0.744,
+    "id": "FC-007-04",
+    "label": "indio",
+    "page": 7,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-007-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p007-indio.png"
+   },
+   {
+    "score": 0.664,
+    "id": "WB-S020-OBJ05-INDIO",
+    "label": "indio",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ05-INDIO.png",
+    "current": "public/cartilla/art/faithful/vocal-i/indio.webp"
+   },
+   {
+    "score": 0.66,
+    "id": "WB-S008-OBJ08-INDIO",
+    "label": "indio",
+    "page": 2,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ08-INDIO.png",
+    "current": "public/cartilla/art/faithful/vocal-i/indio.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-2(20261106-073632).png",
+  "top": [
+   {
+    "score": 0.488,
+    "id": "FC-015-06",
+    "label": "Susi",
+    "page": 15,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-015-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p015-susi.png"
+   },
+   {
+    "score": 0.488,
+    "id": "FC-006-04",
+    "label": "Ema",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-ema.png"
+   },
+   {
+    "score": 0.477,
+    "id": "FC-008-06",
+    "label": "uniforme",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-uniforme.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-2(20261106-083828).png",
+  "top": [
+   {
+    "score": 0.93,
+    "id": "FC-004-05",
+    "label": "oso",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-oso.png"
+   },
+   {
+    "score": 0.869,
+    "id": "WB-S017-OBJ01-OSO",
+    "label": "oso",
+    "page": 11,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S017-OBJ01-OSO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oso.webp"
+   },
+   {
+    "score": 0.869,
+    "id": "WB-S019-OBJ05-OSO",
+    "label": "oso",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ05-OSO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oso.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-3(2) (1).png",
+  "top": [
+   {
+    "score": 0.616,
+    "id": "FC-051-02",
+    "label": "jicotea",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+   },
+   {
+    "score": 0.59,
+    "id": "FC-054-02",
+    "label": "cuna",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-cuna.png"
+   },
+   {
+    "score": 0.589,
+    "id": "FC-018-02",
+    "label": "tomate",
+    "page": 18,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-018-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p018-tomate.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-3(20261106-073327).png",
+  "top": [
+   {
+    "score": 0.915,
+    "id": "FC-006-02",
+    "label": "elefante",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png"
+   },
+   {
+    "score": 0.914,
+    "id": "WB-S007-OBJ16-ELEFANTE",
+    "label": "elefante",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ16-ELEFANTE.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/elefante.svg"
+   },
+   {
+    "score": 0.905,
+    "id": "WB-S017-OBJ02-ELEFANTE",
+    "label": "elefante",
+    "page": 11,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S017-OBJ02-ELEFANTE.png",
+    "current": "public/cartilla/art/faithful/vocal-e/elefante.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-3(20261106-073633).png",
+  "top": [
+   {
+    "score": 0.946,
+    "id": "FC-006-02",
+    "label": "elefante",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png"
+   },
+   {
+    "score": 0.923,
+    "id": "WB-S017-OBJ02-ELEFANTE",
+    "label": "elefante",
+    "page": 11,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S017-OBJ02-ELEFANTE.png",
+    "current": "public/cartilla/art/faithful/vocal-e/elefante.webp"
+   },
+   {
+    "score": 0.922,
+    "id": "WB-S016-OBJ01-ELEFANTE",
+    "label": "elefante",
+    "page": 10,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S016-OBJ01-ELEFANTE.png",
+    "current": "public/cartilla/art/faithful/vocal-e/elefante.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-3(20261106-083829).png",
+  "top": [
+   {
+    "score": 0.962,
+    "id": "FC-004-06",
+    "label": "oreja",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-oreja.png"
+   },
+   {
+    "score": 0.875,
+    "id": "WB-S011-OBJ04-OREJA",
+    "label": "oreja",
+    "page": 5,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S011-OBJ04-OREJA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oreja.webp"
+   },
+   {
+    "score": 0.853,
+    "id": "WB-S010-OBJ08-OREJA",
+    "label": "oreja",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ08-OREJA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oreja.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-3(3).png",
+  "top": [
+   {
+    "score": 0.887,
+    "id": "WB-S016-OBJ12-URRACA",
+    "label": "águila",
+    "page": 10,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S016-OBJ12-URRACA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/aguila.webp"
+   },
+   {
+    "score": 0.809,
+    "id": "FC-008-04",
+    "label": "urraca",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-urraca.png"
+   },
+   {
+    "score": 0.71,
+    "id": "WB-S022-OBJ12-URRACA",
+    "label": "águila",
+    "page": 16,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S022-OBJ12-URRACA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/aguila.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-4(2) (1).png",
+  "top": [
+   {
+    "score": 0.685,
+    "id": "FC-006-02",
+    "label": "elefante",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png"
+   },
+   {
+    "score": 0.673,
+    "id": "WB-S013-OBJ08-ELEFANTE",
+    "label": "elefante",
+    "page": 7,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S013-OBJ08-ELEFANTE.png",
+    "current": "public/cartilla/art/faithful/vocal-e/elefante.webp"
+   },
+   {
+    "score": 0.666,
+    "id": "WB-S007-OBJ16-ELEFANTE",
+    "label": "elefante",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ16-ELEFANTE.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/elefante.svg"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-4(20261106-073328).png",
+  "top": [
+   {
+    "score": 0.937,
+    "id": "FC-006-03",
+    "label": "espejo",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-espejo.png"
+   },
+   {
+    "score": 0.657,
+    "id": "WB-S022-OBJ09-ARBOL",
+    "label": "árbol",
+    "page": 16,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S022-OBJ09-ARBOL.png",
+    "current": "public/cartilla/art/faithful/vocal-a/arbol.webp"
+   },
+   {
+    "score": 0.602,
+    "id": "FC-027-05",
+    "label": "Napi",
+    "page": 27,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-027-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p027-napi.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-4(20261106-073634).png",
+  "top": [
+   {
+    "score": 0.906,
+    "id": "FC-006-03",
+    "label": "espejo",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-espejo.png"
+   },
+   {
+    "score": 0.63,
+    "id": "WB-S022-OBJ09-ARBOL",
+    "label": "árbol",
+    "page": 16,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S022-OBJ09-ARBOL.png",
+    "current": "public/cartilla/art/faithful/vocal-a/arbol.webp"
+   },
+   {
+    "score": 0.588,
+    "id": "FC-027-05",
+    "label": "Napi",
+    "page": 27,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-027-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p027-napi.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-4(20261106-083830).png",
+  "top": [
+   {
+    "score": 0.964,
+    "id": "FC-004-02",
+    "label": "olla",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-olla.png"
+   },
+   {
+    "score": 0.962,
+    "id": "FC-003-05",
+    "label": "olla",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-olla.png"
+   },
+   {
+    "score": 0.86,
+    "id": "WB-S007-OBJ20-OLLA",
+    "label": "olla",
+    "page": 1,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S007-OBJ20-OLLA.png",
+    "current": "public/cartilla/art/optimized/workbook/leccion-1/olla.svg"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-4(3).png",
+  "top": [
+   {
+    "score": 0.79,
+    "id": "FC-008-05",
+    "label": "unicornio",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-unicornio.png"
+   },
+   {
+    "score": 0.616,
+    "id": "FC-007-05",
+    "label": "insecto",
+    "page": 7,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-007-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p007-insecto.png"
+   },
+   {
+    "score": 0.594,
+    "id": "FC-054-04",
+    "label": "casa",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-casa.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-5(2).png",
+  "top": [
+   {
+    "score": 0.952,
+    "id": "FC-004-07",
+    "label": "ocho",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-07.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-ocho.png"
+   },
+   {
+    "score": 0.932,
+    "id": "WB-S009-OBJ02-OCHO",
+    "label": "ocho",
+    "page": 3,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S009-OBJ02-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   },
+   {
+    "score": 0.898,
+    "id": "WB-S010-OBJ11-OCHO",
+    "label": "ocho",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ11-OCHO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ocho.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-5(20261106-073329).png",
+  "top": [
+   {
+    "score": 0.899,
+    "id": "FC-006-04",
+    "label": "Ema",
+    "page": 6,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-006-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p006-ema.png"
+   },
+   {
+    "score": 0.618,
+    "id": "FC-039-05",
+    "label": "rosa",
+    "page": 39,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-039-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p039-rosa.png"
+   },
+   {
+    "score": 0.612,
+    "id": "WB-S010-OBJ01-OLA",
+    "label": "ola",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ01-OLA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ola.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-5(20261106-083831).png",
+  "top": [
+   {
+    "score": 0.674,
+    "id": "FC-004-07",
+    "label": "ocho",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-07.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-ocho.png"
+   },
+   {
+    "score": 0.671,
+    "id": "FC-060-04",
+    "label": "zorro",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zorro.png"
+   },
+   {
+    "score": 0.667,
+    "id": "FC-003-03",
+    "label": "escoba",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-escoba.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-5(3).png",
+  "top": [
+   {
+    "score": 0.942,
+    "id": "FC-008-07",
+    "label": "Ulises",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-07.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-ulises.png"
+   },
+   {
+    "score": 0.788,
+    "id": "FC-051-02",
+    "label": "jicotea",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png"
+   },
+   {
+    "score": 0.766,
+    "id": "FC-060-05",
+    "label": "zepelín",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zepelin.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-6(2).png",
+  "top": [
+   {
+    "score": 0.609,
+    "id": "FC-042-06",
+    "label": "Tierra",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png"
+   },
+   {
+    "score": 0.572,
+    "id": "FC-048-06",
+    "label": "funda",
+    "page": 48,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-048-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p048-funda.png"
+   },
+   {
+    "score": 0.559,
+    "id": "FC-060-02",
+    "label": "zapato",
+    "page": 60,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-060-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p060-zapato.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-6(20261106-073330).png",
+  "top": [
+   {
+    "score": 0.703,
+    "id": "FC-007-01",
+    "label": "nina llorona",
+    "page": 7,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-007-01.png",
+    "current": "public/cartilla/art/approved/flipchart-fixes/balloon-p007.png"
+   },
+   {
+    "score": 0.483,
+    "id": "WB-S020-OBJ05-INDIO",
+    "label": "indio",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ05-INDIO.png",
+    "current": "public/cartilla/art/faithful/vocal-i/indio.webp"
+   },
+   {
+    "score": 0.462,
+    "id": "WB-S019-OBJ06-INDIO",
+    "label": "indio",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ06-INDIO.png",
+    "current": "public/cartilla/art/faithful/vocal-i/indio.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-6(20261106-073636).png",
+  "top": [
+   {
+    "score": 0.696,
+    "id": "FC-007-01",
+    "label": "nina llorona",
+    "page": 7,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-007-01.png",
+    "current": "public/cartilla/art/approved/flipchart-fixes/balloon-p007.png"
+   },
+   {
+    "score": 0.49,
+    "id": "WB-S020-OBJ05-INDIO",
+    "label": "indio",
+    "page": 14,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S020-OBJ05-INDIO.png",
+    "current": "public/cartilla/art/faithful/vocal-i/indio.webp"
+   },
+   {
+    "score": 0.47,
+    "id": "WB-S019-OBJ06-INDIO",
+    "label": "indio",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ06-INDIO.png",
+    "current": "public/cartilla/art/faithful/vocal-i/indio.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-6(20261106-083831).png",
+  "top": [
+   {
+    "score": 0.729,
+    "id": "WB-FRONT-001",
+    "label": "Cover/title illustration composite",
+    "page": 0,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-FRONT-001.png",
+    "current": ""
+   },
+   {
+    "score": 0.71,
+    "id": "FC-003-06",
+    "label": "uña",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-una.png"
+   },
+   {
+    "score": 0.701,
+    "id": "FC-003-03",
+    "label": "escoba",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-escoba.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-6(3).png",
+  "top": [
+   {
+    "score": 0.699,
+    "id": "FC-009-01",
+    "label": "toro m",
+    "page": 9,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-009-01.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p009-scene.png"
+   },
+   {
+    "score": 0.677,
+    "id": "WB-S019-OBJ11-UNO",
+    "label": "uno",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ11-UNO.png",
+    "current": "public/cartilla/art/faithful/vocal-u/uno.webp"
+   },
+   {
+    "score": 0.663,
+    "id": "FC-008-02",
+    "label": "uno",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-uno.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-7(2).png",
+  "top": [
+   {
+    "score": 0.89,
+    "id": "WB-S010-OBJ01-OLA",
+    "label": "ola",
+    "page": 4,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ01-OLA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ola.webp"
+   },
+   {
+    "score": 0.883,
+    "id": "WB-S019-OBJ09-OLA",
+    "label": "ola",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ09-OLA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ola.webp"
+   },
+   {
+    "score": 0.879,
+    "id": "WB-S011-OBJ06-OLA",
+    "label": "ola",
+    "page": 5,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S011-OBJ06-OLA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ola.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-7(20261106-073637).png",
+  "top": [
+   {
+    "score": 0.536,
+    "id": "FC-008-01",
+    "label": "brujita",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-01.png",
+    "current": "public/cartilla/art/approved/flipchart-fixes/witch-p008.png"
+   },
+   {
+    "score": 0.535,
+    "id": "FC-027-05",
+    "label": "Napi",
+    "page": 27,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-027-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p027-napi.png"
+   },
+   {
+    "score": 0.529,
+    "id": "WB-S017-OBJ05-MAIZ",
+    "label": "maíz",
+    "page": 11,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S017-OBJ05-MAIZ.png",
+    "current": "public/cartilla/art/faithful/leccion-1/maiz.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-7(20261106-083833).png",
+  "top": [
+   {
+    "score": 0.568,
+    "id": "FC-003-04",
+    "label": "imán",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-iman.png"
+   },
+   {
+    "score": 0.559,
+    "id": "FC-039-05",
+    "label": "rosa",
+    "page": 39,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-039-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p039-rosa.png"
+   },
+   {
+    "score": 0.554,
+    "id": "WB-S016-OBJ14-UNIFORME",
+    "label": "uniforme",
+    "page": 10,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S016-OBJ14-UNIFORME.png",
+    "current": "public/cartilla/art/faithful/leccion-1/traje.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-7(3).png",
+  "top": [
+   {
+    "score": 0.907,
+    "id": "FC-009-02",
+    "label": "mamá",
+    "page": 9,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-009-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p009-mama.png"
+   },
+   {
+    "score": 0.696,
+    "id": "FC-051-06",
+    "label": "jarra",
+    "page": 51,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-051-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p051-jarra.png"
+   },
+   {
+    "score": 0.651,
+    "id": "FC-015-06",
+    "label": "Susi",
+    "page": 15,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-015-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p015-susi.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-8(20261106-073638).png",
+  "top": [
+   {
+    "score": 0.888,
+    "id": "WB-S016-OBJ12-URRACA",
+    "label": "águila",
+    "page": 10,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S016-OBJ12-URRACA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/aguila.webp"
+   },
+   {
+    "score": 0.784,
+    "id": "FC-008-04",
+    "label": "urraca",
+    "page": 8,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-008-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p008-urraca.png"
+   },
+   {
+    "score": 0.73,
+    "id": "WB-S022-OBJ12-URRACA",
+    "label": "águila",
+    "page": 16,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S022-OBJ12-URRACA.png",
+    "current": "public/cartilla/art/faithful/leccion-1/aguila.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-8(20261106-083834).png",
+  "top": [
+   {
+    "score": 0.752,
+    "id": "FC-003-03",
+    "label": "escoba",
+    "page": 3,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-003-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p003-escoba.png"
+   },
+   {
+    "score": 0.685,
+    "id": "FC-042-05",
+    "label": "barril",
+    "page": 42,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-042-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p042-barril.png"
+   },
+   {
+    "score": 0.676,
+    "id": "FC-021-04",
+    "label": "dedo",
+    "page": 21,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-021-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p021-dedo.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-9(2).png",
+  "top": [
+   {
+    "score": 0.913,
+    "id": "FC-009-04",
+    "label": "mima",
+    "page": 9,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-009-04.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p009-mima.png"
+   },
+   {
+    "score": 0.579,
+    "id": "WB-S014-OBJ01-OSO",
+    "label": "oso",
+    "page": 8,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S014-OBJ01-OSO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oso.webp"
+   },
+   {
+    "score": 0.578,
+    "id": "WB-S017-OBJ01-OSO",
+    "label": "oso",
+    "page": 11,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S017-OBJ01-OSO.png",
+    "current": "public/cartilla/art/faithful/vocal-o/oso.webp"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-9(20261106-073332).png",
+  "top": [
+   {
+    "score": 0.559,
+    "id": "FC-012-01",
+    "label": "pollito p",
+    "page": 12,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-012-01.png",
+    "current": "public/cartilla/art/approved/flipchart-fixes/chick-p012.png"
+   },
+   {
+    "score": 0.53,
+    "id": "WB-S019-OBJ09-OLA",
+    "label": "ola",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ09-OLA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ola.webp"
+   },
+   {
+    "score": 0.52,
+    "id": "FC-009-06",
+    "label": "Mumi",
+    "page": 9,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-009-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p009-mumi.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-9(20261106-073639).png",
+  "top": [
+   {
+    "score": 0.564,
+    "id": "FC-012-01",
+    "label": "pollito p",
+    "page": 12,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-012-01.png",
+    "current": "public/cartilla/art/approved/flipchart-fixes/chick-p012.png"
+   },
+   {
+    "score": 0.539,
+    "id": "WB-S019-OBJ09-OLA",
+    "label": "ola",
+    "page": 13,
+    "book": "Workbook",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ09-OLA.png",
+    "current": "public/cartilla/art/faithful/vocal-o/ola.webp"
+   },
+   {
+    "score": 0.525,
+    "id": "FC-009-06",
+    "label": "Mumi",
+    "page": 9,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-009-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p009-mumi.png"
+   }
+  ]
+ },
+ {
+  "file": "image-gen-9(20261106-083835).png",
+  "top": [
+   {
+    "score": 0.646,
+    "id": "FC-005-06",
+    "label": "aro",
+    "page": 5,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-005-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p005-aro.png"
+   },
+   {
+    "score": 0.611,
+    "id": "FC-054-05",
+    "label": "cubo",
+    "page": 54,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-054-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p054-cubo.png"
+   },
+   {
+    "score": 0.607,
+    "id": "FC-018-06",
+    "label": "Tuto",
+    "page": 18,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-018-06.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p018-tuto.webp"
+   }
+  ]
+ },
+ {
+  "file": "p045-gorra.png",
+  "top": [
+   {
+    "score": 0.895,
+    "id": "FC-045-05",
+    "label": "gorra",
+    "page": 45,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-045-05.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p045-gorra.png"
+   },
+   {
+    "score": 0.667,
+    "id": "FC-004-03",
+    "label": "Oto",
+    "page": 4,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-004-03.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p004-oto.png"
+   },
+   {
+    "score": 0.645,
+    "id": "FC-018-02",
+    "label": "tomate",
+    "page": 18,
+    "book": "Flip Chart",
+    "original": "docs/proofs/artwork-coverage-2026-10-14/crops/FC-018-02.png",
+    "current": "public/cartilla/art/optimized/flipchart-native/p018-tomate.webp"
+   }
+  ]
+ }
+]

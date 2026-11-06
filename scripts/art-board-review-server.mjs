@@ -110,7 +110,8 @@ export function createArtReviewServer({ rootDir = DEFAULT_ROOT, storageDir = DEF
     }catch(e){send(res,e.status||500,{error:e.status?e.message:"Review storage unavailable; decisions were not saved"});}
   });
 }
-if(process.argv[1] && resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+const isMain = process.argv[1] && (resolve(process.argv[1]).endsWith("art-board-review-server.mjs") || resolve(process.argv[1]).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase());
+if(isMain){
   const port=Number(process.env.CARTILLA_REVIEW_PORT||5188);
   const server=createArtReviewServer({rootDir:process.env.CARTILLA_REVIEW_ROOT||DEFAULT_ROOT,storageDir:process.env.CARTILLA_REVIEW_DATA||DEFAULT_STORAGE});
   server.listen(port,"127.0.0.1",()=>console.log("Gretel artwork review: http://127.0.0.1:"+port+"/art-board/verified-optimized.html"));
