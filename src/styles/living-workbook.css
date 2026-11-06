@@ -100,6 +100,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  transform: none !important;
 }
 
 .lwp-object__img {
@@ -205,28 +206,6 @@
 
 .lwp-tap-to-hear.is-playing .lwp-tap-to-hear__badge {
   animation: lwp-pulse 0.6s ease-in-out;
-}
-
-/* ── Ambient motion keyframes (used only when !prefers-reduced-motion,
-     gated in LivingWorkbookPage via inline styles) ─────────────────── */
-@keyframes lwp-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6%); }
-}
-
-@keyframes lwp-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4%); }
-}
-
-@keyframes lwp-breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-@keyframes lwp-blink {
-  0%, 90%, 100% { opacity: 1; }
-  95% { opacity: 0.2; }
 }
 
 @keyframes lwp-shake {

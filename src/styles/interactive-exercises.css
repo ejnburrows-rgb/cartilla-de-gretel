@@ -13,32 +13,6 @@
  * correct accent automatically.
  */
 
-/* Shared subtle-motion utility for the older games (Emparejar/Armar's hint
- * picture) so their real book art isn't static while the new page
- * exercises float — same keyframe, same per-cell randomized delay rule. */
-.game-pic-float {
-  animation: fpIxFloat 3.5s ease-in-out infinite;
-  animation-delay: var(--float-delay, 0s);
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
-}
-
-@keyframes fpIxFloat {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15)) brightness(1);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.05);
-    filter: drop-shadow(0 10px 12px rgba(234, 88, 12, 0.25)) brightness(1.1);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .game-pic-float {
-    animation: none !important;
-  }
-}
-
 .fp-ix-grid,
 .fp-ix-pick,
 .fp-ix-match-all,
@@ -74,24 +48,18 @@
   box-shadow: 0 4px 12px -6px rgba(31, 41, 55, 0.22);
 }
 .fp-ix-cell:hover {
-  transform: translateY(-1px) scale(0.97);
+  transform: none;
   border-color: var(--ix-accent);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--ix-accent) 30%, transparent);
+}
+.fp-ix-cell:active {
+  transform: scale(0.98);
 }
 /* Source illustration stays still while a child decides; only the wooden pencil moves. */
 .fp-ix-cell img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-}
-@keyframes fpIxFloat {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-2.5px) rotate(1deg);
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .fp-ix-cell img {
@@ -594,8 +562,7 @@
   box-shadow: none;
 }
 .fp-ix-cell:hover { box-shadow:none; }
-.fp-ix-cell img,
-.game-pic-float { animation:none; filter:none; }
+.fp-ix-cell img { animation: none; filter: none; transform: none; }
 .fp-ix-check-btn,
 .fp-ix-pick__letter,
 .fp-ix-letter-btn,

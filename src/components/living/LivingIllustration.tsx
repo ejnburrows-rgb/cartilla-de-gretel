@@ -63,8 +63,7 @@ export function LivingIllustration({
   const [failedDeliveryFor, setFailedDeliveryFor] = useState<string | null>(null);
   const ambientProfile = actor?.action ?? null;
   const phase = useMemo(() => phaseFor(src), [src]);
-  const canBlink = Boolean(actor?.blinkFrame) && !forceStatic;
-  const isCreature = Boolean(actor?.creature) && !forceStatic;
+  const canBlink = Boolean(trueBlink) && !forceStatic;
   const blinkMode = trueBlink && canBlink ? "frame" : "none";
 
   useEffect(() => {
@@ -139,7 +138,6 @@ export function LivingIllustration({
   const blinkActive = canBlink && blinkReady && !reduced && !approvedClip && !selfAnimated;
   const ambientActive = Boolean(ambientProfile) && !reduced && !approvedClip && !selfAnimated;
   const partBased = Boolean(actor?.parts?.length);
-  const wholeActionActive = ambientActive && !partBased;
   const displaySrc = selfAnimated && actor?.aliveSrc ? actor.aliveSrc : blinkActive && blinking && trueBlink ? trueBlink : src;
   const deliverySrcSet = displaySrc === src && failedDeliveryFor !== src ? getFaithfulDeliverySrcSet(src) : undefined;
 
@@ -162,9 +160,7 @@ export function LivingIllustration({
         "living-illustration",
         blinkActive ? "living-illustration--alive" : "",
         reacting ? "living-illustration--reacting" : "",
-        isCreature && ambientActive ? "living-illustration--creature-life" : "",
         ambientActive ? "living-illustration--ambient" : "",
-        wholeActionActive && ambientProfile ? `living-illustration--${ambientProfile}` : "",
         partBased && ambientActive ? "living-illustration--part-rigged" : "",
         ambientActive ? `living-illustration--phase-${phase}` : "",
         className,

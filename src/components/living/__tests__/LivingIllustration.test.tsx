@@ -39,9 +39,7 @@ describe("LivingIllustration faithful recovered art", () => {
       expect(wrapper?.getAttribute("data-natural-motion"), animal.word).toBe(
         actor?.aliveSrc ? "true" : "false",
       );
-      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(
-        Boolean(actor?.creature) && !actor?.aliveSrc,
-      );
+      expect(wrapper?.className, animal.word).not.toContain("living-illustration--creature-life");
       unmount();
     }
   });
@@ -52,15 +50,15 @@ describe("LivingIllustration faithful recovered art", () => {
     expect(wrapper?.getAttribute("data-blink-mode")).toBe("frame");
   });
 
-  it("keeps an explicitly approved source animated and tap-reactive", () => {
-    // leccion-1/pez.webp is the Workbook's airplane: it may glide as a whole.
+  it("keeps an explicitly approved source grounded while remaining tap-reactive", () => {
+    // leccion-1/pez.webp is the Workbook's airplane: grounded with zero whole-image drift.
     render(<LivingIllustration src="/cartilla/art/faithful/leccion-1/pez.webp" alt="avión" />);
     const wrapper = screen.getByRole("img", { name: "avión" }).parentElement;
     expect(wrapper?.getAttribute("data-blink-mode")).toBe("none");
     expect(wrapper?.getAttribute("data-interactive")).toBe("true");
     expect(wrapper?.querySelectorAll(".living-illustration__eyelid")).toHaveLength(0);
     expect(wrapper?.querySelectorAll(".living-illustration__part")).toHaveLength(0);
-    expect(wrapper?.className).toContain("living-illustration--glide");
+    expect(wrapper?.className).not.toContain("living-illustration--glide");
     expect(wrapper?.className).not.toContain("living-illustration--creature-life");
     if (!wrapper) throw new Error("missing living illustration wrapper");
     fireEvent.pointerDown(wrapper);
@@ -87,7 +85,7 @@ describe("LivingIllustration faithful recovered art", () => {
     }
   });
 
-  it("renders with actor motion classes inside workbook exercise cells", () => {
+  it("keeps art grounded inside workbook exercise cells with no whole-body jumping or wiggling", () => {
     const src = "/cartilla/art/faithful/leccion-9-s/sapo.webp";
     const { container } = render(
       <div className="fp-ix-cell">
@@ -96,8 +94,8 @@ describe("LivingIllustration faithful recovered art", () => {
     );
     const wrapper = container.querySelector(".living-illustration");
     expect(wrapper).not.toBeNull();
-    expect(wrapper?.className).toContain("living-illustration--hop");
-    expect(wrapper?.className).toContain("living-illustration--creature-life");
+    expect(wrapper?.className).not.toContain("living-illustration--hop");
+    expect(wrapper?.className).not.toContain("living-illustration--creature-life");
   });
 
   it("renders compliant part-rigged motion for vowel creatures without moving whole image", () => {

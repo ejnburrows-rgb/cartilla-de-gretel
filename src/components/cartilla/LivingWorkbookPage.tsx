@@ -39,10 +39,8 @@ export interface LivingWorkbookPageProps {
 function boxStyle(
   box: WorkbookObject["box"],
   zIndex: number | undefined,
-  motionOn: boolean,
-  motion: WorkbookObject["motion"],
 ): CSSProperties {
-  const style: CSSProperties = {
+  return {
     position: "absolute",
     left: `${box.xPct}%`,
     top: `${box.yPct}%`,
@@ -50,22 +48,14 @@ function boxStyle(
     height: `${box.hPct}%`,
     zIndex,
   };
-  if (motionOn && motion && motion.kind !== "none") {
-    style.animationName = `lwp-${motion.kind}`;
-    style.animationDuration = `${motion.durationMs ?? 3000}ms`;
-    style.animationDelay = `${motion.delayMs ?? 0}ms`;
-    style.animationIterationCount = "infinite";
-    style.animationTimingFunction = "ease-in-out";
-  }
-  return style;
 }
 
 /** A plain, non-interactive object: image + real web text, percent-positioned. */
-function StaticObject({ object, motionOn }: { object: WorkbookObject; motionOn: boolean }) {
+function StaticObject({ object }: { object: WorkbookObject }) {
   return (
     <div
       className="lwp-object"
-      style={boxStyle(object.box, object.zIndex, motionOn, object.motion)}
+      style={boxStyle(object.box, object.zIndex)}
       aria-hidden={!object.text && !object.alt ? true : undefined}
     >
       {object.src && (
@@ -154,7 +144,6 @@ export function LivingWorkbookPage({
   className,
 }: LivingWorkbookPageProps) {
   const reducedMotion = useReducedMotion();
-  const motionOn = !reducedMotion;
 
   const interactionKind = page.interaction?.kind ?? "none";
   const staticObjects = page.objects.filter((o) => (o.interaction?.kind ?? "none") === "none");
@@ -306,7 +295,7 @@ export function LivingWorkbookPage({
           contentStrength={page.objects.length === 0}
         />
         {staticObjects.map((object) => (
-          <StaticObject key={object.id} object={object} motionOn={motionOn} />
+          <StaticObject key={object.id} object={object} />
         ))}
         {interactionSlot}
       </div>

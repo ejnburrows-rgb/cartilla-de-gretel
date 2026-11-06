@@ -50,7 +50,7 @@ describe("Gate 2: Component Rendering in <LivingIllustration> for Ardilla", () =
     expect(wrapper?.getAttribute("data-ambient-motion")).toBe("wag");
     expect(wrapper?.getAttribute("data-part-based")).toBe("true");
     expect(wrapper?.getAttribute("data-interactive")).toBe("true");
-    expect(wrapper?.className).toContain("living-illustration--creature-life");
+    expect(wrapper?.className).not.toContain("living-illustration--creature-life");
     expect(wrapper?.className).toContain("living-illustration--part-rigged");
 
     // Verify tail part element
