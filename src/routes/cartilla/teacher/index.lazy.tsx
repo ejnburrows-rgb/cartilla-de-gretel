@@ -1,5 +1,4 @@
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
-import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 import {
   GraduationCap,
   BookOpen,
@@ -10,6 +9,7 @@ import {
   Home,
   ClipboardCheck,
   Music,
+  Sparkles,
 } from "lucide-react";
 
 export const Route = createLazyFileRoute("/cartilla/teacher/")({
@@ -52,6 +52,13 @@ const ENTRY_POINTS: EntryPoint[] = [
     to: "/cartilla/teacher/reportes",
     icon: <FileSpreadsheet className="w-6 h-6" />,
     accent: "#9333ea",
+  },
+  {
+    title: "Asistente Gretel",
+    description: "Orientación pedagógica, dosificación de tiempos, rotafolio y apoyo a rezago.",
+    to: "/cartilla/teacher/gretel",
+    icon: <Sparkles className="w-6 h-6" />,
+    accent: "#ea580c",
   },
   {
     title: "Ayuda",
@@ -110,8 +117,7 @@ const FOLDERS: DriveFolder[] = [
 
 function TeacherHub() {
   return (
-    <div className="w-full space-y-8 pb-16">
-      <DemoControlCenter />
+    <div className="w-full space-y-10 pb-16">
       <header>
         <h1 className="teacher-chrome__title text-3xl sm:text-4xl font-black">Panel del Docente</h1>
         <p className="text-[var(--tc-ink-soft)] font-bold mt-1">
@@ -119,7 +125,7 @@ function TeacherHub() {
         </p>
       </header>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         {ENTRY_POINTS.map((entry) => (
           <Link
             key={entry.title}

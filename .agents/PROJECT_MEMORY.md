@@ -226,3 +226,13 @@
 - **Gretel Reading Companion**: Natural eyelid blinking animation on Gretel's portrait (`lc-gretel-blink`) with companion breathing, strictly respecting the single-`<img>` test invariant (`gretel-approved-master.png`).
 - **Cross-Drive NTFS Junction Harmonization**: Fixed `vite.config.ts` path normalization (`realpathSync`) for root, alias (`@`), and `setupFiles`, resolving `npx vitest` execution and cross-drive relative import errors.
 
+
+## Feature: Gretel Pedagogical Assistant on Teacher Platform (2026-11-06)
+
+### Architectural Decisions & Changes
+- **Strict Student Route Quarantine**: Reverted all student-facing changes in `src/routes/cartilla/lecciones.tsx` and removed `/cartilla/gretel`. The student learning path remains 100% focused on workbook lessons without conversational chatbots or intrusive mascot overlays.
+- **Teacher Platform Integration**: Built a dedicated pedagogical assistant exclusively for educators under `/cartilla/teacher/gretel` (`src/routes/cartilla/teacher/gretel.tsx` and `gretel.lazy.tsx`).
+- **Comprehensive Teacher Knowledge Base (`src/lib/gretel-teacher-kb.ts`)**: 11 structured pedagogical topics covering 24 lessons methodology, 45-60 min lesson pacing, digital flipchart usage, student workbook coordination, 4-state CRM tracking, reading fluency rubrics (Pre-silábico, Silábico, Silábico-Alfabético, Alfabético), syllabic charts, intervention for struggling students, and class join codes (`/cartilla/unirse`).
+- **Teacher Navigation Links**: Integrated "Gretel" into the Teacher Layout navigation (`src/routes/cartilla/teacher/route.lazy.tsx`), Teacher Hub card grid (`src/routes/cartilla/teacher/index.lazy.tsx`), and Teacher Help manual (`src/routes/cartilla/teacher/ayuda.lazy.tsx`).
+- **Quality Verification**: Unit test suite `src/lib/__tests__/gretel-teacher-kb.test.ts` passed 5/5. `pnpm typecheck` passed with 0 errors. Captured visual proof across desktop and mobile.
+- **Delivery**: Committed and pushed to `origin/feat/gretel-teacher-platform` (commit `58f13bba`).
