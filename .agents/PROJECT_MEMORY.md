@@ -237,3 +237,11 @@
 - **Silence `/cartilla/voces` Approved**: Approved disabling all browser `speechSynthesis` (`allowTts: false`) and removing ElevenLabs/paid voice references in `src/routes/cartilla/voces.tsx`.
 - **14 Clean PRs Approved (#1264–#1277)**: Approved sequential integration of the 14 verified clean PRs after exact-head review and typecheck/tests.
 - **Deployment Gate**: `vercel.json` remains `git.deploymentEnabled: false`.
+
+
+## [2026-11-06 11:03] Realistic Motion Overhaul & Physical Book Proofs Cockpit (Swarm Complete)
+- **Eliminated Cheap Motion**: Permanently deleted 14 whole-image CSS wobble keyframes (living-creature-micro, living-breathe, living-crawl, living-sway, etc.) and living-workbook floats (lwp-float, lwp-bob, lwp-breathe, lwp-blink).
+- **Realistic Eye Blinking**: Characters with eyes blink naturally (120ms eye-frame swap every 3.5-6s) while the body stays completely still on the paper. Inanimate objects are 100% static.
+- **Physical Book Red-Circle Cockpit**: Batch-generated 750 high-resolution physical page screenshots and zoom details across all 201 drawing groups / 330 placements.
+- **2-Column Review Interface**: Left panel displays the full physical Workbook/Flipbook page with the asset circled in crimson red (#dc2626) plus high-res zoom and candidate side-by-side; right panel houses dedicated action controls (Aprobar, Rechazar, Reemplazar, Omitir, Deshacer).
+- **Verification**: 21/21 living motion tests passed, 3/3 server tests passed, pnpm typecheck passed with 0 errors, verify-production-assets 588/588 passed.
