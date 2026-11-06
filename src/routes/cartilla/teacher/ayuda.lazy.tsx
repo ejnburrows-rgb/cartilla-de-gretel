@@ -10,6 +10,7 @@ import {
   NotebookPen,
   ShieldAlert,
   ListOrdered,
+  Sparkles,
 } from "lucide-react";
 
 export const Route = createLazyFileRoute("/cartilla/teacher/ayuda")({
@@ -138,21 +139,20 @@ const SECTIONS: Section[] = [
         <p>Controles reales dentro del flipchart:</p>
         <ul className="list-disc pl-6 space-y-1.5">
           <li>
-            <strong>Avanzar / retroceder lámina:</strong> toca las flechas en pantalla, o usa el
-            teclado (flecha derecha, espacio o Av Pág para avanzar; flecha izquierda o Re Pág para
-            retroceder).
+            <strong>Pantalla completa:</strong> botón en la barra o tecla <code>F</code> para
+            proyectar sin barras del navegador.
           </li>
           <li>
-            <strong>Pantalla completa:</strong> botón de expandir en la esquina — ideal para
-            proyectar en el televisor o proyector del salón.
+            <strong>Puntero láser:</strong> botón con ícono de mira o tecla <code>L</code> para
+            resaltar una parte de la lección mientras hablas.
           </li>
           <li>
-            <strong>Puntero láser:</strong> actívalo con su botón y mueve el mouse (o el dedo en
-            pantalla táctil) para señalar algo en la lámina sin tapar el contenido.
+            <strong>Flechas ← y →</strong> (o las flechas del teclado) para avanzar o retroceder
+            entre páginas de la lección.
           </li>
           <li>
-            <strong>Salir:</strong> el botón de salir te regresa siempre al Panel del Docente, nunca
-            al camino del estudiante.
+            <strong>Selector de lección:</strong> menú desplegable arriba para saltar directo a
+            cualquiera de las 24 lecciones.
           </li>
         </ul>
       </>
@@ -161,92 +161,117 @@ const SECTIONS: Section[] = [
   {
     id: "progreso",
     number: 6,
-    title: "Cómo ver progreso por estudiante y por lección",
+    title: "Cómo ver el progreso de los alumnos",
     icon: <BarChart3 className="w-5 h-5" />,
-    accent: "#9333ea",
+    accent: "#0f766e",
     body: (
       <>
         <p>
-          Desde <strong>Clase</strong>, navega Panel → Clase → Estudiante → Lección para ver el
-          detalle completo: intentos de actividad, puntuación, tiempo dedicado y la fecha de la
-          última actividad. La vista de la clase también resalta primero a los estudiantes que
-          necesitan atención (7 días o más sin actividad, o puntuaciones bajas repetidas).
+          El progreso se ve en dos niveles: en <strong>Clase</strong> ves el tablero en vivo con
+          cuadritos de colores por lección y por alumno. En <strong>Reportes</strong> ves las métricas
+          consolidadas: porcentaje de completitud por lección, quién va al día y quién se ha
+          quedado atrás.
         </p>
         <p>
-          En <strong>Reportes</strong> encuentras el <strong>Reporte para Familias</strong> (una
-          página imprimible por estudiante, con lecciones completadas, lección actual y un mensaje
-          de aliento) y la <strong>exportación CSV</strong> del progreso de toda la clase, útil para
-          tus propios registros.
+          El tablero usa 4 estados claros:
         </p>
+        <ul className="list-disc pl-6 space-y-1.5">
+          <li>
+            <strong>Gris:</strong> sin empezar.
+          </li>
+          <li>
+            <strong>Amarillo:</strong> en progreso (el alumno ya abrió la lección).
+          </li>
+          <li>
+            <strong>Verde:</strong> completada (pasó todas las páginas requeridas).
+          </li>
+          <li>
+            <strong>Punto azul:</strong> asignada por el docente (tarea pendiente para ese alumno).
+          </li>
+        </ul>
       </>
     ),
   },
   {
     id: "guia",
     number: 7,
-    title: "Cómo usar la Guía del profesor por lección",
+    title: "Qué hay en cada carpeta de la Guía",
     icon: <BookOpen className="w-5 h-5" />,
-    accent: "#4f46e5",
+    accent: "#0f766e",
     body: (
       <>
         <p>
-          <strong>Guía</strong> abre 5 carpetas de color: Guía del profesor (objetivos, motivación y
-          guion palabra por palabra), Tablas silábicas y de vocales, Tareas para el hogar (la rima
-          de práctica), Evaluaciones (referencia de página) y Poemas y audio. Toca una carpeta para
-          ver las 24 lecciones dentro de esa categoría.
+          La <strong>Guía</strong> organiza todo el material oficial en 5 carpetas de colores,
+          cada una con las 24 lecciones completas:
         </p>
-        <p>
-          Al abrir una lección completa (Folder "Guía del profesor"), tienes botones directos a{" "}
-          <strong>Actividades del estudiante</strong> y a <strong>Presentar flipchart</strong> de
-          esa misma lección — nunca tienes que adivinar a dónde ir después.
-        </p>
-        <p>
-          Para las lecciones donde el escaneo impreso de la Guía del profesor de Leonor Lopetegui no
-          existe en el repositorio, la app lo dice honestamente ("SOURCE-NOT-IN-REPO") en vez de
-          mostrar una página en blanco o inventar contenido — y muestra igual lo que sí es real,
-          como el poema cuando ya fue transcrito de las páginas reales del cuaderno.
-        </p>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Guía del Profesor (verde):</strong> objetivos pedagógicos, vocabulario clave,
+            desglose de la lección y sugerencias didácticas.
+          </li>
+          <li>
+            <strong>Tablas Silábicas y de Vocales (esmeralda):</strong> las tablas murales de cada
+            lección para trabajar el reconocimiento rápido de sílabas.
+          </li>
+          <li>
+            <strong>Tareas para el Hogar (ámbar):</strong> rimas cortas para que los niños lean en
+            voz alta con su familia al terminar cada lección.
+          </li>
+          <li>
+            <strong>Evaluaciones (púrpura):</strong> pruebas formativas para medir si el alumno ya
+            domina las sílabas de esa lección antes de avanzar.
+          </li>
+          <li>
+            <strong>Poemas y Audio (rosa):</strong> el poema rítmico oficial de cada lección junto
+            con su pista de audio grabada.
+          </li>
+        </ul>
       </>
     ),
   },
   {
-    id: "cuaderno",
+    id: "imprimir",
     number: 8,
-    title: "Cómo el estudiante usa el cuaderno (para poder guiarlo)",
+    title: "Cómo imprimir o exportar",
     icon: <NotebookPen className="w-5 h-5" />,
     accent: "#0f766e",
     body: (
       <>
         <p>
-          El estudiante entra con el código de la clase, elige su lección entre las 24 disponibles,
-          y practica directamente sobre las páginas reales del libro: toca dibujos, traza letras,
-          empareja sílabas — según lo que esa página pida. Su progreso se guarda solo, sin que tenga
-          que hacer nada extra, cada vez que completa un ejercicio o termina una lección.
+          Toca <strong>Imprimir</strong> en la barra de arriba (o <code>/cartilla/imprimir/all</code>)
+          para generar hojas listas para imprimir en blanco y negro o color:
         </p>
-        <p>
-          Si estás sentado junto a un estudiante para ayudarlo, es la misma pantalla que ves tú al
-          abrir esa lección desde el camino del estudiante — no hay una versión "secreta" distinta a
-          la que juega el niño.
-        </p>
+        <ul className="list-disc pl-6 space-y-1.5">
+          <li>
+            <strong>Cuadernillo completo:</strong> todas las lecciones del estudiante juntas.
+          </li>
+          <li>
+            <strong>Lección individual:</strong> solo la lección que vas a dar hoy.
+          </li>
+          <li>
+            <strong>Reporte de clase:</strong> desde Reportes puedes imprimir la sábana completa de
+            avance del grupo para la carpeta pedagógica o exportar a CSV para abrir en Excel.
+          </li>
+        </ul>
       </>
     ),
   },
   {
-    id: "no-hacer",
+    id: "seguridad",
     number: 9,
-    title: "Qué NO hacer",
+    title: "Qué NO hacer (reglas del sistema)",
     icon: <ShieldAlert className="w-5 h-5" />,
     accent: "#dc2626",
     body: (
-      <ul className="list-disc pl-6 space-y-1.5">
+      <ul className="list-disc pl-6 space-y-2 text-[var(--tc-ink)]">
         <li>
-          <strong>No mezcles el camino del estudiante con el panel del docente.</strong> Cada uno
-          tiene su propia entrada (código de clase vs. /login) y su propia vista — nunca vas a ver
+          <strong>No compartas contraseñas de docente con estudiantes.</strong> Cada rol tiene su
+          propia entrada (/cartilla/unirse vs. /login) y su propia vista — nunca vas a ver
           páginas del cuaderno del estudiante dentro de "Presentar", ni vas a ver el panel del
           docente desde el lado del estudiante.
         </li>
         <li>
-          <strong>No inventes contenido.</strong> Cuando la Guía del profesor impresa no está
+          <strong>No inventes contenido.</strong> Cuando la Guía del profesor impresa no esté
           disponible para una lección, la app lo dice claramente en vez de mostrar un texto
           inventado. Esa es una regla dura del proyecto, no un error a corregir tú mismo.
         </li>
@@ -287,6 +312,30 @@ const SECTIONS: Section[] = [
         <li>Asigna la tarea para el hogar (la rima de la carpeta "Tareas") si corresponde.</li>
         <li>Repite con la siguiente lección en la próxima clase.</li>
       </ol>
+    ),
+  },
+  {
+    id: "asistente-gretel",
+    number: 11,
+    title: "Asistente Pedagógica Gretel",
+    icon: <Sparkles className="w-5 h-5" />,
+    accent: "#ea580c",
+    body: (
+      <>
+        <p>
+          En <strong>Gretel</strong> (o en{" "}
+          <code className="px-1.5 py-0.5 bg-[var(--tc-paper-soft)] rounded font-mono text-sm">
+            /cartilla/teacher/gretel
+          </code>
+          ) tienes un asistente de consulta metodológica exclusivo para docentes. Te orienta en la
+          progresión de las 24 lecciones, cómo dosificar una clase de 50 minutos, cómo intervenir con
+          alumnos con rezago lector y cómo coordinar el rotafolio frontal con el cuaderno individual.
+        </p>
+        <p>
+          Puedes copiar las notas pedagógicas y los pasos recomendados directamente a tu plan de
+          clase con un solo clic.
+        </p>
+      </>
     ),
   },
 ];
@@ -347,6 +396,12 @@ function TeacherAyudaPage() {
           className="min-h-12 inline-flex items-center px-5 py-3 rounded-2xl bg-primary text-primary-foreground font-bold"
         >
           Volver al Panel del Docente
+        </Link>
+        <Link
+          to="/cartilla/teacher/gretel"
+          className="min-h-12 inline-flex items-center px-5 py-3 rounded-2xl bg-amber-600 text-white font-bold hover:bg-amber-700 transition-colors"
+        >
+          Consultar a Gretel Asistente
         </Link>
         <Link
           to="/cartilla/teacher/crm"

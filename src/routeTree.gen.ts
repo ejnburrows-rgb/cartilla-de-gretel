@@ -39,6 +39,7 @@ import { Route as CartillaTeacherReportesRouteImport } from './routes/cartilla/t
 import { Route as CartillaTeacherProgresoRouteImport } from './routes/cartilla/teacher/progreso'
 import { Route as CartillaTeacherLeccionesRouteImport } from './routes/cartilla/teacher/lecciones'
 import { Route as CartillaTeacherGuideRouteImport } from './routes/cartilla/teacher/guide'
+import { Route as CartillaTeacherGretelRouteImport } from './routes/cartilla/teacher/gretel'
 import { Route as CartillaTeacherFlipchartRouteImport } from './routes/cartilla/teacher/flipchart'
 import { Route as CartillaTeacherCrmRouteImport } from './routes/cartilla/teacher/crm'
 import { Route as CartillaTeacherAyudaRouteImport } from './routes/cartilla/teacher/ayuda'
@@ -230,6 +231,13 @@ const CartillaTeacherGuideRoute = CartillaTeacherGuideRouteImport.update({
   getParentRoute: () => CartillaTeacherRouteRoute,
 } as any).lazy(() =>
   import('./routes/cartilla/teacher/guide.lazy').then((d) => d.Route),
+)
+const CartillaTeacherGretelRoute = CartillaTeacherGretelRouteImport.update({
+  id: '/gretel',
+  path: '/gretel',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any).lazy(() =>
+  import('./routes/cartilla/teacher/gretel.lazy').then((d) => d.Route),
 )
 const CartillaTeacherFlipchartRoute =
   CartillaTeacherFlipchartRouteImport.update({
@@ -425,6 +433,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/crm': typeof CartillaTeacherCrmRouteWithChildren
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
+  '/cartilla/teacher/gretel': typeof CartillaTeacherGretelRoute
   '/cartilla/teacher/guide': typeof CartillaTeacherGuideRoute
   '/cartilla/teacher/lecciones': typeof CartillaTeacherLeccionesRoute
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
@@ -477,6 +486,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
+  '/cartilla/teacher/gretel': typeof CartillaTeacherGretelRoute
   '/cartilla/teacher/guide': typeof CartillaTeacherGuideRoute
   '/cartilla/teacher/lecciones': typeof CartillaTeacherLeccionesRoute
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
@@ -530,6 +540,7 @@ export interface FileRoutesById {
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/crm': typeof CartillaTeacherCrmRouteWithChildren
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
+  '/cartilla/teacher/gretel': typeof CartillaTeacherGretelRoute
   '/cartilla/teacher/guide': typeof CartillaTeacherGuideRoute
   '/cartilla/teacher/lecciones': typeof CartillaTeacherLeccionesRoute
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
@@ -586,6 +597,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/crm'
     | '/cartilla/teacher/flipchart'
+    | '/cartilla/teacher/gretel'
     | '/cartilla/teacher/guide'
     | '/cartilla/teacher/lecciones'
     | '/cartilla/teacher/progreso'
@@ -638,6 +650,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/admin'
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/flipchart'
+    | '/cartilla/teacher/gretel'
     | '/cartilla/teacher/guide'
     | '/cartilla/teacher/lecciones'
     | '/cartilla/teacher/progreso'
@@ -690,6 +703,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/crm'
     | '/cartilla/teacher/flipchart'
+    | '/cartilla/teacher/gretel'
     | '/cartilla/teacher/guide'
     | '/cartilla/teacher/lecciones'
     | '/cartilla/teacher/progreso'
@@ -955,6 +969,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherGuideRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
+    '/cartilla/teacher/gretel': {
+      id: '/cartilla/teacher/gretel'
+      path: '/gretel'
+      fullPath: '/cartilla/teacher/gretel'
+      preLoaderRoute: typeof CartillaTeacherGretelRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
     '/cartilla/teacher/flipchart': {
       id: '/cartilla/teacher/flipchart'
       path: '/flipchart'
@@ -1170,6 +1191,7 @@ interface CartillaTeacherRouteRouteChildren {
   CartillaTeacherAyudaRoute: typeof CartillaTeacherAyudaRoute
   CartillaTeacherCrmRoute: typeof CartillaTeacherCrmRouteWithChildren
   CartillaTeacherFlipchartRoute: typeof CartillaTeacherFlipchartRoute
+  CartillaTeacherGretelRoute: typeof CartillaTeacherGretelRoute
   CartillaTeacherGuideRoute: typeof CartillaTeacherGuideRoute
   CartillaTeacherLeccionesRoute: typeof CartillaTeacherLeccionesRoute
   CartillaTeacherProgresoRoute: typeof CartillaTeacherProgresoRoute
@@ -1187,6 +1209,7 @@ const CartillaTeacherRouteRouteChildren: CartillaTeacherRouteRouteChildren = {
   CartillaTeacherAyudaRoute: CartillaTeacherAyudaRoute,
   CartillaTeacherCrmRoute: CartillaTeacherCrmRouteWithChildren,
   CartillaTeacherFlipchartRoute: CartillaTeacherFlipchartRoute,
+  CartillaTeacherGretelRoute: CartillaTeacherGretelRoute,
   CartillaTeacherGuideRoute: CartillaTeacherGuideRoute,
   CartillaTeacherLeccionesRoute: CartillaTeacherLeccionesRoute,
   CartillaTeacherProgresoRoute: CartillaTeacherProgresoRoute,
