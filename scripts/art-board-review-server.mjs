@@ -130,6 +130,7 @@ export function createArtReviewServer({ rootDir = DEFAULT_ROOT, storageDir = DEF
       if(method!=="GET"){send(res,405,{error:"Method not allowed"});return;}
       if(path==="/"){res.writeHead(302,{Location:"/art-board/verified-optimized.html"});res.end();return;}
       if(path==="/art-board/verified-optimized.html"){await serveFile(res,join(rootDir,"docs","art-board"),"verified-optimized.html");return;}
+      if(path==="/api/art-review/physical-page-proofs-manifest.json" || path==="/art-board/physical-page-proofs-manifest.json" || path==="/docs/art-board/physical-page-proofs-manifest.json"){await serveFile(res,join(rootDir,"docs","art-board"),"physical-page-proofs-manifest.json");return;}
       if(path.startsWith("/cartilla/")){await serveFile(res,join(rootDir,"public"),path.slice(1));return;}
       if(path.startsWith("/art-board/")){await serveFile(res,join(rootDir,"public"),path.slice(1));return;}
       send(res,404,{error:"Not found"});

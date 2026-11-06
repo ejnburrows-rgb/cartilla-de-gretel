@@ -1,0 +1,4580 @@
+{
+  "COMPOSITE-FC-FRONT-001": {
+    "group_id": "COMPOSITE-FC-FRONT-001",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/COMPOSITE-FC-FRONT-001_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/COMPOSITE-FC-FRONT-001_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": "cover/title",
+        "lesson": 0,
+        "placement_id": "FC-FRONT-001",
+        "page_file": "pages/FC-001.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-FRONT-001.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-003-01": {
+    "group_id": "DRAW-FC-003-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-003-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-003-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "FC-003-01",
+        "page_file": "pages/FC-003.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-003-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-003-02": {
+    "group_id": "DRAW-FC-003-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-003-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-003-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "FC-003-02",
+        "page_file": "pages/FC-003.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-003-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-003-03": {
+    "group_id": "DRAW-FC-003-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-003-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-003-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "FC-003-03",
+        "page_file": "pages/FC-003.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-003-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-003-04": {
+    "group_id": "DRAW-FC-003-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-003-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-003-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "FC-003-04",
+        "page_file": "pages/FC-003.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-003-04.jpg"
+      },
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 5,
+        "lesson": 5,
+        "placement_id": "FC-007-02",
+        "page_file": "pages/FC-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-007-02.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-38-1": {
+    "group_id": "DRAW-WB-38-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-38-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-38-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-38-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "FC-003-05",
+        "page_file": "pages/FC-003.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-003-05.jpg"
+      },
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 2,
+        "lesson": 2,
+        "placement_id": "FC-004-02",
+        "page_file": "pages/FC-004.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-004-02.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ20-OLLA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ20-OLLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ09-OLLA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ09-OLLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ05-OLLA",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ05-OLLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ16-OLLA",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ16-OLLA.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-003-06": {
+    "group_id": "DRAW-FC-003-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-003-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-003-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "FC-003-06",
+        "page_file": "pages/FC-003.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-003-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-004-01": {
+    "group_id": "DRAW-FC-004-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-004-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-004-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 2,
+        "lesson": 2,
+        "placement_id": "FC-004-01",
+        "page_file": "pages/FC-004.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-004-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-004-03": {
+    "group_id": "DRAW-FC-004-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-004-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-004-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 2,
+        "lesson": 2,
+        "placement_id": "FC-004-03",
+        "page_file": "pages/FC-004.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-004-03.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-42-1": {
+    "group_id": "DRAW-WB-42-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-42-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-42-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-42-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 2,
+        "lesson": 2,
+        "placement_id": "FC-004-04",
+        "page_file": "pages/FC-004.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-004-04.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ15-OVEJA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ15-OVEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ06-OVEJA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ06-OVEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ02-OVEJA",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ02-OVEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ05-OVEJA",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ05-OVEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ02-OVEJA",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ02-OVEJA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-41-1": {
+    "group_id": "DRAW-WB-41-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-41-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-41-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-41-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 2,
+        "lesson": 2,
+        "placement_id": "FC-004-05",
+        "page_file": "pages/FC-004.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-004-05.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ04-OSO-1",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ04-OSO-1.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ11-OSO",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ11-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ03-OSO-1",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ03-OSO-1.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ14-OSO-2",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ14-OSO-2.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ07-OSO",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ07-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ16-OSO",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ16-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ01-OSO",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ01-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ01-OSO",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ01-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ05-OSO",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ05-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ02-OSO",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ02-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ11-OSO",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ11-OSO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ03-OSO",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ03-OSO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-39-1": {
+    "group_id": "DRAW-WB-39-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-39-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-39-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-39-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 2,
+        "lesson": 2,
+        "placement_id": "FC-004-06",
+        "page_file": "pages/FC-004.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-004-06.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ12-OREJA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ12-OREJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ08-OREJA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ08-OREJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ04-OREJA",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ04-OREJA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-35-1": {
+    "group_id": "DRAW-WB-35-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-35-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-35-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-35-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 2,
+        "lesson": 2,
+        "placement_id": "FC-004-07",
+        "page_file": "pages/FC-004.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-004-07.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 3,
+        "lesson": 1,
+        "placement_id": "WB-S009-OBJ02-OCHO",
+        "page_file": "pages/WB-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S009-OBJ02-OCHO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ11-OCHO",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ11-OCHO.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-005-01": {
+    "group_id": "DRAW-FC-005-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-005-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-005-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 3,
+        "lesson": 3,
+        "placement_id": "FC-005-01",
+        "page_file": "pages/FC-005.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-005-01.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-01-1": {
+    "group_id": "DRAW-WB-01-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-01-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-01-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-01-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 3,
+        "lesson": 3,
+        "placement_id": "FC-005-02",
+        "page_file": "pages/FC-005.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-005-02.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ03-ABANICO",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ03-ABANICO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ01-ABANICO",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ01-ABANICO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ04-ABANICO",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ04-ABANICO.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-005-03": {
+    "group_id": "DRAW-FC-005-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-005-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-005-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 3,
+        "lesson": 3,
+        "placement_id": "FC-005-03",
+        "page_file": "pages/FC-005.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-005-03.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-06-1": {
+    "group_id": "DRAW-WB-06-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-06-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-06-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-06-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 3,
+        "lesson": 3,
+        "placement_id": "FC-005-04",
+        "page_file": "pages/FC-005.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-005-04.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 3,
+        "lesson": 1,
+        "placement_id": "WB-S009-OBJ03-ARANA",
+        "page_file": "pages/WB-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S009-OBJ03-ARANA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ13-ARANA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ13-ARANA.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-005-05": {
+    "group_id": "DRAW-FC-005-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-005-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-005-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 3,
+        "lesson": 3,
+        "placement_id": "FC-005-05",
+        "page_file": "pages/FC-005.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-005-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-005-06": {
+    "group_id": "DRAW-FC-005-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-005-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-005-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 3,
+        "lesson": 3,
+        "placement_id": "FC-005-06",
+        "page_file": "pages/FC-005.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-005-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-005-07": {
+    "group_id": "DRAW-FC-005-07",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-005-07_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-005-07_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 3,
+        "lesson": 3,
+        "placement_id": "FC-005-07",
+        "page_file": "pages/FC-005.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-005-07.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-006-01": {
+    "group_id": "DRAW-FC-006-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-006-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-006-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 4,
+        "lesson": 4,
+        "placement_id": "FC-006-01",
+        "page_file": "pages/FC-006.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-006-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-006-02": {
+    "group_id": "DRAW-FC-006-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-006-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-006-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 4,
+        "lesson": 4,
+        "placement_id": "FC-006-02",
+        "page_file": "pages/FC-006.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-006-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-006-03": {
+    "group_id": "DRAW-FC-006-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-006-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-006-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 4,
+        "lesson": 4,
+        "placement_id": "FC-006-03",
+        "page_file": "pages/FC-006.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-006-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-006-04": {
+    "group_id": "DRAW-FC-006-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-006-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-006-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 4,
+        "lesson": 4,
+        "placement_id": "FC-006-04",
+        "page_file": "pages/FC-006.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-006-04.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-20-1": {
+    "group_id": "DRAW-WB-20-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-20-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-20-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-20-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 4,
+        "lesson": 4,
+        "placement_id": "FC-006-05",
+        "page_file": "pages/FC-006.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-006-05.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ06-ESTRELLA",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ06-ESTRELLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ11-ESTRELLA",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ11-ESTRELLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ11-ESTRELLA",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ11-ESTRELLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ07-ESTRELLA",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ07-ESTRELLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ06-ESTRELLA",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ06-ESTRELLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ07-ESTRELLA",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ07-ESTRELLA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-15-1": {
+    "group_id": "DRAW-WB-15-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-15-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-15-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-15-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 4,
+        "lesson": 4,
+        "placement_id": "FC-006-06",
+        "page_file": "pages/FC-006.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-006-06.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ06-ERIZO",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ06-ERIZO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ04-ERIZO",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ04-ERIZO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-16-1": {
+    "group_id": "DRAW-WB-16-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-16-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-16-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-16-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 4,
+        "lesson": 4,
+        "placement_id": "FC-006-07",
+        "page_file": "pages/FC-006.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-006-07.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ09-ESCALERA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ09-ESCALERA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ05-ESCALERA",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ05-ESCALERA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ06-ESCALERA",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ06-ESCALERA.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-007-01": {
+    "group_id": "DRAW-FC-007-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-007-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-007-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 5,
+        "lesson": 5,
+        "placement_id": "FC-007-01",
+        "page_file": "pages/FC-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-007-01.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-23-1": {
+    "group_id": "DRAW-WB-23-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-23-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-23-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-23-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 5,
+        "lesson": 5,
+        "placement_id": "FC-007-03",
+        "page_file": "pages/FC-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-007-03.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ02-IGLU",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ02-IGLU.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ01-IGLU",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ01-IGLU.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ02-IGLU",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ02-IGLU.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ02-IGLU",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ02-IGLU.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ01-IGLU",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ01-IGLU.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ03-IGLU",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ03-IGLU.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-28-1": {
+    "group_id": "DRAW-WB-28-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-28-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-28-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-28-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 5,
+        "lesson": 5,
+        "placement_id": "FC-007-04",
+        "page_file": "pages/FC-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-007-04.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ08-INDIO",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ08-INDIO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ04-INDIO",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ04-INDIO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ06-INDIO",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ06-INDIO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ05-INDIO",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ05-INDIO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-29-1": {
+    "group_id": "DRAW-WB-29-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-29-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-29-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-29-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 5,
+        "lesson": 5,
+        "placement_id": "FC-007-05",
+        "page_file": "pages/FC-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-007-05.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ15-INSECTO",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ15-INSECTO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ15-INSECTO",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ15-INSECTO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-31-1": {
+    "group_id": "DRAW-WB-31-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-31-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-31-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-31-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 5,
+        "lesson": 5,
+        "placement_id": "FC-007-06",
+        "page_file": "pages/FC-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-007-06.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ05-ISLA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ05-ISLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ12-ISLA",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ12-ISLA.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-007-07": {
+    "group_id": "DRAW-FC-007-07",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-007-07_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-007-07_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 5,
+        "lesson": 5,
+        "placement_id": "FC-007-07",
+        "page_file": "pages/FC-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-007-07.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-008-01": {
+    "group_id": "DRAW-FC-008-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-008-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-008-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 6,
+        "lesson": 6,
+        "placement_id": "FC-008-01",
+        "page_file": "pages/FC-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-008-01.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-50-1": {
+    "group_id": "DRAW-WB-50-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-50-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-50-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-50-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 6,
+        "lesson": 6,
+        "placement_id": "FC-008-02",
+        "page_file": "pages/FC-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-008-02.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ10-UNO",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ10-UNO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 3,
+        "lesson": 1,
+        "placement_id": "WB-S009-OBJ04-UNO",
+        "page_file": "pages/WB-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S009-OBJ04-UNO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ12-UNO",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ12-UNO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ09-UNO",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ09-UNO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ16-UNO",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ16-UNO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ11-UNO",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ11-UNO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ10-UNO-1",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ10-UNO-1.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ16-UNO-2",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ16-UNO-2.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ02-UNO",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ02-UNO.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-008-03": {
+    "group_id": "DRAW-FC-008-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-008-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-008-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 6,
+        "lesson": 6,
+        "placement_id": "FC-008-03",
+        "page_file": "pages/FC-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-008-03.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-51-1": {
+    "group_id": "DRAW-WB-51-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-51-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-51-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-51-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 6,
+        "lesson": 6,
+        "placement_id": "FC-008-04",
+        "page_file": "pages/FC-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-008-04.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ12-URRACA",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ12-URRACA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ12-URRACA",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ12-URRACA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-48-1": {
+    "group_id": "DRAW-WB-48-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-48-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-48-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-48-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 6,
+        "lesson": 6,
+        "placement_id": "FC-008-05",
+        "page_file": "pages/FC-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-008-05.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ10-UNICORNIO",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ10-UNICORNIO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ01-UNICORNIO",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ01-UNICORNIO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ05-UNICORNIO",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ05-UNICORNIO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-49-1": {
+    "group_id": "DRAW-WB-49-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-49-1_wb.jpg",
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-49-1_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-49-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 6,
+        "lesson": 6,
+        "placement_id": "FC-008-06",
+        "page_file": "pages/FC-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-008-06.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ13-UNIFORME-2",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ13-UNIFORME-2.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ13-UNIFORME",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ13-UNIFORME.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ15-UNIFORME",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ15-UNIFORME.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ14-UNIFORME",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ14-UNIFORME.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ07-UNIFORME-1",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ07-UNIFORME-1.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ14-UNIFORME-2",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ14-UNIFORME-2.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ01-UNIFORME",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ01-UNIFORME.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-008-07": {
+    "group_id": "DRAW-FC-008-07",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-008-07_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-008-07_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 6,
+        "lesson": 6,
+        "placement_id": "FC-008-07",
+        "page_file": "pages/FC-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-008-07.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-009-01": {
+    "group_id": "DRAW-FC-009-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-009-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-009-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 7,
+        "lesson": 7,
+        "placement_id": "FC-009-01",
+        "page_file": "pages/FC-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-009-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-009-02": {
+    "group_id": "DRAW-FC-009-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-009-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-009-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 7,
+        "lesson": 7,
+        "placement_id": "FC-009-02",
+        "page_file": "pages/FC-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-009-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-009-03": {
+    "group_id": "DRAW-FC-009-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-009-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-009-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 7,
+        "lesson": 7,
+        "placement_id": "FC-009-03",
+        "page_file": "pages/FC-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-009-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-009-04": {
+    "group_id": "DRAW-FC-009-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-009-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-009-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 7,
+        "lesson": 7,
+        "placement_id": "FC-009-04",
+        "page_file": "pages/FC-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-009-04.jpg"
+      },
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 9,
+        "lesson": 7,
+        "placement_id": "FC-011-01",
+        "page_file": "pages/FC-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-011-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-009-05": {
+    "group_id": "DRAW-FC-009-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-009-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-009-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 7,
+        "lesson": 7,
+        "placement_id": "FC-009-05",
+        "page_file": "pages/FC-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-009-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-009-06": {
+    "group_id": "DRAW-FC-009-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-009-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-009-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 7,
+        "lesson": 7,
+        "placement_id": "FC-009-06",
+        "page_file": "pages/FC-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-009-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-012-01": {
+    "group_id": "DRAW-FC-012-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-012-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-012-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 10,
+        "lesson": 8,
+        "placement_id": "FC-012-01",
+        "page_file": "pages/FC-012.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-012-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-012-02": {
+    "group_id": "DRAW-FC-012-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-012-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-012-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 10,
+        "lesson": 8,
+        "placement_id": "FC-012-02",
+        "page_file": "pages/FC-012.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-012-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-012-03": {
+    "group_id": "DRAW-FC-012-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-012-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-012-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 10,
+        "lesson": 8,
+        "placement_id": "FC-012-03",
+        "page_file": "pages/FC-012.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-012-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-012-04": {
+    "group_id": "DRAW-FC-012-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-012-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-012-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 10,
+        "lesson": 8,
+        "placement_id": "FC-012-04",
+        "page_file": "pages/FC-012.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-012-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-012-05": {
+    "group_id": "DRAW-FC-012-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-012-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-012-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 10,
+        "lesson": 8,
+        "placement_id": "FC-012-05",
+        "page_file": "pages/FC-012.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-012-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-012-06": {
+    "group_id": "DRAW-FC-012-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-012-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-012-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 10,
+        "lesson": 8,
+        "placement_id": "FC-012-06",
+        "page_file": "pages/FC-012.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-012-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-014-01": {
+    "group_id": "DRAW-FC-014-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-014-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-014-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 12,
+        "lesson": 8,
+        "placement_id": "FC-014-01",
+        "page_file": "pages/FC-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-014-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-015-01": {
+    "group_id": "DRAW-FC-015-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-015-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-015-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 13,
+        "lesson": 9,
+        "placement_id": "FC-015-01",
+        "page_file": "pages/FC-015.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-015-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-015-02": {
+    "group_id": "DRAW-FC-015-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-015-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-015-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 13,
+        "lesson": 9,
+        "placement_id": "FC-015-02",
+        "page_file": "pages/FC-015.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-015-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-015-03": {
+    "group_id": "DRAW-FC-015-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-015-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-015-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 13,
+        "lesson": 9,
+        "placement_id": "FC-015-03",
+        "page_file": "pages/FC-015.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-015-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-015-04": {
+    "group_id": "DRAW-FC-015-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-015-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-015-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 13,
+        "lesson": 9,
+        "placement_id": "FC-015-04",
+        "page_file": "pages/FC-015.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-015-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-015-05": {
+    "group_id": "DRAW-FC-015-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-015-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-015-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 13,
+        "lesson": 9,
+        "placement_id": "FC-015-05",
+        "page_file": "pages/FC-015.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-015-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-015-06": {
+    "group_id": "DRAW-FC-015-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-015-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-015-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 13,
+        "lesson": 9,
+        "placement_id": "FC-015-06",
+        "page_file": "pages/FC-015.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-015-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-017-01": {
+    "group_id": "DRAW-FC-017-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-017-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-017-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 15,
+        "lesson": 9,
+        "placement_id": "FC-017-01",
+        "page_file": "pages/FC-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-017-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-018-01": {
+    "group_id": "DRAW-FC-018-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-018-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-018-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 16,
+        "lesson": 10,
+        "placement_id": "FC-018-01",
+        "page_file": "pages/FC-018.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-018-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-018-02": {
+    "group_id": "DRAW-FC-018-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-018-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-018-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 16,
+        "lesson": 10,
+        "placement_id": "FC-018-02",
+        "page_file": "pages/FC-018.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-018-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-018-03": {
+    "group_id": "DRAW-FC-018-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-018-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-018-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 16,
+        "lesson": 10,
+        "placement_id": "FC-018-03",
+        "page_file": "pages/FC-018.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-018-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-018-04": {
+    "group_id": "DRAW-FC-018-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-018-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-018-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 16,
+        "lesson": 10,
+        "placement_id": "FC-018-04",
+        "page_file": "pages/FC-018.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-018-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-018-05": {
+    "group_id": "DRAW-FC-018-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-018-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-018-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 16,
+        "lesson": 10,
+        "placement_id": "FC-018-05",
+        "page_file": "pages/FC-018.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-018-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-018-06": {
+    "group_id": "DRAW-FC-018-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-018-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-018-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 16,
+        "lesson": 10,
+        "placement_id": "FC-018-06",
+        "page_file": "pages/FC-018.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-018-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-020-01": {
+    "group_id": "DRAW-FC-020-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-020-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-020-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 18,
+        "lesson": 10,
+        "placement_id": "FC-020-01",
+        "page_file": "pages/FC-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-020-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-021-01": {
+    "group_id": "DRAW-FC-021-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-021-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-021-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 19,
+        "lesson": 11,
+        "placement_id": "FC-021-01",
+        "page_file": "pages/FC-021.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-021-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-021-02": {
+    "group_id": "DRAW-FC-021-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-021-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-021-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 19,
+        "lesson": 11,
+        "placement_id": "FC-021-02",
+        "page_file": "pages/FC-021.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-021-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-021-03": {
+    "group_id": "DRAW-FC-021-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-021-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-021-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 19,
+        "lesson": 11,
+        "placement_id": "FC-021-03",
+        "page_file": "pages/FC-021.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-021-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-021-04": {
+    "group_id": "DRAW-FC-021-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-021-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-021-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 19,
+        "lesson": 11,
+        "placement_id": "FC-021-04",
+        "page_file": "pages/FC-021.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-021-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-021-05": {
+    "group_id": "DRAW-FC-021-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-021-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-021-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 19,
+        "lesson": 11,
+        "placement_id": "FC-021-05",
+        "page_file": "pages/FC-021.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-021-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-021-06": {
+    "group_id": "DRAW-FC-021-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-021-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-021-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 19,
+        "lesson": 11,
+        "placement_id": "FC-021-06",
+        "page_file": "pages/FC-021.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-021-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-023-01": {
+    "group_id": "DRAW-FC-023-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-023-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-023-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 21,
+        "lesson": 11,
+        "placement_id": "FC-023-01",
+        "page_file": "pages/FC-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-023-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-024-01": {
+    "group_id": "DRAW-FC-024-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-024-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-024-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 22,
+        "lesson": 12,
+        "placement_id": "FC-024-01",
+        "page_file": "pages/FC-024.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-024-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-024-02": {
+    "group_id": "DRAW-FC-024-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-024-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-024-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 22,
+        "lesson": 12,
+        "placement_id": "FC-024-02",
+        "page_file": "pages/FC-024.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-024-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-024-03": {
+    "group_id": "DRAW-FC-024-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-024-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-024-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 22,
+        "lesson": 12,
+        "placement_id": "FC-024-03",
+        "page_file": "pages/FC-024.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-024-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-024-04": {
+    "group_id": "DRAW-FC-024-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-024-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-024-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 22,
+        "lesson": 12,
+        "placement_id": "FC-024-04",
+        "page_file": "pages/FC-024.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-024-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-024-05": {
+    "group_id": "DRAW-FC-024-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-024-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-024-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 22,
+        "lesson": 12,
+        "placement_id": "FC-024-05",
+        "page_file": "pages/FC-024.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-024-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-024-06": {
+    "group_id": "DRAW-FC-024-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-024-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-024-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 22,
+        "lesson": 12,
+        "placement_id": "FC-024-06",
+        "page_file": "pages/FC-024.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-024-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-026-01": {
+    "group_id": "DRAW-FC-026-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-026-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-026-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 24,
+        "lesson": 12,
+        "placement_id": "FC-026-01",
+        "page_file": "pages/FC-026.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-026-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-027-01": {
+    "group_id": "DRAW-FC-027-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-027-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-027-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 25,
+        "lesson": 13,
+        "placement_id": "FC-027-01",
+        "page_file": "pages/FC-027.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-027-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-027-02": {
+    "group_id": "DRAW-FC-027-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-027-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-027-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 25,
+        "lesson": 13,
+        "placement_id": "FC-027-02",
+        "page_file": "pages/FC-027.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-027-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-027-03": {
+    "group_id": "DRAW-FC-027-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-027-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-027-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 25,
+        "lesson": 13,
+        "placement_id": "FC-027-03",
+        "page_file": "pages/FC-027.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-027-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-027-04": {
+    "group_id": "DRAW-FC-027-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-027-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-027-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 25,
+        "lesson": 13,
+        "placement_id": "FC-027-04",
+        "page_file": "pages/FC-027.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-027-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-027-05": {
+    "group_id": "DRAW-FC-027-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-027-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-027-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 25,
+        "lesson": 13,
+        "placement_id": "FC-027-05",
+        "page_file": "pages/FC-027.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-027-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-027-06": {
+    "group_id": "DRAW-FC-027-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-027-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-027-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 25,
+        "lesson": 13,
+        "placement_id": "FC-027-06",
+        "page_file": "pages/FC-027.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-027-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-029-01": {
+    "group_id": "DRAW-FC-029-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-029-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-029-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 27,
+        "lesson": 13,
+        "placement_id": "FC-029-01",
+        "page_file": "pages/FC-029.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-029-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-030-01": {
+    "group_id": "DRAW-FC-030-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-030-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-030-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 28,
+        "lesson": 14,
+        "placement_id": "FC-030-01",
+        "page_file": "pages/FC-030.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-030-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-030-02": {
+    "group_id": "DRAW-FC-030-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-030-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-030-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 28,
+        "lesson": 14,
+        "placement_id": "FC-030-02",
+        "page_file": "pages/FC-030.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-030-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-030-03": {
+    "group_id": "DRAW-FC-030-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-030-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-030-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 28,
+        "lesson": 14,
+        "placement_id": "FC-030-03",
+        "page_file": "pages/FC-030.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-030-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-030-04": {
+    "group_id": "DRAW-FC-030-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-030-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-030-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 28,
+        "lesson": 14,
+        "placement_id": "FC-030-04",
+        "page_file": "pages/FC-030.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-030-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-030-05": {
+    "group_id": "DRAW-FC-030-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-030-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-030-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 28,
+        "lesson": 14,
+        "placement_id": "FC-030-05",
+        "page_file": "pages/FC-030.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-030-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-030-06": {
+    "group_id": "DRAW-FC-030-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-030-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-030-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 28,
+        "lesson": 14,
+        "placement_id": "FC-030-06",
+        "page_file": "pages/FC-030.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-030-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-032-01": {
+    "group_id": "DRAW-FC-032-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-032-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-032-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 30,
+        "lesson": 14,
+        "placement_id": "FC-032-01",
+        "page_file": "pages/FC-032.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-032-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-033-01": {
+    "group_id": "DRAW-FC-033-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-033-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-033-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 31,
+        "lesson": 15,
+        "placement_id": "FC-033-01",
+        "page_file": "pages/FC-033.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-033-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-033-02": {
+    "group_id": "DRAW-FC-033-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-033-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-033-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 31,
+        "lesson": 15,
+        "placement_id": "FC-033-02",
+        "page_file": "pages/FC-033.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-033-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-033-03": {
+    "group_id": "DRAW-FC-033-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-033-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-033-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 31,
+        "lesson": 15,
+        "placement_id": "FC-033-03",
+        "page_file": "pages/FC-033.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-033-03.jpg"
+      },
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 40,
+        "lesson": 18,
+        "placement_id": "FC-042-02",
+        "page_file": "pages/FC-042.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-042-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-033-04": {
+    "group_id": "DRAW-FC-033-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-033-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-033-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 31,
+        "lesson": 15,
+        "placement_id": "FC-033-04",
+        "page_file": "pages/FC-033.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-033-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-033-05": {
+    "group_id": "DRAW-FC-033-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-033-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-033-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 31,
+        "lesson": 15,
+        "placement_id": "FC-033-05",
+        "page_file": "pages/FC-033.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-033-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-033-06": {
+    "group_id": "DRAW-FC-033-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-033-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-033-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 31,
+        "lesson": 15,
+        "placement_id": "FC-033-06",
+        "page_file": "pages/FC-033.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-033-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-035-01": {
+    "group_id": "DRAW-FC-035-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-035-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-035-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 33,
+        "lesson": 15,
+        "placement_id": "FC-035-01",
+        "page_file": "pages/FC-035.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-035-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-036-01": {
+    "group_id": "DRAW-FC-036-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-036-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-036-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 34,
+        "lesson": 16,
+        "placement_id": "FC-036-01",
+        "page_file": "pages/FC-036.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-036-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-036-02": {
+    "group_id": "DRAW-FC-036-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-036-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-036-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 34,
+        "lesson": 16,
+        "placement_id": "FC-036-02",
+        "page_file": "pages/FC-036.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-036-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-036-03": {
+    "group_id": "DRAW-FC-036-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-036-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-036-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 34,
+        "lesson": 16,
+        "placement_id": "FC-036-03",
+        "page_file": "pages/FC-036.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-036-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-036-04": {
+    "group_id": "DRAW-FC-036-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-036-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-036-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 34,
+        "lesson": 16,
+        "placement_id": "FC-036-04",
+        "page_file": "pages/FC-036.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-036-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-036-05": {
+    "group_id": "DRAW-FC-036-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-036-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-036-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 34,
+        "lesson": 16,
+        "placement_id": "FC-036-05",
+        "page_file": "pages/FC-036.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-036-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-036-06": {
+    "group_id": "DRAW-FC-036-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-036-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-036-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 34,
+        "lesson": 16,
+        "placement_id": "FC-036-06",
+        "page_file": "pages/FC-036.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-036-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-038-01": {
+    "group_id": "DRAW-FC-038-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-038-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-038-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 36,
+        "lesson": 16,
+        "placement_id": "FC-038-01",
+        "page_file": "pages/FC-038.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-038-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-039-01": {
+    "group_id": "DRAW-FC-039-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-039-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-039-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 37,
+        "lesson": 17,
+        "placement_id": "FC-039-01",
+        "page_file": "pages/FC-039.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-039-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-039-02": {
+    "group_id": "DRAW-FC-039-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-039-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-039-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 37,
+        "lesson": 17,
+        "placement_id": "FC-039-02",
+        "page_file": "pages/FC-039.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-039-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-039-03": {
+    "group_id": "DRAW-FC-039-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-039-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-039-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 37,
+        "lesson": 17,
+        "placement_id": "FC-039-03",
+        "page_file": "pages/FC-039.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-039-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-039-04": {
+    "group_id": "DRAW-FC-039-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-039-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-039-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 37,
+        "lesson": 17,
+        "placement_id": "FC-039-04",
+        "page_file": "pages/FC-039.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-039-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-039-05": {
+    "group_id": "DRAW-FC-039-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-039-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-039-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 37,
+        "lesson": 17,
+        "placement_id": "FC-039-05",
+        "page_file": "pages/FC-039.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-039-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-039-06": {
+    "group_id": "DRAW-FC-039-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-039-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-039-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 37,
+        "lesson": 17,
+        "placement_id": "FC-039-06",
+        "page_file": "pages/FC-039.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-039-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-041-01": {
+    "group_id": "DRAW-FC-041-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-041-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-041-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 39,
+        "lesson": 17,
+        "placement_id": "FC-041-01",
+        "page_file": "pages/FC-041.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-041-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-042-01": {
+    "group_id": "DRAW-FC-042-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-042-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-042-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 40,
+        "lesson": 18,
+        "placement_id": "FC-042-01",
+        "page_file": "pages/FC-042.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-042-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-042-03": {
+    "group_id": "DRAW-FC-042-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-042-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-042-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 40,
+        "lesson": 18,
+        "placement_id": "FC-042-03",
+        "page_file": "pages/FC-042.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-042-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-042-04": {
+    "group_id": "DRAW-FC-042-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-042-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-042-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 40,
+        "lesson": 18,
+        "placement_id": "FC-042-04",
+        "page_file": "pages/FC-042.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-042-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-042-05": {
+    "group_id": "DRAW-FC-042-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-042-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-042-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 40,
+        "lesson": 18,
+        "placement_id": "FC-042-05",
+        "page_file": "pages/FC-042.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-042-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-042-06": {
+    "group_id": "DRAW-FC-042-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-042-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-042-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 40,
+        "lesson": 18,
+        "placement_id": "FC-042-06",
+        "page_file": "pages/FC-042.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-042-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-044-01": {
+    "group_id": "DRAW-FC-044-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-044-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-044-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 42,
+        "lesson": 18,
+        "placement_id": "FC-044-01",
+        "page_file": "pages/FC-044.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-044-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-045-01": {
+    "group_id": "DRAW-FC-045-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-045-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-045-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 43,
+        "lesson": 19,
+        "placement_id": "FC-045-01",
+        "page_file": "pages/FC-045.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-045-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-045-02": {
+    "group_id": "DRAW-FC-045-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-045-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-045-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 43,
+        "lesson": 19,
+        "placement_id": "FC-045-02",
+        "page_file": "pages/FC-045.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-045-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-045-03": {
+    "group_id": "DRAW-FC-045-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-045-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-045-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 43,
+        "lesson": 19,
+        "placement_id": "FC-045-03",
+        "page_file": "pages/FC-045.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-045-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-045-04": {
+    "group_id": "DRAW-FC-045-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-045-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-045-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 43,
+        "lesson": 19,
+        "placement_id": "FC-045-04",
+        "page_file": "pages/FC-045.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-045-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-045-05": {
+    "group_id": "DRAW-FC-045-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-045-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-045-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 43,
+        "lesson": 19,
+        "placement_id": "FC-045-05",
+        "page_file": "pages/FC-045.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-045-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-045-06": {
+    "group_id": "DRAW-FC-045-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-045-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-045-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 43,
+        "lesson": 19,
+        "placement_id": "FC-045-06",
+        "page_file": "pages/FC-045.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-045-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-047-01": {
+    "group_id": "DRAW-FC-047-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-047-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-047-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 45,
+        "lesson": 19,
+        "placement_id": "FC-047-01",
+        "page_file": "pages/FC-047.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-047-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-048-01": {
+    "group_id": "DRAW-FC-048-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-048-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-048-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 46,
+        "lesson": 20,
+        "placement_id": "FC-048-01",
+        "page_file": "pages/FC-048.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-048-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-048-02": {
+    "group_id": "DRAW-FC-048-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-048-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-048-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 46,
+        "lesson": 20,
+        "placement_id": "FC-048-02",
+        "page_file": "pages/FC-048.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-048-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-048-03": {
+    "group_id": "DRAW-FC-048-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-048-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-048-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 46,
+        "lesson": 20,
+        "placement_id": "FC-048-03",
+        "page_file": "pages/FC-048.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-048-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-048-04": {
+    "group_id": "DRAW-FC-048-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-048-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-048-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 46,
+        "lesson": 20,
+        "placement_id": "FC-048-04",
+        "page_file": "pages/FC-048.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-048-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-048-05": {
+    "group_id": "DRAW-FC-048-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-048-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-048-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 46,
+        "lesson": 20,
+        "placement_id": "FC-048-05",
+        "page_file": "pages/FC-048.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-048-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-048-06": {
+    "group_id": "DRAW-FC-048-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-048-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-048-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 46,
+        "lesson": 20,
+        "placement_id": "FC-048-06",
+        "page_file": "pages/FC-048.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-048-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-050-01": {
+    "group_id": "DRAW-FC-050-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-050-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-050-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 48,
+        "lesson": 20,
+        "placement_id": "FC-050-01",
+        "page_file": "pages/FC-050.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-050-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-051-01": {
+    "group_id": "DRAW-FC-051-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-051-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-051-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 49,
+        "lesson": 21,
+        "placement_id": "FC-051-01",
+        "page_file": "pages/FC-051.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-051-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-051-02": {
+    "group_id": "DRAW-FC-051-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-051-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-051-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 49,
+        "lesson": 21,
+        "placement_id": "FC-051-02",
+        "page_file": "pages/FC-051.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-051-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-051-03": {
+    "group_id": "DRAW-FC-051-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-051-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-051-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 49,
+        "lesson": 21,
+        "placement_id": "FC-051-03",
+        "page_file": "pages/FC-051.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-051-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-051-04": {
+    "group_id": "DRAW-FC-051-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-051-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-051-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 49,
+        "lesson": 21,
+        "placement_id": "FC-051-04",
+        "page_file": "pages/FC-051.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-051-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-051-05": {
+    "group_id": "DRAW-FC-051-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-051-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-051-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 49,
+        "lesson": 21,
+        "placement_id": "FC-051-05",
+        "page_file": "pages/FC-051.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-051-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-051-06": {
+    "group_id": "DRAW-FC-051-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-051-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-051-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 49,
+        "lesson": 21,
+        "placement_id": "FC-051-06",
+        "page_file": "pages/FC-051.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-051-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-053-01": {
+    "group_id": "DRAW-FC-053-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-053-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-053-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 51,
+        "lesson": 21,
+        "placement_id": "FC-053-01",
+        "page_file": "pages/FC-053.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-053-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-054-01": {
+    "group_id": "DRAW-FC-054-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-054-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-054-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 52,
+        "lesson": 22,
+        "placement_id": "FC-054-01",
+        "page_file": "pages/FC-054.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-054-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-054-02": {
+    "group_id": "DRAW-FC-054-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-054-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-054-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 52,
+        "lesson": 22,
+        "placement_id": "FC-054-02",
+        "page_file": "pages/FC-054.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-054-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-054-03": {
+    "group_id": "DRAW-FC-054-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-054-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-054-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 52,
+        "lesson": 22,
+        "placement_id": "FC-054-03",
+        "page_file": "pages/FC-054.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-054-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-054-04": {
+    "group_id": "DRAW-FC-054-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-054-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-054-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 52,
+        "lesson": 22,
+        "placement_id": "FC-054-04",
+        "page_file": "pages/FC-054.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-054-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-054-05": {
+    "group_id": "DRAW-FC-054-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-054-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-054-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 52,
+        "lesson": 22,
+        "placement_id": "FC-054-05",
+        "page_file": "pages/FC-054.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-054-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-054-06": {
+    "group_id": "DRAW-FC-054-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-054-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-054-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 52,
+        "lesson": 22,
+        "placement_id": "FC-054-06",
+        "page_file": "pages/FC-054.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-054-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-056-01": {
+    "group_id": "DRAW-FC-056-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-056-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-056-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 54,
+        "lesson": 22,
+        "placement_id": "FC-056-01",
+        "page_file": "pages/FC-056.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-056-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-057-01": {
+    "group_id": "DRAW-FC-057-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-057-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-057-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 55,
+        "lesson": 23,
+        "placement_id": "FC-057-01",
+        "page_file": "pages/FC-057.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-057-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-057-02": {
+    "group_id": "DRAW-FC-057-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-057-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-057-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 55,
+        "lesson": 23,
+        "placement_id": "FC-057-02",
+        "page_file": "pages/FC-057.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-057-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-057-03": {
+    "group_id": "DRAW-FC-057-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-057-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-057-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 55,
+        "lesson": 23,
+        "placement_id": "FC-057-03",
+        "page_file": "pages/FC-057.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-057-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-057-04": {
+    "group_id": "DRAW-FC-057-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-057-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-057-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 55,
+        "lesson": 23,
+        "placement_id": "FC-057-04",
+        "page_file": "pages/FC-057.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-057-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-057-05": {
+    "group_id": "DRAW-FC-057-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-057-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-057-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 55,
+        "lesson": 23,
+        "placement_id": "FC-057-05",
+        "page_file": "pages/FC-057.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-057-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-057-06": {
+    "group_id": "DRAW-FC-057-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-057-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-057-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 55,
+        "lesson": 23,
+        "placement_id": "FC-057-06",
+        "page_file": "pages/FC-057.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-057-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-059-01": {
+    "group_id": "DRAW-FC-059-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-059-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-059-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 57,
+        "lesson": 23,
+        "placement_id": "FC-059-01",
+        "page_file": "pages/FC-059.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-059-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-060-01": {
+    "group_id": "DRAW-FC-060-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-060-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-060-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 58,
+        "lesson": 24,
+        "placement_id": "FC-060-01",
+        "page_file": "pages/FC-060.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-060-01.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-060-02": {
+    "group_id": "DRAW-FC-060-02",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-060-02_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-060-02_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 58,
+        "lesson": 24,
+        "placement_id": "FC-060-02",
+        "page_file": "pages/FC-060.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-060-02.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-060-03": {
+    "group_id": "DRAW-FC-060-03",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-060-03_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-060-03_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 58,
+        "lesson": 24,
+        "placement_id": "FC-060-03",
+        "page_file": "pages/FC-060.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-060-03.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-060-04": {
+    "group_id": "DRAW-FC-060-04",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-060-04_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-060-04_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 58,
+        "lesson": 24,
+        "placement_id": "FC-060-04",
+        "page_file": "pages/FC-060.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-060-04.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-060-05": {
+    "group_id": "DRAW-FC-060-05",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-060-05_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-060-05_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 58,
+        "lesson": 24,
+        "placement_id": "FC-060-05",
+        "page_file": "pages/FC-060.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-060-05.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-060-06": {
+    "group_id": "DRAW-FC-060-06",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-060-06_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-060-06_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 58,
+        "lesson": 24,
+        "placement_id": "FC-060-06",
+        "page_file": "pages/FC-060.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-060-06.jpg"
+      }
+    ]
+  },
+  "DRAW-FC-062-01": {
+    "group_id": "DRAW-FC-062-01",
+    "wb_page_proof": null,
+    "fc_page_proof": "/cartilla/art/physical-page-proofs/DRAW-FC-062-01_fc.jpg",
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-FC-062-01_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "FC",
+        "book_name": "Rotafolio",
+        "printed_page": 60,
+        "lesson": 24,
+        "placement_id": "FC-062-01",
+        "page_file": "pages/FC-062.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/FC-062-01.jpg"
+      }
+    ]
+  },
+  "COMPOSITE-WB-FRONT-001": {
+    "group_id": "COMPOSITE-WB-FRONT-001",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/COMPOSITE-WB-FRONT-001_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/COMPOSITE-WB-FRONT-001_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": "cover/title",
+        "lesson": 0,
+        "placement_id": "WB-FRONT-001",
+        "page_file": "pages/WB-001.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-FRONT-001.jpg"
+      }
+    ]
+  },
+  "COMPOSITE-WB-FRONT-003": {
+    "group_id": "COMPOSITE-WB-FRONT-003",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/COMPOSITE-WB-FRONT-003_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/COMPOSITE-WB-FRONT-003_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": "cover/title",
+        "lesson": 0,
+        "placement_id": "WB-FRONT-003",
+        "page_file": "pages/WB-003.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-FRONT-003.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-03-1": {
+    "group_id": "DRAW-WB-03-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-03-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-03-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ01-UNIFORME-1",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ01-UNIFORME-1.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ08-CHAQUETA",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ08-CHAQUETA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-26-1": {
+    "group_id": "DRAW-WB-26-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-26-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-26-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ02-IMAN-1",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ02-IMAN-1.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ07-IMAN-2",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ07-IMAN-2.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ04-IMAN",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ04-IMAN.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ10-IMAN",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ10-IMAN.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ01-IMAN",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ01-IMAN.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ08-IMAN",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ08-IMAN.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-10-1": {
+    "group_id": "DRAW-WB-10-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-10-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-10-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ06-PEZ",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ06-PEZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ14-PEZ",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ14-PEZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ07-PEZ",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ07-PEZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ02-PEZ",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ02-PEZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ03-PEZ",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ03-PEZ.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-09-1": {
+    "group_id": "DRAW-WB-09-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-09-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-09-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ08-ARO",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ08-ARO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ03-ARO",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ03-ARO.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ08-ARO",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ08-ARO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-18-1": {
+    "group_id": "DRAW-WB-18-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-18-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-18-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ11-ESCUELA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ11-ESCUELA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ13-ESCUELA",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ13-ESCUELA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-47-1": {
+    "group_id": "DRAW-WB-47-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-47-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-47-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ14-UNA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ14-UNA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ05-UNA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ05-UNA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ13-UNA",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ13-UNA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ06-UNA",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ06-UNA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ04-UNA",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ04-UNA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ06-UNA",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ06-UNA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-14-1": {
+    "group_id": "DRAW-WB-14-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-14-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-14-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ16-ELEFANTE",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ16-ELEFANTE.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ08-ELEFANTE",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ08-ELEFANTE.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ01-ELEFANTE",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ01-ELEFANTE.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ02-ELEFANTE",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ02-ELEFANTE.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ08-ELEFANTE",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ08-ELEFANTE.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-36-1": {
+    "group_id": "DRAW-WB-36-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-36-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-36-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ17-OJOS",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ17-OJOS.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-33-1": {
+    "group_id": "DRAW-WB-33-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-33-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-33-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ18-MAIZ",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ18-MAIZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ04-MAIZ",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ04-MAIZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ06-MAIZ",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ06-MAIZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ03-MAIZ",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ03-MAIZ.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ05-MAIZ",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ05-MAIZ.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-02-1": {
+    "group_id": "DRAW-WB-02-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-02-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-02-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 1,
+        "lesson": 1,
+        "placement_id": "WB-S007-OBJ19-ABEJA",
+        "page_file": "pages/WB-007.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S007-OBJ19-ABEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ06-ABEJA",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ06-ABEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ04-ABEJA",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ04-ABEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ07-ABEJA",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ07-ABEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 11,
+        "lesson": 4,
+        "placement_id": "WB-S017-OBJ03-ABEJA",
+        "page_file": "pages/WB-017.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S017-OBJ03-ABEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ08-ABEJA",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ08-ABEJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ13-ABEJA",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ13-ABEJA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-09-2": {
+    "group_id": "DRAW-WB-09-2",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-09-2_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-09-2_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ01-ARO",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ01-ARO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-34-1": {
+    "group_id": "DRAW-WB-34-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-34-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-34-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ02-MANZANA",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ02-MANZANA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-32-1": {
+    "group_id": "DRAW-WB-32-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-32-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-32-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ03-LIBRO",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ03-LIBRO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-18-2": {
+    "group_id": "DRAW-WB-18-2",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-18-2_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-18-2_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ04-ESCUELA",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ04-ESCUELA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-07-1": {
+    "group_id": "DRAW-WB-07-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-07-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-07-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ05-ARBOL",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ05-ARBOL.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ07-ARBOL",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ07-ARBOL.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ09-ARBOL",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ09-ARBOL.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-46-1": {
+    "group_id": "DRAW-WB-46-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-46-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-46-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ07-TAZA",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ07-TAZA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-44-1": {
+    "group_id": "DRAW-WB-44-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-44-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-44-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ09-PERA",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ09-PERA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-43-1": {
+    "group_id": "DRAW-WB-43-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-43-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-43-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ10-PAJARO",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ10-PAJARO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-11-1": {
+    "group_id": "DRAW-WB-11-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-11-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-11-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ12-CARRO",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ12-CARRO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-21-1": {
+    "group_id": "DRAW-WB-21-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-21-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-21-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ14-GLOBO",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ14-GLOBO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-13-1": {
+    "group_id": "DRAW-WB-13-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-13-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-13-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 2,
+        "lesson": 1,
+        "placement_id": "WB-S008-OBJ15-DULCE",
+        "page_file": "pages/WB-008.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S008-OBJ15-DULCE.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-22-1": {
+    "group_id": "DRAW-WB-22-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-22-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-22-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 3,
+        "lesson": 1,
+        "placement_id": "WB-S009-OBJ01-IGLESIA",
+        "page_file": "pages/WB-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S009-OBJ01-IGLESIA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-17-1": {
+    "group_id": "DRAW-WB-17-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-17-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-17-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 3,
+        "lesson": 1,
+        "placement_id": "WB-S009-OBJ05-ESCOBA",
+        "page_file": "pages/WB-009.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S009-OBJ05-ESCOBA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ09-ESCOBA",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ09-ESCOBA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-37-1": {
+    "group_id": "DRAW-WB-37-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-37-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-37-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ01-OLA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ01-OLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ06-OLA",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ06-OLA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ09-OLA",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ09-OLA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-05-1": {
+    "group_id": "DRAW-WB-05-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-05-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-05-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ07-ALA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ07-ALA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ10-ALA",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ10-ALA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-52-1": {
+    "group_id": "DRAW-WB-52-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-52-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-52-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ10-UVA",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ10-UVA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 16,
+        "lesson": 6,
+        "placement_id": "WB-S022-OBJ05-UVA",
+        "page_file": "pages/WB-022.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S022-OBJ05-UVA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 17,
+        "lesson": 6,
+        "placement_id": "WB-S023-OBJ04-UVA",
+        "page_file": "pages/WB-023.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S023-OBJ04-UVA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-36-2": {
+    "group_id": "DRAW-WB-36-2",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-36-2_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-36-2_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 4,
+        "lesson": 2,
+        "placement_id": "WB-S010-OBJ16-OJOS",
+        "page_file": "pages/WB-010.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S010-OBJ16-OJOS.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ03-OJOS",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ03-OJOS.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ13-OJOS",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ13-OJOS.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-05-2": {
+    "group_id": "DRAW-WB-05-2",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-05-2_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-05-2_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 5,
+        "lesson": 2,
+        "placement_id": "WB-S011-OBJ08-ALA",
+        "page_file": "pages/WB-011.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S011-OBJ08-ALA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ03-ALA",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ03-ALA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ07-ALA",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ07-ALA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-40-1": {
+    "group_id": "DRAW-WB-40-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-40-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-40-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ02-ORUGA",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ02-ORUGA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-08-1": {
+    "group_id": "DRAW-WB-08-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-08-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-08-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ12-ARDILLA",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ12-ARDILLA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-04-1": {
+    "group_id": "DRAW-WB-04-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-04-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-04-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 7,
+        "lesson": 3,
+        "placement_id": "WB-S013-OBJ15-AGUJA",
+        "page_file": "pages/WB-013.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S013-OBJ15-AGUJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 8,
+        "lesson": 3,
+        "placement_id": "WB-S014-OBJ05-AGUJA",
+        "page_file": "pages/WB-014.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S014-OBJ05-AGUJA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ08-AGUJA",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ08-AGUJA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-19-1": {
+    "group_id": "DRAW-WB-19-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-19-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-19-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 10,
+        "lesson": 4,
+        "placement_id": "WB-S016-OBJ15-ESPEJO",
+        "page_file": "pages/WB-016.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S016-OBJ15-ESPEJO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-25-1": {
+    "group_id": "DRAW-WB-25-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-25-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-25-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ03-IGUANA",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ03-IGUANA.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ07-IGUANA",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ07-IGUANA.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-30-1": {
+    "group_id": "DRAW-WB-30-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-30-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-30-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ08-INVIERNO",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ08-INVIERNO.jpg"
+      }
+    ]
+  },
+  "DRAW-WB-24-1": {
+    "group_id": "DRAW-WB-24-1",
+    "wb_page_proof": "/cartilla/art/physical-page-proofs/DRAW-WB-24-1_wb.jpg",
+    "fc_page_proof": null,
+    "book_zoom": "/cartilla/art/physical-page-proofs/DRAW-WB-24-1_book_zoom.jpg",
+    "pages_detail": [
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 13,
+        "lesson": 5,
+        "placement_id": "WB-S019-OBJ14-IGUAL",
+        "page_file": "pages/WB-019.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S019-OBJ14-IGUAL.jpg"
+      },
+      {
+        "book": "WB",
+        "book_name": "Cuaderno",
+        "printed_page": 14,
+        "lesson": 5,
+        "placement_id": "WB-S020-OBJ04-IGUAL",
+        "page_file": "pages/WB-020.jpg",
+        "proof_url": "/cartilla/art/physical-page-proofs/WB-S020-OBJ04-IGUAL.jpg"
+      }
+    ]
+  }
+}
