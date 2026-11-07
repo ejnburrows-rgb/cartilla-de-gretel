@@ -17,7 +17,8 @@ export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalPro
   useEffect(() => {
     // Unlock a random unowned sticker
     const ownedIds = getEarnedStickers(); // number[]
-    const available = STICKERS.filter((s) => !ownedIds.includes(s.lessonId));
+    const ownedIdsSet = new Set(ownedIds);
+    const available = STICKERS.filter((s) => !ownedIdsSet.has(s.lessonId));
     let stickerToAward = available[Math.floor(Math.random() * available.length)];
 
     // If they have all stickers, just show a random one anyway
