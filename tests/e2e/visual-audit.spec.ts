@@ -34,7 +34,7 @@ test.describe("complete native platform visual audit", () => {
   test.describe.configure({ mode: "serial" });
 
   for (const viewport of VIEWPORTS) {
-    test(`capture all 90 workbook pages — ${viewport.name}`, async ({ page }) => {
+    test(`capture all 88 available workbook pages (86–87 source-blocked) — ${viewport.name}`, async ({ page }) => {
       test.setTimeout(12 * 60 * 1000);
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
 
@@ -47,6 +47,7 @@ test.describe("complete native platform visual audit", () => {
       // Every page is pre-finished so the sweep can turn past the completion gate.
       await seedCompletedPages(page, Array.from({ length: 90 }, (_, i) => i + 1));
       let capturedPages = 0;
+      let pianoActivities = 0;
 
       for (let lesson = 1; lesson <= 24; lesson += 1) {
         const lessonDir = path.join(
@@ -76,11 +77,25 @@ test.describe("complete native platform visual audit", () => {
 
         let state = 0;
         for (;;) {
-          const pageNumber = Number(await reader.getAttribute("data-native-page"));
-          expect(pageNumber).toBeGreaterThanOrEqual(1);
-          expect(pageNumber).toBeLessThanOrEqual(90);
+          // Optional Piano Hablador entries carry no printed page number; they
+          // are never completion-gated and never count toward the printed total.
+          const pageAttr = await reader.getAttribute("data-native-page");
+          const pageNumber = pageAttr === null ? null : Number(pageAttr);
+          let label: string;
+          if (pageNumber === null) {
+            await expect(reader).toHaveAttribute("data-page-complete", "true");
+            pianoActivities += 1;
+            label = `piano activity ${pianoActivities}`;
+          } else {
+            expect(pageNumber).toBeGreaterThanOrEqual(1);
+            expect(pageNumber).toBeLessThanOrEqual(90);
+            // Printed pages 86-87 are source-blocked (absent from the book);
+            // they must never appear in the student flow.
+            expect([86, 87]).not.toContain(pageNumber);
+            label = `workbook page ${pageNumber}`;
+          }
 
-          await expectNoBrokenImages(stage, `workbook page ${pageNumber}`);
+          await expectNoBrokenImages(stage, label);
 
           const geometry = await page.evaluate(() => ({
             scrollWidth: document.documentElement.scrollWidth,
@@ -88,32 +103,37 @@ test.describe("complete native platform visual audit", () => {
           }));
           expect(
             geometry.scrollWidth,
-            `horizontal overflow on workbook page ${pageNumber}`,
+            `horizontal overflow on ${label}`,
           ).toBeLessThanOrEqual(geometry.viewportWidth + 2);
 
-          await stage.screenshot({
-            path: path.join(
-              lessonDir,
-              `${String(state).padStart(2, "0")}-page-${String(pageNumber).padStart(3, "0")}.jpg`,
-            ),
-            type: "jpeg",
-            quality: 82,
-            animations: "disabled",
-          });
-          capturedPages += 1;
+          const shotPath = path.join(
+            lessonDir,
+            `${String(state).padStart(2, "0")}-${pageNumber === null ? `piano-${pianoActivities}` : `page-${String(pageNumber).padStart(3, "0")}`}.jpg`,
+          );
+          if (pageNumber === null) {
+            // Piano activity leaves render no worksheet content without a
+            // confirmed on-device microphone; the empty stage makes scoped
+            // element screenshots wait forever, so capture the viewport.
+            await page.screenshot({ path: shotPath, type: "jpeg", quality: 82, animations: "disabled" });
+          } else {
+            await stage.screenshot({ path: shotPath, type: "jpeg", quality: 82, animations: "disabled" });
+          }
+          if (pageNumber !== null) capturedPages += 1;
 
           const next = reader.getByRole("button", { name: "Siguiente" });
           if ((await next.count()) === 0) break;
 
+          const before = await counter.innerText();
           await next.click();
-          await expect(counter).not.toContainText(`Página ${pageNumber} ·`, { timeout: 8000 });
+          await expect(counter).not.toHaveText(before, { timeout: 8000 });
           await expect(underneath).toHaveCount(0, { timeout: 8000 });
           state += 1;
-          if (state > 12) throw new Error(`Unexpected page loop in lesson ${lesson}`);
+          if (state > 13) throw new Error(`Unexpected page loop in lesson ${lesson}`);
         }
       }
 
-      expect(capturedPages, `native workbook page count at ${viewport.name}`).toBe(90);
+      // 90 printed pages minus the two source-blocked leaves 86-87.
+      expect(capturedPages, `native workbook page count at ${viewport.name}`).toBe(88);
       expect(errors, `Browser errors during ${viewport.name} workbook sweep`).toEqual([]);
     });
 
