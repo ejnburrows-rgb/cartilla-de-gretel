@@ -16,14 +16,19 @@ export const MARIPOSAS_P: GameContent = {
     "Escucha la palabra.",
     "Presiona la primera sílaba que necesitas para formar la palabra.",
     "Presiona la otra sílaba o las otras sílabas que forman la palabra.",
-    "Completa la palabra para que las mariposas regresen al jardín.",
   ],
+  // Word list and butterfly labels printed on the owner-approved mockup
+  // (2026-10-19). Only m and p syllables, so it stays inside lesson 8.
   words: [
-    { word: "papi", syllables: ["pa", "pi"] },
-    { word: "papá", syllables: ["pa", "pá"] },
+    { word: "mapa", syllables: ["ma", "pa"] },
     { word: "pomo", syllables: ["po", "mo"] },
+    { word: "Mupi", syllables: ["Mu", "pi"] },
+    { word: "Pepe", syllables: ["Pe", "pe"] },
+    { word: "puma", syllables: ["pu", "ma"] },
+    { word: "Pupi", syllables: ["Pu", "pi"] },
   ],
-  tiles: ["pa", "pi", "pá", "po", "mo", "pe", "pu"],
+  // Tile order = butterfly positions in the approved mockup.
+  tiles: ["ma", "mo", "mi", "Mu", "pa", "po", "me", "Pe", "pi", "Pu"],
 };
 
 export const VOCAL_A: GameContent = {
