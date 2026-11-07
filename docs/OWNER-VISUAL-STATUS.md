@@ -5,8 +5,8 @@
 **Production URL:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
 **Live Alias:** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
 **Last Checked Date:** 2026-11-07  
-**Official Main Revision:** `dec262bd` (fix(build): repair vitest test gate failures blocking vercel build)  
-**Active Production Revision:** `dec262bd` (Deployment: `dpl_9twWPX2Jo8u8igc4o4wJXiF1mMAF`)  
+**Official Main Revision:** `41cf1949` (fix(exercises): unify approved classic wooden pencil design across all exercises)  
+**Active Production Revision:** `41cf1949` (Deployment: `dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE`)  
 **Production Status:** 🟢 **Production is 100% in sync with official main.** (All 370+ previously blocked commits are now built, verified, and live).
 
 ---
@@ -15,11 +15,11 @@
 
 ```mermaid
 flowchart TD
-    MAIN["Official Main Branch (dec262bd)"]
+    MAIN["Official Main Branch (41cf1949)"]
     AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [LIVE]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [LIVE]"]
     BRANCHES["Remote Branches (348 total)<br/>• Active/PR: #1282 (Visual Explorer), #1268, #1262<br/>• Specialists: Cow Game (#1081 merged), Chano<br/>• Stale Candidates: ~330 historical branches"]
-    VERCEL["Vercel Production Deployment<br/>✅ Status: READY (dpl_9twWPX2Jo8u8igc4o4wJXiF1mMAF)"]
-    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Revision dec262bd Verified"]
+    VERCEL["Vercel Production Deployment<br/>Status: READY (dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE)"]
+    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Revision 41cf1949 Verified"]
 
     MAIN --> AREAS
     MAIN -.-> BRANCHES
