@@ -60,6 +60,9 @@ for (const viewport of [{width:390,height:844}, {width:1366,height:900}]) {
   test.describe(device, () => {
   test.use({viewport, hasTouch: device === 'phone', isMobile: device === 'phone'});
   test(`real Lesson 2 page 4 X has one pencil across both strokes`, async ({page}, testInfo) => {
+    // This is a multi-page motion/reload journey (~35s per device), not a single click.
+    // Keep all behavioral assertions; only allow the journey to finish on slower machines.
+    test.setTimeout(90_000);
     await page.setViewportSize(viewport);
     await fs.mkdir(proofDir, {recursive:true});
     await openWorkbook(page, 2);
