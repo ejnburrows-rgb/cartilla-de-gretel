@@ -161,7 +161,7 @@ const SECTIONS: Section[] = [
   {
     id: "progreso",
     number: 6,
-    title: "Cómo ver el progreso de los alumnos",
+    title: "Cómo ver progreso por estudiante y por lección",
     icon: <BarChart3 className="w-5 h-5" />,
     accent: "#0f766e",
     body: (
@@ -195,7 +195,7 @@ const SECTIONS: Section[] = [
   {
     id: "guia",
     number: 7,
-    title: "Qué hay en cada carpeta de la Guía",
+    title: "Cómo usar la Guía del profesor por lección",
     icon: <BookOpen className="w-5 h-5" />,
     accent: "#0f766e",
     body: (
@@ -230,8 +230,30 @@ const SECTIONS: Section[] = [
     ),
   },
   {
-    id: "imprimir",
+    id: "cuaderno",
     number: 8,
+    title: "Cómo el estudiante usa el cuaderno (para poder guiarlo)",
+    icon: <NotebookPen className="w-5 h-5" />,
+    accent: "#0f766e",
+    body: (
+      <>
+        <p>
+          El estudiante entra con el código de la clase, elige su lección entre las 24 disponibles,
+          y practica directamente sobre las páginas reales del libro: toca dibujos, traza letras,
+          empareja sílabas — según lo que esa página pida. Su progreso se guarda solo, sin que tenga
+          que hacer nada extra, cada vez que completa un ejercicio o termina una lección.
+        </p>
+        <p>
+          Si estás sentado junto a un estudiante para ayudarlo, es la misma pantalla que ves tú al
+          abrir esa lección desde el camino del estudiante — no hay una versión "secreta" distinta a
+          la que juega el niño.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "imprimir",
+    number: 9,
     title: "Cómo imprimir o exportar",
     icon: <NotebookPen className="w-5 h-5" />,
     accent: "#0f766e",
@@ -258,7 +280,7 @@ const SECTIONS: Section[] = [
   },
   {
     id: "seguridad",
-    number: 9,
+    number: 10,
     title: "Qué NO hacer (reglas del sistema)",
     icon: <ShieldAlert className="w-5 h-5" />,
     accent: "#dc2626",
@@ -272,7 +294,7 @@ const SECTIONS: Section[] = [
         </li>
         <li>
           <strong>No inventes contenido.</strong> Cuando la Guía del profesor impresa no esté
-          disponible para una lección, la app lo dice claramente en vez de mostrar un texto
+          disponible para una lección (marcada como SOURCE-NOT-IN-REPO), la app lo dice claramente en vez de mostrar un texto
           inventado. Esa es una regla dura del proyecto, no un error a corregir tú mismo.
         </li>
         <li>
@@ -285,7 +307,7 @@ const SECTIONS: Section[] = [
   },
   {
     id: "orden-clase",
-    number: 10,
+    number: 11,
     title: "Orden típico de una clase con esta app",
     icon: <ListOrdered className="w-5 h-5" />,
     accent: "#0f766e",
@@ -316,7 +338,7 @@ const SECTIONS: Section[] = [
   },
   {
     id: "asistente-gretel",
-    number: 11,
+    number: 12,
     title: "Asistente Pedagógica Gretel",
     icon: <Sparkles className="w-5 h-5" />,
     accent: "#ea580c",
