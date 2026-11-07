@@ -201,6 +201,27 @@
           "quality_advice": "Imagen oficial aprobada y sincronizada directamente."
         },
         {
+          "sha256": "5568b131631b61ffd27f850a384329b0ebe384e5025bbdd80e5b44d81bc4c84e",
+          "id": "emilio-5568b131631b",
+          "web_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "offline_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 34608,
+          "kb": 34,
+          "source_tag": "Subida por Emilio",
+          "original_path": "public/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "note": "Imagen oficial aprobada y sincronizada por Emilio",
+          "priority": 1,
+          "quality_score": 3000,
+          "is_recommended": false,
+          "quality_badge": "[🌟 SUBIDA POR EMILIO] (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Imagen oficial aprobada y sincronizada directamente."
+        },
+        {
           "sha256": "c4e121ef1897d61259accbc791199411c8fbb688d3b69d10a42d9637af643eb2",
           "id": "c4e121ef1897",
           "web_url": "/cartilla/art/candidates-board/c4e121ef1897d612.png",
