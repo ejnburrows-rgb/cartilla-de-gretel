@@ -286,7 +286,7 @@ export function LivingWorkbookPage({
         );
         break;
       case "mark-circle":
-        interactionSlot = <PencilMarkFromWorkbook {...shared} pageKey={pageKey} />;
+        interactionSlot = <PencilMarkFromWorkbook {...shared} pageKey={pageKey} instruction={page.instruction} />;
         break;
     }
   }
