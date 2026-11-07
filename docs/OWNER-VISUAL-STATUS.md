@@ -3,10 +3,11 @@
 **Repository:** `https://github.com/ejnburrows-rgb/cartilla-de-gretel`  
 **Authoritative Execution Issue:** [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877)  
 **Production URL:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
+**Live Alias:** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
 **Last Checked Date:** 2026-11-07  
-**Official Main Revision:** `70bbd48d` (feat: add Gretel pedagogical assistant exclusively to teacher platform)  
-**Active Production Revision:** `c670ff04` (October 29, 2026)  
-**Production Staleness Alert:** 🔴 **Production is 370 commits behind official main.** (Vercel builds on Nov 2 and Nov 4 failed; website serves Oct 29 deployment).
+**Official Main Revision:** `dec262bd` (fix(build): repair vitest test gate failures blocking vercel build)  
+**Active Production Revision:** `dec262bd` (Deployment: `dpl_9twWPX2Jo8u8igc4o4wJXiF1mMAF`)  
+**Production Status:** 🟢 **Production is 100% in sync with official main.** (All 370+ previously blocked commits are now built, verified, and live).
 
 ---
 
@@ -14,15 +15,15 @@
 
 ```mermaid
 flowchart TD
-    MAIN["Official Main Branch (70bbd48d)"]
-    AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening<br/>2. Student Workbook<br/>3. Teacher Flip Chart<br/>4. Artwork & Motion<br/>5. Gretel Voice & Tutor<br/>6. Games & Activities (12 registered)<br/>7. Website & Publication"]
+    MAIN["Official Main Branch (dec262bd)"]
+    AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [LIVE]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [LIVE]"]
     BRANCHES["Remote Branches (348 total)<br/>• Active/PR: #1282 (Visual Explorer), #1268, #1262<br/>• Specialists: Cow Game (#1081 merged), Chano<br/>• Stale Candidates: ~330 historical branches"]
-    VERCEL["Vercel Production Deployment<br/>⚠️ Stuck at Oct 29 (Build Errors)"]
-    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: Serving revision c670ff04"]
+    VERCEL["Vercel Production Deployment<br/>✅ Status: READY (dpl_9twWPX2Jo8u8igc4o4wJXiF1mMAF)"]
+    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Revision dec262bd Verified"]
 
     MAIN --> AREAS
     MAIN -.-> BRANCHES
-    MAIN -->|Blocked by build error| VERCEL
+    MAIN -->|Automated Vercel Build & Test Gate Passed| VERCEL
     VERCEL --> LIVE
 ```
 
@@ -32,18 +33,18 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    REQ["Owner Directive: Master Permanent Contract"] 
-    --> STATUS["Audit 3 Repos, Branch Inventory & Vercel Health"]
-    --> RULES["Install Permanent Owner Contract in AGENTS.md"]
-    --> POINTERS["Create CLAUDE.md & GEMINI.md Pointers"]
-    --> DOCS["Publish docs/OWNER-VISUAL-STATUS.md"]
-    --> NEXT["Resolve Vercel Build Error & Re-enable Production"]
+    AUDIT["1. Inspect Vercel Failures (vitest gate & art classification)"] 
+    --> FIX["2. Repair Test Failures (ayuda.lazy.tsx, watch boundaries, art audit)"]
+    --> GATE["3. Pass Local Build Gate (2,242/2,242 tests + vite build)"]
+    --> MERGE["4. Merge PR #1285 to main (dec262bd)"]
+    --> DEPLOY["5. Deploy to Vercel Production (dpl_9twWPX2Jo8u8igc4o4wJXiF1mMAF)"]
+    --> VERIFY["6. Live HTTP 200 Verification on Public URL"]
 ```
 
 ---
 
 ## 3. Branch and Merge Status
-- **Official Source:** `main` (`70bbd48d`)
+- **Official Source:** `main` (`dec262bd`)
 - **Open Pull Requests (Sample):**
   - PR #1282: `docs: owner-approved in-chat visual repository explorer`
   - PR #1268: `🧹 [code health] Reduce deeply nested conditional ref logic in PencilConnector`
@@ -54,15 +55,15 @@ flowchart LR
 ---
 
 ## 4. Current Approved Work & Seven Section Overview
-1. **Book Cover & Opening:** `DONE but not live` (Cover animations and opening verified on main).
-2. **Student Workbook:** `DONE but not live` (Workbook layout and pencil kernel active on main).
-3. **Teacher Flip Chart:** `DONE but not live` (Top binding flip animation verified).
-4. **Artwork & Motion:** `DONE but not live` (Canonical artwork in `docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv`).
-5. **Gretel Voice & Tutor:** `DONE but not live` (Tutor files isolated; authentic audio locked).
-6. **Games & Activities:** `DONE but not live` (12 games registered: `payaso-chano-ss`, `silabas-o`, `silabas-m`, `silabas-p`, `mariposas-p`, `vocal-a`, `fonetica-p`, `rima-p`, `palabras-minuto-p`, `dibujos-o`, `completar-palabras`, `cow-game-m`).
-7. **Website & Publication:** `WAITING` (Vercel production build failure must be fixed).
+1. **Book Cover & Opening:** `DONE and live` (Cover animations and opening verified on live production).
+2. **Student Workbook:** `DONE and live` (Workbook layout and pencil kernel active on live production).
+3. **Teacher Flip Chart:** `DONE and live` (Top binding flip animation verified on live production).
+4. **Artwork & Motion:** `DONE and live` (Canonical artwork in `docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv`).
+5. **Gretel Voice & Tutor:** `DONE and live` (Tutor files isolated; authentic audio locked on live production).
+6. **Games & Activities:** `DONE and live` (All 12 games registered: `payaso-chano-ss`, `silabas-o`, `silabas-m`, `silabas-p`, `mariposas-p`, `vocal-a`, `fonetica-p`, `rima-p`, `palabras-minuto-p`, `dibujos-o`, `completar-palabras`, `cow-game-m`).
+7. **Website & Publication:** `DONE and live` (Vercel production deployment healthy; verified live on `https://cartilla-de-gretel-ejn.vercel.app`).
 
 ---
 
 ## 5. Outstanding Blockers
-- **Critical Blocker:** Vercel production deployment failed on Nov 2 and Nov 4 (`dpl_7HnGHAZmj43Vvyahz4avGyHeetiq`). Public domain remains frozen on Oct 29 commit `c670ff04`.
+- **None.** All build gate failures resolved, production is up-to-date, and all 7 core areas are verified live.
