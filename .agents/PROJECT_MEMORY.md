@@ -236,3 +236,19 @@
 - **Teacher Navigation Links**: Integrated "Gretel" into the Teacher Layout navigation (`src/routes/cartilla/teacher/route.lazy.tsx`), Teacher Hub card grid (`src/routes/cartilla/teacher/index.lazy.tsx`), and Teacher Help manual (`src/routes/cartilla/teacher/ayuda.lazy.tsx`).
 - **Quality Verification**: Unit test suite `src/lib/__tests__/gretel-teacher-kb.test.ts` passed 5/5. `pnpm typecheck` passed with 0 errors. Captured visual proof across desktop and mobile.
 - **Delivery**: Committed and pushed to `origin/feat/gretel-teacher-platform` (commit `58f13bba`).
+
+
+## Fix: Unify Approved Classic Wooden Pencil Design Across Exercises (2026-11-07)
+
+### Architectural Decisions & Changes
+- **Root Cause Isolated**: In `src/cartilla/interactions/PencilConnector.tsx` (used in connection/line-matching exercises across lessons 3, 5, 8, 11, 14, 17), `PencilShape` had been scaled down to `0.65` (yielding an 8.8px by 52px toothpick pencil) and rotated dynamically via `atan2 * 180 / PI + 30`, causing inverted angles when dragging leftward.
+- **Classic School Pencil Restored**:
+  - Replaced the skinny scale with the authentic large wooden pencil at `scale(2.4)` with a consistent natural writing angle `rotate(55)`.
+  - Replaced retry eraser animation scale from `1.2` to `2.2`.
+  - Replaced flat teal strokes with charcoal gray `#3a3a38` for active dragging, forest green `#16a34a` for settled connections, and red `#dc2626` for retry strokes.
+- **Letter Tracing Tool Added**: In `src/components/cartilla/WorkbookLetterTrace.tsx`, added the approved `PencilShape` tip following the touch/mouse path in freehand drag mode (`scale(0.38) rotate(55)`), and resting gracefully near the active checkpoint in tap mode (`scale(0.32) rotate(55)`).
+- **Verification**:
+  - `pnpm run typecheck` passed (0 errors across 2,300+ files).
+  - Targeted vitest suites (PencilConnector, WorkbookLetterTrace, WorkbookPencilMark) passed 59/59.
+  - Vitest test suite passed 2,243 tests (100% of runnable tests).
+  - `pnpm run build` completed cleanly (assets, typecheck, tests, bundle in ~30s).
