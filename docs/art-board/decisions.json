@@ -1,0 +1,788 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-06T16:24:02.600Z",
+  "imported_from": "decisiones-imagenes-cartilla_3.json",
+  "imported_at": "2026-11-06T16:24:02.601Z",
+  "counts": {
+    "accepted": 110,
+    "declined": 0,
+    "skipped": 0,
+    "pending": 0
+  },
+  "decisions": {
+    "DRAW-WB-11-1": {
+      "status": "accepted",
+      "selected_candidate_id": "b7684a5bebca",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/transfer/19hi_osnP_3MGVwfVaNeTmwds2smmCGcN.png",
+      "canonical_target": "public/cartilla/art/faithful/leccion-1/carro.webp",
+      "updated_at": "2026-11-05T19:24:52.651Z"
+    },
+    "DRAW-WB-15-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956354880-43",
+      "selected_original_path": "838b2174-8761-4149-b7ac-1c746e550e84.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+      "updated_at": "2026-11-06T09:12:34.880Z"
+    },
+    "DRAW-WB-18-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956369453-464",
+      "selected_original_path": "647b72f72819ffef.png",
+      "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/escuela.png",
+      "updated_at": "2026-11-06T09:12:49.453Z"
+    },
+    "DRAW-WB-21-1": {
+      "status": "accepted",
+      "selected_candidate_id": "ca08f04e6b0a",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-22/globo-original-f6323bea.jpg",
+      "canonical_target": "public/cartilla/art/faithful/leccion-1/globo.webp",
+      "updated_at": "2026-11-05T19:25:21.266Z"
+    },
+    "DRAW-WB-25-1": {
+      "status": "accepted",
+      "selected_candidate_id": "3d6a09256e46",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-i/iguana.webp",
+      "canonical_target": "public/cartilla/art/faithful/vocal-i/iguana.webp",
+      "updated_at": "2026-11-05T19:25:27.842Z"
+    },
+    "DRAW-WB-31-1": {
+      "status": "accepted",
+      "selected_candidate_id": "927a08c561bb",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-i/isla.webp",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p007-isla.png",
+      "updated_at": "2026-11-05T19:25:37.227Z"
+    },
+    "DRAW-WB-33-1": {
+      "status": "accepted",
+      "selected_candidate_id": "a215900f8fa4",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+      "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/maiz.png",
+      "updated_at": "2026-11-05T19:25:39.666Z"
+    },
+    "DRAW-WB-34-1": {
+      "status": "accepted",
+      "selected_candidate_id": "bf1b81e60390",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1YBX8iD6TmYGD0bv458zwOZ9hBHw-K2oc.png",
+      "canonical_target": "public/cartilla/art/faithful/leccion-1/manzana.webp",
+      "updated_at": "2026-11-05T19:25:42.514Z"
+    },
+    "DRAW-WB-36-1": {
+      "status": "accepted",
+      "selected_candidate_id": "88bf5607881e",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/approved/lesson-3/ojo.png",
+      "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/ojos.png",
+      "updated_at": "2026-11-06T15:49:28.071Z"
+    },
+    "DRAW-WB-40-1": {
+      "status": "accepted",
+      "selected_candidate_id": "edfee000b2c9",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-20-recovered/image-8a75e1fb.jpg",
+      "canonical_target": "public/cartilla/art/faithful/vocal-o/oruga.webp",
+      "updated_at": "2026-11-05T19:26:08.514Z"
+    },
+    "DRAW-WB-42-1": {
+      "status": "accepted",
+      "selected_candidate_id": "29bd0e7395a6",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-20-recovered/oveja-v1-eb1e498b.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+      "updated_at": "2026-11-05T19:26:15.114Z"
+    },
+    "DRAW-WB-47-1": {
+      "status": "accepted",
+      "selected_candidate_id": "a5e7643eb425",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-1/arco.webp",
+      "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/una.svg",
+      "updated_at": "2026-11-05T19:26:25.770Z"
+    },
+    "DRAW-WB-49-1": {
+      "status": "accepted",
+      "selected_candidate_id": "42f6f4229b42",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-u/uniforme.webp",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+      "updated_at": "2026-11-05T19:26:29.058Z"
+    },
+    "DRAW-WB-52-1": {
+      "status": "accepted",
+      "selected_candidate_id": "b46584e6c352",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-u/uvas.webp",
+      "canonical_target": "public/cartilla/art/faithful/vocal-u/uvas.webp",
+      "updated_at": "2026-11-05T19:26:36.730Z"
+    },
+    "DRAW-FC-004-01": {
+      "status": "accepted",
+      "selected_candidate_id": "19e1785f91b8",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/approved/flipchart-fixes/horse-p004.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p004-scene.png",
+      "updated_at": "2026-11-06T15:49:45.351Z"
+    },
+    "DRAW-FC-005-01": {
+      "status": "accepted",
+      "selected_candidate_id": "b3c0c21535f3",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p005-scene.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p005-scene.png",
+      "updated_at": "2026-11-05T19:27:14.089Z"
+    },
+    "DRAW-FC-005-05": {
+      "status": "accepted",
+      "selected_candidate_id": "4f74483ef694",
+      "selected_original_path": "C:/Users/EJN/Downloads/Hand-Painted Cream Angel Wings.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p005-ala.png",
+      "updated_at": "2026-11-05T19:27:17.202Z"
+    },
+    "DRAW-FC-005-06": {
+      "status": "accepted",
+      "selected_candidate_id": "a00a15c746cf",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-20-recovered/aro-v1-643bf873.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p005-aro.png",
+      "updated_at": "2026-11-05T19:27:19.610Z"
+    },
+    "DRAW-FC-006-01": {
+      "status": "accepted",
+      "selected_candidate_id": "d13592aa198d",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Tp7_86BxxHbx1HPt32y2eprtJp8oTvm1.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p006-scene.png",
+      "updated_at": "2026-11-05T19:27:26.154Z"
+    },
+    "DRAW-FC-006-02": {
+      "status": "accepted",
+      "selected_candidate_id": "0042479acd0b",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-3(20261106-073633).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "updated_at": "2026-11-06T15:50:03.927Z"
+    },
+    "DRAW-FC-008-01": {
+      "status": "accepted",
+      "selected_candidate_id": "689bae5e5657",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-7(20261106-073637).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-scene.png",
+      "updated_at": "2026-11-06T15:50:23.111Z"
+    },
+    "DRAW-FC-009-01": {
+      "status": "accepted",
+      "selected_candidate_id": "fb67ff7dcf7f",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-6(3).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p009-scene.png",
+      "updated_at": "2026-11-06T15:50:30.664Z"
+    },
+    "DRAW-FC-009-04": {
+      "status": "accepted",
+      "selected_candidate_id": "4788a98f49b1",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-9(2).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p009-mima.png",
+      "updated_at": "2026-11-06T09:20:31.247Z"
+    },
+    "DRAW-FC-012-01": {
+      "status": "accepted",
+      "selected_candidate_id": "4d95e79737a1",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-9(20261106-073332).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p012-scene.png",
+      "updated_at": "2026-11-06T09:20:38.327Z"
+    },
+    "DRAW-FC-015-01": {
+      "status": "accepted",
+      "selected_candidate_id": "4660ebb1f933",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1ghkXTWf3pV4BgY2C6d-8evOh26xQZu9M.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p015-scene.png",
+      "updated_at": "2026-11-06T15:50:52.623Z"
+    },
+    "DRAW-FC-015-03": {
+      "status": "accepted",
+      "selected_candidate_id": "17361d40463e",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-9-s/sopa.webp",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+      "updated_at": "2026-11-05T19:28:35.801Z"
+    },
+    "DRAW-FC-018-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980906792-168",
+      "selected_original_path": "4b193699-934a-43fc-a949-7caa7b42eb5d.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+      "updated_at": "2026-11-06T16:01:59.054Z"
+    },
+    "DRAW-FC-018-03": {
+      "status": "accepted",
+      "selected_candidate_id": "upload-1d2db72703075ce70aed61b0",
+      "selected_original_path": "3864160d-6e1a-4f1d-9d5c-103743b64adf.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+      "upload_url": "/api/art-review/uploads/DRAW-FC-018-03-1d2db72703075ce70aed61b0.png",
+      "upload_name": "3864160d-6e1a-4f1d-9d5c-103743b64adf.png",
+      "updated_at": "2026-11-06T07:33:23.482Z"
+    },
+    "DRAW-WB-02-1": {
+      "status": "accepted",
+      "selected_candidate_id": "upload-f7708a04104b01256e411055",
+      "selected_original_path": "703cb189-481c-4480-8fbe-9d68f74faa22.png",
+      "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/abeja.png",
+      "upload_url": "/api/art-review/uploads/DRAW-WB-02-1-f7708a04104b01256e411055.png",
+      "upload_name": "703cb189-481c-4480-8fbe-9d68f74faa22.png",
+      "updated_at": "2026-11-06T08:53:45.704Z"
+    },
+    "DRAW-WB-10-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956303288-794",
+      "selected_original_path": "f0fdce86-3b1f-47ad-88f6-fd4cf5c7ec6a.png",
+      "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/avion.svg",
+      "updated_at": "2026-11-06T09:11:45.678Z"
+    },
+    "DRAW-WB-04-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956420030-929",
+      "selected_original_path": "16ec4699-080b-4e88-aaab-b8c375eedf53.png",
+      "canonical_target": "public/cartilla/art/faithful/vocal-a/aguja.webp",
+      "updated_at": "2026-11-06T09:13:40.030Z"
+    },
+    "DRAW-WB-05-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956430068-688",
+      "selected_original_path": "58cbd418-2383-4fb7-935d-5ace73b22e2d.png",
+      "canonical_target": "public/cartilla/art/faithful/vocal-a/alas.webp",
+      "updated_at": "2026-11-06T09:13:51.382Z"
+    },
+    "DRAW-WB-23-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956448736-578",
+      "selected_original_path": "154012bc-f975-4720-8f61-bb29285687cc.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+      "updated_at": "2026-11-06T09:14:08.737Z"
+    },
+    "DRAW-WB-35-1": {
+      "status": "accepted",
+      "selected_candidate_id": "dd4bc700a6d9",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-5(2).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+      "updated_at": "2026-11-06T09:14:32.390Z"
+    },
+    "DRAW-WB-36-2": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956503296-215",
+      "selected_original_path": "62f0ba82-90fd-4983-9dca-d75cc1268697.png",
+      "canonical_target": "public/cartilla/art/faithful/leccion-1/ojos.webp",
+      "updated_at": "2026-11-06T09:15:04.494Z"
+    },
+    "DRAW-WB-37-1": {
+      "status": "accepted",
+      "selected_candidate_id": "66cbe42afdc4",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-7(2).png",
+      "canonical_target": "public/cartilla/art/faithful/vocal-o/ola.webp",
+      "updated_at": "2026-11-06T09:15:08.576Z"
+    },
+    "DRAW-WB-38-1": {
+      "status": "accepted",
+      "selected_candidate_id": "3df4ea5530f1",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-4(20261106-083830).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p003-olla.png",
+      "updated_at": "2026-11-06T09:15:11.558Z"
+    },
+    "DRAW-WB-39-1": {
+      "status": "accepted",
+      "selected_candidate_id": "d11ab64a20af",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-3(20261106-083829).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+      "updated_at": "2026-11-06T09:15:18.262Z"
+    },
+    "DRAW-WB-41-1": {
+      "status": "accepted",
+      "selected_candidate_id": "e0df2cebdad0",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-2(20261106-083828).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p004-oso.png",
+      "updated_at": "2026-11-06T09:15:27.734Z"
+    },
+    "DRAW-WB-46-1": {
+      "status": "accepted",
+      "selected_candidate_id": "ac5116f46eda",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-1(2).png",
+      "canonical_target": "public/cartilla/art/faithful/leccion-1/taza.webp",
+      "updated_at": "2026-11-06T09:15:32.726Z"
+    },
+    "DRAW-WB-48-1": {
+      "status": "accepted",
+      "selected_candidate_id": "ece0dd069720",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-4(3).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+      "updated_at": "2026-11-06T09:15:37.830Z"
+    },
+    "DRAW-WB-51-1": {
+      "status": "accepted",
+      "selected_candidate_id": "922551dc99f2",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-3(3).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-urraca.png",
+      "updated_at": "2026-11-06T09:15:42.534Z"
+    },
+    "DRAW-WB-18-2": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956637304-486",
+      "selected_original_path": "7531b1f5-20c1-44af-9f49-4908699b1a09.png",
+      "canonical_target": "public/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "updated_at": "2026-11-06T09:17:19.543Z"
+    },
+    "DRAW-WB-05-2": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956675854-507",
+      "selected_original_path": "download.png",
+      "canonical_target": "public/cartilla/art/faithful/vocal-a/alas.webp",
+      "updated_at": "2026-11-06T09:17:55.854Z"
+    },
+    "DRAW-WB-16-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956707849-203",
+      "selected_original_path": "69ce2f02-432b-40cc-8e17-ee9fdb79892b.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+      "updated_at": "2026-11-06T09:18:27.849Z"
+    },
+    "DRAW-WB-01-1": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956718637-522",
+      "selected_original_path": "eef21401-92a8-400f-bc24-002525a19064.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+      "updated_at": "2026-11-06T09:18:38.637Z"
+    },
+    "DRAW-FC-009-02": {
+      "status": "accepted",
+      "selected_candidate_id": "9a50bcb02870",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-7(3).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p009-mama.png",
+      "updated_at": "2026-11-06T09:20:21.207Z"
+    },
+    "DRAW-FC-018-01": {
+      "status": "accepted",
+      "selected_candidate_id": "1d2db7270307",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Tan Tan Taran Drummer and Tomato Vine.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p018-scene.png",
+      "updated_at": "2026-11-06T16:00:39.949Z"
+    },
+    "DRAW-FC-018-05": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793956880434-505",
+      "selected_original_path": "dc5e5866-59e0-472b-b96b-c7d7b1831db0.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+      "updated_at": "2026-11-06T16:02:10.886Z"
+    },
+    "DRAW-WB-28-1": {
+      "status": "accepted",
+      "selected_candidate_id": "c7c15a718628",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-2(2).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p007-indio.png",
+      "updated_at": "2026-11-06T15:49:18.215Z"
+    },
+    "DRAW-FC-003-04": {
+      "status": "accepted",
+      "selected_candidate_id": "f1978095e304",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-7(20261106-083833).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p003-iman.png",
+      "updated_at": "2026-11-06T15:49:38.055Z"
+    },
+    "DRAW-FC-006-03": {
+      "status": "accepted",
+      "selected_candidate_id": "3481dd67dec6",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-4(20261106-073328).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+      "updated_at": "2026-11-06T15:50:07.135Z"
+    },
+    "DRAW-FC-006-04": {
+      "status": "accepted",
+      "selected_candidate_id": "65612096cc59",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-5(20261106-073329).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p006-ema.png",
+      "updated_at": "2026-11-06T15:50:09.895Z"
+    },
+    "DRAW-FC-007-01": {
+      "status": "accepted",
+      "selected_candidate_id": "2ec182c5dce4",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1kyNo3l1Q1GJ4t-ooSaYaqBJjch6RWqHp.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p007-scene.png",
+      "updated_at": "2026-11-06T15:50:18.279Z"
+    },
+    "DRAW-FC-008-07": {
+      "status": "accepted",
+      "selected_candidate_id": "d3ff9caa94c0",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-5(3).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+      "updated_at": "2026-11-06T15:50:26.272Z"
+    },
+    "DRAW-FC-009-05": {
+      "status": "accepted",
+      "selected_candidate_id": "4d38a7ae60be",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/image-gen-10(2).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p009-meme.png",
+      "updated_at": "2026-11-06T15:50:33.448Z"
+    },
+    "DRAW-FC-012-02": {
+      "status": "accepted",
+      "selected_candidate_id": "6dae97f205fa",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Joyful Father and Son Shoulder Ride.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p012-papa.png",
+      "updated_at": "2026-11-06T15:50:38.607Z"
+    },
+    "DRAW-FC-020-01": {
+      "status": "accepted",
+      "selected_candidate_id": "a7d4fc436f67",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1BRpdzoAoVznlmYtqA_ObGeLZxdRqUxK0.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p020-scene.png",
+      "updated_at": "2026-11-06T15:51:18.376Z"
+    },
+    "DRAW-FC-024-03": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981680518-316",
+      "selected_original_path": "cd154d8b-f942-4043-b6e9-0575eb6be62b.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+      "updated_at": "2026-11-06T16:14:40.518Z"
+    },
+    "DRAW-FC-035-01": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980434573-719",
+      "selected_original_path": "001714b7276149c5.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p035-scene.png",
+      "updated_at": "2026-11-06T15:53:54.573Z"
+    },
+    "DRAW-FC-039-01": {
+      "status": "accepted",
+      "selected_candidate_id": "3545ca98e983",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1UQ7mw64ZPL7C1ae9e6C0kqgrKOpYaa-S.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p039-scene.png",
+      "updated_at": "2026-11-06T15:54:08.738Z"
+    },
+    "DRAW-FC-042-06": {
+      "status": "accepted",
+      "selected_candidate_id": "9a2e3ad78267",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Restored Latin American one-stroke illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p042-tierra.png",
+      "updated_at": "2026-11-06T15:54:22.393Z"
+    },
+    "DRAW-FC-044-01": {
+      "status": "accepted",
+      "selected_candidate_id": "17a66a9dc32d",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Restored Latin American folk-art illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p044-scene.png",
+      "updated_at": "2026-11-06T15:54:30.657Z"
+    },
+    "DRAW-FC-045-02": {
+      "status": "accepted",
+      "selected_candidate_id": "999388507f06",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Vibrant Latin American folk-art illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+      "updated_at": "2026-11-06T15:54:37.930Z"
+    },
+    "DRAW-FC-045-03": {
+      "status": "accepted",
+      "selected_candidate_id": "93850e5bc606",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Hand-painted Latin American folk art.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+      "updated_at": "2026-11-06T15:54:39.722Z"
+    },
+    "DRAW-FC-045-06": {
+      "status": "accepted",
+      "selected_candidate_id": "5e2be569f8f8",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Restored Latin American folk art illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p045-mago.png",
+      "updated_at": "2026-11-06T15:54:46.794Z"
+    },
+    "DRAW-FC-048-04": {
+      "status": "accepted",
+      "selected_candidate_id": "c71df453efcc",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Vibrant hand-painted children's illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p048-familia.png",
+      "updated_at": "2026-11-06T15:54:52.970Z"
+    },
+    "DRAW-FC-048-05": {
+      "status": "accepted",
+      "selected_candidate_id": "9b0274b4331f",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Restored Latin American Folk Illustration(1).png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p048-felo.png",
+      "updated_at": "2026-11-06T15:54:55.778Z"
+    },
+    "DRAW-FC-051-02": {
+      "status": "accepted",
+      "selected_candidate_id": "f7e72df0b8aa",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Whimsical Hand-Painted Turtle Cutout.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+      "updated_at": "2026-11-06T15:55:05.442Z"
+    },
+    "DRAW-FC-051-04": {
+      "status": "accepted",
+      "selected_candidate_id": "342c8bfc9390",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Hand-painted Latin American folk illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p051-jesus.png",
+      "updated_at": "2026-11-06T15:55:09.115Z"
+    },
+    "DRAW-FC-054-02": {
+      "status": "accepted",
+      "selected_candidate_id": "6218cf19de17",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Colorful Latin American folk art illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+      "updated_at": "2026-11-06T15:55:18.049Z"
+    },
+    "DRAW-FC-054-03": {
+      "status": "accepted",
+      "selected_candidate_id": "911c6395f8c8",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Vibrant country-style painted illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p054-conejo.png",
+      "updated_at": "2026-11-06T15:55:20.802Z"
+    },
+    "DRAW-FC-054-06": {
+      "status": "accepted",
+      "selected_candidate_id": "fb25fad969d1",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Handcrafted Latin American children's illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p054-catalina.png",
+      "updated_at": "2026-11-06T15:55:32.930Z"
+    },
+    "DRAW-FC-057-01": {
+      "status": "accepted",
+      "selected_candidate_id": "643cc38ec981",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Restored Latin American folk illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p057-scene.png",
+      "updated_at": "2026-11-06T15:55:44.674Z"
+    },
+    "DRAW-FC-057-04": {
+      "status": "accepted",
+      "selected_candidate_id": "48db0442660a",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Blue Octopus With Red Bow.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+      "updated_at": "2026-11-06T15:55:51.018Z"
+    },
+    "DRAW-FC-057-05": {
+      "status": "accepted",
+      "selected_candidate_id": "68342008dec7",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Girl watering a flowered yellow-green letter Y.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
+      "updated_at": "2026-11-06T15:55:52.618Z"
+    },
+    "DRAW-FC-057-06": {
+      "status": "accepted",
+      "selected_candidate_id": "24a639691b1a",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Vintage Latin American One-Stroke Illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
+      "updated_at": "2026-11-06T15:55:54.690Z"
+    },
+    "DRAW-FC-060-04": {
+      "status": "accepted",
+      "selected_candidate_id": "dbd88a48daab",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Vibrant Latin American folk illustration.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+      "updated_at": "2026-11-06T15:56:02.466Z"
+    },
+    "DRAW-FC-036-01": {
+      "status": "accepted",
+      "selected_candidate_id": "5b993e1cca9c",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1_9C2YrVc8awejkisxDOS9wIOEpMVM7p5.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p036-scene.png",
+      "updated_at": "2026-11-06T15:56:49.619Z"
+    },
+    "DRAW-FC-036-03": {
+      "status": "accepted",
+      "selected_candidate_id": "5f8cc6a040d5",
+      "selected_original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Hand-Painted Green Candle.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p036-vela.png",
+      "updated_at": "2026-11-06T15:56:56.403Z"
+    },
+    "DRAW-FC-033-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980644509-499",
+      "selected_original_path": "b6218c1c-44f7-46c7-b630-f6692cc971e6.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p033-bate.png",
+      "updated_at": "2026-11-06T15:57:27.187Z"
+    },
+    "DRAW-FC-033-05": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980666327-750",
+      "selected_original_path": "b3103673-e788-4951-abcf-66d7b6f119aa.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p033-bota.png",
+      "updated_at": "2026-11-06T15:57:49.164Z"
+    },
+    "DRAW-FC-036-02": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980681831-598",
+      "selected_original_path": "bca730b9-09c8-4e43-8019-48d27126d293.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+      "updated_at": "2026-11-06T15:58:06.332Z"
+    },
+    "DRAW-FC-036-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980696774-153",
+      "selected_original_path": "2b289cba-1afa-4669-bdba-de0d80a0decf.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p036-vita.png",
+      "updated_at": "2026-11-06T15:58:19.139Z"
+    },
+    "DRAW-FC-054-01": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980748735-80",
+      "selected_original_path": "a16d4dbd-ae3a-479c-8045-b4221e760bb4.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p054-scene.png",
+      "updated_at": "2026-11-06T15:59:15.684Z"
+    },
+    "DRAW-FC-021-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980944170-194",
+      "selected_original_path": "ae1134cb-4f61-45ab-88fe-8ae3f82e8ae4.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+      "updated_at": "2026-11-06T16:02:26.646Z"
+    },
+    "DRAW-FC-021-05": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980958191-677",
+      "selected_original_path": "4ac802c4-7e8a-4e7e-a55d-d47b72a26a8e.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+      "updated_at": "2026-11-06T16:02:39.806Z"
+    },
+    "DRAW-FC-024-06": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793980986402-172",
+      "selected_original_path": "ca9a8865-10aa-404f-8985-e4a3955985b6.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p024-lala.png",
+      "updated_at": "2026-11-06T16:03:07.864Z"
+    },
+    "DRAW-FC-024-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981000730-701",
+      "selected_original_path": "464e9ad7-b30d-44ae-aa4e-838cdbbe2890.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+      "updated_at": "2026-11-06T16:03:20.730Z"
+    },
+    "DRAW-FC-027-01": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981008416-181",
+      "selected_original_path": "aef359c4-ab68-4dd2-b481-68a7342db0ac.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p027-scene.png",
+      "updated_at": "2026-11-06T16:03:30.550Z"
+    },
+    "DRAW-FC-027-02": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981021041-737",
+      "selected_original_path": "21ce9e9e-4f99-446f-8f76-0cb5e0f67fbc.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p027-nido.png",
+      "updated_at": "2026-11-06T16:03:43.184Z"
+    },
+    "DRAW-FC-027-03": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981045105-590",
+      "selected_original_path": "aec05041-81c4-4f55-a39a-d06decf8c3b1.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+      "updated_at": "2026-11-06T16:04:06.903Z"
+    },
+    "DRAW-FC-027-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981052007-925",
+      "selected_original_path": "fd6daf4a-66c2-499c-952e-21784e5e75c2.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p027-mono.png",
+      "updated_at": "2026-11-06T16:04:13.832Z"
+    },
+    "DRAW-FC-027-06": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981088507-744",
+      "selected_original_path": "efbf870a-6bed-4f68-aa39-d26dbdaca11d.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+      "updated_at": "2026-11-06T16:04:51.543Z"
+    },
+    "DRAW-FC-029-01": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981120385-48",
+      "selected_original_path": "56f3a077-2269-4171-a566-d8cfeb227185.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p029-scene.png",
+      "updated_at": "2026-11-06T16:05:20.385Z"
+    },
+    "DRAW-FC-030-03": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981143392-702",
+      "selected_original_path": "cb071e18-1ef9-4c88-84f5-ae8ee73160d0.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+      "updated_at": "2026-11-06T16:05:43.392Z"
+    },
+    "DRAW-FC-030-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981150623-796",
+      "selected_original_path": "679a1905-3824-40aa-8f12-6fc478e3be25.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+      "updated_at": "2026-11-06T16:05:50.623Z"
+    },
+    "DRAW-FC-030-06": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981158185-525",
+      "selected_original_path": "828a3068-5e3b-449c-8e28-fce7e6cf4b22.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p030-mene.png",
+      "updated_at": "2026-11-06T16:05:58.186Z"
+    },
+    "DRAW-FC-033-01": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981169396-31",
+      "selected_original_path": "f24e4ec3-62d8-44ad-914a-53f523462c69.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p033-scene.png",
+      "updated_at": "2026-11-06T16:06:09.396Z"
+    },
+    "DRAW-FC-039-04": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981216608-157",
+      "selected_original_path": "2b00b211-5f7f-4300-a0e4-044c0c36224c.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p039-rita.png",
+      "updated_at": "2026-11-06T16:06:56.608Z"
+    },
+    "DRAW-FC-048-06": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981294272-909",
+      "selected_original_path": "76b2304a-d2b9-4db7-a04c-4292eb253ca3.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p048-funda.png",
+      "updated_at": "2026-11-06T16:08:14.272Z"
+    },
+    "DRAW-FC-009-03": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981353791-29",
+      "selected_original_path": "2a99257c-dbff-46de-934c-ee1bc9fb1271.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p009-amo.png",
+      "updated_at": "2026-11-06T16:09:13.791Z"
+    },
+    "DRAW-FC-009-06": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981363758-877",
+      "selected_original_path": "884253b2-4036-4e49-a673-ba6462971ccd.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+      "updated_at": "2026-11-06T16:09:23.758Z"
+    },
+    "DRAW-FC-021-03": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981561511-836",
+      "selected_original_path": "6965b4ae-546c-4ded-a319-f9ee3ff3c6bd.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p021-dados.webp",
+      "updated_at": "2026-11-06T16:12:41.511Z"
+    },
+    "DRAW-FC-021-06": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981570704-632",
+      "selected_original_path": "8ded0351-285b-4afd-b8e6-47a4136a08c2.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
+      "updated_at": "2026-11-06T16:12:50.704Z"
+    },
+    "DRAW-FC-030-02": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981663038-462",
+      "selected_original_path": "2f94b6da-a71f-4d86-bf97-185a2d7b73da.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+      "updated_at": "2026-11-06T16:14:23.038Z"
+    },
+    "DRAW-FC-024-05": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981674353-967",
+      "selected_original_path": "befa18de-6fbf-48b0-9735-9a1a570be2ca.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+      "updated_at": "2026-11-06T16:14:34.353Z"
+    },
+    "DRAW-FC-027-05": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981693567-531",
+      "selected_original_path": "415ba133-9219-418b-ab19-852656848a81.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p027-napi.png",
+      "updated_at": "2026-11-06T16:14:53.567Z"
+    },
+    "DRAW-FC-012-06": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981726208-491",
+      "selected_original_path": "684fff38-1c45-44dc-8b2b-c247a12cf2d8.png",
+      "canonical_target": "public/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+      "updated_at": "2026-11-06T16:15:26.208Z"
+    },
+    "COMPOSITE-FC-FRONT-001": {
+      "status": "accepted",
+      "selected_candidate_id": "user-1793981760024-445",
+      "selected_original_path": "522ce5f1-2425-4cb3-8514-643996182078.png",
+      "canonical_target": "public/cartilla/art/approved/workbook/covertitleillustrationcomposite.png",
+      "updated_at": "2026-11-06T16:16:00.025Z"
+    }
+  }
+}

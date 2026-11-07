@@ -1,0 +1,1533 @@
+{
+  "created": "2026-11-06T18:38:29.978Z",
+  "type": "source-preserving resizing; not an AI redraw or newly painted illustration",
+  "previouslyAppliedGenerated": 45,
+  "totalUnselected": 91,
+  "outputCount": 91,
+  "items": [
+    {
+      "id": "DRAW-WB-03-1",
+      "label": "Abrigo",
+      "source": "public/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-03-1.png",
+      "originalPixels": [
+        1024,
+        1024
+      ],
+      "outputPixels": [
+        1600,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-06-1",
+      "label": "Arana",
+      "source": "public/cartilla/art/faithful/vocal-a/arana.webp",
+      "sourceType": "runtime (visually matched at 0.795)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-06-1.png",
+      "originalPixels": [
+        810,
+        870
+      ],
+      "outputPixels": [
+        1490,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p005-arana.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-WB-07-1",
+      "label": "Arbol",
+      "source": "public/cartilla/art/faithful/vocal-a/arbol.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-07-1.png",
+      "originalPixels": [
+        870,
+        744
+      ],
+      "outputPixels": [
+        1600,
+        1368
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-08-1",
+      "label": "Ardilla",
+      "source": "public/cartilla/art/faithful/vocal-a/ardilla.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-08-1.png",
+      "originalPixels": [
+        870,
+        751
+      ],
+      "outputPixels": [
+        1600,
+        1381
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-09-1",
+      "label": "Aro",
+      "source": "public/cartilla/art/optimized/workbook/leccion-1/aro.svg",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-09-1.png",
+      "originalPixels": [
+        871,
+        913
+      ],
+      "outputPixels": [
+        1526,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-09-2",
+      "label": "Aro",
+      "source": "public/cartilla/art/faithful/vocal-a/anillo.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-09-2.png",
+      "originalPixels": [
+        870,
+        718
+      ],
+      "outputPixels": [
+        1600,
+        1320
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-13-1",
+      "label": "Dulce",
+      "source": "public/cartilla/art/faithful/leccion-1/dulce.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-13-1.png",
+      "originalPixels": [
+        870,
+        718
+      ],
+      "outputPixels": [
+        1600,
+        1320
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-14-1",
+      "label": "Elefante",
+      "source": "public/cartilla/art/optimized/workbook/leccion-1/elefante.svg",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-14-1.png",
+      "originalPixels": [
+        925,
+        892
+      ],
+      "outputPixels": [
+        1600,
+        1543
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-17-1",
+      "label": "Escoba",
+      "source": "public/cartilla/art/faithful/vocal-e/escoba.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-17-1.png",
+      "originalPixels": [
+        556,
+        700
+      ],
+      "outputPixels": [
+        1112,
+        1400
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-19-1",
+      "label": "Espejo",
+      "source": "public/cartilla/art/faithful/vocal-e/espejo.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-19-1.png",
+      "originalPixels": [
+        870,
+        823
+      ],
+      "outputPixels": [
+        1600,
+        1514
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-20-1",
+      "label": "Estrella",
+      "source": "public/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-20-1.png",
+      "originalPixels": [
+        600,
+        650
+      ],
+      "outputPixels": [
+        1200,
+        1300
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-22-1",
+      "label": "Iglesia",
+      "source": "public/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-22-1.png",
+      "originalPixels": [
+        200,
+        196
+      ],
+      "outputPixels": [
+        400,
+        392
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-WB-24-1",
+      "label": "Igual",
+      "source": "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Szh0OtkOPhrrs91ieKxNcfHbaXR9LAuE.png",
+      "sourceType": "catalog original (visually matched at 0.84)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-24-1.png",
+      "originalPixels": [
+        1254,
+        1254
+      ],
+      "outputPixels": [
+        1600,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/faithful/vocal-i/igual.webp",
+      "previousOriginalPixels": [
+        106,
+        61
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-WB-26-1",
+      "label": "Iman",
+      "source": "public/cartilla/art/optimized/workbook/leccion-1/iman.svg",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-26-1.png",
+      "originalPixels": [
+        896,
+        858
+      ],
+      "outputPixels": [
+        1600,
+        1532
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-29-1",
+      "label": "Insecto",
+      "source": "public/cartilla/art/faithful/vocal-i/insecto.webp",
+      "sourceType": "runtime (visually matched at 0.827)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-29-1.png",
+      "originalPixels": [
+        868,
+        756
+      ],
+      "outputPixels": [
+        1600,
+        1394
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-WB-30-1",
+      "label": "Invierno",
+      "source": "public/cartilla/art/faithful/vocal-i/invierno.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-30-1.png",
+      "originalPixels": [
+        188,
+        181
+      ],
+      "outputPixels": [
+        376,
+        362
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-WB-32-1",
+      "label": "Libro",
+      "source": "public/cartilla/art/faithful/leccion-1/libro.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-32-1.png",
+      "originalPixels": [
+        870,
+        579
+      ],
+      "outputPixels": [
+        1600,
+        1065
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-43-1",
+      "label": "Pajaro",
+      "source": "public/cartilla/art/faithful/leccion-1/pajaro.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-43-1.png",
+      "originalPixels": [
+        613,
+        522
+      ],
+      "outputPixels": [
+        1226,
+        1044
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-44-1",
+      "label": "Pera",
+      "source": "public/cartilla/art/faithful/leccion-1/pera.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-44-1.png",
+      "originalPixels": [
+        870,
+        669
+      ],
+      "outputPixels": [
+        1600,
+        1230
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-WB-50-1",
+      "label": "Uno",
+      "source": "public/cartilla/art/optimized/flipchart-native/p008-uno.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-WB-50-1.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-003-01",
+      "label": "Página 3 — Cinco niños entre las flores (Vocales)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p003-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-003-01.png",
+      "originalPixels": [
+        539,
+        539
+      ],
+      "outputPixels": [
+        1078,
+        1078
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-003-02",
+      "label": "Avión",
+      "source": "public/cartilla/art/optimized/flipchart-native/p003-avion.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-003-02.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-003-03",
+      "label": "Escoba",
+      "source": "public/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-003-03.png",
+      "originalPixels": [
+        1254,
+        1254
+      ],
+      "outputPixels": [
+        1600,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-003-06",
+      "label": "Uña",
+      "source": "public/cartilla/art/optimized/flipchart-native/p003-una.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-003-06.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-004-03",
+      "label": "Oto",
+      "source": "public/cartilla/art/optimized/flipchart-native/p004-oto.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-004-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-005-03",
+      "label": "Anillo",
+      "source": "public/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-005-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-005-07",
+      "label": "Ana",
+      "source": "public/cartilla/art/optimized/flipchart-native/p005-ana.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-005-07.png",
+      "originalPixels": [
+        1254,
+        1254
+      ],
+      "outputPixels": [
+        1600,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-007-07",
+      "label": "Irma",
+      "source": "public/cartilla/art/optimized/flipchart-native/p007-irma.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-007-07.png",
+      "originalPixels": [
+        601,
+        700
+      ],
+      "outputPixels": [
+        1202,
+        1400
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-008-03",
+      "label": "Uva",
+      "source": "public/cartilla/art/optimized/flipchart-native/p008-uva.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-008-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-012-03",
+      "label": "Pie",
+      "source": "public/cartilla/art/optimized/flipchart-native/p012-pie.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-012-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-012-04",
+      "label": "Pepe",
+      "source": "public/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-012-04.png",
+      "originalPixels": [
+        779,
+        781
+      ],
+      "outputPixels": [
+        1558,
+        1562
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-012-05",
+      "label": "Puma",
+      "source": "public/cartilla/art/optimized/flipchart-native/p012-puma.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-012-05.png",
+      "originalPixels": [
+        695,
+        753
+      ],
+      "outputPixels": [
+        1390,
+        1506
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-014-01",
+      "label": "Ilustración de la página 14",
+      "source": "public/cartilla/art/optimized/flipchart-native/p014-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-014-01.png",
+      "originalPixels": [
+        1709,
+        1391
+      ],
+      "outputPixels": [
+        1709,
+        1391
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-015-02",
+      "label": "Sesi",
+      "source": "public/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-015-02.png",
+      "originalPixels": [
+        342,
+        342
+      ],
+      "outputPixels": [
+        684,
+        684
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-015-04",
+      "label": "Sapo",
+      "source": "public/cartilla/art/faithful/leccion-9-s/sapo.webp",
+      "sourceType": "catalog original (visually matched at 0.848)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-015-04.png",
+      "originalPixels": [
+        870,
+        742
+      ],
+      "outputPixels": [
+        1600,
+        1365
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-015-05",
+      "label": "Pisa",
+      "source": "public/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-015-05.png",
+      "originalPixels": [
+        815,
+        562
+      ],
+      "outputPixels": [
+        1600,
+        1103
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-015-06",
+      "label": "Susi",
+      "source": "public/cartilla/art/optimized/flipchart-native/p015-susi.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-015-06.png",
+      "originalPixels": [
+        587,
+        786
+      ],
+      "outputPixels": [
+        1174,
+        1572
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-017-01",
+      "label": "Página 17 — Familia paseando en el parque",
+      "source": "public/cartilla/art/optimized/flipchart-native/p017-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-017-01.png",
+      "originalPixels": [
+        645,
+        645
+      ],
+      "outputPixels": [
+        1290,
+        1290
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-018-02",
+      "label": "Tomate",
+      "source": "public/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-018-02.png",
+      "originalPixels": [
+        1536,
+        1395
+      ],
+      "outputPixels": [
+        1600,
+        1453
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-018-06",
+      "label": "Tuto",
+      "source": "public/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-018-06.png",
+      "originalPixels": [
+        804,
+        817
+      ],
+      "outputPixels": [
+        1575,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-021-01",
+      "label": "Página 21 — Niño en escalera tocando campana (Letra d)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p021-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-021-01.png",
+      "originalPixels": [
+        559,
+        559
+      ],
+      "outputPixels": [
+        1118,
+        1118
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-021-02",
+      "label": "Didi",
+      "source": "public/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-021-02.png",
+      "originalPixels": [
+        2048,
+        1813
+      ],
+      "outputPixels": [
+        2048,
+        1813
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-023-01",
+      "label": "Página 23 — Rana mirando el sol (Letra r)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p023-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-023-01.png",
+      "originalPixels": [
+        621,
+        621
+      ],
+      "outputPixels": [
+        1242,
+        1242
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-024-01",
+      "label": "Página 24 — Escena de la letra l",
+      "source": "public/cartilla/art/optimized/flipchart-native/p024-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-024-01.png",
+      "originalPixels": [
+        549,
+        549
+      ],
+      "outputPixels": [
+        1098,
+        1098
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-024-02",
+      "label": "Maleta",
+      "source": "public/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-024-02.png",
+      "originalPixels": [
+        1369,
+        1536
+      ],
+      "outputPixels": [
+        1426,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-026-01",
+      "label": "Ilustración de la página 26",
+      "source": "public/cartilla/art/optimized/flipchart-native/p026-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-026-01.png",
+      "originalPixels": [
+        1006,
+        1457
+      ],
+      "outputPixels": [
+        1105,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-030-01",
+      "label": "Página 30 — Niña bajo arco de flores (Letra c / q)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p030-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-030-01.png",
+      "originalPixels": [
+        545,
+        545
+      ],
+      "outputPixels": [
+        1090,
+        1090
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-030-05",
+      "label": "Moño",
+      "source": "public/cartilla/art/faithful/leccion-7-m/mono.webp",
+      "sourceType": "catalog original (visually matched at 0.84)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-030-05.png",
+      "originalPixels": [
+        472,
+        770
+      ],
+      "outputPixels": [
+        944,
+        1540
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p030-mono.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-032-01",
+      "label": "Página 32 — Cabro en la loma (Letra b)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p032-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-032-01.png",
+      "originalPixels": [
+        1003,
+        1389
+      ],
+      "outputPixels": [
+        1155,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-033-02",
+      "label": "Beba",
+      "source": "public/cartilla/art/optimized/flipchart-native/p033-beba.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-033-02.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-033-03",
+      "label": "Bubi",
+      "source": "public/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-033-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-033-06",
+      "label": "Bebita",
+      "source": "public/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-033-06.png",
+      "originalPixels": [
+        766,
+        801
+      ],
+      "outputPixels": [
+        1530,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-036-05",
+      "label": "Pavo",
+      "source": "public/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-036-05.png",
+      "originalPixels": [
+        613,
+        664
+      ],
+      "outputPixels": [
+        1226,
+        1328
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-036-06",
+      "label": "Vuli",
+      "source": "public/cartilla/art/optimized/flipchart-native/p036-vuli.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-036-06.png",
+      "originalPixels": [
+        330,
+        330
+      ],
+      "outputPixels": [
+        660,
+        660
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-038-01",
+      "label": "Página 38 — Niña durmiendo con la luna",
+      "source": "public/cartilla/art/optimized/flipchart-native/p038-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-038-01.png",
+      "originalPixels": [
+        1008,
+        1458
+      ],
+      "outputPixels": [
+        1106,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-039-02",
+      "label": "Rana",
+      "source": "public/cartilla/art/optimized/flipchart-native/p039-rana.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-039-02.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-039-03",
+      "label": "Remos",
+      "source": "public/cartilla/art/optimized/flipchart-native/p039-remos.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-039-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-039-05",
+      "label": "Rosa",
+      "source": "public/cartilla/art/optimized/flipchart-native/p039-rosa.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-039-05.png",
+      "originalPixels": [
+        524,
+        625
+      ],
+      "outputPixels": [
+        1048,
+        1250
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-039-06",
+      "label": "Rueda",
+      "source": "public/cartilla/art/optimized/flipchart-native/p039-rueda.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-039-06.png",
+      "originalPixels": [
+        843,
+        654
+      ],
+      "outputPixels": [
+        1600,
+        1241
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-041-01",
+      "label": "Ilustración de la página 41",
+      "source": "public/cartilla/art/optimized/flipchart-native/p041-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-041-01.png",
+      "originalPixels": [
+        586,
+        586
+      ],
+      "outputPixels": [
+        1172,
+        1172
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-042-01",
+      "label": "Ilustración de la página 42",
+      "source": "public/cartilla/art/optimized/flipchart-native/p042-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-042-01.png",
+      "originalPixels": [
+        529,
+        529
+      ],
+      "outputPixels": [
+        1058,
+        1058
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-042-03",
+      "label": "Carrusel",
+      "source": "public/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-042-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-042-04",
+      "label": "Torre",
+      "source": "public/cartilla/art/faithful/leccion-18-rr/torre.webp",
+      "sourceType": "catalog original (visually matched at 0.93)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-042-04.png",
+      "originalPixels": [
+        356,
+        870
+      ],
+      "outputPixels": [
+        655,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p042-torre.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-042-05",
+      "label": "Barril",
+      "source": "public/cartilla/art/optimized/flipchart-native/p042-barril.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-042-05.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-045-01",
+      "label": "Página 45 — El Gato Goloso (Letra g)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p045-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-045-01.png",
+      "originalPixels": [
+        557,
+        557
+      ],
+      "outputPixels": [
+        1114,
+        1114
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-045-04",
+      "label": "Goloso",
+      "source": "public/cartilla/art/optimized/flipchart-native/p045-goloso.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-045-04.png",
+      "originalPixels": [
+        618,
+        689
+      ],
+      "outputPixels": [
+        1236,
+        1378
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-045-05",
+      "label": "Gorra",
+      "source": "public/cartilla/art/faithful/leccion-19-g/gorra.webp",
+      "sourceType": "catalog original (visually matched at 0.94)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-045-05.png",
+      "originalPixels": [
+        870,
+        566
+      ],
+      "outputPixels": [
+        1600,
+        1041
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-047-01",
+      "label": "Ilustración de la página 47",
+      "source": "public/cartilla/art/optimized/flipchart-native/p047-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-047-01.png",
+      "originalPixels": [
+        667,
+        667
+      ],
+      "outputPixels": [
+        1334,
+        1334
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-048-01",
+      "label": "Página 48 — Muñeca lavando en tina (Letra ñ)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p048-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-048-01.png",
+      "originalPixels": [
+        873,
+        1368
+      ],
+      "outputPixels": [
+        1021,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-048-02",
+      "label": "Foto",
+      "source": "public/cartilla/art/optimized/flipchart-native/p048-foto.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-048-02.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-048-03",
+      "label": "Fideos",
+      "source": "public/cartilla/art/faithful/leccion-20-f/fideos.webp",
+      "sourceType": "catalog original (visually matched at 0.822)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-048-03.png",
+      "originalPixels": [
+        732,
+        870
+      ],
+      "outputPixels": [
+        1346,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+      "previousOriginalPixels": [
+        325,
+        325
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-050-01",
+      "label": "Página 50 — La Jirafa (Letra j)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p050-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-050-01.png",
+      "originalPixels": [
+        1373,
+        1378
+      ],
+      "outputPixels": [
+        1594,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-051-01",
+      "label": "Página 51 — Niña bañando a la jicotea",
+      "source": "public/cartilla/art/optimized/flipchart-native/p051-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-051-01.png",
+      "originalPixels": [
+        537,
+        537
+      ],
+      "outputPixels": [
+        1074,
+        1074
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-051-03",
+      "label": "Jugo",
+      "source": "public/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-051-03.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-051-05",
+      "label": "Ajo",
+      "source": "public/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-051-05.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-051-06",
+      "label": "Jarra",
+      "source": "public/cartilla/art/faithful/leccion-21-j/jarra.webp",
+      "sourceType": "catalog original (visually matched at 0.948)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-051-06.png",
+      "originalPixels": [
+        788,
+        870
+      ],
+      "outputPixels": [
+        1449,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p051-jarra.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-053-01",
+      "label": "Página 53 — Hada y carroza de calabaza (Letra ch / ll)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p053-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-053-01.png",
+      "originalPixels": [
+        671,
+        671
+      ],
+      "outputPixels": [
+        1342,
+        1342
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-054-04",
+      "label": "Casa",
+      "source": "public/cartilla/art/optimized/flipchart-native/p054-casa.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-054-04.png",
+      "originalPixels": [
+        748,
+        649
+      ],
+      "outputPixels": [
+        1496,
+        1298
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-054-05",
+      "label": "Cubo",
+      "source": "public/cartilla/art/faithful/leccion-19-c/cubo.webp",
+      "sourceType": "catalog original (visually matched at 0.956)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-054-05.png",
+      "originalPixels": [
+        870,
+        791
+      ],
+      "outputPixels": [
+        1600,
+        1455
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p054-cubo.png",
+      "previousOriginalPixels": [
+        320,
+        320
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-056-01",
+      "label": "Página 56 — Casita del árbol con caramelos",
+      "source": "public/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-056-01.png",
+      "originalPixels": [
+        1028,
+        1530
+      ],
+      "outputPixels": [
+        1075,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-057-02",
+      "label": "Yate",
+      "source": "public/cartilla/art/optimized/flipchart-native/p057-yate.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-057-02.png",
+      "originalPixels": [
+        338,
+        338
+      ],
+      "outputPixels": [
+        676,
+        676
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-057-03",
+      "label": "Yema",
+      "source": "public/cartilla/art/faithful/leccion-22-y/yema.webp",
+      "sourceType": "catalog original (visually matched at 0.955)",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-057-03.png",
+      "originalPixels": [
+        870,
+        349
+      ],
+      "outputPixels": [
+        1600,
+        642
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW",
+      "previousSource": "public/cartilla/art/optimized/flipchart-native/p057-yema.png",
+      "previousOriginalPixels": [
+        333,
+        333
+      ],
+      "restoredFromVerifiedMatch": true
+    },
+    {
+      "id": "DRAW-FC-059-01",
+      "label": "Página 59 — Dama mirando la luna y las estrellas",
+      "source": "public/cartilla/art/optimized/flipchart-native/p059-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-059-01.png",
+      "originalPixels": [
+        1254,
+        1254
+      ],
+      "outputPixels": [
+        1600,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-060-01",
+      "label": "Página 60 — El Zángano Zumbón (Letra z)",
+      "source": "public/cartilla/art/optimized/flipchart-native/p060-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-060-01.png",
+      "originalPixels": [
+        1212,
+        1219
+      ],
+      "outputPixels": [
+        1591,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-060-02",
+      "label": "Zapato",
+      "source": "public/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-060-02.png",
+      "originalPixels": [
+        320,
+        320
+      ],
+      "outputPixels": [
+        640,
+        640
+      ],
+      "status": "LOW_RES_SOURCE"
+    },
+    {
+      "id": "DRAW-FC-060-03",
+      "label": "Zig-zag",
+      "source": "public/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-060-03.png",
+      "originalPixels": [
+        552,
+        630
+      ],
+      "outputPixels": [
+        1104,
+        1260
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-060-05",
+      "label": "Zepelín",
+      "source": "public/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-060-05.png",
+      "originalPixels": [
+        792,
+        618
+      ],
+      "outputPixels": [
+        1584,
+        1236
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-060-06",
+      "label": "Zulema",
+      "source": "public/cartilla/art/optimized/flipchart-native/p060-zulema.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-060-06.png",
+      "originalPixels": [
+        1254,
+        1254
+      ],
+      "outputPixels": [
+        1600,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "DRAW-FC-062-01",
+      "label": "Ilustración de la página 62",
+      "source": "public/cartilla/art/optimized/flipchart-native/p062-scene.png",
+      "sourceType": "existing source",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\DRAW-FC-062-01.png",
+      "originalPixels": [
+        1081,
+        1329
+      ],
+      "outputPixels": [
+        1301,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "COMPOSITE-WB-FRONT-001",
+      "label": "Portada Principal (La Cartilla de Gretel)",
+      "source": "public/cartilla/images/cover.png",
+      "sourceType": "existing cover",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\COMPOSITE-WB-FRONT-001.png",
+      "originalPixels": [
+        1086,
+        1448
+      ],
+      "outputPixels": [
+        1200,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    },
+    {
+      "id": "COMPOSITE-WB-FRONT-003",
+      "label": "Personaje Gretel (Portada)",
+      "source": "public/cartilla/images/gretel/gretel-approved-master.png",
+      "sourceType": "approved Gretel master",
+      "output": "public\\cartilla\\art\\owner-intake\\faithful-restorations-2026-11-06\\COMPOSITE-WB-FRONT-003.png",
+      "originalPixels": [
+        1086,
+        1448
+      ],
+      "outputPixels": [
+        1200,
+        1600
+      ],
+      "status": "READY_FOR_VISUAL_REVIEW"
+    }
+  ],
+  "upgradedFromHigherResolution": 11,
+  "remainingLowResolution": 22
+}

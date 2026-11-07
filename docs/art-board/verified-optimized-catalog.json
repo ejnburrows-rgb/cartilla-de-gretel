@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-11-01",
   "total_groups": 201,
-  "removed_duplicates": 106,
-  "multi_candidate_groups": 106,
-  "total_candidates": 344,
+  "removed_duplicates": 142,
+  "multi_candidate_groups": 108,
+  "total_candidates": 342,
   "groups": [
     {
       "group_id": "DRAW-WB-01-1",
@@ -120,7 +120,7 @@
       "group_id": "DRAW-WB-03-1",
       "label": "Abrigo",
       "raw_label": "abrigo",
-      "availability": "OPTIMIZATION NEEDED",
+      "availability": "OPTIMIZED VERSION EXISTS",
       "placements": [
         "WB-S007-OBJ01-UNIFORME-1",
         "WB-S017-OBJ08-CHAQUETA"
@@ -137,6 +137,69 @@
       ],
       "old_files_to_replace": [],
       "candidates": [
+        {
+          "sha256": "5568b131631b61ffd27f850a384329b0ebe384e5025bbdd80e5b44d81bc4c84e",
+          "id": "emilio-5568b131631b",
+          "web_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "offline_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 34608,
+          "kb": 34,
+          "source_tag": "Subida por Emilio",
+          "original_path": "public/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "note": "Imagen oficial aprobada y sincronizada por Emilio",
+          "priority": 1,
+          "quality_score": 3000,
+          "is_recommended": true,
+          "quality_badge": "[🌟 SUBIDA POR EMILIO] (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Imagen oficial aprobada y sincronizada directamente."
+        },
+        {
+          "sha256": "5568b131631b61ffd27f850a384329b0ebe384e5025bbdd80e5b44d81bc4c84e",
+          "id": "emilio-5568b131631b",
+          "web_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "offline_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 34608,
+          "kb": 34,
+          "source_tag": "Subida por Emilio",
+          "original_path": "public/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "note": "Imagen oficial aprobada y sincronizada por Emilio",
+          "priority": 1,
+          "quality_score": 3000,
+          "is_recommended": false,
+          "quality_badge": "[🌟 SUBIDA POR EMILIO] (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Imagen oficial aprobada y sincronizada directamente."
+        },
+        {
+          "sha256": "5568b131631b61ffd27f850a384329b0ebe384e5025bbdd80e5b44d81bc4c84e",
+          "id": "emilio-5568b131631b",
+          "web_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "offline_url": "/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 34608,
+          "kb": 34,
+          "source_tag": "Subida por Emilio",
+          "original_path": "public/cartilla/art/optimized/workbook/leccion-1/abrigo.png",
+          "note": "Imagen oficial aprobada y sincronizada por Emilio",
+          "priority": 1,
+          "quality_score": 3000,
+          "is_recommended": false,
+          "quality_badge": "[🌟 SUBIDA POR EMILIO] (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Imagen oficial aprobada y sincronizada directamente."
+        },
         {
           "sha256": "c4e121ef1897d61259accbc791199411c8fbb688d3b69d10a42d9637af643eb2",
           "id": "c4e121ef1897",
@@ -155,7 +218,7 @@
           "priority": 2,
           "quality_score": 1898.6,
           "duplicates_removed": 1,
-          "is_recommended": true,
+          "is_recommended": false,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1024×1024 PNG · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         }
@@ -267,10 +330,10 @@
           "note": "Alas pintadas a mano",
           "priority": 1,
           "quality_score": 2522.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/faithful/vocal-a/alas.webp"
@@ -314,10 +377,10 @@
           "note": "Alas pintadas a mano",
           "priority": 1,
           "quality_score": 2522.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/faithful/vocal-a/alas.webp"
@@ -520,11 +583,32 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-20-recovered/aro-v1-643bf873.png",
           "note": "Aro multicolor",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1402×1122 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+        },
+        {
+          "sha256": "35895fa97b5b165bafa1218ce6aad420c3a4cc8bb9d60aac8450466370a97414",
+          "id": "35895fa97b5b",
+          "web_url": "/cartilla/art/candidates-board/35895fa97b5b165b.png",
+          "offline_url": "board-assets/35895fa97b5b165b.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "P",
+          "bytes": 248597,
+          "kb": 243,
+          "source_tag": "Repositorio / Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p005-aro.png",
+          "note": "Versión en repo (p005-aro.png)",
+          "priority": 2,
+          "quality_score": 2422.5,
+          "is_recommended": false,
+          "quality_badge": "🎨 Diseño Alternativo (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/aro.svg"
@@ -548,6 +632,27 @@
       "old_files_to_replace": [],
       "candidates": [
         {
+          "sha256": "35895fa97b5b165bafa1218ce6aad420c3a4cc8bb9d60aac8450466370a97414",
+          "id": "35895fa97b5b",
+          "web_url": "/cartilla/art/candidates-board/35895fa97b5b165b.png",
+          "offline_url": "board-assets/35895fa97b5b165b.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "P",
+          "bytes": 248597,
+          "kb": 243,
+          "source_tag": "Repositorio / Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p005-aro.png",
+          "note": "Versión en repo (p005-aro.png)",
+          "priority": 2,
+          "quality_score": 2422.5,
+          "is_recommended": true,
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+        },
+        {
           "sha256": "a6d0c9c5a1f29c53e34c4f3af19ad3d136ab0dd276ed5b5aac84b3718e7b8cfb",
           "id": "a6d0c9c5a1f2",
           "web_url": "/cartilla/art/candidates-board/a6d0c9c5a1f29c53.webp",
@@ -564,9 +669,9 @@
           "note": "Versión en repo (aro.webp)",
           "priority": 2,
           "quality_score": 1164.8,
-          "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (780×660 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "is_recommended": false,
+          "quality_badge": "🎨 Diseño Alternativo (780×660 WEBP · Fondo transparente)",
+          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
       "canonical_target": "public/cartilla/art/faithful/vocal-a/anillo.webp"
@@ -681,31 +786,10 @@
           "note": "Carro rojo",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
-        },
-        {
-          "sha256": "078775360dc035d2ff50637c78466e484df4f99e83cbc6ff190abc362eb7af4f",
-          "id": "078775360dc0",
-          "web_url": "/cartilla/art/candidates-board/078775360dc035d2.webp",
-          "offline_url": "board-assets/078775360dc035d2.webp",
-          "width": 870,
-          "height": 870,
-          "format": "WEBP",
-          "has_alpha": true,
-          "mode": "RGBA",
-          "bytes": 246238,
-          "kb": 240,
-          "source_tag": "Repositorio / Arte Fiel",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-1/carro.webp",
-          "note": "Versión en repo (carro.webp)",
-          "priority": 2,
-          "quality_score": 1406.9,
-          "duplicates_removed": 1,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (870×870 WEBP · Fondo transparente)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "1828695d74bbdb57ab1464f0c7571b7ccb3be61f61581c7553d1bb7701d646df",
@@ -726,6 +810,27 @@
           "quality_score": 800.7,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (633×633 WEBP)",
+          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
+        },
+        {
+          "sha256": "6a22ec57968582bce06d83016c5a2acd05b3182eff8727d896f1db110985209c",
+          "id": "6a22ec579685",
+          "web_url": "/cartilla/art/candidates-board/6a22ec57968582bc.webp",
+          "offline_url": "board-assets/6a22ec57968582bc.webp",
+          "width": 529,
+          "height": 529,
+          "format": "WEBP",
+          "has_alpha": false,
+          "mode": "RGB",
+          "bytes": 62982,
+          "kb": 62,
+          "source_tag": "Archivo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/docs/proofs/artwork-coverage-2026-10-14/assets/8136023f9cf62ba36dc7c6ded96092fba27b1c6c31929ae39cbe49d8acfc1ed0.webp",
+          "note": "Versión en archivo (p42_vignette_carro_rr.png)",
+          "priority": 2,
+          "quality_score": 679.8,
+          "is_recommended": false,
+          "quality_badge": "🎨 Diseño Alternativo (529×529 WEBP)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -801,46 +906,46 @@
       "old_files_to_replace": [],
       "candidates": [
         {
-          "sha256": "27e76b480a87f6c6df4bb08c20f21b7b6b55edf493b39e90073070c56a81d370",
-          "id": "27e76b480a87",
-          "web_url": "/cartilla/art/candidates-board/27e76b480a87f6c6.webp",
-          "offline_url": "board-assets/27e76b480a87f6c6.webp",
-          "width": 870,
-          "height": 809,
-          "format": "WEBP",
-          "has_alpha": true,
-          "mode": "RGBA",
-          "bytes": 85342,
-          "kb": 83,
-          "source_tag": "Repositorio / Arte Fiel",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-e/elefante.webp",
-          "note": "Versión en repo (elefante.webp)",
-          "priority": 2,
-          "quality_score": 1353.8,
-          "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (870×809 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
-        },
-        {
-          "sha256": "d0c044b079af68d6e7ca87c65a3cfa75dd9883b50e138b24be25f9777975b8fa",
-          "id": "d0c044b079af",
-          "web_url": "/cartilla/art/candidates-board/d0c044b079af68d6.png",
-          "offline_url": "board-assets/d0c044b079af68d6.png",
-          "width": 570,
-          "height": 540,
+          "sha256": "26faf11dd8636dfecffc2283e76a59bb3ef23c8dd551945707abbe2ab8bec88f",
+          "id": "26faf11dd863",
+          "web_url": "/cartilla/art/candidates-board/26faf11dd8636dfe.png",
+          "offline_url": "board-assets/26faf11dd8636dfe.png",
+          "width": 1254,
+          "height": 1254,
           "format": "PNG",
           "has_alpha": true,
-          "mode": "RGBA",
-          "bytes": 249197,
-          "kb": 243,
+          "mode": "P",
+          "bytes": 506099,
+          "kb": 494,
           "source_tag": "Repositorio / Optimizado en Repo",
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
           "note": "Versión en repo (p006-elefante.png)",
           "priority": 2,
-          "quality_score": 1157.8,
+          "quality_score": 2422.5,
           "duplicates_removed": 1,
+          "is_recommended": true,
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+        },
+        {
+          "sha256": "a15b4c0318edd0013701adfbc833a9fe7b26e47fb4a5dd9d5919ecfbf8f69ecd",
+          "id": "a15b4c0318ed",
+          "web_url": "/cartilla/art/candidates-board/a15b4c0318edd001.webp",
+          "offline_url": "board-assets/a15b4c0318edd001.webp",
+          "width": 570,
+          "height": 540,
+          "format": "WEBP",
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 152348,
+          "kb": 149,
+          "source_tag": "Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-elefante.webp",
+          "note": "Dibujo optimizado (p006-elefante.webp)",
+          "priority": 2,
+          "quality_score": 957.8,
           "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (570×540 PNG · Fondo transparente)",
+          "quality_badge": "🎨 Diseño Alternativo (570×540 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -992,6 +1097,27 @@
       "old_files_to_replace": [],
       "candidates": [
         {
+          "sha256": "c8b04dfd2ae3e6fcbe8696126713f4f426905f58af3a6b204bd7e67c707e4fa6",
+          "id": "c8b04dfd2ae3",
+          "web_url": "/cartilla/art/candidates-board/c8b04dfd2ae3e6fc.png",
+          "offline_url": "board-assets/c8b04dfd2ae3e6fc.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "P",
+          "bytes": 349651,
+          "kb": 341,
+          "source_tag": "Repositorio / Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+          "note": "Versión en repo (p003-escoba.png)",
+          "priority": 2,
+          "quality_score": 2422.5,
+          "is_recommended": true,
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+        },
+        {
           "sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
           "id": "6f4a542ddde9",
           "web_url": "/cartilla/art/candidates-board/6f4a542ddde9d03b.webp",
@@ -1008,9 +1134,9 @@
           "note": "Versión en repo (escoba.webp)",
           "priority": 2,
           "quality_score": 1039.2,
-          "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (556×700 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "is_recommended": false,
+          "quality_badge": "🎨 Diseño Alternativo (556×700 WEBP · Fondo transparente)",
+          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
       "canonical_target": "public/cartilla/art/faithful/vocal-e/escoba.webp"
@@ -1165,6 +1291,28 @@
       "old_files_to_replace": [],
       "candidates": [
         {
+          "sha256": "4346842a2885a5f410ae9413a1becb457d5ac55de963de4852da344fe8c44194",
+          "id": "4346842a2885",
+          "web_url": "/cartilla/art/candidates-board/4346842a2885a5f4.png",
+          "offline_url": "board-assets/4346842a2885a5f4.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "P",
+          "bytes": 366376,
+          "kb": 358,
+          "source_tag": "Repositorio / Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+          "note": "Versión en repo (p006-espejo.png)",
+          "priority": 2,
+          "quality_score": 2422.5,
+          "duplicates_removed": 1,
+          "is_recommended": true,
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+        },
+        {
           "sha256": "7db9f69595efd252bce1e11cec378cb05d0cbf0f9be017b84226affd519508b2",
           "id": "7db9f69595ef",
           "web_url": "/cartilla/art/candidates-board/7db9f69595efd252.webp",
@@ -1180,31 +1328,9 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-e/espejo.webp",
           "note": "Versión en repo (espejo.webp)",
           "priority": 2,
-          "quality_score": 1366.0,
-          "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (870×823 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
-        },
-        {
-          "sha256": "e1699002b9ca40438935d8a4cdf32e559fd41f0a6ce0aebc8344f75bc60ddf02",
-          "id": "e1699002b9ca",
-          "web_url": "/cartilla/art/candidates-board/e1699002b9ca4043.png",
-          "offline_url": "board-assets/e1699002b9ca4043.png",
-          "width": 520,
-          "height": 540,
-          "format": "PNG",
-          "has_alpha": true,
-          "mode": "RGBA",
-          "bytes": 201738,
-          "kb": 197,
-          "source_tag": "Repositorio / Optimizado en Repo",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-espejo.png",
-          "note": "Versión en repo (p006-espejo.png)",
-          "priority": 2,
-          "quality_score": 1130.8,
-          "duplicates_removed": 1,
+          "quality_score": 1366,
           "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (520×540 PNG · Fondo transparente)",
+          "quality_badge": "🎨 Diseño Alternativo (870×823 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -1260,7 +1386,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-e/estrella.webp",
           "note": "Versión en repo (estrella.webp)",
           "priority": 2,
-          "quality_score": 1304.0,
+          "quality_score": 1304,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (757×864 WEBP · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -1281,7 +1407,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-estrella.png",
           "note": "Versión en repo (p006-estrella.png)",
           "priority": 2,
-          "quality_score": 1240.0,
+          "quality_score": 1240,
           "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (600×650 PNG · Fondo transparente)",
@@ -1327,9 +1453,10 @@
           "note": "Globo verde",
           "priority": 1,
           "quality_score": 2173.1,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1312×1199 JPG)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "315e70e93c4961b2397ae357632a1eb41360ccdc407a60f0f030ec4696320581",
@@ -1348,7 +1475,6 @@
           "note": "Globo verde sin fondo",
           "priority": 1,
           "quality_score": 1498.7,
-          "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (580×515 PNG · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -1581,30 +1707,9 @@
           "note": "Nueva ilustración generada (iguana, score=0.648)",
           "priority": 1,
           "quality_score": 2772.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
-        },
-        {
-          "sha256": "3d6a09256e46e209f8c7b0cf7865aae0ff5163e6a796f2f3e4dfa08a20417f3c",
-          "id": "3d6a09256e46",
-          "web_url": "/cartilla/art/candidates-board/3d6a09256e46e209.webp",
-          "offline_url": "board-assets/3d6a09256e46e209.webp",
-          "width": 870,
-          "height": 751,
-          "format": "WEBP",
-          "has_alpha": true,
-          "mode": "RGBA",
-          "bytes": 82608,
-          "kb": 81,
-          "source_tag": "Repositorio / Arte Fiel",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-i/iguana.webp",
-          "note": "Versión en repo (iguana.webp)",
-          "priority": 2,
-          "quality_score": 1303.4,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (870×751 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -1639,6 +1744,27 @@
       "old_files_to_replace": [],
       "candidates": [
         {
+          "sha256": "d623e6c3c2507629401961454d8915a07a0632b692e987df25a3d48af54c439a",
+          "id": "d623e6c3c250",
+          "web_url": "/cartilla/art/candidates-board/d623e6c3c2507629.png",
+          "offline_url": "board-assets/d623e6c3c2507629.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 1089442,
+          "kb": 1064,
+          "source_tag": "Repositorio / Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p003-iman.png",
+          "note": "Versión en repo (p003-iman.png)",
+          "priority": 2,
+          "quality_score": 2422.5,
+          "is_recommended": true,
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+        },
+        {
           "sha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804",
           "id": "881055e3411d",
           "web_url": "/cartilla/art/candidates-board/881055e3411d1b78.webp",
@@ -1655,9 +1781,9 @@
           "note": "Versión en repo (iman.webp)",
           "priority": 2,
           "quality_score": 1272.9,
-          "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (870×716 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "is_recommended": false,
+          "quality_badge": "🎨 Diseño Alternativo (870×716 WEBP · Fondo transparente)",
+          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/workbook/leccion-1/iman.svg"
@@ -1802,7 +1928,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-i/invierno.webp",
           "note": "Versión actual (invierno.webp)",
           "priority": 3,
-          "quality_score": 184.0,
+          "quality_score": 184,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (188×181 WEBP)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -1839,25 +1965,26 @@
       ],
       "candidates": [
         {
-          "sha256": "927a08c561bbe5b963fb3d3a78ecb0f697044fe8f369c2455e3dcd1ef03583bf",
-          "id": "927a08c561bb",
-          "web_url": "/cartilla/art/candidates-board/927a08c561bbe5b9.webp",
-          "offline_url": "board-assets/927a08c561bbe5b9.webp",
+          "sha256": "781e3b95717a5bc919de5f50706f25f1cd15a4a9753c709d32e743228ed417aa",
+          "id": "781e3b95717a",
+          "web_url": "/cartilla/art/candidates-board/781e3b95717a5bc9.png",
+          "offline_url": "board-assets/781e3b95717a5bc9.png",
           "width": 950,
           "height": 857,
-          "format": "WEBP",
+          "format": "PNG",
           "has_alpha": true,
           "mode": "RGBA",
-          "bytes": 301084,
-          "kb": 294,
-          "source_tag": "Repositorio / Arte Fiel",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-i/isla.webp",
-          "note": "Versión en repo (isla.webp)",
+          "bytes": 761185,
+          "kb": 743,
+          "source_tag": "Repositorio / Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p007-isla.png",
+          "note": "Versión en repo (p007-isla.png)",
           "priority": 2,
-          "quality_score": 1464.2,
+          "quality_score": 1664.2,
+          "duplicates_removed": 1,
           "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (950×857 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (950×857 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p007-isla.png"
@@ -2046,9 +2173,10 @@
           "note": "Nueva ilustración generada (ocho, score=0.952)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "7ce51dadef14a1478d709f9ae465870b3bc9dae65cb7f690a887865afbcbb8eb",
@@ -2137,27 +2265,6 @@
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
         },
         {
-          "sha256": "60d3cef70285b038387bd5a7f37fb66708a9878d0d8da43c9958dfa26f276204",
-          "id": "60d3cef70285",
-          "web_url": "/cartilla/art/candidates-board/60d3cef70285b038.png",
-          "offline_url": "board-assets/60d3cef70285b038.png",
-          "width": 1024,
-          "height": 1024,
-          "format": "PNG",
-          "has_alpha": true,
-          "mode": "P",
-          "bytes": 63137,
-          "kb": 62,
-          "source_tag": "Repositorio",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/workbook/leccion-1/ojos.png",
-          "note": "Versión en repo (ojos.png)",
-          "priority": 2,
-          "quality_score": 1898.6,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (1024×1024 PNG · Fondo transparente)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
-        },
-        {
           "sha256": "88bf5607881edc8137c2f28ad849d1b9e454a49a701885c7b4d32dda3c1b1195",
           "id": "88bf5607881e",
           "web_url": "/cartilla/art/candidates-board/88bf5607881edc81.png",
@@ -2174,7 +2281,7 @@
           "note": "Ojo verde (transparente)",
           "priority": 1,
           "quality_score": 1712.4,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1254×608 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -2205,27 +2312,6 @@
       "old_files_to_replace": [],
       "candidates": [
         {
-          "sha256": "60d3cef70285b038387bd5a7f37fb66708a9878d0d8da43c9958dfa26f276204",
-          "id": "60d3cef70285",
-          "web_url": "/cartilla/art/candidates-board/60d3cef70285b038.png",
-          "offline_url": "board-assets/60d3cef70285b038.png",
-          "width": 1024,
-          "height": 1024,
-          "format": "PNG",
-          "has_alpha": true,
-          "mode": "P",
-          "bytes": 63137,
-          "kb": 62,
-          "source_tag": "Repositorio",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/workbook/leccion-1/ojos.png",
-          "note": "Versión en repo (ojos.png)",
-          "priority": 2,
-          "quality_score": 1898.6,
-          "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1024×1024 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
-        },
-        {
           "sha256": "88bf5607881edc8137c2f28ad849d1b9e454a49a701885c7b4d32dda3c1b1195",
           "id": "88bf5607881e",
           "web_url": "/cartilla/art/candidates-board/88bf5607881edc81.png",
@@ -2242,10 +2328,10 @@
           "note": "Ojo verde (transparente)",
           "priority": 1,
           "quality_score": 1712.4,
-          "duplicates_removed": 1,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (1254×608 PNG)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
+          "duplicates_removed": 2,
+          "is_recommended": true,
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×608 PNG)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/faithful/leccion-1/ojos.webp"
@@ -2348,9 +2434,10 @@
           "note": "Nueva ilustración generada (olla, score=0.964)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         },
         {
           "sha256": "7f38ec806dc9da0d44910c5084c96c35c4c920f5ae3f8750040b801b7518b79d",
@@ -2443,6 +2530,7 @@
           "note": "Nueva ilustración generada (oreja, score=0.962)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1254×1254 PNG · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -2576,9 +2664,10 @@
           "note": "Nueva ilustración generada (oso, score=0.93)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "cd49151f12332d1201e535eb18f0e0191867bd035af46f3d836492ab7680fbdf",
@@ -2596,7 +2685,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-o/oso.webp",
           "note": "Versión en repo (oso.webp)",
           "priority": 2,
-          "quality_score": 1366.0,
+          "quality_score": 1366,
           "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (823×870 WEBP · Fondo transparente)",
@@ -2655,10 +2744,10 @@
           "note": "Oveja con flores",
           "priority": 1,
           "quality_score": 2522.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p004-oveja.png"
@@ -2697,7 +2786,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-1/pajaro.webp",
           "note": "Versión en repo (pajaro.webp)",
           "priority": 2,
-          "quality_score": 970.0,
+          "quality_score": 970,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (613×522 WEBP · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -2739,7 +2828,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-1/pera.webp",
           "note": "Versión en repo (pera.webp)",
           "priority": 2,
-          "quality_score": 1232.0,
+          "quality_score": 1232,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (870×669 WEBP · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -2782,30 +2871,10 @@
           "note": "Nueva ilustración generada (taza, score=0.913)",
           "priority": 1,
           "quality_score": 2772.9,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1536×1024 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
-        },
-        {
-          "sha256": "de928351ad7291c3ac5757d21e93dc66db0c7a661c6bfab6269cdc181462d74e",
-          "id": "de928351ad72",
-          "web_url": "/cartilla/art/candidates-board/de928351ad7291c3.webp",
-          "offline_url": "board-assets/de928351ad7291c3.webp",
-          "width": 761,
-          "height": 527,
-          "format": "WEBP",
-          "has_alpha": true,
-          "mode": "RGBA",
-          "bytes": 38588,
-          "kb": 38,
-          "source_tag": "Repositorio / Arte Fiel",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-1/taza.webp",
-          "note": "Versión en repo (taza.webp)",
-          "priority": 2,
-          "quality_score": 1051.0,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (761×527 WEBP · Fondo transparente)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/faithful/leccion-1/taza.webp"
@@ -2866,22 +2935,22 @@
         {
           "sha256": "a5e7643eb42589909b2fdf3089e7d8dcd430c216971f14289463b1e364dc6112",
           "id": "a5e7643eb425",
-          "web_url": "/cartilla/art/candidates-board/a5e7643eb4258990.webp",
-          "offline_url": "board-assets/a5e7643eb4258990.webp",
+          "web_url": "/cartilla/art/candidates-board/a5e7643eb4258990.png",
+          "offline_url": "board-assets/a5e7643eb4258990.png",
           "width": 530,
           "height": 578,
-          "format": "WEBP",
+          "format": "PNG",
           "has_alpha": true,
           "mode": "RGBA",
           "bytes": 23978,
           "kb": 23,
           "source_tag": "Repositorio",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-1/arco.webp",
-          "note": "Versión en repo (arco.webp)",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/workbook/leccion-1/una.svg",
+          "note": "Versión en repo (una.svg)",
           "priority": 2,
-          "quality_score": 956.3,
+          "quality_score": 1156.3,
           "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (530×578 WEBP · Fondo transparente)",
+          "quality_badge": "🎨 Diseño Alternativo (530×578 PNG · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -2929,9 +2998,10 @@
           "note": "Nueva ilustración generada (unicornio, score=0.79)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "b8b317eed9123b61371bdd7f175f19eddc0a3c48eea58b569c648227f74d714d",
@@ -2992,25 +3062,26 @@
       "old_files_to_replace": [],
       "candidates": [
         {
-          "sha256": "42f6f4229b42246a577518f59e0ad7c95348d564bbf98fac27f4b96c679d55a1",
-          "id": "42f6f4229b42",
-          "web_url": "/cartilla/art/candidates-board/42f6f4229b42246a.webp",
-          "offline_url": "board-assets/42f6f4229b42246a.webp",
+          "sha256": "5d2f60240d0306014210d31f7cce8c183278363f1237b1a8d4204e4297089fa8",
+          "id": "5d2f60240d03",
+          "web_url": "/cartilla/art/candidates-board/5d2f60240d030601.png",
+          "offline_url": "board-assets/5d2f60240d030601.png",
           "width": 685,
           "height": 870,
-          "format": "WEBP",
+          "format": "PNG",
           "has_alpha": true,
           "mode": "RGBA",
-          "bytes": 92210,
-          "kb": 90,
-          "source_tag": "Arte Fiel",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-u/uniforme.webp",
-          "note": "Dibujo optimizado (uniforme.webp)",
+          "bytes": 564424,
+          "kb": 551,
+          "source_tag": "Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+          "note": "Dibujo optimizado (p008-uniforme.png)",
           "priority": 2,
-          "quality_score": 1246.0,
+          "quality_score": 1446,
+          "duplicates_removed": 1,
           "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (685×870 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (685×870 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-uniforme.png"
@@ -3119,10 +3190,10 @@
           "note": "Nueva ilustración generada (�guila, score=0.887)",
           "priority": 1,
           "quality_score": 2772.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-urraca.png"
@@ -3299,9 +3370,10 @@
           "note": "Nueva ilustración generada (escoba, score=0.752)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
@@ -3367,9 +3439,10 @@
           "note": "Nueva ilustración generada (im�n, score=0.568)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804",
@@ -3436,6 +3509,27 @@
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (799×870 WEBP · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+        },
+        {
+          "sha256": "a5e7643eb42589909b2fdf3089e7d8dcd430c216971f14289463b1e364dc6112",
+          "id": "a5e7643eb425",
+          "web_url": "/cartilla/art/candidates-board/a5e7643eb4258990.png",
+          "offline_url": "board-assets/a5e7643eb4258990.png",
+          "width": 530,
+          "height": 578,
+          "format": "PNG",
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 23978,
+          "kb": 23,
+          "source_tag": "Repositorio",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/workbook/leccion-1/una.svg",
+          "note": "Versión en repo (una.svg)",
+          "priority": 2,
+          "quality_score": 1156.3,
+          "is_recommended": false,
+          "quality_badge": "🎨 Diseño Alternativo (530×578 PNG · Fondo transparente)",
+          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p003-una.png"
@@ -3474,7 +3568,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1FYXPhFWu4itfXBNBvyagUukQ-AZhn5TG.png",
           "note": "Caballito de madera (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -3497,6 +3591,7 @@
           "note": "Niña en caballito (letra o)",
           "priority": 1,
           "quality_score": 2522.5,
+          "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1254×1254 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -3603,7 +3698,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Iz9Dlvt2GsYUcuHR618F40vxfN_9_6CD.png",
           "note": "Doctor y niña (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -3714,10 +3809,10 @@
           "note": "Alas pintadas a mano",
           "priority": 1,
           "quality_score": 2522.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p005-ala.png"
@@ -3759,9 +3854,10 @@
           "note": "Nueva ilustración generada (aro, score=0.646)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "a00a15c746cf0bf8129973257112cff25d27a405da9943f9d06010d6c54c9aa8",
@@ -3779,7 +3875,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-20-recovered/aro-v1-643bf873.png",
           "note": "Aro multicolor",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1402×1122 PNG)",
@@ -3869,32 +3965,31 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Tp7_86BxxHbx1HPt32y2eprtJp8oTvm1.png",
           "note": "Niña con letra e (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
-          "duplicates_removed": 1,
+          "quality_score": 2773,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         },
         {
-          "sha256": "91d1f0ac9969191b13db7cc9355b697c4d37375cf7b14939133e60ec5f6eed43",
-          "id": "91d1f0ac9969",
-          "web_url": "/cartilla/art/candidates-board/91d1f0ac9969191b.png",
-          "offline_url": "board-assets/91d1f0ac9969191b.png",
+          "sha256": "d2e8ccda3a939a43b6ad6bc0cb538bb8df4444db662f41dcae509dd08af114f2",
+          "id": "d2e8ccda3a93",
+          "web_url": "/cartilla/art/candidates-board/d2e8ccda3a939a43.webp",
+          "offline_url": "board-assets/d2e8ccda3a939a43.webp",
           "width": 950,
           "height": 1250,
-          "format": "PNG",
+          "format": "WEBP",
           "has_alpha": true,
           "mode": "RGBA",
-          "bytes": 924624,
-          "kb": 903,
-          "source_tag": "Repositorio / Optimizado en Repo",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-scene.png",
-          "note": "Versión en repo (p006-scene.png)",
+          "bytes": 587394,
+          "kb": 574,
+          "source_tag": "Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-scene.webp",
+          "note": "Escena optimizada (p006-scene.webp)",
           "priority": 2,
-          "quality_score": 2037.5,
-          "duplicates_removed": 1,
+          "quality_score": 1837.5,
           "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (950×1250 PNG · Fondo transparente)",
+          "quality_badge": "🎨 Diseño Alternativo (950×1250 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -3937,10 +4032,10 @@
           "note": "Nueva ilustración generada (elefante, score=0.946)",
           "priority": 1,
           "quality_score": 2772.5,
-          "duplicates_removed": 2,
+          "duplicates_removed": 3,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 3 copias de menor resolución)."
         },
         {
           "sha256": "5f5665507a7330963c243a7667ed1e6c131911a193242d433a5a868ecd59ce5b",
@@ -3964,25 +4059,24 @@
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         },
         {
-          "sha256": "d0c044b079af68d6e7ca87c65a3cfa75dd9883b50e138b24be25f9777975b8fa",
-          "id": "d0c044b079af",
-          "web_url": "/cartilla/art/candidates-board/d0c044b079af68d6.png",
-          "offline_url": "board-assets/d0c044b079af68d6.png",
+          "sha256": "a15b4c0318edd0013701adfbc833a9fe7b26e47fb4a5dd9d5919ecfbf8f69ecd",
+          "id": "a15b4c0318ed",
+          "web_url": "/cartilla/art/candidates-board/a15b4c0318edd001.webp",
+          "offline_url": "board-assets/a15b4c0318edd001.webp",
           "width": 570,
           "height": 540,
-          "format": "PNG",
+          "format": "WEBP",
           "has_alpha": true,
           "mode": "RGBA",
-          "bytes": 249197,
-          "kb": 243,
-          "source_tag": "Repositorio / Optimizado en Repo",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
-          "note": "Versión en repo (p006-elefante.png)",
+          "bytes": 152348,
+          "kb": 149,
+          "source_tag": "Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p006-elefante.webp",
+          "note": "Dibujo optimizado (p006-elefante.webp)",
           "priority": 2,
-          "quality_score": 1157.8,
-          "duplicates_removed": 1,
+          "quality_score": 957.8,
           "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (570×540 PNG · Fondo transparente)",
+          "quality_badge": "🎨 Diseño Alternativo (570×540 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -4046,7 +4140,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/vocal-e/espejo.webp",
           "note": "Dibujo optimizado (espejo.webp)",
           "priority": 2,
-          "quality_score": 1366.0,
+          "quality_score": 1366,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (870×823 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -4135,7 +4229,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1kyNo3l1Q1GJ4t-ooSaYaqBJjch6RWqHp.png",
           "note": "Niña con pelota (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 5,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -4222,7 +4316,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1NFyKG8ITzzTh3f0QjWMjxPBNSjsgIp9V.png",
           "note": "Brujita Ula (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -4245,7 +4339,7 @@
           "note": "Nueva ilustración generada (brujita, score=0.536)",
           "priority": 1,
           "quality_score": 2772.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1254×1254 PNG · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -4331,9 +4425,10 @@
           "note": "Nueva ilustración generada (Ulises, score=0.942)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p008-ulises.png"
@@ -4374,7 +4469,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1s0RWeRkf-wou7cagH6XzpufqXWu2ewP4.png",
           "note": "La Vaca Vacuna",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -4441,9 +4536,10 @@
           "note": "Nueva ilustración generada (mam�, score=0.907)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "eb1bb2f8641653b474cf3c119fbd027ed6a4bbbf02d497c60faa865f4df21f9b",
@@ -4595,7 +4691,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1pQxgrHJs_vDQ3yVC9NKw6P_Ag9kIaHF0.png",
           "note": "Mima (Mamá abrazando niña)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -4834,9 +4930,10 @@
           "note": "Nueva ilustración generada (pap�, score=0.9)",
           "priority": 1,
           "quality_score": 2773.4,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1273×1236 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "da2780a117e40a23ba78bd138bef020849545bcc1b824895ea5a7f598de7c19c",
@@ -5116,7 +5213,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/flipchart/flipchart-p014-hero.webp",
           "note": "Versión en repo (flipchart-p014-hero.webp)",
           "priority": 2,
-          "quality_score": 2735.0,
+          "quality_score": 2735,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (2296×1017 WEBP)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -5180,29 +5277,9 @@
           "note": "Serpiente y sol con sombrero",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
-        },
-        {
-          "sha256": "a42b9c105923d6b1478dc92fae8b556b3b40e74796684908522ed5a3cd65c8e4",
-          "id": "a42b9c105923",
-          "web_url": "/cartilla/art/candidates-board/a42b9c105923d6b1.png",
-          "offline_url": "board-assets/a42b9c105923d6b1.png",
-          "width": 560,
-          "height": 560,
-          "format": "PNG",
-          "has_alpha": false,
-          "mode": "RGB",
-          "bytes": 287347,
-          "kb": 281,
-          "source_tag": "Repositorio / Optimizado en Repo",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p015-scene.png",
-          "note": "Versión en repo (p015-scene.png)",
-          "priority": 2,
-          "quality_score": 913.6,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (560×560 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -5244,7 +5321,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p015-sesi.png",
           "note": "Versión actual (p015-sesi.png)",
           "priority": 3,
-          "quality_score": 467.0,
+          "quality_score": 467,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (342×342 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -5273,25 +5350,26 @@
       ],
       "candidates": [
         {
-          "sha256": "17361d40463e3b298040ada84020a58042a70666bbd9a4ebcbcbe1a46031ae58",
-          "id": "17361d40463e",
-          "web_url": "/cartilla/art/candidates-board/17361d40463e3b29.webp",
-          "offline_url": "board-assets/17361d40463e3b29.webp",
+          "sha256": "8359e3e6ee0c5ab361280d124383e2e9af7fe47f4dff8f3a2275514c0b6fd1fd",
+          "id": "8359e3e6ee0c",
+          "web_url": "/cartilla/art/candidates-board/8359e3e6ee0c5ab3.png",
+          "offline_url": "board-assets/8359e3e6ee0c5ab3.png",
           "width": 870,
           "height": 676,
-          "format": "WEBP",
+          "format": "PNG",
           "has_alpha": true,
           "mode": "RGBA",
-          "bytes": 91132,
-          "kb": 89,
-          "source_tag": "Arte Fiel",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-9-s/sopa.webp",
-          "note": "Dibujo optimizado (sopa.webp)",
+          "bytes": 504867,
+          "kb": 493,
+          "source_tag": "Repositorio / Optimizado en Repo",
+          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+          "note": "Versión en repo (p015-sopa.png)",
           "priority": 2,
-          "quality_score": 1238.1,
+          "quality_score": 1438.1,
+          "duplicates_removed": 1,
           "is_recommended": true,
-          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (870×676 WEBP · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (870×676 PNG · Fondo transparente)",
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p015-sopa.png"
@@ -5376,7 +5454,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p015-pisa.png",
           "note": "Versión en repo (p015-pisa.png)",
           "priority": 2,
-          "quality_score": 1058.0,
+          "quality_score": 1058,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (815×562 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -5525,7 +5603,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p017-scene.png",
           "note": "Versión en repo (p017-scene.png)",
           "priority": 2,
-          "quality_score": 1266.0,
+          "quality_score": 1266,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (645×645 PNG · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -5567,7 +5645,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1vndYxRJ2Vp3jxnjFc17jdxuCdZsrv_oZ.png",
           "note": "Niño con tambor y tomates",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -5725,24 +5803,24 @@
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
         },
         {
-          "sha256": "12d301a36bd70573e5d074566f97710be238fe786afc77a349f4b13d23a30ab8",
-          "id": "12d301a36bd7",
-          "web_url": "/cartilla/art/candidates-board/12d301a36bd70573.webp",
-          "offline_url": "board-assets/12d301a36bd70573.webp",
-          "width": 1536,
-          "height": 1240,
+          "sha256": "ddc4a4b1a3b5bb8b3e175aa41e3b296ab776e597d581340125433162a556a205",
+          "id": "ddc4a4b1a3b5",
+          "web_url": "/cartilla/art/candidates-board/ddc4a4b1a3b5bb8b.webp",
+          "offline_url": "board-assets/ddc4a4b1a3b5bb8b.webp",
+          "width": 1254,
+          "height": 1254,
           "format": "WEBP",
-          "has_alpha": false,
-          "mode": "RGB",
-          "bytes": 127625,
-          "kb": 125,
+          "has_alpha": true,
+          "mode": "RGBA",
+          "bytes": 457192,
+          "kb": 446,
           "source_tag": "Repositorio / Optimizado en Repo",
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
           "note": "Versión en repo (p018-tapa.webp)",
           "priority": 2,
-          "quality_score": 2304.6,
+          "quality_score": 2222.5,
           "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (1536×1240 WEBP)",
+          "quality_badge": "🎨 Diseño Alternativo (1254×1254 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -5806,7 +5884,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1uVZw5uo8-BWOYA3hjzDuGSWi2twHqT4O.png",
           "note": "Topo (con fondo)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -5827,7 +5905,7 @@
           "original_path": "cartilla_thread_created_images.zip!colorful_cartoon_mole_with_jackhammer.png",
           "note": "Topo con taladro (Variante B)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -5871,7 +5949,7 @@
           "original_path": "cartilla_thread_created_images.zip!vibrant_folk_art_teepee_sticker.png",
           "note": "Tipi (con fondo azul)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -5957,7 +6035,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/15tCAnwaMLB_PDin8StY_bYSaTWZZ520Z.png",
           "note": "Tuto en silla de ruedas (con fondo)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6044,7 +6122,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1BRpdzoAoVznlmYtqA_ObGeLZxdRqUxK0.png",
           "note": "Cocineros y pato con sopa",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1402×1122 PNG · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6065,7 +6143,7 @@
           "original_path": "cartilla_thread_created_images.zip!sleepy_magenta_rooster_on_a_perch.png",
           "note": "Gallo en percha",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6107,7 +6185,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1GvCQBvgIgO4gUyyWklTAp0glpi6CZn3i.png",
           "note": "Niño en escalera tocando campana",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -6193,7 +6271,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/009-p021-didi(1).png",
           "note": "Nueva ilustración generada (Didi, score=0.975)",
           "priority": 1,
-          "quality_score": 4913.0,
+          "quality_score": 4913,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (2048×1813 PNG · Fondo transparente)",
@@ -6257,7 +6335,7 @@
           "original_path": "cartilla_thread_created_images.zip!colorful_painted_dice_flashcard_dados.png",
           "note": "Dados de colores",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "duplicates_removed": 1,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
@@ -6321,7 +6399,7 @@
           "original_path": "cartilla_thread_created_images.zip!cartoon_finger_flashcard_with_pink_bow.png",
           "note": "Dedo con lazo rosado",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6387,7 +6465,7 @@
           "original_path": "cartilla_thread_created_images.zip!folk_art_floral_number_12.png",
           "note": "Número 12 floral (con fondo dorado)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6408,7 +6486,7 @@
           "original_path": "cartilla_thread_created_images.zip!folk_floral_vine_number_12.png",
           "note": "Número 12 floral (con fondo azul)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6450,7 +6528,7 @@
           "original_path": "cartilla_thread_created_images.zip!harambee_a_joyful_folk_art_lesson.png",
           "note": "Niños alrededor del mundo (Dunia)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -6513,7 +6591,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1wChWdYDgKsR9nlXsXGxXWGZxZL8dibQN.png",
           "note": "Rana mirando el sol",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1402×1122 PNG · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -6534,7 +6612,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/flipchart/flipchart-p023-hero.webp",
           "note": "Versión en repo (flipchart-p023-hero.webp)",
           "priority": 2,
-          "quality_score": 2201.0,
+          "quality_score": 2201,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (2240×804 WEBP)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6663,7 +6741,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1V6D4gEV1LBF2pmiR5JMp3NXk8GRJVZGa.png",
           "note": "Maleta (con fondo)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6729,7 +6807,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1v3VuaclxathZXd3_CNqE-4rfKsyEMUyL.png",
           "note": "Lata (con fondo)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -6773,7 +6851,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1LzJCPc2Gc1CUzbn6hrNUWDXnENVb_DyP.png",
           "note": "Luli (con fondo)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -6839,7 +6917,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1_JnyVXP7bnCgX8xqz2JXIsB1m4PL1ag6.png",
           "note": "Loma con tractor (con fondo)",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -7098,9 +7176,10 @@
           "note": "Nueva ilustración generada (nido, score=0.726)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "8631178289926420c103ccfecdf49fda31e3ec017f3ab81bf9742842a7502ec1",
@@ -7271,7 +7350,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p027-napi.png",
           "note": "Versión en repo (p027-napi.png)",
           "priority": 2,
-          "quality_score": 1147.0,
+          "quality_score": 1147,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (765×715 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -7357,7 +7436,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1DA2ry015Bc08EJoPvOURahK874_tKaxZ.png",
           "note": "Papá con bebé y pajarito",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -7463,7 +7542,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/flipchart/flipchart-p030-hero.webp",
           "note": "Versión en repo (flipchart-p030-hero.webp)",
           "priority": 2,
-          "quality_score": 2467.0,
+          "quality_score": 2467,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (2206×937 WEBP)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -7484,7 +7563,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p030-scene.png",
           "note": "Versión en repo (p030-scene.png)",
           "priority": 2,
-          "quality_score": 897.0,
+          "quality_score": 897,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (545×545 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -7528,7 +7607,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p030-pinata.png",
           "note": "Versión en repo (p030-pinata.png)",
           "priority": 2,
-          "quality_score": 930.0,
+          "quality_score": 930,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (574×575 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -7572,7 +7651,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p030-nuno.png",
           "note": "Versión en repo (p030-nuno.png)",
           "priority": 2,
-          "quality_score": 1017.0,
+          "quality_score": 1017,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (536×778 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -7808,7 +7887,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/flipchart/flipchart-p032-hero.webp",
           "note": "Versión en repo (flipchart-p032-hero.webp)",
           "priority": 2,
-          "quality_score": 2207.0,
+          "quality_score": 2207,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (2296×787 WEBP)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -8201,31 +8280,10 @@
           "note": "Viento soplando (con letras v)",
           "priority": 1,
           "quality_score": 2772.5,
-          "duplicates_removed": 1,
+          "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
-        },
-        {
-          "sha256": "bf7f19e1152d0fb4b585bf79cb05ab62799d4715eb0062f2681a78c1bae8a31d",
-          "id": "bf7f19e1152d",
-          "web_url": "/cartilla/art/candidates-board/bf7f19e1152d0fb4.png",
-          "offline_url": "board-assets/bf7f19e1152d0fb4.png",
-          "width": 526,
-          "height": 526,
-          "format": "PNG",
-          "has_alpha": false,
-          "mode": "RGB",
-          "bytes": 191915,
-          "kb": 187,
-          "source_tag": "Repositorio / Optimizado en Repo",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p036-scene.png",
-          "note": "Versión en repo (p036-scene.png)",
-          "priority": 2,
-          "quality_score": 876.7,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (526×526 PNG)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 2 copias de menor resolución)."
         }
       ],
       "canonical_target": "public/cartilla/art/optimized/flipchart-native/p036-scene.png"
@@ -8311,9 +8369,10 @@
           "note": "Nueva ilustración generada (vela, score=0.951)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "2258b95ee36a10bcea41ca14abefb8d2a8a5699f41e2abc1ec5b7af9ff2d6927",
@@ -8419,7 +8478,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p036-pavo.png",
           "note": "Versión en repo (p036-pavo.png)",
           "priority": 2,
-          "quality_score": 1007.0,
+          "quality_score": 1007,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (613×664 PNG)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -8589,9 +8648,10 @@
           "note": "Ratón con letra R",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "579e969df6d0780605b9aa84186a0ac843965a4590b42acd42b5568e1cd90d21",
@@ -8612,27 +8672,6 @@
           "quality_score": 2268.4,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (2243×833 WEBP)",
-          "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
-        },
-        {
-          "sha256": "34c483c6f78d8bd554ee59e4fe539dd273af72e6d89b34d7424735a33b4aabbe",
-          "id": "34c483c6f78d",
-          "web_url": "/cartilla/art/candidates-board/34c483c6f78d8bd5.png",
-          "offline_url": "board-assets/34c483c6f78d8bd5.png",
-          "width": 519,
-          "height": 519,
-          "format": "PNG",
-          "has_alpha": false,
-          "mode": "RGB",
-          "bytes": 178166,
-          "kb": 174,
-          "source_tag": "Repositorio / Optimizado en Repo",
-          "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p039-scene.png",
-          "note": "Versión en repo (p039-scene.png)",
-          "priority": 2,
-          "quality_score": 869.4,
-          "is_recommended": false,
-          "quality_badge": "🎨 Diseño Alternativo (519×519 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
         }
       ],
@@ -9177,9 +9216,10 @@
           "note": "Nueva ilustración generada (Tierra, score=0.974)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "4d9aeff05af4f94b5e2ed788e080261b3b34ca703cefe5e618160a51a0e5861c",
@@ -9218,7 +9258,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-18-rr/tierra.webp",
           "note": "Versión en repo (tierra.webp)",
           "priority": 2,
-          "quality_score": 1406.0,
+          "quality_score": 1406,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (869×870 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -9326,7 +9366,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/19KMI5ofWkTg5H-cmv4Lz71UpfnvCBbDr.png",
           "note": "El Gato Goloso (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -9393,9 +9433,10 @@
           "note": "Nueva ilustración generada (gaveta, score=0.865)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "b0ac80649a65046a80c20b53487a089fb7707f2db16020ab0969c35410bb6a1b",
@@ -9458,9 +9499,10 @@
           "note": "Nueva ilustración generada (gusano, score=0.832)",
           "priority": 1,
           "quality_score": 2772.9,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1536×1024 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "0f2e4e3b15b8fa1a5028c54ccd0354f74e29b96b28f9193dbd61b0abcf7a6b88",
@@ -9914,7 +9956,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Vibrant hand-painted children's illustration.png",
           "note": "Nueva ilustración generada (familia, score=0.964)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (914×1721 PNG · Fondo transparente)",
@@ -10046,7 +10088,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-20-f/funda.webp",
           "note": "Versión en repo (funda.webp)",
           "priority": 2,
-          "quality_score": 1199.0,
+          "quality_score": 1199,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (870×631 WEBP · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -10067,7 +10109,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p048-funda.png",
           "note": "Versión en repo (p048-funda.png)",
           "priority": 2,
-          "quality_score": 990.0,
+          "quality_score": 990,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (623×626 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -10111,7 +10153,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/10cE3AErnp3x2eH_2N1nUJar0vqeXZUF_.png",
           "note": "La Jirafa (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -10154,7 +10196,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/optimized/flipchart-native/p050-scene.png",
           "note": "Versión en repo (p050-scene.png)",
           "priority": 2,
-          "quality_score": 2492.0,
+          "quality_score": 2492,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1373×1378 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -10196,7 +10238,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1YUCuOhzc4CXPOwbn16N_woO2HfpKYg6y.png",
           "note": "Niña bañando jicotea (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -10284,9 +10326,10 @@
           "note": "Nueva ilustración generada (jicotea, score=0.912)",
           "priority": 1,
           "quality_score": 2773.2,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1374×1145 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "9737abeac7ed88ce8e0a1f58d768c41bc1cfb48493c0f261db32e7b9f7195202",
@@ -10563,7 +10606,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1f5fTZFZBGsd40OE4qrQ74hWo6rJY-g2l.png",
           "note": "Niña en carroza de calabaza",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
           "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
@@ -10649,7 +10692,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/imagegen-2026-11-06/Hand-painted rooster with hearts.png",
           "note": "Nueva ilustración generada (gallina c, score=0.97)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1412×1114 PNG · Fondo transparente)",
@@ -10716,9 +10759,10 @@
           "note": "Nueva ilustración generada (cuna, score=0.689)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "f1bcbf8edbaa0d3c07ff67aeef8fc745a391d6ed283b7a28aba77dafe31fa52e",
@@ -10736,7 +10780,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-19-c/cuna.webp",
           "note": "Dibujo optimizado (cuna.webp)",
           "priority": 2,
-          "quality_score": 1212.0,
+          "quality_score": 1212,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (870×646 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -11020,7 +11064,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1TAytA1uzBNytVLw3E8ZULKVUKzFeVb5j.png",
           "note": "Casita del árbol con caramelos",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -11239,9 +11283,10 @@
           "note": "Nueva ilustración generada (Yayita, score=0.77)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "6954f8b87ce8ff463a02352bd5a66ce36816d321245eabc1572d544f1312e275",
@@ -11541,7 +11586,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/owner-intake/2026-10-14/originals/primary/1IeCI1MCopt1QwdMeNsjP4P4yCOjZaBRR.png",
           "note": "El Zángano Zumbón (Versión 1)",
           "priority": 1,
-          "quality_score": 2773.0,
+          "quality_score": 2773,
           "duplicates_removed": 2,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1122×1402 PNG · Fondo transparente)",
@@ -11759,7 +11804,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/leccion-23-z/zorro.webp",
           "note": "Versión en repo (zorro.webp)",
           "priority": 2,
-          "quality_score": 913.0,
+          "quality_score": 913,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (487×540 WEBP · Fondo transparente)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -11867,9 +11912,10 @@
           "note": "Nueva ilustración generada (Zulema, score=0.804)",
           "priority": 1,
           "quality_score": 2772.5,
+          "duplicates_removed": 1,
           "is_recommended": true,
           "quality_badge": "⭐ RECOMENDADO · Máxima Calidad (1254×1254 PNG · Fondo transparente)",
-          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica."
+          "quality_advice": "Esta es la versión de mayor nitidez y calidad técnica (se descartaron 1 copias de menor resolución)."
         },
         {
           "sha256": "6c0f07ea2d6384daa37c83bb6d838fb443918118d5dde62019c3929a53cbbaf0",
@@ -11950,7 +11996,7 @@
           "original_path": "C:/Users/EJN/Downloads/La Cartilla de Gretel/public/cartilla/art/faithful/flipchart/flipchart-p062-hero.webp",
           "note": "Versión en repo (flipchart-p062-hero.webp)",
           "priority": 2,
-          "quality_score": 2213.0,
+          "quality_score": 2213,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (2255×804 WEBP)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
@@ -12052,7 +12098,7 @@
           "original_path": "C:/Users/EJN/Downloads/image-gen-5(20261030-080500).png",
           "note": "Portada: Leer juntos en familia",
           "priority": 1,
-          "quality_score": 2523.0,
+          "quality_score": 2523,
           "is_recommended": false,
           "quality_badge": "🎨 Diseño Alternativo (1122×1402 PNG)",
           "quality_advice": "Dibujo diferente al recomendado. Elígelo solo si prefieres este estilo visual."
