@@ -31,7 +31,13 @@ export function endDemoStudentSession() {
 export function resetDemoClassroom() {
   if (import.meta.env.VITE_CRM_REVIEW !== "true" || !isSeedSessionActive()) throw new Error("Abre primero la clase de ejemplo.");
   endDemoStudentSession();
-  const demoKeys = Array.from({ length: localStorage.length }, (_, index) => localStorage.key(index)).filter((key): key is string => Boolean(key?.includes(":demo:")));
+  const demoKeys: string[] = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.includes(":demo:")) {
+      demoKeys.push(key);
+    }
+  }
   for (const key of demoKeys) localStorage.removeItem(key);
   resetSeedStateRaw();
   startTeacherReview();
