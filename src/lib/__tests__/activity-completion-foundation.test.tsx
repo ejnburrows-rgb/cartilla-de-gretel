@@ -20,7 +20,7 @@ const pages = [5, 6].map(pageNumber => ({ id: `proof-${pageNumber}`, pageNumber,
 function mountP5() { return render(<><GretelPresence bookMode autoIntro={false} /><NativeLessonViewer pages={pages} chapterLabel="Lección 2" /></>); }
 async function tap(name: string) {
   const button = screen.getByRole('button', { name });
-  fireEvent.focus(button); fireEvent.click(button);
+  fireEvent.focus(button); fireEvent.click(button, { detail: 1 });
   await act(async () => { await vi.advanceTimersByTimeAsync(700); });
 }
 beforeEach(() => { localStorage.clear(); vi.useFakeTimers(); window.scrollTo = vi.fn(); });
@@ -34,6 +34,10 @@ describe('actual Workbook p5 completion', () => {
     for (const word of ['oveja', 'ojos', 'oreja', 'olla']) await tap(word);
     expect(next().getAttribute('aria-disabled')).toBe('true');
     await tap('oso');
+    // Distinguish pencil feedback still pending from a broken page gate:
+    // each correct learner mark must be committed before Siguiente opens.
+    expect(screen.getByRole('button', { name: 'oso' }).getAttribute('aria-pressed')).toBe('true');
+    expect(pageCompletionState(5).complete).toBe(true);
     expect(next().hasAttribute('aria-disabled')).toBe(false);
   });
   it('restores completed answers and gate even when the old gate record is missing', () => {
@@ -47,7 +51,13 @@ describe('actual Workbook p5 completion', () => {
     await tap('iglú'); await tap('alas');
     fireEvent.click(screen.getByRole('button', { name: 'Ayuda' }));
     for (const word of ['oveja', 'ojos', 'oreja', 'olla', 'oso']) await tap(word);
-    await act(async () => { await vi.advanceTimersByTimeAsync(10000); });
+    // Each wrong mark and queued correct line owns a turn. Let React flush
+    // each timer/effect cycle rather than jumping past new timers in one step.
+    // This still fails if the real completion gate cannot open within 10s.
+    for (let i = 0; i < 20 && next().hasAttribute('aria-disabled'); i++) {
+      await act(async () => { await vi.advanceTimersByTimeAsync(500); });
+    }
+    expect(pageCompletionState(5).complete).toBe(true);
     expect(next().hasAttribute('aria-disabled')).toBe(false);
     fireEvent.click(next());
     await act(async () => { await vi.advanceTimersByTimeAsync(LESSON_PAGE_TURN_TOTAL_MS + 200); });
