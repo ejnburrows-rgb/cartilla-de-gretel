@@ -458,6 +458,105 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     goTo(targetIndex, direction);
   };
 
+  const easelDragRef = useRef<{
+    tracking: boolean;
+    startX: number;
+    startY: number;
+    pointerId: number;
+    initiated: boolean;
+  }>({
+    tracking: false,
+    startX: 0,
+    startY: 0,
+    pointerId: -1,
+    initiated: false,
+  });
+
+  const handleEaselPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (laserPointerActive || isFlipping || flipLockedRef.current || pages.length === 0) return;
+    if ((e.target as Element)?.closest("button, input, textarea, select, a, .fc-corner")) return;
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+
+    easelDragRef.current = {
+      tracking: true,
+      startX: e.clientX,
+      startY: e.clientY,
+      pointerId: e.pointerId,
+      initiated: false,
+    };
+  };
+
+  const handleEaselPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = easelDragRef.current;
+    if (!drag.tracking || drag.pointerId !== e.pointerId) return;
+
+    if (!drag.initiated) {
+      const dx = e.clientX - drag.startX;
+      const dy = e.clientY - drag.startY;
+      if (Math.abs(dy) < 14) return;
+      if (Math.abs(dx) > Math.abs(dy) * 1.2) {
+        drag.tracking = false;
+        return;
+      }
+      const direction: "next" | "prev" = dy < 0 ? "next" : "prev";
+      const targetIndex = direction === "next" ? safeIdx + 1 : safeIdx - 1;
+      if (targetIndex < 0 || targetIndex >= pages.length) {
+        drag.tracking = false;
+        return;
+      }
+      drag.initiated = true;
+      try {
+        e.currentTarget.setPointerCapture?.(e.pointerId);
+      } catch {
+        /* ignore */
+      }
+      dragStateRef.current = {
+        active: true,
+        startX: drag.startX,
+        startY: drag.startY,
+        direction,
+        targetIdx: targetIndex,
+        pointerId: e.pointerId,
+        soundPlayed: false,
+        progress: 0,
+      };
+    }
+
+    if (drag.initiated) {
+      handleCornerPointerMove(e);
+    }
+  };
+
+  const handleEaselPointerUp = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = easelDragRef.current;
+    if (!drag.tracking || drag.pointerId !== e.pointerId) return;
+    const wasInitiated = drag.initiated;
+    easelDragRef.current = { tracking: false, startX: 0, startY: 0, pointerId: -1, initiated: false };
+    try {
+      e.currentTarget.releasePointerCapture?.(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    if (wasInitiated) {
+      handleCornerPointerUp(e);
+    }
+  };
+
+  const handleEaselPointerCancel = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = easelDragRef.current;
+    if (!drag.tracking || drag.pointerId !== e.pointerId) return;
+    const wasInitiated = drag.initiated;
+    easelDragRef.current = { tracking: false, startX: 0, startY: 0, pointerId: -1, initiated: false };
+    try {
+      e.currentTarget.releasePointerCapture?.(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    if (wasInitiated) {
+      handleCornerPointerCancel(e);
+    }
+  };
+
   if (pages.length === 0) {
     return (
       <div className="fc-board__empty" data-testid="flipchart-empty">
@@ -525,6 +624,10 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         role="region"
         aria-label="Superficie del rotafolio"
         tabIndex={0}
+        onPointerDown={handleEaselPointerDown}
+        onPointerMove={handleEaselPointerMove}
+        onPointerUp={handleEaselPointerUp}
+        onPointerCancel={handleEaselPointerCancel}
       >
         <div className="fc-board__page">
           <div className="fc-board__page-inner" ref={pageInnerRef}>
