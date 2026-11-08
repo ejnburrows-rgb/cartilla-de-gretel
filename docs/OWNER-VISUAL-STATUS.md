@@ -4,10 +4,10 @@
 **Authoritative Execution Issue:** [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877)  
 **Production URL:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
 **Live Alias:** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
-**Last Checked Date:** 2026-11-07  
-**Official Main Revision:** `def8009f` (feat(phase-1): emergency functional repairs, piano interactivity, gretel presence, and master handoff)  
+**Last Checked Date:** 2026-11-08 19:25 UTC  
+**Official Main Revision:** `c151d487` (PR #1291 merged: permanently enforce classic wooden pencil and lock out rejected skinny pencil)  
 **Active Production Revision:** `41cf1949` (Deployment: `dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE`)  
-**Production Status:** 🟢 **Production is 100% in sync with official main.** (All 370+ previously blocked commits are now built, verified, and live).
+**Production Status:** 🟡 **Website Behind GitHub main** (Release candidate `c151d487` verified on main; production running Sat Nov 7 build `41cf1949` awaiting explicit owner deployment authorization "deploy it").
 
 ---
 
@@ -15,10 +15,10 @@
 
 ```mermaid
 flowchart TD
-    MAIN["Official Main Branch (def8009f)"]
-    AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [LIVE]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [LIVE]"]
-    BRANCHES["Remote Branches (348 total)<br/>• Active/PR: #1282 (Visual Explorer), #1268, #1262<br/>• Specialists: Cow Game (#1081 merged), Chano<br/>• Stale Candidates: ~330 historical branches"]
-    VERCEL["Vercel Production Deployment<br/>Active Live ID: dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE<br/>Status: Revision 41cf1949 Live | Phase 1 (def8009f) Ready for Release Approval"]
+    MAIN["Official Main Branch (c151d487)"]
+    AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE - PR #1291 Locked]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [PR #1073 Isolated]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [Awaiting Owner 'deploy it']"]
+    BRANCHES["Remote Branches (280 total)<br/>• 13 safe merged branches deleted<br/>• Open PRs: 105 active specialist branches<br/>• Closed unmerged PR branches: 118 preserved<br/>• Unique drafts / spikes: 57 preserved"]
+    VERCEL["Vercel Production Deployment<br/>Active Live ID: dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE<br/>Status: Revision 41cf1949 Live | Main (c151d487) Ready for Release Approval"]
     LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Production Awaiting Deploy Authorization"]
 
     MAIN --> AREAS
@@ -44,13 +44,13 @@ flowchart LR
 ---
 
 ## 3. Branch and Merge Status
-- **Official Source:** `main` (`dec262bd`)
+- **Official Source:** `main` (`c151d487`)
 - **Open Pull Requests (Sample):**
   - PR #1282: `docs: owner-approved in-chat visual repository explorer`
   - PR #1268: `🧹 [code health] Reduce deeply nested conditional ref logic in PencilConnector`
   - PR #1262: `⚡ Optimize O(N*M) loop in OrderedExercises to O(N) using Sets`
   - PR #1261: `⚡ Optimize LessonCompleteModal sticker lookup`
-- **Total Remote Branches:** 348 branches.
+- **Total Remote Branches:** 280 branches (13 safe merged branches pruned, 105 open PRs, 118 closed PRs, 57 no-PR unique branches preserved).
 
 ---
 
