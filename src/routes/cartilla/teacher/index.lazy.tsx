@@ -61,6 +61,13 @@ const ENTRY_POINTS: EntryPoint[] = [
     accent: "#ea580c",
   },
   {
+    title: "Maestra suplente",
+    description: "Guía preprogramada de las 24 lecciones, práctica local y cuaderno auténtico.",
+    to: "/cartilla/suplente",
+    icon: <Sparkles className="w-6 h-6" />,
+    accent: "#0f766e",
+  },
+  {
     title: "Ayuda",
     description: "Cómo usar la app: clase, asignar, presentar, guía y progreso, paso a paso.",
     to: "/cartilla/teacher/ayuda",
@@ -125,7 +132,7 @@ function TeacherHub() {
         </p>
       </header>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {ENTRY_POINTS.map((entry) => (
           <Link
             key={entry.title}

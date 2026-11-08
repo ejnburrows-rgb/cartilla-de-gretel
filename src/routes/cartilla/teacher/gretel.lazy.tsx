@@ -132,6 +132,13 @@ function TeacherGretelPage() {
         </div>
       </header>
 
+      <Link
+        to="/cartilla/suplente"
+        className="inline-flex min-h-12 items-center rounded-xl border border-teal-300 bg-teal-50 px-5 py-3 text-sm font-black text-teal-900 hover:bg-teal-100"
+      >
+        Abrir Maestra suplente · Guía local de las 24 lecciones →
+      </Link>
+
       {/* Search and Prompt Quick Filters */}
       <section className="space-y-4">
         <div className="relative">
