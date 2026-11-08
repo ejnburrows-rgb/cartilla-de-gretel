@@ -298,3 +298,19 @@
   - HTTP 200 OK verified on `http://127.0.0.1:4173/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html`.
   - HTTP 200 OK verified on `http://127.0.0.1:4173/cartilla/lecciones`.
 
+
+
+## Decision: Owner Approved Option A («El Libro Vivo») & Top 2 Creative Activity Architecture (2026-11-08)
+
+### Architectural Decisions & Outcomes
+- **Option A Formally Selected by Owner**: The design architecture for the entire platform is locked to «El Libro Vivo de Gretel» — preserving the nostalgic physical book aesthetic, authentic paper curling, warm paper textures, tole painting borders, and gentle character presence.
+- **Top 2 Creative Activities Paradigm (Not Dull, Not Repetitive)**:
+  1. **Activity 1 (Reading & Phonics): «El Jardín de Sílabas y Linterna Mágica»**:
+     - Eliminates dull multiple-choice buttons.
+     - Child manipulates tactile wooden syllable blocks resting on workbook parchment with subtle wood-on-paper click sounds.
+     - Gretel's lantern highlights the illustrated vignette. When syllables are correctly assembled, the book illustration breathes to life (gentle animation).
+  2. **Activity 2 (Writing & Comprehension): «El Taller del Lápiz de Cedro y la Cinta de Seda»**:
+     - Eliminates clinical dotted worksheets and unapproved pencils.
+     - Wields the master approved classic cedar wood pencil (scale 2.4, 55° writing tilt) across Spanish double calligraphy guidelines with graphite friction audio and rubber crumb erasing.
+     - Traced word connects to its illustrated plate via an organic silk bookmark ribbon.
+- **Master Handoff Hub Updated**: `docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html` and `public/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html` updated with explicit owner approval badge, decision banner, and creative activity showcase.

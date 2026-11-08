@@ -5,7 +5,7 @@
 **Production URL:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
 **Live Alias:** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
 **Last Checked Date:** 2026-11-07  
-**Official Main Revision:** `41cf1949` (fix(exercises): unify approved classic wooden pencil design across all exercises)  
+**Official Main Revision:** `def8009f` (feat(phase-1): emergency functional repairs, piano interactivity, gretel presence, and master handoff)  
 **Active Production Revision:** `41cf1949` (Deployment: `dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE`)  
 **Production Status:** 🟢 **Production is 100% in sync with official main.** (All 370+ previously blocked commits are now built, verified, and live).
 
@@ -15,11 +15,11 @@
 
 ```mermaid
 flowchart TD
-    MAIN["Official Main Branch (41cf1949)"]
+    MAIN["Official Main Branch (def8009f)"]
     AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [LIVE]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [LIVE]"]
     BRANCHES["Remote Branches (348 total)<br/>• Active/PR: #1282 (Visual Explorer), #1268, #1262<br/>• Specialists: Cow Game (#1081 merged), Chano<br/>• Stale Candidates: ~330 historical branches"]
-    VERCEL["Vercel Production Deployment<br/>Status: READY (dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE)"]
-    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Revision 41cf1949 Verified"]
+    VERCEL["Vercel Production Deployment<br/>Active Live ID: dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE<br/>Status: Revision 41cf1949 Live | Phase 1 (def8009f) Ready for Release Approval"]
+    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Production Awaiting Deploy Authorization"]
 
     MAIN --> AREAS
     MAIN -.-> BRANCHES
@@ -33,12 +33,12 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    AUDIT["1. Inspect Vercel Failures (vitest gate & art classification)"] 
-    --> FIX["2. Repair Test Failures (ayuda.lazy.tsx, watch boundaries, art audit)"]
-    --> GATE["3. Pass Local Build Gate (2,242/2,242 tests + vite build)"]
-    --> MERGE["4. Merge PR #1285 to main (dec262bd)"]
-    --> DEPLOY["5. Deploy to Vercel Production (dpl_9twWPX2Jo8u8igc4o4wJXiF1mMAF)"]
-    --> VERIFY["6. Live HTTP 200 Verification on Public URL"]
+    PENCIL["1. Restore Classic Wooden Pencil<br/>(PR #1287 merged: Scale 2.4, 55° writing tilt)"] 
+    --> REPAIRS["2. Phase 1 Emergency Fixes<br/>(Piano touch, safe Web Audio, in-book Gretel)"]
+    --> MERGE1["3. PR #1289 Merged to main<br/>(commit def8009f)"]
+    --> DECISION["4. Owner Milestone Gate<br/>(Option A «El Libro Vivo» Approved)"]
+    --> ACTIVITIES["5. Top 2 Creative Activities Defined<br/>(Syllable Garden + Cedar Pencil Workshop)"]
+    --> NEXT["6. Incoming Agent Phase 3/4 Execution<br/>(48 Lesson Activities & Visual Rollout)"]
 ```
 
 ---
