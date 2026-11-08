@@ -22,6 +22,6 @@ for (const size of [
     const selector = page.getByRole("combobox", { name: "Cambiar de lección" });
     await expect(selector).toBeInViewport();
     await selector.selectOption("2");
-    await expect(page).toHaveURL(/\\/cartilla\\/leccion\\/2$/);
+    await expect(page).toHaveURL(new RegExp("/cartilla/leccion/2$"));
   });
 }
