@@ -471,3 +471,35 @@
  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto repeat(4,minmax(0,1fr)); gap:10px; }
  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged .fp-ix-cell { width:auto; height:100%; max-width:100%; }
 }
+
+/* Phone lesson header: keep the selector and lesson tabs in separate rows.
+ * A fixed two-line header previously covered the top lesson tabs at 320-390px. */
+@media (max-width: 600px) {
+  .lc-lesson-shell--fit .lc-lesson-header {
+    position: static;
+    flex: none;
+    width: 100%;
+    margin: 0;
+    padding: 4px 8px;
+    flex-wrap: nowrap;
+    pointer-events: auto;
+  }
+  .lc-lesson-shell--fit .lc-lesson-header label {
+    min-width: 0;
+    max-width: calc(100% - 125px);
+    flex: 1;
+  }
+  .lc-lesson-shell--fit .lc-lesson-header label > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .lc-lesson-shell--fit .lc-lesson-header select {
+    min-width: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+  }
+}
