@@ -4,10 +4,10 @@
 **Authoritative Execution Issue:** [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877)  
 **Production URL:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
 **Live Alias:** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
-**Last Checked Date:** 2026-11-08 19:25 UTC  
+**Last Checked Date:** 2026-11-08 19:58 UTC  
 **Official Main Revision:** `c151d487` (PR #1291 merged: permanently enforce classic wooden pencil and lock out rejected skinny pencil)  
-**Active Production Revision:** `41cf1949` (Deployment: `dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE`)  
-**Production Status:** 🟡 **Website Behind GitHub main** (Release candidate `c151d487` verified on main; production running Sat Nov 7 build `41cf1949` awaiting explicit owner deployment authorization "deploy it").
+**Active Production Revision:** `c151d487` (Deployment: `dpl_7ULi6oiQYPiexTDVLYTpdnhSHCAj`)  
+**Production Status:** 🟢 **Production is 100% in sync with official main & live verified.** (Release candidate `c151d487` deployed to production via Vercel CLI under explicit owner authorization "deploy it"; live deployment verified with HTTP 200 OK on https://cartilla-de-gretel-ejn.vercel.app and https://cartilla-de-gretel-psi.vercel.app).
 
 ---
 
@@ -16,10 +16,10 @@
 ```mermaid
 flowchart TD
     MAIN["Official Main Branch (c151d487)"]
-    AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE - PR #1291 Locked]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [PR #1073 Isolated]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [Awaiting Owner 'deploy it']"]
+    AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE - PR #1291 Locked]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [PR #1073 Isolated]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [LIVE & VERIFIED]"]
     BRANCHES["Remote Branches (280 total)<br/>• 13 safe merged branches deleted<br/>• Open PRs: 105 active specialist branches<br/>• Closed unmerged PR branches: 118 preserved<br/>• Unique drafts / spikes: 57 preserved"]
-    VERCEL["Vercel Production Deployment<br/>Active Live ID: dpl_9JjgqLvXusuDYVVgiv4jiqQcQdaE<br/>Status: Revision 41cf1949 Live | Main (c151d487) Ready for Release Approval"]
-    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Production Awaiting Deploy Authorization"]
+    VERCEL["Vercel Production Deployment<br/>Active Live ID: dpl_7ULi6oiQYPiexTDVLYTpdnhSHCAj<br/>Status: 🟢 Revision c151d487 Live | In Sync with GitHub main"]
+    LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Production Live & Verified"]
 
     MAIN --> AREAS
     MAIN -.-> BRANCHES
