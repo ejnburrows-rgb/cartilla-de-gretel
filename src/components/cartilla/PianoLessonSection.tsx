@@ -50,33 +50,34 @@ export function PianoLessonSection({ lessonNumber, showAvailabilityMessage = fal
   if (!PIANO_LESSONS.has(lessonNumber)) return null;
   const words = PIANO_WORDS[lessonNumber];
   if (!words || words.length === 0) return null;
-  // "checking" → mic probe still running; render nothing until the browser
-  // gives its definitive answer so we never flash the Piano on a device that
-  // will hide it. "unavailable" → no confirmed on-device mic, hide entirely.
-  if (processing !== "on-device") {
-    if (!showAvailabilityMessage) return null;
+  if (processing === "checking" && showAvailabilityMessage) {
     return (
       <p role="status" className="mx-auto max-w-xl rounded-2xl border border-amber-200 bg-white p-6 text-center font-semibold text-stone-700">
-        {processing === "checking"
-          ? "Comprobando si este dispositivo puede reconocer la voz sin conexión…"
-          : "El Piano Hablador necesita reconocimiento de voz dentro del dispositivo. Aquí permanece apagado."}
+        Comprobando si este dispositivo puede reconocer la voz sin conexión…
       </p>
     );
   }
 
   return (
-    <PianoPronunciation
-      syllables={[]}
-      words={words.map((entry) => ({
-        word: entry.word,
-        syllables: [...entry.syllables],
-      }))}
-      lessonId={String(lessonNumber)}
-      onComplete={() => {
-        /* Owner rule: Piano NEVER counts toward lesson completion.
-         * No progress store write, no Gretel event, no auto-advance. */
-      }}
-    />
+    <div className="piano-lesson-container space-y-3">
+      {showAvailabilityMessage && processing === "unavailable" && (
+        <p role="status" className="mx-auto max-w-xl rounded-2xl border border-amber-200 bg-white p-3 text-center text-xs font-semibold text-stone-600">
+          Modo táctil interactivo: Toca las teclas del piano para escuchar las notas y practicar las palabras.
+        </p>
+      )}
+      <PianoPronunciation
+        syllables={[]}
+        words={words.map((entry) => ({
+          word: entry.word,
+          syllables: [...entry.syllables],
+        }))}
+        lessonId={String(lessonNumber)}
+        onComplete={() => {
+          /* Owner rule: Piano NEVER counts toward lesson completion.
+           * No progress store write, no Gretel event, no auto-advance. */
+        }}
+      />
+    </div>
   );
 }
 

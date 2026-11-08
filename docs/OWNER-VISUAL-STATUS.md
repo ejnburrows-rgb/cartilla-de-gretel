@@ -56,14 +56,43 @@ flowchart LR
 
 ## 4. Current Approved Work & Seven Section Overview
 1. **Book Cover & Opening:** `DONE and live` (Cover animations and opening verified on live production).
-2. **Student Workbook:** `DONE and live` (Workbook layout and pencil kernel active on live production).
-3. **Teacher Flip Chart:** `DONE and live` (Top binding flip animation verified on live production).
+2. **Student Workbook:** `DONE and live` (Workbook layout and pencil kernel active on live production; desktop mouse drag page-turn enabled).
+3. **Teacher Flip Chart:** `DONE and live` (Top binding flip animation verified; easel vertical drag gestures enabled).
 4. **Artwork & Motion:** `DONE and live` (Canonical artwork in `docs/artwork-reconciliation/mapping/MASTER-MAPPING.csv`).
-5. **Gretel Voice & Tutor:** `DONE and live` (Tutor files isolated; authentic audio locked on live production).
-6. **Games & Activities:** `DONE and live` (All 12 games registered: `payaso-chano-ss`, `silabas-o`, `silabas-m`, `silabas-p`, `mariposas-p`, `vocal-a`, `fonetica-p`, `rima-p`, `palabras-minuto-p`, `dibujos-o`, `completar-palabras`, `cow-game-m`).
+5. **Gretel Voice & Tutor:** `DONE and live` (Tutor files isolated; authentic master recording locked; audition routes quarantined).
+6. **Games & Activities:** `DONE and live` (All 12 games registered; piano interactive mode unlocked for all lessons).
 7. **Website & Publication:** `DONE and live` (Vercel production deployment healthy; verified live on `https://cartilla-de-gretel-ejn.vercel.app`).
 
 ---
 
-## 5. Outstanding Blockers
-- **None.** All build gate failures resolved, production is up-to-date, and all 7 core areas are verified live.
+## 5. Visual Cockpit — Board 1: Real Preview & Feature Status
+
+| Feature / Area | Verification Status | Functional Behavior |
+| :--- | :--- | :--- |
+| **Interactive Piano** | `[VERIFIED]` | All 9 white keys & 5 black keys active with Web Audio synthesis; zero-latency mouse & touch; speech gate bypassed. |
+| **Workbook Flipbook** | `[VERIFIED]` | Mouse and touch drag page turn active; realistic 3D paper curl & rustle audio on page lift/settle. |
+| **Teacher Flip Chart** | `[VERIFIED]` | Vertical swipe/drag across easel board flips sheets over the top spiral; dogear corners & keyboard navigation active. |
+| **Option One Wooden Pencil** | `[VERIFIED]` | Yellow cedar wood barrel at natural 55° writing angle; tip alignment at (0,0); eraser crumbs active. |
+| **Gretel Assistant** | `[VERIFIED]` | Student live companion mounted in workbook lessons (`NativeLessonViewer` / `GretelPresence`) responding to focus, hints, and answers; Student Tutor #1073 frozen; Teacher pedagogical assistant active under `/cartilla/teacher/gretel`. |
+
+---
+
+## 6. Visual Cockpit — Board 2: Master Handoff & Redesign Gates
+
+- **Interactive Master Approval Handoff:**
+  - Standalone Offline Document: `docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html`
+  - Local Preview URL: `http://127.0.0.1:4173/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html`
+- **Sections Included:**
+  - `Sección A`: Gretel Voice Recordings (catalog of 24 lessons, available vs missing, script, drag-and-drop audio intake).
+  - `Sección B`: Approved Artwork & Upgrades (side-by-side comparison, Approve/Reject toggles).
+  - `Sección C`: Master Pencil Design (Option One specs, interactive drawing canvas test).
+  - `Sección D`: Sound Design & Piano (interactive Web Audio Steinway piano, paper rustle, graphite friction, calm corrections).
+  - `Sección E`: Missing Curriculum Sources (audit of printed pages 86–87 scan gap).
+  - `Sección F`: Two Redesign Proposals (Option A: The Living Gretel Book vs Option B: The Gretel Premium Classroom with simulated viewports, radio selection, localStorage persistence, and JSON export).
+
+---
+
+## 7. Outstanding Blockers & External Dependencies
+- **Pages 86–87 Source Scan Gap:** Printed pages 86 and 87 are missing from the 98-sheet source PDF; awaiting owner photograph or physical scan.
+- **Authentic Voice Recordings:** Missing vocabulary clips (`abejas-z`, `burro-b`, `gallina-c`, etc.) documented in Section A of handoff document; awaiting audio files from LANY Books.
+

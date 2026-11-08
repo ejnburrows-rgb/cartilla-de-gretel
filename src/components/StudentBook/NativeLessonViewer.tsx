@@ -37,6 +37,7 @@ export function NativeLessonViewer({
   autoTurn = false,
   swipe = false,
   gated = true,
+  bookCompanion,
 }: {
   pages: WorkbookPageEntry[];
   chapterLabel: string;
@@ -51,6 +52,8 @@ export function NativeLessonViewer({
   swipe?: boolean;
   /** Require page completion before turning forward (lessons). The complete book browses freely. */
   gated?: boolean;
+  /** Gretel or other companion positioned in the book anchor */
+  bookCompanion?: React.ReactNode;
 }) {
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(0, initialPage), pages.length - 1),
@@ -297,7 +300,8 @@ export function NativeLessonViewer({
     if (!swipe || !root) return;
     let start: { x: number; y: number; t: number; id: number } | null = null;
     const onDown = (event: PointerEvent) => {
-      if (event.pointerType === "mouse" || !event.isPrimary) return;
+      if (!event.isPrimary) return;
+      if (event.pointerType === "mouse" && event.button !== 0) return;
       const target = event.target as Element | null;
       if (target?.closest?.(SWIPE_EXCLUDED)) return;
       start = { x: event.clientX, y: event.clientY, t: event.timeStamp, id: event.pointerId };
@@ -621,6 +625,15 @@ export function NativeLessonViewer({
           turnMs={LESSON_PAGE_TURN_MS}
           liftMs={LESSON_PAGE_LIFT_MS}
         />
+        {bookCompanion && (
+          <div
+            className={`book-companion-anchor ${turning ? "book-companion-anchor--turning" : ""}`}
+            data-testid="book-companion-anchor"
+            aria-hidden={turning}
+          >
+            {bookCompanion}
+          </div>
+        )}
       </div>
 
       <div className="native-lesson-viewer__footer">

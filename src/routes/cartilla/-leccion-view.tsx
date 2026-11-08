@@ -17,6 +17,7 @@ import { sCopy } from "@/content/student-copy";
 import { useLearnerScope } from "@/lib/learner-storage";
 import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { GretelPresence } from "@/components/gretel/GretelPresence";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
@@ -247,6 +248,23 @@ export function Leccion() {
     advanceAfterCompletion();
   };
 
+  const bookCompanion = (
+    <GretelPresence
+      key={`gretel-${n}`}
+      lesson={{
+        n: entry.n,
+        kind: entry.kind,
+        title: entry.title,
+        subtitle: entry.subtitle,
+        letter: entry.kind === "consonant" ? entry.letter : undefined,
+        vowel: entry.kind === "vowel" ? entry.vowel : undefined,
+      }}
+      autoIntro
+      bookMode
+      hideChrome
+    />
+  );
+
   return (
     <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}>
       <DemoStudentBanner />
@@ -287,34 +305,41 @@ export function Leccion() {
           </div>
         </div>
 
-        {(PIANO_LESSONS.has(n) || reviewStarted) && (
-          <nav className="mb-4 flex w-full max-w-3xl gap-2" aria-label="Vista de la lección">
+        <nav className="mb-4 flex w-full max-w-3xl gap-2 flex-wrap" aria-label="Vista de la lección">
+          <button
+            type="button"
+            aria-pressed={lessonTab === "book"}
+            onClick={() => setLessonTab("book")}
+            className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold transition ${lessonTab === "book" ? "border-amber-700 bg-amber-50 text-amber-950 shadow-xs" : "border-stone-300 bg-white text-stone-700 hover:bg-stone-50"}`}
+          >
+            Páginas del Cuaderno
+          </button>
+          {PIANO_LESSONS.has(n) ? (
             <button
-              type="button"
-              aria-pressed={lessonTab === "book"}
-              onClick={() => setLessonTab("book")}
-              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold ${lessonTab === "book" ? "border-amber-700 bg-amber-50 text-amber-950" : "border-stone-300 bg-white text-stone-700"}`}
-            >
-              Vista Página Oficial
-            </button>
-            {PIANO_LESSONS.has(n) && <button
               type="button"
               aria-pressed={lessonTab === "piano"}
               onClick={() => setLessonTab("piano")}
-              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold ${lessonTab === "piano" ? "border-amber-700 bg-amber-50 text-amber-950" : "border-stone-300 bg-white text-stone-700"}`}
+              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold transition ${lessonTab === "piano" ? "border-amber-700 bg-amber-50 text-amber-950 shadow-xs" : "border-stone-300 bg-white text-stone-700 hover:bg-stone-50"}`}
             >
               Cancionero / Piano
-            </button>}
-            {reviewStarted && <button
-              type="button"
-              aria-pressed={lessonTab === "review"}
-              onClick={() => setLessonTab("review")}
-              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold ${lessonTab === "review" ? "border-amber-700 bg-amber-50 text-amber-950" : "border-stone-300 bg-white text-stone-700"}`}
+            </button>
+          ) : (
+            <a
+              href={`/cartilla/practica?modo=piano&lesson=${n}`}
+              className="min-h-11 flex-1 rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50 text-center flex items-center justify-center"
             >
-              Repaso final
-            </button>}
-          </nav>
-        )}
+              Piano de la lección
+            </a>
+          )}
+          <button
+            type="button"
+            aria-pressed={lessonTab === "review"}
+            onClick={() => setLessonTab("review")}
+            className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold transition ${lessonTab === "review" ? "border-amber-700 bg-amber-50 text-amber-950 shadow-xs" : "border-stone-300 bg-white text-stone-700 hover:bg-stone-50"}`}
+          >
+            Práctica y Actividades
+          </button>
+        </nav>
 
         {/* Native workbook pages remain in the canonical lesson order. */}
         <div className="w-full">
@@ -343,6 +368,7 @@ export function Leccion() {
                 lessonNumber={n}
                 autoTurn
                 swipe
+                bookCompanion={bookCompanion}
               />
             )}
             {progressReady && lessonTab === "piano" && (

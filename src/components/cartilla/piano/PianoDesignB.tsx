@@ -9,11 +9,12 @@
  * and the key plays. On phones the piano, its buttons and the feedback are
  * docked at the bottom of the screen. Keys are indicators, never inputs.
  */
-import type { CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { usePianoSession, PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
 import { FIVE_BLACK, FIVE_WHITE, STATE_LABEL, syllableColor } from "./piano-keyboard";
+import { playNote } from "./piano-sound";
 import "./piano-design-b.css";
 
 export const DESIGN_B_MAX_SYLLABLES = FIVE_WHITE.length;
@@ -22,6 +23,24 @@ export const DESIGN_B_MAX_SYLLABLES = FIVE_WHITE.length;
 const STAFF_STEP = [0, 1, 2, 3, 4];
 
 export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }: PianoDesignProps) {
+  const [touchedKey, setTouchedKey] = useState<number | string | null>(null);
+
+  const handleKeyTouch = (index: number, freq: number) => {
+    setTouchedKey(index);
+    playNote(freq, 0.8, 0.85);
+    setTimeout(() => {
+      setTouchedKey((cur) => (cur === index ? null : cur));
+    }, 200);
+  };
+
+  const handleBlackKeyTouch = (id: string, freq: number) => {
+    setTouchedKey(id);
+    playNote(freq, 0.8, 0.85);
+    setTimeout(() => {
+      setTouchedKey((cur) => (cur === id ? null : cur));
+    }, 200);
+  };
+
   const s = usePianoSession({
     syllables,
     words,
@@ -196,14 +215,16 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
               const carries = index < total;
               const state = carries ? s.keyStateFor(index) : "free";
               const color = carries ? syllableColor(index, state) : "#d6d3d1";
+              const pressed = isFlashing(carries ? `s${index}` : key.id) || touchedKey === index;
               return (
                 <span
                   key={key.id}
                   aria-hidden="true"
-                  className={`pb__white pb__white--${state} ${carries ? "piano-hablador__slot" : ""} ${isFlashing(carries ? `s${index}` : key.id) ? "pb__white--flash" : ""}`}
-                  style={{ "--c": color } as CSSProperties}
+                  className={`pb__white pb__white--${state} ${carries ? "piano-hablador__slot" : ""} ${pressed ? "pb__white--pressed pb__white--flash" : ""}`}
+                  style={{ "--c": color, cursor: "pointer" } as CSSProperties}
                   data-key-state={carries ? state : undefined}
                   data-testid={`piano-key-${index}`}
+                  onPointerDown={() => handleKeyTouch(index, key.freq)}
                 >
                   <span className="pb__lamp" aria-hidden="true">
                     {carries ? s.keys[index] : ""}
@@ -227,8 +248,9 @@ export function PianoDesignB({ syllables, words, lessonId, onComplete, locale }:
               <span
                 key={key.id}
                 aria-hidden="true"
-                className={`pb__black ${isFlashing(key.id) ? "pb__black--flash" : ""}`}
-                style={{ "--pos": key.after + 1 } as CSSProperties}
+                className={`pb__black ${isFlashing(key.id) || touchedKey === key.id ? "pb__black--pressed pb__black--flash" : ""}`}
+                style={{ "--pos": key.after + 1, cursor: "pointer" } as CSSProperties}
+                onPointerDown={() => handleBlackKeyTouch(key.id, key.freq)}
               />
             ))}
           </div>

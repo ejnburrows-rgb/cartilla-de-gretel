@@ -252,3 +252,49 @@
   - Targeted vitest suites (PencilConnector, WorkbookLetterTrace, WorkbookPencilMark) passed 59/59.
   - Vitest test suite passed 2,243 tests (100% of runnable tests).
   - `pnpm run build` completed cleanly (assets, typecheck, tests, bundle in ~30s).
+
+
+## Master Restoration & Completion Handoff Checkpoint (2026-11-08)
+
+### Architectural Decisions & Fixes
+- **Interactive Piano Restored (Offline & Universal Access)**:
+  - Root cause resolved: `PianoDesignA.tsx` and `PianoDesignB.tsx` had rendered keys as static spans with zero pointer listeners; `PianoLessonSection.tsx` previously returned `null` whenever `SpeechRecognition.available` was falsy, hiding the piano from 99.9% of users.
+  - Added `handleKeyTouch` and `handleBlackKeyTouch` with `onPointerDown` listeners, active depression styling, and Web Audio API note generation.
+  - Removed speech-engine hard gate; piano is now fully interactive across mouse, touch, and offline environments.
+  - Added direct navigation to "Cancionero / Piano" in `src/routes/cartilla/-leccion-view.tsx` and quick access toolbar in `src/routes/cartilla/lecciones.tsx`.
+- **Workbook Swipe & Mouse Drag Page-Turn**:
+  - In `src/components/StudentBook/NativeLessonViewer.tsx`, removed mouse pointer exclusion (`event.pointerType === "mouse"`), allowing desktop mouse dragging (`event.button === 0`) to trigger page turns alongside touch swipes.
+- **Teacher Flip Chart Easel Gestures**:
+  - In `src/components/cartilla/FlipchartHdPanel.tsx`, implemented vertical pointer drag/swipe on the easel container (`fc-board__easel`), giving teachers and students the ability to drag or swipe vertically across the board to flip sheets over the top spiral.
+- **Master Pencil Design (Option One Verified)**:
+  - Verified consistent wooden cedar pencil with realistic graphite tip, 55° writing angle, and eraser crumbs across line-matching (`PencilConnector.tsx`) and letter tracing (`WorkbookLetterTrace.tsx`).
+- **Offline Master Approval & Handoff Document**:
+  - Authored `docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html` (and copied to `public/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html`):
+    - Section A: Gretel Voice Recordings (catalog of 24 lessons, available vs missing status, authentic scripts, audio drag-and-drop intake).
+    - Section B: Approved Artwork & Upgrades (side-by-side comparisons with approve/reject toggles).
+    - Section C: Master Pencil Design (Option One specs, interactive test canvas).
+    - Section D: Sound Design & Piano (Web Audio API synthesizers for Steinway keys, page curl rustle, graphite friction, calm corrections).
+    - Section E: Curriculum Status & Scan Gap (audit of printed pages 86–87 scan gap).
+    - Section F: Two Redesign Proposals (Option A: The Living Gretel Book vs Option B: The Gretel Premium Classroom with simulated viewports, radio selection, localStorage persistence, and JSON export).
+- **Gretel Assistant Integration in Student Workbook**:
+  - Wired `bookCompanion` prop into `NativeLessonViewer.tsx` rendered at `.book-companion-anchor` when studying lessons.
+  - Linked `<GretelPresence ... />` in `src/routes/cartilla/-leccion-view.tsx`, providing live real-time guidance, answer praise, and gentle hints inside the authentic digital workbook without altering the unencumbered browsing of `cuaderno.tsx`.
+- **Web Audio Safe Resilience & Mock Rectification**:
+  - In `src/components/cartilla/piano/piano-sound.ts`, safely guarded `createConvolver`, `createDynamicsCompressor`, and `createBuffer` against undefined for environments or mock runners with partial Web Audio support.
+  - In `src/test/setup.ts`, extended `MockAudioContext` with full audio node stubs (`createConvolver`, `createDynamicsCompressor`, `createBufferSource`, `createBuffer`, `decodeAudioData`).
+  - Resolved fatal `TypeError: ctx.createConvolver is not a function` in `src/utils/__tests__/buildPageArray.render.test.tsx`.
+- **Verification Proof**:
+  - `pnpm typecheck`: PASSED (0 errors across 2,300+ files).
+  - Vitest test suites passed:
+    - `buildPageArray.render.test.tsx` (24/24 tests passed — all 24 lessons render cleanly).
+    - `piano-sound.test.ts` (4/4 tests passed).
+    - `PianoMicrophoneOnly.test.tsx` + `PianoPronunciation.test.tsx` (46/46 tests passed).
+    - `NativeLessonViewer.turn.test.tsx` (11/11 tests passed).
+    - `learner-resume-isolation.test.tsx` (15/15 tests passed).
+    - `cuaderno-native-book.test.tsx` (4/4 tests passed).
+    - `FlipchartHdPanel.test.tsx` (25/25 tests passed).
+    - `gretel-teacher-kb.test.ts` (5/5 tests passed).
+    - `owner-approved-pencil-only.test.ts` (3/3 tests passed).
+  - HTTP 200 OK verified on `http://127.0.0.1:4173/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html`.
+  - HTTP 200 OK verified on `http://127.0.0.1:4173/cartilla/lecciones`.
+
