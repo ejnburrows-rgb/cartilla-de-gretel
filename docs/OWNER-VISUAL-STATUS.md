@@ -4,8 +4,8 @@
 **Authoritative Execution Issue:** [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877)  
 **Production URL:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
 **Live Alias:** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
-**Last Checked Date:** 2026-11-09 00:35 UTC  
-**Official Main Revision:** `b16055d3` (25 zero-conflict PRs merged, 2 conflicting PRs #1268 and #1130 closed; 238 test suites / 2,286 unit tests passing 100%)  
+**Last Checked Date:** 2026-11-09 00:45 UTC  
+**Official Main Revision:** `27544b4d` (25 zero-conflict PRs merged, 2 conflicting PRs #1268 and #1130 closed; 238 test suites / 2,286 unit tests passing 100%)  
 **Active Production Revision:** `c151d487` (Deployment: `dpl_7ULi6oiQYPiexTDVLYTpdnhSHCAj`)  
 **Production Status:** 🟢 **Production is healthy & official main verified with 0 regressions.** (Release candidate `c151d487` deployed on Vercel; queue cleaned with 25 PRs squash-merged, 27 remote branches safely pruned, 238 test suites passing).
 
@@ -15,10 +15,10 @@
 
 ```mermaid
 flowchart TD
-    MAIN["Official Main Branch (b16055d3)"]
+    MAIN["Official Main Branch (27544b4d)"]
     AREAS["7 Official Product Areas:<br/>1. Book Cover & Opening [LIVE]<br/>2. Student Workbook [LIVE - PR #1291 Locked]<br/>3. Teacher Flip Chart [LIVE]<br/>4. Artwork & Motion [LIVE]<br/>5. Gretel Voice & Tutor [PR #1073 Isolated]<br/>6. Games & Activities (12 registered) [LIVE]<br/>7. Website & Publication [LIVE & VERIFIED]"]
     BRANCHES["Remote Branches (255 total)<br/>• 38 safe merged branches deleted<br/>• Open PRs: 79 active specialist branches<br/>• Closed unmerged PR branches: 120 preserved<br/>• Unique drafts / spikes: 56 preserved"]
-    VERCEL["Vercel Production Deployment<br/>Active Live ID: dpl_7ULi6oiQYPiexTDVLYTpdnhSHCAj<br/>Status: 🟢 Revision c151d487 Live | Main at b16055d3 (238 test suites passing)"]
+    VERCEL["Vercel Production Deployment<br/>Active Live ID: dpl_7ULi6oiQYPiexTDVLYTpdnhSHCAj<br/>Status: 🟢 Revision c151d487 Live | Main at 27544b4d (238 test suites passing)"]
     LIVE["Public Website<br/>https://cartilla-de-gretel-ejn.vercel.app<br/>Status: HTTP 200 OK — Production Live & Verified"]
 
     MAIN --> AREAS
@@ -44,7 +44,7 @@ flowchart LR
 ---
 
 ## 3. Branch and Merge Status
-- **Official Source:** `main` (`b16055d3`)
+- **Official Source:** `main` (`27544b4d`)
 - **Queue Cleanup (25 Verified Zero-Conflict PRs Merged & 2 Closed):**
   - PR #1293: fix: stop mobile lesson selector covering activity tabs
   - PR #1262: Optimize O(N*M) loop in OrderedExercises
