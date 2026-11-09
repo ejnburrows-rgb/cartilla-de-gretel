@@ -1,5 +1,13 @@
 import { useState, useEffect, useMemo } from "react";
-import { GraduationCap, AlertCircle, PlusCircle, CheckCircle, Search, User } from "lucide-react";
+import {
+  GraduationCap,
+  AlertCircle,
+  PlusCircle,
+  CheckCircle,
+  Search,
+  User,
+  Loader2,
+} from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   listClasses,
@@ -349,7 +357,12 @@ export function ClassRoster() {
             aria-label="Crear clase"
             className="px-4 py-2.5 rounded-2xl bg-vowel-o text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
           >
-            <PlusCircle className="w-4 h-4" /> Crear
+            {busy ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              <PlusCircle className="w-4 h-4" />
+            )}{" "}
+            Crear
           </button>
         </form>
       </div>
@@ -469,9 +482,9 @@ export function ClassRoster() {
               type="submit"
               disabled={busy || !newStudentName.trim()}
               aria-label="Añadir alumno"
-              className="px-6 py-3 rounded-2xl bg-vowel-a text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-6 py-3 rounded-2xl bg-vowel-a text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer"
             >
-              + Añadir Alumno
+              {busy && <Loader2 className="w-4 h-4 animate-spin" />} + Añadir Alumno
             </button>
           </form>
         </div>
@@ -506,9 +519,9 @@ export function ClassRoster() {
                 type="submit"
                 disabled={busy || !newStudentName.trim()}
                 aria-label="Añadir alumno"
-                className="px-4 py-2 rounded-2xl bg-vowel-a text-white font-black text-xs hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-vowel-a text-white font-black text-xs hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer whitespace-nowrap"
               >
-                + Añadir
+                {busy && <Loader2 className="w-3 h-3 animate-spin" />} + Añadir
               </button>
             </form>
           </div>
