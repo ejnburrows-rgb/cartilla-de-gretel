@@ -15,7 +15,7 @@ describe("useCanvasContinuity", () => {
   let canvasRef: RefObject<HTMLCanvasElement | null>;
   let activeRef: RefObject<boolean>;
   let mockCanvas: HTMLCanvasElement;
-  let mockFlush: ReturnType<typeof vi.fn>;
+  let mockFlush: ReturnType<typeof vi.fn<() => void>>;
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -25,7 +25,7 @@ describe("useCanvasContinuity", () => {
 
     canvasRef = { current: mockCanvas };
     activeRef = { current: true };
-    mockFlush = vi.fn();
+    mockFlush = vi.fn<() => void>(() => {});
 
     // Reset document.hidden
     Object.defineProperty(document, 'hidden', {
