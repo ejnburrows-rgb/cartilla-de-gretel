@@ -1,0 +1,37 @@
+{
+  "head": "bfab98b6a22b691d9d80754285d25d4c1f7167f2",
+  "startedUtc": "2026-11-03T22:00:50.741307+00:00",
+  "command": [
+    "node",
+    "--require",
+    "D:\\Downloads\\cartilla-1247-continuation-work\\integration\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\unit-bootstrap-probes\\audit-vitest-fork.cjs",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "tests/performance-budget.test.mjs",
+    "--pool",
+    "forks",
+    "--maxWorkers",
+    "1",
+    "--reporter=default",
+    "--reporter=json",
+    "--outputFile",
+    "C:\\Users\\EJN\\Documents\\Codex\\2026-11-03\\new-chat-2\\work\\production-runtime-gate\\results.json"
+  ],
+  "status": "finished",
+  "scope": "production-runtime fresh performance build and original budgets plus inherited-test-env JSX regression; evaluator ae1981a4db4c89853ce9caf9dc649b27146154477032e49a07accd4d2aa7546c",
+  "sourceDiffBefore": "",
+  "pid": 40112,
+  "exitCode": 0,
+  "finishedUtc": "2026-11-03T22:04:07.101108+00:00",
+  "headAfter": "bfab98b6a22b691d9d80754285d25d4c1f7167f2",
+  "sourceDiffAfter": "",
+  "resultsSha256": "sha256:4aab10cf7c4f301944f044a6b5dfebfa555e4aed750f395c8f70767db20503de",
+  "tests": {
+    "numTotalTests": 8,
+    "numPassedTests": 8,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": true
+  },
+  "passed": true
+}

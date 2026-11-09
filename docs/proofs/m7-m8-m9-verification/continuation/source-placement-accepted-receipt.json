@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "sha256:e8cba902b60eea9ab103cc646f9797f23d3d4f3c6aac16e65ca2d0cde7443be9",
+  "event_id": "sha256:36d69b218ba6ffc7a173a829509cda734fc1c7225d34dd2483c9763c7262f2cf",
+  "event_fingerprint": "sha256:73808e126cfe313412b3ceaee6e62616ecb1a37007c0d94a640e2696ec0d3dfa",
+  "task_id": "sha256:76d176ad4f37764ccd5d039db99007f5f4894633c5429c97fe0dea80828799e2",
+  "attempt_id": "sha256:d45a5c9a5894b7e43ba7d4d11485c2185d582b2b7b74d985598a9121186d5e85",
+  "model_ref": null,
+  "action_kind": "targeted_test",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "requirements_digest": "sha256:d174f9c95c2293dbf1c8ac30deb99abfac0b948f6ca259bcd1d03d3ceb3d4215",
+  "candidate_digest": "sha256:eedfc8dd40d8f9366e4999120dc1420204722e22b2bea16a7a14facfbc6fa36a",
+  "dependency_digest": "sha256:f817f34358a7847ceefe30a5609f96c02b8ed6233869a8bd233f639e52ac9127",
+  "evaluator_digest": "sha256:9f977040af8cb9342b7159856113229d986222040f7fe4d6f98d3fdfb8624fce",
+  "environment_digest": "sha256:c8c2b5fa6db683f365f3f3cd90170bbb353d87b0e02f64fefa0ead13644815dc",
+  "environment_independent": null,
+  "action_key": "sha256:10526a2f01f95832d2816aa8c7dab7b0bbb77bd1e43df19b7a441afd85f8d351",
+  "action_key_scope_digest": "sha256:72ad3f8fc0b14d1dbda75c754e75587525325072f5c4345c022089b06e7df312",
+  "work_key": "sha256:617ce65ddc034e9cfb83925a1933aa9ae4ba18b7f84b2cef7568dbb3cb340f94",
+  "intervention_level": "observe",
+  "decision": "evidence_accepted",
+  "reason_code": "accepted_evidence_recorded",
+  "outcome": "pass",
+  "evidence_digest": "sha256:5ca7ecd8056ac2ae12c9c03eb000372d0a0dafb43459539d18fd60df2bf651e7",
+  "reservation_receipt_id": "sha256:a2a57e2200339310ecb3a31f5806b8a428be75dce6f94214c4a1bf4344398e10",
+  "invalidation_id": null,
+  "invalidation_reason_code": null,
+  "invalidation_target_receipt_id": null,
+  "invalidation_transition_id": null,
+  "consumed_invalidation_ids": [],
+  "evidence_accepted": true,
+  "fanout": null,
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_advisories": [
+    {
+      "state": "missing",
+      "effect": "advisory"
+    }
+  ],
+  "metrics": [],
+  "validator_version": "0.1.0",
+  "fixture_corpus_version": "1"
+}

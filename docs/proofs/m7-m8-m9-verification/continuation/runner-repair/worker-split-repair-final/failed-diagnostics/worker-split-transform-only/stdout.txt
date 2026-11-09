@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "lanes": [
+    {
+      "lane": "open",
+      "checks": [
+        {
+          "name": "welcome",
+          "url": "/src/routes/entrar.tsx",
+          "staticImports": [
+            "/@vite/client",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/@react-refresh"
+          ],
+          "lazyComponent": true,
+          "forbiddenStaticImport": false
+        },
+        {
+          "name": "workbook",
+          "url": "/src/routes/cartilla/cuaderno.tsx",
+          "staticImports": [
+            "/@vite/client",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/src/styles/lesson-fit.css",
+            "/@react-refresh"
+          ],
+          "lazyComponent": true,
+          "forbiddenStaticImport": false
+        }
+      ],
+      "plugins": [
+        "tanstack:router-generator",
+        "tanstack-router:code-splitter:compile-reference-file",
+        "tanstack-router:code-splitter:compile-virtual-file",
+        "tanstack-router:code-splitter:compile-shared-file",
+        "tanstack:router-inline-css-defaults"
+      ],
+      "optimizerOverride": "Transform-only: noDiscovery=true/include=[]; actual browser gate retains original optimizer",
+      "generatedTree": "work\\router-worker\\open\\routeTree.gen.ts",
+      "routeIdsMatch": true,
+      "passed": true
+    },
+    {
+      "lane": "gated",
+      "checks": [
+        {
+          "name": "welcome",
+          "url": "/src/routes/entrar.tsx",
+          "staticImports": [
+            "/@vite/client",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/@react-refresh"
+          ],
+          "lazyComponent": true,
+          "forbiddenStaticImport": false
+        },
+        {
+          "name": "workbook",
+          "url": "/src/routes/cartilla/cuaderno.tsx",
+          "staticImports": [
+            "/@vite/client",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/@fs/D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/@tanstack+react-router@1.17_715463edbca5e6c25fe7440ed11a80c3/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=28ad61c8",
+            "/src/styles/lesson-fit.css",
+            "/@react-refresh"
+          ],
+          "lazyComponent": true,
+          "forbiddenStaticImport": false
+        }
+      ],
+      "plugins": [
+        "tanstack:router-generator",
+        "tanstack-router:code-splitter:compile-reference-file",
+        "tanstack-router:code-splitter:compile-virtual-file",
+        "tanstack-router:code-splitter:compile-shared-file",
+        "tanstack:router-inline-css-defaults"
+      ],
+      "optimizerOverride": "Transform-only: noDiscovery=true/include=[]; actual browser gate retains original optimizer",
+      "generatedTree": "work\\router-worker\\gated\\routeTree.gen.ts",
+      "routeIdsMatch": true,
+      "passed": true
+    }
+  ],
+  "changedRoutes": [],
+  "rewrittenRoutes": []
+}

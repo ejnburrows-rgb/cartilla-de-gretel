@@ -30,10 +30,16 @@ describe("living-motion core policy", () => {
     expect(t.end).toBe("rotateY(0deg)");
   });
 
-  it("flipchart next is top-hinged rotateX", () => {
+  it("flipchart next is top-hinged rotateX outward", () => {
     const t = flipchartFlipTransforms("next");
     expect(t.start).toBe("rotateX(0deg)");
-    expect(t.end).toBe("rotateX(-180deg)");
+    expect(t.end).toBe("rotateX(180deg)");
+  });
+
+  it("flipchart prev reverses outward rotateX", () => {
+    const t = flipchartFlipTransforms("prev");
+    expect(t.start).toBe("rotateX(180deg)");
+    expect(t.end).toBe("rotateX(0deg)");
   });
 
   it("uses deliberate premium turn timing instead of app-like snap transitions", () => {

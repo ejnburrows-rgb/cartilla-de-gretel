@@ -1,0 +1,13 @@
+{
+  "startedUtc": "2026-11-03T21:20:47.328919+00:00",
+  "head": "7898df49b263dc6c5b4d276bd2fbbf1c79a0ea44",
+  "scope": "entry-only diagnostic packet, no full CRM phone journey",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\work\\entry-readiness-compare.cjs"
+  ],
+  "status": "finished",
+  "pid": 26284,
+  "exitCode": 1,
+  "finishedUtc": "2026-11-03T21:22:15.654430+00:00"
+}

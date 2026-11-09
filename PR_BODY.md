@@ -1,9 +1,15 @@
-💡 **What:** Replaced the `Array.from(...).filter(...)` chain in `resetDemoClassroom` with a standard `for` loop to filter keys directly from `localStorage`.
+### 🎯 What
+Added the missing error path test for the `handleCreateClass` function in `ClassRoster.tsx`. The test explicitly checks that when the `createClass` API call fails, the UI correctly displays the error message triggered in the `catch` block (lines 158-160).
 
-🎯 **Why:** Creating a large array of all keys just to filter out the demo keys can be inefficient and cause unnecessary memory allocations, especially if `localStorage` has many items.
+### 📊 Coverage
+The new test scenario ensures the catch block logic inside `handleCreateClass` operates as intended, by mocking the API call (`createClass`) to throw an error and subsequently asserting the resulting error state output on screen using `@testing-library/react`.
 
-📊 **Measured Improvement:**
-In a benchmark with 10,000 local storage keys (and 50 demo keys), the execution time of 100 iterations of `resetDemoClassroom` dropped from `~2135ms` to `~1252ms`, yielding approximately a **41% improvement** in speed for this operation, while also significantly reducing memory churn.
+### ✨ Result
+Code coverage and resilience improved. The test successfully passes the previously uncovered error flow logic.
 
-### Test Results
-- `src/lib/__tests__/demo-student-session.test.ts`: **3 passed**
+**Test Summary:**
+```
+✓ src/components/teacher/__tests__/ClassRoster.test.tsx (7 tests)
+```
+1 Test Suite Passed
+7 Tests Passed

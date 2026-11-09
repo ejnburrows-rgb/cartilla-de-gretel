@@ -84,16 +84,33 @@ test.describe('Audio Preflight Verification', () => {
     await oso.click();
     await expect(oso).toHaveAttribute('data-picture-audio-status', 'recorded');
 
-    // Gretel speaks while picture recording is playing -> should pause picture recording
+    // The approved recorded-only default stays silent for an unrecorded line.
     await page.evaluate(async () => {
       const voice = await import('/src/lib/gretel-voice.ts');
-      void voice.speakAsGretel('Gretel interrumpe audio de imagen');
+      await voice.speakAsGretel('Unrecorded browser-test sentence');
+    });
+    const silentLog = await page.evaluate(() => (window as any).audioPreflightLog);
+    expect(silentLog.speech).toHaveLength(0);
+    expect(silentLog.audio.some((item: any) => item.action === 'pause' && item.src === '/test-approved/oso.mp3')).toBe(false);
+
+    // Arbitration fixture only: simulate a recorded provider using the same
+    // TestAudio as the picture fixture. This does not approve or play a voice.
+    await page.evaluate(async () => {
+      const voice = await import('/src/lib/gretel-voice.ts');
+      voice.setGretelVoiceProviderConfig({
+        type: 'recorded-audio', name: 'browser-test-fixture',
+        speakFn: async () => { await new Audio('/test-approved/gretel.mp3').play(); },
+      });
+      await voice.speakAsGretel('Recorded-provider arbitration fixture');
     });
 
     await expect.poll(async () => {
       const log = await page.evaluate(() => (window as any).audioPreflightLog.audio);
       return log.some((item: any) => item.action === 'pause' && item.src === '/test-approved/oso.mp3');
     }).toBe(true);
+    const recordedLog = await page.evaluate(() => (window as any).audioPreflightLog);
+    expect(recordedLog.audio.some((item: any) => item.action === 'play' && item.src === '/test-approved/gretel.mp3')).toBe(true);
+    expect(recordedLog.speech).toHaveLength(0);
 
     await page.screenshot({ path: 'docs/proofs/audio-preflight/single-speech-owner.png', fullPage: true });
   });

@@ -30,6 +30,7 @@ import { useTeacherPresentation } from "@/lib/teacher-presentation-context";
 import { FlipchartNativeBoard } from "./FlipchartNativeBoard";
 import "@/styles/flipchart-presenter.css";
 import "@/styles/flipchart-turn.css";
+import flipchartFrames from "@/data/flipchart-frames.json";
 
 /**
  * Easel page turn: the sheet lifts from the bottom, swings up toward the
@@ -38,7 +39,7 @@ import "@/styles/flipchart-turn.css";
  */
 const TURN_EASE = "cubic-bezier(0.6, 0.02, 0.28, 1)";
 /** The spiral's holes sit this far below the sheet's top edge (share of sheet width). */
-const HINGE_SHARE = 0.054;
+const HINGE_SHARE = 0.024;
 
 type LeafBox = { left: number; top: number; width: number; height: number; innerW: number; innerH: number };
 
@@ -179,6 +180,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
   const safeIdx = pages.length === 0 ? 0 : Math.min(selectedIdx, pages.length - 1);
   const currentPage = pages[safeIdx];
+  const pageFrame = (flipchartFrames as Record<string, { width: number; height: number }>)[String(currentPage?.flipchartPage)];
 
   const triggerCinematicZoom = useCallback(() => {
     setIsCinematicZooming(true);
@@ -345,7 +347,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     }
 
     if (!reducedMotion && state.soundPlayed) {
-      const angle = state.direction === "next" ? -180 * progress : -180 + 180 * progress;
+      const angle = state.direction === "next" ? 180 * progress : 180 - 180 * progress;
       setFlipTransform(`rotateX(${angle}deg)`);
     }
   };
@@ -389,12 +391,12 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
     if (progress >= 0.5) {
       setFlipTransitionMs(400);
-      const finalAngle = direction === "next" ? "rotateX(-180deg)" : "rotateX(0deg)";
+      const finalAngle = direction === "next" ? "rotateX(180deg)" : "rotateX(0deg)";
       setFlipTransform(finalAngle);
       flipTimerRef.current = window.setTimeout(() => afterFlip(targetIndex, token), 400);
     } else {
       setFlipTransitionMs(350);
-      const springAngle = direction === "next" ? "rotateX(0deg)" : "rotateX(-180deg)";
+      const springAngle = direction === "next" ? "rotateX(0deg)" : "rotateX(180deg)";
       setFlipTransform(springAngle);
       flipTimerRef.current = window.setTimeout(() => {
         if (token === flipTokenRef.current) {
@@ -456,6 +458,105 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     goTo(targetIndex, direction);
   };
 
+  const easelDragRef = useRef<{
+    tracking: boolean;
+    startX: number;
+    startY: number;
+    pointerId: number;
+    initiated: boolean;
+  }>({
+    tracking: false,
+    startX: 0,
+    startY: 0,
+    pointerId: -1,
+    initiated: false,
+  });
+
+  const handleEaselPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (laserPointerActive || isFlipping || flipLockedRef.current || pages.length === 0) return;
+    if ((e.target as Element)?.closest("button, input, textarea, select, a, .fc-corner")) return;
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+
+    easelDragRef.current = {
+      tracking: true,
+      startX: e.clientX,
+      startY: e.clientY,
+      pointerId: e.pointerId,
+      initiated: false,
+    };
+  };
+
+  const handleEaselPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = easelDragRef.current;
+    if (!drag.tracking || drag.pointerId !== e.pointerId) return;
+
+    if (!drag.initiated) {
+      const dx = e.clientX - drag.startX;
+      const dy = e.clientY - drag.startY;
+      if (Math.abs(dy) < 14) return;
+      if (Math.abs(dx) > Math.abs(dy) * 1.2) {
+        drag.tracking = false;
+        return;
+      }
+      const direction: "next" | "prev" = dy < 0 ? "next" : "prev";
+      const targetIndex = direction === "next" ? safeIdx + 1 : safeIdx - 1;
+      if (targetIndex < 0 || targetIndex >= pages.length) {
+        drag.tracking = false;
+        return;
+      }
+      drag.initiated = true;
+      try {
+        e.currentTarget.setPointerCapture?.(e.pointerId);
+      } catch {
+        /* ignore */
+      }
+      dragStateRef.current = {
+        active: true,
+        startX: drag.startX,
+        startY: drag.startY,
+        direction,
+        targetIdx: targetIndex,
+        pointerId: e.pointerId,
+        soundPlayed: false,
+        progress: 0,
+      };
+    }
+
+    if (drag.initiated) {
+      handleCornerPointerMove(e);
+    }
+  };
+
+  const handleEaselPointerUp = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = easelDragRef.current;
+    if (!drag.tracking || drag.pointerId !== e.pointerId) return;
+    const wasInitiated = drag.initiated;
+    easelDragRef.current = { tracking: false, startX: 0, startY: 0, pointerId: -1, initiated: false };
+    try {
+      e.currentTarget.releasePointerCapture?.(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    if (wasInitiated) {
+      handleCornerPointerUp(e);
+    }
+  };
+
+  const handleEaselPointerCancel = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = easelDragRef.current;
+    if (!drag.tracking || drag.pointerId !== e.pointerId) return;
+    const wasInitiated = drag.initiated;
+    easelDragRef.current = { tracking: false, startX: 0, startY: 0, pointerId: -1, initiated: false };
+    try {
+      e.currentTarget.releasePointerCapture?.(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    if (wasInitiated) {
+      handleCornerPointerCancel(e);
+    }
+  };
+
   if (pages.length === 0) {
     return (
       <div className="fc-board__empty" data-testid="flipchart-empty">
@@ -477,17 +578,26 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     : { inset: 0 };
   const hinge = leaf ? Math.round(leaf.width * HINGE_SHARE) : 0;
 
-  const leftCornerLabel =
+  const hasPrevious = safeIdx > 0;
+  const hasNext = safeIdx < pages.length - 1;
+  const leftCornerEnabled = handMode === "left" ? hasNext : hasPrevious;
+  const rightCornerEnabled = handMode === "left" ? hasPrevious : hasNext;
+  const leftCornerLabel = !leftCornerEnabled
+    ? `Lámina ${handMode === "left" ? "siguiente" : "anterior"} no disponible`
+    :
     handMode === "left"
       ? `Lámina siguiente (${safeIdx + 2} de ${pages.length})`
       : `Lámina anterior (${safeIdx} de ${pages.length})`;
 
-  const rightCornerLabel =
+  const rightCornerLabel = !rightCornerEnabled
+    ? `Lámina ${handMode === "left" ? "anterior" : "siguiente"} no disponible`
+    :
     handMode === "left"
       ? `Lámina anterior (${safeIdx} de ${pages.length})`
       : `Lámina siguiente (${safeIdx + 2} de ${pages.length})`;
 
   const boardStyle = {
+    ["--fc-sheet-ratio" as string]: pageFrame ? pageFrame.width / pageFrame.height : 0.73,
     ...(accentColor ? { ["--fc-accent" as string]: accentColor } : {}),
     ["--fc-turn-ms" as string]: `${FLIPCHART_FLIP_MS}ms`,
   } as CSSProperties;
@@ -514,6 +624,10 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         role="region"
         aria-label="Superficie del rotafolio"
         tabIndex={0}
+        onPointerDown={handleEaselPointerDown}
+        onPointerMove={handleEaselPointerMove}
+        onPointerUp={handleEaselPointerUp}
+        onPointerCancel={handleEaselPointerCancel}
       >
         <div className="fc-board__page">
           <div className="fc-board__page-inner" ref={pageInnerRef}>
@@ -544,7 +658,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                   className="fc-turn__stage"
                   style={{
                     ...leafBox,
-                    perspective: leaf ? `${Math.round(leaf.height * 2.6)}px` : "2400px",
+                    perspective: leaf ? `${Math.round(leaf.height * 1.5)}px` : "1200px",
                     perspectiveOrigin: `50% ${hinge}px`,
                   }}
                 >
@@ -585,7 +699,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                 <div
                   className={`fc-corner fc-corner--left${laserPointerActive ? " pointer-events-none" : ""}`}
                   role="button"
-                  tabIndex={laserPointerActive ? -1 : 0}
+                  tabIndex={leftCornerEnabled ? 0 : -1}
+                  aria-disabled={!leftCornerEnabled}
                   aria-label={leftCornerLabel}
                   data-testid="flipchart-corner-left"
                   onPointerDown={(e) => handleCornerPointerDown(e, "left")}
@@ -600,7 +715,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
                 <div
                   className={`fc-corner fc-corner--right${laserPointerActive ? " pointer-events-none" : ""}`}
                   role="button"
-                  tabIndex={laserPointerActive ? -1 : 0}
+                  tabIndex={rightCornerEnabled ? 0 : -1}
+                  aria-disabled={!rightCornerEnabled}
                   aria-label={rightCornerLabel}
                   data-testid="flipchart-corner-right"
                   onPointerDown={(e) => handleCornerPointerDown(e, "right")}
@@ -656,9 +772,23 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
               type="button"
               role="tab"
               aria-selected={index === safeIdx}
-              disabled={isFlipping || index === safeIdx}
+              aria-disabled={isFlipping || undefined}
+              tabIndex={index === safeIdx ? 0 : -1}
               className={`fc-board__thumb${index === safeIdx ? " is-active" : ""}`}
               onClick={() => goTo(index, index > safeIdx ? "next" : "prev")}
+              onKeyDown={(event) => {
+                const nextIndex = event.key === "ArrowRight" ? (index + 1) % pages.length
+                  : event.key === "ArrowLeft" ? (index + pages.length - 1) % pages.length
+                  : event.key === "Home" ? 0
+                  : event.key === "End" ? pages.length - 1
+                  : null;
+                if (nextIndex === null) return;
+                event.preventDefault();
+                event.stopPropagation();
+                if (isFlipping) return;
+                event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[nextIndex]?.focus();
+                goTo(nextIndex, nextIndex > safeIdx ? "next" : "prev");
+              }}
               aria-label={`Ir a hoja ${index + 1}`}
             >
               <FlipchartNativeBoard page={page} decorative />

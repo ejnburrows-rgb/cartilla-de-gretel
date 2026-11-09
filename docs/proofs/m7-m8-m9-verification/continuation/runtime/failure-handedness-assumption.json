@@ -1,0 +1,52 @@
+{
+  "head": "48dfec7d6a5ec3ac26171d745ea811621ad659db",
+  "url": "http://127.0.0.1:4187",
+  "device": "Chromium touch emulation; no physical device",
+  "physicalPhone": "NOT TESTED",
+  "physicalProjector": "NOT TESTED",
+  "checks": [
+    {
+      "result": "PASS",
+      "message": "Next touch target clear",
+      "clear": true,
+      "box": {
+        "x": 337.640625,
+        "y": 798.015625,
+        "w": 44.375,
+        "h": 39.59375
+      },
+      "top": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\""
+    },
+    {
+      "result": "PASS",
+      "message": "trusted touch forward"
+    },
+    {
+      "result": "PASS",
+      "message": "Previous touch target clear",
+      "clear": true,
+      "box": {
+        "x": 7.984375,
+        "y": 798.015625,
+        "w": 44.375,
+        "h": 39.59375
+      },
+      "top": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\""
+    },
+    {
+      "result": "PASS",
+      "message": "trusted touch backward"
+    },
+    {
+      "result": "PASS",
+      "message": "corner visible",
+      "testid": "flipchart-corner-right"
+    }
+  ],
+  "consoleErrors": [],
+  "warnings": [
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file."
+  ],
+  "failure": "TimeoutError: page.waitForFunction: Timeout 12000ms exceeded.",
+  "video": "page@6ee908b862dfec02185cbe829ca6e1a1.webm"
+}

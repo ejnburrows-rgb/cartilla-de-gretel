@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "sha256:c6aade49f6b220723359758a4f89190f6cf6db607b8da677c88616e9255eb0d1",
+  "event_id": "sha256:968bae3f75da666a675a93eac7e58d27f9f52c09e8d5cbcd6817bd9be098f2d5",
+  "event_fingerprint": "sha256:c93c5e98bfbb96b4c1d47029f8fac70b5a616c1eb9f5664b9a566b27f4a463d5",
+  "task_id": "sha256:10a4d665fe63e49e9db9f4945259638c16afe009e079e6ea582d6c916ba60224",
+  "attempt_id": "sha256:0ab6159163fcf9843911ebe1c57c77d1d8107ecbda840a8340f0819c69f93315",
+  "model_ref": null,
+  "action_kind": "targeted_test",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "requirements_digest": "sha256:3985b04d471ed5047cc89986234c2c9d17d30757cdcd65d609b1f63a2987d179",
+  "candidate_digest": "sha256:d5a0a19037aefb40917470f5b484dbeae4cc167def702868383c45f94babc0a9",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "evaluator_digest": "sha256:a1390f5d4cca503961224a18389552f325552552544644fc293322b967a918eb",
+  "environment_digest": "sha256:bbf609167828530d93cf6e24013829095817e1c649a09bf01c3507480d30b4ba",
+  "environment_independent": null,
+  "action_key": "sha256:7b367af111187bb27d88bb4cb5c5eac9cfedf57e410d3248c2b4852efefb2289",
+  "action_key_scope_digest": "sha256:95abfb7c3209a2418653f2b59a9ec2b2fb9527121f9fa45e935f2826032333ee",
+  "work_key": "sha256:deaea7b11c61bf7a27b5d1b41e6c807eb3cf1e95c8af3c6324ea97ffe219994e",
+  "intervention_level": "bypass",
+  "decision": "allow",
+  "reason_code": "first_equivalent_action",
+  "outcome": "pending",
+  "evidence_digest": null,
+  "reservation_receipt_id": null,
+  "invalidation_id": null,
+  "invalidation_reason_code": null,
+  "invalidation_target_receipt_id": null,
+  "invalidation_transition_id": null,
+  "consumed_invalidation_ids": [],
+  "evidence_accepted": false,
+  "fanout": null,
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_advisories": [
+    {
+      "state": "missing",
+      "effect": "advisory"
+    }
+  ],
+  "metrics": [],
+  "validator_version": "0.1.0",
+  "fixture_corpus_version": "1"
+}

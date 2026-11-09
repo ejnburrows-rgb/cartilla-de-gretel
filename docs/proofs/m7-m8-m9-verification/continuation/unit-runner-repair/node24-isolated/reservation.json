@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "sha256:05b3a87a47b2f92addbf2cd1ba98f9d353642a97cd7c100d6f15f6bb09c034ca",
+  "event_id": "sha256:d2d3a6e2d7db97e154679793a06835368ccdca734c44dbab71e945cd9eba0712",
+  "event_fingerprint": "sha256:ec5e576ead1535ea28e0ab7008a0d5c665d0ba7fe0c47c6b8a58cfbed75ebb01",
+  "task_id": "sha256:85fb9c1c1c726c664b0234b063fa1d270fac3a37d6e34a995b73d7f9de1d8b9d",
+  "attempt_id": "sha256:514899cc34961073632a0476b413f9efe98380e64af714fe63f2653bd5348960",
+  "model_ref": null,
+  "action_kind": "targeted_test",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "requirements_digest": "sha256:550aacb5518c9c4c2ea428cc40c26c0ebae3a40fd1ab1bd8e2417dd3c2d5614c",
+  "candidate_digest": "sha256:858283463f77c2a340e83cdaf4dd4678e83a86f7659f821c5bb2071f60ed98c2",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "evaluator_digest": "sha256:740df2e125c5e061e8c7e4006fe3ef3abf898a66d479b3d99d3eba7bf5f04dfd",
+  "environment_digest": "sha256:48952343e927667f291b3279335b45a63c86ec64459be13f335c34ffb4431dc2",
+  "environment_independent": null,
+  "action_key": "sha256:e2dedade764a9f217ef2f0ada682289d9400045a4223117d78985183eba920a4",
+  "action_key_scope_digest": "sha256:3d59ce25826a70f8b058d06e69dd0d5a766135bc6594b5ffaa331254beeebf65",
+  "work_key": "sha256:3bcdd92f7a8744fbc24d8c02e0bf873f3a3c6db4e5bd7112155453bf9a5218b6",
+  "intervention_level": "observe",
+  "decision": "allow_reexecution",
+  "reason_code": "typed_invalidation_consumed",
+  "outcome": "pending",
+  "evidence_digest": null,
+  "reservation_receipt_id": null,
+  "invalidation_id": "sha256:906f2c17becc50e8c5314e281d25f1a0992b25dd52e94a60a555c2d626923c09",
+  "invalidation_reason_code": "environment_changed",
+  "invalidation_target_receipt_id": "sha256:4a8d4f4c3e482a279be2c5ba6f8d98334e1e4f74cf6d7546d0dddb011af5319a",
+  "invalidation_transition_id": "sha256:882b33005cb817264c8f4e7b94500a2028332d6eada8770946a75a07c90307e4",
+  "consumed_invalidation_ids": [
+    "sha256:906f2c17becc50e8c5314e281d25f1a0992b25dd52e94a60a555c2d626923c09"
+  ],
+  "evidence_accepted": false,
+  "fanout": null,
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_advisories": [
+    {
+      "state": "missing",
+      "effect": "advisory"
+    }
+  ],
+  "metrics": [],
+  "validator_version": "0.1.0",
+  "fixture_corpus_version": "1"
+}

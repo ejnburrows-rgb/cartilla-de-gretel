@@ -1,7 +1,11 @@
-# Piano Hablador — existing implementation and held placement decision
+# Piano Hablador — placement decision history
 
-**Status:** Existing Piano work continues for microphone/acoustic correctness; exact lesson insertion remains an explicit curriculum-placement hold.
-**Historical October 14 discussion order:** Do not let a past discussion request pause existing Piano's permission, acoustic, pitch/recognition and cleanup verification. Exact unapproved insertion into specific printed lessons is still held; complete other authorized work.
+**Current placement standard:** The later owner-selected October 30 standard, recorded in merged [PR #1224](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1224) and [docs/ops/WORKBOOK_ARCHETYPE_STANDARD.md](ops/WORKBOOK_ARCHETYPE_STANDARD.md), requires a dedicated `Cancionero / Piano` lesson tab on every lesson with a songbook page and support for `/cartilla/practica?modo=piano`. This supersedes the October 14 placement hold below. It records the approved target, not proof of implementation or live delivery. `STUDENT_INTERACTION_STANDARD.md` still governs microphone-only acoustic behavior; `AGENTS.md` governs authentic audio, current work and approvals.
+
+## Historical October 14 decision and implementation snapshot
+
+Everything below preserves the earlier decision, questions and brainstorming prompt for provenance. It does not reimpose a placement hold, establish current implementation status or authorize new work. Use [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) for current assignments and proof.
+
 **Decided:** 2026-10-14 by the owner (EJN)
 **Owner will update:** which lessons, where in the lesson, and any other activities.
 

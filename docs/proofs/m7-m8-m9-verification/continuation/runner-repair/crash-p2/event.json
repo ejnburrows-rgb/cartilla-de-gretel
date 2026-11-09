@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "crash-p2",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "crash-p2",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:0cc7432ae65248381ad7f8dd2fdaec9b98786b2dd8f8c53850fa57883e6c2888",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:5add143ed47b3ac85bd148128b2bb02e8da0ded432446f7bcf29333f96db436e",
+  "dependency_digest": "sha256:9d4581da8918da04474629e51ba1fd1a5c639c35931d1378bca25a232ff436cf",
+  "policy_digest": "sha256:da49f9a221baaf4fe086b381b2af45adc8b8f9deb6c47be539c3119561d078f8",
+  "evaluator_digest": "sha256:9e9e96b1835da499f6aabce271e17a1eba05e584d1856778e6c58a6fb466d67d",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:c019498f66bdd341088f05010f2552adab17a45b2c37ae04eac4b749ca321569"
+}

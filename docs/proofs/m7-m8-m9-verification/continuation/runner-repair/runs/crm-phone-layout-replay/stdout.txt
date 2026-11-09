@@ -1,0 +1,37 @@
+
+
+
+
+Running 1 test using 1 worker
+
+
+
+[1/1] [chromium] › tests\e2e\crm-local-demo.spec.ts:13:2 › local CRM demo completes student activity, notes, assignment and report at phone size without Supabase
+  1) [chromium] › tests\e2e\crm-local-demo.spec.ts:13:2 › local CRM demo completes student activity, notes, assignment and report at phone size without Supabase 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Hoy en tu clase' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Hoy en tu clase' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'Hoy en tu clase' })
+
+
+      18 |   await page.route('**/auth/v1/**',route=>{backendRequests.push(route.request().url());return route.abort();});
+      19 |   await page.goto('/cartilla/teacher/crm');
+    > 20 |   await expect(page.getByRole('heading',{name:'Hoy en tu clase'})).toBeVisible();
+         |                                                                    ^
+      21 |   await page.getByRole('button',{name:'Nueva clase',exact:true}).click();
+      22 |   await page.getByRole('textbox',{name:'Nombre de la nueva clase'}).fill(`Demo ${name}`);
+      23 |   await page.getByRole('button',{name:'Crear clase',exact:true}).click();
+        at D:\Downloads\cartilla-1247-continuation-work\test-repairs\tests\e2e\crm-local-demo.spec.ts:20:68
+
+    Error Context: docs\proofs\m7-m8-m9-verification\continuation\runner-repair\runs\crm-phone-layout-replay\artifacts\crm-local-demo-local-CRM-d-2419d-phone-size-without-Supabase-chromium\error-context.md
+
+
+  1 failed
+    [chromium] › tests\e2e\crm-local-demo.spec.ts:13:2 › local CRM demo completes student activity, notes, assignment and report at phone size without Supabase 

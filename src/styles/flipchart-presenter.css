@@ -237,6 +237,28 @@
 }
 
 /* ── Flipchart board panel ─────────────────────────────────────── */
+.fc-classroom__chart {
+  height: 78dvh;
+  min-height: 480px;
+  width: 100%;
+}
+@media (min-width: 1000px) {
+  .fc-classroom {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .fc-classroom__toolbar {
+    align-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+  .fc-classroom__toolbar select { max-width: 175px; }
+  .fc-classroom__chart { height: calc(100dvh - 160px); }
+}
 .fc-board {
   display: flex;
   flex-direction: column;
@@ -248,6 +270,7 @@
 }
 
 .fc-board__easel {
+  container-type: size;
   position: relative;
   flex: 1 1 auto;
   min-height: 0;
@@ -288,6 +311,12 @@
   left: 0;
   justify-content: flex-start;
   border-bottom-left-radius: 12px;
+}
+
+/* A corner without a destination must not cover source-art audio targets. */
+.fc-corner[aria-disabled="true"] {
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .fc-corner--right {
@@ -342,7 +371,10 @@
 }
 
 .fc-board__page {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
@@ -359,8 +391,9 @@
 
 .fc-board__page-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: min(calc(100cqw - 12px), calc((100cqh - 12px) * var(--fc-sheet-ratio, 0.73)));
+  height: auto;
+  aspect-ratio: var(--fc-sheet-ratio, 0.73);
   min-height: 0;
   border-radius: 12px;
   overflow: hidden;
@@ -1688,4 +1721,19 @@
     width: 40px;
     height: 38px;
   }
+}
+
+/* The physical sheet owns the paper frame; its fitting area is transparent. */
+.fc-board__easel,
+.fc-presenter.is-bare .fc-board__easel {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.fc-board__page,
+.fc-presenter.is-bare .fc-board__page { background: transparent; }
+
+/* Keep the demo launcher above the sheet navigation, including on phones. */
+.fc-presenter > .no-print.fixed:has(> button[aria-label="Abrir Panel de Control de Demostración"]) {
+  bottom: 4.5rem;
 }

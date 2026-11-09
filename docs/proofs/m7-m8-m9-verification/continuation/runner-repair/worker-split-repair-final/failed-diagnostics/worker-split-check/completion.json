@@ -1,0 +1,29 @@
+{
+  "head": "ca5d14f9ba18cac4a06ce2726a68f661e877bf9d",
+  "scope": "worker open/gated code-split transforms, no tracked route rewrite, typecheck; probe e223559e3b8e77f17f5c0a115d25369a75b0f625fd1db3132c7bc8a6097b7a17",
+  "startedUtc": "2026-11-03T21:39:21.518417+00:00",
+  "checks": [
+    {
+      "name": "transforms",
+      "command": [
+        "node",
+        "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\work\\verify-worker-split.mjs"
+      ],
+      "pid": 20156,
+      "exitCode": 1
+    },
+    {
+      "name": "typecheck",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "pid": 8236,
+      "exitCode": 0
+    }
+  ],
+  "transformPassed": false,
+  "passed": false,
+  "finishedUtc": "2026-11-03T21:40:45.409794+00:00"
+}

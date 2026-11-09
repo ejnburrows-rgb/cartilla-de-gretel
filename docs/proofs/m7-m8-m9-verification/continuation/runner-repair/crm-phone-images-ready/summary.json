@@ -1,0 +1,18 @@
+{
+  "head": "4c807085eaa7508d7f326448b65ba4d07d08faa9",
+  "passed": true,
+  "wrapperExitCode": 0,
+  "runCompletion": "docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\crm-phone-images-ready\\completion.json",
+  "runCompletionSha256": "0ab488b3848f1e839261e2f90ad869bb22d3b11bab94e84372ba422cfc63b3c7",
+  "originalTimeoutsPreserved": true,
+  "stats": {
+    "startTime": "2026-11-03T22:11:28.829Z",
+    "duration": 36529.999,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "artifactManifestSha256": "0b9229bd2551239ac843108ac102c0246392832fa64d74be679a6a6a882ea91b",
+  "artifactFilesUnchanged": 445
+}

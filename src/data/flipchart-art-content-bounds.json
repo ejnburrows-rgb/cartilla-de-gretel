@@ -34,10 +34,10 @@
  "/cartilla/art/optimized/flipchart-native/p003-scene.png": [
   539,
   539,
-  32,
-  117,
-  483,
-  304
+  6,
+  110,
+  529,
+  339
  ],
  "/cartilla/art/optimized/flipchart-native/p003-una.png": [
   320,
@@ -82,10 +82,10 @@
  "/cartilla/art/optimized/flipchart-native/p004-oto.png": [
   320,
   320,
-  55,
-  77,
-  209,
-  166
+  12,
+  23,
+  296,
+  273
  ],
  "/cartilla/art/optimized/flipchart-native/p004-oveja.png": [
   320,
@@ -160,60 +160,60 @@
   499
  ],
  "/cartilla/art/optimized/flipchart-native/p006-elefante.png": [
-  320,
-  320,
-  12,
-  24,
-  296,
-  271
+  570,
+  540,
+  0,
+  0,
+  570,
+  540
  ],
  "/cartilla/art/optimized/flipchart-native/p006-ema.png": [
-  467,
-  608,
+  500,
+  540,
   0,
   0,
-  467,
-  608
+  500,
+  540
  ],
  "/cartilla/art/optimized/flipchart-native/p006-erizo.png": [
-  320,
-  320,
-  52,
-  46,
-  216,
-  235
+  520,
+  650,
+  0,
+  0,
+  520,
+  650
  ],
  "/cartilla/art/optimized/flipchart-native/p006-escalera.png": [
-  320,
-  320,
-  64,
-  41,
-  192,
-  246
+  550,
+  650,
+  0,
+  0,
+  550,
+  650
  ],
  "/cartilla/art/optimized/flipchart-native/p006-espejo.png": [
-  320,
-  320,
-  56,
-  50,
-  209,
-  215
+  520,
+  540,
+  0,
+  0,
+  520,
+  540
  ],
  "/cartilla/art/optimized/flipchart-native/p006-estrella.png": [
-  320,
-  320,
-  58,
-  49,
-  204,
-  228
+  600,
+  650,
+  0,
+  0,
+  600,
+  650
  ],
  "/cartilla/art/optimized/flipchart-native/p006-scene.png": [
-  560,
-  560,
-  66,
-  24,
-  416,
-  512
+  950,
+  1250,
+  0,
+  0,
+  950,
+  1250
  ],
  "/cartilla/art/optimized/flipchart-native/p007-iglu.png": [
   640,
@@ -656,12 +656,12 @@
   492
  ],
  "/cartilla/art/optimized/flipchart-native/p026-scene.png": [
-  638,
-  638,
-  167,
-  63,
-  439,
-  512
+  1006,
+  1457,
+  0,
+  0,
+  1006,
+  1457
  ],
  "/cartilla/art/optimized/flipchart-native/p027-mono.png": [
   485,
@@ -712,12 +712,12 @@
   830
  ],
  "/cartilla/art/optimized/flipchart-native/p029-scene.png": [
-  665,
-  665,
-  164,
-  81,
-  470,
-  503
+  1070,
+  1515,
+  0,
+  0,
+  1070,
+  1515
  ],
  "/cartilla/art/optimized/flipchart-native/p030-mene.png": [
   536,
@@ -768,12 +768,12 @@
   489
  ],
  "/cartilla/art/optimized/flipchart-native/p032-scene.png": [
-  682,
-  682,
-  152,
-  87,
-  498,
-  508
+  1003,
+  1389,
+  0,
+  0,
+  1003,
+  1389
  ],
  "/cartilla/art/optimized/flipchart-native/p033-bate.png": [
   320,
@@ -880,12 +880,12 @@
   162
  ],
  "/cartilla/art/optimized/flipchart-native/p038-scene.png": [
-  636,
-  636,
-  143,
-  62,
-  461,
-  512
+  1008,
+  1458,
+  0,
+  0,
+  1008,
+  1458
  ],
  "/cartilla/art/optimized/flipchart-native/p039-rana.png": [
   320,
@@ -1328,11 +1328,11 @@
   248
  ],
  "/cartilla/art/optimized/flipchart-native/p062-scene.png": [
-  633,
-  633,
-  68,
-  60,
-  532,
-  513
+  1081,
+  1329,
+  0,
+  0,
+  1081,
+  1329
  ]
 }

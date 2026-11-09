@@ -1,0 +1,10 @@
+
+
+
+
+Running 1 test using 1 worker
+
+
+
+[1/1] [chromium] › tests\e2e\final-candidate.spec.ts:155:4 › all teacher plates, final artwork and geometry — tablet
+  1 passed (5.6m)

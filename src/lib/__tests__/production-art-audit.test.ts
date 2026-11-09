@@ -13,8 +13,8 @@ const audit = existsSync(auditPath)
 
 const bySrc = new Map((audit?.faithfulAudit ?? []).map((item: any) => [item.src, item]));
 
-// Rows whose optimized output is a deterministic pixel match to its declared
-// HD source-page crop. Every other row must stay PENDING.
+// Rows meeting the existing normalized HD-crop correspondence thresholds.
+// This audit does not certify original RGB byte identity or alpha preservation.
 const previouslyVerifiedNative = [
   "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
   "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
@@ -32,10 +32,15 @@ const sourceRepairs: SourceRepair[] = JSON.parse(readFileSync(path.join(root,
   "docs/proofs/source-crop-repairs-2026-10-27/source-pixel-verification.json"), "utf8"));
 const isolatedScene: SourceRepair = JSON.parse(readFileSync(path.join(root,
   "docs/proofs/source-crop-repairs-2026-10-27/scene-11/source.json"), "utf8"));
+const superseded: { destination: string; sourceArchive: string; historicalSha256: string; supersededBy: { sha256: string } }[] = JSON.parse(readFileSync(path.join(root,
+  "docs/proofs/m7-m8-m9-verification/continuation/superseded-sources.json"), "utf8"));
+const restoredScene29: { page: number; destination: string; sha256: string; rgbMatch: boolean } = JSON.parse(readFileSync(path.join(root,
+  "docs/proofs/m7-m8-m9-verification/additional-source-repairs.json"), "utf8")).find((item: { page: number }) => item.page === 29);
 const deterministicallyVerifiedNative = [...new Set([
   ...previouslyVerifiedNative,
+  restoredScene29.destination,
   ...[...sourceRepairs, isolatedScene]
-    .filter((item) => item.destination.startsWith("public/cartilla/art/optimized/flipchart-native/"))
+    .filter((item) => item.destination.startsWith("public/cartilla/art/optimized/flipchart-native/") && !superseded.some(prior => prior.destination === item.destination))
     .map((item) => item.destination.replace(/^public/, "")),
 ])];
 
@@ -45,9 +50,18 @@ describe.skipIf(!audit)("production foreground art audit truthfulness", () => {
     expect(deterministicallyVerifiedNative).toHaveLength(55);
     const sha256 = (file: string) => createHash("sha256")
       .update(readFileSync(path.join(root, file))).digest("hex");
+    expect(restoredScene29.destination).toBe("/cartilla/art/optimized/flipchart-native/p029-scene.png");
+    expect(restoredScene29.rgbMatch).toBe(true);
+    expect(sha256("public" + restoredScene29.destination)).toBe(restoredScene29.sha256);
     for (const item of [...sourceRepairs, isolatedScene]) {
       expect(sha256(item.source), item.source).toBe(item.sourceSha256);
-      expect(sha256(item.destination), item.destination).toBe(item.sha256);
+      const prior = superseded.find(entry => entry.destination === item.destination);
+      expect(sha256(prior?.sourceArchive ?? item.destination), item.destination).toBe(item.sha256);
+      if (prior) {
+        expect(prior.historicalSha256).toBe(item.sha256);
+        expect(sha256(item.destination)).toBe(prior.supersededBy.sha256);
+        expect(sha256(item.destination)).not.toBe(item.sha256);
+      }
     }
   });
   it("keeps the five owner-approved Page-1 assets present on disk", () => {
@@ -83,6 +97,9 @@ describe.skipIf(!audit)("production foreground art audit truthfulness", () => {
       .map((item: any) => item.src)
       .sort();
     expect(passed).toEqual([...deterministicallyVerifiedNative].sort());
+    const supersededEma = audit.nativeAudit.find((item: any) => item.src === "/cartilla/art/optimized/flipchart-native/p006-ema.png");
+    expect(supersededEma.classification).toBe("PENDING NO VERIFIED SOURCE");
+    expect(supersededEma.cropMatch).toBe(false);
 
     for (const item of audit.nativeAudit) {
       if (item.classification === "PASS") {

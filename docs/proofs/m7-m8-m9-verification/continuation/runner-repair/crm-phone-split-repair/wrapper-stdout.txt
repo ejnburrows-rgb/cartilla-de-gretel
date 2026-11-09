@@ -1,0 +1,31 @@
+{
+  "startedUtc": "2026-11-03T21:50:23.641243+00:00",
+  "wrapperPid": 38400,
+  "head": "ca5d14f9ba18cac4a06ce2726a68f661e877bf9d",
+  "command": [
+    "pnpm.cmd",
+    "exec",
+    "playwright",
+    "test",
+    "tests/e2e/crm-local-demo.spec.ts",
+    "--project=chromium",
+    "--grep=at phone size",
+    "--workers=1",
+    "--reporter=line,json",
+    "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\crm-phone-split-repair\\artifacts"
+  ],
+  "status": "finished",
+  "runnerPid": 38876,
+  "exitCode": 1,
+  "jsonPresent": true,
+  "jsonSha256": "81ad99dff139bf63d82551adbe595f9b7d008d9a03ba8251b7088e977ec6e11e",
+  "stats": {
+    "startTime": "2026-11-03T21:50:32.166Z",
+    "duration": 178519.96300000002,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "finishedUtc": "2026-11-03T21:53:30.851516+00:00"
+}

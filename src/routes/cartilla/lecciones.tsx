@@ -1,8 +1,6 @@
-import { DemoStudentBanner } from "@/components/cartilla/DemoStudentBanner";
-import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Check, Play } from "lucide-react";
+import { ArrowLeft, BookOpen, Check, Music, Play, Sparkles } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
@@ -68,8 +66,6 @@ function Lecciones() {
 
   return (
     <main className="lc-lessons">
-      <DemoStudentBanner />
-      <DemoControlCenter />
       <header className="lc-lessons__header">
         <Link to="/cartilla" className="lc-lessons__back">
           <ArrowLeft size={20} /> Cartilla
@@ -118,6 +114,27 @@ function Lecciones() {
           </div>
         </section>
       </header>
+
+      <div className="mx-auto mb-4 flex max-w-[1280px] flex-wrap items-center gap-3">
+        <Link
+          to="/cartilla/cuaderno"
+          className="inline-flex items-center gap-2 rounded-2xl border border-amber-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-extrabold text-stone-800 shadow-2xs transition hover:bg-amber-50"
+        >
+          <BookOpen className="h-4 w-4 text-amber-700" /> Cuaderno Completo
+        </Link>
+        <a
+          href="/cartilla/practica?modo=piano"
+          className="inline-flex items-center gap-2 rounded-2xl border border-emerald-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-extrabold text-stone-800 shadow-2xs transition hover:bg-emerald-50"
+        >
+          <Music className="h-4 w-4 text-emerald-700" /> El Piano Hablador
+        </a>
+        <Link
+          to="/cartilla/practica"
+          className="inline-flex items-center gap-2 rounded-2xl border border-sky-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-extrabold text-stone-800 shadow-2xs transition hover:bg-sky-50"
+        >
+          <Sparkles className="h-4 w-4 text-sky-700" /> Minijuegos y Práctica
+        </Link>
+      </div>
 
       <div className="mx-auto mb-5 flex max-w-[1280px] flex-wrap items-center justify-between gap-3">
         <p className="lc-lessons__persistence-note m-0">

@@ -18,6 +18,7 @@ import artBounds from "@/data/flipchart-art-content-bounds.json";
 import artPlacement from "@/data/flipchart-art-placement.json";
 import crescentScans from "@/data/flipchart-crescents.json";
 import dividerScans from "@/data/flipchart-dividers.json";
+import productionArt from "@/data/flipchart-production-art.json";
 
 type RawItem = {
   x: number;
@@ -34,7 +35,7 @@ type RawItem = {
   spaced?: boolean;
 };
 
-type RawAsset = { word: string; src: string; crop: number[]; role?: string; labelInImage?: boolean };
+type RawAsset = { word: string; src: string; crop: number[]; role?: string; labelInImage?: boolean; motionDisabled?: boolean };
 
 const RAW_TEXT = { ...firstPages, ...middlePages, ...lastPages } as unknown as Record<string, RawItem[]>;
 const FRAMES = frames as Record<string, { width: number; height: number }>;
@@ -126,6 +127,8 @@ export type ReplicaCrescent = {
 };
 export type ReplicaDivider = { x: number; y: number; w: number; h: number; stops: string[] };
 export type ReplicaArt = {
+  /** Source repairs stay still until motion is checked against their new geometry. */
+  motionDisabled: boolean;
   /** Image element rect (sheet units) such that the drawn area fills the printed box. */
   x: number;
   y: number;
@@ -139,6 +142,17 @@ export type ReplicaArt = {
   labelInImage: boolean;
 };
 
+export type ApprovedFullSheet = {
+  src: string;
+  width: number;
+  height: number;
+  sha256: string;
+  sourcePdfSha256: string;
+  sourceUrl: string;
+  approval: string;
+};
+const FULL_SHEET_ART = productionArt as unknown as Record<string, { fullSheet?: ApprovedFullSheet }>;
+
 export type ReplicaSheet = {
   page: number;
   width: number;
@@ -150,6 +164,8 @@ export type ReplicaSheet = {
   art: ReplicaArt[];
   dividers: ReplicaDivider[];
   cardTint?: "mist";
+  /** Owner-approved complete source; separate visible replica layers are inactive. */
+  fullSheet?: ApprovedFullSheet;
 };
 
 const RED_LIKE = /^#(b|c|d)[0-9a-f]00?[0-9a-f]{2,3}$/i;
@@ -365,7 +381,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   const raw = RAW_TEXT[String(page)];
   const frame = FRAMES[String(page)];
   if (!raw || !frame) return null;
-  const height = frame.height * (REPLICA_WIDTH / frame.width);
+  const fullSheet = FULL_SHEET_ART[String(page)]?.fullSheet;
+  const height = fullSheet
+    ? REPLICA_WIDTH * fullSheet.height / fullSheet.width
+    : frame.height * (REPLICA_WIDTH / frame.width);
 
   // 1. Panels: empty text runs that only paint a background.
   const panelItems = raw.filter((item) => !item.text.trim() && !isWhite(item.backgroundColor) && item.width > 60 && item.height > 50);
@@ -761,10 +780,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
 
   // 5. Pictures from the approved crop boxes (same frame space as the text).
   const sx = REPLICA_WIDTH / frame.width;
-  const art: ReplicaArt[] = (ASSETS[String(page)] ?? []).map((asset) => {
+  const art: ReplicaArt[] = (fullSheet ? [] : ASSETS[String(page)] ?? []).map((asset) => {
     const [cx, cy, cw, ch] = (asset.crop.map(Number) as [number, number, number, number]).map((v) => v * sx) as [number, number, number, number];
     const bounds = ART_BOUNDS[asset.src];
-    const base = { src: asset.src, word: asset.word, scene: asset.role === "scene", labelInImage: Boolean(asset.labelInImage) };
+    const base = { src: asset.src, word: asset.word, scene: asset.role === "scene", labelInImage: Boolean(asset.labelInImage), motionDisabled: Boolean(asset.motionDisabled) };
     if (!bounds) return { ...base, x: cx, y: cy, w: cw, h: ch, clip: [0, 0, 0, 0] as [number, number, number, number] };
     const [nw, nh, bl, bt, bw, bh] = bounds;
     // Where the drawing sits on the printed scan (template match); otherwise
@@ -835,7 +854,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     }
   }
 
-  return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page] };
+  return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page], fullSheet };
 }
 
 type Box = { x: number; y: number; w: number; h: number };

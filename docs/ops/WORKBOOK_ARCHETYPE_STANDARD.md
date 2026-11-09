@@ -2,6 +2,8 @@
 
 This document records the owner-selected official archetypes and their required formats.
 
+The October 30 owner selection was recorded in merged [PR #1224](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1224). The two Workbook archetypes here are official view formats, not replacements for the eight recurring source-page exercise families in [the root Workbook standard](../../WORKBOOK_ARCHETYPE_STANDARD.md). Preserve the exact source page and its matching exercise family inside the applicable view. These are approved target requirements, not evidence that every format is integrated or live. Current assignments and proof belong in [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877); working rules, authentic-audio restrictions and approvals remain governed by [AGENTS.md](../../AGENTS.md).
+
 ## Student Workbook Official Archetypes
 
 ### Archetype #1 — `OfficialWorkbookPageView.tsx`
@@ -70,7 +72,7 @@ Mount `SyllableTrain`, `WordPuzzle`, `MemoryMatch`, and `RapidFire` from `src/co
 ## Protected Requirements
 
 - Spanish reading exercises use real human recordings from `public/audio/gretel/` or Steinway piano samples from `public/audio/piano/`. Keep `allowTts: false`; do not use `window.speechSynthesis` or AI text-to-speech.
-- Workbook pages 86–87 (Lesson 24, `güe / güi`) remain `SOURCE_BLOCKED` and excluded from student navigation until the owner supplies source scans. Do not invent their artwork.
+- Printed Workbook pages 86–87 remain `SOURCE_BLOCKED` because they are absent from the supplied authoritative scan, and remain excluded from student navigation until authentic source scans are supplied and verified. Do not assign inferred lesson content, wording or artwork to those missing pages; use the verified printed-page map. Lesson 24 uses supplied pages 88–90.
 - Keep `git.deploymentEnabled: false` in `vercel.json`. This standard does not authorize a production deployment.
 - Gretel Tutor #1073 is complete and outside this scope. Do not modify or assign Tutor files.
 - `/cartilla/juego/mariposas-p` is live and verified with all 33 original assets. Do not overwrite or re-import its assets.
