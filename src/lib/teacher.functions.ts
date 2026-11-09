@@ -56,14 +56,25 @@ type TeacherStudentWithClass = {
  * student's rows through the one shared progress-calculation module — the
  * same source every surface (roster, dashboard, student detail) reads, so
  * "lessons completed" never disagrees between screens. */
-async function fetchProgressStats(
-  studentIds: string[],
-): Promise<
-  Record<string, { lessons: number; completedLessonIds: string[]; lastSeen: string | null; completionPercent: number }>
+async function fetchProgressStats(studentIds: string[]): Promise<
+  Record<
+    string,
+    {
+      lessons: number;
+      completedLessonIds: string[];
+      lastSeen: string | null;
+      completionPercent: number;
+    }
+  >
 > {
   const stats: Record<
     string,
-    { lessons: number; completedLessonIds: string[]; lastSeen: string | null; completionPercent: number }
+    {
+      lessons: number;
+      completedLessonIds: string[];
+      lastSeen: string | null;
+      completionPercent: number;
+    }
   > = {};
   if (studentIds.length === 0) return stats;
 
@@ -188,16 +199,34 @@ export async function listClasses(): Promise<TeacherClassWithCount[]> {
 export async function createClass(input: Call<{ name: string }>) {
   const data = z.object({ name: z.string().trim().min(1).max(80) }).parse(input.data);
   const { userId } = await requireTeacher();
-  for (let i = 0; i < 5; i++) {
-    const code = makeCode(6);
+
+  const candidates = Array.from({ length: 5 }, () => makeCode(6));
+  const { data: existingRows, error: selectError } = await supabase
+    .from("classes")
+    .select("join_code")
+    .in("join_code", candidates);
+
+  if (selectError) throw new Error(selectError.message);
+
+  const existingCodes = new Set(
+    (existingRows ?? []).map((r: { join_code: string }) => r.join_code),
+  );
+
+  for (const code of candidates) {
+    if (existingCodes.has(code)) continue;
+
     const { data: row, error } = await supabase
       .from("classes")
       .insert({ name: data.name, join_code: code, teacher_id: userId })
       .select()
       .single();
+
     if (!error) return row;
-    if (!String(error.message).toLowerCase().includes("join_code")) throw new Error(error.message);
+    if (!String(error.message).toLowerCase().includes("join_code")) {
+      throw new Error(error.message);
+    }
   }
+
   throw new Error("No se pudo generar un código único, intenta otra vez.");
 }
 
@@ -510,8 +539,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
   const progressStats = await fetchProgressStats(ids);
   for (const id of ids) {
     for (const lessonId of progressStats[id]?.completedLessonIds ?? []) {
-      (perLesson[lessonId] ??= { score: 0, total: 0, completedBy: new Set() })
-        .completedBy.add(id);
+      (perLesson[lessonId] ??= { score: 0, total: 0, completedBy: new Set() }).completedBy.add(id);
     }
   }
   // Shared with the cross-teacher admin roll-up so the two screens cannot
