@@ -37,7 +37,13 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
+  React.useEffect(() => {
+    // Let the global error handler in src/lib/error-capture.ts pick this up
+    if (typeof globalThis !== "undefined" && typeof globalThis.dispatchEvent === "function") {
+      globalThis.dispatchEvent(new ErrorEvent("error", { error }));
+    }
+  }, [error]);
+
   const router = useRouter();
 
   return (
