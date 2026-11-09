@@ -193,6 +193,15 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     }
     const word = words[wordIndex]?.word ?? "";
     if (!word) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    if (rect.width <= 0 || event.clientX <= 0) {
+      // No usable pointer coordinates (keyboard, test, or assistive activation):
+      // fall back to the first valid syllable start instead of dropping the tap.
+      const starts = validSyllableStarts(word, syllable);
+      const start = starts[0] ?? 0;
+      attempt(wordIndex, start, isTarget(wordIndex) && starts.length > 0);
+      return;
+    }
     const letters = [...event.currentTarget.querySelectorAll(".native-syllable__letter")];
     let charIndex = letters.findIndex((letter) => {
       const rect = letter.getBoundingClientRect();
@@ -217,13 +226,10 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
     attempt(wordIndex, occurrence ?? charIndex, correct);
   };
 
-  const handleKeyboardActivate = (wordIndex: number) => {
-    if (pending) {
-      if (pending.wordIndex === wordIndex) return;
-      if (pending.correct) commitCorrect(pending.wordIndex, pending.start);
-      else setPending(null);
-    }
+  const handleClick = (wordIndex: number) => {
+    if (pending) return;
     const word = words[wordIndex]?.word ?? "";
+    if (!word) return;
     const starts = validSyllableStarts(word, syllable);
     const start = starts[0] ?? 0;
     attempt(wordIndex, start, isTarget(wordIndex) && starts.length > 0);
@@ -245,6 +251,8 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
       width: `${(spanLength / word.length) * 100}%`,
     };
 
+    const isFinalMark = pendingHere?.correct && correctCount > 0 && marked.size + 1 === correctCount;
+
     return (
       <span className="native-syllable__mark" style={style} aria-hidden="true">
         {pendingHere ? (
@@ -252,6 +260,7 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
             key={`pending-${wordIndex}-${pendingHere.start}-${pendingHere.correct}`}
             markType="circle"
             isCorrect={pendingHere.correct}
+            completeOnSuccess={isFinalMark}
             itemId={`${region.id}-${wordIndex}`}
             onSuccess={() => commitCorrect(wordIndex, pendingHere.start)}
             onRetry={() => setPending((current) => (current?.wordIndex === wordIndex ? null : current))}
@@ -283,9 +292,7 @@ function LearnerSyllableWordCircle({ region, lessonId }: { region: PageRegion; l
               aria-disabled={pending !== null}
               disabled={pending !== null}
               onPointerUp={(event) => handlePointerUp(event, i)}
-              onClick={(event) => {
-                if (event.detail === 0) handleKeyboardActivate(i);
-              }}
+              onClick={() => handleClick(i)}
             >
               <span className="native-syllable__letters" aria-hidden="true">
                 {Array.from(entry.word).map((letter, position) => (
