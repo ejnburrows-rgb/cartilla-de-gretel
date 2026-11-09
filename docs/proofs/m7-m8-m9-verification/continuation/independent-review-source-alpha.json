@@ -1,0 +1,91 @@
+{
+  "head": "c64838a8",
+  "sourcePdfSha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+  "sourceJpegIntermediateSha256": "bc88ef24272c5c7f2a84ee32e64610730c9fc15df8bfebdbef3f40e5cbea792b",
+  "candidatePath": "public/cartilla/art/optimized/flipchart-native/p006-scene.png",
+  "candidateSha256": "99705974587568035b36d3c7100b83a57645727c13cf0c9b5a60e3cef44df2f8",
+  "sceneCropLTRB": [
+    100,
+    100,
+    1050,
+    1350
+  ],
+  "removedSaturatedGroundPixelCount": 29092,
+  "removedSaturatedGroundBBoxInclusive": [
+    64,
+    956,
+    838,
+    1217
+  ],
+  "samples": [
+    {
+      "x": 575,
+      "y": 1056,
+      "sourceRgb": [
+        251,
+        252,
+        89
+      ],
+      "candidateRgba": [
+        255,
+        255,
+        255,
+        0
+      ]
+    },
+    {
+      "x": 638,
+      "y": 1074,
+      "sourceRgb": [
+        246,
+        243,
+        66
+      ],
+      "candidateRgba": [
+        255,
+        255,
+        255,
+        0
+      ]
+    },
+    {
+      "x": 221,
+      "y": 1102,
+      "sourceRgb": [
+        240,
+        236,
+        27
+      ],
+      "candidateRgba": [
+        255,
+        255,
+        255,
+        0
+      ]
+    },
+    {
+      "x": 192,
+      "y": 1129,
+      "sourceRgb": [
+        244,
+        244,
+        62
+      ],
+      "candidateRgba": [
+        255,
+        255,
+        255,
+        0
+      ]
+    }
+  ],
+  "bottomBandLTRB": [
+    0,
+    900,
+    950,
+    1250
+  ],
+  "bottomBandAllOpaque": false,
+  "bottomBandRgbMatchesReconstructedSource": false,
+  "measurementLimit": "Colored-pixel predicate is diagnostic, not an alpha restoration mask. Full visual source inspection is required to identify the complete grass region."
+}

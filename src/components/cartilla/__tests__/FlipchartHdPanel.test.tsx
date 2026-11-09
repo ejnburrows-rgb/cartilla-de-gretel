@@ -308,6 +308,51 @@ describe("TeacherPresentationShell — book-warm presenter chrome", () => {
 });
 
 describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () => {
+  it("removes unavailable corners from pointer and keyboard use at either boundary", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const left = screen.getByTestId("flipchart-corner-left");
+    const right = screen.getByTestId("flipchart-corner-right");
+    expect(right.getAttribute("aria-disabled")).toBe("true");
+    expect(right.getAttribute("tabindex")).toBe("-1");
+    expect(right.getAttribute("aria-label")).toContain("no disponible");
+    expect(left.getAttribute("aria-disabled")).toBe("false");
+    fireEvent.click(container.querySelectorAll('[role="tab"]')[2]);
+    expect(left.getAttribute("aria-disabled")).toBe("true");
+    expect(right.getAttribute("aria-disabled")).toBe("false");
+  });
+
+  it("has no actionable corner or impossible page count for a single sheet", () => {
+    render(<FlipchartHdPanel lessonNumber={2} />);
+    for (const name of ["flipchart-corner-left", "flipchart-corner-right"]) {
+      const corner = screen.getByTestId(name);
+      expect(corner.getAttribute("aria-disabled")).toBe("true");
+      expect(corner.getAttribute("tabindex")).toBe("-1");
+      expect(corner.getAttribute("aria-label")).toContain("no disponible");
+      expect(corner.getAttribute("aria-label")).not.toContain("2 de 1");
+    }
+  });
+
+  it("moves thumbnail focus and selection with Arrow keys, Home and End", () => {
+    render(<FlipchartHdPanel lessonNumber={7} />);
+    const tabs = screen.getAllByRole("tab");
+    expect(tabs[0].getAttribute("tabindex")).toBe("0");
+    expect(tabs[1].getAttribute("tabindex")).toBe("-1");
+    tabs[0].focus();
+    fireEvent.keyDown(tabs[0], { key: "ArrowRight" });
+    expect(document.activeElement).toBe(tabs[1]);
+    expect(tabs[1].getAttribute("aria-selected")).toBe("true");
+    fireEvent.keyDown(tabs[1], { key: "End" });
+    expect(document.activeElement).toBe(tabs[2]);
+    expect(tabs[2].getAttribute("aria-selected")).toBe("true");
+    fireEvent.keyDown(tabs[2], { key: "ArrowRight" });
+    expect(document.activeElement).toBe(tabs[0]);
+    fireEvent.keyDown(tabs[0], { key: "ArrowLeft" });
+    expect(document.activeElement).toBe(tabs[2]);
+    fireEvent.keyDown(tabs[2], { key: "Home" });
+    expect(document.activeElement).toBe(tabs[0]);
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 3");
+  });
+
   it("renders bottom-left and bottom-right corner hotspots in left-hand mode by default", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
     const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]');

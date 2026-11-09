@@ -62,6 +62,6 @@ export function studentFlipTransforms(direction: TurnDirection): { start: string
 }
 
 export function flipchartFlipTransforms(direction: TurnDirection): { start: string; end: string } {
-  if (direction === "next") return { start: "rotateX(0deg)", end: "rotateX(-180deg)" };
-  return { start: "rotateX(-180deg)", end: "rotateX(0deg)" };
+  if (direction === "next") return { start: "rotateX(0deg)", end: "rotateX(180deg)" };
+  return { start: "rotateX(180deg)", end: "rotateX(0deg)" };
 }

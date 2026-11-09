@@ -87,8 +87,13 @@ describe("teacher.functions tests", () => {
     it("creates the class with a generated join code", async () => {
       vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const row = { id: CLASS_ID, name: "Clase A", join_code: "XYZ789" };
+
+      const selectBuilder = makeQueryBuilder(ok([])); // no collisions
       const insertBuilder = makeQueryBuilder(ok(row));
-      vi.mocked(supabase.from).mockReturnValueOnce(insertBuilder as never);
+
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(selectBuilder as never)
+        .mockReturnValueOnce(insertBuilder as never);
 
       const result = await createClass({ data: { name: "Clase A" } });
       expect(result).toEqual(row);
@@ -96,16 +101,21 @@ describe("teacher.functions tests", () => {
 
     it("retries on a join_code collision instead of failing immediately", async () => {
       vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
+
+      // Mock the select finding no collisions, but then the insert hits a race-condition collision
+      const selectBuilder = makeQueryBuilder(ok([]));
       const collision = makeQueryBuilder(fail("duplicate key value violates join_code unique"));
       const row = { id: CLASS_ID, name: "Clase A", join_code: "NEW123" };
       const success = makeQueryBuilder(ok(row));
+
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(collision as never)
-        .mockReturnValueOnce(success as never);
+        .mockReturnValueOnce(selectBuilder as never) // first candidate check
+        .mockReturnValueOnce(collision as never) // first candidate fails insert
+        .mockReturnValueOnce(success as never); // second candidate succeeds insert
 
       const result = await createClass({ data: { name: "Clase A" } });
       expect(result).toEqual(row);
-      expect(supabase.from).toHaveBeenCalledTimes(2);
+      expect(supabase.from).toHaveBeenCalledTimes(3);
     });
   });
 
@@ -287,13 +297,17 @@ describe("teacher.functions tests", () => {
       vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       vi.mocked(supabase.from)
         .mockReturnValueOnce(makeQueryBuilder(ok({ id: CLASS_ID })) as never)
-        .mockReturnValueOnce(makeQueryBuilder(ok([{ id: STUDENT_ID, display_name: "Ana" }])) as never)
+        .mockReturnValueOnce(
+          makeQueryBuilder(ok([{ id: STUDENT_ID, display_name: "Ana" }])) as never,
+        )
         .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
         .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
         .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
-        .mockReturnValueOnce(makeQueryBuilder(ok([
-          { student_id: STUDENT_ID, lesson_id: "2", status: "completed" },
-        ])) as never);
+        .mockReturnValueOnce(
+          makeQueryBuilder(
+            ok([{ student_id: STUDENT_ID, lesson_id: "2", status: "completed" }]),
+          ) as never,
+        );
 
       const result = await getClassProgress({ data: { id: CLASS_ID } });
       expect(result.perStudent[0]).toMatchObject({

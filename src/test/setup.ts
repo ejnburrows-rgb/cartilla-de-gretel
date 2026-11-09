@@ -170,6 +170,7 @@ export class MockBiquadFilterNode extends MockAudioNode {
 export class MockAudioContext {
   state: "suspended" | "running" | "closed" = "running";
   currentTime = 0;
+  sampleRate = 44100;
   destination = new MockAudioNode();
 
   createGain() {
@@ -183,6 +184,46 @@ export class MockAudioContext {
   createBiquadFilter() {
     return new MockBiquadFilterNode();
   }
+
+  createConvolver = vi.fn().mockImplementation(() => {
+    const node = new MockAudioNode() as any;
+    node.buffer = null;
+    return node;
+  });
+
+  createDynamicsCompressor = vi.fn().mockImplementation(() => {
+    const node = new MockAudioNode() as any;
+    node.threshold = new MockAudioParam();
+    node.knee = new MockAudioParam();
+    node.ratio = new MockAudioParam();
+    node.attack = new MockAudioParam();
+    node.release = new MockAudioParam();
+    return node;
+  });
+
+  createBufferSource = vi.fn().mockImplementation(() => {
+    const node = new MockAudioNode() as any;
+    node.buffer = null;
+    node.playbackRate = new MockAudioParam();
+    node.start = vi.fn();
+    node.stop = vi.fn();
+    return node;
+  });
+
+  createBuffer = vi.fn().mockImplementation((channels: number, length: number, sampleRate: number) => ({
+    numberOfChannels: channels,
+    length,
+    sampleRate,
+    duration: length / sampleRate,
+    getChannelData: vi.fn().mockReturnValue(new Float32Array(length)),
+  }));
+
+  decodeAudioData = vi.fn().mockImplementation(async () => ({
+    duration: 1,
+    length: 44100,
+    numberOfChannels: 2,
+    sampleRate: 44100,
+  }));
 
   resume = vi.fn().mockImplementation(async () => {
     this.state = "running";

@@ -60,7 +60,9 @@ Use a safe test PR targeting `main`; no production deployment or real student da
 
 ## Return only this proof
 
-**STATUS:** Implemented / Blocked / Not authorized  
+Owner-facing replies and completion handbacks must follow `AGENTS.md` section 12: begin with an actual visual diagram and use only **DONE and live / DONE but not live / WAITING / NOT TESTED**. The technical proof fields below support that handback; they do not replace it.
+
+**STATUS:** Use the applicable `AGENTS.md` status label and name any authorization blocker
 **FILES CHANGED:** Exact YAML and agent-instruction diff  
 **CHECKS:** Links to successful and deliberately failed PR runs and exact head SHAs  
 **MERGE RULE:** Screenshot or verified setting for required `build` check and independent review  

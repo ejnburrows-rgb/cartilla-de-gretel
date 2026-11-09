@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "tablet-isolated",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "tablet-isolated",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:3d344df458c1e46f93501f5dc73856db321e92e91a8a93b8fcf294e403694119",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:7479f2401acad7edb9fe27b5cd0f548dafb5560266f9fc7378545b1c6e87e267",
+  "dependency_digest": "sha256:9d4581da8918da04474629e51ba1fd1a5c639c35931d1378bca25a232ff436cf",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:c2dd82fcb772c7480a5e169914b3713f768d16b27594458ae3fafdf3b7b4ab54",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:c019498f66bdd341088f05010f2552adab17a45b2c37ae04eac4b749ca321569"
+}

@@ -1,0 +1,6 @@
+PASS Next touch target clear
+PASS trusted touch forward
+PASS Previous touch target clear
+PASS trusted touch backward
+PASS corner visible
+{"head":"48dfec7d6a5ec3ac26171d745ea811621ad659db","checks":[{"result":"PASS","message":"Next touch target clear"},{"result":"PASS","message":"trusted touch forward"},{"result":"PASS","message":"Previous touch target clear"},{"result":"PASS","message":"trusted touch backward"},{"result":"PASS","message":"corner visible"}],"failure":"TimeoutError: page.waitForFunction: Timeout 12000ms exceeded."}

@@ -1,0 +1,19 @@
+{
+  "startedUtc": "2026-11-03T20:23:30.956299+00:00",
+  "head": "0310d7cbcc145641a73a3fd05ecac80835ad8023",
+  "scope": "default-config collection-only no-app fixture, actual fork instrumentation, original startup limits",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--require",
+    "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\work\\audit-vitest-fork.cjs",
+    "node_modules/vitest/vitest.mjs",
+    "list",
+    "work/vitest-startup-only.test.ts",
+    "--json",
+    "--maxWorkers=1"
+  ],
+  "status": "finished",
+  "pid": 28184,
+  "exitCode": 0,
+  "finishedUtc": "2026-11-03T20:23:48.029632+00:00"
+}

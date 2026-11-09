@@ -1,0 +1,52 @@
+{
+  "head": "580e8ddb760a9574f4795410da2b5b658f6f0c86",
+  "node": "v26.2.0",
+  "pnpm": "10.33.0",
+  "runner": "Windows; default Vitest isolated forks; maxWorkers2",
+  "checks": [
+    {
+      "name": "policy",
+      "exitCode": 0,
+      "elapsedSeconds": 3.29,
+      "log": "policy.txt"
+    },
+    {
+      "name": "prebuild",
+      "exitCode": 0,
+      "elapsedSeconds": 1.56,
+      "log": "prebuild.txt"
+    },
+    {
+      "name": "prepare-art",
+      "exitCode": 0,
+      "elapsedSeconds": 67.02,
+      "log": "prepare-art.txt"
+    },
+    {
+      "name": "verify-assets",
+      "exitCode": 0,
+      "elapsedSeconds": 120.65,
+      "log": "verify-assets.txt"
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "elapsedSeconds": 518.32,
+      "log": "typecheck.txt"
+    },
+    {
+      "name": "full-suite",
+      "exitCode": 1,
+      "elapsedSeconds": 1289.04,
+      "log": "full-suite.txt"
+    },
+    {
+      "name": "production-build",
+      "exitCode": 0,
+      "elapsedSeconds": 149.3,
+      "log": "production-build.txt"
+    }
+  ],
+  "headAfter": "580e8ddb760a9574f4795410da2b5b658f6f0c86",
+  "trackedChanges": ""
+}

@@ -387,7 +387,7 @@
   box-shadow:
     inset 0 -7px #dcd2bb,
     0 2px #041c19;
-  cursor: default;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -398,6 +398,13 @@
     box-shadow 0.2s ease,
     transform 0.12s ease;
   transform-origin: top;
+}
+.pb__white:active,
+.pb__white--pressed {
+  transform: translateY(3px) scaleY(0.97);
+  box-shadow:
+    inset 0 -2px #dcd2bb,
+    0 1px #041c19;
 }
 .pb__lamp {
   position: relative;
@@ -490,9 +497,16 @@
   box-shadow:
     inset 0 -5px #161311,
     0 3px 5px #00000073;
-  cursor: default;
-  transition: background 0.2s ease;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
   transform-origin: top;
+}
+.pb__black:active,
+.pb__black--pressed {
+  transform: translateY(2px) scaleY(0.96);
 }
 .pb__black--flash {
   background: linear-gradient(180deg, #0c0a09, #155e57 70%, #2dd4bf);

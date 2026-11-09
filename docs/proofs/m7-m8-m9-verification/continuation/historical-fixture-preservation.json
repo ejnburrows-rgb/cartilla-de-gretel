@@ -1,0 +1,10 @@
+{
+  "originalRelativePath": "docs/proofs/living-cover-2026-11-02/before/WelcomeSplash.test.tsx",
+  "archiveRelativePath": "docs/proofs/living-cover-2026-11-02/before/WelcomeSplash.test.tsx.fixture",
+  "originalSourceCheckoutUnchanged": true,
+  "originalSha256": "a5b468baf42a3e6bf5962682a7de39ac386408881b807487f8391f5d174fb3eb",
+  "archiveGitBlobSha256": "e02e41e43010473a7510b11ffc16a3668fb762a9313548d40b25ed8ba7a9658d",
+  "rawByteEqual": false,
+  "canonicalLfContentEqual": true,
+  "note": "Original untracked file retained in original checkout. Git normalized CRLF to LF in published fixture; no test source content removed."
+}

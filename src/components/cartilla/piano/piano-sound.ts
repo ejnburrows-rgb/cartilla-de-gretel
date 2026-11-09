@@ -87,29 +87,59 @@ function getChain(): Chain | null {
   const ctx = makeContext();
   if (!ctx) return null;
   const input = ctx.createGain();
-  const tone = ctx.createBiquadFilter();
-  tone.type = "lowpass";
-  tone.frequency.value = 7200;
-  tone.Q.value = 0.4;
+  const tone = typeof ctx.createBiquadFilter === "function" ? ctx.createBiquadFilter() : null;
+  if (tone) {
+    tone.type = "lowpass";
+    if (tone.frequency) tone.frequency.value = 7200;
+    if (tone.Q) tone.Q.value = 0.4;
+  }
   const dry = ctx.createGain();
   dry.gain.value = 1 - REVERB_WET * 0.5;
   const wet = ctx.createGain();
   wet.gain.value = REVERB_WET;
-  const reverb = ctx.createConvolver();
-  reverb.buffer = makeImpulse(ctx);
-  const limiter = ctx.createDynamicsCompressor();
-  limiter.threshold.value = -10;
-  limiter.knee.value = 8;
-  limiter.ratio.value = 4;
-  limiter.attack.value = 0.004;
-  limiter.release.value = 0.25;
-  input.connect(tone);
-  tone.connect(dry);
-  tone.connect(reverb);
-  reverb.connect(wet);
-  dry.connect(limiter);
-  wet.connect(limiter);
-  limiter.connect(ctx.destination);
+  const reverb = typeof ctx.createConvolver === "function" ? ctx.createConvolver() : null;
+  if (reverb && typeof ctx.createBuffer === "function") {
+    try {
+      reverb.buffer = makeImpulse(ctx);
+    } catch {
+      /* ignore impulse generation failure in limited contexts */
+    }
+  }
+  const limiter = typeof ctx.createDynamicsCompressor === "function" ? ctx.createDynamicsCompressor() : null;
+  if (limiter) {
+    if (limiter.threshold) limiter.threshold.value = -10;
+    if (limiter.knee) limiter.knee.value = 8;
+    if (limiter.ratio) limiter.ratio.value = 4;
+    if (limiter.attack) limiter.attack.value = 0.004;
+    if (limiter.release) limiter.release.value = 0.25;
+  }
+
+  const filterOutput: AudioNode = tone || input;
+  if (tone) {
+    input.connect(tone);
+  }
+
+  if (reverb && reverb.buffer) {
+    filterOutput.connect(dry);
+    filterOutput.connect(reverb);
+    reverb.connect(wet);
+    if (limiter) {
+      dry.connect(limiter);
+      wet.connect(limiter);
+      limiter.connect(ctx.destination);
+    } else {
+      dry.connect(ctx.destination);
+      wet.connect(ctx.destination);
+    }
+  } else {
+    if (limiter) {
+      filterOutput.connect(limiter);
+      limiter.connect(ctx.destination);
+    } else {
+      filterOutput.connect(ctx.destination);
+    }
+  }
+
   chain = { ctx, input };
   if (ctx.state === "suspended") void ctx.resume().catch(() => {});
   return chain;

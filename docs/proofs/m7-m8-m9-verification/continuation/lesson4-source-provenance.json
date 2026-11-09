@@ -1,0 +1,205 @@
+{
+  "candidateHead": "d613b78ba553c3c5786afdf7d589305a3080f1cf",
+  "sourcePdfSha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+  "sourcePdfPage": 6,
+  "embeddedImageXref": 19,
+  "embeddedImageSha256": "c8c69b76e05f381cdbc5d26247152f7b8e58356d7ae0c106381c625541b1826f",
+  "sourceRasterDimensions": [
+    2144,
+    2936
+  ],
+  "method": "Decode original embedded JPEG with Pillow RGB, crop exact native rectangle, encode JPEG quality=95 with Pillow defaults, decode that intermediate, compare every RGB channel at every output pixel with alpha>0. Alpha is inspected separately, not certified by this RGB check.",
+  "allSevenVisibleRgbChainsMatch": true,
+  "originalRgbPreservedExactly": false,
+  "assets": [
+    {
+      "destination": "public/cartilla/art/optimized/flipchart-native/p006-scene.png",
+      "sha256": "99705974587568035b36d3c7100b83a57645727c13cf0c9b5a60e3cef44df2f8",
+      "dimensions": [
+        950,
+        1250
+      ],
+      "sourcePdfPage": 6,
+      "sourceCropLTRB": [
+        100,
+        100,
+        1050,
+        1350
+      ],
+      "intermediateJpegQuality": 95,
+      "intermediateJpegSha256": "bc88ef24272c5c7f2a84ee32e64610730c9fc15df8bfebdbef3f40e5cbea792b",
+      "rgbMatchVisibleToIntermediate": true,
+      "visibleRgbDifferencesToIntermediate": 0,
+      "rgbMatchAllPixelsToOriginal": false,
+      "visibleRgbDifferencesToOriginal": 321878,
+      "meanAbsoluteRgbDeltaOpaqueToOriginal": 1.7904578568713405,
+      "maxAbsoluteRgbDeltaOpaqueToOriginal": 33,
+      "transparentPixels": 845822,
+      "partialAlphaPixels": 54929,
+      "opaquePixels": 286749,
+      "zeroAlphaRgbAllWhite": true
+    },
+    {
+      "destination": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+      "sha256": "d0c044b079af68d6e7ca87c65a3cfa75dd9883b50e138b24be25f9777975b8fa",
+      "dimensions": [
+        570,
+        540
+      ],
+      "sourcePdfPage": 6,
+      "sourceCropLTRB": [
+        80,
+        1380,
+        650,
+        1920
+      ],
+      "intermediateJpegQuality": 95,
+      "intermediateJpegSha256": "1ab6704b0c079bc332b519f5774675578433d7e4d17a2dba2b84397d5650faa8",
+      "rgbMatchVisibleToIntermediate": true,
+      "visibleRgbDifferencesToIntermediate": 0,
+      "rgbMatchAllPixelsToOriginal": false,
+      "visibleRgbDifferencesToOriginal": 101950,
+      "meanAbsoluteRgbDeltaOpaqueToOriginal": 1.4726688670420247,
+      "maxAbsoluteRgbDeltaOpaqueToOriginal": 22,
+      "transparentPixels": 189930,
+      "partialAlphaPixels": 4556,
+      "opaquePixels": 113314,
+      "zeroAlphaRgbAllWhite": true
+    },
+    {
+      "destination": "public/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+      "sha256": "e1699002b9ca40438935d8a4cdf32e559fd41f0a6ce0aebc8344f75bc60ddf02",
+      "dimensions": [
+        520,
+        540
+      ],
+      "sourcePdfPage": 6,
+      "sourceCropLTRB": [
+        780,
+        1380,
+        1300,
+        1920
+      ],
+      "intermediateJpegQuality": 95,
+      "intermediateJpegSha256": "dabb758622fa6eaac7134b30581d1243d060d216be7ffa5fec3a61b7101093f9",
+      "rgbMatchVisibleToIntermediate": true,
+      "visibleRgbDifferencesToIntermediate": 0,
+      "rgbMatchAllPixelsToOriginal": false,
+      "visibleRgbDifferencesToOriginal": 86259,
+      "meanAbsoluteRgbDeltaOpaqueToOriginal": 1.4974672711713188,
+      "maxAbsoluteRgbDeltaOpaqueToOriginal": 17,
+      "transparentPixels": 185390,
+      "partialAlphaPixels": 3875,
+      "opaquePixels": 91535,
+      "zeroAlphaRgbAllWhite": true
+    },
+    {
+      "destination": "public/cartilla/art/optimized/flipchart-native/p006-ema.png",
+      "sha256": "2c7f6c1a34ba21bc36bc96148cfac4cdbc7329bb82447b3b836d750b47bf6ca7",
+      "dimensions": [
+        500,
+        540
+      ],
+      "sourcePdfPage": 6,
+      "sourceCropLTRB": [
+        1550,
+        1380,
+        2050,
+        1920
+      ],
+      "intermediateJpegQuality": 95,
+      "intermediateJpegSha256": "4d648929f707ba9f038cea7e3dcd5da1a8c1546ec0661477778288b0462761ba",
+      "rgbMatchVisibleToIntermediate": true,
+      "visibleRgbDifferencesToIntermediate": 0,
+      "rgbMatchAllPixelsToOriginal": false,
+      "visibleRgbDifferencesToOriginal": 88248,
+      "meanAbsoluteRgbDeltaOpaqueToOriginal": 1.5023074463291617,
+      "maxAbsoluteRgbDeltaOpaqueToOriginal": 15,
+      "transparentPixels": 173965,
+      "partialAlphaPixels": 4303,
+      "opaquePixels": 91732,
+      "zeroAlphaRgbAllWhite": true
+    },
+    {
+      "destination": "public/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+      "sha256": "bdb059572bee5920115a0116390312308c0de06395d13151deb574487e86db1e",
+      "dimensions": [
+        600,
+        650
+      ],
+      "sourcePdfPage": 6,
+      "sourceCropLTRB": [
+        80,
+        2100,
+        680,
+        2750
+      ],
+      "intermediateJpegQuality": 95,
+      "intermediateJpegSha256": "a7b163ff71eb041db11da2f08c013cf2d1d15975110b46de44252ac37056592f",
+      "rgbMatchVisibleToIntermediate": true,
+      "visibleRgbDifferencesToIntermediate": 0,
+      "rgbMatchAllPixelsToOriginal": false,
+      "visibleRgbDifferencesToOriginal": 94411,
+      "meanAbsoluteRgbDeltaOpaqueToOriginal": 1.174876319911649,
+      "maxAbsoluteRgbDeltaOpaqueToOriginal": 18,
+      "transparentPixels": 259259,
+      "partialAlphaPixels": 12425,
+      "opaquePixels": 118316,
+      "zeroAlphaRgbAllWhite": true
+    },
+    {
+      "destination": "public/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+      "sha256": "df762cecf323c6365aee67dfbeb77cda9c1afed1770a7882bb23fc5f5e03ba4e",
+      "dimensions": [
+        520,
+        650
+      ],
+      "sourcePdfPage": 6,
+      "sourceCropLTRB": [
+        780,
+        2100,
+        1300,
+        2750
+      ],
+      "intermediateJpegQuality": 95,
+      "intermediateJpegSha256": "4dacde4f88dabaa7c77cf8ed56f1d1be458120f1c7faf06d1859d29779c16a25",
+      "rgbMatchVisibleToIntermediate": true,
+      "visibleRgbDifferencesToIntermediate": 0,
+      "rgbMatchAllPixelsToOriginal": false,
+      "visibleRgbDifferencesToOriginal": 176501,
+      "meanAbsoluteRgbDeltaOpaqueToOriginal": 1.537484393193328,
+      "maxAbsoluteRgbDeltaOpaqueToOriginal": 23,
+      "transparentPixels": 143462,
+      "partialAlphaPixels": 4450,
+      "opaquePixels": 190088,
+      "zeroAlphaRgbAllWhite": true
+    },
+    {
+      "destination": "public/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+      "sha256": "d12189f53a8ffe2cae80dcc9f144c2fc5d6db6606aa3e4f0cfb6b521a3f12247",
+      "dimensions": [
+        550,
+        650
+      ],
+      "sourcePdfPage": 6,
+      "sourceCropLTRB": [
+        1500,
+        2100,
+        2050,
+        2750
+      ],
+      "intermediateJpegQuality": 95,
+      "intermediateJpegSha256": "fe0718e786b89b892ee6ef9d2c2083baa8202ad0e9bd3f6e6a56543d8f78b426",
+      "rgbMatchVisibleToIntermediate": true,
+      "visibleRgbDifferencesToIntermediate": 0,
+      "rgbMatchAllPixelsToOriginal": false,
+      "visibleRgbDifferencesToOriginal": 102116,
+      "meanAbsoluteRgbDeltaOpaqueToOriginal": 1.3450878009743155,
+      "maxAbsoluteRgbDeltaOpaqueToOriginal": 18,
+      "transparentPixels": 241786,
+      "partialAlphaPixels": 6167,
+      "opaquePixels": 109547,
+      "zeroAlphaRgbAllWhite": true
+    }
+  ]
+}

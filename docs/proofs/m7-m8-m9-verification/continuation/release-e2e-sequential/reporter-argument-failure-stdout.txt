@@ -1,0 +1,5 @@
+
+> cartilla-de-gretel-platform@ test:e2e D:\Downloads\cartilla-1247-continuation-work\test-repairs
+> playwright test "--workers=1" "--reporter=line json" "--output=work/release-e2e-sequential-artifacts"
+
+ ELIFECYCLE  Command failed with exit code 1.

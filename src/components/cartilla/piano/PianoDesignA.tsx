@@ -11,11 +11,12 @@
  * `usePianoGroups`). A small switch chooses Palabras (book words) or Sílabas
  * (the lesson's syllables, three at a time) when both exist.
  */
-import type { CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 import { ArrowRight, Check, Mic, MicOff, RotateCcw, Volume2 } from "lucide-react";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { PRIVACY_NOTE, type PianoDesignProps } from "./usePianoSession";
 import { usePianoGroups, type PianoMode } from "./usePianoGroups";
+import { playNote } from "./piano-sound";
 import {
   CONFIRMED_GREEN,
   GROUP_COUNT,
@@ -23,12 +24,22 @@ import {
   GROUP_SIZE,
   GROUP_STATE_LABEL,
   GROUP_YELLOW,
+  NINE_WHITE,
 } from "./piano-keyboard";
 import "./piano-design-a.css";
 
 export const DESIGN_A_MAX_SYLLABLES = GROUP_COUNT;
 
 const MODE_LABEL: Record<PianoMode, string> = { palabras: "Palabras", silabas: "Sílabas" };
+
+const BLACK_KEY_FREQS: Record<string, number> = {
+  "b-0-1": 277.18, // Cs4
+  "b-0-2": 311.13, // Ds4
+  "b-1-1": 369.99, // Fs4
+  "b-1-2": 415.3,  // Gs4
+  "b-2-1": 466.16, // As4
+  "b-2-2": 554.37, // Cs5
+};
 
 /** The color a key shows in each state (white keys stay ivory until pressed). */
 function keyColor(state: string): string {
@@ -40,6 +51,23 @@ function keyColor(state: string): string {
 
 export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }: PianoDesignProps) {
   const s = usePianoGroups({ syllables, words, lessonId, onComplete, locale });
+  const [touchedKey, setTouchedKey] = useState<number | string | null>(null);
+
+  const handleKeyTouch = (index: number, freq: number) => {
+    setTouchedKey(index);
+    playNote(freq, 0.8, 0.85);
+    setTimeout(() => {
+      setTouchedKey((cur) => (cur === index ? null : cur));
+    }, 200);
+  };
+
+  const handleBlackKeyTouch = (id: string, freq: number) => {
+    setTouchedKey(id);
+    playNote(freq, 0.8, 0.85);
+    setTimeout(() => {
+      setTouchedKey((cur) => (cur === id ? null : cur));
+    }, 200);
+  };
 
   if (!s.item) return null;
   const total = s.keys.length;
@@ -171,15 +199,17 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
                 {Array.from({ length: GROUP_SIZE }, (_, step) => {
                   const index = group * GROUP_SIZE + step;
                   const state = s.keyStateFor(index);
-                  const pressed = state === "red" || state === "yellow" || s.flash?.key === index;
+                  const pressed = state === "red" || state === "yellow" || s.flash?.key === index || touchedKey === index;
+                  const noteFreq = NINE_WHITE[index]?.freq ?? 261.63;
                   return (
                     <span
                       key={index}
                       aria-hidden="true"
                       className={`pa__white pa__white--${state} ${carries ? "piano-hablador__slot" : ""} ${pressed ? "pa__white--pressed" : ""}`}
-                      style={{ "--c": keyColor(state) } as CSSProperties}
+                      style={{ "--c": keyColor(state), cursor: "pointer" } as CSSProperties}
                       data-key-state={carries ? state : undefined}
                       data-testid={`piano-key-${index}`}
+                      onPointerDown={() => handleKeyTouch(index, noteFreq)}
                     >
                       {state === "confirmed" && step === GROUP_SIZE - 1 && (
                         <Check className="pa__white-check" aria-hidden="true" />
@@ -187,8 +217,18 @@ export function PianoDesignA({ syllables, words, lessonId, onComplete, locale }:
                     </span>
                   );
                 })}
-                <span className="pa__black pa__black--g1" aria-hidden="true" />
-                <span className="pa__black pa__black--g2" aria-hidden="true" />
+                <span
+                  className={`pa__black pa__black--g1 ${touchedKey === `b-${group}-1` ? "pa__black--pressed" : ""}`}
+                  aria-hidden="true"
+                  style={{ cursor: "pointer" }}
+                  onPointerDown={() => handleBlackKeyTouch(`b-${group}-1`, BLACK_KEY_FREQS[`b-${group}-1`] ?? 277.18)}
+                />
+                <span
+                  className={`pa__black pa__black--g2 ${touchedKey === `b-${group}-2` ? "pa__black--pressed" : ""}`}
+                  aria-hidden="true"
+                  style={{ cursor: "pointer" }}
+                  onPointerDown={() => handleBlackKeyTouch(`b-${group}-2`, BLACK_KEY_FREQS[`b-${group}-2`] ?? 311.13)}
+                />
                 {carries && s.sparkle?.group === group && (
                   <span
                     key={`spark-${s.sparkle.n}`}

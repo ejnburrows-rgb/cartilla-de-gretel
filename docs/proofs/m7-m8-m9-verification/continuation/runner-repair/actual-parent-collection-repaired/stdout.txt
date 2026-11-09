@@ -1,0 +1,6 @@
+[
+  {
+    "name": "startup collection fixture only",
+    "file": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/work/vitest-startup-only.test.ts"
+  }
+]

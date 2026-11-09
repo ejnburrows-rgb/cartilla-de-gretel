@@ -1,5 +1,9 @@
 @import "tailwindcss" source(none);
 @source "../src";
+/* Test fixtures are not shipped screens. Production source remains fully scanned. */
+@source not "./**/__tests__/**";
+@source not "./**/*.test.{ts,tsx}";
+@source not "./**/*.spec.{ts,tsx}";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));

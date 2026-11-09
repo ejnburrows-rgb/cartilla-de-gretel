@@ -64,6 +64,14 @@ describe("Local Performance Budget & Teacher Route Chunking", () => {
     });
   });
 
+  it("measures production JSX even when invoked from the test environment", () => {
+    expect(process.env.NODE_ENV).toBe("test");
+    const crmChunk = path.join(
+      ROOT_DIR, "dist", "assets", result.teacherChunks["crm.index.lazy"].fileName,
+    );
+    expect(fs.readFileSync(crmChunk, "utf8")).not.toMatch(/\bjsxDEV\b/);
+  });
+
   it("isolates heavy route assets and prevents preloading in index.html", () => {
     expect(result.isolation.violations).toEqual([]);
   });
