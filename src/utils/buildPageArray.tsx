@@ -59,7 +59,7 @@ function pianoSectionEntry(lessonId: number): WorkbookPageEntry {
  * Builds the WorkbookPageEntry[] for a specific lesson. Lesson slices contain
  * interior worksheet leaves only; none is mislabeled as a hard book cover.
  */
-export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
+export function buildPageArray(lessonId: number, includePiano = true): WorkbookPageEntry[] {
   const lessonEntry = (pageInventory.workbook.lessons as Array<{ lessonId: number; pages: string[] }>).find((l) => l.lessonId === lessonId);
   const paths: string[] = lessonEntry?.pages ?? [];
   const catalogEntry = CATALOG.find((e) => e.n === lessonId);
@@ -131,7 +131,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
   // PianoLessonSection itself returns null outside the approved lessons and
   // on devices without a confirmed on-device microphone, so this insert is
   // a no-op render in those cases.
-  if (PIANO_LESSONS.has(lessonId)) {
+  if (includePiano && PIANO_LESSONS.has(lessonId)) {
     const completaIdx = pages.findIndex((page) =>
       typeof page.pageNumber === "number" &&
       pageHasCompletaExercise(page.pageNumber),

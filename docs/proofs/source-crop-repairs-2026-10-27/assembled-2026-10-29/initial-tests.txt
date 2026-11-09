@@ -1,0 +1,88 @@
+
+ RUN  v4.1.8 C:/Users/EJN/Documents/Codex/2026-10-29/la-cartilla-de-gretel-continue-to/work/cartilla
+
+ ❯ src/lib/__tests__/production-art-audit.test.ts (6 tests | 1 failed) 12955ms
+     × certifies native Flip Chart artwork only from a deterministic crop match 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/__tests__/production-art-audit.test.ts > production foreground art audit truthfulness > certifies native Flip Chart artwork only from a deterministic crop match
+AssertionError: expected [ …(55) ] to deeply equal [ …(9) ]
+
+- Expected
++ Received
+
+  [
++   "/cartilla/art/optimized/flipchart-native/p005-ana.png",
++   "/cartilla/art/optimized/flipchart-native/p006-ema.png",
++   "/cartilla/art/optimized/flipchart-native/p007-indio.png",
++   "/cartilla/art/optimized/flipchart-native/p007-irma.png",
++   "/cartilla/art/optimized/flipchart-native/p009-amo.png",
++   "/cartilla/art/optimized/flipchart-native/p009-meme.png",
++   "/cartilla/art/optimized/flipchart-native/p009-mima.png",
++   "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
++   "/cartilla/art/optimized/flipchart-native/p011-scene.png",
++   "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
++   "/cartilla/art/optimized/flipchart-native/p012-puma.png",
++   "/cartilla/art/optimized/flipchart-native/p014-scene.png",
++   "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
++   "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+    "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+    "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
++   "/cartilla/art/optimized/flipchart-native/p020-scene.png",
+    "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+    "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+    "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+    "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
++   "/cartilla/art/optimized/flipchart-native/p027-mono.png",
++   "/cartilla/art/optimized/flipchart-native/p027-napi.png",
++   "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
++   "/cartilla/art/optimized/flipchart-native/p030-mene.png",
++   "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
++   "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
++   "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
++   "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
++   "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
++   "/cartilla/art/optimized/flipchart-native/p039-rita.png",
++   "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
++   "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
++   "/cartilla/art/optimized/flipchart-native/p044-scene.png",
++   "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
++   "/cartilla/art/optimized/flipchart-native/p045-mago.png",
++   "/cartilla/art/optimized/flipchart-native/p048-familia.png",
++   "/cartilla/art/optimized/flipchart-native/p048-felo.png",
++   "/cartilla/art/optimized/flipchart-native/p048-funda.png",
++   "/cartilla/art/optimized/flipchart-native/p048-scene.png",
++   "/cartilla/art/optimized/flipchart-native/p050-scene.png",
++   "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
++   "/cartilla/art/optimized/flipchart-native/p054-casa.png",
++   "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
++   "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
++   "/cartilla/art/optimized/flipchart-native/p054-scene.png",
++   "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
++   "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
++   "/cartilla/art/optimized/flipchart-native/p060-scene.png",
++   "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
++   "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
++   "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+  ]
+
+ ❯ src/lib/__tests__/production-art-audit.test.ts:62:20
+     60|       .map((item: any) => item.src)
+     61|       .sort();
+     62|     expect(passed).toEqual([...deterministicallyVerifiedNative].sort()…
+       |                    ^
+     63|
+     64|     for (const item of audit.nativeAudit) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 26 passed (27)
+   Start at  05:27:13
+   Duration  21.46s (transform 289ms, setup 1.28s, import 573ms, tests 13.84s, environment 4.43s)
+

@@ -40,4 +40,4 @@ For ordinary implementation workers, use `pnpm dev:worker` for browser/runtime w
 
 ## Reporting issues
 
-**First satisfy the evidence-first dispatch gate at the top of `AGENTS.md`: check current code, existing issues/PRs, Jules work and still-valid proof to ensure the problem is real, unassigned and not already resolved.** If the finding is genuinely distinct, open an issue with steps to reproduce, the affected commit, and your browser and operating system. Add a screenshot for visual issues. Do not create issues merely to fill worker capacity.
+**Current October 28 continuation:** Read `AGENTS.md` and #877. Continue existing assignments and document confirmed new findings on the existing issue/PR; do not open new issues or dispatch workers merely because a finding is distinct. Historical general issue-creation guidance: if separately authorized, open an issue with steps to reproduce, the affected commit, and your browser and operating system. Add a screenshot for visual issues. Do not create issues merely to fill worker capacity.

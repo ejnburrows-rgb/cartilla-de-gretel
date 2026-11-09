@@ -154,4 +154,55 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     expect(WORKBOOK_MARK_TIMING.drawMs).toBe(2800);
     expect(WORKBOOK_MARK_TIMING.eraseMs).toBe(4000);
   });
+  it("uses exactly one physical pencil throughout the former 1670–1930ms X overlap", () => {
+    render(<WorkbookPencilMark markType="x" isCorrect itemId="x-overlap" />);
+    const count = () => document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape").length;
+    expect(count()).toBe(1);
+    const motion = [...document.querySelectorAll(".workbook-pencil > animateMotion")];
+    expect(motion.map((el) => el.getAttribute("begin")).sort()).toEqual(["0ms", "1670ms", "1930ms"]);
+    // The hop connects the existing diagonals without adding an ink stroke.
+    expect(document.querySelectorAll(".workbook-pencil-mark__stroke")).toHaveLength(2);
+    act(() => vi.advanceTimersByTime(1670));
+    for (let ms = 1670; ms <= 1930; ms += 10) {
+      expect(count()).toBe(1);
+      act(() => vi.advanceTimersByTime(10));
+    }
+    act(() => vi.advanceTimersByTime(drawMs + holdMs - 1940));
+    expect(count()).toBe(0);
+  });
+
+  it("queues independent marks without grading or drawing the waiting answer early", () => {
+    const first = vi.fn();
+    const second = vi.fn();
+    render(<>
+      <WorkbookPencilMark markType="x" isCorrect itemId="first" onSuccess={first} />
+      <WorkbookPencilMark isCorrect={false} itemId="second" onRetry={second} />
+    </>);
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    expect(document.querySelectorAll("[data-pencil-waiting='true']")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
+    expect(first).toHaveBeenCalledTimes(1);
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:wrong", expect.anything());
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "second" });
+    expect(document.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(eraseMs));
+    expect(second).toHaveBeenCalledTimes(1);
+    expect(document.querySelectorAll(".workbook-pencil-flight")).toHaveLength(0);
+    expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
+  });
+
+  it("releases pencil ownership and restores the cursor on cancellation", () => {
+    const result = render(<WorkbookPencilMark isCorrect itemId="cancelled" />);
+    expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(true);
+    result.unmount();
+    expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
+    render(<WorkbookPencilMark isCorrect itemId="next" />);
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "next" });
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", { itemId: "cancelled" });
+  });
+
 });

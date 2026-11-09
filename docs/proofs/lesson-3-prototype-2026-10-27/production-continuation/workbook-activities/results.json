@@ -1,0 +1,50 @@
+[
+  {
+    "width": 375,
+    "height": 900,
+    "route": "/cartilla/leccion/3",
+    "checks": [
+      "page 8 pencil wrong line retry flash",
+      "page 8 pencil correct line connects and persists",
+      "page 9 uppercase-A tap mode sequence completion",
+      "page 9 trace reload persistence",
+      "page 9 trace learner B separation",
+      "page 9 trace learner A restoration",
+      "page 9 trace reset revokes completion to idle"
+    ],
+    "pageErrors": [],
+    "input": "mouse pointer in touch-capable Chromium context"
+  },
+  {
+    "width": 768,
+    "height": 900,
+    "route": "/cartilla/leccion/3",
+    "checks": [
+      "page 8 pencil wrong line retry flash",
+      "page 8 pencil correct line connects and persists",
+      "page 9 uppercase-A tap mode sequence completion",
+      "page 9 trace reload persistence",
+      "page 9 trace learner B separation",
+      "page 9 trace learner A restoration",
+      "page 9 trace reset revokes completion to idle"
+    ],
+    "pageErrors": [],
+    "input": "mouse pointer in touch-capable Chromium context"
+  },
+  {
+    "width": 1280,
+    "height": 900,
+    "route": "/cartilla/leccion/3",
+    "checks": [
+      "page 8 pencil wrong line retry flash",
+      "page 8 pencil correct line connects and persists",
+      "page 9 uppercase-A tap mode sequence completion",
+      "page 9 trace reload persistence",
+      "page 9 trace learner B separation",
+      "page 9 trace learner A restoration",
+      "page 9 trace reset revokes completion to idle"
+    ],
+    "pageErrors": [],
+    "input": "mouse pointer in touch-capable Chromium context"
+  }
+]

@@ -10,6 +10,7 @@ import {
   Search,
   Sparkles,
   Volume2,
+  Gamepad2,
 } from "lucide-react";
 import { SyllableTap } from "@/components/cartilla/Ejercicios";
 import { DragMatchPairs } from "@/components/cartilla/DragMatchPairs";
@@ -19,9 +20,11 @@ import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
 import { getPianoWords } from "@/lib/piano-words";
 import { SoundSearch } from "@/components/cartilla/SoundSearch";
 import { GretelMirror } from "@/components/cartilla/GretelMirror";
+import { MemoryMatch, RapidFire, SyllableTrain, WordPuzzle } from "@/components/cartilla/InteractiveMiniGames";
 import { canBuildSoundSearch, type AuthenticActivityWord } from "@/lib/activity-mechanics";
 import { DEFAULT_ACTIVITIES, getCanonicalArtPool, type ActivityId } from "@/lib/lesson-catalog";
 import { playUiTick } from "@/lib/piano-audio";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import "@/styles/cartilla-student.css";
 
 interface ActivityCarouselProps {
@@ -35,7 +38,8 @@ interface ActivityCarouselProps {
   activities?: ActivityId[];
 }
 
-type TabType = ActivityId;
+type MiniGameId = "train" | "puzzle" | "memory" | "rapid";
+type TabType = ActivityId | "juegos";
 
 export function ActivityCarousel({
   lessonNumber,
@@ -49,6 +53,9 @@ export function ActivityCarousel({
 }: ActivityCarouselProps) {
   const [activeTab, setActiveTab] = useState<TabType>(activities[0] ?? "silabas");
   const [completedTabs, setCompletedTabs] = useState<Set<TabType>>(new Set());
+  const [activeMiniGame, setActiveMiniGame] = useState<MiniGameId>("train");
+  const [completedMiniGames, setCompletedMiniGames] = useState<Set<MiniGameId>>(new Set());
+  const reducedMotion = useReducedMotion();
 
   const pairs = useMemo(
     () =>
@@ -75,9 +82,11 @@ export function ActivityCarousel({
   useEffect(() => {
     setCompletedTabs(new Set());
     setActiveTab(firstActivity);
+    setActiveMiniGame("train");
+    setCompletedMiniGames(new Set());
   }, [lessonNumber, firstActivity]);
 
-  const tabMeta: Record<TabType, { label: string; icon: ReactElement; disabled?: boolean }> = {
+  const tabMeta: Record<ActivityId, { label: string; icon: ReactElement; disabled?: boolean }> = {
     silabas: { label: "Sílabas", icon: <Volume2 className="w-4 h-4" /> },
     palabras: {
       label: "Emparejar",
@@ -98,13 +107,32 @@ export function ActivityCarousel({
       disabled: !mirrorReady,
     },
   };
-  const tabs = activities.map((id) => ({ id, ...tabMeta[id] })).filter((tab) => !tab.disabled);
+  const tabs: Array<{ id: TabType; label: string; icon: ReactElement; disabled?: boolean }> = [
+    ...activities.map((id) => ({ id, ...tabMeta[id] })).filter((tab) => !tab.disabled),
+    { id: "juegos", label: "Juegos", icon: <Gamepad2 className="w-4 h-4" /> },
+  ];
 
   const handleCompleteTab = (tabId: TabType) => {
     if (completedTabs.has(tabId)) return;
     const next = new Set(completedTabs).add(tabId);
     setCompletedTabs(next);
     if (tabs.length > 0 && tabs.every((tab) => next.has(tab.id))) onCompleteAll?.();
+  };
+
+  const handleMiniGameComplete = (gameId: MiniGameId) => {
+    const next = new Set(completedMiniGames).add(gameId);
+    setCompletedMiniGames(next);
+    if (next.size === 4) handleCompleteTab("juegos");
+  };
+
+  const renderMiniGame = () => {
+    const props = { lessonNumber, onComplete: () => handleMiniGameComplete(activeMiniGame) };
+    switch (activeMiniGame) {
+      case "train": return <SyllableTrain {...props} />;
+      case "puzzle": return <WordPuzzle {...props} />;
+      case "memory": return <MemoryMatch {...props} />;
+      case "rapid": return <RapidFire {...props} />;
+    }
   };
 
   const renderContent = () => {
@@ -193,6 +221,27 @@ export function ActivityCarousel({
             />
           </div>
         );
+      case "juegos":
+        return (
+          <div className="space-y-4 py-2">
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Elige un minijuego">
+              {([
+                ["train", "Tren de sílabas"],
+                ["puzzle", "Rompecabezas"],
+                ["memory", "Memoria"],
+                ["rapid", "Rápido y atento"],
+              ] as const).map(([gameId, label]) => (
+                <button key={gameId} type="button" aria-pressed={activeMiniGame === gameId}
+                  onClick={() => setActiveMiniGame(gameId)}
+                  className="min-h-11 rounded-xl border px-3 py-2 text-sm font-bold"
+                  style={{ borderColor: activeMiniGame === gameId ? color : "#d6d3d1", color: activeMiniGame === gameId ? color : "#44403c" }}>
+                  {label}{completedMiniGames.has(gameId) ? " ✓" : ""}
+                </button>
+              ))}
+            </div>
+            {renderMiniGame()}
+          </div>
+        );
       default:
         return null;
     }
@@ -233,7 +282,7 @@ export function ActivityCarousel({
                 playUiTick();
                 setActiveTab(tab.id);
               }}
-              whileTap={{ scale: 0.94 }}
+              whileTap={reducedMotion ? undefined : { scale: 0.94 }}
               className="channel-tab relative flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3.5 text-sm font-black transition-colors select-none"
               style={
                 isActive
@@ -274,10 +323,10 @@ export function ActivityCarousel({
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, x: 15 }}
+            initial={reducedMotion ? false : { opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -15 }}
-            transition={{ duration: 0.15 }}
+            exit={reducedMotion ? undefined : { opacity: 0, x: -15 }}
+            transition={{ duration: reducedMotion ? 0 : 0.15 }}
             className="w-full"
           >
             {renderContent()}

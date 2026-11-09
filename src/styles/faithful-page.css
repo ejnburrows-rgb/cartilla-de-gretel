@@ -164,8 +164,8 @@
   gap: 1.5cqw;
 }
 .fp-illustration img {
-  max-width: 32cqw;
-  max-height: 32cqw;
+  max-width: 44cqw;
+  max-height: 44cqw;
   object-fit: contain;
   border-radius: 8px;
   /* Born-digital depth: a soft warm shadow so the illustration reads as a

@@ -19,6 +19,7 @@ import {
   type Point,
 } from "./letter-stroke-templates";
 import { useLetterTapTrace, useTraceInputMode } from "./useLetterTraceInput";
+import { PencilShape } from "./WorkbookPencilMark";
 
 const VIEW_W = 100;
 const VIEW_H = 120;
@@ -51,6 +52,7 @@ export function WorkbookLetterTrace({
   const [status, setStatus] = useState<Status>("idle");
   const [slips, setSlips] = useActivityState("traceSlips", 0);
   const [offFlash, setOffFlash] = useState(false);
+  const [livePoint, setLivePoint] = useState<Point | null>(null);
 
   const slipsRef = useRef(slips);
   const offActiveRef = useRef(false);
@@ -131,6 +133,7 @@ export function WorkbookLetterTrace({
 
   function finish() {
     setStatus("done");
+    setLivePoint(null);
     playCorrectChord();
     // Real score: clean trace = 1.0; each off-path excursion costs 0.25, min 0.
     report(slipsRef.current);
@@ -143,6 +146,7 @@ export function WorkbookLetterTrace({
       e.currentTarget.setPointerCapture(e.pointerId);
       offActiveRef.current = false;
       setOffFlash(false);
+      setLivePoint(p);
       // pressing exactly on the active checkpoint counts as reaching it
       setCurrent((prev) => (prev.length === 0 ? [nextCheckpoint] : prev));
       setPointIdx((i) => (i === 0 ? 1 : i));
@@ -177,6 +181,7 @@ export function WorkbookLetterTrace({
       offActiveRef.current = false;
       setOffFlash(false);
     }
+    setLivePoint(p);
 
     const cp = stroke[pointIdx];
     if (cp && Math.hypot(p.x - cp.x, p.y - cp.y) <= CHECKPOINT_TOL) {
@@ -191,9 +196,13 @@ export function WorkbookLetterTrace({
         const nextStrokeIdx = strokeIdx + 1;
         setCompleted((prev) => [...prev, nextCurrent]);
         setCurrent([]);
+        setLivePoint(null);
         if (nextStrokeIdx < strokes.length) {
           setStrokeIdx(nextStrokeIdx);
           setPointIdx(0);
+          setStatus("idle");
+          offActiveRef.current = false;
+          setOffFlash(false);
         } else {
           finish();
         }
@@ -205,6 +214,7 @@ export function WorkbookLetterTrace({
     if (status === "tracing") {
       // Retain the partial path and resume at its next checkpoint.
       setStatus("idle");
+      setLivePoint(null);
       offActiveRef.current = false;
     }
   }
@@ -219,6 +229,7 @@ export function WorkbookLetterTrace({
     setStatus("idle");
     setSlips(0);
     setOffFlash(false);
+    setLivePoint(null);
     slipsRef.current = 0;
     offActiveRef.current = false;
     reportedRef.current = false;
@@ -230,13 +241,19 @@ export function WorkbookLetterTrace({
   const isTap = inputMode === "tap";
   const shownCompleted = finishedWork ? strokes : isTap ? tap.completedStrokes : completed;
   const shownCurrent = finishedWork ? [] : isTap ? tap.currentStrokePoints : current;
-  const shownStatus: Status = finishedWork ? "done" : isTap
-    ? tap.finished
-      ? "done"
-      : shownCompleted.length || shownCurrent.length
-        ? "tracing"
-        : "idle"
-    : status;
+  const shownStatus: Status = finishedWork
+    ? "done"
+    : isTap
+      ? tap.finished
+        ? "done"
+        : shownCompleted.length || shownCurrent.length
+          ? "tracing"
+          : "idle"
+      : status === "done"
+        ? "done"
+        : status === "tracing" || completed.length > 0 || current.length > 0
+          ? "tracing"
+          : "idle";
   const shownSlips = isTap ? tap.wrongCheckpoints : slips;
   const shownOff = isTap ? tap.wrongFlash : offFlash;
   const shownDone = shownCompleted.reduce((n, s) => n + s.length, 0) + shownCurrent.length;
@@ -294,7 +311,7 @@ export function WorkbookLetterTrace({
             the correct formation and direction. */}
         {shownCurrent.length > 0 && (
           <path
-            d={shownCurrent.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
+            d={(status === "tracing" && !isTap && livePoint ? [...shownCurrent, livePoint] : shownCurrent).map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
             fill="none"
             stroke={accent}
             strokeWidth="9"
@@ -381,7 +398,7 @@ export function WorkbookLetterTrace({
         )}
 
         {/* Drag mode: next-checkpoint indicator (unchanged) */}
-        {!isTap && status !== "done" && nextCheckpoint && (
+        {!isTap && shownStatus !== "done" && nextCheckpoint && (
           <circle
             cx={nextCheckpoint.x}
             cy={nextCheckpoint.y}
@@ -390,6 +407,26 @@ export function WorkbookLetterTrace({
             stroke="#ffffff"
             strokeWidth="1.5"
           />
+        )}
+
+        {/* Approved classic wooden pencil tip following learner's touch/drag path */}
+        {livePoint && shownStatus !== "done" && (
+          <g
+            transform={`translate(${livePoint.x}, ${livePoint.y}) rotate(55) scale(0.38)`}
+            style={{ pointerEvents: "none" }}
+          >
+            <PencilShape uid="letter-trace-live-pencil" />
+          </g>
+        )}
+
+        {/* In tap mode, approved wooden pencil rests gracefully near the active checkpoint */}
+        {isTap && activePoint && shownStatus !== "done" && (
+          <g
+            transform={`translate(${activePoint.x + 3.5}, ${activePoint.y - 2.5}) rotate(55) scale(0.32)`}
+            style={{ pointerEvents: "none", opacity: 0.9 }}
+          >
+            <PencilShape uid="letter-trace-tap-pencil" />
+          </g>
         )}
       </svg>
 

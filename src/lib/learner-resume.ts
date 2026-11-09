@@ -1,7 +1,7 @@
 import { learnerStorageKey } from "./learner-storage";
 import { KEYS } from "./storage-keys";
 
-export type LearnerResume = { lesson: number; page: number; printedPage?: number };
+export type LearnerResume = { lesson: number; page: number; printedPage?: number; pageId?: string };
 export function readLearnerResume(lesson?: number): LearnerResume | null {
   try {
     const key = learnerStorageKey(KEYS.learnerResume + (lesson ? `:${lesson}` : ""));
@@ -10,9 +10,9 @@ export function readLearnerResume(lesson?: number): LearnerResume | null {
       Number.isInteger(value.page) && value.page >= 0 ? value : null;
   } catch { return null; }
 }
-export function saveLearnerResume(lesson: number, page: number, printedPage?: number) {
+export function saveLearnerResume(lesson: number, page: number, printedPage?: number, pageId?: string) {
   try {
-    const value = JSON.stringify({ lesson, page, ...(typeof printedPage === "number" && Number.isInteger(printedPage) ? { printedPage } : {}) });
+    const value = JSON.stringify({ lesson, page, ...(typeof printedPage === "number" && Number.isInteger(printedPage) ? { printedPage } : {}), ...(pageId ? { pageId } : {}) });
     localStorage.setItem(learnerStorageKey(`${KEYS.learnerResume}:${lesson}`), value);
     localStorage.setItem(learnerStorageKey(KEYS.learnerResume), value);
   } catch {

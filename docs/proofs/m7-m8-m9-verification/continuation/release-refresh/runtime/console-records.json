@@ -1,0 +1,10 @@
+[
+  {
+    "file": "console-2026-11-03T16-10-50-136Z.log",
+    "text": "[     464ms] [WARNING] [Supabase] Missing env vars. Running in public/demo mode. @ http://127.0.0.1:4187/assets/client.BKa7G59Y.js:43\n[   55946ms] [WARNING] [Supabase] Missing env vars. Running in public/demo mode. @ http://127.0.0.1:4187/assets/client.BKa7G59Y.js:43\n"
+  },
+  {
+    "file": "console-2026-11-03T16-12-34-928Z.log",
+    "text": "[     301ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://127.0.0.1:4187/cartilla/presentar/12:0\n"
+  }
+]

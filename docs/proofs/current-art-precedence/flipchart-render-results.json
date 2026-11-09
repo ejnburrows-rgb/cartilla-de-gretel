@@ -1,0 +1,51 @@
+[
+  {
+    "state": "after",
+    "lesson": 4,
+    "images": [
+      {
+        "alt": "Ilustración de la página 6",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/flipchart-native/p006-scene.png",
+        "width": 560
+      },
+      {
+        "alt": "elefante",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+        "status": "NOT VERIFIED - current still displayed",
+        "width": 320
+      },
+      {
+        "alt": "espejo",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+        "width": 320
+      },
+      {
+        "alt": "Ema",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/flipchart-native/p006-ema.png",
+        "width": 320
+      },
+      {
+        "alt": "estrella",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+        "width": 320
+      },
+      {
+        "alt": "erizo",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+        "width": 320
+      },
+      {
+        "alt": "escalera",
+        "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+        "currentSrc": "http://127.0.0.1:5186/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+        "width": 320
+      }
+    ]
+  }
+]

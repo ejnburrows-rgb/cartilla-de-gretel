@@ -1,5 +1,9 @@
 @import "tailwindcss" source(none);
 @source "../src";
+/* Test fixtures are not shipped screens. Production source remains fully scanned. */
+@source not "./**/__tests__/**";
+@source not "./**/*.test.{ts,tsx}";
+@source not "./**/*.spec.{ts,tsx}";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -209,19 +213,22 @@ html.a11y-contrast .kid-card {
   box-shadow: 0 4px 0 hsl(0 0% 0%);
 }
 
-/* ─── Classic pencil cursor — student screens only (issue #346) ─────
- * Toggled by src/components/StudentCursor.tsx via src/lib/student-cursor.ts,
- * so teacher/admin screens keep the normal arrow. The pencil is a hand-built
- * inline SVG (app iconography, not book art) in the book's own palette: gold
- * barrel, warm wood, red eraser, with a white outer edge so it stays visible
- * on both the cream pages and the darker garden scenes. The hotspot sits on
- * the graphite tip at the pencil's lower-left. */
+/* ─── Student screen cursor — normal system cursor (owner directive 2026-11-02) ─────
+ * Toggled by src/components/StudentCursor.tsx via src/lib/student-cursor.ts.
+ * The miniature SVG pencil cursor has been removed; the normal system cursor is
+ * used everywhere, and the animated wooden pencil appears only during active
+ * marking/drawing movements (WorkbookPencilMark). */
 html.student-pencil,
 html.student-pencil body {
-  cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cg transform='rotate(45 14 14)' stroke='%232b2b2b' stroke-width='1.1' stroke-linejoin='round'%3E%3Cpath d='M10.5 5.2a3.5 3.5 0 0 1 7 0V8h-7z' fill='%23e35d4a'/%3E%3Crect x='10.5' y='8' width='7' height='2.2' fill='%23cbd5e1'/%3E%3Crect x='10.5' y='10.2' width='7' height='9.8' fill='%23e8a820'/%3E%3Cpath d='M10.5 20h7L14 25.6z' fill='%23f5d6a0'/%3E%3Cpath d='M12.4 23h3.2L14 25.6z' fill='%233a3a3a' stroke='none'/%3E%3C/g%3E%3C/svg%3E")
-      6 22,
-    auto;
+  cursor: auto;
+}
+
+/* While a physical Workbook tool works, use the ordinary system arrow on
+ * page paper. Button, text, disabled and accessibility cursor rules below stay
+ * intact; the approved pencil cursor returns as soon as the tool is finished. */
+html.student-pencil[data-workbook-pencil-active],
+html.student-pencil[data-workbook-pencil-active] body {
+  cursor: auto;
 }
 
 /* Anything clickable still says "you can click me". */
@@ -900,23 +907,165 @@ html.student-pencil.a11y-xlarge body {
   font-weight: 700;
 }
 .lc-lessons__back:focus-visible { outline: 4px solid var(--lc-focus, #1668c7); outline-offset: 3px; border-radius: 8px; }
-.lc-lessons__identity { display:flex; align-items:center; gap:18px; margin-top: 16px; }
-.lc-lessons__identity img { width: 92px; height: 112px; object-fit: contain; object-position: bottom center; }
-.lc-lessons__identity h1 {
-  margin: 0;
-  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
-  font-size: clamp(2.2rem, 4.6vw, 4rem);
-  line-height: 1;
+/* ── Companion header card with Gretel organic guide ── */
+.lc-lessons__companion-card {
+  margin-top: 14px;
+  background: var(--lc-paper, #fffdf9);
+  border: 2px solid rgba(37, 49, 58, 0.12);
+  border-radius: 24px;
+  padding: clamp(20px, 3.5vw, 32px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 28px;
+  box-shadow: 0 10px 28px rgba(37, 49, 58, 0.06);
 }
+
+.lc-lessons__companion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lc-lessons__bubble {
+  display: inline-flex;
+  flex-direction: column;
+  background: #fdf6e9;
+  border: 2px solid #f2dcb4;
+  border-radius: 16px 16px 16px 4px;
+  padding: 10px 16px;
+  max-width: 440px;
+}
+
+.lc-lessons__bubble-tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--lc-red, #bf3040);
+  margin-bottom: 2px;
+}
+
+.lc-lessons__bubble-text {
+  margin: 0;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  color: var(--lc-ink, #25313a);
+  line-height: 1.35;
+}
+
+.lc-lessons__title {
+  margin: 4px 0 0;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  line-height: 1;
+  color: var(--lc-ink, #25313a);
+}
+
+.lc-lessons__progress-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.lc-lessons__progress-bar-wrap {
+  width: clamp(160px, 24vw, 260px);
+  height: 14px;
+  background: #ede6d8;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.lc-lessons__progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--lc-teal, #1f9e94) 0%, #2ec4b6 100%);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.lc-lessons__continue-btn {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--lc-red, #bf3040);
+  color: #fff;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #8f2130, 0 6px 16px rgba(191, 48, 64, 0.25);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+  margin-top: 6px;
+}
+
+.lc-lessons__continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #8f2130, 0 8px 20px rgba(191, 48, 64, 0.3);
+}
+
+.lc-lessons__companion-figure {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 12px;
+}
+
+.lc-lessons__gretel-grounded {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lc-lessons__gretel-img {
+  width: clamp(120px, 16vw, 175px);
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 12px 14px rgba(37, 49, 58, 0.12));
+  animation: lc-gretel-guide-breathe 4.8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.lc-lessons__gretel-shadow {
+  width: 75%;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(40, 28, 18, 0.3) 0%, transparent 72%);
+  filter: blur(3px);
+  margin-top: -6px;
+  z-index: 0;
+}
+
+@keyframes lc-gretel-guide-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.012); }
+}
+
+.lc-lessons__persistence-note {
+  max-width: 1280px;
+  margin: 18px auto 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--lc-ink-soft, #53616b);
+}
+
 .lc-progress-pill {
   width: fit-content;
-  margin: 10px 0 0;
+  margin: 0;
   border: 2px solid var(--lc-teal, #1f9e94);
   border-radius: 999px;
-  padding: 7px 14px;
+  padding: 6px 14px;
   color: var(--lc-teal, #1f9e94);
   background: var(--lc-paper, #fffdf9);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 .lc-lesson-grid {
@@ -965,12 +1114,17 @@ html.student-pencil.a11y-xlarge body {
   font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
   font-weight: 700;
 }
-.lc-lesson-tile > img {
-  width: 78px;
-  height: 70px;
+.lc-lesson-tile > img,
+.lc-lesson-tile__art {
+  width: 82px;
+  height: 74px;
   object-fit: contain;
   object-position: center;
   align-self: end;
+  background: transparent;
+  border-radius: 10px;
+  mix-blend-mode: multiply;
+  filter: contrast(1.03);
 }
 .lc-lesson-tile__letter {
   font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
@@ -1005,7 +1159,30 @@ html.student-pencil.a11y-xlarge body {
 @media (max-width: 1080px) { .lc-lesson-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
 @media (max-width: 720px) {
   .lc-lessons { padding-inline: 14px; }
-  .lc-lessons__identity img { width: 68px; height: 84px; }
+  .lc-lessons__companion-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 18px;
+    padding: 20px 16px;
+  }
+  .lc-lessons__companion-content {
+    align-items: center;
+  }
+  .lc-lessons__bubble {
+    align-self: stretch;
+    border-radius: 14px;
+  }
+  .lc-lessons__progress-row {
+    justify-content: center;
+  }
+  .lc-lessons__companion-figure {
+    order: -1;
+    padding-right: 0;
+  }
+  .lc-lessons__gretel-img {
+    width: 110px;
+    max-height: 160px;
+  }
   .lc-lesson-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
   .lc-lesson-tile { min-height: 190px; }
 }
@@ -1126,3 +1303,84 @@ html.student-pencil.a11y-xlarge body {
 /* Tonight demo: approved lc-* system. */
 
 .picture-audio-status { position: fixed; left: 1rem; bottom: 1rem; z-index: 100; max-width: min(28rem, calc(100vw - 2rem)); padding: .65rem 1rem; border-radius: .75rem; background: #fffaf0; color: #413325; box-shadow: 0 2px 12px #0002; font-size: .95rem; }
+
+
+/* ===== Butterfly Garden (mariposas-p) — namespaced bfg-* tokens/utilities ===== */
+@theme inline {
+  --color-bfg-wood: var(--bfg-wood);
+  --color-bfg-wood-dark: var(--bfg-wood-dark);
+  --color-bfg-leaf: var(--bfg-leaf);
+  --color-bfg-leaf-foreground: var(--bfg-leaf-foreground);
+}
+:root {
+  --bfg-wood: oklch(0.48 0.09 55);
+  --bfg-wood-dark: oklch(0.36 0.07 50);
+  --bfg-wood-light: oklch(0.62 0.1 60);
+  --bfg-leaf: oklch(0.38 0.1 150);
+  --bfg-leaf-foreground: oklch(0.99 0 0);
+  --bfg-tag: oklch(0.96 0.06 120);
+  --bfg-tag-border: oklch(0.6 0.09 140);
+  --bfg-ink: oklch(0.25 0.04 150);
+}
+@utility bfg-wood-bar {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 120px, oklch(0 0 0 / 0.06) 120px 124px),
+    linear-gradient(180deg, var(--bfg-wood-light), var(--bfg-wood) 35%, var(--bfg-wood-dark));
+  box-shadow: inset 0 3px 0 oklch(1 0 0 / 0.18), inset 0 -4px 0 oklch(0 0 0 / 0.25);
+}
+@utility bfg-slot-empty {
+  border: 3px dashed oklch(0.95 0.03 90 / 0.85);
+  background: oklch(0.38 0.08 50 / 0.6);
+}
+@utility bfg-tag-tile {
+  background: var(--bfg-tag);
+  border: 3px dashed var(--bfg-tag-border);
+  color: var(--bfg-ink);
+}
+@utility bfg-leaf-board {
+  background: linear-gradient(180deg, oklch(0.45 0.11 150), var(--bfg-leaf));
+  box-shadow: inset 0 2px 0 oklch(1 0 0 / 0.2), 0 4px 0 oklch(0.28 0.07 150);
+}
+
+@keyframes bfg-sway {
+  0%, 100% { transform: rotate(-2.2deg); }
+  50% { transform: rotate(2.2deg); }
+}
+@keyframes bfg-grass {
+  0%, 100% { transform: skewX(-1.6deg); }
+  50% { transform: skewX(1.6deg); }
+}
+@keyframes bfg-flutter-idle {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.9); }
+}
+@keyframes bfg-flutter-fly {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.68); }
+}
+@keyframes bfg-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6%; }
+}
+@keyframes bfg-shake {
+  0%, 100% { translate: 0 0; }
+  25% { translate: -8px 0; }
+  75% { translate: 8px 0; }
+}
+@keyframes bfg-pop-in {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@utility bfg-anim-sway { animation: bfg-sway 4.5s ease-in-out infinite; transform-origin: 50% 95%; }
+@utility bfg-anim-grass { animation: bfg-grass 5s ease-in-out infinite; transform-origin: 50% 100%; }
+@utility bfg-anim-flutter-idle { animation: bfg-flutter-idle 1.6s ease-in-out infinite; transform-origin: 46% 50%; }
+@utility bfg-anim-flutter-fly { animation: bfg-flutter-fly 0.22s ease-in-out infinite; transform-origin: 46% 50%; }
+@utility bfg-anim-bob { animation: bfg-bob 3.2s ease-in-out infinite; }
+@utility bfg-anim-shake { animation: bfg-shake 0.35s ease-in-out 2; }
+@utility bfg-anim-pop { animation: bfg-pop-in 0.4s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bfg-anim-sway, .bfg-anim-grass, .bfg-anim-bob, .bfg-anim-flutter-idle { animation: none; }
+}

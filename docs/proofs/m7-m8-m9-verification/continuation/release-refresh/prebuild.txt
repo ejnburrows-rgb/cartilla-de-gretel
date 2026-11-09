@@ -1,0 +1,5 @@
+
+> cartilla-de-gretel-platform@ prebuild D:\Downloads\cartilla-1247-continuation-work\integration
+> node scripts/prebuild-fetch-pdfs.mjs
+
+[prebuild-fetch-pdfs] public/book/book.pdf not present and BOOK_PDF_URL is not configured. Runtime source fallback remains responsible for the workbook PDF.

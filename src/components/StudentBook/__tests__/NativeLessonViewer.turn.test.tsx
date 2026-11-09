@@ -308,6 +308,27 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
       fireEvent.pointerCancel(prev, { pointerId: 1 });
     });
 
+
     expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
+  });
+
+  it("calls onFinish when clicking next on the last completed page and shows 'Terminar lección'", () => {
+    const onFinish = vi.fn();
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} initialPage={2} onFinish={onFinish} />);
+
+    expect(current()).toBe(25);
+
+    const nextBtn = screen.getByTestId("button-next");
+    expect(nextBtn.textContent).toMatch(/Terminar lección/i);
+
+    const isLocked = nextBtn.getAttribute("data-locked");
+    if (isLocked) {
+      fireEvent.click(nextBtn);
+      expect(onFinish).not.toHaveBeenCalled();
+      completePage(25);
+    }
+
+    fireEvent.click(nextBtn);
+    expect(onFinish).toHaveBeenCalledOnce();
   });
 });

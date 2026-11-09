@@ -1,15 +1,15 @@
 import { DemoStudentBanner } from "@/components/cartilla/DemoStudentBanner";
+import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 import { getDemoStudentSession } from "@/lib/demo-student-session";
 import { listSeedStudentAssignments } from "@/lib/seed-data";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, ClipboardList } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
-import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
@@ -17,6 +17,7 @@ import { sCopy } from "@/content/student-copy";
 import { useLearnerScope } from "@/lib/learner-storage";
 import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { GretelPresence } from "@/components/gretel/GretelPresence";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
@@ -24,6 +25,10 @@ import "@/styles/lesson-fit.css";
 import "@/styles/lesson-cutoff-fixes.css";
 import { exitLessonFullscreen, requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { buildPageArray } from "@/utils/buildPageArray";
+import { PIANO_LESSONS, PianoLessonSection } from "@/components/cartilla/PianoLessonSection";
+import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
+import { getPracticePictureWords } from "@/lib/vocabulary-sources";
+import { usePianoListening } from "@/hooks/usePianoListening";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
@@ -37,6 +42,8 @@ export function Leccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
   const [showIntro, setShowIntro] = useState(false);
+  const [lessonTab, setLessonTab] = useState<"book" | "piano" | "review">("book");
+  const [reviewStarted, setReviewStarted] = useState(false);
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();
@@ -46,7 +53,11 @@ export function Leccion() {
 
   // Build this lesson from the canonical structured workbook page data.
   // All instructional pages render through the native learning surface.
-  const pages = useMemo(() => buildPageArray(n), [n]);
+  // A hidden Piano must not leave an empty leaf after the last printed page.
+  const { supported: pianoSupported, processing: pianoProcessing } = usePianoListening({ lang: "es-MX", onFinal: () => {} });
+  const pages = useMemo(() => buildPageArray(n, pianoSupported), [n, pianoSupported]);
+  const printedPages = pages.map((page) => page.pageNumber).filter((page): page is number => typeof page === "number");
+  const pageRange = printedPages.length ? `${printedPages[0]}-${printedPages.at(-1)}` : entry?.pages;
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -87,20 +98,25 @@ export function Leccion() {
   });
   // Without a session, render immediately. With a session, wait until the
   // query settles (success OR error) so a dead backend can't blank the page.
-  const progressReady = !session || isFetched || isError;
+  const progressReady = pianoProcessing !== "checking" && (!session || isFetched || isError);
   const initialPage = useMemo(() => {
     // Old lesson-24 bookmarks numbered the missing page 87 at index 0. New
     // bookmarks carry the printed page, so this fallback migration runs once.
-    const resolveSavedIndex = (savedIndex: number, printedPage?: number) => {
+    const resolveSavedIndex = (savedIndex: number, printedPage?: number, pageId?: string, isLocalBookmark = false) => {
       if (typeof printedPage === "number" && Number.isInteger(printedPage)) {
         const matching = pages.findIndex((page) => page.pageNumber === printedPage);
         if (matching >= 0) return matching;
       }
+      const identified = pageId ? pages.findIndex((page) => page.id === pageId) : -1;
+      if (identified >= 0) return identified;
+      // Piano has no printed number. A legacy local bookmark uses a current
+      // page index, but backend last_page remains a printed-page offset.
+      if (isLocalBookmark && pages[savedIndex]?.id === "piano-lesson-" + n) return savedIndex;
       const migrated = n === 24 ? Math.max(0, savedIndex - 1) : savedIndex;
       return Math.min(Math.max(0, migrated), Math.max(0, pages.length - 1));
     };
     const local = readLearnerResume(n);
-    if (local) return resolveSavedIndex(local.page, local.printedPage);
+    if (local) return resolveSavedIndex(local.page, local.printedPage, local.pageId, true);
     if (!session) return 0;
     const lessonProgress =
       (
@@ -114,7 +130,23 @@ export function Leccion() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope, session, progressData, n, pages.length]);
 
-  useEffect(() => { if (progressReady) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber); }, [scope, n, progressReady, initialPage, pages]);
+  // A stored Piano bookmark must survive a reopen where Piano is currently
+  // unavailable: the lesson still opens on the last printed page, but the
+  // mount save below must not rewrite the bookmark to that fallback page,
+  // or a later reopen with Piano available would never return to Piano.
+  // Only explicit Piano identities (pageId) are preserved here; legacy
+  // bookmarks without an identity keep the existing migration behavior.
+  const storedPianoBookmarkUnavailable = useMemo(() => {
+    const local = readLearnerResume(n);
+    if (!local?.pageId || local.pageId !== `piano-lesson-${n}`) return false;
+    return pages.every((page) => page.id !== local.pageId);
+  }, [scope, n, pages]);
+
+  useEffect(() => { if (progressReady && !storedPianoBookmarkUnavailable) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages, storedPianoBookmarkUnavailable]);
+  useEffect(() => {
+    setLessonTab("book");
+    setReviewStarted(false);
+  }, [n]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
   // lesson list already asks for it; if the lesson was opened another way,
   // the first tap on the page paper (not on an activity) asks once. Leaving
@@ -150,7 +182,7 @@ export function Leccion() {
     // the workbook and its interactive flip never re-render. CSS caps + eases
     // it and disables it under prefers-reduced-motion (garden-scene.css).
     gardenRef.current?.style.setProperty("--garden-parallax", String(index));
-    saveLearnerResume(n, index, pages[index]?.pageNumber);
+    saveLearnerResume(n, index, pages[index]?.pageNumber, pages[index]?.id);
     if (!session) return;
     void saveLastPageFn({
       data: {
@@ -185,6 +217,13 @@ export function Leccion() {
 
   const isLast = n >= TOTAL_LESSONS;
   const pct = Math.round((n / TOTAL_LESSONS) * 100);
+  const reviewWords = getPracticePictureWords(n);
+  const reviewSyllables = entry.kind === "intro"
+    ? ["a", "e", "i", "o", "u"]
+    : entry.kind === "vowel"
+      ? [entry.vowel]
+      : entry.data.syllables;
+  const reviewLetter = entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "";
 
   const advanceAfterCompletion = () => {
     setCompletionCinematic(null);
@@ -193,6 +232,11 @@ export function Leccion() {
   };
 
   const goNext = () => {
+    if (!reviewStarted) {
+      setReviewStarted(true);
+      setLessonTab("review");
+      return;
+    }
     markLessonCompleted(n);
     recordEvent({ lessonId: String(n), kind: "lesson_completed" });
     gretelEvent("lesson:complete");
@@ -204,24 +248,98 @@ export function Leccion() {
     advanceAfterCompletion();
   };
 
+  const bookCompanion = (
+    <GretelPresence
+      key={`gretel-${n}`}
+      lesson={{
+        n: entry.n,
+        kind: entry.kind,
+        title: entry.title,
+        subtitle: entry.subtitle,
+        letter: entry.kind === "consonant" ? entry.letter : undefined,
+        vowel: entry.kind === "vowel" ? entry.vowel : undefined,
+      }}
+      autoIntro
+      bookMode
+      hideChrome
+    />
+  );
+
   return (
     <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}>
       <DemoStudentBanner />
-      <header className="lc-lesson-header">
+      <header className="lc-lesson-header flex flex-wrap items-center justify-between gap-3">
         <Link
           to="/cartilla/lecciones"
           className="lc-lesson-header__back"
         >
           <ArrowLeft className="w-5 h-5" /> Mis lecciones
         </Link>
+        <label className="no-print flex items-center gap-2 text-xs font-bold text-stone-700">
+          <span>Ir a lección:</span>
+          <select
+            aria-label="Cambiar de lección"
+            value={String(n)}
+            onChange={(e) => {
+              const targetN = e.target.value;
+              if (targetN) {
+                navigate({ to: "/cartilla/leccion/$n", params: { n: targetN } });
+              }
+            }}
+            className="rounded-xl border border-stone-300 bg-white px-2.5 py-1.5 text-xs font-bold text-stone-900 shadow-2xs"
+          >
+            {CATALOG.map((item) => (
+              <option key={item.n} value={String(item.n)}>
+                Lección {item.n} — {item.title}
+              </option>
+            ))}
+          </select>
+        </label>
       </header>
+      <DemoControlCenter currentLesson={n} floating />
       {saveFailed && <p role="alert" className="mx-3 rounded-xl bg-amber-100 p-3 text-amber-950">No se pudo guardar tu trabajo. Mantén esta página abierta y libera espacio en este navegador antes de salir.</p>}
       <main className="lc-lesson-main flex-1 px-3 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="lc-lesson-main__intro w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-            {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
+            {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {pageRange}
           </div>
         </div>
+
+        <nav className="mb-4 flex w-full max-w-3xl gap-2 flex-wrap" aria-label="Vista de la lección">
+          <button
+            type="button"
+            aria-pressed={lessonTab === "book"}
+            onClick={() => setLessonTab("book")}
+            className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold transition ${lessonTab === "book" ? "border-amber-700 bg-amber-50 text-amber-950 shadow-xs" : "border-stone-300 bg-white text-stone-700 hover:bg-stone-50"}`}
+          >
+            Páginas del Cuaderno
+          </button>
+          {PIANO_LESSONS.has(n) ? (
+            <button
+              type="button"
+              aria-pressed={lessonTab === "piano"}
+              onClick={() => setLessonTab("piano")}
+              className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold transition ${lessonTab === "piano" ? "border-amber-700 bg-amber-50 text-amber-950 shadow-xs" : "border-stone-300 bg-white text-stone-700 hover:bg-stone-50"}`}
+            >
+              Cancionero / Piano
+            </button>
+          ) : (
+            <a
+              href={`/cartilla/practica?modo=piano&lesson=${n}`}
+              className="min-h-11 flex-1 rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50 text-center flex items-center justify-center"
+            >
+              Piano de la lección
+            </a>
+          )}
+          <button
+            type="button"
+            aria-pressed={lessonTab === "review"}
+            onClick={() => setLessonTab("review")}
+            className={`min-h-11 flex-1 rounded-xl border px-3 py-2 text-sm font-bold transition ${lessonTab === "review" ? "border-amber-700 bg-amber-50 text-amber-950 shadow-xs" : "border-stone-300 bg-white text-stone-700 hover:bg-stone-50"}`}
+          >
+            Práctica y Actividades
+          </button>
+        </nav>
 
         {/* Native workbook pages remain in the canonical lesson order. */}
         <div className="w-full">
@@ -238,7 +356,8 @@ export function Leccion() {
             />
           )}
           <GardenScene ref={gardenRef}>
-            {progressReady && (
+            {!progressReady && <p role="status" className="p-6 text-center">Preparando las páginas…</p>}
+            {progressReady && lessonTab === "book" && (
               <NativeLessonViewer
                 key={`${n}:${scope}`}
                 pages={pages}
@@ -249,7 +368,32 @@ export function Leccion() {
                 lessonNumber={n}
                 autoTurn
                 swipe
+                bookCompanion={bookCompanion}
               />
+            )}
+            {progressReady && lessonTab === "piano" && (
+              <div className="mx-auto w-full max-w-5xl rounded-3xl bg-[#FBF7EE] p-3 sm:p-6">
+                <PianoLessonSection lessonNumber={n} showAvailabilityMessage />
+              </div>
+            )}
+            {progressReady && lessonTab === "review" && (
+              <section className="mx-auto w-full max-w-5xl space-y-4 rounded-3xl bg-[#FBF7EE] p-3 sm:p-6" aria-label="Repaso final de la lección">
+                <div className="rounded-2xl bg-white p-4 sm:p-6">
+                  <h2 className="text-xl font-black text-stone-900">Repaso final · {entry.title}</h2>
+                  <p className="mt-1 text-sm text-stone-600" data-vocab-source={reviewWords.book}>{reviewWords.sourceLabel}</p>
+                  <ActivityCarousel
+                    lessonNumber={n}
+                    syllables={reviewSyllables}
+                    words={reviewWords.items}
+                    letter={reviewLetter}
+                    color={entry.color}
+                    lessonId={String(n)}
+                  />
+                </div>
+                <button type="button" onClick={goNext} className="min-h-12 w-full rounded-xl bg-amber-700 px-5 py-3 font-black text-white">
+                  Terminar lección
+                </button>
+              </section>
             )}
           </GardenScene>
 

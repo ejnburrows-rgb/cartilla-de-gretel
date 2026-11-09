@@ -1,0 +1,338 @@
+[
+  {
+    "path": "/cartilla/teacher/crm",
+    "startedUtc": "2026-11-03T21:21:26.650Z",
+    "durationMs": 229.438,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 3.511,
+      "receive": 225.927
+    }
+  },
+  {
+    "path": "/assets/tanstack-router.tiHaf-V4.js",
+    "startedUtc": "2026-11-03T21:21:26.890Z",
+    "durationMs": 374.752,
+    "status": 200,
+    "timings": {
+      "dns": 0.014,
+      "connect": 0.758,
+      "ssl": 5.904,
+      "send": 0,
+      "wait": 16.097,
+      "receive": 351.979
+    }
+  },
+  {
+    "path": "/assets/index.DHWVrbR5.css",
+    "startedUtc": "2026-11-03T21:21:26.890Z",
+    "durationMs": 381.79999999999995,
+    "status": 200,
+    "timings": {
+      "dns": 0.016,
+      "connect": 1.632,
+      "ssl": 5.588,
+      "send": 0,
+      "wait": 15.169,
+      "receive": 359.395
+    }
+  },
+  {
+    "path": "/assets/index.CDN1UJ94.js",
+    "startedUtc": "2026-11-03T21:21:26.890Z",
+    "durationMs": 376.56600000000003,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 19.276,
+      "receive": 357.29
+    }
+  },
+  {
+    "path": "/assets/react-vendor.B68mAgyd.js",
+    "startedUtc": "2026-11-03T21:21:26.890Z",
+    "durationMs": 388.954,
+    "status": 200,
+    "timings": {
+      "dns": 0.012,
+      "connect": 0.865,
+      "ssl": 3.079,
+      "send": 0,
+      "wait": 19.398,
+      "receive": 365.6
+    }
+  },
+  {
+    "path": "/cartilla/art/manifest.json",
+    "startedUtc": "2026-11-03T21:21:26.894Z",
+    "durationMs": 516.025,
+    "status": 200,
+    "timings": {
+      "dns": 0.012,
+      "connect": 0.612,
+      "ssl": 4.16,
+      "send": 0,
+      "wait": 65.631,
+      "receive": 445.61
+    }
+  },
+  {
+    "path": "/assets/route.lazy.CXQPhVW3.js",
+    "startedUtc": "2026-11-03T21:21:27.693Z",
+    "durationMs": 14.45,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 4.994,
+      "receive": 9.456
+    }
+  },
+  {
+    "path": "/assets/tslib.es6.Du-meQkk.js",
+    "startedUtc": "2026-11-03T21:21:27.695Z",
+    "durationMs": 31.628999999999998,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 19.982,
+      "receive": 11.647
+    }
+  },
+  {
+    "path": "/assets/teacher-chrome.Be_YPX-O.css",
+    "startedUtc": "2026-11-03T21:21:27.695Z",
+    "durationMs": 32.59,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 19.552,
+      "receive": 13.038
+    }
+  },
+  {
+    "path": "/assets/admin-overview.functions.Ch82svsO.js",
+    "startedUtc": "2026-11-03T21:21:27.695Z",
+    "durationMs": 31.771,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 19.91,
+      "receive": 11.861
+    }
+  },
+  {
+    "path": "/assets/crm.CIsUE7-J.js",
+    "startedUtc": "2026-11-03T21:21:27.696Z",
+    "durationMs": 36.97,
+    "status": 200,
+    "timings": {
+      "dns": 0.012,
+      "connect": 1.009,
+      "ssl": 6.87,
+      "send": 0,
+      "wait": 16.495,
+      "receive": 12.584
+    }
+  },
+  {
+    "path": "/assets/teacher-crm.DCXYJT9J.css",
+    "startedUtc": "2026-11-03T21:21:27.697Z",
+    "durationMs": 35.974999999999994,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 19.833,
+      "receive": 16.142
+    }
+  },
+  {
+    "path": "/assets/lucide.BgWP-KFW.js",
+    "startedUtc": "2026-11-03T21:21:27.695Z",
+    "durationMs": 41.233000000000004,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 21.317,
+      "receive": 19.916
+    }
+  },
+  {
+    "path": "/assets/useQuery.C8dV1cA9.js",
+    "startedUtc": "2026-11-03T21:21:27.696Z",
+    "durationMs": 33.819,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 21.74,
+      "receive": 12.079
+    }
+  },
+  {
+    "path": "/assets/crm.index.lazy.BJoAsG9R.js",
+    "startedUtc": "2026-11-03T21:21:27.696Z",
+    "durationMs": 38.643,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 22.695,
+      "receive": 15.948
+    }
+  },
+  {
+    "path": "/assets/teacher.functions.BQymJ_lI.js",
+    "startedUtc": "2026-11-03T21:21:27.696Z",
+    "durationMs": 41.332,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 22.314,
+      "receive": 19.018
+    }
+  },
+  {
+    "path": "/assets/assignments.functions.Ci-G99ly.js",
+    "startedUtc": "2026-11-03T21:21:27.697Z",
+    "durationMs": 37.285,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 19.292,
+      "receive": 17.993
+    }
+  },
+  {
+    "path": "/assets/crm-student-progress.CqbKoCkq.js",
+    "startedUtc": "2026-11-03T21:21:27.697Z",
+    "durationMs": 209.789,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 195.759,
+      "receive": 14.03
+    }
+  },
+  {
+    "path": "/assets/client.BKa7G59Y.js",
+    "startedUtc": "2026-11-03T21:21:27.694Z",
+    "durationMs": 251.327,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 23.419,
+      "receive": 227.908
+    }
+  },
+  {
+    "path": "/assets/literacy-insights.J-i4RhTl.js",
+    "startedUtc": "2026-11-03T21:21:27.697Z",
+    "durationMs": 208.748,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 194.628,
+      "receive": 14.12
+    }
+  },
+  {
+    "path": "/favicon.svg",
+    "startedUtc": "2026-11-03T21:21:27.705Z",
+    "durationMs": 210.075,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 189.777,
+      "receive": 20.298
+    }
+  },
+  {
+    "path": "/assets/Topbar.DwgWKpBp.js",
+    "startedUtc": "2026-11-03T21:21:27.697Z",
+    "durationMs": 206.60799999999998,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 191.503,
+      "receive": 15.105
+    }
+  },
+  {
+    "path": "/fonts/andika-700-latin.woff2",
+    "startedUtc": "2026-11-03T21:21:32.275Z",
+    "durationMs": 287.681,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 173.565,
+      "receive": 114.116
+    }
+  },
+  {
+    "path": "/fonts/fredoka-latin.woff2",
+    "startedUtc": "2026-11-03T21:21:32.276Z",
+    "durationMs": 296.91499999999996,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 182.712,
+      "receive": 114.203
+    }
+  }
+]

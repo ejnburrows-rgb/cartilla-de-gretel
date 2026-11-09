@@ -1,7 +1,5 @@
 import { PrintableWorkbook } from "@/components/teacher/PrintableWorkbook";
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { CATALOG } from "@/lib/lesson-catalog";
-import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import "@/styles/student-print.css";
@@ -15,6 +13,7 @@ export const Route = createFileRoute("/cartilla/imprimir/all")({
     // Printable book content is public while open access is enabled.
     if (import.meta.env.VITE_CRM_REVIEW === "true") return;
     if (isSeedSessionActive()) return;
+    const { supabase } = await import("@/integrations/supabase/client");
     const { data } = await supabase.auth.getSession();
     if (!data.session) {
       throw redirect({ to: "/login" });
@@ -26,4 +25,6 @@ export const Route = createFileRoute("/cartilla/imprimir/all")({
   },
 });
 
-function ImprimirAllPage() { return <PrintableWorkbook />; }
+function ImprimirAllPage() {
+  return <PrintableWorkbook />;
+}

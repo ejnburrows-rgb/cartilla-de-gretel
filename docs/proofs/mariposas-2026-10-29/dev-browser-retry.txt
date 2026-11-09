@@ -1,0 +1,87 @@
+[WebServer] (node:34756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:19248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:19248) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (node:6892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35008) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+
+Running 2 tests using 1 worker
+
+(node:35552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › tests\e2e\butterfly-garden.spec.ts:31:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence (1.9m)
+(node:11548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  2 [chromium] › tests\e2e\butterfly-garden.spec.ts:75:1 › phone touch: animated delivery, wrong return, correct word and help (1.5m)
+
+
+  1) [chromium] › tests\e2e\butterfly-garden.spec.ts:31:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: page.goto: Test timeout of 90000ms exceeded.
+    Call log:
+      - navigating to "http://127.0.0.1:5173/cartilla/juego/mariposas-p", waiting until "load"
+
+
+      15 |   await page.route("**/auth/v1/**", (route) => route.abort());
+      16 |   await page.route("**/rest/v1/**", (route) => route.abort());
+    > 17 |   await page.goto("/cartilla/juego/mariposas-p");
+         |              ^
+      18 |   await expect(page.getByTestId("word")).toHaveText("mapa");
+      19 |   await expect(page.getByTestId("bf-ma")).toBeVisible();
+      20 |   await expect.poll(() => page.getByTestId("bf-ma").evaluate((el) => el.style.transform)).toContain("translate(");
+        at openGame (C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:17:14)
+        at C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:35:18
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\butterfly-garden-desktop-r-d9613-ocus-and-reload-persistence-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\butterfly-garden-desktop-r-d9613-ocus-and-reload-persistence-chromium\error-context.md
+
+  2) [chromium] › tests\e2e\butterfly-garden.spec.ts:75:1 › phone touch: animated delivery, wrong return, correct word and help 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.tap: Test ended.
+    Call log:
+      - waiting for getByTestId('can')
+        - locator resolved to <button type="button" data-testid="can" aria-label="Regadera: próxima palabra" class="h-12 w-12 grid place-items-center rounded-full bg-card p-1 shadow-md animate-bounce ring-4 ring-success">…</button>
+      - attempting tap action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying tap action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying tap action
+          - waiting 100ms
+        93 × waiting for element to be visible, enabled and stable
+           - element is not stable
+         - retrying tap action
+           - waiting 500ms
+        - waiting for "http://127.0.0.1:5173/cartilla/juego/mariposas-p" navigation to finish...
+        - navigated to "http://127.0.0.1:5173/cartilla/juego/mariposas-p"
+        - waiting for element to be visible, enabled and stable
+      - element was detached from the DOM, retrying
+
+
+      93 |   await expect(page.getByRole("heading", { name: "Instrucciones:" })).toBeVisible();
+      94 |   await page.getByRole("button", { name: "¡A jugar!" }).tap();
+    > 95 |   await page.getByTestId("can").tap();
+         |                                 ^
+      96 |   await expect(page.getByTestId("word")).toHaveText("pomo");
+      97 |   expect(errors).toEqual([]);
+      98 |   const video = page.video();
+        at C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla\tests\e2e\butterfly-garden.spec.ts:95:33
+
+    Error Context: test-results\butterfly-garden-phone-tou-c0186-eturn-correct-word-and-help-chromium\error-context.md
+
+  2 failed
+    [chromium] › tests\e2e\butterfly-garden.spec.ts:31:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence 
+    [chromium] › tests\e2e\butterfly-garden.spec.ts:75:1 › phone touch: animated delivery, wrong return, correct word and help 

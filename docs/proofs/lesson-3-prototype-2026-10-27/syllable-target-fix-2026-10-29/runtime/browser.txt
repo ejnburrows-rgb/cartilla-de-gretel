@@ -1,0 +1,10 @@
+Starting run for viewport 375px...
+BROWSER LOG: [Supabase] Missing env vars. Running in public/demo mode.
+Verified viewport 375px successfully
+Starting run for viewport 768px...
+BROWSER LOG: [Supabase] Missing env vars. Running in public/demo mode.
+Verified viewport 768px successfully
+Starting run for viewport 1280px...
+BROWSER LOG: [Supabase] Missing env vars. Running in public/demo mode.
+Verified viewport 1280px successfully
+All viewports verified successfully!

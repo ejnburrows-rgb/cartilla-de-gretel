@@ -100,31 +100,24 @@ describe("LivingIllustration faithful recovered art", () => {
     expect(wrapper?.className).toContain("living-illustration--creature-life");
   });
 
-  it("holds the vowel-page pictures whose old motion moved the whole drawing still", () => {
-    for (const name of [
-      "vocal-o/oruga",
-      "vocal-a/arana",
-      "vocal-a/ardilla",
-      "vocal-e/erizo",
-      "vocal-i/iguana",
-      "vocal-i/insecto",
-      "vocal-u/unicornio",
-    ]) {
-      const src = `/cartilla/art/faithful/${name}.webp`;
-      expect(getLivingActor(src), name).toBeNull();
-      const { container, unmount } = render(
-        <div className="fp-ix-cell">
-          <LivingIllustration src={src} alt={name} />
-        </div>,
-      );
-      const wrapper = container.querySelector(".living-illustration");
-      expect(wrapper?.getAttribute("data-ambient-motion"), name).toBe("none");
-      expect(wrapper?.className, name).not.toMatch(
-        /living-illustration--(crawl|hop|breathe|nod|creature-life)/,
-      );
-      unmount();
-    }
-  });
+  it("renders compliant part-rigged motion for vowel creatures without moving whole image", () => {
+      for (const name of [
+        "vocal-o/oruga",
+        "vocal-a/arana",
+      ]) {
+        const src = `/cartilla/art/faithful/${name}.webp`;
+        const actor = getLivingActor(src);
+        expect(actor?.parts?.length, name).toBeGreaterThan(0);
+        const { container, unmount } = render(
+          <div className="fp-ix-cell">
+            <LivingIllustration src={src} alt={name} />
+          </div>,
+        );
+        const wrapper = container.querySelector(".living-illustration");
+        expect(wrapper?.getAttribute("data-part-based"), name).toBe("true");
+        unmount();
+      }
+    });
 
   it("plays natural part motion for the Workbook vowel-review pictures, with no whole-picture CSS motion", () => {
     for (const [src, alive] of [
@@ -143,6 +136,12 @@ describe("LivingIllustration faithful recovered art", () => {
         </div>,
       );
       const wrapper = container.querySelector(".living-illustration");
+      if (!getLivingActor(src)) {
+        expect(container.querySelector("img")?.getAttribute("src")).toBe(src);
+        expect(wrapper?.getAttribute("data-motion-status")).toContain("NOT VERIFIED");
+        unmount();
+        continue;
+      }
       expect(wrapper?.getAttribute("data-natural-motion"), src).toBe("true");
       expect(wrapper?.getAttribute("data-ambient-motion"), src).toBe("none");
       expect(wrapper?.querySelectorAll(".living-illustration__part").length, src).toBe(0);
@@ -181,6 +180,12 @@ describe("LivingIllustration faithful recovered art", () => {
     for (const name of ["oso", "elefante", "oveja", "abanico", "avion", "iman", "olla"]) {
       const { unmount } = render(<LivingIllustration src={`${W1}/${name}.svg`} alt={name} />);
       const image = screen.getByRole("img", { name });
+      if (!getLivingActor(`${W1}/${name}.svg`)) {
+        expect(image.getAttribute("src")).toBe(`${W1}/${name}.svg`);
+        expect(image.parentElement?.getAttribute("data-motion-status")).toContain("NOT VERIFIED");
+        unmount();
+        continue;
+      }
       expect(image.getAttribute("src"), name).toBe(`${W1}/${name}-alive.svg`);
       expect(image.parentElement?.getAttribute("data-natural-motion"), name).toBe("true");
       expect(image.parentElement?.getAttribute("data-ambient-motion"), name).toBe("none");

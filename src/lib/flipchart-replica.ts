@@ -18,6 +18,7 @@ import artBounds from "@/data/flipchart-art-content-bounds.json";
 import artPlacement from "@/data/flipchart-art-placement.json";
 import crescentScans from "@/data/flipchart-crescents.json";
 import dividerScans from "@/data/flipchart-dividers.json";
+import productionArt from "@/data/flipchart-production-art.json";
 
 type RawItem = {
   x: number;
@@ -34,7 +35,7 @@ type RawItem = {
   spaced?: boolean;
 };
 
-type RawAsset = { word: string; src: string; crop: number[]; role?: string; labelInImage?: boolean };
+type RawAsset = { word: string; src: string; crop: number[]; role?: string; labelInImage?: boolean; motionDisabled?: boolean };
 
 const RAW_TEXT = { ...firstPages, ...middlePages, ...lastPages } as unknown as Record<string, RawItem[]>;
 const FRAMES = frames as Record<string, { width: number; height: number }>;
@@ -126,6 +127,8 @@ export type ReplicaCrescent = {
 };
 export type ReplicaDivider = { x: number; y: number; w: number; h: number; stops: string[] };
 export type ReplicaArt = {
+  /** Source repairs stay still until motion is checked against their new geometry. */
+  motionDisabled: boolean;
   /** Image element rect (sheet units) such that the drawn area fills the printed box. */
   x: number;
   y: number;
@@ -139,6 +142,17 @@ export type ReplicaArt = {
   labelInImage: boolean;
 };
 
+export type ApprovedFullSheet = {
+  src: string;
+  width: number;
+  height: number;
+  sha256: string;
+  sourcePdfSha256: string;
+  sourceUrl: string;
+  approval: string;
+};
+const FULL_SHEET_ART = productionArt as unknown as Record<string, { fullSheet?: ApprovedFullSheet }>;
+
 export type ReplicaSheet = {
   page: number;
   width: number;
@@ -150,6 +164,8 @@ export type ReplicaSheet = {
   art: ReplicaArt[];
   dividers: ReplicaDivider[];
   cardTint?: "mist";
+  /** Owner-approved complete source; separate visible replica layers are inactive. */
+  fullSheet?: ApprovedFullSheet;
 };
 
 const RED_LIKE = /^#(b|c|d)[0-9a-f]00?[0-9a-f]{2,3}$/i;
@@ -179,14 +195,20 @@ function letterPair(text: string) {
 
 /** Printed stanzas are evenly leaded; OCR baselines wobble. Re-space each
  * stanza's baselines at its median pitch, starting from its first line. */
-function evenLines(lines: ReplicaToken[]) {
+// These source pages visibly separate stanzas below the generic OCR threshold.
+const SOURCE_STANZA_STARTS: Record<number, string> = {
+  29: "Nada, nada mi patito",
+  47: "–Gatita gordita",
+};
+
+function evenLines(lines: ReplicaToken[], page: number) {
   const sorted = [...lines].sort((a, b) => a.base - b.base);
   if (sorted.length < 3) return;
   const gaps = sorted.slice(1).map((t, i) => t.base - sorted[i]!.base);
   const pitch = median(gaps);
   let start = 0;
   for (let i = 1; i <= sorted.length; i++) {
-    if (i === sorted.length || gaps[i - 1]! > pitch * 1.45) {
+    if (i === sorted.length || sorted[i]?.text.trim() === SOURCE_STANZA_STARTS[page] || gaps[i - 1]! > pitch * 1.45) {
       const stanza = sorted.slice(start, i);
       const local = stanza.length > 1 ? median(stanza.slice(1).map((t, k) => t.base - stanza[k]!.base)) : pitch;
       stanza.forEach((t, k) => {
@@ -359,7 +381,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
   const raw = RAW_TEXT[String(page)];
   const frame = FRAMES[String(page)];
   if (!raw || !frame) return null;
-  const height = frame.height * (REPLICA_WIDTH / frame.width);
+  const fullSheet = FULL_SHEET_ART[String(page)]?.fullSheet;
+  const height = fullSheet
+    ? REPLICA_WIDTH * fullSheet.height / fullSheet.width
+    : frame.height * (REPLICA_WIDTH / frame.width);
 
   // 1. Panels: empty text runs that only paint a background.
   const panelItems = raw.filter((item) => !item.text.trim() && !isWhite(item.backgroundColor) && item.width > 60 && item.height > 50);
@@ -402,10 +427,17 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     if (panels.some((p) => overlap(p, d) >= 0.5 * d.w * d.h)) continue;
     panels.push({ id: panels.length, kind: "card", x: d.x, y: d.y, w: d.w, h: d.h, color: d.stops[3] ?? "#f4dbe4", tone: 0 });
   }
+  const seenPanels = new Map<string, boolean>();
   for (let i = panels.length - 1; i >= 0; i--) {
     const p = panels[i]!;
-    const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
-    if (underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p))) panels.splice(i, 1);
+    const key = `${p.x},${p.y},${p.w},${p.h}`;
+    let shouldRemove = seenPanels.get(key);
+    if (shouldRemove === undefined) {
+      const underBar = dividers.some((d) => overlap(p, d) >= 0.6 * Math.min(p.w * p.h, d.w * d.h));
+      shouldRemove = underBar && !printed.some((r) => inside(r.x + r.width / 2, r.y + r.height / 2, p));
+      seenPanels.set(key, shouldRemove);
+    }
+    if (shouldRemove) panels.splice(i, 1);
   }
   panels.forEach((p, i) => (p.id = i));
 
@@ -542,7 +574,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
       const right = Math.max(panel.x + panel.w, ...members.map((t) => t.x + t.w + 24));
       panel.x = Math.max(8, left);
       panel.w = Math.min(REPLICA_WIDTH - 8, right) - panel.x;
-      evenLines(verse);
+      evenLines(verse, page);
       for (const t of titles) if (t.align === "center") t.x = panel.x + panel.w / 2 - t.w / 2;
       for (const t of verse) {
         t.fitCap = t.align === "center" ? panel.w - 56 : panel.x + panel.w - 26 - t.x;
@@ -716,7 +748,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
           if (full.includes(t) && t !== lines[lines.length - 1]) t.justifyW = widest;
         });
       }
-      evenLines(lines);
+      evenLines(lines, page);
     } else if (key === "columns" && gaps.length) {
       // The word lists are printed at one size; the text layer's sizes wobble.
       const size = median(members.map((t) => t.fontSize));
@@ -748,10 +780,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
 
   // 5. Pictures from the approved crop boxes (same frame space as the text).
   const sx = REPLICA_WIDTH / frame.width;
-  const art: ReplicaArt[] = (ASSETS[String(page)] ?? []).map((asset) => {
+  const art: ReplicaArt[] = (fullSheet ? [] : ASSETS[String(page)] ?? []).map((asset) => {
     const [cx, cy, cw, ch] = (asset.crop.map(Number) as [number, number, number, number]).map((v) => v * sx) as [number, number, number, number];
     const bounds = ART_BOUNDS[asset.src];
-    const base = { src: asset.src, word: asset.word, scene: asset.role === "scene", labelInImage: Boolean(asset.labelInImage) };
+    const base = { src: asset.src, word: asset.word, scene: asset.role === "scene", labelInImage: Boolean(asset.labelInImage), motionDisabled: Boolean(asset.motionDisabled) };
     if (!bounds) return { ...base, x: cx, y: cy, w: cw, h: ch, clip: [0, 0, 0, 0] as [number, number, number, number] };
     const [nw, nh, bl, bt, bw, bh] = bounds;
     // Where the drawing sits on the printed scan (template match); otherwise
@@ -765,10 +797,10 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     const w = nw * scale;
     const h = nh * scale;
     const clip: [number, number, number, number] = [
-      Math.max(0, bt * scale - 2),
-      Math.max(0, (nw - bl - bw) * scale - 2),
-      Math.max(0, (nh - bt - bh) * scale - 2),
-      Math.max(0, bl * scale - 2),
+      Math.max(0, bt * scale - 16),
+      Math.max(0, (nw - bl - bw) * scale - 16),
+      Math.max(0, (nh - bt - bh) * scale - 16),
+      Math.max(0, bl * scale - 16),
     ];
     return { ...base, x, y, w, h, clip };
   });
@@ -822,7 +854,7 @@ export function getReplicaSheet(page: number): ReplicaSheet | null {
     }
   }
 
-  return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page] };
+  return { page, width: REPLICA_WIDTH, height, tokens, panels, medallions, crescent, art, dividers, cardTint: CARD_TINT[page], fullSheet };
 }
 
 type Box = { x: number; y: number; w: number; h: number };

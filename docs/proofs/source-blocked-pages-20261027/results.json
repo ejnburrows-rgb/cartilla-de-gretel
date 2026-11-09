@@ -1,0 +1,54 @@
+[
+  {
+    "width": 375,
+    "lesson": 23,
+    "printedPages": [
+      83,
+      84,
+      85
+    ],
+    "backAndForward": true,
+    "completionGate": "incomplete page rejects Next; stored-completion navigation",
+    "end": "finish button at page 85",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "lesson": 24,
+    "printedPages": [
+      88,
+      89,
+      90
+    ],
+    "backAndForward": true,
+    "completionGate": "stored-completion navigation",
+    "end": "returns to lesson list",
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "lesson": 23,
+    "printedPages": [
+      83,
+      84,
+      85
+    ],
+    "backAndForward": true,
+    "completionGate": "incomplete page rejects Next; stored-completion navigation",
+    "end": "finish button at page 85",
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "lesson": 24,
+    "printedPages": [
+      88,
+      89,
+      90
+    ],
+    "backAndForward": true,
+    "completionGate": "stored-completion navigation",
+    "end": "returns to lesson list",
+    "errors": []
+  }
+]

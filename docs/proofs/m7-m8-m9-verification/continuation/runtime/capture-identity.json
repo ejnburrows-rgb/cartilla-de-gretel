@@ -1,0 +1,6 @@
+{
+  "applicationHead": "48dfec7d6a5ec3ac26171d745ea811621ad659db",
+  "completedResultsSha256": "0994a5a5360055b8e2d4064e8e9cc99a3ef5b927cac1d4232a1fd974b8cbc06d",
+  "captureHarnessCanonicalLfSha256": "1c4800209155f8bb80c5331dcb03e2dd5b06820c90d65b9d99ca07fae1387350",
+  "note": "Harness default-hand and phone-visible-control corrections were finalized as evidence-only changes after application freeze. Same built application; nine passed navigation observations reused, ten remaining observations executed."
+}

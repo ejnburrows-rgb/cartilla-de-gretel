@@ -18,9 +18,11 @@ interface DrawBoxCanvasProps {
   regionId: string;
   hint?: string;
   lessonId?: string;
+  /** Keep an immutable, memory-only picture of completed preview work. */
+  retainCompletedImage?: boolean;
 }
 
-export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) {
+export function DrawBoxCanvas({ regionId, hint, lessonId, retainCompletedImage = false }: DrawBoxCanvasProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drawingRef = useRef(false);
@@ -29,6 +31,7 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
   const [color, setColor] = useState(CRAYON_COLORS[0]);
   const [hasStroke, setHasStroke] = useState(false);
   const [done, setDone] = useState(false);
+  const [completedImage, setCompletedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -64,7 +67,7 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, []);
+  }, [completedImage]);
 
   const getPoint = (e: React.PointerEvent<HTMLCanvasElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -116,6 +119,7 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
 
   const finish = () => {
     if (!hasStroke || done) return;
+    if (retainCompletedImage && canvasRef.current) setCompletedImage(canvasRef.current.toDataURL("image/png"));
     setDone(true);
     gretelEvent("activity:complete");
     if (lessonId) {
@@ -132,7 +136,7 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
   return (
     <div className="fp-draw-box fp-draw-box--interactive">
       {hint ? <span className="fp-draw-box__hint">{hint}</span> : null}
-      <canvas
+      {completedImage ? <img src={completedImage} alt="Tu trabajo terminado" className="fp-draw-box__canvas" /> : <canvas
         data-gretel-target="primary"
         ref={canvasRef}
         className="fp-draw-box__canvas"
@@ -140,7 +144,7 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp}
-      />
+      />}
       <div className="fp-draw-box__toolbar" aria-hidden={done}>
         {!done && (
           <>

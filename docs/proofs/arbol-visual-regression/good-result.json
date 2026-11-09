@@ -1,0 +1,16 @@
+{
+  "assetSha256": "00cdde731ea499ffb946313632e8908084d11ee8ee763e52a9621e44081f538f",
+  "technicalStatus": "PASS",
+  "sharpness": {
+    "method": "contour-noise-screen-v1",
+    "reviewSize": 320,
+    "noiseToContour": 0.11247167042889389,
+    "threshold": 0.22,
+    "status": "PASS",
+    "caveat": "Pair-calibrated sharpness screen; cannot prove picture identity, completeness, or book fidelity."
+  },
+  "lookCompared": true,
+  "fidelityStatus": "VISUALLY REVIEWED MATCH",
+  "label": "Technical PASS; sharpness screen PASS; look comparison MATCH",
+  "blockers": []
+}

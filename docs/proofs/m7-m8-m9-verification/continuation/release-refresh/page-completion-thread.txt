@@ -1,0 +1,19 @@
+(node:7724) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ RUN  v4.1.8 D:/Downloads/cartilla-1247-continuation-work/integration
+
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+Not implemented: HTMLMediaElement's play() method
+ ✓ src/lib/__tests__/page-completion-gate.test.tsx (12 tests) 6149ms
+     ✓ an incomplete page cannot advance and shows navigation guidance without counting it as a Gretel hint  334ms
+     ✓ page 24: circling every syllable word with the real component unlocks Siguiente  5324ms
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  11:25:09
+   Duration  12.52s (transform 2.13s, setup 955ms, import 1.06s, tests 6.15s, environment 3.76s)
+
+JSON report written to D:/Downloads/cartilla-1247-continuation-work/integration/docs/proofs/m7-m8-m9-verification/continuation/release-refresh/page-completion-thread.json

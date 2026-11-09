@@ -61,7 +61,7 @@ describe("provider config seam & speech abstraction", () => {
     } = await import("../gretel-voice");
 
     const initial = getGretelVoiceProviderConfig();
-    expect(initial.type).toBe("browser-tts");
+    expect(initial.type).toBe("recorded-audio");
 
     setGretelVoiceProviderConfig({
       type: "cloud-tts",
@@ -75,7 +75,7 @@ describe("provider config seam & speech abstraction", () => {
 
     resetGretelVoiceProviderConfig();
     const reset = getGretelVoiceProviderConfig();
-    expect(reset.type).toBe("browser-tts");
+    expect(reset.type).toBe("recorded-audio");
   });
 
   it("executes custom speakFn provider and fires start/stop handlers & events", async () => {
@@ -191,9 +191,13 @@ describe("reduced-motion policy (presence CSS companion)", () => {
 
 describe("fallback and error behavior", () => {
   it("handles native speech API throw gracefully", async () => {
-    const { speakAsGretel, resetGretelVoiceProviderConfig, setGretelVoiceMuted } =
+    const { speakAsGretel, setGretelVoiceProviderConfig, resetGretelVoiceProviderConfig, setGretelVoiceMuted } =
       await import("../gretel-voice");
     resetGretelVoiceProviderConfig();
+    setGretelVoiceProviderConfig({
+      type: "browser-tts",
+      name: "Browser SpeechSynthesis",
+    });
     setGretelVoiceMuted(false);
 
     const originalSpeechSynthesis = window.speechSynthesis;
@@ -254,5 +258,6 @@ describe("fallback and error behavior", () => {
         value: originalUtterance,
       });
     }
+    resetGretelVoiceProviderConfig();
   });
 });

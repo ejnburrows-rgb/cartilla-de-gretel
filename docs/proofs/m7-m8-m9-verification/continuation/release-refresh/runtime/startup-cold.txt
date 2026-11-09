@@ -1,0 +1,17 @@
+### Result
+{"browser":"156.0.4314.58","url":"http://127.0.0.1:4187/","coldCacheCleared":true,"viewport":{"width":390,"height":844},"images":[{"src":"/cartilla/images/gretel/gretel-approved-master.png","width":1086,"complete":true}],"scripts":["http://127.0.0.1:4187/assets/index.C-MqHtE0.js","http://127.0.0.1:4187/assets/react-vendor.D492bSYW.js","http://127.0.0.1:4187/assets/tanstack-router.D4LEfMkq.js","http://127.0.0.1:4187/assets/index.C3NBxOSM.js","http://127.0.0.1:4187/assets/WelcomeSplash.DUL8s989.js","http://127.0.0.1:4187/assets/gretel-cinematics.ChaJVAuo.js","http://127.0.0.1:4187/assets/use-reduced-motion.C_up8z_B.js","http://127.0.0.1:4187/assets/index.CXHAiFMv.js","http://127.0.0.1:4187/assets/gretel-master.Cp0_M3In.js"]}
+### Ran Playwright code
+```js
+await (async (page) => {
+ await page.addInitScript(() => {
+  window.__runtimeProof={media:[],touches:[],tts:[]};
+  for(const name of ['playing','ended'])document.addEventListener(name,e=>{if(e.target instanceof HTMLMediaElement)window.__runtimeProof.media.push({event:name,src:e.target.currentSrc,duration:e.target.duration,time:e.target.currentTime});},true);
+  document.addEventListener('pointerdown',e=>window.__runtimeProof.touches.push({type:e.pointerType,trusted:e.isTrusted}),true);
+  if(window.speechSynthesis){const speak=window.speechSynthesis.speak;window.speechSynthesis.speak=function(...args){window.__runtimeProof.tts.push(args[0]?.text);return speak.apply(this,args);};}
+ });
+ const cdp=await page.context().newCDPSession(page);await cdp.send('Network.clearBrowserCache');await cdp.detach();
+ await page.reload();await page.getByTestId('welcome-splash').waitFor();await page.evaluate(()=>document.fonts.ready);
+ await page.screenshot({path:'output/playwright/startup-refresh/home-390.png'});
+ return {browser:page.context().browser().version(),url:page.url(),coldCacheCleared:true,viewport:page.viewportSize(),images:await page.locator('img').evaluateAll(imgs=>imgs.map(i=>({src:i.getAttribute('src'),width:i.naturalWidth,complete:i.complete}))),scripts:await page.evaluate(()=>performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')&&r.name.endsWith('.js')).map(r=>r.name))};
+})(page);
+```

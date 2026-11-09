@@ -1,0 +1,327 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\node_modules\\playwright\\cli.js",
+      "test",
+      "tests/e2e/accessibility-preflight.spec.ts",
+      "tests/e2e/audio-preflight.spec.ts",
+      "tests/e2e/final-candidate.spec.ts",
+      "--grep",
+      "5. Flip Chart presenter|mute controls consistently|speech ownership prevents|page turn / navigation tears|all teacher plates, final artwork and geometry — projector",
+      "--project=chromium",
+      "--workers=1",
+      "--reporter=line,json",
+      "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\teacher-journeys\\artifacts"
+    ],
+    "configFile": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\playwright.config.ts",
+    "rootDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/docs/proofs/m7-m8-m9-verification/continuation/runner-repair/runs/teacher-journeys/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+        "testIgnore": [
+          "**/student-assignment-flow.spec.ts",
+          "**/classroom-readiness-gated.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility-preflight.spec.ts",
+      "file": "accessibility-preflight.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded)",
+          "file": "accessibility-preflight.spec.ts",
+          "line": 82,
+          "column": 6,
+          "specs": [
+            {
+              "title": "5. Flip Chart presenter controls accessibility, ARIA labels, and keyboard navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 21756,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T18:46:40.313Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "bcd9492b435edf8dfaa6-0407391836796fd36b43",
+              "file": "accessibility-preflight.spec.ts",
+              "line": 275,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "audio-preflight.spec.ts",
+      "file": "audio-preflight.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Audio Preflight Verification",
+          "file": "audio-preflight.spec.ts",
+          "line": 40,
+          "column": 6,
+          "specs": [
+            {
+              "title": "mute controls consistently silence picture and Gretel playback",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1408,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T18:47:02.724Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "84f9febc506f82db2541-b75969cc89064538c116",
+              "file": "audio-preflight.spec.ts",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "speech ownership prevents overlapping speech between Gretel and picture audio",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6178,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\audio-preflight.spec.ts:96:8",
+                        "location": {
+                          "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\audio-preflight.spec.ts",
+                          "column": 8,
+                          "line": 96
+                        },
+                        "snippet": "  94 |       const log = await page.evaluate(() => (window as any).audioPreflightLog.audio);\n  95 |       return log.some((item: any) => item.action === 'pause' && item.src === '/test-approved/oso.mp3');\n> 96 |     }).toBe(true);\n     |        ^\n  97 |\n  98 |     await page.screenshot({ path: 'docs/proofs/audio-preflight/single-speech-owner.png', fullPage: true });\n  99 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\audio-preflight.spec.ts",
+                            "column": 8,
+                            "line": 96
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  94 |       const log = await page.evaluate(() => (window as any).audioPreflightLog.audio);\n  95 |       return log.some((item: any) => item.action === 'pause' && item.src === '/test-approved/oso.mp3');\n> 96 |     }).toBe(true);\n     |        ^\n  97 |\n  98 |     await page.screenshot({ path: 'docs/proofs/audio-preflight/single-speech-owner.png', fullPage: true });\n  99 |   });\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\audio-preflight.spec.ts:96:8"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T18:47:04.147Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\teacher-journeys\\artifacts\\audio-preflight-Audio-Pref-ce6b2-en-Gretel-and-picture-audio-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\audio-preflight.spec.ts",
+                        "column": 8,
+                        "line": 96
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "84f9febc506f82db2541-8156ce29a6bbf889a715",
+              "file": "audio-preflight.spec.ts",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "page turn / navigation tears down pending audio playback",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3840,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T18:47:11.704Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "84f9febc506f82db2541-b4b5fa3008ff72393dc3",
+              "file": "audio-preflight.spec.ts",
+              "line": 128,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "final-candidate.spec.ts",
+      "file": "final-candidate.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all teacher plates, final artwork and geometry — projector",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 600000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30463,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T18:47:15.996Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "24ad453fbaad7de77bc3-e528ee8154cd9f9e5b51",
+          "file": "final-candidate.spec.ts",
+          "line": 155,
+          "column": 4
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T18:46:34.165Z",
+    "duration": 75119.543,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

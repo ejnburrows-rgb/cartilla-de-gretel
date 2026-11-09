@@ -100,7 +100,10 @@ export function fillTemplate(
 ): string {
   const fallback = options?.fallback ?? "";
   return text.replace(/\{\{(\w+)\}\}/g, (_, k) => {
-    const val = vars[k];
-    return val !== undefined && val !== null ? val : fallback;
+    if (Object.prototype.hasOwnProperty.call(vars, k)) {
+      const val = vars[k];
+      return val !== undefined && val !== null ? val : fallback;
+    }
+    return fallback;
   });
 }

@@ -4,6 +4,14 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { speak, speakVowel } from "../speak";
+import { createElement } from "react";
+import { render, screen, fireEvent, cleanup, act } from "@testing-library/react";
+
+const policy = vi.hoisted(() => ({ allowTts: true, allowSynthesizedVoice: true }));
+
+vi.mock("@/content/audio-manifest", () => ({
+  AUDIO_POLICY: policy,
+}));
 
 describe("Speak API - Voice Caching and Offline Support", () => {
   let originalSpeechSynthesis: typeof window.speechSynthesis;
@@ -322,5 +330,39 @@ describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => 
     expect(spokenUtterance!.voice).toBeNull();
     expect(spokenUtterance!.lang).toBe("es-MX");
     expect(warnSpy).toHaveBeenCalledTimes(1);
+  });
+});
+
+
+describe("Voces route — original recording policy", () => {
+  it("stays silent without even reading the browser speech API", async () => {
+    const speechDescriptor = Object.getOwnPropertyDescriptor(window, "speechSynthesis");
+    const utteranceDescriptor = Object.getOwnPropertyDescriptor(window, "SpeechSynthesisUtterance");
+    const speechAccess = vi.fn(() => { throw new Error("Browser speech must not be accessed"); });
+    policy.allowTts = false;
+    policy.allowSynthesizedVoice = false;
+    Object.defineProperty(window, "speechSynthesis", { configurable: true, get: speechAccess });
+    Object.defineProperty(window, "SpeechSynthesisUtterance", { configurable: true, get: speechAccess });
+    try {
+      const { Route } = await import("@/routes/cartilla/voces");
+      const Component = Route.options.component;
+      if (!Component) throw new Error("Voces route has no component");
+      await act(async () => { render(createElement(Component)); });
+      expect((await screen.findByRole("status")).textContent).toContain("permanece en silencio");
+      const audition = screen.getByRole("button", { name: /Escuchar grabación original/ });
+      expect((audition as HTMLButtonElement).disabled).toBe(true);
+      fireEvent.click(audition);
+      expect(speechAccess).not.toHaveBeenCalled();
+      expect(screen.queryByText(/ElevenLabs|Azure|Google Cloud|suscripción|premium/i)).toBeNull();
+      expect(screen.getByText("Gretel_558674_Original.m4a")).toBeTruthy();
+    } finally {
+      cleanup();
+      policy.allowTts = true;
+      policy.allowSynthesizedVoice = true;
+      if (speechDescriptor) Object.defineProperty(window, "speechSynthesis", speechDescriptor);
+      else Reflect.deleteProperty(window, "speechSynthesis");
+      if (utteranceDescriptor) Object.defineProperty(window, "SpeechSynthesisUtterance", utteranceDescriptor);
+      else Reflect.deleteProperty(window, "SpeechSynthesisUtterance");
+    }
   });
 });

@@ -1,0 +1,390 @@
+{
+  "checkedHead": "580e8ddb760a9574f4795410da2b5b658f6f0c86",
+  "url": "http://127.0.0.1:4187",
+  "browser": "Microsoft Edge156.0.4314.58 via Playwright CLI0.1.23",
+  "viewportDevice": "390x844 mobile touch emulation, deviceScale3; 1366x768 and1920x1080 fit",
+  "physicalPhone": "NOT TESTED",
+  "physicalProjector": "NOT TESTED",
+  "productionIndexSha256": "302decd40a1af52f754c215459fa1aa2a68131285310ea001e6145a1c70680c7",
+  "records": {
+    "startup-cold": {
+      "browser": "156.0.4314.58",
+      "url": "http://127.0.0.1:4187/",
+      "coldCacheCleared": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "images": [
+        {
+          "src": "/cartilla/images/gretel/gretel-approved-master.png",
+          "width": 1086,
+          "complete": true
+        }
+      ],
+      "scripts": [
+        "http://127.0.0.1:4187/assets/index.C-MqHtE0.js",
+        "http://127.0.0.1:4187/assets/react-vendor.D492bSYW.js",
+        "http://127.0.0.1:4187/assets/tanstack-router.D4LEfMkq.js",
+        "http://127.0.0.1:4187/assets/index.C3NBxOSM.js",
+        "http://127.0.0.1:4187/assets/WelcomeSplash.DUL8s989.js",
+        "http://127.0.0.1:4187/assets/gretel-cinematics.ChaJVAuo.js",
+        "http://127.0.0.1:4187/assets/use-reduced-motion.C_up8z_B.js",
+        "http://127.0.0.1:4187/assets/index.CXHAiFMv.js",
+        "http://127.0.0.1:4187/assets/gretel-master.Cp0_M3In.js"
+      ]
+    },
+    "startup-interaction": {
+      "url": "http://127.0.0.1:4187/cartilla/lecciones",
+      "proof": {
+        "media": [],
+        "touches": [
+          {
+            "type": "touch",
+            "trusted": true
+          }
+        ],
+        "tts": []
+      },
+      "scripts": [
+        "http://127.0.0.1:4187/assets/index.C-MqHtE0.js",
+        "http://127.0.0.1:4187/assets/react-vendor.D492bSYW.js",
+        "http://127.0.0.1:4187/assets/tanstack-router.D4LEfMkq.js",
+        "http://127.0.0.1:4187/assets/index.C3NBxOSM.js",
+        "http://127.0.0.1:4187/assets/WelcomeSplash.DUL8s989.js",
+        "http://127.0.0.1:4187/assets/gretel-cinematics.ChaJVAuo.js",
+        "http://127.0.0.1:4187/assets/use-reduced-motion.C_up8z_B.js",
+        "http://127.0.0.1:4187/assets/index.CXHAiFMv.js",
+        "http://127.0.0.1:4187/assets/gretel-master.Cp0_M3In.js",
+        "http://127.0.0.1:4187/assets/lecciones.DhrZuglM.js",
+        "http://127.0.0.1:4187/assets/lesson-progress.Bx-zMonb.js",
+        "http://127.0.0.1:4187/assets/learner-resume.CjUjSMbS.js"
+      ]
+    },
+    "startup-audio": {
+      "media": [
+        {
+          "event": "playing",
+          "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+          "duration": 1.809637,
+          "time": 0
+        },
+        {
+          "event": "ended",
+          "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+          "duration": 1.809637,
+          "time": 1.809637
+        }
+      ],
+      "touches": [
+        {
+          "type": "touch",
+          "trusted": true
+        }
+      ],
+      "tts": []
+    },
+    "startup-practice": {
+      "url": "http://127.0.0.1:4187/cartilla/practica",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deferredPracticeLoaded": true,
+      "scripts": [
+        "http://127.0.0.1:4187/assets/index.C-MqHtE0.js",
+        "http://127.0.0.1:4187/assets/react-vendor.D492bSYW.js",
+        "http://127.0.0.1:4187/assets/tanstack-router.D4LEfMkq.js",
+        "http://127.0.0.1:4187/assets/practica.lazy.lU11CxE0.js",
+        "http://127.0.0.1:4187/assets/ActivityCarousel.3DcgJrsy.js",
+        "http://127.0.0.1:4187/assets/page-layouts.D9ILynTV.js",
+        "http://127.0.0.1:4187/assets/workbook-pages.DPahBGZD.js",
+        "http://127.0.0.1:4187/assets/flipchart-native.BEAfJwxs.js",
+        "http://127.0.0.1:4187/assets/EscucharInstruccionButton.BQTa58Ec.js",
+        "http://127.0.0.1:4187/assets/activity-events.DFNsiBOJ.js",
+        "http://127.0.0.1:4187/assets/lucide.Co_0L2OT.js",
+        "http://127.0.0.1:4187/assets/piano-audio.CvUCz_W8.js",
+        "http://127.0.0.1:4187/assets/core.esm.DvbZV938.js",
+        "http://127.0.0.1:4187/assets/LivingIllustration.Ch2n944f.js",
+        "http://127.0.0.1:4187/assets/living-motion.C0I7nr5w.js",
+        "http://127.0.0.1:4187/assets/proxy.4I27vW6c.js",
+        "http://127.0.0.1:4187/assets/index.CXHAiFMv.js",
+        "http://127.0.0.1:4187/assets/index.DVtOiEUm.js",
+        "http://127.0.0.1:4187/assets/GretelFeedback.Dj-Jj1RA.js",
+        "http://127.0.0.1:4187/assets/GretelLiveAvatar.ILhr70uZ.js",
+        "http://127.0.0.1:4187/assets/GretelLayerRig.De78Cedr.js",
+        "http://127.0.0.1:4187/assets/gretel-master.Cp0_M3In.js",
+        "http://127.0.0.1:4187/assets/use-reduced-motion.C_up8z_B.js",
+        "http://127.0.0.1:4187/assets/useReducedMotion.BemIq3Iw.js",
+        "http://127.0.0.1:4187/assets/activity-routing.DsUJejgo.js",
+        "http://127.0.0.1:4187/assets/lesson-progress.Bx-zMonb.js",
+        "http://127.0.0.1:4187/assets/student-copy.kLgW176A.js",
+        "http://127.0.0.1:4187/assets/GardenBackdrop.DKdjVnZ-.js",
+        "http://127.0.0.1:4187/assets/KidButton.Biznavly.js"
+      ],
+      "tts": []
+    },
+    "startup-piano": {
+      "url": "http://127.0.0.1:4187/cartilla/practica?modo=piano&lesson=7",
+      "heading": "La consonante Mm",
+      "proof": {
+        "media": [
+          {
+            "event": "playing",
+            "src": "http://127.0.0.1:4187/audio/voz/vocabulario/amo.mp3",
+            "duration": 1.3155,
+            "time": 0
+          },
+          {
+            "event": "ended",
+            "src": "http://127.0.0.1:4187/audio/voz/vocabulario/amo.mp3",
+            "duration": 1.3155,
+            "time": 1.3155
+          }
+        ],
+        "touches": [
+          {
+            "type": "mouse",
+            "trusted": true
+          }
+        ],
+        "tts": []
+      },
+      "audioResources": [
+        "http://127.0.0.1:4187/assets/piano-audio.CvUCz_W8.js",
+        "http://127.0.0.1:4187/audio/voz/vocabulario/amo.mp3"
+      ]
+    },
+    "startup-guards": [
+      {
+        "requested": "/cartilla/teacher/admin",
+        "url": "http://127.0.0.1:4187/cartilla/teacher/admin",
+        "headings": [
+          "Panel de Dirección",
+          "Leonor Lopetegui",
+          "Emilio Novo"
+        ],
+        "text": "Saltar al contenido principal\nAcceso abierto · Clase de ejemplo. Los cambios se guardan solo en este navegador.\nG\nLa Cartilla de Gretel\nPANEL DEL DOCENTE\nPanel de Dirección\n\nVISTA GLOBAL DE TODOS LOS MAESTROS (MODO DEMO)\n\nMAESTROS\n2\nCLASES\n2\nALUMNOS\n6\nPRECISIÓN GLOBAL\n75%\nNECESITAN ATENCIÓN\n2\nLeonor Lopetegui\n\n1 clase · 3 alumnos · precisión media 79%\n\n1 alumno necesita atención\nClase\tCódigo\tAlumnos\tLecciones completadas\tPrecisión\t\nTiempo total\tAtención\nClase de Prueba (Demo Local)\tDEMO12\t3\t28\t7",
+        "tts": []
+      },
+      {
+        "requested": "/cartilla/imprimir/7",
+        "url": "http://127.0.0.1:4187/cartilla/imprimir/7",
+        "headings": [
+          "Cuaderno · Lección 7"
+        ],
+        "text": "Saltar al contenido principal\nPanel del docente\nCuaderno · Lección 7\nImprimir\nTodas las lecciones\n1 · Las vocales: A E I O U\n2 · La vocal O\n3 · La vocal A\n4 · La vocal E\n5 · La vocal I\n6 · La vocal U\n7 · La consonante Mm\n8 · La consonante Pp\n9 · La consonante Ss\n10 · La consonante Tt\n11 · La consonante Dd\n12 · La consonante Ll\n13 · La consonante Nn\n14 · La consonante Ññ\n15 · La consonante Bb\n16 · La consonante Vv\n17 · La consonante Rr\n18 · La consonante Rr\n19 · La consonante Gg\n20 · La consonant",
+        "tts": []
+      },
+      {
+        "requested": "/cartilla/imprimir/all",
+        "url": "http://127.0.0.1:4187/cartilla/imprimir/all",
+        "headings": [
+          "Cuaderno completo"
+        ],
+        "text": "Saltar al contenido principal\nPanel del docente\nCuaderno completo\nImprimir\nTodas las lecciones\n1 · Las vocales: A E I O U\n2 · La vocal O\n3 · La vocal A\n4 · La vocal E\n5 · La vocal I\n6 · La vocal U\n7 · La consonante Mm\n8 · La consonante Pp\n9 · La consonante Ss\n10 · La consonante Tt\n11 · La consonante Dd\n12 · La consonante Ll\n13 · La consonante Nn\n14 · La consonante Ññ\n15 · La consonante Bb\n16 · La consonante Vv\n17 · La consonante Rr\n18 · La consonante Rr\n19 · La consonante Gg\n20 · La consonante F",
+        "tts": []
+      }
+    ],
+    "startup-p006": {
+      "url": "http://127.0.0.1:4187/cartilla/presentar/4",
+      "images": [
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+          "loaded": true,
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+          "loaded": true,
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+          "loaded": true,
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+          "loaded": true,
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+          "loaded": true,
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+          "loaded": true,
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+          "loaded": true,
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        }
+      ],
+      "views": [
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "fit": {
+            "x": 13.59375,
+            "y": 184.6875,
+            "right": 376.390625,
+            "bottom": 680.234375,
+            "vw": 390,
+            "vh": 844
+          }
+        },
+        {
+          "viewport": {
+            "width": 1366,
+            "height": 768
+          },
+          "fit": {
+            "x": 457.46875,
+            "y": 85.140625,
+            "right": 908.515625,
+            "bottom": 701.234375,
+            "vw": 1366,
+            "vh": 768
+          }
+        },
+        {
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "fit": {
+            "x": 620.25,
+            "y": 85.140625,
+            "right": 1299.71875,
+            "bottom": 1013.234375,
+            "vw": 1920,
+            "vh": 1080
+          }
+        }
+      ],
+      "proof": {
+        "media": [
+          {
+            "event": "playing",
+            "src": "http://127.0.0.1:4187/audio/voz/vocabulario/elefante.mp3",
+            "duration": 2.046917,
+            "time": 0
+          },
+          {
+            "event": "ended",
+            "src": "http://127.0.0.1:4187/audio/voz/vocabulario/elefante.mp3",
+            "duration": 2.046917,
+            "time": 2.046917
+          }
+        ],
+        "touches": [
+          {
+            "type": "mouse",
+            "trusted": true
+          }
+        ],
+        "tts": []
+      }
+    },
+    "startup-navigation": {
+      "url": "http://127.0.0.1:4187/cartilla/presentar/12",
+      "counter": "Hoja 1 de 3",
+      "nextTarget": {
+        "clear": true,
+        "box": {
+          "x": 337.640625,
+          "y": 798.015625,
+          "width": 44.375,
+          "height": 39.59375
+        }
+      },
+      "previousTarget": {
+        "clear": true,
+        "box": {
+          "x": 7.984375,
+          "y": 798.015625,
+          "width": 44.375,
+          "height": 39.59375
+        }
+      },
+      "proof": {
+        "media": [
+          {
+            "event": "playing",
+            "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+            "duration": 1.809637,
+            "time": 0
+          },
+          {
+            "event": "ended",
+            "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+            "duration": 1.809637,
+            "time": 1.809637
+          },
+          {
+            "event": "playing",
+            "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+            "duration": 1.809637,
+            "time": 0
+          },
+          {
+            "event": "ended",
+            "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+            "duration": 1.809637,
+            "time": 1.809637
+          }
+        ],
+        "touches": [
+          {
+            "type": "touch",
+            "trusted": true
+          },
+          {
+            "type": "touch",
+            "trusted": true
+          }
+        ],
+        "tts": []
+      }
+    },
+    "practice-defect": {
+      "url": "http://127.0.0.1:4187/cartilla/practica",
+      "text": "Cartilla\nPráctica rápida\nDrill de sílabas\n\nEscucha la sílaba y toca la respuesta correcta antes de que se acabe el tiempo.\n\nTiempo\n59s\n✓ 0 ✗ 0\n\nLee la sílaba que aparece en cada tarjeta.\n\nELIGE LA SÍLABA QUE COINCIDE CON EL MODELO VISUAL\nyo\nca\npe\nja\nMinijuegos de la cartilla\n\nPractica con sílabas y palabras auténticas de una lección.\n\nLección\nLección 1: Las vocales: A E I O U\nLección 2: La vocal O\nLección 3: La vocal A\nLección 4: La vocal E\nLección 5: La vocal I\nLección 6: La vocal U\nLección 7: La consonante Mm\nLección 8: La consonante Pp\nLección 9: La consonante Ss\nLección 10: La consonante Tt\nLección 11: La consonante Dd\nLección 12: La consonante Ll\nLección 13: La consonante Nn\nLección 14: La consonante Ññ\nLección 15: La consonante Bb\nLección 16: La consonante Vv\nLección 17: La consonante Rr\nLección 18: La consonante Rr\nLección 19: La consonante Gg\nLección 20: La consonante Ff\nLección 21: La consonante Jj\nLección 22: La consonante Cc\nLección 23: La consonante Yy\nLección 24: La consonante Zz\n\nDibujos del Rotafolio del maestro, pág. 9\n\n¡A jugar!\n\n0 de 8 completados\n\nSílabas\nEmparejar\nArmar\nTrazar\nPiano\nBusca el sonido\nEspejo\nJuegos\nLee y elige\n0 de 5\nmo\nmi\nmu\nme\nma",
+      "proof": {
+        "media": [],
+        "touches": [
+          {
+            "type": "mouse",
+            "trusted": true
+          }
+        ],
+        "tts": []
+      }
+    }
+  },
+  "newDefect": "Rapid timed practice lacked target model. Captured before repair; assigned existing implementation owner. Other sampled startup/route/audio/fit/static/navigation checks passed.",
+  "limits": "Audio playing/ended is browser playback proof, not human listening certification. Original19 observations remain tied to old source freeze; no physical-device claim.",
+  "consoleErrors": [],
+  "consoleReceipt": "console-records.json; all CLI console files from this capture session; warning/info retained"
+}

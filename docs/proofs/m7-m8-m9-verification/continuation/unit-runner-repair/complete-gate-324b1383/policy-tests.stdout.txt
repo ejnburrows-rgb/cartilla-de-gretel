@@ -1,0 +1,34 @@
+✔ advisory Sonar failure does not block tested reviewed material code (3.6888ms)
+✔ Sonar success cannot pass an empty PR (0.408ms)
+✔ missing Jules test proof blocks relevant code (0.4653ms)
+✔ stale head proof blocks merge (0.3945ms)
+✔ unverified test revision blocks merge (0.4122ms)
+✔ actual serious defect blocks despite green Sonar (0.4352ms)
+✔ real visual change requires existing visible proof (0.4913ms)
+✔ owner-gated work remains blocked (0.3798ms)
+✔ unauthorized scope stays blocked (0.5816ms)
+✔ documentation-only PR does not need a Jules product test (0.7516ms)
+✔ legacy mandatory-Sonar wording is detected (3.1272ms)
+✔ all governing docs agree on Sonar advisory rule (0.6866ms)
+✔ missing governing file fails closed (0.3281ms)
+✔ old one-session one-deliverable stop instruction is rejected (0.3743ms)
+✔ automatic Jules refill instructions are rejected (0.2118ms)
+✔ obsolete voice choice is rejected (0.1772ms)
+✔ missing continue-next-task rule fails (0.1537ms)
+✔ missing formal GitHub approval rule fails (0.2048ms)
+✔ stale blanket merge authorization is rejected (0.2604ms)
+✔ missing Mariposas inclusion rule fails (0.1626ms)
+✔ routing docs that defer to #877 pass (0.7447ms)
+✔ dated GitHub status snapshot in a routing doc is rejected (0.2369ms)
+✔ separate master completion plan reference is rejected (0.1363ms)
+✔ routing doc without #877 is rejected (0.1075ms)
+✔ memory file without historical banner is rejected (0.1524ms)
+✔ divergent merge-gate wording is rejected (0.1038ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 342.1146

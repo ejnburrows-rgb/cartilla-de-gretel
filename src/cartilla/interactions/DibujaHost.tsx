@@ -62,7 +62,7 @@ export function DibujaHost({
   const drawingRef = useRef(false);
   const lastRef = useRef<{ x: number; y: number } | null>(null);
   const pointsRef = useRef(0);
-  const undoStackRef = useRef<ImageData[]>([]);
+  const undoStackRef = useRef<{ image: ImageData; points: number }[]>([]);
   const [color, setColor] = useActivityState<string>("drawColor", BOOK_DRAW_SWATCHES[0]);
   const [erasing, setErasing] = useActivityState("drawErasing", false);
   const [strokePoints, setStrokePoints] = useActivityState("drawPoints", 0);
@@ -156,7 +156,7 @@ export function DibujaHost({
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
     try {
-      undoStackRef.current.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+      undoStackRef.current.push({ image: ctx.getImageData(0, 0, canvas.width, canvas.height), points: pointsRef.current });
       if (undoStackRef.current.length > 12) undoStackRef.current.shift();
     } catch {
       /* ignore */
@@ -211,7 +211,7 @@ export function DibujaHost({
     }
     ctx.globalAlpha = 1;
     lastRef.current = next;
-    pointsRef.current += 1;
+    if (!erasing) pointsRef.current += 1;
     // Throttle React updates so we re-enable Listo without thrashing every move
     if (
       pointsRef.current === 3 ||
@@ -223,7 +223,21 @@ export function DibujaHost({
   };
 
   const onPointerUp = () => {
-    if (drawingRef.current) { setStrokePoints(pointsRef.current); persistDraw(); }
+    if (drawingRef.current) {
+      // Erasing must not leave an invisible drawing eligible for completion.
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (erasing && canvas && ctx) {
+        const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        if (!pixels.some((alpha, index) => index % 4 === 3 && alpha > 0)) {
+          pointsRef.current = 0;
+          setDrawDone(false);
+          gretelEvent("activity:retry", { reason: "work-cleared" });
+        }
+      }
+      setStrokePoints(pointsRef.current);
+      persistDraw();
+    }
     drawingRef.current = false;
     lastRef.current = null;
   };
@@ -247,7 +261,13 @@ export function DibujaHost({
     const ctx = canvas?.getContext("2d");
     const snap = undoStackRef.current.pop();
     if (!canvas || !ctx || !snap) return;
-    ctx.putImageData(snap, 0, 0);
+    ctx.putImageData(snap.image, 0, 0);
+    pointsRef.current = snap.points;
+    setStrokePoints(snap.points);
+    if (snap.points < MIN_STROKE_POINTS) {
+      setDrawDone(false);
+      gretelEvent("activity:retry", { reason: "work-cleared" });
+    }
     persistDraw();
   };
 

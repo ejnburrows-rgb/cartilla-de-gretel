@@ -2,11 +2,11 @@ import { useMemo } from "react";
 import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { getStudentSession } from "@/lib/student-session";
-import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
+
 import { getFlipchartPagesForLesson } from "@/lib/flipchart-hd";
 
 /**
@@ -40,6 +40,7 @@ export const Route = createFileRoute("/cartilla/presentar/$n")({
 
     if (isSeedSessionActive()) return;
 
+    const { supabase } = await import("@/integrations/supabase/client");
     const { data } = await supabase.auth.getSession();
     if (!data.session) {
       throw redirect({ to: "/login" });

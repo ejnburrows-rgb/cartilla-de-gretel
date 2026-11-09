@@ -111,6 +111,7 @@ export function CoordinateMapper({ pageNumber }: { pageNumber: number }) {
           <button
             onClick={() => setIsActive(false)}
             className="text-slate-400 hover:text-white transition-colors"
+            aria-label="Cerrar Mapper Mode"
           >
             <X className="w-4 h-4" />
           </button>

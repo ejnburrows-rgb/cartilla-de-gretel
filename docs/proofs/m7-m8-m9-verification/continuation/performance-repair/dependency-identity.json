@@ -1,0 +1,530 @@
+[
+  {
+    "name": "@dnd-kit/core",
+    "expected": "6.3.1",
+    "installed": "6.3.1",
+    "matches": true
+  },
+  {
+    "name": "@dnd-kit/sortable",
+    "expected": "10.0.0",
+    "installed": "10.0.0",
+    "matches": true
+  },
+  {
+    "name": "@dnd-kit/utilities",
+    "expected": "3.2.2",
+    "installed": "3.2.2",
+    "matches": true
+  },
+  {
+    "name": "@hookform/resolvers",
+    "expected": "5.4.0",
+    "installed": "5.4.0",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-accordion",
+    "expected": "1.2.12",
+    "installed": "1.2.12",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-alert-dialog",
+    "expected": "1.1.15",
+    "installed": "1.1.15",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-aspect-ratio",
+    "expected": "1.1.8",
+    "installed": "1.1.8",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-avatar",
+    "expected": "1.1.11",
+    "installed": "1.1.11",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-checkbox",
+    "expected": "1.3.3",
+    "installed": "1.3.3",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-collapsible",
+    "expected": "1.1.12",
+    "installed": "1.1.12",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-context-menu",
+    "expected": "2.2.16",
+    "installed": "2.2.16",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-dialog",
+    "expected": "1.1.15",
+    "installed": "1.1.15",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-dropdown-menu",
+    "expected": "2.1.16",
+    "installed": "2.1.16",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-hover-card",
+    "expected": "1.1.15",
+    "installed": "1.1.15",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-label",
+    "expected": "2.1.8",
+    "installed": "2.1.8",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-menubar",
+    "expected": "1.1.16",
+    "installed": "1.1.16",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-navigation-menu",
+    "expected": "1.2.14",
+    "installed": "1.2.14",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-popover",
+    "expected": "1.1.15",
+    "installed": "1.1.15",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-progress",
+    "expected": "1.1.8",
+    "installed": "1.1.8",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-radio-group",
+    "expected": "1.3.8",
+    "installed": "1.3.8",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-scroll-area",
+    "expected": "1.2.10",
+    "installed": "1.2.10",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-select",
+    "expected": "2.2.6",
+    "installed": "2.2.6",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-separator",
+    "expected": "1.1.8",
+    "installed": "1.1.8",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-slider",
+    "expected": "1.3.6",
+    "installed": "1.3.6",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-slot",
+    "expected": "1.2.4",
+    "installed": "1.2.4",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-switch",
+    "expected": "1.2.6",
+    "installed": "1.2.6",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-tabs",
+    "expected": "1.1.13",
+    "installed": "1.1.13",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-toggle",
+    "expected": "1.1.10",
+    "installed": "1.1.10",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-toggle-group",
+    "expected": "1.1.11",
+    "installed": "1.1.11",
+    "matches": true
+  },
+  {
+    "name": "@radix-ui/react-tooltip",
+    "expected": "1.2.8",
+    "installed": "1.2.8",
+    "matches": true
+  },
+  {
+    "name": "@rive-app/react-canvas",
+    "expected": "4.35.0",
+    "installed": "4.35.0",
+    "matches": true
+  },
+  {
+    "name": "@supabase/supabase-js",
+    "expected": "2.106.2",
+    "installed": "2.106.2",
+    "matches": true
+  },
+  {
+    "name": "@tailwindcss/vite",
+    "expected": "4.3.0",
+    "installed": "4.3.0",
+    "matches": true
+  },
+  {
+    "name": "@tanstack/react-query",
+    "expected": "5.100.14",
+    "installed": "5.100.14",
+    "matches": true
+  },
+  {
+    "name": "@tanstack/react-router",
+    "expected": "1.170.8",
+    "installed": "1.170.8",
+    "matches": true
+  },
+  {
+    "name": "class-variance-authority",
+    "expected": "0.7.1",
+    "installed": "0.7.1",
+    "matches": true
+  },
+  {
+    "name": "clsx",
+    "expected": "2.1.1",
+    "installed": "2.1.1",
+    "matches": true
+  },
+  {
+    "name": "cmdk",
+    "expected": "1.1.1",
+    "installed": "1.1.1",
+    "matches": true
+  },
+  {
+    "name": "date-fns",
+    "expected": "4.3.0",
+    "installed": "4.3.0",
+    "matches": true
+  },
+  {
+    "name": "embla-carousel-react",
+    "expected": "8.6.0",
+    "installed": "8.6.0",
+    "matches": true
+  },
+  {
+    "name": "framer-motion",
+    "expected": "12.40.0",
+    "installed": "12.40.0",
+    "matches": true
+  },
+  {
+    "name": "input-otp",
+    "expected": "1.4.2",
+    "installed": "1.4.2",
+    "matches": true
+  },
+  {
+    "name": "lucide-react",
+    "expected": "0.575.0",
+    "installed": "0.575.0",
+    "matches": true
+  },
+  {
+    "name": "pdfjs-dist",
+    "expected": "5.7.284",
+    "installed": "5.7.284",
+    "matches": true
+  },
+  {
+    "name": "react",
+    "expected": "19.2.6",
+    "installed": "19.2.6",
+    "matches": true
+  },
+  {
+    "name": "react-day-picker",
+    "expected": "9.14.0",
+    "installed": "9.14.0",
+    "matches": true
+  },
+  {
+    "name": "react-dom",
+    "expected": "19.2.6",
+    "installed": "19.2.6",
+    "matches": true
+  },
+  {
+    "name": "react-hook-form",
+    "expected": "7.76.1",
+    "installed": "7.76.1",
+    "matches": true
+  },
+  {
+    "name": "react-pageflip",
+    "expected": "2.0.3",
+    "installed": "2.0.3",
+    "matches": true
+  },
+  {
+    "name": "react-pdf",
+    "expected": "10.4.1",
+    "installed": "10.4.1",
+    "matches": true
+  },
+  {
+    "name": "react-resizable-panels",
+    "expected": "4.11.2",
+    "installed": "4.11.2",
+    "matches": true
+  },
+  {
+    "name": "recharts",
+    "expected": "2.15.4",
+    "installed": "2.15.4",
+    "matches": true
+  },
+  {
+    "name": "sonner",
+    "expected": "2.0.7",
+    "installed": "2.0.7",
+    "matches": true
+  },
+  {
+    "name": "tailwind-merge",
+    "expected": "3.6.0",
+    "installed": "3.6.0",
+    "matches": true
+  },
+  {
+    "name": "tailwindcss",
+    "expected": "4.3.0",
+    "installed": "4.3.0",
+    "matches": true
+  },
+  {
+    "name": "tw-animate-css",
+    "expected": "1.4.0",
+    "installed": "1.4.0",
+    "matches": true
+  },
+  {
+    "name": "vaul",
+    "expected": "1.1.2",
+    "installed": "1.1.2",
+    "matches": true
+  },
+  {
+    "name": "vite-tsconfig-paths",
+    "expected": "6.1.1",
+    "installed": "6.1.1",
+    "matches": true
+  },
+  {
+    "name": "zod",
+    "expected": "3.25.76",
+    "installed": "3.25.76",
+    "matches": true
+  },
+  {
+    "name": "@eslint/js",
+    "expected": "9.39.4",
+    "installed": "9.39.4",
+    "matches": true
+  },
+  {
+    "name": "@napi-rs/canvas",
+    "expected": "0.1.100",
+    "installed": "0.1.100",
+    "matches": true
+  },
+  {
+    "name": "@playwright/test",
+    "expected": "1.63.0",
+    "installed": "1.63.0",
+    "matches": true
+  },
+  {
+    "name": "@tanstack/router-plugin",
+    "expected": "1.168.11",
+    "installed": "1.168.11",
+    "matches": true
+  },
+  {
+    "name": "@testing-library/jest-dom",
+    "expected": "6.9.1",
+    "installed": "6.9.1",
+    "matches": true
+  },
+  {
+    "name": "@testing-library/react",
+    "expected": "16.3.2",
+    "installed": "16.3.2",
+    "matches": true
+  },
+  {
+    "name": "@types/node",
+    "expected": "22.19.19",
+    "installed": "22.19.19",
+    "matches": true
+  },
+  {
+    "name": "@types/react",
+    "expected": "19.2.15",
+    "installed": "19.2.15",
+    "matches": true
+  },
+  {
+    "name": "@types/react-dom",
+    "expected": "19.2.3",
+    "installed": "19.2.3",
+    "matches": true
+  },
+  {
+    "name": "@vitejs/plugin-react",
+    "expected": "5.2.0",
+    "installed": "5.2.0",
+    "matches": true
+  },
+  {
+    "name": "ajv",
+    "expected": "8.20.0",
+    "installed": "8.20.0",
+    "matches": true
+  },
+  {
+    "name": "canvas",
+    "expected": "3.2.3",
+    "installed": "3.2.3",
+    "matches": true
+  },
+  {
+    "name": "esbuild",
+    "expected": "0.27.7",
+    "installed": "0.27.7",
+    "matches": true
+  },
+  {
+    "name": "eslint",
+    "expected": "9.39.4",
+    "installed": "9.39.4",
+    "matches": true
+  },
+  {
+    "name": "eslint-config-prettier",
+    "expected": "10.1.8",
+    "installed": "10.1.8",
+    "matches": true
+  },
+  {
+    "name": "eslint-plugin-prettier",
+    "expected": "5.5.5",
+    "installed": "5.5.5",
+    "matches": true
+  },
+  {
+    "name": "eslint-plugin-react-hooks",
+    "expected": "5.2.0",
+    "installed": "5.2.0",
+    "matches": true
+  },
+  {
+    "name": "eslint-plugin-react-refresh",
+    "expected": "0.4.26",
+    "installed": "0.4.26",
+    "matches": true
+  },
+  {
+    "name": "globals",
+    "expected": "15.15.0",
+    "installed": "15.15.0",
+    "matches": true
+  },
+  {
+    "name": "jsdom",
+    "expected": "29.1.1",
+    "installed": "29.1.1",
+    "matches": true
+  },
+  {
+    "name": "pdf2pic",
+    "expected": "3.2.0",
+    "installed": "3.2.0",
+    "matches": true
+  },
+  {
+    "name": "playwright",
+    "expected": "1.63.0",
+    "installed": "1.63.0",
+    "matches": true
+  },
+  {
+    "name": "prettier",
+    "expected": "3.8.3",
+    "installed": "3.8.3",
+    "matches": true
+  },
+  {
+    "name": "sharp",
+    "expected": "0.34.5",
+    "installed": "0.34.5",
+    "matches": true
+  },
+  {
+    "name": "ts-node",
+    "expected": "10.9.2",
+    "installed": "10.9.2",
+    "matches": true
+  },
+  {
+    "name": "typescript",
+    "expected": "5.9.3",
+    "installed": "5.9.3",
+    "matches": true
+  },
+  {
+    "name": "typescript-eslint",
+    "expected": "8.60.0",
+    "installed": "8.60.0",
+    "matches": true
+  },
+  {
+    "name": "vite",
+    "expected": "7.3.3",
+    "installed": "7.3.3",
+    "matches": true
+  },
+  {
+    "name": "vitest",
+    "expected": "4.1.8",
+    "installed": "4.1.8",
+    "matches": true
+  }
+]

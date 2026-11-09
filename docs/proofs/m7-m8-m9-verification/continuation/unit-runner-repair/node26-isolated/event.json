@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "isolated-default-fork-p24",
+  "task_id": "cartilla1247",
+  "attempt_id": "isolated-default-fork-p24",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:3d59ce25826a70f8b058d06e69dd0d5a766135bc6594b5ffaa331254beeebf65",
+  "requirements_digest": "sha256:550aacb5518c9c4c2ea428cc40c26c0ebae3a40fd1ab1bd8e2417dd3c2d5614c",
+  "candidate_digest": "sha256:0bf00b2a3062f472916860fcac18633ab293c5cff6dd54805c16fd885dbcf839",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:4ba188ac7021685f81e4bf7232b88c63c5d3a48ac7f67ca2d40eebd5e151c1f4",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:78100245860247d5f3f7ebf0054996083def43f8c3293af6eb70cb9db5efb74e"
+}

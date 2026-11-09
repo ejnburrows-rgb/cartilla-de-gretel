@@ -1,0 +1,34 @@
+{
+  "startedUtc": "2026-11-03T18:46:32.049561+00:00",
+  "wrapperPid": 14152,
+  "head": "267965c9c94a999fe0daa357bc5e0d43c32db39f",
+  "command": [
+    "pnpm.cmd",
+    "exec",
+    "playwright",
+    "test",
+    "tests/e2e/accessibility-preflight.spec.ts",
+    "tests/e2e/audio-preflight.spec.ts",
+    "tests/e2e/final-candidate.spec.ts",
+    "--grep",
+    "5. Flip Chart presenter|mute controls consistently|speech ownership prevents|page turn / navigation tears|all teacher plates, final artwork and geometry \u2014 projector",
+    "--project=chromium",
+    "--workers=1",
+    "--reporter=line,json",
+    "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\teacher-journeys\\artifacts"
+  ],
+  "status": "finished",
+  "runnerPid": 36304,
+  "exitCode": 1,
+  "jsonPresent": true,
+  "jsonSha256": "55433261045de94a5dd456e700a7f1f3c8f8136295b99cf58093427e83efc3f0",
+  "stats": {
+    "startTime": "2026-11-03T18:46:34.165Z",
+    "duration": 75119.543,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "finishedUtc": "2026-11-03T18:47:49.375753+00:00"
+}

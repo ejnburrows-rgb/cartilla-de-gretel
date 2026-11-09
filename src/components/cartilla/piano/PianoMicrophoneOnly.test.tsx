@@ -48,6 +48,40 @@ vi.mock("./usePianoSession", () => ({
   }),
 }));
 
+vi.mock("./usePianoGroups", () => ({
+  usePianoGroups: () => ({
+    modes: ["silabas"],
+    mode: "silabas",
+    chooseMode: vi.fn(),
+    item: { word: "a", syllables: ["a"] },
+    items: [{ word: "a", syllables: ["a"] }],
+    itemIndex: 0,
+    keys: ["a"],
+    wordMode: false,
+    confirmed: 0,
+    done: false,
+    isLastItem: true,
+    message: "Di a",
+    celebrating: false,
+    flash: null,
+    sparkle: null,
+    status: "idle",
+    processing: "on-device",
+    supported: true,
+    micOpen: false,
+    micDisabled: false,
+    exampleActive: false,
+    gretelRef: { current: null },
+    groupStateFor: () => "next",
+    keyStateFor: () => "next",
+    listenToWord: calls.listenToWord,
+    listenToSyllable: calls.listenToSyllable,
+    toggleMic: calls.toggleMic,
+    restartWord: vi.fn(),
+    nextWord: vi.fn(),
+  }),
+}));
+
 afterEach(() => {
   cleanup();
   vi.clearAllMocks();

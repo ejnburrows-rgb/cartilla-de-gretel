@@ -24,6 +24,15 @@ describe("CurlPageViewer physical contracts", () => {
     expect(SPREAD_BREAKPOINT_PX).toBe(760);
   });
 
+
+  it("handles non-finite and NaN values gracefully in clampPageIndex", () => {
+    expect(clampPageIndex(NaN, 4)).toBe(0);
+    expect(clampPageIndex(Infinity, 4)).toBe(0);
+    expect(clampPageIndex(-Infinity, 4)).toBe(0);
+    expect(clampPageIndex(2, NaN)).toBe(0);
+    expect(clampPageIndex(2, Infinity)).toBe(0);
+  });
+
   it("clamps stale saved progress to a real page", () => {
     expect(clampPageIndex(-4, 4)).toBe(0);
     expect(clampPageIndex(99, 4)).toBe(3);
@@ -42,11 +51,41 @@ describe("CurlPageViewer physical contracts", () => {
     expect(expectedTurnIndex(4, 5, true, "next")).toBe(4);
   });
 
+  it("turns adjacent entries across missing printed pages", () => {
+    const pages = [83, 84, 85, 88, 89, 90].map((pageNumber) => ({ pageNumber }));
+    expect(expectedTurnIndex(2, pages.length, true, "next", pages)).toBe(4);
+    expect(expectedTurnIndex(4, pages.length, true, "prev", pages)).toBe(2);
+    expect(expectedTurnIndex(2, pages.length, false, "next", pages)).toBe(3);
+    expect(expectedTurnIndex(3, pages.length, false, "prev", pages)).toBe(2);
+  });
+
+
+  it("handles non-finite and NaN values gracefully in logicalPageIndex", () => {
+    expect(logicalPageIndex(NaN, 6, true)).toBe(0);
+    expect(logicalPageIndex(Infinity, 6, true)).toBe(0);
+    expect(logicalPageIndex(-Infinity, 6, true)).toBe(0);
+    expect(logicalPageIndex(3, NaN, true)).toBe(0);
+    expect(logicalPageIndex(3, Infinity, true)).toBe(0);
+  });
+
   it("normalizes odd event indices to logical spread boundaries", () => {
     expect(logicalPageIndex(1, 6, true)).toBe(0);
     expect(logicalPageIndex(3, 6, true)).toBe(2);
     expect(logicalPageIndex(5, 6, true)).toBe(4);
     expect(logicalPageIndex(3, 4, false)).toBe(3);
+  });
+
+  it("handles out-of-bounds inputs for logicalPageIndex", () => {
+    expect(logicalPageIndex(-5, 6, true)).toBe(0);
+    expect(logicalPageIndex(10, 6, true)).toBe(4);
+    expect(logicalPageIndex(-1, 4, false)).toBe(0);
+    expect(logicalPageIndex(7, 4, false)).toBe(3);
+  });
+
+  it("preserves even indices for spreads", () => {
+    expect(logicalPageIndex(0, 6, true)).toBe(0);
+    expect(logicalPageIndex(2, 6, true)).toBe(2);
+    expect(logicalPageIndex(4, 6, true)).toBe(4);
   });
 
   it("keeps an explicit navigation destination authoritative over stale flip events", () => {
@@ -58,6 +97,20 @@ describe("CurlPageViewer physical contracts", () => {
 
   it("describes one visible page on portrait screens", () => {
     expect(visiblePageLabel(1, 4, false)).toBe("Página 2 de 4");
+  });
+
+  it("handles edge cases in visiblePageLabel", () => {
+    expect(visiblePageLabel(0, 4, true, [])).toBe("Páginas 1–2 de 4");
+    expect(visiblePageLabel(0, 4, false, [])).toBe("Página 1 de 4");
+
+    // Pages without pageNumber fallback to index + 1
+    const pagesWithoutNum = [{}, {}];
+    expect(visiblePageLabel(0, 2, true, pagesWithoutNum)).toBe("Páginas 1–2 de 2");
+    expect(visiblePageLabel(0, 2, false, pagesWithoutNum)).toBe("Página 1 de 2");
+
+    // firstNum === lastNum with spread
+    const pagesSameNum = [{ pageNumber: 5 }, { pageNumber: 5 }];
+    expect(visiblePageLabel(0, 2, true, pagesSameNum)).toBe("Página 5 de 5");
   });
 
   it("describes both visible leaves in a desktop spread", () => {
@@ -74,8 +127,8 @@ describe("CurlPageViewer physical contracts", () => {
       { pageNumber: 88 },
       { pageNumber: 89 },
     ];
-    expect(visiblePageLabel(1, 88, true, pages)).toBe("Páginas 84–85 de 88");
-    expect(visiblePageLabel(2, 88, true, pages)).toBe("Páginas 88–89 de 88");
-    expect(visiblePageLabel(2, 88, false, pages)).toBe("Página 88 de 88");
+    expect(visiblePageLabel(1, 88, true, pages)).toBe("Páginas 84–85 de 89");
+    expect(visiblePageLabel(2, 88, true, pages)).toBe("Páginas 88–89 de 89");
+    expect(visiblePageLabel(2, 88, false, pages)).toBe("Página 88 de 89");
   });
 });

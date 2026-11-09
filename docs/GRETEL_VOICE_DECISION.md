@@ -19,6 +19,14 @@
 6. **Stop unsolicited discussion of voice.** Only discuss the remaining integration/proof task if the owner explicitly asks. Preserve all standing permissions, no-paid-services rule, and owner-only production release gate. No unapproved merges/releases/assets deletion.
 
 
+## Current authority and unresolved runtime compliance
+
+[AGENTS.md](../AGENTS.md) governs approvals and owner communication; [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) holds current work and proof. The source policy permits only verified authentic recording playback. Sections 1–5 below preserve an older architecture/audition description; they do not authorize provider selection, synthesized speech, current assignments or claims of working playback.
+
+**Confirmed source-code conflict — unresolved:** at the reviewed `9cb1ad4b` baseline, `src/routes/cartilla/voces.tsx` selects `browser-tts`, and `src/lib/gretel-voice.ts` contains a reachable synthesis branch. The separate manifest's `allowTts: false` is not enforced by that library path. This contradicts the no-TTS contract. The audition is prohibited by current policy and is not an approved owner workflow. This documentation correction does not disable that code; route/library repair remains an open product task. Browser execution and audible behavior were not tested in this review.
+
+<details><summary>Historical context — not current instructions</summary>
+
 ## 1. Executive Summary
 
 This document establishes the Gretel voice readiness architecture for **La Cartilla de Gretel** without selecting a paid provider, making any purchases, cloning a voice, or changing the owner's final decision.
@@ -72,7 +80,7 @@ export interface GretelVoiceProviderConfig {
 }
 ```
 
-By default, the application runs on `"browser-tts"` using free, offline-capable neutral Latin American Spanish voices (`Leda` / `Sulafat` / `es-MX`).
+The provider abstraction contains a legacy `browser-tts` branch, while the current default configuration in `src/lib/gretel-voice.ts` is `recorded-audio`; **but this is not authorization to use synthesized Gretel speech**. The owner-approved active content policy is original recorded audio only, and unverified/missing phrases must remain silent. No current audible playback success is implied.
 
 ---
 
@@ -86,31 +94,13 @@ The route `/cartilla/voces` serves as the owner's audition page:
 
 ---
 
-## 6. Exact Owner Decision Choices & Trade-Offs
+</details>
 
-The final premium Gretel voice selection remains **100% gated by EJN (Owner)**. The remaining options are:
+## 6. Current owner decision — recover the supplied original recording
 
-### Option A: Free Browser-Native Web Speech TTS (Current Default)
-- **Description:** Uses built-in browser/OS Spanish voice engines (e.g. Google, Microsoft, Apple voices).
-- **Pros:** $0 cost, offline capable, no external dependencies, zero latency.
-- **Cons:** Built-in voices are adult female voices. Pitch tuning makes them lighter, but they do not sound like a genuine young girl.
+Existing [audio PR #769](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/769) is the recovery reference to reuse; current assignment, revision and readiness must be verified through #877 and GitHub. Recover `Gretel_558674_Original.m4a` with expected SHA256 `239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d` or source-verified original segments; listen to actual words, transcribe with timestamps, and map only authentic speech to matching page/events. Segment numbers are acoustic boundaries, **not** GR script IDs. Verify real audible playback, mute, interruption, page-change cleanup and non-overlap; keep private originals private and publish only allowed excerpts.
 
-### Option B: Cloud Neural TTS (Google Cloud Text-to-Speech / Azure Speech / AWS Polly)
-- **Description:** Server/API-backed neural text-to-speech with high naturalness.
-- **Pros:** Natural pronunciation, neural quality, highly reliable.
-- **Cons:** Character-based usage fees (~$4–$16 USD per 1M characters), requires API key management / backend proxy.
-
-### Option C: Paid Premium Child Voice Provider (e.g. ElevenLabs)
-- **Description:** Dedicated AI voice synthesis with realistic child voice profiles.
-- **Pros:** Expressive, authentic young child voice tone.
-- **Cons:** Monthly subscription cost ($5–$22+ USD/mo), potential network latency for dynamic synthesis, requires API key.
-
-### Option D: Studio Pre-recorded Audio Clips (Real Child Voice Actor)
-- **Description:** High-quality studio audio files recorded by a real young voice actor for all lesson instructions and feedback phrases.
-- **Pros:** 100% natural, ideal pedagogical quality for early childhood literacy, $0 recurring API cost once recorded.
-- **Cons:** Requires recording session and asset management for all required phrases.
-
----
+The rejected 67 music/stutter clips are quarantined. Do not select or add browser/cloud TTS, new recordings, cloned voice, paid provider or replacement generator. Where an original phrase cannot be recovered or verified, mark it unavailable rather than fabricating or forcing a new voice. Source-access block holds **that phrase**, not other eligible assigned work. Historical provider auditions remain in Git history, not active decision options.
 
 ## 7. Confirmation of Non-Intervention
 
@@ -118,4 +108,4 @@ The final premium Gretel voice selection remains **100% gated by EJN (Owner)**. 
 - **No money** has been spent.
 - **No voice clone** or external AI service key was added.
 - **No owner preference** has been altered.
-- **Default fallback** remains fully operational.
+- **Legacy fallback code exists**, but its audible behavior is not newly verified and synthesized Gretel playback is not approved by the current source policy.

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { FLIPCHART_PAGES } from "@/lib/flipchart-hd";
 import { NATIVE_FLIPCHART_PAGES, getNativeFlipchartPage } from "@/lib/flipchart-native";
+import { getReplicaSheet } from "@/lib/flipchart-replica";
 
 describe("native Flip Chart coverage", () => {
   it("covers all 62 teacher pages", () => {
@@ -11,8 +12,11 @@ describe("native Flip Chart coverage", () => {
     );
   });
 
-  it("keeps every instructional plate scan-free and faithfully populated", () => {
+  it("keeps instructional plates faithfully populated with only four approved complete-sheet sources", () => {
     for (let pageNumber = 3; pageNumber <= 62; pageNumber += 1) {
+      const original = getReplicaSheet(pageNumber)?.fullSheet;
+      expect(Boolean(original)).toBe([35, 41, 47, 53].includes(pageNumber));
+      if (original) expect(original.approval).toContain("issuecomment-6630382439");
       const page = getNativeFlipchartPage(pageNumber);
       expect(page, `missing native page ${pageNumber}`).toBeTruthy();
       expect(page?.hasDigitalText, `missing digital text on page ${pageNumber}`).toBe(true);
@@ -89,7 +93,7 @@ describe("native Flip Chart coverage", () => {
     expect(getNativeFlipchartPage(3)?.art.map((asset) => asset.word)).toEqual(["avión", "escoba", "imán", "olla", "uña"]);
     expect(getNativeFlipchartPage(15)?.art.map((asset) => asset.word)).toContain("Sesi");
     expect(getNativeFlipchartPage(41)?.body.some((line) => line.text === "La r para la rama")).toBe(true);
-    expect(getNativeFlipchartPage(44)?.body.some((line) => line.text === "arrebatado")).toBe(true);
+    expect(getNativeFlipchartPage(44)?.body.some((line) => line.text === "arrebatado.")).toBe(true);
   });
 
   it.each([

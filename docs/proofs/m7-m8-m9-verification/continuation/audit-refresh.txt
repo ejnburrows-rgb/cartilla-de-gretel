@@ -1,0 +1,8 @@
+Faithful Foreground Audit Breakdown: {
+  PASS: 96,
+  'PENDING NO VERIFIED SOURCE': 12,
+  'VERIFIED COLOR TRANSFER': 1,
+  'CROP FIX': 1
+}
+Flipchart Native Audit Breakdown: { 'PENDING NO VERIFIED SOURCE': 112, PASS: 55 }
+Wrote classification audit to docs\production-art-classification-audit.json

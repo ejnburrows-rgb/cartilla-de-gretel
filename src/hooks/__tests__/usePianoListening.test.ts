@@ -20,6 +20,8 @@ class FakeRecognition {
   onend: (() => void) | null = null;
   onspeechstart: (() => void) | null = null;
   onspeechend: (() => void) | null = null;
+  onsoundstart: (() => void) | null = null;
+  onsoundend: (() => void) | null = null;
   start = vi.fn(() => this.onstart?.());
   stop = vi.fn(() => this.onend?.());
   abort = vi.fn();
@@ -195,6 +197,26 @@ describe("usePianoListening", () => {
         expect(rec.start).toHaveBeenCalledTimes(1);
       }
     });
+  });
+
+  it("reports the first sound early (provisional only) and clears it when the session ends", async () => {
+    const onFinal = vi.fn();
+    const onSound = vi.fn();
+    const { result } = renderHook(() => usePianoListening({ onFinal, onSound }));
+    await act(async () => {});
+    act(() => result.current.start());
+    const rec = FakeRecognition.instances[0];
+    act(() => rec.onsoundstart?.());
+    expect(onSound).toHaveBeenLastCalledWith(true);
+    expect(result.current.status).toBe("listening");
+    act(() => rec.onspeechstart?.());
+    expect(result.current.status).toBe("hearing");
+    act(() => rec.onsoundend?.());
+    expect(onSound).toHaveBeenLastCalledWith(false);
+    act(() => rec.onsoundstart?.());
+    act(() => result.current.stop());
+    expect(onSound).toHaveBeenLastCalledWith(false);
+    expect(onFinal).not.toHaveBeenCalled();
   });
 
   it("maps permission and device errors to friendly problems", async () => {

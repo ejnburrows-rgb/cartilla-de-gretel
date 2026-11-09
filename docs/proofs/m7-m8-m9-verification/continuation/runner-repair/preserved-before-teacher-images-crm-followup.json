@@ -1,0 +1,260 @@
+[
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-003.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-003.png",
+    "sha256": "973ac3c05e320982bbc64af7aeacfd88367d22e1e2058a38094c59f01e47846b",
+    "bytes": 342572
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-004.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-004.png",
+    "sha256": "93b248565f12fca4f6c7d2988b247b30dd58044b247592db7d8e91d9c3623136",
+    "bytes": 333537
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-005.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-005.png",
+    "sha256": "4caf22c1a8fcd0379c4889f534cd0559c4076d14945f78ff8a0fb3642a365699",
+    "bytes": 337028
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-006.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-006.png",
+    "sha256": "b328bf48805db10cd2a8542ee34765286719e298e902eff31b12f201306831ea",
+    "bytes": 286804
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-007.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-007.png",
+    "sha256": "e25641c1e84165d938e094e222f49469018fcf2918c811158e1925f763f25cd3",
+    "bytes": 305053
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-008.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-008.png",
+    "sha256": "b714b5cfbe64e4a70b682096978b5f0156900791e6a225d2d539d280a5280031",
+    "bytes": 373996
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-009.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-009.png",
+    "sha256": "5bb9fa166cb4a3aae0f43419b5cf0251d5ac52df92784be1335e2d3520871165",
+    "bytes": 393959
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-010.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-010.png",
+    "sha256": "6cb01db4cde81fdab7016e769fd6508dfcd2c6e374ebde04e86d22ff74d60f01",
+    "bytes": 163673
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-011.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-011.png",
+    "sha256": "3a09c110f917d6b9b3c7ee227549cebb68cfb45a631e860171fa19f20ad5a2fa",
+    "bytes": 200743
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-012.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-012.png",
+    "sha256": "c7b8d4edc160547fd08b7aa942d51d157b145d201f5641c0ba3d31ac66e96e18",
+    "bytes": 321995
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-013.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-013.png",
+    "sha256": "291040f9d72b5667e198e2e78a113f0ba1552d69414f986972ffc1bc3615beac",
+    "bytes": 188961
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-014.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-014.png",
+    "sha256": "f3e41012ea56f2f5cccf5f0c2641858c6d3d260d1db6ee7e245228874be955df",
+    "bytes": 214310
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-015.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-015.png",
+    "sha256": "4e979d6359da72f27eac2717faee2014b492ad67b1c01e8d94ba85fafeac4f65",
+    "bytes": 380325
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-016.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-016.png",
+    "sha256": "b97383e8b354830e2e73b2c5958325f13bd2bc5a74312c95a2758d18cbf11988",
+    "bytes": 202495
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-017.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-017.png",
+    "sha256": "0cb0c715c31d176ee00b7f468fc33118cb0844ab1f92e3b4bed77991da261851",
+    "bytes": 214476
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-018.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-018.png",
+    "sha256": "d7f859360f55887a3ec930831c010a0aa38caed427f964903fe8420be996a882",
+    "bytes": 360386
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-019.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-019.png",
+    "sha256": "8fe8c1dd383fddaea4d3689823c75f406ab8ae332853a7711723c8374adeefb3",
+    "bytes": 174625
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-020.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-020.png",
+    "sha256": "b2f58ef483f1255a1775c5ad625def4be92494c1032b6ad7727b08bd174d460c",
+    "bytes": 269974
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-021.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-021.png",
+    "sha256": "0bfdfaf0ac5722a6fef74beef83ec17a6d31e4e425a5652719e69f3158f329ed",
+    "bytes": 334670
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-022.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-022.png",
+    "sha256": "476ff21231bf82eff2381d37b56e5be7c630f205ea12232c80713024aa353539",
+    "bytes": 199197
+  },
+  {
+    "source": "test-results/final-candidate/laptop-flipchart-023.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/laptop-flipchart-023.png",
+    "sha256": "dc0b5b44492c2cd24de4d08a4f2ea6d616e84e9207740774fe00ee7bc1a26daf",
+    "bytes": 267517
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-003.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-003.png",
+    "sha256": "a2d2c0d39f0888c06d95d180b9de7bee47c0705f8d9bf153c9e3184ab346a1d9",
+    "bytes": 519540
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-004.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-004.png",
+    "sha256": "977e21c23a5460055fc98698840ae9f92ad3e74ce5f4ea1ddc35ff8819bc79e6",
+    "bytes": 515954
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-005.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-005.png",
+    "sha256": "e4afc09eb287da936797a8c89f6e830ccf41d2a50f1fc8867afe753c6484772a",
+    "bytes": 513866
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-006.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-006.png",
+    "sha256": "2937c0835543624020095eaf702f621cdf31e48d5c5f9b6f4b17e566c9be2fad",
+    "bytes": 436681
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-007.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-007.png",
+    "sha256": "dafa8323e03f7a5da0c29233a5c496583a3721b75a13472364a823038c21af9c",
+    "bytes": 458090
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-008.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-008.png",
+    "sha256": "23098097e0474ac6938ba852783d930d3f902f8980827f2c3787f8641870384b",
+    "bytes": 556377
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-009.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-009.png",
+    "sha256": "e10c56e851fa09a643a9a490933652e49f839f42d484f195e1d43dc6594f3fd9",
+    "bytes": 609606
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-010.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-010.png",
+    "sha256": "9d663407ea822f472b9c0bb3123a93b538a70f9f4f50831d51745c18ce3587fd",
+    "bytes": 241129
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-011.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-011.png",
+    "sha256": "195b4a5ea5b81b6c6a6955e9194bfe9f327d8c5ae858893f1cd616648b26bc11",
+    "bytes": 275135
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-012.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-012.png",
+    "sha256": "0884dedd47482b064fb1b1dfcf11fe4e14228ca7658218c3302131adbd763daa",
+    "bytes": 503765
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-013.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-013.png",
+    "sha256": "7b64b127ae1401e19c7fd256874915396c2547136e895d0ecf82e7eacbaf11cc",
+    "bytes": 257954
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-014.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-014.png",
+    "sha256": "37e9f649c261f73a3099b58e608fdff952a719d692db88588e5648a39363a881",
+    "bytes": 327930
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-015.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-015.png",
+    "sha256": "499a2f543c7a5289aa8e1d1fed3fb4f139bc87d20799f076ad08ada04bc5fbad",
+    "bytes": 586883
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-016.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-016.png",
+    "sha256": "0afd1217f18f8d05d50b5c4c3ba265796b6a41c0f731269f11b9508b5d7d1544",
+    "bytes": 274487
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-017.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-017.png",
+    "sha256": "687694df756b464aa3553551668ac6d620cb5232384c18b5ba219220e1d7421c",
+    "bytes": 325904
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-018.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-018.png",
+    "sha256": "6f33a295d68fbd4fbb6e744c72e864edbcffda18af58a1b1cb2a4cd0e4cfe5bc",
+    "bytes": 545098
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-019.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-019.png",
+    "sha256": "3e3dd6418cc6427e79f99eaa5e722e46386853afd8170a6b623257fdf39716b3",
+    "bytes": 270255
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-020.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-020.png",
+    "sha256": "d1de677d444f7c6436e8f9e79378d11b53bca944b7505da260493e0d05579401",
+    "bytes": 404878
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-021.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-021.png",
+    "sha256": "f4090ca506ad005faea2363da4d9ce6d21aeb99c2c09e718187b4e68371fb87f",
+    "bytes": 436843
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-022.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-022.png",
+    "sha256": "857e014fc03e41aba90b8e53a99db5f9c5dd1ed2defdc6a971f704ce909481ab",
+    "bytes": 275519
+  },
+  {
+    "source": "test-results/final-candidate/tablet-flipchart-023.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/test-results/final-candidate/tablet-flipchart-023.png",
+    "sha256": "f45a9aefb117802c99b39a4cd32b3231dec60b3869bfaa015219c53f7ce4195c",
+    "bytes": 385497
+  },
+  {
+    "source": "docs/proofs/crm-demo/dashboard-laptop.png",
+    "backup": "work/preserved-before-runs/teacher-images-crm-followup/docs/proofs/crm-demo/dashboard-laptop.png",
+    "sha256": "c44386cf15ba814f416ccb9c672a4d6d477409cac00ced470af5a34633023f50",
+    "bytes": 190233
+  }
+]

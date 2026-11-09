@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "combined-unit-324b1383224d3842a197d67a2469d9bebab647b6",
+  "task_id": "cartilla1247-combined-qualification",
+  "attempt_id": "combined-unit-324b1383224d3842a197d67a2469d9bebab647b6",
+  "action_kind": "broad_test",
+  "action_scope_digest": "sha256:489e9e9364e6d49167c1ebcc0975e91ca3224e17a6d7fd53fa54fadd8d8329dd",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:2d909fba5ad08e67564bb6f6231c71d817bca6bc1a813833ab6e1cce97d8017f",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:aff23e8d2ad93dbb65fc6e588791dc4dcb26a423c6cb199a63f738267b61b20f",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:bf9e8f4a82e39abc1b566a61f12d913733bb98da9fa2e5dd87155d437f233399"
+}

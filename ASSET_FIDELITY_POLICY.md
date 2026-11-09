@@ -1,11 +1,17 @@
 # ASSET FIDELITY POLICY — La Cartilla de Gretel
 
+> **MANDATORY OWNER DIRECTIVES (2026-10-22, every agent / Muse / Instinct / Jules):** Read [PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md](PERMANENT_PROJECT_INTEGRITY_WORKFLOW.md) and [ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md](ARTWORK_REPORT_VERIFICATION_AND_SINGLE_SOURCE_CLEANUP.md) before investigating, changing, certifying or dispatching artwork work. Only the latest authentic owner-approved updated art may be used; delete proven obsolete wrong crops from current production after switching and verifying all references. Do not create competing inventories, silently relax tests, or report file presence as correct rendered art. Existing owner-only merge/deploy gates remain in force. These Markdown directives define the obligation; actual implementation and tests are required before claiming enforcement.
+
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
 
 
 **Owner decisions (EJN), 30 Sep 2026 and 3 Oct 2026. This is the active rule for artwork, images, color transfer, and animation.**
 **Two narrow source-safe exceptions exist:** verified source-preserving color transfer for eligible Workbook foreground art, and background-only generation under `repo.md`.
 It replaces `IMAGE_GENERATION_BAN.md` and `docs/GOOGLE_FLOW_PROMPTS.md`, which are kept only as history and must not guide any agent.
+
+## Approval prerequisite for cleanup
+
+The cleanup obligation above does not authorize deletion or overwrite. Under [AGENTS.md](AGENTS.md), obtain the owner's explicit approval for the exact paths and cleanup package before a destructive operation. First record replacement provenance, affected references and source-faithful rendered proof; replacement acceptance alone is not deletion permission. Preserve originals and unique evidence. This policy review deletes no assets.
 
 ## The one-line rule
 

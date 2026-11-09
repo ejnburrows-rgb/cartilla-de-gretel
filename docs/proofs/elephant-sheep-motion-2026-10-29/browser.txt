@@ -1,0 +1,1 @@
+ELEPHANT_SHEEP_MOTION_PASS 6 exact source bases; 24 normal/reduced placements

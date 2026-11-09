@@ -285,4 +285,35 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     expect(centerBtn.classList.contains("is-active")).toBe(true);
   });
+  it("keeps one tool while another line starts during wrong-answer erasure", () => {
+    vi.useFakeTimers();
+    try {
+      const onResult = vi.fn();
+      const { container } = render(<DirectPencilConnector pageKey="single-tool-retry"
+        targets={p17Targets} mode="mark" centerLabel="Uu" reducedMotion={false} onResult={onResult} />);
+      fireEvent.click(screen.getByRole("button", { name: "oso" }));
+      act(() => vi.advanceTimersByTime(1000));
+      const original = container.querySelector(".am-direct-pencil__retry-group");
+      const center = screen.getByRole("button", { name: "Vocal central Uu" });
+      fireEvent.pointerDown(center, { clientX: 100, clientY: 100, pointerId: 1, button: 0 });
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+      // A second wrong attempt is queued, and cannot restart the first eraser.
+      fireEvent.click(screen.getByRole("button", { name: "estrella" }));
+      expect(container.querySelector(".am-direct-pencil__retry-group")).toBe(original);
+      expect(onResult).toHaveBeenCalledTimes(2);
+      act(() => vi.advanceTimersByTime(3000));
+      expect(container.querySelector(".am-direct-pencil__retry-group")).not.toBe(original);
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+      act(() => vi.advanceTimersByTime(4000));
+      expect(container.querySelector(".am-direct-pencil__retry-group")).toBeNull();
+      // The input held during erasure resumes, rather than being discarded.
+      expect(container.querySelector(".am-direct-pencil__active-line .workbook-pencil__shape")).toBeTruthy();
+      fireEvent.pointerCancel(container.querySelector(".am-direct-pencil__stage")!);
+      expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
+    } finally {
+      cleanup();
+      vi.useRealTimers();
+    }
+  });
+
 });

@@ -1,0 +1,9 @@
+{"utc":"2026-11-03T20:27:53.498Z","pid":31268,"kind":"preload-ready","detail":{"node":"v26.2.0"}}
+{"utc":"2026-11-03T20:27:56.750Z","pid":31268,"kind":"fork","detail":{"entry":"D:\\Downloads\\La Cartilla de Gretel\\node_modules\\.pnpm\\vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27\\node_modules\\vitest\\dist\\workers\\forks.js","execPath":"C:\\Program Files\\nodejs\\node.exe","execArgv":["--experimental-import-meta-resolve","--require","D:/Downloads/La Cartilla de Gretel/node_modules/.pnpm/vitest@4.1.8_@types+node@22_5d6e5504655f37a8209a39a4ce7a0c27/node_modules/vitest/suppress-warnings.cjs","--conditions","node","--conditions","development"],"env":{"NODE_ENV":"test","VITEST":"true","VITEST_MODE":"RUN","TEST":"true","FORCE_TTY":""},"nodeOptionsPresent":false}}
+{"utc":"2026-11-03T20:27:56.789Z","pid":31268,"kind":"send","detail":{"childPid":17156,"type":"start","environment":"jsdom","experimental":{"viteModuleRunner":true,"nodeLoader":true},"isAgent":true,"hasSerializedDefines":true,"tracesEnabled":false,"hasTraceSdk":false}}
+{"utc":"2026-11-03T20:28:00.520Z","pid":31268,"kind":"response","detail":{"childPid":17156,"type":"started","hasError":false}}
+{"utc":"2026-11-03T20:28:00.521Z","pid":31268,"kind":"send","detail":{"childPid":17156,"type":"run","environment":"jsdom","hasSerializedDefines":false,"hasTraceSdk":false}}
+{"utc":"2026-11-03T20:28:24.517Z","pid":31268,"kind":"response","detail":{"childPid":17156,"type":"testfileFinished","hasError":false}}
+{"utc":"2026-11-03T20:28:24.519Z","pid":31268,"kind":"send","detail":{"childPid":17156,"type":"stop","hasSerializedDefines":false,"hasTraceSdk":false}}
+{"utc":"2026-11-03T20:28:24.524Z","pid":31268,"kind":"response","detail":{"childPid":17156,"type":"stopped","hasError":false}}
+{"utc":"2026-11-03T20:28:24.575Z","pid":31268,"kind":"child-exit","detail":{"childPid":17156,"code":null,"signal":"SIGTERM"}}

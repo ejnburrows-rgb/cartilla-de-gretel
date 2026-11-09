@@ -21,17 +21,22 @@ FITS = {
     'fc_p004_oso':      dict(tx=56, ty=44),
     'fc_p004_oveja':    dict(tx=52, ty=57),
     'fc_p004_olla':     dict(tx=53, ty=74),
-    'fc_p006_elefante': dict(tx=48, ty=54),
+    'fc_p006_elefante': dict(a=1.316565, b=0.020121, tx=15.407558, ty=15.219690),
     'fc_p007_iman':     dict(tx=52, ty=59),
 }
 
 class Fit:
     s = 1.0
-    def __init__(self, name): self.__dict__.update(FITS[name])
-    def p(self, x, y): return (x + self.tx, y + self.ty)
+    def __init__(self, name):
+        self.a = 1; self.b = 0
+        self.__dict__.update(FITS[name])
+        self.s = float(np.hypot(self.a, self.b))
+    def p(self, x, y): return (self.a*x - self.b*y + self.tx, self.b*x + self.a*y + self.ty)
     def poly(self, pts): return [self.p(x, y) for x, y in pts]
-    def box(self, x0, y0, x1, y1): return (x0 + self.tx, y0 + self.ty, x1 + self.tx, y1 + self.ty)
-    def d(self, v): return v
+    def box(self, x0, y0, x1, y1):
+        ax, ay = self.p(x0, y0); bx, by = self.p(x1, y1)
+        return (min(ax, bx), min(ay, by), max(ax, bx), max(ay, by))
+    def d(self, v): return v*self.s
 
 class OriginalSvg(Svg):
     """Embeds the sheet picture's original bytes instead of a re-encoded copy."""

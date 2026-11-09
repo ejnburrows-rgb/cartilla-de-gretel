@@ -1,0 +1,36 @@
+
+> cartilla-de-gretel-platform@ verify:policy C:\Users\EJN\Documents\Codex\2026-10-29\la-cartilla-de-gretel-continue-to\work\cartilla
+> node --test scripts/__tests__/check-merge-policy.test.mjs && node scripts/check-merge-policy.mjs --docs
+
+✔ advisory Sonar failure does not block tested reviewed material code (1.6319ms)
+✔ Sonar success cannot pass an empty PR (0.1582ms)
+✔ missing Jules test proof blocks relevant code (0.1716ms)
+✔ stale head proof blocks merge (0.1463ms)
+✔ unverified test revision blocks merge (0.1605ms)
+✔ actual serious defect blocks despite green Sonar (0.1666ms)
+✔ real visual change requires existing visible proof (0.294ms)
+✔ owner-gated work remains blocked (0.2306ms)
+✔ unauthorized scope stays blocked (0.2649ms)
+✔ documentation-only PR does not need a Jules product test (0.6138ms)
+✔ legacy mandatory-Sonar wording is detected (1.6272ms)
+✔ all governing docs agree on Sonar advisory rule (0.3619ms)
+✔ missing governing file fails closed (0.9669ms)
+✔ old one-session one-deliverable stop instruction is rejected (0.238ms)
+✔ automatic Jules refill instructions are rejected (0.1431ms)
+✔ obsolete voice choice is rejected (0.1408ms)
+✔ missing continue-next-task rule fails (0.1041ms)
+✔ missing formal GitHub approval rule fails (0.1191ms)
+✔ stale blanket merge authorization is rejected (0.134ms)
+✔ missing Mariposas inclusion rule fails (0.2102ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 182.8851
+{
+  "ok": true,
+  "errors": []
+}

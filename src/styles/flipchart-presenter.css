@@ -56,7 +56,7 @@
   justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
-  padding: 0.65rem 1rem;
+  padding: 0.3rem 0.85rem;
   background: rgba(255, 248, 231, 0.88);
   border-bottom: 1px solid var(--fc-border);
   backdrop-filter: blur(14px);
@@ -175,12 +175,12 @@
   display: flex;
   flex-direction: column;
   /* Desktop presenter: content is dominant; thin safe margins only */
-  padding: 0.5rem 0.75rem 0.65rem;
+  padding: 0.25rem 0.6rem 0.25rem;
 }
 
 @media (min-width: 1280px) {
   .fc-presenter__main {
-    padding: 0.55rem 1.25rem 0.75rem;
+    padding: 0.25rem 0.85rem 0.3rem;
   }
 }
 
@@ -237,16 +237,40 @@
 }
 
 /* ── Flipchart board panel ─────────────────────────────────────── */
+.fc-classroom__chart {
+  height: 78dvh;
+  min-height: 480px;
+  width: 100%;
+}
+@media (min-width: 1000px) {
+  .fc-classroom {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .fc-classroom__toolbar {
+    align-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+  .fc-classroom__toolbar select { max-width: 175px; }
+  .fc-classroom__chart { height: calc(100dvh - 160px); }
+}
 .fc-board {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
   min-height: 0;
-  gap: 0.55rem;
+  position: relative;
+  gap: 0.3rem;
 }
 
 .fc-board__easel {
+  container-type: size;
   position: relative;
   flex: 1 1 auto;
   min-height: 0;
@@ -287,6 +311,12 @@
   left: 0;
   justify-content: flex-start;
   border-bottom-left-radius: 12px;
+}
+
+/* A corner without a destination must not cover source-art audio targets. */
+.fc-corner[aria-disabled="true"] {
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .fc-corner--right {
@@ -341,25 +371,29 @@
 }
 
 .fc-board__page {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
   background: var(--fc-paper-soft);
   /* Inner matte so gray scan margins read less than the content */
-  padding: 0.35rem 0.45rem 0.55rem;
+  padding: 0.15rem 0.25rem 0.2rem;
 }
 
 @media (min-width: 1280px) {
   .fc-board__page {
-    padding: 0.45rem 0.75rem 0.65rem;
+    padding: 0.2rem 0.35rem 0.25rem;
   }
 }
 
 .fc-board__page-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: min(calc(100cqw - 12px), calc((100cqh - 12px) * var(--fc-sheet-ratio, 0.73)));
+  height: auto;
+  aspect-ratio: var(--fc-sheet-ratio, 0.73);
   min-height: 0;
   border-radius: 12px;
   overflow: hidden;
@@ -443,7 +477,7 @@
   align-items: center;
   gap: 0.1rem;
   min-width: 7.5rem;
-  padding: 0.45rem 0.9rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   border: 1.5px solid var(--fc-border);
@@ -566,7 +600,7 @@
   .fc-presenter__exit,
   .fc-presenter__btn {
     min-width: 44px;
-    min-height: 44px;
+    min-height: 36px;
     border-radius: 12px;
   }
 
@@ -1586,7 +1620,7 @@
 .fc-presenter__btn,
 .fc-board__nav {
   min-width: 44px;
-  min-height: 44px;
+  min-height: 36px;
   border-color: var(--lc-teal, #1f9e94);
   border-radius: 12px;
   background: var(--lc-paper, #fffdf9);
@@ -1655,7 +1689,7 @@
     grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
     grid-template-rows: minmax(0, 1fr) auto;
     column-gap: 0.65rem;
-    row-gap: 0.5rem;
+    row-gap: 0.2rem;
   }
   .fc-board[data-chrome="full"]:has(> .fc-board__strip) > .fc-board__easel {
     grid-column: 1 / -1;
@@ -1685,6 +1719,21 @@
   }
   .fc-board[data-chrome="full"]:has(> .fc-board__strip) .fc-board__thumb {
     width: 40px;
-    height: 52px;
+    height: 38px;
   }
+}
+
+/* The physical sheet owns the paper frame; its fitting area is transparent. */
+.fc-board__easel,
+.fc-presenter.is-bare .fc-board__easel {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.fc-board__page,
+.fc-presenter.is-bare .fc-board__page { background: transparent; }
+
+/* Keep the demo launcher above the sheet navigation, including on phones. */
+.fc-presenter > .no-print.fixed:has(> button[aria-label="Abrir Panel de Control de Demostración"]) {
+  bottom: 4.5rem;
 }

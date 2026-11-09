@@ -1,0 +1,22 @@
+Error: Cannot find module 'line json'
+Require stack:
+- D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\lib\cli\testActions.js
+- D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\lib\program.js
+- D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\cli.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1519:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1073:27)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1124:12)
+    at require.resolve (node:internal/modules/helpers:209:31)
+    at resolveReporter (D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\lib\cli\testActions.js:207:18)
+    at D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\lib\cli\testActions.js:168:42
+    at Array.map (<anonymous>)
+    at resolveReporterOption (D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\lib\cli\testActions.js:168:30)
+    at overridesFromOptions (D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\lib\cli\testActions.js:130:15)
+    at runTests (D:\Downloads\La Cartilla de Gretel\node_modules\.pnpm\playwright@1.63.0\node_modules\playwright\lib\cli\testActions.js:44:24) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'D:\\Downloads\\La Cartilla de Gretel\\node_modules\\.pnpm\\playwright@1.63.0\\node_modules\\playwright\\lib\\cli\\testActions.js',
+    'D:\\Downloads\\La Cartilla de Gretel\\node_modules\\.pnpm\\playwright@1.63.0\\node_modules\\playwright\\lib\\program.js',
+    'D:\\Downloads\\La Cartilla de Gretel\\node_modules\\.pnpm\\playwright@1.63.0\\node_modules\\playwright\\cli.js'
+  ]
+}

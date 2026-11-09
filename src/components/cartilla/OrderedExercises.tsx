@@ -42,9 +42,11 @@ export function OrderedExercises({
       setOrder(ids);
       return;
     }
+    const idsSet = new Set(ids);
+    const storedSet = new Set(stored);
     const merged = [
-      ...stored.filter((id) => ids.includes(id)),
-      ...ids.filter((id) => !stored.includes(id)),
+      ...stored.filter((id) => idsSet.has(id)),
+      ...ids.filter((id) => !storedSet.has(id)),
     ];
     setOrder(merged);
     // eslint-disable-next-line react-hooks/exhaustive-deps

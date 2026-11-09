@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "event_id": "worker-split-transform-terminal-ca5d14f9ba18cac4a06ce2726a68f661e877bf9d",
+  "task_id": "cartilla-pr1247",
+  "attempt_id": "worker-split-transform-terminal",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:e2a396562861f9964107393596958236737d3e1a0d4c03ea7082e21139ef4e29",
+  "requirements_digest": "sha256:3985b04d471ed5047cc89986234c2c9d17d30757cdcd65d609b1f63a2987d179",
+  "candidate_digest": "sha256:90139465ffc0f5a7b0cfa2ca14782fe98afcdacb684167db68cfad438de7038a",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:6788b190127ad5a84431d567fef3a75fbcaa84e957fb385547ab3cded7f4e2e3",
+  "environment_digest": "sha256:b0c03bf0b78320128d1cd3d5a6547b9c5bc2d19df4705f02171fbd1d225f5a84",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "invalidation": {
+    "schema_version": "1.0",
+    "invalidates": [
+      "sha256:3a55f8271659f19e07029d9c2278a1dff6947ad26b6ff5ca287da7e6a57629d4"
+    ],
+    "action_scope_digest": "sha256:e2a396562861f9964107393596958236737d3e1a0d4c03ea7082e21139ef4e29",
+    "reason_code": "evaluator_changed",
+    "changes": [
+      {
+        "field": "evaluator_digest",
+        "before": "sha256:18473a99dd4075772bf8c591678ce50a2014bff55f474c4075b9592e3ca20428",
+        "after": "sha256:6788b190127ad5a84431d567fef3a75fbcaa84e957fb385547ab3cded7f4e2e3"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "evaluator_digest",
+        "digest": "sha256:6788b190127ad5a84431d567fef3a75fbcaa84e957fb385547ab3cded7f4e2e3"
+      }
+    ],
+    "invalidation_id": "sha256:f4ddc042f846a80593953e500919302e97a44026a6b15600eabf54c41f7108f6"
+  }
+}

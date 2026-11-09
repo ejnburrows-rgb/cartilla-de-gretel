@@ -1,0 +1,49 @@
+
+
+
+
+Running 1 test using 1 worker
+
+
+
+[1/1] [chromium] › tests\e2e\activity-completion-foundation.spec.ts:10:1 › p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers
+
+
+
+
+
+
+
+
+
+
+
+
+  1) [chromium] › tests\e2e\activity-completion-foundation.spec.ts:10:1 › p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: locator('.native-lesson-viewer')
+    Expected: "1"
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.native-lesson-viewer') with timeout 5000ms
+      - waiting for locator('.native-lesson-viewer')
+      - Page crashed
+
+
+      25 |   await page.goto('/cartilla/leccion/1');
+      26 |   const viewer = page.locator('.native-lesson-viewer');
+    > 27 |   await expect(viewer).toHaveAttribute('data-native-page', '1');
+         |                        ^
+      28 |   await viewer.getByTestId('button-next').click();
+      29 |   await expect(viewer).toHaveAttribute('data-native-page', '2');
+      30 |
+        at D:\Downloads\cartilla-1247-continuation-work\test-repairs\tests\e2e\activity-completion-foundation.spec.ts:27:24
+
+    Error Context: docs\proofs\m7-m8-m9-verification\continuation\runner-repair\p2-browser-diagnostics\artifacts\activity-completion-founda-0ba0a--restores-completed-answers-chromium\error-context.md
+
+
+  1 failed
+    [chromium] › tests\e2e\activity-completion-foundation.spec.ts:10:1 › p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers 

@@ -206,6 +206,7 @@ const ACKNOWLEDGED_WORD_TILES: Record<string, string[]> = {
   "palabras-minuto-p": [],
   "rima-p": [],
   "vocal-a": [],
+  "cow-game-m": [],
 };
 
 describe("words that reach past their own lesson stay a known, reviewed set", () => {

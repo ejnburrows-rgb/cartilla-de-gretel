@@ -64,6 +64,49 @@ export const SYLLABLE_COLORS = [
   "#ec4899",
 ];
 
+/**
+ * Owner-locked: a reliably recognized syllable turns GREEN and stays green
+ * (its note on the staff and its piano key), whatever its position color.
+ */
+export const CONFIRMED_GREEN = "#16a34a";
+
+/** Color for syllable `index`: its warm position color, or green once confirmed. */
+export function syllableColor(index: number, state: string): string {
+  return state === "confirmed" ? CONFIRMED_GREEN : SYLLABLE_COLORS[index % SYLLABLE_COLORS.length];
+}
+
+/**
+ * Design A ("Piano") warm ramp, owner choice 2026-10-23: the word's syllables
+ * run left to right from red through brighter orange to yellow; each one turns
+ * green only once it is recognized by voice.
+ */
+export const RAMP_STOPS = ["#ef4444", "#f97316", "#facc15"] as const;
+
+function mixHex(a: string, b: string, t: number): string {
+  const ca = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
+  const cb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  return `#${ca
+    .map((v, k) =>
+      Math.round(v + (cb[k] - v) * t)
+        .toString(16)
+        .padStart(2, "0"),
+    )
+    .join("")}`;
+}
+
+/** Red (first syllable) → orange → yellow (last syllable). */
+export function rampColor(index: number, total: number): string {
+  if (total <= 1) return RAMP_STOPS[0];
+  const position = (Math.min(index, total - 1) / (total - 1)) * (RAMP_STOPS.length - 1);
+  const stop = Math.min(Math.floor(position), RAMP_STOPS.length - 2);
+  return mixHex(RAMP_STOPS[stop], RAMP_STOPS[stop + 1], position - stop);
+}
+
+/** Design A color: the warm ramp, or green once confirmed. */
+export function rampSyllableColor(index: number, total: number, state: string): string {
+  return state === "confirmed" ? CONFIRMED_GREEN : rampColor(index, total);
+}
+
 /** Accessible state words for a syllable key (same wording as before). */
 export const STATE_LABEL = {
   pending: "por decir",
@@ -73,3 +116,32 @@ export const STATE_LABEL = {
   confirmed: "lista",
 } as const;
 
+/**
+ * Design A ("Piano") — owner-approved 2026-10-23: nine white keys in three
+ * groups of three, one group per syllable, left to right. For the group being
+ * practiced: the first key presses RED as soon as the microphone picks up
+ * sound, the second presses YELLOW while the voice continues, and the third
+ * presses GREEN only when the syllable is recognized — then all three keys of
+ * that group turn green and stay green.
+ */
+export const GROUP_SIZE = 3;
+export const GROUP_COUNT = 3;
+export const GROUP_RED = "#ef4444";
+export const GROUP_YELLOW = "#facc15";
+
+/** Nine white keys, do → re alto (C4 → D5), three per syllable group. */
+export const NINE_WHITE: WhiteKey[] = [
+  ...OCTAVE_WHITE,
+  { id: "D5", name: "re alto", freq: 587.33 },
+];
+
+export type GroupKeyState = "pending" | "next" | "red" | "yellow" | "confirmed";
+
+/** Accessible state words for a syllable group. */
+export const GROUP_STATE_LABEL = {
+  pending: "después",
+  next: "tu turno",
+  red: "te oigo",
+  yellow: "escuchando",
+  confirmed: "lista",
+} as const;

@@ -38,6 +38,16 @@ export function StudentTable({
   handleArchiveToggle,
   handleDeleteStudent,
 }: StudentTableProps) {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, id: string) => {
+    if (busy) return;
+    if (e.key === "Enter") handleSaveRename(id);
+    if (e.key === "Escape") setEditingId(null);
+  };
+
+  const handleBlur = (id: string) => {
+    if (!busy) handleSaveRename(id);
+  };
+
   if (studentsList.length === 0) {
     return (
       <div role="status" className="p-8 text-center text-sm font-bold text-stone-400">
@@ -72,19 +82,28 @@ export function StudentTable({
                     <User className="w-4 h-4" />
                   </div>
                   {editingId === s.id ? (
-                    <input
-                      type="text"
-                      value={editingName}
-                      onChange={(e) => setEditingName(e.target.value)}
-                      onBlur={() => handleSaveRename(s.id)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") handleSaveRename(s.id);
-                        if (e.key === "Escape") setEditingId(null);
-                      }}
-                      autoFocus
-                      maxLength={50}
-                      className="font-extrabold text-stone-800 text-sm px-2 py-1 rounded-lg border-2 border-vowel-a focus:outline-none w-40"
-                    />
+                    <>
+                      <input
+                        type="text"
+                        aria-label="Nombre del alumno"
+                        aria-busy={busy}
+                        value={editingName}
+                        onChange={(e) => setEditingName(e.target.value)}
+                        onBlur={() => handleBlur(s.id)}
+                        onKeyDown={(e) => handleKeyDown(e, s.id)}
+                        autoFocus
+                        readOnly={busy}
+                        maxLength={50}
+                        className={`font-extrabold text-stone-800 text-sm px-2 py-1 rounded-lg border-2 border-vowel-a focus:outline-none w-40 ${
+                          busy ? "opacity-50 cursor-not-allowed" : ""
+                        }`}
+                      />
+                      {busy && (
+                        <span role="status" className="text-xs text-stone-500">
+                          Guardando…
+                        </span>
+                      )}
+                    </>
                   ) : (
                     <button
                       type="button"

@@ -1,0 +1,3 @@
+failed to load config from D:\Downloads\cartilla-1247-continuation-work\test-repairs\vite.config.ts
+(node:39404) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

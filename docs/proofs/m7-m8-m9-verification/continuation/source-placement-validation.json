@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "pages": [
+    35,
+    41,
+    47,
+    53
+  ],
+  "imagesReadable": 4,
+  "completeSourceRectangles": 4,
+  "acceptedForReplacement": false,
+  "productionFilesChanged": false,
+  "evidenceDigests": {
+    "source-recovery-results.json": "sha256:195551e338ee1d3c5095375e4303dcd6b03d55e64de4722a46856ea795a75e82",
+    "source-recovery.md": "sha256:57b340bd490efad3847fc939c5fa9e1562404d0773bb10c730c955d05f133d0d",
+    "source-placement-35.png": "sha256:166f46cfd02ac80956ef022ec86dabd4648ef5f1ca1c3fd14c04717f75ce70bc",
+    "source-placement-41.png": "sha256:e2223e7fec0a14591e5936c6f162b685bdd39ea1c8eb62c712ad433435e21d8a",
+    "source-placement-47.png": "sha256:bde8dbadde2e1ba0e2b86e232f03afc944ffcff87900863382f4d2898bd391ec",
+    "source-placement-53.png": "sha256:516e830fbc5d852e41b90e65f6f5f6768e6bb5b2e6ab55b318503b8345b0a35c"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "mainReplacementCommit": "0f6661b1a3debff748c9e7a757bbd3a015eabb56",
+  "badFixtureCommit": "709b1a1e3f7b6aa417e949a4557f4319df226378",
+  "badFixtureSha256": "e313f0ec62619e0f8498a7f84baf3f74b27e24cd46435a214b23301e6e040ff3",
+  "goodFixtureSha256": "00cdde731ea499ffb946313632e8908084d11ee8ee763e52a9621e44081f538f",
+  "reviewed": true,
+  "assetSha256": "00cdde731ea499ffb946313632e8908084d11ee8ee763e52a9621e44081f538f",
+  "sourceSha256": "3d3cacdc82fc24e002e08f4258420c51a88d7806d0a8a681410658966c3607fb",
+  "evidencePath": "docs/proofs/arbol-visual-regression/before-after-grey-white-cream.png",
+  "evidenceSha256": "519538bd6a0087fc0dcc106e258717b4664a1471f31df1edf67636162ff09f2f",
+  "reviewer": "visual review 2026-10-22",
+  "verdict": "MATCH",
+  "scope": "Supplied source compared to installed cutout on grey, white and cream. Identity/tree silhouette, full trunk, branches, foliage, colors and matte removal reviewed. Original scan shape is reference, not pixel-equal to supplied replacement. No motion verified."
+}

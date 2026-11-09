@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { playNote, playCorrectChord } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";
@@ -167,6 +167,17 @@ export function DragLetterTrace({
   const shownPercent = Math.min(100, Math.round((shownCount / totalPoints) * 100));
   const activePoint = strokes[tap.position.strokeIdx]?.[tap.position.pointIdx];
 
+  const handleActivePointClick = () => {
+    tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx);
+  };
+
+  const handleActivePointKeyDown = (e: React.KeyboardEvent<SVGGElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx);
+    }
+  };
+
   return (
     <div className="w-full max-w-sm mx-auto p-5 bg-white/40 backdrop-blur-md border border-stone-200/50 rounded-2xl shadow-sm space-y-6">
       <div className="flex items-center justify-between pb-3 border-b border-stone-200/40">
@@ -277,13 +288,8 @@ export function DragLetterTrace({
                     tabIndex={0}
                     aria-label={`Punto ${tap.position.pointIdx + 1}, haz clic aquí`}
                     className="cursor-pointer"
-                    onClick={() => tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx);
-                      }
-                    }}
+                    onClick={handleActivePointClick}
+                    onKeyDown={handleActivePointKeyDown}
                   >
                     {/* generous invisible hit area — small targets are hard for kids */}
                     <circle cx={activePoint.x} cy={activePoint.y} r="10" fill="transparent" />

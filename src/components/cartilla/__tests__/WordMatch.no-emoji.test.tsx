@@ -3,7 +3,8 @@
  * Launch bar: no emoji object hints in WordMatch picture tiles.
  */
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { render, cleanup, screen } from "@testing-library/react";
+import { render, cleanup, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import { WordMatch } from "../Ejercicios";
 
 vi.mock("@/lib/gretel-bus", () => ({ gretelEvent: vi.fn() }));
@@ -12,7 +13,7 @@ vi.mock("@/lib/student-session", () => ({
   useStudentSession: () => null,
 }));
 vi.mock("@/hooks/useAudio", () => ({
-  useAudio: () => ({ play: vi.fn(), playingText: null }),
+  useAudio: () => ({ play: vi.fn(), playingText: null, isAvailable: () => false }),
 }));
 vi.mock("@/integrations/supabase/client", () => ({
   supabase: { auth: { getSession: async () => ({ data: { session: null } }) } },
@@ -62,5 +63,14 @@ describe("WordMatch — no emoji object hints", () => {
     expect(screen.getAllByText(/pendiente/i).length).toBeGreaterThanOrEqual(1);
     expect(document.body.textContent).not.toContain("📷");
     expect(document.body.textContent).not.toContain("🍜");
+  });
+
+  it("omits feedback sound controls for words without an approved recording", () => {
+    render(<WordMatch color="#e11d48" words={[{ word: "oso" }, { word: "luna" }]} />);
+    fireEvent.click(screen.getByRole("button", { name: "oso" }));
+    fireEvent.click(screen.getByRole("button", { name: "Ilustración pendiente: luna" }));
+
+    expect(screen.getByText(/No coinciden/)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Escuchar/i })).not.toBeInTheDocument();
   });
 });

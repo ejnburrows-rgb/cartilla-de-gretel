@@ -1,0 +1,1 @@
+SOURCE_PIXEL_EQUAL_PASS 50 existing destinations; no files regenerated

@@ -119,7 +119,7 @@
       }
     ],
     "scene": {
-      "word": "nina sordita",
+      "word": "niña distraída",
       "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png"
     }
   },
@@ -753,6 +753,15 @@
     "scene": {
       "word": "sube la bola scene",
       "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p035-full-sheet.jpg",
+      "width": 3406,
+      "height": 4345,
+      "sha256": "d42b78a8d8f14fe4562a709258a58bd5767b218443c5a0a6beb92383e4af1805",
+      "sourcePdfSha256": "c9308b6ed3b870086005bf27a25293ef18159d7575a1938c5a9a2e6d47028295",
+      "sourceUrl": "https://drive.google.com/file/d/1QKuUxQpUIWhSU1hedot2b1WHwb_9D1ay/view",
+      "approval": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-6630382439"
     }
   },
   "38": {
@@ -767,6 +776,15 @@
     "scene": {
       "word": "rosca manolo scene",
       "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p041-full-sheet.jpg",
+      "width": 3410,
+      "height": 4343,
+      "sha256": "c83ac3f90721e4e92f817895bb7461bcf4e01c535e52c6c21be917651e914952",
+      "sourcePdfSha256": "bd81510469b624f17147b9a03d05fb74a6c4fe0a8d2fd61c0e30a45233feb44c",
+      "sourceUrl": "https://drive.google.com/file/d/1sMhHEV6mJb4sWgOva4WbL-bYxqZDb1zP/view",
+      "approval": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-6630382439"
     }
   },
   "44": {
@@ -781,6 +799,15 @@
     "scene": {
       "word": "gato enamorado scene",
       "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p047-full-sheet.jpg",
+      "width": 3408,
+      "height": 4343,
+      "sha256": "a45f84f08071e160228586a8befbc8ea4e3a333c8a6938323c3fe1e626389c9a",
+      "sourcePdfSha256": "ba04ddc6d1b6b76be58e259dc3ac8417b902846144e33793f6430c12b4a9e9a9",
+      "sourceUrl": "https://drive.google.com/file/d/1RVffrg7BDdrFqrpDJp9QtMbREITIPVJy/view",
+      "approval": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-6630382439"
     }
   },
   "50": {
@@ -795,6 +822,15 @@
     "scene": {
       "word": "jicotea jabela scene",
       "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png"
+    },
+    "fullSheet": {
+      "src": "/cartilla/art/faithful/flipchart/p053-full-sheet.jpg",
+      "width": 3406,
+      "height": 4344,
+      "sha256": "d8352af3318611db766e6fc33444bea6f09982c9c9f072d1c68171b7ac349ded",
+      "sourcePdfSha256": "c32089f6e6543fa0bf71f41a70a6b3ce6ba5a6a832d1bcb7df7d0527130db111",
+      "sourceUrl": "https://drive.google.com/file/d/18FYAM369QkHG0nZC2C94EiNOQzbZNCwY/view",
+      "approval": "https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-6630382439"
     }
   },
   "56": {

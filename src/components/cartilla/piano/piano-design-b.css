@@ -387,7 +387,7 @@
   box-shadow:
     inset 0 -7px #dcd2bb,
     0 2px #041c19;
-  cursor: default;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -398,6 +398,13 @@
     box-shadow 0.2s ease,
     transform 0.12s ease;
   transform-origin: top;
+}
+.pb__white:active,
+.pb__white--pressed {
+  transform: translateY(3px) scaleY(0.97);
+  box-shadow:
+    inset 0 -2px #dcd2bb,
+    0 1px #041c19;
 }
 .pb__lamp {
   position: relative;
@@ -461,7 +468,7 @@
     inset 0 -2px color-mix(in srgb, var(--c) 70%, black),
     0 0 22px var(--c),
     0 1px #041c19;
-  transform: scaleY(0.985);
+  transform: translateY(3px) scaleY(0.97);
 }
 .pb__white-check {
   position: absolute;
@@ -490,9 +497,16 @@
   box-shadow:
     inset 0 -5px #161311,
     0 3px 5px #00000073;
-  cursor: default;
-  transition: background 0.2s ease;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
   transform-origin: top;
+}
+.pb__black:active,
+.pb__black--pressed {
+  transform: translateY(2px) scaleY(0.96);
 }
 .pb__black--flash {
   background: linear-gradient(180deg, #0c0a09, #155e57 70%, #2dd4bf);
@@ -526,11 +540,13 @@
   outline-offset: 2px;
 }
 .pb__sparkle {
+  /* One small sparkle over the syllable key that was just recognized. */
   position: absolute;
-  top: -0.9rem;
-  right: 1.5rem;
-  width: 2.4rem;
-  height: 2.4rem;
+  top: 0.5rem;
+  left: 50%;
+  margin-left: -0.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
   z-index: 4;
   border-radius: 999px;
   background:
@@ -547,7 +563,7 @@
       #facc15 85% 90%,
       transparent 90%
     );
-  animation: pb-sparkle 0.9s ease-out both;
+  animation: pb-sparkle 0.9s ease-out forwards;
   pointer-events: none;
 }
 @keyframes pb-sparkle {
@@ -560,8 +576,8 @@
     opacity: 1;
   }
   to {
-    transform: scale(1) rotate(45deg);
-    opacity: 1;
+    transform: scale(0.8) rotate(60deg);
+    opacity: 0;
   }
 }
 .pb__footer {

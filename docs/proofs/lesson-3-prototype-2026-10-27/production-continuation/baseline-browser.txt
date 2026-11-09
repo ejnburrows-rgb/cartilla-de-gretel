@@ -1,0 +1,1 @@
+{"before":{"ink":1622,"enabled":true},"after":{"ink":0,"enabled":true},"route":"http://127.0.0.1:5173/cartilla/leccion/3"}

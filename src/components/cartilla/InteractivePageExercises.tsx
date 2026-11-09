@@ -76,10 +76,15 @@ export function InteractivePictureGrid({
   lessonId,
   precise = false,
   mark = "circle",
-}: ExerciseProps & { precise?: boolean; mark?: PictureMark }) {
+  pageSize,
+}: ExerciseProps & { precise?: boolean; mark?: PictureMark; pageSize?: number }) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
+  const [pictureScreen, setPictureScreen] = useState(0);
+  const screenCount = pageSize ? Math.ceil(cells.length / pageSize) : 1;
+  const firstCell = pageSize ? pictureScreen * pageSize : 0;
+  const visibleCells = pageSize ? cells.slice(firstCell, firstCell + pageSize) : cells;
   const [solved, setSolved] = useActivityState("solved", false);
   const [validated, setValidated] = useActivityState<Set<number>>("validated", new Set());
   const [attempts, setAttempts] = useState(0);
@@ -96,7 +101,13 @@ export function InteractivePictureGrid({
     ? cells.filter((cell) => cell.correct === true).length : cells.length;
 
   const handlePencilTap = (i: number) => {
-    if (solved || validated.has(i) || markingCells.size > 0) return;
+    if (solved || validated.has(i) || markingCells.has(i)) return;
+    if (markingCells.size > 0) {
+      for (const [prevIdx, wasCorrect] of markingCells) {
+        if (wasCorrect) handleCellCorrect(prevIdx);
+        else handleCellRetry();
+      }
+    }
     const cell = cells[i];
     if (!cell || (hasAnswerKey && cell.correct === undefined)) return;
     setMarkingCells(new Map([[i, !hasAnswerKey || cell.correct === true]]));
@@ -150,8 +161,8 @@ export function InteractivePictureGrid({
   };
 
   const rows: PageGridCell[][] = [];
-  for (let i = 0; i < cells.length; i += columns)
-    rows.push(cells.slice(i, i + columns));
+  for (let i = 0; i < visibleCells.length; i += columns)
+    rows.push(visibleCells.slice(i, i + columns));
 
   const exactColumns = precise && region.gridColumnFracs?.length === columns
     ? region.gridColumnFracs.map((fraction) => `${fraction * 100}%`).join(" ")
@@ -161,7 +172,12 @@ export function InteractivePictureGrid({
     : undefined;
 
   return (
-    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
+    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}${pageSize ? " fp-ix-grid--paged" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
+      {pageSize && screenCount > 1 && <div className="fp-ix-grid__screens" aria-label="Grupos de dibujos">
+        {Array.from({length: screenCount}, (_, screen) => <button type="button" key={screen}
+          aria-pressed={pictureScreen === screen} disabled={markingCells.size > 0}
+          onClick={() => setPictureScreen(screen)}>Dibujos {screen * pageSize + 1}-{Math.min(cells.length, (screen + 1) * pageSize)}</button>)}
+      </div>}
       {rows.map((row, r) => (
         <div
           key={r}
@@ -169,7 +185,7 @@ export function InteractivePictureGrid({
           style={{ gridTemplateColumns: exactColumns ?? `repeat(${columns}, minmax(0, 1fr))` }}
         >
           {row.map((cell, c) => {
-            const i = r * columns + c;
+            const i = firstCell + r * columns + c;
             const isMarking = markingCells.has(i);
             const isVal = validated.has(i);
             const isCorrect = isMarking ? markingCells.get(i) : isVal;
@@ -181,7 +197,7 @@ export function InteractivePictureGrid({
                   className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
                   onClick={() => handlePencilTap(i)}
-                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
+                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || isMarking}
                   aria-label={cell.caption ?? "dibujo"}
                   data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
                   aria-pressed={isVal || isMarking}
@@ -313,7 +329,14 @@ export function InteractiveVowelPickOne({
   }, [correctRows, rows.length, completed, lessonId, region.id, incorrectAttempts, gretelEvent, recordEvent]);
 
   const attempt = (rowIdx: number, cellIdx: number) => {
-    if (correctRows.has(rowIdx) || markingCells.size > 0) return;
+    if (correctRows.has(rowIdx) || markingCells.has(`${rowIdx}-${cellIdx}`)) return;
+    if (markingCells.size > 0) {
+      for (const [prevKey, wasCorrect] of markingCells) {
+        const prevRow = Number(prevKey.split("-")[0]);
+        if (wasCorrect) handleCellCorrect(prevRow);
+        else handleCellRetry();
+      }
+    }
     const cell = rows[rowIdx]?.cells[cellIdx];
     if (!cell || cell.correct === undefined) return;
     setMarkingCells(new Map([[`${rowIdx}-${cellIdx}`, cell.correct === true]]));
@@ -373,7 +396,7 @@ export function InteractiveVowelPickOne({
                   type="button"
                   className={`fp-ix-cell relative ${isThisCorrect ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(r * 3 + cellIdx) }}
-                  disabled={cell.correct === undefined || isRowCorrect || (markingCells.size > 0 && !isMarking)}
+                  disabled={cell.correct === undefined || isRowCorrect || isMarking}
                   onClick={() => attempt(r, cellIdx)}
                   aria-label={cell.caption ?? "dibujo"}
                 >

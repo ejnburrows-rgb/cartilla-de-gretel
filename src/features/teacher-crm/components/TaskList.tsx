@@ -4,6 +4,14 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { listAssignments, createAssignment, deleteAssignment } from "@/lib/assignments.functions";
 import { CATALOG } from "@/lib/lesson-catalog";
 
+const CATALOG_MAP = CATALOG.reduce(
+  (acc, c) => {
+    acc[String(c.n)] = c;
+    return acc;
+  },
+  {} as Record<string, (typeof CATALOG)[0]>,
+);
+
 interface TaskListProps {
   classId: string;
 }
@@ -20,7 +28,13 @@ export function TaskList({ classId }: TaskListProps) {
   const [timeLimit, setTimeLimit] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  const { data: assignments, isLoading } = useQuery({
+  const {
+    data: assignments,
+    isLoading,
+    isError,
+    isFetching,
+    refetch,
+  } = useQuery({
     queryKey: ["assignments", classId],
     queryFn: () => listAssignments({ data: { classId } }),
     enabled: !!classId,
@@ -62,9 +76,14 @@ export function TaskList({ classId }: TaskListProps) {
         </h3>
         <button
           onClick={() => setIsCreating(!isCreating)}
-          className="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
+          aria-label={isCreating ? "Cancelar nueva asignación" : "Crear nueva asignación"}
+          aria-expanded={isCreating}
+          title={isCreating ? "Cancelar" : "Asignar tarea"}
+          className="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4f46e5]"
         >
-          <Plus className="w-5 h-5" />
+          <Plus
+            className={`w-5 h-5 transition-transform duration-300 ${isCreating ? "rotate-45" : "rotate-0"}`}
+          />
         </button>
       </div>
 
@@ -138,9 +157,20 @@ export function TaskList({ classId }: TaskListProps) {
           <div className="text-center py-8 text-sm font-bold text-stone-400 animate-pulse">
             Cargando asignaciones…
           </div>
+        ) : isError ? (
+          <div role="alert" className="text-center py-8 px-4 flex flex-col items-center">
+            <p className="text-sm font-bold text-red-500 mb-2">Error al cargar asignaciones</p>
+            <button
+              onClick={() => refetch()}
+              disabled={isFetching}
+              className="text-xs bg-red-100 text-red-700 px-4 py-2 rounded-lg hover:bg-red-200"
+            >
+              {isFetching ? "Reintentando…" : "Reintentar"}
+            </button>
+          </div>
         ) : (assignments ?? []).length > 0 ? (
           (assignments ?? []).map((task) => {
-            const entry = CATALOG.find((c) => String(c.n) === task.lesson_id);
+            const entry = CATALOG_MAP[task.lesson_id];
             return (
               <div
                 key={task.id}
@@ -177,9 +207,13 @@ export function TaskList({ classId }: TaskListProps) {
                   <button
                     onClick={() => deleteMut.mutate(task.id)}
                     disabled={deleteMut.isPending}
-                    className="text-stone-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                    aria-label={`Eliminar asignación de ${task.title || (entry ? `L${entry.n} — ${entry.title}` : "tarea")}`}
+                    title="Eliminar asignación"
+                    className="text-stone-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 rounded p-1"
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2
+                      className={`w-4 h-4 ${deleteMut.isPending && deleteMut.variables === task.id ? "animate-pulse text-red-500" : ""}`}
+                    />
                   </button>
                 </div>
               </div>

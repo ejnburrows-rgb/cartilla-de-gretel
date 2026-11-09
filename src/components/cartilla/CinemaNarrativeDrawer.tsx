@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { type CatalogEntry } from "@/lib/lesson-catalog";
-import { BookOpen, ChevronLeft, ChevronRight, Check } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CinemaNarrativeDrawerProps {
   entry: CatalogEntry;

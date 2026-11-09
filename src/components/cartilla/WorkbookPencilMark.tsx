@@ -1,4 +1,12 @@
-import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
@@ -669,77 +677,92 @@ function offscreenFrom(box: FlightBox, height: number, from: Pt): string {
  * edge of the screen (`lift`). Nothing clips it: it flies in its own layer.
  */
 function DrawingPencil({
-  path,
-  begin = 0,
-  approach,
-  dur,
-  lift,
+  paths,
+  points,
+  strokeDur,
+  hopMs,
   shadow,
   uid,
-  first,
-  last,
   offscreen,
+  exit,
   stretch,
 }: {
-  path: string;
-  begin?: number;
-  approach: number;
-  dur: number;
-  lift: number;
+  paths: string[];
+  points: Pt[][];
+  strokeDur: number;
+  hopMs: number;
   shadow: string;
   uid: string;
-  first: boolean;
-  last: boolean;
-  /** Translation that puts the pencil past the right edge of the screen. */
   offscreen: string;
-  /** Extra body length so the pencil runs off the edge of the screen. */
+  exit: string;
   stretch: number;
 }) {
-  const travel = approach + dur;
-  const total = travel + lift;
-  const a = (approach / travel).toFixed(4);
-  const kApproach = (approach / total).toFixed(4);
-  const kDone = (travel / total).toFixed(4);
-  // Between the two strokes of an X the pencil only hops a little off the paper.
-  const hop: Pt = [AXIS[0] * 6, AXIS[1] * 6];
-  const enter = first ? offscreen : `${f2(hop[0])} ${f2(hop[1])}`;
-  const leave = last ? offscreen : `${f2(hop[0])} ${f2(hop[1])}`;
+  const { approachMs, drawMs, liftMs } = WORKBOOK_MARK_TIMING;
+  const total = drawMs + liftMs;
+  const kApproach = (approachMs / total).toFixed(6);
+  const kDone = (drawMs / total).toFixed(6);
   return (
     <g className="workbook-pencil" opacity="0" filter={`url(#${shadow})`}>
-      <animateMotion
-        begin={`${begin}ms`}
-        dur={`${travel}ms`}
-        fill="freeze"
-        calcMode="spline"
-        keyTimes={`0;${a};1`}
-        keyPoints="0;0;1"
-        keySplines={`0 0 1 1;${EASE}`}
-        path={path}
-      />
-      <animate attributeName="opacity" begin={`${begin}ms`} dur={`${total}ms`} values="1;1" />
+      {/* One physical shape for the entire mark. Later motion segments replace
+          the frozen previous segment on this SAME group, never another pencil. */}
+      {paths.map((path, i) => {
+        const begin = i === 0 ? 0 : approachMs + i * (strokeDur + hopMs);
+        const travel = i === 0 ? approachMs + strokeDur : strokeDur;
+        return (
+          <animateMotion
+            key={`stroke-${i}`}
+            begin={`${begin}ms`}
+            dur={`${travel}ms`}
+            fill="freeze"
+            calcMode="spline"
+            path={path}
+            keyTimes={i === 0 ? `0;${(approachMs / travel).toFixed(6)};1` : "0;1"}
+            keyPoints={i === 0 ? "0;0;1" : "0;1"}
+            keySplines={i === 0 ? `0 0 1 1;${EASE}` : EASE}
+          />
+        );
+      })}
+      {points.slice(1).map((next, i) => {
+        const from = points[i][points[i].length - 1];
+        const to = next[0];
+        // Lift gently while moving from the end of one diagonal to the start
+        // of the other. The mark paths stay separate, so this leaves no ink.
+        const bridge = `M ${f2(from[0])} ${f2(from[1])} Q ${f2((from[0] + to[0]) / 2 + AXIS[0] * 12)} ${f2((from[1] + to[1]) / 2 + AXIS[1] * 12)} ${f2(to[0])} ${f2(to[1])}`;
+        return (
+          <animateMotion
+            key={`hop-${i}`}
+            begin={`${approachMs + (i + 1) * strokeDur + i * hopMs}ms`}
+            dur={`${hopMs}ms`}
+            fill="freeze"
+            path={bridge}
+            calcMode="spline"
+            keyTimes="0;1"
+            keyPoints="0;1"
+            keySplines={EASE}
+          />
+        );
+      })}
+      <animate attributeName="opacity" dur={`${total}ms`} values="1;1" />
       <g>
         <animateTransform
           attributeName="transform"
           type="translate"
-          begin={`${begin}ms`}
           dur={`${total}ms`}
           fill="freeze"
           calcMode="spline"
-          values={`${enter};0 0;0 0;${leave}`}
+          values={`${offscreen};0 0;0 0;${exit}`}
           keyTimes={`0;${kApproach};${kDone};1`}
-          keySplines={`0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1`}
+          keySplines="0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1"
         />
         <g>
-          {/* The wrist turns a few degrees as the hand goes round. */}
           <animateTransform
             attributeName="transform"
             type="rotate"
-            begin={`${begin}ms`}
             dur={`${total}ms`}
             fill="freeze"
             calcMode="spline"
             values="2;0;-3;2;0;0"
-            keyTimes={`0;${kApproach};${((approach + dur * 0.35) / total).toFixed(4)};${((approach + dur * 0.75) / total).toFixed(4)};${kDone};1`}
+            keyTimes={`0;${kApproach};${((approachMs + (drawMs - approachMs) * 0.35) / total).toFixed(6)};${((approachMs + (drawMs - approachMs) * 0.75) / total).toFixed(6)};${kDone};1`}
             keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
           />
           <g transform={PENCIL_POSE}>
@@ -902,6 +925,40 @@ function EraserCrumbs({
   );
 }
 
+// FIFO ownership covers marks in different activity regions and direct lines.
+// Waiting marks retain their input; grading and timers start only on their turn.
+const pencilQueue: symbol[] = [];
+const pencilListeners = new Set<() => void>();
+function publishPencilOwner() {
+  if (typeof document !== "undefined") {
+    document.documentElement.toggleAttribute("data-workbook-pencil-active", pencilQueue.length > 0);
+  }
+  for (const notify of pencilListeners) notify();
+}
+const subscribePencil = (notify: () => void) => {
+  pencilListeners.add(notify);
+  return () => {
+    pencilListeners.delete(notify);
+  };
+};
+const pencilOwner = () => pencilQueue[0];
+export function useWorkbookPencilTurn(requested: boolean): boolean {
+  const token = useRef(Symbol("workbook-pencil"));
+  const owner = useSyncExternalStore(subscribePencil, pencilOwner, () => undefined);
+  useLayoutEffect(() => {
+    if (!requested) return;
+    const me = token.current;
+    pencilQueue.push(me);
+    publishPencilOwner();
+    return () => {
+      const index = pencilQueue.indexOf(me);
+      if (index !== -1) pencilQueue.splice(index, 1);
+      publishPencilOwner();
+    };
+  }, [requested]);
+  return requested && owner === token.current;
+}
+
 /**
  * Shared Workbook feedback kernel used by p1/p2 and later adapters.
  * Semantic timing is stable under reduced motion: only decorative motion is removed.
@@ -921,6 +978,9 @@ export function WorkbookPencilMark({
   const { emit } = useActivityEvents();
   const [internalStatus, setInternalStatus] = useState<WorkbookMarkStatus>("drawing");
   const currentStatus = externalStatus ?? internalStatus;
+  const needsTurn = !externalStatus && currentStatus !== "correct" && currentStatus !== "erased";
+  const hasTurn = useWorkbookPencilTurn(needsTurn);
+  const waiting = needsTurn && !hasTurn;
   const onSuccessRef = useRef(onSuccess);
   const onRetryRef = useRef(onRetry);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -928,6 +988,7 @@ export function WorkbookPencilMark({
   const shadowId = `${baseId}-shadow`;
   const { aspect } = useCellBox(boxRef);
   const flying =
+    hasTurn &&
     !reducedMotion &&
     !externalStatus &&
     (currentStatus === "drawing" || currentStatus === "holding" || currentStatus === "erasing");
@@ -945,7 +1006,8 @@ export function WorkbookPencilMark({
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
-    () => (markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round)),
+    () =>
+      markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round),
     [height, markType, seed, round],
   );
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);
@@ -967,7 +1029,7 @@ export function WorkbookPencilMark({
   }, [onRetry]);
 
   useEffect(() => {
-    if (externalStatus || isCorrect == null) return;
+    if (externalStatus || isCorrect == null || !hasTurn) return;
     const { drawMs, holdMs } = WORKBOOK_MARK_TIMING;
     const resultDelay = reducedMotion ? holdMs : drawMs + holdMs;
     if (reducedMotion) setInternalStatus("holding");
@@ -991,10 +1053,10 @@ export function WorkbookPencilMark({
       if (holdTimer !== undefined) window.clearTimeout(holdTimer);
       window.clearTimeout(resultTimer);
     };
-  }, [completeOnSuccess, emit, externalStatus, isCorrect, itemId, reducedMotion]);
+  }, [completeOnSuccess, emit, externalStatus, isCorrect, itemId, reducedMotion, hasTurn]);
 
   useEffect(() => {
-    if (externalStatus || currentStatus !== "erasing") return;
+    if (externalStatus || currentStatus !== "erasing" || !hasTurn) return;
     const timer = window.setTimeout(
       () => {
         setInternalStatus("erased");
@@ -1003,7 +1065,7 @@ export function WorkbookPencilMark({
       reducedMotion ? WORKBOOK_MARK_TIMING.reducedEraseMs : WORKBOOK_MARK_TIMING.eraseMs,
     );
     return () => window.clearTimeout(timer);
-  }, [currentStatus, externalStatus, reducedMotion]);
+  }, [currentStatus, externalStatus, reducedMotion, hasTurn]);
 
   if (currentStatus === "erased") return null;
 
@@ -1067,23 +1129,19 @@ export function WorkbookPencilMark({
             }}
           >
             {toolDefs}
-            {!erasing &&
-              strokes.map((d, i) => (
-                <DrawingPencil
-                  key={`p${i}`}
-                  path={d}
-                  begin={schedule[i].pencilBegin}
-                  approach={schedule[i].approach}
-                  dur={strokeDur}
-                  lift={i === strokes.length - 1 ? liftMs : hopMs}
-                  shadow={shadowId}
-                  uid={`${baseId}-d${i}`}
-                  first={i === 0}
-                  last={i === strokes.length - 1}
-                  offscreen={offscreenFrom(flightBox, height, strokePoints[i][0])}
-                  stretch={stretch}
-                />
-              ))}
+            {!erasing && (
+              <DrawingPencil
+                paths={strokes}
+                points={strokePoints}
+                strokeDur={strokeDur}
+                hopMs={hopMs}
+                shadow={shadowId}
+                uid={`${baseId}-d`}
+                offscreen={offscreenFrom(flightBox, height, strokePoints[0][0])}
+                exit={offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1])}
+                stretch={stretch}
+              />
+            )}
             {erasing &&
               (() => {
                 const off = offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
@@ -1145,8 +1203,9 @@ export function WorkbookPencilMark({
       data-mark-status={currentStatus}
       data-mark-result={result}
       data-mark-type={markType}
+      data-pencil-waiting={waiting || undefined}
     >
-      {!erasing && (
+      {!waiting && !erasing && (
         <svg key="mark" className="workbook-pencil-mark__svg" viewBox={viewBox} aria-hidden="true">
           {strokes.map((d, i) => (
             <MarkStroke

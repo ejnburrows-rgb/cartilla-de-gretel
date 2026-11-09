@@ -2,30 +2,29 @@
  * Shared Piano Hablador session logic for both designs ("Piano" and
  * "Cancionero"): verified book words / lesson syllables, on-device-only
  * microphone (`usePianoListening`), conservative syllable matching
- * (`advanceSyllables`), Escuchar examples (approved recording, else the
- * existing voice), word progression, one celebration per word, outcome-only
+ * (`advanceSyllables`), Escuchar examples (approved recording or Steinway
+ * sample), word progression, one celebration per word, outcome-only
  * progress logging and the 2 s completion callback.
  *
  * Every key confirmed by one utterance plays its note in order (so a whole
- * word plays its little melody), then the chord.
+ * word plays its little melody), then the chord. Each syllable, at the moment
+ * it is recognized and turns green, gets exactly ONE small sparkle over its
+ * key; it plays once and fades. There is no other sparkle.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePianoListening, type PianoListenProblem } from "@/hooks/usePianoListening";
-import { playNote, playCorrectChord } from "@/lib/piano-audio";
+import { playNote, playCorrectChord, preloadPianoSound } from "./piano-sound";
 import { advanceSyllables } from "@/lib/piano-word-tracker";
 import type { PianoWord } from "@/lib/piano-words";
-import { approvedPictureRecording } from "@/lib/picture-vocabulary";
+import { approvedPictureRecording, pictureNameKey } from "@/lib/picture-vocabulary";
 import { audioEngine } from "@/lib/audio-engine";
 import {
-  claimSpeech,
+  claimRecordedPlayback,
   registerSpeechCleanup,
   releaseSpeech,
-  speechIsCurrent,
-  stopSpeech,
+  stopRecordedPlayback,
 } from "@/lib/speech-playback";
-import { speak } from "@/lib/speak";
 import { recordEvent } from "@/lib/student-session";
-import type { GretelLiveAvatarRef } from "@/components/gretel/GretelLiveAvatar";
 
 export type KeyState = "pending" | "next" | "hearing" | "provisional" | "confirmed";
 
@@ -53,11 +52,14 @@ export const PRIVACY_NOTE = {
 /** Gap between the notes of a word's melody. */
 export const MELODY_STEP_MS = 170;
 
+/** How long the one small per-syllable sparkle stays on screen. */
+export const SPARKLE_MS = 900;
+
 /** One example at a time; resolves when it finishes or is interrupted. */
-function playExample(text: string, recording: string | undefined): Promise<void> {
-  if (!recording || typeof Audio === "undefined") return speak(text);
+export function playExample(recording: string | undefined): Promise<void> {
+  if (!recording || typeof Audio === "undefined") return Promise.resolve();
   return new Promise<void>((resolve) => {
-    const token = claimSpeech("reading");
+    const token = claimRecordedPlayback("reading");
     let done = false;
     const audio = new Audio(recording);
     const finish = () => {
@@ -85,7 +87,6 @@ function playExample(text: string, recording: string | undefined): Promise<void>
     audio.onerror = () => {
       releaseSpeech(token);
       finish();
-      if (speechIsCurrent(token)) void speak(text);
     };
     const playing = audio.play() as Promise<void> | undefined;
     if (playing !== undefined) {
@@ -138,6 +139,8 @@ export function usePianoSession({
 
   const [itemIndex, setItemIndex] = useState(0);
   const item = items[itemIndex];
+  const wordRecording = wordMode && item ? approvedPictureRecording(pictureNameKey(item.word)) : undefined;
+  const canListenToWord = Boolean(wordRecording);
   const keys = useMemo(() => item?.syllables ?? [], [item]);
   const [confirmed, setConfirmed] = useState(0);
   const [provisional, setProvisional] = useState(0);
@@ -145,14 +148,14 @@ export function usePianoSession({
   const [message, setMessage] = useState("");
   const [celebrating, setCelebrating] = useState(false);
   const [flash, setFlash] = useState<{ key: string; n: number } | null>(null);
+  const [sparkle, setSparkle] = useState<{ index: number; n: number } | null>(null);
+  const sparkleCountRef = useRef(0);
   const confirmedRef = useRef(0);
   const celebratedRef = useRef<string | null>(null);
   const completeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const gretelTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const melodyTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const exampleRunRef = useRef(0);
   const flashCountRef = useRef(0);
-  const gretelRef = useRef<GretelLiveAvatarRef>(null);
   const onCompleteRef = useRef(onComplete);
   const hasTriggeredCompleteRef = useRef(false);
   const noteForRef = useRef(noteFor);
@@ -162,6 +165,11 @@ export function usePianoSession({
   }, [onComplete]);
 
   const done = keys.length > 0 && confirmed >= keys.length;
+
+  // Real grand piano samples start loading as soon as the piano appears.
+  useEffect(() => {
+    void preloadPianoSound();
+  }, []);
   const isLastItem = itemIndex >= items.length - 1;
 
   /** Light a key for a moment (`key` is a design-specific key id). */
@@ -174,6 +182,17 @@ export function usePianoSession({
     const timer = setTimeout(() => setFlash(null), 650);
     return () => clearTimeout(timer);
   }, [flash]);
+
+  /** One small sparkle for the syllable that was just recognized. */
+  const sparkleFor = useCallback((index: number) => {
+    sparkleCountRef.current += 1;
+    setSparkle({ index, n: sparkleCountRef.current });
+  }, []);
+  useEffect(() => {
+    if (!sparkle) return;
+    const timer = setTimeout(() => setSparkle(null), SPARKLE_MS);
+    return () => clearTimeout(timer);
+  }, [sparkle]);
 
   const promptFor = useCallback(
     (count: number) => {
@@ -195,12 +214,13 @@ export function usePianoSession({
         const play = () => {
           playNote(noteForRef.current(index), 0.7);
           flashKey(`s${index}`);
+          sparkleFor(index);
         };
         if (index === from) play();
         else melodyTimersRef.current.push(setTimeout(play, (index - from) * MELODY_STEP_MS));
       }
     },
-    [flashKey],
+    [flashKey, sparkleFor],
   );
 
   const applyProgress = useCallback(
@@ -270,11 +290,10 @@ export function usePianoSession({
     setConfirmed(0);
     setProvisional(0);
     setCelebrating(false);
+    setSparkle(null);
     celebratedRef.current = null;
     melodyTimersRef.current.forEach(clearTimeout);
     melodyTimersRef.current = [];
-    if (gretelTimerRef.current) clearTimeout(gretelTimerRef.current);
-    gretelRef.current?.cancel();
   }, [cancelListening]);
 
   useEffect(() => {
@@ -284,16 +303,15 @@ export function usePianoSession({
 
   useEffect(() => {
     resetWord();
-    setMessage("Toca «Escuchar» y luego el micrófono para decir la palabra.");
+    setMessage("Toca el micrófono y di la palabra.");
     return () => {
-      stopSpeech();
+      stopRecordedPlayback("reading");
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemsKey, itemIndex]);
 
   useEffect(
     () => () => {
-      if (gretelTimerRef.current) clearTimeout(gretelTimerRef.current);
       melodyTimersRef.current.forEach(clearTimeout);
     },
     [],
@@ -327,9 +345,6 @@ export function usePianoSession({
     playCorrectChord();
     const said = wordMode ? item.word : keys.join(", ");
     setMessage(`¡Muy bien! Dijiste «${said}».`);
-    gretelTimerRef.current = setTimeout(() => {
-      void gretelRef.current?.speakMessage(wordMode ? `¡Muy bien! ${item.word}.` : "¡Muy bien!");
-    }, 650);
     if (lessonId) {
       // Only the outcome is recorded — never audio or transcripts.
       recordEvent({
@@ -361,13 +376,13 @@ export function usePianoSession({
     [itemsKey],
   );
 
-  const runExample = async (text: string, recording?: string) => {
+  const runExample = async (recording: string) => {
     cancelListening();
     const run = ++exampleRunRef.current;
     setExampleActive(true);
     try {
       await Promise.race([
-        playExample(text, recording),
+        playExample(recording),
         new Promise<void>((resolve) => setTimeout(resolve, 6000)),
       ]);
     } finally {
@@ -380,9 +395,10 @@ export function usePianoSession({
   /** Escuchar: hear the whole word (or the syllable row). */
   const listenToWord = () => {
     if (!item) return;
-    const recording = wordMode ? approvedPictureRecording(item.word) : undefined;
-    setMessage(wordMode ? `Escucha: «${item.word}».` : `Escucha: «${keys.join(", ")}».`);
-    void runExample(wordMode ? item.word : keys.join(", "), recording).then(() => {
+    const recording = wordMode ? approvedPictureRecording(pictureNameKey(item.word)) : undefined;
+    if (!recording) return;
+    setMessage(`Escucha: «${item.word}».`);
+    void runExample(recording).then(() => {
       if (confirmedRef.current < keys.length)
         setMessage(`Ahora toca el micrófono. ${promptFor(confirmedRef.current)}`);
     });
@@ -392,7 +408,7 @@ export function usePianoSession({
   const listenToSyllable = (index: number) => {
     const syllable = keys[index];
     if (!syllable) return;
-    void runExample(syllable);
+    playNote(noteFor(index));
   };
 
   const toggleMic = () => {
@@ -401,7 +417,8 @@ export function usePianoSession({
       stopListening();
       return;
     }
-    stopSpeech();
+    stopRecordedPlayback("reading");
+    void preloadPianoSound();
     startListening();
   };
 
@@ -410,7 +427,7 @@ export function usePianoSession({
       setItemIndex(0);
       if (items.length === 1) {
         resetWord();
-        setMessage("Toca «Escuchar» y luego el micrófono para decir la palabra.");
+        setMessage("Toca el micrófono y di la palabra.");
       }
       return;
     }
@@ -444,6 +461,7 @@ export function usePianoSession({
     message,
     celebrating,
     flash,
+    sparkle,
     status,
     problem,
     processing,
@@ -451,7 +469,7 @@ export function usePianoSession({
     micOpen,
     micDisabled,
     exampleActive,
-    gretelRef,
+    canListenToWord,
     listenToWord,
     listenToSyllable,
     toggleMic,

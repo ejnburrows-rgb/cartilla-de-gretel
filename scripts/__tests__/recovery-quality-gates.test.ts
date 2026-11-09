@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
 
 const root = path.resolve(import.meta.dirname, "../..");
@@ -34,7 +35,14 @@ describe("recovery quality gates", () => {
     expect(coverage.lessonSnapshots.state).toBe("initial-settled-page");
     expect(coverage.presenterSnapshots.lessons.length).toBeGreaterThan(0);
     expect(inventory.errors).toEqual([]);
+    expect(inventory.counts.errors).toBe(inventory.errors.length);
+    expect(inventory.assets.every((asset: { src: string }) => !asset.src.includes("${"))).toBe(true);
     expect(inventory.assetSetSha256).toMatch(/^[a-f0-9]{64}$/);
+    // Source fingerprints must match Git's LF text, even on Windows CRLF checkouts.
+    const textHash = (file: string) => createHash("sha256")
+      .update(read(file).replace(/\r\n/g, "\n"), "utf8").digest("hex");
+    expect(inventory.sourceManifestSha256).toBe(textHash("public/cartilla/art/faithful/manifest.json"));
+    expect(inventory.visualCoverageSha256).toBe(textHash("tests/e2e/recovery-visual-coverage.json"));
     expect(inventory.assets.length).toBeGreaterThan(0);
   });
 

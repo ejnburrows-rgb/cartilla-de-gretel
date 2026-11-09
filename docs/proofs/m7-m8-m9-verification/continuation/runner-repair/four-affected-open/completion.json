@@ -1,0 +1,34 @@
+{
+  "startedUtc": "2026-11-03T18:37:28.061362+00:00",
+  "wrapperPid": 9352,
+  "head": "36666181dbb29e64f857a6799e906a090deaa0a7",
+  "command": [
+    "pnpm.cmd",
+    "exec",
+    "playwright",
+    "test",
+    "tests/e2e/activity-completion-foundation.spec.ts",
+    "tests/e2e/book-pages7-8.spec.ts",
+    "tests/e2e/accessibility-preflight.spec.ts",
+    "--grep",
+    "p2 uses shared pencil|page8 touch release|1. Welcome and primary|5. Flip Chart presenter",
+    "--project=chromium",
+    "--workers=1",
+    "--reporter=line,json",
+    "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\four-affected-open\\artifacts"
+  ],
+  "status": "finished",
+  "runnerPid": 28540,
+  "exitCode": 1,
+  "jsonPresent": true,
+  "jsonSha256": "95e3d8e649b1329785c88104025e312ffcb7de1dea90c898d95e8affccd1a887",
+  "stats": {
+    "startTime": "2026-11-03T18:37:30.247Z",
+    "duration": 63022.812,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "finishedUtc": "2026-11-03T18:38:33.351654+00:00"
+}

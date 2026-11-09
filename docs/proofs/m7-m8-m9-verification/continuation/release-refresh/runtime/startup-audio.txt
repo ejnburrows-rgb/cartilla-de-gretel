@@ -1,0 +1,28 @@
+### Result
+{
+  "media": [
+    {
+      "event": "playing",
+      "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+      "duration": 1.809637,
+      "time": 0
+    },
+    {
+      "event": "ended",
+      "src": "http://127.0.0.1:4187/audio/page-turn-soft.mp3",
+      "duration": 1.809637,
+      "time": 1.809637
+    }
+  ],
+  "touches": [
+    {
+      "type": "touch",
+      "trusted": true
+    }
+  ],
+  "tts": []
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.__runtimeProof)');
+```

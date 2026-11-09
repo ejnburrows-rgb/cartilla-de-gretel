@@ -1,0 +1,62 @@
+[
+  {
+    "width": 375,
+    "height": 900,
+    "checks": [
+      "Page 5 pencil line match: center button Oo renders with no rope/lasso",
+      "Page 5 pencil line match: mismatched target triggers neutral is-retry styling",
+      "Page 5 pencil line match: correct target connects and persists",
+      "Page 6 writing lines: uppercase O trace tap mode completes through 9 checkpoints",
+      "Page 6 writing lines: lowercase o freehand canvas receives ink from pointer",
+      "Session isolation: reload preserves Student A work",
+      "Session isolation: Student B starts with 0 ink and idle trace (zero leakage)",
+      "Session isolation: Student B has 0 connected lines on Page 5",
+      "Session isolation: switching back to Student A restores completed lines and trace",
+      "Lesson 4 (Vocal E, p11-12) rollout verified",
+      "Lesson 5 (Vocal I, p14-15) rollout verified",
+      "Lesson 6 (Vocal U, p17-18) rollout verified",
+      "Lesson 1 (Intro Vocales, p1-3) rollout verified"
+    ],
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "height": 900,
+    "checks": [
+      "Page 5 pencil line match: center button Oo renders with no rope/lasso",
+      "Page 5 pencil line match: mismatched target triggers neutral is-retry styling",
+      "Page 5 pencil line match: correct target connects and persists",
+      "Page 6 writing lines: uppercase O trace tap mode completes through 9 checkpoints",
+      "Page 6 writing lines: lowercase o freehand canvas receives ink from pointer",
+      "Session isolation: reload preserves Student A work",
+      "Session isolation: Student B starts with 0 ink and idle trace (zero leakage)",
+      "Session isolation: Student B has 0 connected lines on Page 5",
+      "Session isolation: switching back to Student A restores completed lines and trace",
+      "Lesson 4 (Vocal E, p11-12) rollout verified",
+      "Lesson 5 (Vocal I, p14-15) rollout verified",
+      "Lesson 6 (Vocal U, p17-18) rollout verified",
+      "Lesson 1 (Intro Vocales, p1-3) rollout verified"
+    ],
+    "pageErrors": []
+  },
+  {
+    "width": 1280,
+    "height": 900,
+    "checks": [
+      "Page 5 pencil line match: center button Oo renders with no rope/lasso",
+      "Page 5 pencil line match: mismatched target triggers neutral is-retry styling",
+      "Page 5 pencil line match: correct target connects and persists",
+      "Page 6 writing lines: uppercase O trace tap mode completes through 9 checkpoints",
+      "Page 6 writing lines: lowercase o freehand canvas receives ink from pointer",
+      "Session isolation: reload preserves Student A work",
+      "Session isolation: Student B starts with 0 ink and idle trace (zero leakage)",
+      "Session isolation: Student B has 0 connected lines on Page 5",
+      "Session isolation: switching back to Student A restores completed lines and trace",
+      "Lesson 4 (Vocal E, p11-12) rollout verified",
+      "Lesson 5 (Vocal I, p14-15) rollout verified",
+      "Lesson 6 (Vocal U, p17-18) rollout verified",
+      "Lesson 1 (Intro Vocales, p1-3) rollout verified"
+    ],
+    "pageErrors": []
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "source": "public/cartilla/art/hd/flipchart/page-011.jpg",
+  "sourceSha256": "e58fe24fd1b76295765f3e01f81ad15b6ff7f30db41201ad5532242d8976896c",
+  "destination": "public/cartilla/art/optimized/flipchart-native/p011-scene.png",
+  "sha256": "ae79bd23a93e8d0c8fb8df6daf9eebe0b966100d6867c0df1568916582a41251",
+  "nativeCropLTRB": [
+    690,
+    450,
+    2370,
+    1820
+  ],
+  "dimensions": [
+    1680,
+    1370
+  ],
+  "alphaOnlyExclusion": {
+    "relativeLTRB": [
+      0,
+      0,
+      250,
+      900
+    ],
+    "reason": "Neighboring Mm letter/halo, outside all scene foreground"
+  },
+  "retainedRGBSamplesUnchanged": true,
+  "allOtherAlphaUnchanged": true,
+  "resampled": false
+}

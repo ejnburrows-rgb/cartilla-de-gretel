@@ -47,6 +47,7 @@ vi.mock("@/hooks/useAudio", () => ({
   useAudio: () => ({
     play: vi.fn(),
     playingText: null,
+    isAvailable: () => true,
   }),
 }));
 
@@ -86,19 +87,19 @@ describe("DragBuildWord.completion", () => {
         const targetLetter = word[slotIdx];
         const traysParent = screen.getByRole("group", { name: "Letras disponibles" });
         const trayEls = Array.from(traysParent.children);
-        
+
         // find a tray that has not been used yet and has the target letter
-        const trayIdx = trayEls.findIndex(el => 
-          el.getAttribute("data-used") === "false" && el.textContent === targetLetter
+        const trayIdx = trayEls.findIndex(
+          (el) => el.getAttribute("data-used") === "false" && el.textContent === targetLetter,
         );
-        
+
         triggerDrop(trayIdx, slotIdx, targetLetter);
       }
     };
 
     // 1. Complete first word
     completeCurrentWord("sol");
-    
+
     // Verify first word completion shows "¡Muy bien!" but doesn't complete activity
     expect(await screen.findByText("¡Muy bien!")).toBeInTheDocument();
     expect(onComplete).not.toHaveBeenCalled();
@@ -125,19 +126,19 @@ describe("DragBuildWord.completion", () => {
 
     // 4. Complete fourth word (final)
     completeCurrentWord("pez");
-    
+
     // Now it should call onComplete exactly once
     await waitFor(() => {
       expect(onComplete).toHaveBeenCalledTimes(1);
     });
     expect(gretelEvent).toHaveBeenCalledWith("lesson:complete");
-    
+
     // Retry/Reset the word shouldn't call onComplete again
     act(() => {
       fireEvent.click(screen.getByLabelText("Reiniciar palabra"));
     });
     completeCurrentWord("pez"); // completes it again
-    
+
     // Wait a bit to ensure it doesn't get called
     await waitFor(() => {
       expect(screen.getByText("¡Muy bien!")).toBeInTheDocument();

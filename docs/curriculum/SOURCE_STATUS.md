@@ -28,11 +28,13 @@ The matching source book defines structure and content. `CARTILLA_DIGITAL_DIRECT
 
 ## Source-pending
 
+These entries describe availability in the extracted curriculum package, not a live inventory of every owner-supplied source. Recheck accessible originals and current evidence before calling any resource missing.
+
 - Original full Teacher's Guide.
 - Evaluations 1–6 full masters.
 - Homework/Rima masters 1–6 and 10–24.
 - Most Blackline Masters / individual syllabic sheets.
-- Original/master audio.
+- Original/master audio was not included in this curriculum-package snapshot. The owner supplied the original master; recover and verify `Gretel_558674_Original.m4a` through existing #769 work. This list does not establish current asset access, integration or audible playback.
 
 ## Hard implementation rule
 

@@ -1,0 +1,27 @@
+{
+  "baselineHead": "d613b78ba553c3c5786afdf7d589305a3080f1cf",
+  "sourcePdfSha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+  "sourceCropLTRB": [
+    100,
+    100,
+    1050,
+    1350
+  ],
+  "intermediateJpegSha256": "bc88ef24272c5c7f2a84ee32e64610730c9fc15df8bfebdbef3f40e5cbea792b",
+  "restoredOpaqueSourceBandLTRB": [
+    0,
+    900,
+    950,
+    1250
+  ],
+  "unchangedPixelsAboveBand": true,
+  "restoredBandExactRgbaToSourceIntermediate": true,
+  "webpRestoredBandExactRgbaToSourceIntermediate": true,
+  "previouslyFullyTransparentPixelsRestored": 252587,
+  "sourceOriginalRgbExact": false,
+  "reason": "Earlier alpha isolation deleted source-painted pale ground. Opaque source paper blends using existing multiply; no hidden pixels inferred.",
+  "outputs": {
+    "public/cartilla/art/optimized/flipchart-native/p006-scene.png": "91d1f0ac9969191b13db7cc9355b697c4d37375cf7b14939133e60ec5f6eed43",
+    "public/cartilla/art/optimized/flipchart-native/p006-scene.webp": "d2e8ccda3a939a43b6ad6bc0cb538bb8df4444db662f41dcae509dd08af114f2"
+  }
+}

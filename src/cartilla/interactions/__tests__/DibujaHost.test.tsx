@@ -144,6 +144,38 @@ describe("DibujaHost — dual mode", () => {
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct");
   });
 
+  it("undoing the only stroke cannot complete an empty drawing", () => {
+    render(<DibujaHost pageKey="undo-empty" initialMode="draw" />);
+    const canvas = screen.getByLabelText(/Área para dibujar/i);
+    fireEvent.pointerDown(canvas, { clientX: 10, clientY: 10 });
+    for (let i = 0; i < 20; i++) fireEvent.pointerMove(canvas, { clientX: 20 + i, clientY: 20 });
+    fireEvent.pointerUp(canvas);
+    expect((screen.getByRole("button", { name: /Listo/i }) as HTMLButtonElement).disabled).toBe(false);
+    fireEvent.click(screen.getByRole("button", { name: "Deshacer" }));
+    expect((screen.getByRole("button", { name: /Listo/i }) as HTMLButtonElement).disabled).toBe(true);
+    fireEvent.click(screen.getByRole("button", { name: /Listo/i }));
+    expect(gretelEvent).not.toHaveBeenCalledWith("activity:complete");
+  });
+
+  it("erasing all ink revokes drawing completion and eraser-only movement cannot finish", () => {
+    render(<DibujaHost pageKey="erase-empty" initialMode="draw" />);
+    const canvas = screen.getByLabelText(/Área para dibujar/i);
+    const stroke = () => {
+      fireEvent.pointerDown(canvas, { clientX: 10, clientY: 10 });
+      for (let i = 0; i < 20; i++) fireEvent.pointerMove(canvas, { clientX: 20 + i, clientY: 20 });
+      fireEvent.pointerUp(canvas);
+    };
+    stroke();
+    fireEvent.click(screen.getByRole("button", { name: /Listo/i }));
+    fireEvent.click(screen.getByRole("button", { name: "Seguir dibujando" }));
+    fireEvent.click(screen.getByRole("button", { name: "Borrador de goma" }));
+    stroke();
+    expect((screen.getByRole("button", { name: /Listo/i }) as HTMLButtonElement).disabled).toBe(true);
+    expect(gretelEvent).toHaveBeenCalledWith("activity:retry", { reason: "work-cleared" });
+    stroke();
+    expect((screen.getByRole("button", { name: /Listo/i }) as HTMLButtonElement).disabled).toBe(true);
+  });
+
   it("draw mode completes without requiring a correct drawing", () => {
     render(<DibujaHost pageKey="d5" pickOptions={picks} initialMode="draw" lessonId="2" />);
     const canvas = screen.getByLabelText(/Área para dibujar/i);

@@ -1,0 +1,25 @@
+{
+  "head": "580e8ddb760a9574f4795410da2b5b658f6f0c86",
+  "applicationFreeze": "649d0fd072cf50fe8580c8629376f9f6349af44a",
+  "environmentChange": "Full root unit/build gate complete; owned E2E servers/browsers cleaned; zero concurrent test/build work",
+  "probe": "one default Chromium launch,newPage,setContent,textContent; no app,no timeout override",
+  "playwright": "1.63.0",
+  "started": "2026-11-03T16:04:33.959Z",
+  "stages": [
+    {
+      "name": "launch",
+      "ms": 3185.6985000000004
+    },
+    {
+      "name": "newPage",
+      "ms": 8932.9587
+    },
+    {
+      "name": "setContent/textContent",
+      "ms": 1569.3019999999997,
+      "text": "Browser fixture probe"
+    }
+  ],
+  "passed": true,
+  "finished": "2026-11-03T16:04:49.343Z"
+}
