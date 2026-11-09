@@ -620,14 +620,14 @@ export function DirectPencilConnector({
                     y1={centerPt.y}
                     x2={targetPt.x}
                     y2={targetPt.y}
-                    stroke="#0d9488"
-                    strokeWidth={isExample ? 3 : 4.5}
+                    stroke="#16a34a"
+                    strokeWidth={isExample ? 3 : 4.8}
                     strokeDasharray={isExample ? "6 4" : undefined}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
                   />
-                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#0d9488" />
-                  <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#0d9488" />
+                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#16a34a" />
+                  <circle cx={centerPt.x} cy={centerPt.y} r={4.5} fill="#16a34a" />
                 </g>
               );
             })}
@@ -648,18 +648,18 @@ export function DirectPencilConnector({
                     y1={ptA.y}
                     x2={ptB.x}
                     y2={ptB.y}
-                    stroke="#0d9488"
-                    strokeWidth={4.5}
+                    stroke="#16a34a"
+                    strokeWidth={4.8}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
                   />
-                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#0d9488" />
-                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#0d9488" />
+                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#16a34a" />
+                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#16a34a" />
                 </g>
               );
             })}
 
-          {/* Active Drag Line with Wooden Pencil */}
+          {/* Active Drag Line with Approved Large Wooden Pencil */}
           {isDragging && dragPt && activeStartPt && (
             <g className="am-direct-pencil__active-line">
               <line
@@ -667,26 +667,21 @@ export function DirectPencilConnector({
                 y1={activeStartPt.y}
                 x2={dragPt.x}
                 y2={dragPt.y}
-                stroke="#0d9488"
+                stroke="#3a3a38"
                 strokeWidth={5}
                 strokeLinecap="round"
                 filter={`url(#${shadowUid})`}
               />
-              <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#0f766e" />
+              <circle cx={dragPt.x} cy={dragPt.y} r={5} fill="#3a3a38" />
               {/* Wooden Pencil at Tip */}
-              {hasPencilTurn && !wrongLine && !reducedMotion && (() => {
-                const angle =
-                  Math.atan2(dragPt.y - activeStartPt.y, dragPt.x - activeStartPt.x) *
-                  (180 / Math.PI);
-                return (
-                  <g
-                    transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(${angle + 30}) scale(0.65)`}
-                    style={{ pointerEvents: "none" }}
-                  >
-                    <PencilShape uid={`${shadowUid}-drag-pencil`} />
-                  </g>
-                );
-              })()}
+              {hasPencilTurn && !wrongLine && !reducedMotion && (
+                <g
+                  transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(55) scale(2.4)`}
+                  style={{ pointerEvents: "none" }}
+                >
+                  <PencilShape uid={`${shadowUid}-drag-pencil`} />
+                </g>
+              )}
             </g>
           )}
 
@@ -700,10 +695,10 @@ export function DirectPencilConnector({
                   y1={wrongLine.from.y}
                   x2={wrongLine.to.x}
                   y2={wrongLine.to.y}
-                  stroke="#0d9488"
-                  strokeWidth={4}
+                  stroke="#dc2626"
+                  strokeWidth={4.5}
                   strokeLinecap="round"
-                  opacity="0.6"
+                  opacity="0.75"
                 />
               ) : (
                 (() => {
@@ -720,8 +715,8 @@ export function DirectPencilConnector({
                     <>
                       <path
                         d={linePath}
-                        stroke="#0d9488"
-                        strokeWidth={4}
+                        stroke="#dc2626"
+                        strokeWidth={4.5}
                         strokeLinecap="round"
                         pathLength={100}
                         strokeDasharray="100 100"
@@ -759,7 +754,7 @@ export function DirectPencilConnector({
                             repeatCount={Math.floor(rubMs / scrubPeriod)}
                             values="0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"
                           />
-                          <g transform="rotate(30) scale(1.2)">
+                          <g transform="rotate(30) scale(2.2)">
                             <g>
                               <animateTransform
                                 attributeName="transform"

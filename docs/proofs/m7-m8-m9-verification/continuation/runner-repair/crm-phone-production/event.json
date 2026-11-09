@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "event_id": "crm-phone-production-bfab98b6a22b691d9d80754285d25d4c1f7167f2",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "crm-phone-production",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:65cabae854ab9c312230905619de581acf6af6292176706449d60e98f0d0e451",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:d5a0a19037aefb40917470f5b484dbeae4cc167def702868383c45f94babc0a9",
+  "dependency_digest": "sha256:9d4581da8918da04474629e51ba1fd1a5c639c35931d1378bca25a232ff436cf",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:0c7914c675e7d35979c0b2deccfeaf53da51f90316eb7917dfd58c02e57433a9",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:0e6dd36d47d086693c9adddfa71d733f19dcdd42f62c090a64527bece976e5ee",
+  "invalidation": {
+    "schema_version": "1.0",
+    "invalidates": [
+      "sha256:d50c507d2bd9bea37d5781efdc18c27ec2797a1c8b7b18e79b0c9a6015f74c09"
+    ],
+    "action_scope_digest": "sha256:65cabae854ab9c312230905619de581acf6af6292176706449d60e98f0d0e451",
+    "reason_code": "environment_changed",
+    "changes": [
+      {
+        "field": "candidate_digest",
+        "before": "sha256:90139465ffc0f5a7b0cfa2ca14782fe98afcdacb684167db68cfad438de7038a",
+        "after": "sha256:d5a0a19037aefb40917470f5b484dbeae4cc167def702868383c45f94babc0a9"
+      },
+      {
+        "field": "evaluator_digest",
+        "before": "sha256:1c5ecefd51aa9e7a9a74f4326478579b22743952d4a510e464d2f242cc7c3cd9",
+        "after": "sha256:0c7914c675e7d35979c0b2deccfeaf53da51f90316eb7917dfd58c02e57433a9"
+      },
+      {
+        "field": "environment_digest",
+        "before": "sha256:cf7b8cf8de4a74e93df51e16e75fe1c4ef61c4e88c49d7ce064b56261f5b8d1d",
+        "after": "sha256:0e6dd36d47d086693c9adddfa71d733f19dcdd42f62c090a64527bece976e5ee"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "candidate_digest",
+        "digest": "sha256:d5a0a19037aefb40917470f5b484dbeae4cc167def702868383c45f94babc0a9"
+      },
+      {
+        "kind": "evaluator_digest",
+        "digest": "sha256:0c7914c675e7d35979c0b2deccfeaf53da51f90316eb7917dfd58c02e57433a9"
+      },
+      {
+        "kind": "environment_digest",
+        "digest": "sha256:0e6dd36d47d086693c9adddfa71d733f19dcdd42f62c090a64527bece976e5ee"
+      }
+    ],
+    "invalidation_id": "sha256:00933880f49b0c50a6c73613ce8339c0f709559ca1a4ad08df414da8d2681be5"
+  }
+}

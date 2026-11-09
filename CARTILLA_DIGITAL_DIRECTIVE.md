@@ -162,7 +162,7 @@ Page transitions must reinforce the physical-book identity without changing page
 
 - **Student Workbook:** advancing turns the current right-hand page from the outer edge across the center spine, right-to-left, with restrained paper curl, underside, and moving shadow. Previous reverses naturally.
 - **Teacher Flip Chart:** advancing lifts the current sheet from the lower edge and turns it upward over the top binding/rings like a classroom flip chart. Previous reverses naturally.
-- Keep the motion elegant and brief: approximately 0.75–0.85 s for Workbook and 0.9–1.05 s for Flip Chart.
+- Use the newer owner-approved timing in `UX-CONTRACT.md`: a 2.0 s Workbook page curl or Flip Chart flip, preceded by an approximately 0.3 s corner zoom for tap/button/keyboard triggers. Interactive drags follow the gesture; reduced-motion behavior remains as defined below.
 - The destination page must already be ready underneath so there is no blank flash.
 - Disable repeated navigation while the turn is active.
 - Respect reduced motion with an immediate or very short non-3D transition.

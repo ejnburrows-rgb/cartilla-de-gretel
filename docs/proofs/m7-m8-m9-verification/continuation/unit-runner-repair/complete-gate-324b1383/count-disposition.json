@@ -1,0 +1,24 @@
+{
+  "plainPasses": 2195,
+  "preexistingExpectedFailures": 2,
+  "unexpectedFailures": 0,
+  "skipped": 0,
+  "totalConfiguredCases": 2197,
+  "filesDiscovered": 223,
+  "filesReported": 223,
+  "expectedFailureSource": "src/test/setup-helpers.test.ts",
+  "baselineBlob": "6336168a7fb90f848900b70c77afcc724ed49c8e",
+  "qualifiedBlob": "6336168a7fb90f848900b70c77afcc724ed49c8e",
+  "sourceUnchanged": true,
+  "cases": [
+    {
+      "line": 29,
+      "name": "should simulate pointer swipe events under real timers"
+    },
+    {
+      "line": 90,
+      "name": "should simulate touch swipe events under real timers"
+    }
+  ],
+  "note": "Vitest JSON numPassedTests2197 includes two existing it.fails cases. CLI correctly distinguishes2195plain passes and2expected failures. No marker/assertion changed."
+}

@@ -40,4 +40,28 @@ describe("owner-locked pencil-only Workbook runtime", () => {
     const renderer = source("src/components/cartilla/FaithfulPageRenderer.tsx");
     expect(renderer).toContain("pictureMarkFor(precedingInstruction)");
   });
+
+  it("enforces approved classic wooden pencil scale(2.4) rotate(55) and permanently blocks rejected skinny miniature pencil (scale 0.65)", () => {
+    const connector = source("src/cartilla/interactions/PencilConnector.tsx");
+    // Prohibit rejected toothpick scale 0.65 and dynamic angle calculation that caused inversions
+    expect(connector).not.toContain("scale(0.65)");
+    expect(connector).not.toContain("rotate(${angle + 30})");
+    // Prohibit rejected teal strokes for active drag
+    expect(connector).not.toMatch(/stroke="#0d9488"\s*strokeWidth=\{5\}/);
+    // Enforce approved classic wooden pencil scale(2.4) at natural writing angle rotate(55)
+    expect(connector).toContain("rotate(55) scale(2.4)");
+    // Enforce approved retry eraser scale(2.2)
+    expect(connector).toContain("rotate(30) scale(2.2)");
+    // Enforce charcoal gray drag stroke
+    expect(connector).toContain('stroke="#3a3a38"');
+  });
+
+  it("ensures letter tracing exercises use the approved shared pencil shape and natural angle", () => {
+    const letterTrace = source("src/components/cartilla/WorkbookLetterTrace.tsx");
+    expect(letterTrace).toContain('import { PencilShape } from "./WorkbookPencilMark"');
+    expect(letterTrace).toContain("rotate(55) scale(0.38)");
+    expect(letterTrace).toContain("rotate(55) scale(0.32)");
+    expect(letterTrace).toContain("<PencilShape uid=\"letter-trace-live-pencil\" />");
+  });
 });
+

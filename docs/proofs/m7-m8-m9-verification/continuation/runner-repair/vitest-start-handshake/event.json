@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "vitest-start-handshake",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "start-handshake-1",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:10ada921d45c7bc91b43fc65b3b00add7dc1dde57a00fb6c4883b697c5b40da4",
+  "requirements_digest": "sha256:550aacb5518c9c4c2ea428cc40c26c0ebae3a40fd1ab1bd8e2417dd3c2d5614c",
+  "candidate_digest": "sha256:59783ac92ae8e2026f17886896f74a11882bff7d9943e4ff9a4f5074c38313d1",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:59783ac92ae8e2026f17886896f74a11882bff7d9943e4ff9a4f5074c38313d1",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:0508dc4217b6ccfb0240da545b9938c5ab20015ed98134790848b41d9295cd69"
+}

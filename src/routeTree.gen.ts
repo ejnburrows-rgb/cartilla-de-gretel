@@ -22,6 +22,7 @@ import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
 import { Route as PrototypeLesson3ARouteImport } from './routes/prototype.lesson-3-a'
 import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
+import { Route as CartillaSuplenteRouteImport } from './routes/cartilla/suplente'
 import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
 import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
 import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
@@ -39,6 +40,7 @@ import { Route as CartillaTeacherReportesRouteImport } from './routes/cartilla/t
 import { Route as CartillaTeacherProgresoRouteImport } from './routes/cartilla/teacher/progreso'
 import { Route as CartillaTeacherLeccionesRouteImport } from './routes/cartilla/teacher/lecciones'
 import { Route as CartillaTeacherGuideRouteImport } from './routes/cartilla/teacher/guide'
+import { Route as CartillaTeacherGretelRouteImport } from './routes/cartilla/teacher/gretel'
 import { Route as CartillaTeacherFlipchartRouteImport } from './routes/cartilla/teacher/flipchart'
 import { Route as CartillaTeacherCrmRouteImport } from './routes/cartilla/teacher/crm'
 import { Route as CartillaTeacherAyudaRouteImport } from './routes/cartilla/teacher/ayuda'
@@ -129,6 +131,11 @@ const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
   path: '/cartilla/unirse',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartillaSuplenteRoute = CartillaSuplenteRouteImport.update({
+  id: '/cartilla/suplente',
+  path: '/cartilla/suplente',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CartillaStudentLoginRoute = CartillaStudentLoginRouteImport.update({
   id: '/cartilla/student-login',
   path: '/cartilla/student-login',
@@ -143,7 +150,9 @@ const CartillaPracticaRoute = CartillaPracticaRouteImport.update({
   id: '/cartilla/practica',
   path: '/cartilla/practica',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/cartilla/practica.lazy').then((d) => d.Route),
+)
 const CartillaMiProgresoRoute = CartillaMiProgresoRouteImport.update({
   id: '/cartilla/mi-progreso',
   path: '/cartilla/mi-progreso',
@@ -228,6 +237,13 @@ const CartillaTeacherGuideRoute = CartillaTeacherGuideRouteImport.update({
   getParentRoute: () => CartillaTeacherRouteRoute,
 } as any).lazy(() =>
   import('./routes/cartilla/teacher/guide.lazy').then((d) => d.Route),
+)
+const CartillaTeacherGretelRoute = CartillaTeacherGretelRouteImport.update({
+  id: '/gretel',
+  path: '/gretel',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any).lazy(() =>
+  import('./routes/cartilla/teacher/gretel.lazy').then((d) => d.Route),
 )
 const CartillaTeacherFlipchartRoute =
   CartillaTeacherFlipchartRouteImport.update({
@@ -409,6 +425,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
+  '/cartilla/suplente': typeof CartillaSuplenteRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
   '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
@@ -423,6 +440,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/crm': typeof CartillaTeacherCrmRouteWithChildren
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
+  '/cartilla/teacher/gretel': typeof CartillaTeacherGretelRoute
   '/cartilla/teacher/guide': typeof CartillaTeacherGuideRoute
   '/cartilla/teacher/lecciones': typeof CartillaTeacherLeccionesRoute
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
@@ -462,6 +480,7 @@ export interface FileRoutesByTo {
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
+  '/cartilla/suplente': typeof CartillaSuplenteRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
   '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
@@ -475,6 +494,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
+  '/cartilla/teacher/gretel': typeof CartillaTeacherGretelRoute
   '/cartilla/teacher/guide': typeof CartillaTeacherGuideRoute
   '/cartilla/teacher/lecciones': typeof CartillaTeacherLeccionesRoute
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
@@ -514,6 +534,7 @@ export interface FileRoutesById {
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
+  '/cartilla/suplente': typeof CartillaSuplenteRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/voces': typeof CartillaVocesRoute
   '/prototype/lesson-3-a': typeof PrototypeLesson3ARoute
@@ -528,6 +549,7 @@ export interface FileRoutesById {
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/crm': typeof CartillaTeacherCrmRouteWithChildren
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
+  '/cartilla/teacher/gretel': typeof CartillaTeacherGretelRoute
   '/cartilla/teacher/guide': typeof CartillaTeacherGuideRoute
   '/cartilla/teacher/lecciones': typeof CartillaTeacherLeccionesRoute
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
@@ -570,6 +592,7 @@ export interface FileRouteTypes {
     | '/cartilla/practica'
     | '/cartilla/repaso'
     | '/cartilla/student-login'
+    | '/cartilla/suplente'
     | '/cartilla/unirse'
     | '/cartilla/voces'
     | '/prototype/lesson-3-a'
@@ -584,6 +607,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/crm'
     | '/cartilla/teacher/flipchart'
+    | '/cartilla/teacher/gretel'
     | '/cartilla/teacher/guide'
     | '/cartilla/teacher/lecciones'
     | '/cartilla/teacher/progreso'
@@ -623,6 +647,7 @@ export interface FileRouteTypes {
     | '/cartilla/practica'
     | '/cartilla/repaso'
     | '/cartilla/student-login'
+    | '/cartilla/suplente'
     | '/cartilla/unirse'
     | '/cartilla/voces'
     | '/prototype/lesson-3-a'
@@ -636,6 +661,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/admin'
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/flipchart'
+    | '/cartilla/teacher/gretel'
     | '/cartilla/teacher/guide'
     | '/cartilla/teacher/lecciones'
     | '/cartilla/teacher/progreso'
@@ -674,6 +700,7 @@ export interface FileRouteTypes {
     | '/cartilla/practica'
     | '/cartilla/repaso'
     | '/cartilla/student-login'
+    | '/cartilla/suplente'
     | '/cartilla/unirse'
     | '/cartilla/voces'
     | '/prototype/lesson-3-a'
@@ -688,6 +715,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/crm'
     | '/cartilla/teacher/flipchart'
+    | '/cartilla/teacher/gretel'
     | '/cartilla/teacher/guide'
     | '/cartilla/teacher/lecciones'
     | '/cartilla/teacher/progreso'
@@ -729,6 +757,7 @@ export interface RootRouteChildren {
   CartillaPracticaRoute: typeof CartillaPracticaRoute
   CartillaRepasoRoute: typeof CartillaRepasoRoute
   CartillaStudentLoginRoute: typeof CartillaStudentLoginRoute
+  CartillaSuplenteRoute: typeof CartillaSuplenteRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   CartillaVocesRoute: typeof CartillaVocesRoute
   PrototypeLesson3ARoute: typeof PrototypeLesson3ARoute
@@ -832,6 +861,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/unirse'
       fullPath: '/cartilla/unirse'
       preLoaderRoute: typeof CartillaUnirseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/suplente': {
+      id: '/cartilla/suplente'
+      path: '/cartilla/suplente'
+      fullPath: '/cartilla/suplente'
+      preLoaderRoute: typeof CartillaSuplenteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/student-login': {
@@ -951,6 +987,13 @@ declare module '@tanstack/react-router' {
       path: '/guide'
       fullPath: '/cartilla/teacher/guide'
       preLoaderRoute: typeof CartillaTeacherGuideRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/gretel': {
+      id: '/cartilla/teacher/gretel'
+      path: '/gretel'
+      fullPath: '/cartilla/teacher/gretel'
+      preLoaderRoute: typeof CartillaTeacherGretelRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
     '/cartilla/teacher/flipchart': {
@@ -1168,6 +1211,7 @@ interface CartillaTeacherRouteRouteChildren {
   CartillaTeacherAyudaRoute: typeof CartillaTeacherAyudaRoute
   CartillaTeacherCrmRoute: typeof CartillaTeacherCrmRouteWithChildren
   CartillaTeacherFlipchartRoute: typeof CartillaTeacherFlipchartRoute
+  CartillaTeacherGretelRoute: typeof CartillaTeacherGretelRoute
   CartillaTeacherGuideRoute: typeof CartillaTeacherGuideRoute
   CartillaTeacherLeccionesRoute: typeof CartillaTeacherLeccionesRoute
   CartillaTeacherProgresoRoute: typeof CartillaTeacherProgresoRoute
@@ -1185,6 +1229,7 @@ const CartillaTeacherRouteRouteChildren: CartillaTeacherRouteRouteChildren = {
   CartillaTeacherAyudaRoute: CartillaTeacherAyudaRoute,
   CartillaTeacherCrmRoute: CartillaTeacherCrmRouteWithChildren,
   CartillaTeacherFlipchartRoute: CartillaTeacherFlipchartRoute,
+  CartillaTeacherGretelRoute: CartillaTeacherGretelRoute,
   CartillaTeacherGuideRoute: CartillaTeacherGuideRoute,
   CartillaTeacherLeccionesRoute: CartillaTeacherLeccionesRoute,
   CartillaTeacherProgresoRoute: CartillaTeacherProgresoRoute,
@@ -1221,6 +1266,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaPracticaRoute: CartillaPracticaRoute,
   CartillaRepasoRoute: CartillaRepasoRoute,
   CartillaStudentLoginRoute: CartillaStudentLoginRoute,
+  CartillaSuplenteRoute: CartillaSuplenteRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   CartillaVocesRoute: CartillaVocesRoute,
   PrototypeLesson3ARoute: PrototypeLesson3ARoute,

@@ -216,3 +216,101 @@
 - **Merge Milestone**: PR #1244 merged into `main` (commit `8280dc6c`), delivering the complete 6-lane corrective action suite.
 - **Gate Re-Lock**: PR #1245 merged into `main` (commit `7d1326dd`), restoring `vercel.json` to `git.deploymentEnabled: false` per AGENTS.md invariant.
 - **Repository State**: `main` synchronized with `origin/main` at `7d1326dd`.
+
+## Boost: Clean Student Lessons & Living Animated Welcome Screen (2026-11-02 Review)
+
+### Architectural Decisions & Fixes
+- **Clean Student View on `/cartilla/lecciones`**: Removed teacher administrative bars (`<DemoControlCenter />` and `<DemoStudentBanner />`) from student lessons view. Maintained 24 workbook lesson tiles, progress tracking, and authentic table of contents.
+- **Living Physical Book Cover**: Centerpiece 3D tactile book cover (`/cartilla/images/cover.png`) with ambient glow, embossed spine, layered pages, and dangling silk bookmark ribbon (extracted from `overflow:hidden` cover to wrapper).
+- **Graceful Fluttering Butterflies**: 4 slow-moving authentic butterflies from Butterfly Garden fluttering in the ambient stage space around the book with 3D perspective wing rotation and natural flight paths (no squished 18% needle glitches).
+- **Gretel Reading Companion**: Natural eyelid blinking animation on Gretel's portrait (`lc-gretel-blink`) with companion breathing, strictly respecting the single-`<img>` test invariant (`gretel-approved-master.png`).
+- **Cross-Drive NTFS Junction Harmonization**: Fixed `vite.config.ts` path normalization (`realpathSync`) for root, alias (`@`), and `setupFiles`, resolving `npx vitest` execution and cross-drive relative import errors.
+
+
+## Feature: Gretel Pedagogical Assistant on Teacher Platform (2026-11-06)
+
+### Architectural Decisions & Changes
+- **Strict Student Route Quarantine**: Reverted all student-facing changes in `src/routes/cartilla/lecciones.tsx` and removed `/cartilla/gretel`. The student learning path remains 100% focused on workbook lessons without conversational chatbots or intrusive mascot overlays.
+- **Teacher Platform Integration**: Built a dedicated pedagogical assistant exclusively for educators under `/cartilla/teacher/gretel` (`src/routes/cartilla/teacher/gretel.tsx` and `gretel.lazy.tsx`).
+- **Comprehensive Teacher Knowledge Base (`src/lib/gretel-teacher-kb.ts`)**: 11 structured pedagogical topics covering 24 lessons methodology, 45-60 min lesson pacing, digital flipchart usage, student workbook coordination, 4-state CRM tracking, reading fluency rubrics (Pre-silábico, Silábico, Silábico-Alfabético, Alfabético), syllabic charts, intervention for struggling students, and class join codes (`/cartilla/unirse`).
+- **Teacher Navigation Links**: Integrated "Gretel" into the Teacher Layout navigation (`src/routes/cartilla/teacher/route.lazy.tsx`), Teacher Hub card grid (`src/routes/cartilla/teacher/index.lazy.tsx`), and Teacher Help manual (`src/routes/cartilla/teacher/ayuda.lazy.tsx`).
+- **Quality Verification**: Unit test suite `src/lib/__tests__/gretel-teacher-kb.test.ts` passed 5/5. `pnpm typecheck` passed with 0 errors. Captured visual proof across desktop and mobile.
+- **Delivery**: Committed and pushed to `origin/feat/gretel-teacher-platform` (commit `58f13bba`).
+
+
+## Fix: Unify Approved Classic Wooden Pencil Design Across Exercises (2026-11-07)
+
+### Architectural Decisions & Changes
+- **Root Cause Isolated**: In `src/cartilla/interactions/PencilConnector.tsx` (used in connection/line-matching exercises across lessons 3, 5, 8, 11, 14, 17), `PencilShape` had been scaled down to `0.65` (yielding an 8.8px by 52px toothpick pencil) and rotated dynamically via `atan2 * 180 / PI + 30`, causing inverted angles when dragging leftward.
+- **Classic School Pencil Restored**:
+  - Replaced the skinny scale with the authentic large wooden pencil at `scale(2.4)` with a consistent natural writing angle `rotate(55)`.
+  - Replaced retry eraser animation scale from `1.2` to `2.2`.
+  - Replaced flat teal strokes with charcoal gray `#3a3a38` for active dragging, forest green `#16a34a` for settled connections, and red `#dc2626` for retry strokes.
+- **Letter Tracing Tool Added**: In `src/components/cartilla/WorkbookLetterTrace.tsx`, added the approved `PencilShape` tip following the touch/mouse path in freehand drag mode (`scale(0.38) rotate(55)`), and resting gracefully near the active checkpoint in tap mode (`scale(0.32) rotate(55)`).
+- **Verification**:
+  - `pnpm run typecheck` passed (0 errors across 2,300+ files).
+  - Targeted vitest suites (PencilConnector, WorkbookLetterTrace, WorkbookPencilMark) passed 59/59.
+  - Vitest test suite passed 2,243 tests (100% of runnable tests).
+  - `pnpm run build` completed cleanly (assets, typecheck, tests, bundle in ~30s).
+
+
+## Master Restoration & Completion Handoff Checkpoint (2026-11-08)
+
+### Architectural Decisions & Fixes
+- **Interactive Piano Restored (Offline & Universal Access)**:
+  - Root cause resolved: `PianoDesignA.tsx` and `PianoDesignB.tsx` had rendered keys as static spans with zero pointer listeners; `PianoLessonSection.tsx` previously returned `null` whenever `SpeechRecognition.available` was falsy, hiding the piano from 99.9% of users.
+  - Added `handleKeyTouch` and `handleBlackKeyTouch` with `onPointerDown` listeners, active depression styling, and Web Audio API note generation.
+  - Removed speech-engine hard gate; piano is now fully interactive across mouse, touch, and offline environments.
+  - Added direct navigation to "Cancionero / Piano" in `src/routes/cartilla/-leccion-view.tsx` and quick access toolbar in `src/routes/cartilla/lecciones.tsx`.
+- **Workbook Swipe & Mouse Drag Page-Turn**:
+  - In `src/components/StudentBook/NativeLessonViewer.tsx`, removed mouse pointer exclusion (`event.pointerType === "mouse"`), allowing desktop mouse dragging (`event.button === 0`) to trigger page turns alongside touch swipes.
+- **Teacher Flip Chart Easel Gestures**:
+  - In `src/components/cartilla/FlipchartHdPanel.tsx`, implemented vertical pointer drag/swipe on the easel container (`fc-board__easel`), giving teachers and students the ability to drag or swipe vertically across the board to flip sheets over the top spiral.
+- **Master Pencil Design (Option One Verified)**:
+  - Verified consistent wooden cedar pencil with realistic graphite tip, 55° writing angle, and eraser crumbs across line-matching (`PencilConnector.tsx`) and letter tracing (`WorkbookLetterTrace.tsx`).
+- **Offline Master Approval & Handoff Document**:
+  - Authored `docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html` (and copied to `public/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html`):
+    - Section A: Gretel Voice Recordings (catalog of 24 lessons, available vs missing status, authentic scripts, audio drag-and-drop intake).
+    - Section B: Approved Artwork & Upgrades (side-by-side comparisons with approve/reject toggles).
+    - Section C: Master Pencil Design (Option One specs, interactive test canvas).
+    - Section D: Sound Design & Piano (Web Audio API synthesizers for Steinway keys, page curl rustle, graphite friction, calm corrections).
+    - Section E: Curriculum Status & Scan Gap (audit of printed pages 86–87 scan gap).
+    - Section F: Two Redesign Proposals (Option A: The Living Gretel Book vs Option B: The Gretel Premium Classroom with simulated viewports, radio selection, localStorage persistence, and JSON export).
+- **Gretel Assistant Integration in Student Workbook**:
+  - Wired `bookCompanion` prop into `NativeLessonViewer.tsx` rendered at `.book-companion-anchor` when studying lessons.
+  - Linked `<GretelPresence ... />` in `src/routes/cartilla/-leccion-view.tsx`, providing live real-time guidance, answer praise, and gentle hints inside the authentic digital workbook without altering the unencumbered browsing of `cuaderno.tsx`.
+- **Web Audio Safe Resilience & Mock Rectification**:
+  - In `src/components/cartilla/piano/piano-sound.ts`, safely guarded `createConvolver`, `createDynamicsCompressor`, and `createBuffer` against undefined for environments or mock runners with partial Web Audio support.
+  - In `src/test/setup.ts`, extended `MockAudioContext` with full audio node stubs (`createConvolver`, `createDynamicsCompressor`, `createBufferSource`, `createBuffer`, `decodeAudioData`).
+  - Resolved fatal `TypeError: ctx.createConvolver is not a function` in `src/utils/__tests__/buildPageArray.render.test.tsx`.
+- **Verification Proof**:
+  - `pnpm typecheck`: PASSED (0 errors across 2,300+ files).
+  - Vitest test suites passed:
+    - `buildPageArray.render.test.tsx` (24/24 tests passed — all 24 lessons render cleanly).
+    - `piano-sound.test.ts` (4/4 tests passed).
+    - `PianoMicrophoneOnly.test.tsx` + `PianoPronunciation.test.tsx` (46/46 tests passed).
+    - `NativeLessonViewer.turn.test.tsx` (11/11 tests passed).
+    - `learner-resume-isolation.test.tsx` (15/15 tests passed).
+    - `cuaderno-native-book.test.tsx` (4/4 tests passed).
+    - `FlipchartHdPanel.test.tsx` (25/25 tests passed).
+    - `gretel-teacher-kb.test.ts` (5/5 tests passed).
+    - `owner-approved-pencil-only.test.ts` (3/3 tests passed).
+  - HTTP 200 OK verified on `http://127.0.0.1:4173/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html`.
+  - HTTP 200 OK verified on `http://127.0.0.1:4173/cartilla/lecciones`.
+
+
+
+## Decision: Owner Approved Option A («El Libro Vivo») & Top 2 Creative Activity Architecture (2026-11-08)
+
+### Architectural Decisions & Outcomes
+- **Option A Formally Selected by Owner**: The design architecture for the entire platform is locked to «El Libro Vivo de Gretel» — preserving the nostalgic physical book aesthetic, authentic paper curling, warm paper textures, tole painting borders, and gentle character presence.
+- **Top 2 Creative Activities Paradigm (Not Dull, Not Repetitive)**:
+  1. **Activity 1 (Reading & Phonics): «El Jardín de Sílabas y Linterna Mágica»**:
+     - Eliminates dull multiple-choice buttons.
+     - Child manipulates tactile wooden syllable blocks resting on workbook parchment with subtle wood-on-paper click sounds.
+     - Gretel's lantern highlights the illustrated vignette. When syllables are correctly assembled, the book illustration breathes to life (gentle animation).
+  2. **Activity 2 (Writing & Comprehension): «El Taller del Lápiz de Cedro y la Cinta de Seda»**:
+     - Eliminates clinical dotted worksheets and unapproved pencils.
+     - Wields the master approved classic cedar wood pencil (scale 2.4, 55° writing tilt) across Spanish double calligraphy guidelines with graphite friction audio and rubber crumb erasing.
+     - Traced word connects to its illustrated plate via an organic silk bookmark ribbon.
+- **Master Handoff Hub Updated**: `docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html` and `public/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html` updated with explicit owner approval badge, decision banner, and creative activity showcase.

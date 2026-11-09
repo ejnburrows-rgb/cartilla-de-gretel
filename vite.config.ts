@@ -6,6 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, configDefaults } from "vitest/config";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { gzipSync, brotliCompressSync } from "zlib";
+import fs from "node:fs";
+import path from "node:path";
 
 function compressPlugin() {
   return {
@@ -53,7 +55,41 @@ function compressPlugin() {
   };
 }
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode }) => {
+  const root = fs.existsSync(process.cwd()) ? fs.realpathSync(process.cwd()) : process.cwd();
+  return {
+    root,
+    resolve: {
+      alias: {
+        "@": path.resolve(root, "src"),
+      },
+    },
+    server: {
+      fs: {
+        allow: [process.cwd(), root],
+      },
+      ...(mode === "worker"
+        ? {
+            watch: {
+              // Verification writes images, logs and helper archives while Vite
+              // runs. They are not app inputs; watching them can crash Windows
+              // with EBUSY and makes startup traverse historical proof archives.
+              ignored: (file: string) => {
+                const relative = path.relative(root, file).replaceAll("\\", "/");
+                return [
+                  "docs/proofs",
+                  "test-results",
+                  "playwright-report",
+                  "verification-screenshots",
+                  "output",
+                  "work",
+                  "tests/e2e/proofs",
+                ].some((directory) => relative === directory || relative.startsWith(`${directory}/`));
+              },
+            },
+          }
+        : {}),
+    },
   define: {
     // Open access (no login) is the shipped product decision, so this stays
     // "true" by default for every build, including production. It is only
@@ -65,17 +101,18 @@ export default defineConfig(({ mode }) => ({
     ),
   },
   plugins: [
-    // The tracked route tree is already committed. Worker/browser verification
-    // uses --mode worker so dev startup cannot rewrite tracked generated files.
-    ...(mode === "worker"
-      ? []
-      : [
-          TanStackRouterVite({
-            target: "react",
-            autoCodeSplitting: true,
-            routeFileIgnorePattern: "__tests__",
-          }),
-        ]),
+    // Keep the production code-splitting transform in worker mode too. Its
+    // generator supplies the route map used by the splitter; disabling the
+    // whole plugin eagerly loads unrelated student/game components in the CRM.
+    // Each worker lane writes its generated tree outside tracked source.
+    TanStackRouterVite({
+      target: "react",
+      autoCodeSplitting: true,
+      routeFileIgnorePattern: "__tests__",
+      ...(mode === "worker"
+        ? { generatedRouteTree: path.join(root, "work", "router-worker", process.env.VITE_CRM_REVIEW === "false" ? "gated" : "open", "routeTree.gen.ts") }
+        : {}),
+    }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
@@ -84,7 +121,9 @@ export default defineConfig(({ mode }) => ({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "./src/test/setup.ts",
+    setupFiles: fs.existsSync("./src/test/setup.ts")
+      ? fs.realpathSync("./src/test/setup.ts")
+      : "./src/test/setup.ts",
     // Route-module tests can spend >5s transforming the full generated tree
     // under highly parallel/slow CI workers; keep the assertion timeout above
     // that startup cost without adding product-side sleeps.
@@ -136,4 +175,5 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-}));
+};
+});

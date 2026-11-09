@@ -17,6 +17,7 @@ import {
   X,
   Printer,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -83,6 +84,12 @@ const NAV_ITEMS: Array<{
     icon: <FileSpreadsheet className="w-4 h-4" />,
     label: "Reportes",
     match: "/reportes",
+  },
+  {
+    to: "/cartilla/teacher/gretel",
+    icon: <Sparkles className="w-4 h-4 text-amber-500" />,
+    label: "Gretel",
+    match: "/gretel",
   },
   {
     to: "/cartilla/teacher/ayuda",

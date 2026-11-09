@@ -19,6 +19,7 @@ import {
   type Point,
 } from "./letter-stroke-templates";
 import { useLetterTapTrace, useTraceInputMode } from "./useLetterTraceInput";
+import { PencilShape } from "./WorkbookPencilMark";
 
 const VIEW_W = 100;
 const VIEW_H = 120;
@@ -406,6 +407,26 @@ export function WorkbookLetterTrace({
             stroke="#ffffff"
             strokeWidth="1.5"
           />
+        )}
+
+        {/* Approved classic wooden pencil tip following learner's touch/drag path */}
+        {livePoint && shownStatus !== "done" && (
+          <g
+            transform={`translate(${livePoint.x}, ${livePoint.y}) rotate(55) scale(0.38)`}
+            style={{ pointerEvents: "none" }}
+          >
+            <PencilShape uid="letter-trace-live-pencil" />
+          </g>
+        )}
+
+        {/* In tap mode, approved wooden pencil rests gracefully near the active checkpoint */}
+        {isTap && activePoint && shownStatus !== "done" && (
+          <g
+            transform={`translate(${activePoint.x + 3.5}, ${activePoint.y - 2.5}) rotate(55) scale(0.32)`}
+            style={{ pointerEvents: "none", opacity: 0.9 }}
+          >
+            <PencilShape uid="letter-trace-tap-pencil" />
+          </g>
         )}
       </svg>
 

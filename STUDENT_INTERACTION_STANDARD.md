@@ -22,6 +22,15 @@
 
 This file is the source of truth for the premium student-facing Workbook interaction language. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
 
+## Latest pencil and mark contract — 2026-11-01
+
+The owner's November 1 direction supersedes the older pencil entry/exit and immediate-color choreography below. This is a required behavior contract, not evidence that the current runtime implements it.
+
+- Only ONE Large Realistic Wooden Pencil-Tip Cursor ("Inside the PC") may appear. Its viewport host is anchored at `(0,0)`; the graphite point is the cursor hotspot. Hovering and writing use the same appearance, size and angle. Never spawn a second autonomous miniature flying pencil sprite.
+- Circles, source-required X marks and connecting lines in `WorkbookPencilMark.tsx`, `PencilConnector.tsx` and `SyllableWordCircle.tsx` draw first in velocity-modulated Charcoal Gray (`#3a3a38`, `3.3px–6.4px`). Use the SVG `<feTurbulence>` plus `<feDisplacementMap>` paper-grain filter (`#charcoal-paper-grain`; the connector uses `#connector-charcoal-paper-grain`).
+- Hold the completed charcoal mark for `400ms`, then transition to Forest Green (`#258351`, stays) or Crimson Red (`#c4320a`, erased by the physical pink school eraser with 12 small pink SVG crumbs using `<animate>` tags).
+- Preserve existing exercise logic, source geometry, saved work and reduced-motion accessibility. A source-required X is a workbook mark, not an added punitive failure icon.
+
 ## Product principle
 
 The digital Workbook should feel like the physical Cartilla has gently come alive.
@@ -53,25 +62,25 @@ Pencil, eraser and feedback motion must be polished and seamless: one purposeful
 
 When a learner makes an incorrect mark/selection:
 1. The learner's mark is visible.
-2. The pencil draws the mark in **red** from the first line, then travels back out past the right edge of the screen, over everything on the way (owner decisions 2026-10-06 and 2026-10-08).
-3. The same big, solid pencil turned around — its pink eraser and silver band at the picture, its body running off the edge of the screen — comes in from off the right edge of the screen, passing over everything on the way, rubs back and forth along the mark while a few small, realistic eraser crumbs, the size and color a real pink eraser leaves, fall and fade — never large, bright or cartoon-like (owner decision 2026-10-11) — and leaves past the right edge of the screen once the mark is gone. It never pops up inside the picture's box.
+2. The single cursor draws the charcoal mark and holds it for 400ms before it becomes Crimson Red, following the latest pencil and mark contract.
+3. The physical pink school eraser rubs away the incorrect mark while scattering 12 small pink animated SVG crumbs. Keep the single-pencil invariant; no second pencil actor is introduced.
 4. The eraser visibly removes the incorrect mark completely.
 5. Gretel says: **“Inténtalo otra vez.”**
 6. The activity returns to a calm retry-ready state.
 
-No red X. No punitive buzzer. No arcade failure animation.
+No added punitive red X. No punitive buzzer. No arcade failure animation.
 
 ### 2. Picture / vowel selection — Real Workbook Mark
 
 Use the same classic wooden pencil.
 
-Owner decision 2026-10-06 (replaces the earlier ~3 second neutral hold), amended 2026-10-08:
+The November 1 pencil and mark contract supersedes the older October 6/8 color and entry/exit sequence:
 
 1. The learner taps the picture/answer.
-2. A big, solid, full pencil (never faded, never cut off) whose body is long enough to run right off the edge of the screen, so near the picture only its tip is seen, like a real pencil held from off-screen (owner 2026-10-08). It is drawn in realistic HD detail (fine wood grain, lacquer highlights and a crimped band), with no printed stamp, grade mark, serial number or brand name (owner decision 2026-10-11). Its movement is subtle and lifelike, like a real hand: never bouncy, exaggerated or rushed. It is sized so it never hides the picture, the line, the rubbing or the crumbs. The line is crisp and solid. It starts **completely off the right edge of the screen** and travels in like a real hand, passing over the page and the neighbouring pictures. It is never cut off at the picture's or the page's edge and never pops up inside a box. It draws the circle in about **2 seconds**. The line is about as thick as before.
+2. The existing realistic wooden pencil-tip cursor moves continuously from hovering into drawing, with the graphite point as its hotspot. Preserve its appearance, size and angle; never introduce a full off-screen entrant or a second pencil. Draw the circle in about **2 seconds**, without hiding the picture or clipping the tip.
    **Close-up zoom (owner decision 2026-10-08, softened by owner decision 2026-10-11):** when the learner taps, the page eases in slowly and subtly (about 1 second) toward the tapped picture, at most about 1.5×, just enough that the pencil, the line and the eraser are clearly visible. The page zooms back out after a right answer's green circle has been seen for about a second, or once the eraser has left after a wrong answer. Reduced motion never zooms.
-3. The circle is **green from the first line** when the answer is right and **red from the first line** when it is wrong. There is no gray waiting period.
-4. After drawing, the pencil travels back out the same way, past the right edge of the screen.
+3. Draw in velocity-modulated Charcoal Gray with paper grain, hold for 400ms, then turn Forest Green for correct or Crimson Red for incorrect, using the latest contract values.
+4. The same cursor returns to hovering without a replacement graphic, duplicate pencil or size change.
 5. If correct, the green circle stays and Gretel says: **“Buen trabajo.”**
 6. If incorrect, use the Pencil Retry behavior above: the eraser erases the red circle and Gretel says “Inténtalo otra vez.”
 
@@ -81,10 +90,10 @@ The pencil, mark, and feedback must feel like a premium animated workbook action
 
 Replace the rope/lasso interaction. This behavior can serve more than one visual archetype: page 3 is the multi-pair matching visual archetype, while pages 5/8/11/14/17 are the single-central-target + surrounding-pictures visual archetype. Do not confuse visual archetype classification with interaction-adapter ownership.
 
-1. Mouse/touch default: press-and-hold the source letter/endpoint and drag a teal pencil line toward the target.
+1. Mouse/touch default: press-and-hold the source letter/endpoint and drag a charcoal-first pencil line toward the target, using the latest pencil and mark contract.
 2. Candidate targets highlight on approach.
 3. Correct release snaps the line into place and preserves it.
-4. Incorrect release gently retracts/erases and returns immediately to retry-ready state.
+4. Incorrect release follows the shared charcoal hold/result/erase sequence and returns to retry-ready state.
 5. Click/tap and keyboard-accessible selection remain as fallback paths over the same underlying state.
 6. Correct lines remain; wrong lines use the same restrained Pencil Retry language.
 
@@ -163,11 +172,11 @@ Required qualities:
 
 The pencil/eraser motion may be implemented with vector/CSS/canvas animation as appropriate, but it must look like one premium physical tool interacting with the Workbook, not unrelated UI effects.
 
-Outside drawing mode, treat the pencil as an action actor rather than permanent chrome: appear near the learner's mark, perform the one purposeful action, then settle/disappear from the active work area. Do not leave it floating or moving while the learner is thinking. In drawing mode it may remain available as the selected physical tool.
+Keep the one realistic pencil-tip cursor visible while the pointer moves through the Workbook. Its hover-to-write sequence uses the same tool continuously; do not restore the superseded appear/disappear actor or a second flying pencil.
 
 ## Gretel relationship
 
-> **Owner decision — 2026-10-14 (option C):** Lesson pages and the complete Cuaderno show **no Gretel guide** — no on-page hints, cues, demonstrations, “Ayuda” button, idle nudges or “Terminaste la actividad.” message. Students get feedback from the shared pencil marks (green circle stays; wrong mark is erased) and picture-name audio only. This keeps the owner's earlier direction that lesson pages have no Gretel column (#538, #739). The Gretel guide browser tests (`tests/e2e/gretel-behavior.spec.ts`) were retired for this reason. The “Gretel says …” lines in this standard apply only where the approved Gretel system is present; they are not a requirement for lesson pages. Gretel's voice remains a separate owner decision (#589).
+> **Owner decision — 2026-10-14 (option C):** Lesson pages and the complete Cuaderno show **no Gretel guide** — no on-page hints, cues, demonstrations, “Ayuda” button, idle nudges or “Terminaste la actividad.” message. Students get feedback from the shared pencil marks (green circle stays; wrong mark is erased) and picture-name audio only. This keeps the owner's earlier direction that lesson pages have no Gretel column (#538, #739). The Gretel guide browser tests (`tests/e2e/gretel-behavior.spec.ts`) were retired for this reason. The “Gretel says …” lines in this standard apply only where the approved Gretel system is present; they are not a requirement for lesson pages. The authentic recording decision in Voice/TTS status below governs any permitted audio.
 
 Only the approved Gretel system may provide spoken/visual feedback.
 

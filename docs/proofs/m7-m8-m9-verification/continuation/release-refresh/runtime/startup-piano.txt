@@ -1,0 +1,6 @@
+### Result
+{"url":"http://127.0.0.1:4187/cartilla/practica?modo=piano&lesson=7","heading":"La consonante Mm","proof":{"media":[{"event":"playing","src":"http://127.0.0.1:4187/audio/voz/vocabulario/amo.mp3","duration":1.3155,"time":0},{"event":"ended","src":"http://127.0.0.1:4187/audio/voz/vocabulario/amo.mp3","duration":1.3155,"time":1.3155}],"touches":[{"type":"mouse","trusted":true}],"tts":[]},"audioResources":["http://127.0.0.1:4187/assets/piano-audio.CvUCz_W8.js","http://127.0.0.1:4187/audio/voz/vocabulario/amo.mp3"]}
+### Ran Playwright code
+```js
+await (async(page)=>{return {url:page.url(),heading:await page.getByRole("heading",{name:"La consonante Mm",exact:true}).textContent(),proof:await page.evaluate(()=>window.__runtimeProof),audioResources:await page.evaluate(()=>performance.getEntriesByType("resource").filter(r=>/audio|mp3|m4a|wav/.test(r.name)).map(r=>r.name))};})(page);
+```

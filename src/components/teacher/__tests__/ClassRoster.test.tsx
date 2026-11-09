@@ -3,7 +3,7 @@ import { cleanup, render, screen, fireEvent, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ClassRoster } from "../ClassRoster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { listClasses, getClass } from "@/lib/teacher.functions";
+import { listClasses, getClass, createClass } from "@/lib/teacher.functions";
 
 vi.mock("@/lib/teacher.functions", () => ({
   listClasses: vi.fn(),
@@ -51,7 +51,50 @@ const renderComponent = () => {
   );
 };
 
+describe("ClassRoster name search", () => {
+  it.each(["i", "İ", "  i  "])("finds İnés with query %s", async (query) => {
+    vi.mocked(listClasses).mockResolvedValueOnce([{
+      id: "synthetic-class", name: "Synthetic class", join_code: "DEMO01",
+      student_count: 2, created_at: "2026-01-01",
+    }]);
+    vi.mocked(getClass).mockResolvedValueOnce({
+      class: { id: "synthetic-class", name: "Synthetic class", join_code: "DEMO01", created_at: "2026-01-01" },
+      students: ["İnés", "Ana"].map((name, index) => ({
+        id: `synthetic-${index}`, display_name: name, student_code: `SYN${index}`,
+        created_at: "2026-01-01", archived_at: null, teacher_notes: null,
+        events: 0, lessons: 0, lastSeen: null, completionPercent: 0,
+      })),
+    });
+    renderComponent();
+    await screen.findByRole("button", { name: "İnés" });
+    fireEvent.change(screen.getByPlaceholderText("Buscar alumno por nombre…"), { target: { value: query } });
+    expect(screen.queryByRole("button", { name: "İnés" })).not.toBeNull();
+    expect(screen.queryByRole("button", { name: "Ana" })).toBeNull();
+  });
+});
+
 describe("ClassRoster error handling", () => {
+  it("displays error message when createClass rejects", async () => {
+    vi.mocked(listClasses).mockResolvedValueOnce([]);
+    vi.mocked(createClass).mockRejectedValueOnce(new Error("Error de prueba al crear clase"));
+
+    renderComponent();
+
+    // Wait for the empty state or form to be available
+    expect(await screen.findByText("Aún no tienes clases creadas")).toBeTruthy();
+
+    // Find the input and button
+    const input = screen.getByLabelText(/Nueva clase/i);
+    const button = screen.getByRole("button", { name: "Crear clase" });
+
+    // Type and submit
+    fireEvent.change(input, { target: { value: "Nueva Clase 123" } });
+    fireEvent.click(button);
+
+    // Verify error message
+    expect(await screen.findByText("Error de prueba al crear clase")).toBeTruthy();
+  });
+
   it("displays error state when listClasses rejects", async () => {
     vi.mocked(listClasses).mockRejectedValueOnce(new Error("Network Error"));
 

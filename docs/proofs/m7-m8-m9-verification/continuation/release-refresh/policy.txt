@@ -1,0 +1,42 @@
+
+> cartilla-de-gretel-platform@ verify:policy D:\Downloads\cartilla-1247-continuation-work\integration
+> node --test scripts/__tests__/check-merge-policy.test.mjs && node scripts/check-merge-policy.mjs --docs
+
+✔ advisory Sonar failure does not block tested reviewed material code (3.4865ms)
+✔ Sonar success cannot pass an empty PR (0.407ms)
+✔ missing Jules test proof blocks relevant code (0.4052ms)
+✔ stale head proof blocks merge (0.3616ms)
+✔ unverified test revision blocks merge (0.2703ms)
+✔ actual serious defect blocks despite green Sonar (0.2466ms)
+✔ real visual change requires existing visible proof (0.2405ms)
+✔ owner-gated work remains blocked (0.2984ms)
+✔ unauthorized scope stays blocked (0.4153ms)
+✔ documentation-only PR does not need a Jules product test (0.6408ms)
+✔ legacy mandatory-Sonar wording is detected (2.7135ms)
+✔ all governing docs agree on Sonar advisory rule (1.4361ms)
+✔ missing governing file fails closed (0.336ms)
+✔ old one-session one-deliverable stop instruction is rejected (0.4045ms)
+✔ automatic Jules refill instructions are rejected (0.2866ms)
+✔ obsolete voice choice is rejected (0.287ms)
+✔ missing continue-next-task rule fails (0.2446ms)
+✔ missing formal GitHub approval rule fails (0.267ms)
+✔ stale blanket merge authorization is rejected (0.2403ms)
+✔ missing Mariposas inclusion rule fails (0.2486ms)
+✔ routing docs that defer to #877 pass (1.2528ms)
+✔ dated GitHub status snapshot in a routing doc is rejected (0.4148ms)
+✔ separate master completion plan reference is rejected (0.2552ms)
+✔ routing doc without #877 is rejected (0.2122ms)
+✔ memory file without historical banner is rejected (0.3735ms)
+✔ divergent merge-gate wording is rejected (0.3788ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 583.1198
+{
+  "ok": true,
+  "errors": []
+}

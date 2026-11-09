@@ -1,0 +1,12 @@
+### Result
+{"url":"http://127.0.0.1:4187/cartilla/presentar/12","counter":"Hoja 1 de 3","nextTarget":{"clear":true,"box":{"x":337.640625,"y":798.015625,"width":44.375,"height":39.59375}},"previousTarget":{"clear":true,"box":{"x":7.984375,"y":798.015625,"width":44.375,"height":39.59375}},"proof":{"media":[{"event":"playing","src":"http://127.0.0.1:4187/audio/page-turn-soft.mp3","duration":1.809637,"time":0},{"event":"ended","src":"http://127.0.0.1:4187/audio/page-turn-soft.mp3","duration":1.809637,"time":1.809637},{"event":"playing","src":"http://127.0.0.1:4187/audio/page-turn-soft.mp3","duration":1.809637,"time":0},{"event":"ended","src":"http://127.0.0.1:4187/audio/page-turn-soft.mp3","duration":1.809637,"time":1.809637}],"touches":[{"type":"touch","trusted":true},{"type":"touch","trusted":true}],"tts":[]}}
+### Ran Playwright code
+```js
+await (async(page)=>{
+ const clear=async locator=>locator.evaluate(el=>{const b=el.getBoundingClientRect();const top=document.elementFromPoint(b.x+b.width/2,b.y+b.height/2);return {clear:!!top&&(top===el||el.contains(top)),box:{x:b.x,y:b.y,width:b.width,height:b.height}};});
+ const next=page.getByRole('button',{name:'Lámina siguiente',exact:true});const prev=page.getByRole('button',{name:'Lámina anterior',exact:true});
+ const nextTarget=await clear(next);if(!nextTarget.clear)throw new Error('next obscured');await next.tap();await page.waitForFunction(()=>document.querySelector('[data-testid="flipchart-counter"]')?.textContent.includes('Hoja 2 de'));await page.waitForTimeout(750);
+ const previousTarget=await clear(prev);if(!previousTarget.clear)throw new Error('previous obscured');await prev.tap();await page.waitForFunction(()=>document.querySelector('[data-testid="flipchart-counter"]')?.textContent.includes('Hoja 1 de'));await page.waitForTimeout(750);
+ return {url:page.url(),counter:await page.getByTestId('flipchart-counter').innerText(),nextTarget,previousTarget,proof:await page.evaluate(()=>window.__runtimeProof)};
+})(page);
+```
