@@ -202,6 +202,9 @@ const ACKNOWLEDGED_WORD_TILES: Record<string, string[]> = {
   "completar-palabras": [],
   "dibujos-o": [],
   "fonetica-p": [],
+  // lesson 8 (P): the word list and butterfly labels are the owner-approved
+  // mockup (2026-10-19, "no exception"). All syllables are m or p, so nothing
+  // here is ahead of lesson 8. Pinned to [] so a later change still gets reviewed.
   "mariposas-p": [],
   "palabras-minuto-p": [],
   "rima-p": [],
