@@ -1,0 +1,60 @@
+{
+  "head": "e7b21bfd0bdab35f2def26c4d2d2e7764544a463",
+  "scope": "Native HTMLAudioElement.play rejection against invalid media response; not audible output or source phrase verification",
+  "results": [
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/cartilla/presentar/13",
+      "proof": {
+        "calls": [
+          {
+            "src": "http://127.0.0.1:5173/audio/voz/vocabulario/nido.mp3",
+            "native": true,
+            "rejected": "NotSupportedError",
+            "message": "Failed to load because no supported source was found.",
+            "errorCode": 4,
+            "paused": true
+          }
+        ],
+        "statuses": [
+          "recorded",
+          "failed"
+        ],
+        "learning": []
+      },
+      "failureStatusVisible": false,
+      "learnerStorageUnchanged": true
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "route": "/cartilla/presentar/13",
+      "proof": {
+        "calls": [
+          {
+            "src": "http://127.0.0.1:5173/audio/voz/vocabulario/nido.mp3",
+            "native": true,
+            "rejected": "NotSupportedError",
+            "message": "Failed to load because no supported source was found.",
+            "errorCode": 4,
+            "paused": true
+          }
+        ],
+        "statuses": [
+          "recorded",
+          "failed"
+        ],
+        "learning": []
+      },
+      "failureStatusVisible": false,
+      "learnerStorageUnchanged": true
+    }
+  ]
+}
