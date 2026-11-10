@@ -1,3 +1,4 @@
+import { RimaScene } from "./rima/RimaScene";
 import { useEffect, useMemo, useState, useRef } from "react";
 import { Check, RotateCcw, Timer, X } from "lucide-react";
 import type { GameContent, WordItem } from "@/lib/games/gameContent";
@@ -228,68 +229,7 @@ export function PhonicsCompleteGame({ content }: { content: GameContent }) {
 }
 
 export function RhymeGame({ content }: { content: GameContent }) {
-  const pairs = useMemo(() => {
-    const result: Array<[WordItem, WordItem]> = [];
-    const remaining = [...content.words];
-    while (remaining.length) {
-      const first = remaining.shift();
-      if (!first) break;
-      const ending = first.syllables.at(-1)?.toLocaleLowerCase("es");
-      const matchIndex = remaining.findIndex((w) => w.syllables.at(-1)?.toLocaleLowerCase("es") === ending);
-      if (matchIndex >= 0) result.push([first, remaining.splice(matchIndex, 1)[0]]);
-    }
-    return result;
-  }, [content.words]);
-  const [index, setIndex] = useState(0);
-  const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
-  const [score, setScore] = useState(0);
-  const pair = pairs[index];
-
-  const reset = () => {
-    setIndex(0);
-    setFeedback(null);
-    setScore(0);
-  };
-
-  if (!pair) {
-    return (
-      <CompleteCard>
-        <Result ok text={`${score} de ${pairs.length} rimas encontradas`} />
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
-      </CompleteCard>
-    );
-  }
-
-  const candidates = content.words.filter((w) => w.word !== pair[0].word).slice(0, 4);
-  if (!candidates.some((w) => w.word === pair[1].word)) candidates[candidates.length - 1] = pair[1];
-
-  const choose = (candidate: WordItem) => {
-    if (feedback) return;
-    const correct = candidate.word === pair[1].word;
-    setFeedback(correct ? "ok" : "no");
-    if (correct) setScore((s) => s + 1);
-    setTimeout(() => {
-      if (correct) {
-        if (index + 1 === pairs.length) finishGame(content, score + 1, pairs.length);
-        setIndex((n) => n + 1);
-      }
-      setFeedback(null);
-    }, 650);
-  };
-
-  return (
-    <CompleteCard>
-      <p className="text-center text-sm font-bold text-stone-500">¿Qué palabra rima con…?</p>
-      <div className="text-center text-4xl font-black">{pair[0].word}</div>
-      <div className="grid grid-cols-2 gap-3">
-        {candidates.map((candidate) => (
-          <button key={candidate.word} onClick={() => choose(candidate)} className="rounded-2xl border-2 border-purple-200 bg-purple-50 py-4 text-xl font-black hover:bg-purple-100">{candidate.word}</button>
-        ))}
-      </div>
-      {feedback === "ok" && <Result ok text="¡Riman!" />}
-      {feedback === "no" && <Result ok={false} text="Busca la misma sílaba final." />}
-    </CompleteCard>
-  );
+  return <RimaScene content={content} />;
 }
 
 export function WordsPerMinuteGame({ content }: { content: GameContent }) {

@@ -1,0 +1,13 @@
+const {chromium}=require('/home/sandbox/cartilla/node_modules/playwright');
+(async()=>{const browser=await chromium.launch({headless:true});const context=await browser.newContext({viewport:{width:390,height:844},recordVideo:{dir:'/tmp/rima-audio-video',size:{width:390,height:844}}});const page=await context.newPage();await page.addInitScript(()=>{
+ const origConnect=AudioNode.prototype.connect;
+ AudioNode.prototype.connect=function(destination,...args){
+  if(destination instanceof AudioDestinationNode){
+   if(!window.__dest){window.__ctx=this.context;window.__dest=this.context.createMediaStreamDestination();window.__chunks=[];window.__recorder=new MediaRecorder(window.__dest.stream);window.__recorder.ondataavailable=e=>window.__chunks.push(e.data);window.__recorder.start();window.__recordStart=performance.now();}
+   origConnect.call(this,window.__dest);
+  }
+  return origConnect.call(this,destination,...args);
+ };
+ const oldPlay=HTMLMediaElement.prototype.play;
+ HTMLMediaElement.prototype.play=function(){const media=this;const result=oldPlay.call(media);setTimeout(()=>{if(window.__ctx&&!media.__captured){try{const source=window.__ctx.createMediaElementSource(media);source.connect(window.__ctx.destination);media.__captured=true;}catch{}}},50);return result;};
+});await page.goto('http://localhost:5173/cartilla/juego/rima-p');await page.locator('[data-rima-scene]').waitFor();await page.getByRole('button',{name:'Palabra amo',exact:true}).click();await page.waitForTimeout(700);await page.getByRole('button',{name:/Espacio 1:/}).click();await page.waitForTimeout(2200);for(const [i,w]of ['Mami','amo','mímame','ámame'].entries()){await page.getByRole('button',{name:`Palabra ${w}`,exact:true}).click();await page.waitForTimeout(750);await page.getByRole('button',{name:new RegExp(`Espacio ${i+1}:`)}).click();await page.waitForTimeout(1600);}await page.getByRole('button',{name:'Silenciar sonido'}).click();await page.waitForTimeout(800);await page.getByRole('button',{name:'Activar sonido'}).click();await page.waitForTimeout(800);const data=await page.evaluate(async()=>{await new Promise(r=>{window.__recorder.onstop=r;window.__recorder.stop()});const blob=new Blob(window.__chunks,{type:'audio/webm'});return {start:window.__recordStart,bytes:Array.from(new Uint8Array(await blob.arrayBuffer()))}});require('fs').writeFileSync('/tmp/rima-recorded-audio.webm',Buffer.from(data.bytes));require('fs').writeFileSync('/tmp/rima-recorded-start.json',JSON.stringify({start:data.start}));const video=page.video();await context.close();await video.saveAs('/tmp/rima-recorded-video.webm');await browser.close();})().catch(e=>{console.error(e);process.exit(1)})
