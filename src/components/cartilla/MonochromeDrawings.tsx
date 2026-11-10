@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import React, { type SVGProps } from "react";
 
 // Common style parameters to strictly respect the JSX double-brace styling ban
 const baseStrokeStyle = {
@@ -646,7 +646,8 @@ interface MonochromeDrawingProps extends DrawingProps {
   word: string;
 }
 
-export function MonochromeDrawing({ word, size = 120, ...props }: MonochromeDrawingProps) {
+// ⚡ Bolt optimization: Memoized to prevent unnecessary re-renders in heavy lists/grids
+export const MonochromeDrawing = React.memo(function MonochromeDrawing({ word, size = 120, ...props }: MonochromeDrawingProps) {
   const normalized = word.trim().toLowerCase();
   const Component = DRAWING_REGISTRY[normalized];
 
@@ -655,4 +656,4 @@ export function MonochromeDrawing({ word, size = 120, ...props }: MonochromeDraw
   }
 
   return <DrawFallback word={word} size={size} {...props} />;
-}
+});

@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import React, { type CSSProperties } from "react";
 
 import { MonochromeDrawing } from "./MonochromeDrawings";
 
@@ -60,7 +60,8 @@ function getPalette(word: string): DrawingPalette {
   return paletteByInitial[initial] ?? fallbackPalette;
 }
 
-export function ColorizedDrawing({
+// ⚡ Bolt optimization: Memoized ColorizedDrawing to prevent unnecessary re-renders
+export const ColorizedDrawing = React.memo(function ColorizedDrawing({
   word,
   size = 58,
   selected = false,
@@ -98,4 +99,4 @@ export function ColorizedDrawing({
       </span>
     </span>
   );
-}
+});
