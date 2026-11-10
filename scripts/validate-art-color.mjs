@@ -149,7 +149,7 @@ export async function findGrayscaleArt() {
           .split("/")
           .pop()
           ?.replace(/\.\w+$/, "") ?? rel;
-      if (DUOTONE_ALLOWLIST.has(rel) || VERIFIED_WORKBOOK_CROPS.has(rel)) return;
+      if (DUOTONE_ALLOWLIST.has(slug) || VERIFIED_WORKBOOK_CROPS.has(rel)) return;
       const spread = await meanColorSpread(rel);
       if (spread < COLOR_MIN_SPREAD) gray.push({ rel, spread });
     }),
