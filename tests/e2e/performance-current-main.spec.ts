@@ -67,6 +67,8 @@ test.describe("Performance: Current Main", () => {
       JSON.stringify(reportData, null, 2)
     );
 
+    // A missing/failed performance measurement must never count as a pass.
+    expect(lcp, "LCP measurement must succeed; 0 indicates a failed or missing measurement").toBeGreaterThan(0);
     expect(lcp).toBeLessThan(2500);
   });
 
@@ -135,6 +137,8 @@ test.describe("Performance: Current Main", () => {
       JSON.stringify(reportData, null, 2)
     );
 
+    // A missing/failed performance measurement must never count as a pass.
+    expect(lcp, "LCP measurement must succeed; 0 indicates a failed or missing measurement").toBeGreaterThan(0);
     expect(lcp).toBeLessThan(2500);
   });
 });
