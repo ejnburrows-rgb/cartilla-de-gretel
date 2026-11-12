@@ -6,6 +6,8 @@ import { LESSON_PAGE_LIFT_MS, LESSON_PAGE_TURN_MS, prefersReducedMotion } from "
 import { remainingHint, usePageCompletion } from "@/lib/page-completion";
 import { useFitToPage } from "@/lib/use-fit-to-page";
 import { PageCurl } from "./PageCurl";
+import { PencilTipCursor } from "./PencilTipCursor";
+import { useCursorMode } from "@/lib/cursor-mode";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import "@/styles/native-lesson.css";
 
@@ -55,6 +57,7 @@ export function NativeLessonViewer({
   /** Gretel or other companion positioned in the book anchor */
   bookCompanion?: React.ReactNode;
 }) {
+  const cursorMode = useCursorMode();
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(0, initialPage), pages.length - 1),
   );
@@ -541,6 +544,7 @@ export function NativeLessonViewer({
       data-turn-phase={turnPhase}
       data-page-turn-ms={LESSON_PAGE_TURN_MS}
     >
+      {cursorMode === "tip" && <PencilTipCursor />}
       <div className="native-lesson-viewer__topline">
         <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
         <span className="native-lesson-viewer__page">

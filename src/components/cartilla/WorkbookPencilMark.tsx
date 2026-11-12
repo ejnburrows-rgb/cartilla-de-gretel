@@ -10,6 +10,7 @@ import {
 import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
+import { getLastPointer, PENCIL_TIP_SRC, toolSize, useCursorMode } from "@/lib/cursor-mode";
 import "@/styles/workbook-pencil.css";
 
 export type WorkbookMarkStatus = "drawing" | "holding" | "correct" | "erasing" | "erased";
@@ -669,6 +670,25 @@ function offscreenFrom(box: FlightBox, height: number, from: Pt): string {
   return `${f2(dx)} ${f2(-10)}`;
 }
 
+function pointerFrom(box: FlightBox, height: number, from: Pt): string {
+  const pointer = getLastPointer();
+  const unit = Math.min(box.width / 100, box.height / height);
+  if (!pointer || unit <= 0) return offscreenFrom(box, height, from);
+  const x = (pointer.x - box.left - (box.width - 100 * unit) / 2) / unit - from[0];
+  const y = (pointer.y - box.top - (box.height - height * unit) / 2) / unit - from[1];
+  return `${f2(x)} ${f2(y)}`;
+}
+
+function PinkEraserBlock({ uid }: { uid: string }) {
+  const id = `${uid}-pink-school-eraser`;
+  return <g className="workbook-pencil__eraser-only">
+    <defs><linearGradient id={id} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#ffc4d0" /><stop offset=".48" stopColor="#ef8da3" /><stop offset="1" stopColor="#c95e78" /></linearGradient></defs>
+    <rect x="-7" y="-8" width="14" height="16" rx="2.6" fill={`url(#${id})`} stroke="#a64b63" strokeWidth=".8" />
+    <path d="M-4 -5 Q0 -7 4 -5" fill="none" stroke="#fff4f6" strokeWidth="1" opacity=".8" />
+    <path d="M-5 5 Q0 7 5 5" fill="none" stroke="#a64b63" strokeWidth=".7" opacity=".45" />
+  </g>;
+}
+
 /**
  * Draw phase. The big pencil starts completely off the right edge of the screen,
  * travels in over everything on the way and touches down on the starting point
@@ -686,6 +706,7 @@ function DrawingPencil({
   offscreen,
   exit,
   stretch,
+  tipSize,
 }: {
   paths: string[];
   points: Pt[][];
@@ -696,6 +717,7 @@ function DrawingPencil({
   offscreen: string;
   exit: string;
   stretch: number;
+  tipSize?: number;
 }) {
   const { approachMs, drawMs, liftMs } = WORKBOOK_MARK_TIMING;
   const total = drawMs + liftMs;
@@ -765,9 +787,9 @@ function DrawingPencil({
             keyTimes={`0;${kApproach};${((approachMs + (drawMs - approachMs) * 0.35) / total).toFixed(6)};${((approachMs + (drawMs - approachMs) * 0.75) / total).toFixed(6)};${kDone};1`}
             keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
           />
-          <g transform={PENCIL_POSE}>
+          {tipSize ? <image className="workbook-pencil__photo-tip" href={PENCIL_TIP_SRC} x="0" y="0" width={tipSize} height={tipSize * 497 / 600} /> : <g transform={PENCIL_POSE}>
             <PencilShape uid={uid} stretch={stretch} />
-          </g>
+          </g>}
         </g>
       </g>
     </g>
@@ -975,6 +997,7 @@ export function WorkbookPencilMark({
   onRetry,
 }: WorkbookPencilMarkProps) {
   const reducedMotion = useReducedMotion();
+  const cursorMode = useCursorMode();
   const { emit } = useActivityEvents();
   const [internalStatus, setInternalStatus] = useState<WorkbookMarkStatus>("drawing");
   const currentStatus = externalStatus ?? internalStatus;
@@ -1111,6 +1134,8 @@ export function WorkbookPencilMark({
    * so the page sheet (which clips its contents) never cuts them off.
    */
   const stretch = flightBox ? stretchToScreenEdge(flightBox, height) : 0;
+  const unit = flightBox ? Math.min(flightBox.width / 100, flightBox.height / height) : 0;
+  const tipMode = cursorMode === "tip" && typeof document !== "undefined" && !!document.querySelector(".native-lesson-viewer");
   const flightLayer =
     flying && flightBox && typeof document !== "undefined"
       ? createPortal(
@@ -1137,14 +1162,16 @@ export function WorkbookPencilMark({
                 hopMs={hopMs}
                 shadow={shadowId}
                 uid={`${baseId}-d`}
-                offscreen={offscreenFrom(flightBox, height, strokePoints[0][0])}
-                exit={offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1])}
+                offscreen={tipMode ? pointerFrom(flightBox, height, strokePoints[0][0]) : offscreenFrom(flightBox, height, strokePoints[0][0])}
+                exit={tipMode ? pointerFrom(flightBox, height, lastPoints[lastPoints.length - 1]) : offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1])}
                 stretch={stretch}
+                tipSize={tipMode && unit > 0 ? toolSize("tip") / unit : undefined}
               />
             )}
             {erasing &&
               (() => {
-                const off = offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
+                const off = tipMode ? pointerFrom(flightBox, height, lastPoints[lastPoints.length - 1]) : offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
+                const eraserExit = tipMode ? pointerFrom(flightBox, height, strokePoints[0][0]) : off;
                 return (
                   <g
                     className="workbook-pencil workbook-pencil--eraser"
@@ -1167,7 +1194,7 @@ export function WorkbookPencilMark({
                         dur={`${eraseMs}ms`}
                         fill="freeze"
                         calcMode="spline"
-                        values={`${off};0 0;0 0;${off}`}
+                        values={`${off};0 0;0 0;${eraserExit}`}
                         keyTimes={`0;${kTouch};${kRubbed};1`}
                         keySplines={`0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1`}
                       />
@@ -1181,11 +1208,11 @@ export function WorkbookPencilMark({
                           repeatCount={Math.floor(rubMs / scrubPeriod)}
                           values="0 0;5 -1.4;0 0;-4.5 1.2;0 0"
                         />
-                        <g transform={ERASER_POSE}>
+                        {tipMode && unit > 0 ? <g transform={`scale(${toolSize("eraser") / 14 / unit})`}><PinkEraserBlock uid={`${baseId}-e`} /></g> : <g transform={ERASER_POSE}>
                           <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
                             <PencilShape uid={`${baseId}-e`} stretch={stretch} />
                           </g>
-                        </g>
+                        </g>}
                       </g>
                     </g>
                   </g>
