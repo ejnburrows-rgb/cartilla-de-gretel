@@ -79,3 +79,17 @@ html.workbook-close-up-zooming body {
     cursor: auto !important;
   }
 }
+
+/* Preview-only alternate cursor. The image is decorative; controls retain input. */
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer,
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer * { cursor: none !important; }
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer input,
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer textarea,
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer [contenteditable="true"] { cursor: text !important; }
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer select { cursor: auto !important; }
+.pencil-tip-cursor { position: fixed; left: 0; top: 0; z-index: 10000; pointer-events: none; opacity: 0; max-width: none; }
+html.cartilla-cursor-tip-visible .pencil-tip-cursor { opacity: 1; }
+html:has(.workbook-pencil-flight) .pencil-tip-cursor { opacity: 0; }
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .am-direct-pencil .workbook-pencil__shape,
+html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .fp-trace .workbook-pencil__shape { display: none; }
+@media (forced-colors: active) { .pencil-tip-cursor { display: none; } }
