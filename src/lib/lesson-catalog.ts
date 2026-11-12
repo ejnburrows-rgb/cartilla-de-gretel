@@ -114,7 +114,7 @@ export const CATALOG: CatalogEntry[] = [
   {
     n: 1,
     kind: "intro" as const,
-    title: "Las vocales: A E I O U",
+    title: "Las vocales: O A E I U",
     subtitle: "Las cinco vocales: a, e, i, o, u",
     pages: "1-3",
     color: getLessonAccent(1),
