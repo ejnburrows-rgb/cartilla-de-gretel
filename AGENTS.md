@@ -122,3 +122,8 @@ For each area show what exists, what is missing, what happens next, actual owner
 Required compact report: LA CARTILLA — PROJECT STATUS; OVERALL; VISUAL MAP; WHAT I CAN USE; WHAT IS READY BUT NOT LIVE; WHAT IS CURRENTLY HAPPENING (observed only); WHAT IS BLOCKED; NEXT THREE ACTIONS; MY DECISIONS; PROOF / LAST VERIFIED. Keep technical detail behind links or expandable evidence. Present the actual result in chat before asking approval; visible work needs visible proof and a simple Yes/No that states exactly what it authorizes.
 
 Update the same seven sections in #877 after material changes; the existing NBO Operations Hub displays those facts, not a separate database. Provide milestone updates without waiting to be asked. Do not claim continuous background monitoring without an authorized working mechanism. If something fails, say what works instead and the best next step.
+
+
+## Owner clarification — November 14, 2026
+Workbook pages 86–87 do not exist. Never ask Emilio to supply, upload, scan or recover them again. Preserve the established SOURCE_BLOCKED data representation and 85→88 navigation; this is a permanent allowed finish exception, not an open owner action or release blocker. Do not invent the pages. This overrides older audit acquisition requests.
+For the completed November14 audit, its correction and current bounded page-flip handoff, read [session continuity](handoff/SESSION-CONTINUITY-2026-11-14.md) and [page flip with pencil/eraser dependency](handoff/PAGE-FLIP-ERASER-HANDOFF.md). Reuse verified work; no whole-repository restart. The image-quality inventory is not completed and is deferred by the current scoped request. #877 remains the sole current queue.
