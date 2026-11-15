@@ -1,0 +1,7 @@
+script_id,event,spanish_script,basis,audio_status
+UI-001,Correct answer,Buen trabajo.,Existing STUDENT_INTERACTION_STANDARD wording,Recover exact original transcript match; do not synthesize
+UI-002,Wrong answer/retry,Vamos a intentarlo otra vez.,Owner-requested wording from session context; latest owner preference,Original clip match not established; retain silence
+UI-003,Legacy wrong-answer reference,Inténtalo otra vez.,Current repository standard; differs from requested UI-002,Do not silently substitute for requested wording
+UI-004,Page complete,Muy bien. Terminaste esta página.,PROPOSED interface line; not book text or approved recording,Owner wording approval and original audio match required
+UI-005,Before turn,Vamos a pasar la página.,"PROPOSED interface line; optional, not mandatory narration",Owner wording approval and original audio match required
+UI-006,Try again after erasure,Puedes intentarlo otra vez.,PROPOSED optional alternative; avoid duplicate retry speech,Not approved; do not wire without approval
