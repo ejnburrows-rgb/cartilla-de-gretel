@@ -15,3 +15,8 @@ Reuse the existing handoffs below; do not restart the audit or create a new cont
 - [Interface script distinctions](AUDIO-SCRIPTS-INTERFACE.csv): 6 entries.
 
 Recover/map authentic approved audio only; no generated voice or replacement book artwork. No production merge or deployment was performed. Use issue #877 as the existing queue.
+
+## Corrected deliverables
+[Download corrected runnable preview, editable interaction source, two actual browser-frame recordings and handoffs](https://chatgpt.com/library?file_id=libfile_1b7aefb975948191ad5124769fb1879c&account_id=personal).
+
+Package README is the current continuation entry. The standalone HTML embeds its source page and pencil asset; no install is required. Recordings are silent and show isolated prototypes, not the production application. Workbook sample and tools sample replace the earlier A/B comparison; exact historical-look acceptance remains unverified. The corrected sample does not implement page flipping. Preserve the existing page-flip handoff and production implementation.
