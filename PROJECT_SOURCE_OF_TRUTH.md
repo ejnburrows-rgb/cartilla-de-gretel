@@ -76,3 +76,7 @@ These are product decisions, not current assignment or completion claims. Newer 
 - Presentation: cream background; pencil pages 7–8 stay separate.
 - Existing technical context is Vite, React, TypeScript, TanStack Router, Supabase and Vercel; verify current implementation rather than treating this list as a new technology mandate.
 
+
+
+### Owner clarification — November 14, 2026: nonexistent pages
+Pages 86–87 do not exist. Do not request them from Emilio again or plan recovery/acquisition. Keep the current SOURCE_BLOCKED representation as a permanent documented exception and preserve printed numbering/navigation from85to88. No inferred content or artwork. The earlier November14 audit's FIND-007/TASK-007 acquisition recommendation is withdrawn; see [correction and continuity](handoff/SESSION-CONTINUITY-2026-11-14.md).
