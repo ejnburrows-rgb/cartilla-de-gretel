@@ -212,3 +212,7 @@ If another active document describes current state, priorities, implementation d
 - specialized canonical directives for **how specific work must be implemented**.
 
 No issue, PR, worker prompt, archived document, or stale status report may lower this finish bar.
+
+
+### Permanent owner clarification — November 14, 2026
+Workbook pages 86–87 do not exist. Their established absence is a resolved finish exception, not unfinished sourcing, a release blocker or an owner upload task. Never request these pages again. Preserve SOURCE_BLOCKED internally, no invented replacements, and85→88 navigation. This explicitly supersedes the acquisition/remediation request in November14 audit FIND-007/TASK-007; all unrelated completion criteria remain in force.
