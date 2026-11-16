@@ -93,3 +93,41 @@ html:has(.workbook-pencil-flight) .pencil-tip-cursor { opacity: 0; }
 html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .am-direct-pencil .workbook-pencil__shape,
 html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .fp-trace .workbook-pencil__shape { display: none; }
 @media (forced-colors: active) { .pencil-tip-cursor { display: none; } }
+
+/* ── Candidate B: November 1 pencil and mark contract (`?cursor=contract`) ──
+   Charcoal first, 400 ms hold, then Forest Green (stays) or Crimson Red (erased). */
+.workbook-pencil-mark[data-pencil-mode="contract"][data-mark-status] .workbook-pencil-mark__stroke {
+  stroke: #3a3a38;
+  transition: stroke 220ms ease;
+}
+.workbook-pencil-mark[data-pencil-mode="contract"][data-mark-status="correct"] .workbook-pencil-mark__stroke {
+  stroke: #258351;
+}
+.workbook-pencil-mark[data-pencil-mode="contract"][data-mark-status="erasing"] .workbook-pencil-mark__stroke {
+  stroke: #c4320a;
+}
+.contract-pencil-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms linear;
+  will-change: transform;
+}
+.contract-pencil-cursor[data-visible="true"] { opacity: 1; }
+.contract-pencil-cursor svg { display: block; overflow: hidden; }
+@media (hover: hover) and (pointer: fine) {
+  html.student-pencil.cartilla-cursor-contract .native-lesson-viewer,
+  html.student-pencil.cartilla-cursor-contract .native-lesson-viewer * { cursor: none !important; }
+}
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer .native-lesson-viewer__nav,
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer .native-lesson-viewer__nav * { cursor: pointer !important; }
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer input,
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer textarea { cursor: text !important; }
+/* One pencil only: the connector/trace pencils give way to the single tip cursor. */
+html.cartilla-cursor-contract .native-lesson-viewer .am-direct-pencil .workbook-pencil__shape,
+html.cartilla-cursor-contract .native-lesson-viewer .fp-trace .workbook-pencil__shape { display: none; }
+@media (forced-colors: active) { .contract-pencil-cursor { display: none; } }
+@media (prefers-reduced-motion: reduce) { .contract-pencil-cursor { transition: none; } }

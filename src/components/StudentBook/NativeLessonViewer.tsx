@@ -7,12 +7,22 @@ import { remainingHint, usePageCompletion } from "@/lib/page-completion";
 import { useFitToPage } from "@/lib/use-fit-to-page";
 import { PageCurl } from "./PageCurl";
 import { PencilTipCursor } from "./PencilTipCursor";
+import { ContractPencilCursor } from "./ContractPencilCursor";
+import { isEraserActive } from "@/lib/pencil-contract";
 import { useCursorMode } from "@/lib/cursor-mode";
 import type { WorkbookPageEntry } from "./SimplePageViewer";
 import "@/styles/native-lesson.css";
 
 /** Quiet time after a page is finished before it turns by itself. */
 export const AUTO_TURN_IDLE_MS = 1600;
+
+/** True while any shared-kernel mark on this page is drawing, holding or erasing. */
+export function markInProgress(root: HTMLElement | null): boolean {
+  if (isEraserActive()) return true;
+  return !!root?.querySelector(
+    '.workbook-pencil-mark[data-mark-status="drawing"], .workbook-pencil-mark[data-mark-status="holding"], .workbook-pencil-mark[data-mark-status="erasing"]',
+  );
+}
 const SWIPE_MIN_PX = 60;
 const SWIPE_EXCLUDED =
   "canvas, textarea, input, select, .am-direct-pencil, .am-dibuja__paper, .fp-trace, .native-corner-hotspot, .fp-ix-fill__choice, .fp-ix-fill__blank, .native-syllable, [data-no-swipe]";
@@ -138,6 +148,9 @@ export function NativeLessonViewer({
   const executeTurn = useCallback(
     (targetIndex: number, direction: "next" | "prev") => {
       if (turning || targetIndex < 0 || targetIndex >= pages.length || targetIndex === index) return;
+      // Shared guard for every trigger (buttons, keys, swipe, corner, auto): never
+      // detach a page while a pencil mark is drawing/holding or the eraser works.
+      if (markInProgress(containerRef.current)) return;
 
       if (direction === "next" && !completion.complete) {
         showRemaining();
@@ -264,7 +277,11 @@ export function NativeLessonViewer({
     let timer: number | undefined;
     const startIdleTimer = () => {
       window.clearTimeout(timer);
-      timer = window.setTimeout(() => forwardRef.current(), AUTO_TURN_IDLE_MS);
+      timer = window.setTimeout(() => {
+        // A mark or eraser still settling restarts the quiet period instead of turning.
+        if (markInProgress(containerRef.current)) startIdleTimer();
+        else forwardRef.current();
+      }, AUTO_TURN_IDLE_MS);
     };
     const onPointerDown = () => {
       window.clearTimeout(timer);
@@ -545,6 +562,7 @@ export function NativeLessonViewer({
       data-page-turn-ms={LESSON_PAGE_TURN_MS}
     >
       {cursorMode === "tip" && <PencilTipCursor />}
+      {cursorMode === "contract" && <ContractPencilCursor />}
       <div className="native-lesson-viewer__topline">
         <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
         <span className="native-lesson-viewer__page">

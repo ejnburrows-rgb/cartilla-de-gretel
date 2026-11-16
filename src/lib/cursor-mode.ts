@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-export type CursorMode = "normal" | "tip";
+/**
+ * normal = current main (system cursor + flying wooden pencil);
+ * tip = #1305 photo-tip candidate (not offered for approval);
+ * contract = November 1 contract candidate (single close-up tip of the existing pencil).
+ */
+export type CursorMode = "normal" | "tip" | "contract";
 export const CURSOR_MODE_KEY = "cartilla:cursor-mode";
 export const PENCIL_TIP_SRC = "/cartilla/images/ui/owner-pencil-tip.svg";
 let lastPointer: { x: number; y: number } | null = null;
@@ -14,11 +19,12 @@ export function readCursorMode(): CursorMode {
   if (typeof window === "undefined") return "normal";
   try {
     const requested = new URLSearchParams(window.location.search).get("cursor");
-    if (requested === "tip" || requested === "normal") {
+    if (requested === "tip" || requested === "normal" || requested === "contract") {
       localStorage.setItem(CURSOR_MODE_KEY, requested);
       return requested;
     }
-    return localStorage.getItem(CURSOR_MODE_KEY) === "tip" ? "tip" : "normal";
+    const saved = localStorage.getItem(CURSOR_MODE_KEY);
+    return saved === "tip" || saved === "contract" ? saved : "normal";
   } catch { return "normal"; }
 }
 /** Accessibility settings and forced colors always keep the standard cursor and tool. */
