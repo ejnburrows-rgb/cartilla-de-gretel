@@ -573,6 +573,7 @@ export function DirectPencilConnector({
     <div
       className={`am-direct-pencil${className ? ` ${className}` : ""}${wideWorkbook ? " am-direct-pencil--wide-workbook" : ""}${isExpanded ? " is-expanded" : ""}`}
       data-complete={String(completed)}
+      data-page-turn-busy={isDragging || wrongLine !== null ? "true" : undefined}
     >
       <div className="am-direct-pencil__toolbar">
         <button

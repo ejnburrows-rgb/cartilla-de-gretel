@@ -106,6 +106,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     );
 
     fireEvent.click(screen.getByRole("button", { name: "oso" }));
+    expect(container.querySelector(".am-direct-pencil")?.getAttribute("data-page-turn-busy")).toBe("true");
 
     expect(playWrongBuzz).not.toHaveBeenCalled();
     expect(speakGretelPhrase).not.toHaveBeenCalled();
@@ -116,6 +117,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     await flushAnim(150);
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(false);
+    expect(container.querySelector(".am-direct-pencil")?.hasAttribute("data-page-turn-busy")).toBe(false);
   });
 
   it("toggling focus mode expands stage for precision drawing", () => {
