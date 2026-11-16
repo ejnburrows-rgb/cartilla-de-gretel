@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RevisionRouteImport } from './routes/revision'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IntroRouteImport } from './routes/intro'
 import { Route as EntrarRouteImport } from './routes/entrar'
@@ -64,6 +65,11 @@ import { Route as CartillaTeacherCrmClassIdStudentIdIndexRouteImport } from './r
 import { Route as CartillaTeacherCrmClassIdStudentIdReporteRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.reporte'
 import { Route as CartillaTeacherCrmClassIdStudentIdLessonIdRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.$lessonId'
 
+const RevisionRoute = RevisionRouteImport.update({
+  id: '/revision',
+  path: '/revision',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -414,6 +420,7 @@ export interface FileRoutesByFullPath {
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/revision': typeof RevisionRoute
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -470,6 +477,7 @@ export interface FileRoutesByTo {
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/revision': typeof RevisionRoute
   '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/ayuda': typeof CartillaAyudaRoute
@@ -523,6 +531,7 @@ export interface FileRoutesById {
   '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/revision': typeof RevisionRoute
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -581,6 +590,7 @@ export interface FileRouteTypes {
     | '/entrar'
     | '/intro'
     | '/login'
+    | '/revision'
     | '/cartilla/teacher'
     | '/cartilla/animales'
     | '/cartilla/autora'
@@ -637,6 +647,7 @@ export interface FileRouteTypes {
     | '/entrar'
     | '/intro'
     | '/login'
+    | '/revision'
     | '/cartilla/animales'
     | '/cartilla/autora'
     | '/cartilla/ayuda'
@@ -689,6 +700,7 @@ export interface FileRouteTypes {
     | '/entrar'
     | '/intro'
     | '/login'
+    | '/revision'
     | '/cartilla/teacher'
     | '/cartilla/animales'
     | '/cartilla/autora'
@@ -746,6 +758,7 @@ export interface RootRouteChildren {
   EntrarRoute: typeof EntrarRoute
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
+  RevisionRoute: typeof RevisionRoute
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
   CartillaAnimalesRoute: typeof CartillaAnimalesRoute
   CartillaAutoraRoute: typeof CartillaAutoraRoute
@@ -772,6 +785,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/revision': {
+      id: '/revision'
+      path: '/revision'
+      fullPath: '/revision'
+      preLoaderRoute: typeof RevisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -1255,6 +1275,7 @@ const rootRouteChildren: RootRouteChildren = {
   EntrarRoute: EntrarRoute,
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
+  RevisionRoute: RevisionRoute,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
   CartillaAnimalesRoute: CartillaAnimalesRoute,
   CartillaAutoraRoute: CartillaAutoraRoute,
