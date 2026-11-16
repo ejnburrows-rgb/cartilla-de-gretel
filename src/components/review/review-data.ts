@@ -22,29 +22,28 @@ export interface Comparison {
 }
 
 export const REVIEW_REVISION = import.meta.env.VITE_REVIEW_REVISION ?? "work/lessons (local build)";
-const media = (f: string) => `/review/media/${f}`;
 
 export const COMPARISONS: Comparison[] = [
   {
-    id: "workbook-lesson-3",
-    title: "Student Workbook — Lesson 3 (printed pages 7, 8, 9)",
+    id: "whole-pencil-pose",
+    title: "Whole-pencil cursor — exploratory poses on Lesson 3",
     summary:
-      "Same real lesson, same pages, same artwork, same saving and page curl. Only the pencil and eraser presentation differs.",
+      "The owner rejected the cropped pencil. These two exploratory poses use the same existing wooden pencil with the whole shape visible; this is not a complete workbook, eraser, or page-turn comparison. The eraser still needs correction and testing. Near an edge the pencil turns inward; the fixed-angle requirement remains unresolved.",
     a: {
-      name: "A — Current book pencil",
-      description:
-        "What main shows today: normal arrow pointer; the full wooden pencil flies in from the right edge, draws the X in green or red from the first line, and the pencil’s eraser end flies in to rub out wrong marks (4 s).",
-      links: [{ label: "Open A — page 7", href: "/cartilla/leccion/3?cursor=normal" }],
+      name: "A — pencil rises to the right",
+      description: "The whole pencil extends above the graphite point in the center of the screen.",
+      links: [
+        { label: "Try A in Lesson 3", href: "/cartilla/leccion/3?cursor=contract&pencil=up" },
+      ],
     },
     b: {
-      name: "B — November 1 pencil rules",
-      description:
-        "The same wooden pencil, shown as one large close-up tip that is the pointer (graphite point = hotspot, pointing up-left). Mark draws in charcoal, holds 0.4 s, then turns forest green (stays) or crimson red. Close-up eraser end rubs for 3.5 s with 12 pink crumbs; the pencil hides while it erases.",
-      links: [{ label: "Open B — page 7", href: "/cartilla/leccion/3?cursor=contract" }],
+      name: "B — pencil falls to the right",
+      description: "The whole pencil extends below the graphite point in the center of the screen.",
+      links: [
+        { label: "Try B in Lesson 3", href: "/cartilla/leccion/3?cursor=contract&pencil=down" },
+      ],
     },
-    evidence: [
-      { label: "A vs B side by side (desktop)", href: media("ab-lesson3-1366.svg") },
-    ],
+    evidence: [],
   },
   {
     id: "flipchart-lesson-3",
@@ -63,18 +62,20 @@ export const COMPARISONS: Comparison[] = [
         "The same sheet inside the teacher panel, with the lesson picker, class navigation and a ‘Proyectar pantalla completa’ button.",
       links: [{ label: "Open B — sheet 5", href: "/cartilla/teacher/flipchart?leccion=3" }],
     },
-    evidence: [
-    ],
+    evidence: [],
   },
   {
     id: "pencil-tool-identity",
     title: "Pencil and eraser look (recovered approved look)",
     summary:
-      "The rejected November 14 photo-tip prototypes are NOT offered. Both A and B above reuse the wooden pencil already approved in the book (October 11 look). No new pencil or eraser artwork was drawn.",
+      "The rejected November 14 photo-tip prototypes are not offered. The whole-pencil pose experiments reuse the existing wooden pencil. The separate eraser is not complete.",
     a: {
       name: "Recovered look — existing wooden pencil",
-      description: "One source exists in the repository. A second look would have to be invented, so none is offered.",
-      links: [{ label: "See it on page 7 (B)", href: "/cartilla/leccion/3?cursor=contract" }],
+      description:
+        "The existing pencil is shown in two poses above; these are not two separate pencil artworks.",
+      links: [
+        { label: "See it on page 7", href: "/cartilla/leccion/3?cursor=contract&pencil=down" },
+      ],
     },
     singleOptionReason:
       "Only one owner-approved pencil drawing exists in the repository; a separate block-shaped school eraser drawing does not exist. Asking for one is listed under ‘What is missing’.",
@@ -102,8 +103,14 @@ export const QUICK_LINKS: { group: string; links: ReviewLink[] }[] = [
   {
     group: "Student Workbook",
     links: [
-      { label: "Lesson 3 (A)", href: "/cartilla/leccion/3?cursor=normal" },
-      { label: "Lesson 3 (B)", href: "/cartilla/leccion/3?cursor=contract" },
+      {
+        label: "Lesson 3 — whole-pencil pose A",
+        href: "/cartilla/leccion/3?cursor=contract&pencil=up",
+      },
+      {
+        label: "Lesson 3 — whole-pencil pose B",
+        href: "/cartilla/leccion/3?cursor=contract&pencil=down",
+      },
       { label: "Complete book", href: "/cartilla/cuaderno" },
       { label: "Practice", href: "/cartilla/practica" },
     ],
