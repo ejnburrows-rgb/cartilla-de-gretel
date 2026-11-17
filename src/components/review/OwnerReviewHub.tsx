@@ -240,13 +240,14 @@ function CoverageFilter({ summary, rows, filter, setFilter }: { summary: Row; ro
 function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChange: (h: DecisionRecord[]) => void }) {
   const data = useJson<{ summary: Row; issues: Row[] }>("/review/artwork-board.json");
   const [filter, setFilter] = useState("all");
+  const [shown, setShown] = useState(60);
   if (!data) return <p className="orh-muted">Artwork review data is not available in this draft.</p>;
   const rows = data.issues.filter((r) => filter === "all" || r.classification === filter);
   return (
     <div>
-      <CoverageFilter summary={data.summary} rows={data.issues} filter={filter} setFilter={setFilter} />
+      <CoverageFilter summary={data.summary} rows={data.issues} filter={filter} setFilter={(value) => { setFilter(value); setShown(60); }} />
       <div className="orh-art-list">
-        {rows.slice(0, 60).map((r) => (
+        {rows.slice(0, shown).map((r) => (
           <article key={r.id} className="orh-art" id={`art-${r.id}`}>
             <div className="orh-art__images">
               {r.pageImage && (
@@ -285,7 +286,8 @@ function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChan
           </article>
         ))}
       </div>
-      {rows.length > 60 && <p className="orh-muted">Showing 60 of {rows.length}. Full list in the CSV downloads.</p>}
+      <p className="orh-muted" aria-live="polite">Showing {Math.min(shown, rows.length)} of {rows.length} artwork entries.</p>
+      {shown < rows.length && <button type="button" className="orh-btn" onClick={() => setShown((n) => n + 60)}>Show more artwork</button>}
     </div>
   );
 }
@@ -293,37 +295,43 @@ function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChan
 function AudioBoard({ history, onChange }: { history: DecisionRecord[]; onChange: (h: DecisionRecord[]) => void }) {
   const data = useJson<{ summary: Row; rows: Row[] }>("/review/audio-board.json");
   const [filter, setFilter] = useState("MISSING");
+  const [shown, setShown] = useState(80);
   if (!data) return <p className="orh-muted">Audio review data is not available in this draft.</p>;
   const rows = data.rows.filter((r) => filter === "all" || r.classification === filter);
   return (
     <div>
-      <CoverageFilter summary={data.summary} rows={data.rows} filter={filter} setFilter={setFilter} />
+      <CoverageFilter summary={data.summary} rows={data.rows} filter={filter} setFilter={(value) => { setFilter(value); setShown(80); }} />
       <div className="orh-audio-list">
-        {rows.slice(0, 80).map((r) => (
+        {rows.slice(0, shown).map((r) => (
           <article key={r.id} className="orh-audio">
             <p>
               <b lang="es">{r.script}</b> · {r.category} · {r.where}
             </p>
-            {r.file ? (
-              <audio controls preload="none" src={r.file}>
-                <track kind="captions" />
-              </audio>
+            {r.file?.endsWith("/Gretel_558674_Original.m4a") && r.source === "Gretel_558674_Original.m4a" ? (
+              <>
+                <p className="orh-muted">Original recording for listening and transcript review; not wired or approved.</p>
+                <audio controls preload="none" src={r.file}>
+                  <track kind="captions" />
+                </audio>
+              </>
             ) : (
-              <p className="orh-missing">No authentic recording — stays silent.</p>
+              <p className="orh-missing">No authorized original recording is linked for review; the cue stays silent.</p>
             )}
             <p className="orh-muted">
               {r.classification} — {r.note}
             </p>
+            {!(r.file?.endsWith("/Gretel_558674_Original.m4a") && r.transcriptVerified === "true" && r.source === "Gretel_558674_Original.m4a") && <p className="orh-muted">Accepting the original requires the authorized file and a verified transcript match.</p>}
             <DecisionBar
               itemId={`audio:${r.id}`}
-              options={["accept-original", "accept-alternate", "needs-rerecording", "reject"]}
+              options={r.file?.endsWith("/Gretel_558674_Original.m4a") && r.transcriptVerified === "true" && r.source === "Gretel_558674_Original.m4a" ? ["accept-original", "needs-rerecording", "reject"] : ["needs-rerecording", "reject"]}
               history={history}
               onChange={onChange}
             />
           </article>
         ))}
       </div>
-      {rows.length > 80 && <p className="orh-muted">Showing 80 of {rows.length}. Full list in the CSV downloads.</p>}
+      <p className="orh-muted" aria-live="polite">Showing {Math.min(shown, rows.length)} of {rows.length} audio entries.</p>
+      {shown < rows.length && <button type="button" className="orh-btn" onClick={() => setShown((n) => n + 80)}>Show more audio</button>}
     </div>
   );
 }
