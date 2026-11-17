@@ -23,6 +23,8 @@ export interface DecisionRecord {
   at: string;
   /** Revision of the review build the owner was looking at. */
   revision: string;
+  /** Original image bytes, embedded for portable JSON backup. */
+  replacement?: { name: string; dataUrl: string };
 }
 
 export const OWNER_REVIEW_KEY = "cartilla:owner-review:v1";
@@ -73,8 +75,8 @@ export function latestDecisions(history: DecisionRecord[]): Map<string, Decision
 
 const csvCell = (v: string) => `"${v.replace(/"/g, '""')}"`;
 export function historyToCsv(history: DecisionRecord[]): string {
-  const head = ["itemId", "decision", "comment", "at", "revision"];
-  return [head.join(","), ...history.map((r) => head.map((k) => csvCell(String(r[k as keyof DecisionRecord] ?? ""))).join(","))].join("\n");
+  const head = ["itemId", "decision", "comment", "at", "revision", "replacementFilename"];
+  return [head.join(","), ...history.map((r) => [r.itemId, r.decision, r.comment, r.at, r.revision, r.replacement?.name ?? ""].map(csvCell).join(","))].join("\n");
 }
 export function historyToJson(history: DecisionRecord[]): string {
   return JSON.stringify({ version: 1, history }, null, 2);
@@ -87,6 +89,11 @@ export function importHistory(json: string): DecisionRecord[] {
   const valid = parsed.history.filter(
     (r): r is DecisionRecord => !!r && typeof r.itemId === "string" && typeof r.decision === "string" && typeof r.at === "string",
   );
+  for (const r of valid) {
+    if (r.replacement && (typeof r.replacement.name !== "string" || typeof r.replacement.dataUrl !== "string" || !/^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+$/.test(r.replacement.dataUrl))) {
+      throw new Error("Invalid replacement image in review export");
+    }
+  }
   const seen = new Set<string>();
   const merged = [...loadHistory(), ...valid]
     .filter((r) => {

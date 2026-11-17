@@ -52,13 +52,41 @@ function DecisionBar({
   onChange: (h: DecisionRecord[]) => void;
 }) {
   const [comment, setComment] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+  const [saving, setSaving] = useState(false);
+  const imageRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState("");
   const latest = latestDecisions(history).get(itemId);
   const commentId = `${itemId}-comment`;
-  const save = (decision: OwnerDecision) => {
+  const save = async (decision: OwnerDecision) => {
     if (decision === "request-changes" && !comment.trim()) return;
-    const note = comment.trim();
-    onChange(recordDecision({ itemId, decision, comment: note, revision: REVIEW_REVISION }));
-    setComment("");
+    if (saving) return;
+    setError("");
+    setSaving(true);
+    try {
+      let replacement: DecisionRecord["replacement"];
+      if (decision === "upload-replacement") {
+        if (!file || !["image/png", "image/jpeg", "image/webp", "image/gif"].includes(file.type)) {
+          setError("Choose a PNG, JPEG, WebP or GIF image first.");
+          return;
+        }
+        const dataUrl = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => typeof reader.result === "string" ? resolve(reader.result) : reject(new Error("File read failed"));
+          reader.onerror = () => reject(new Error("File read failed"));
+          reader.readAsDataURL(file);
+        });
+        replacement = { name: file.name, dataUrl };
+      }
+      onChange(recordDecision({ itemId, decision, comment: comment.trim(), revision: REVIEW_REVISION, replacement }));
+      setComment("");
+      setFile(null);
+      if (imageRef.current) imageRef.current.value = "";
+    } catch {
+      setError("Could not save. Browser storage may be full or unavailable; no decision was recorded.");
+    } finally {
+      setSaving(false);
+    }
   };
   return (
     <div className="orh-decision" data-item={itemId}>
@@ -83,7 +111,15 @@ function DecisionBar({
         rows={2}
         className="orh-textarea"
       />
-      <p className="orh-muted">Replacement file upload is not available in this draft.</p>
+      {options.includes("upload-replacement") && (
+        <>
+          <label htmlFor={`${itemId}-file`} className="orh-label">Replacement image (PNG, JPEG, WebP or GIF)</label>
+          <input ref={imageRef} id={`${itemId}-file`} type="file" accept="image/png,image/jpeg,image/webp,image/gif" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+          <p className="orh-muted">The image is saved in this browser only. Download JSON to back it up with your decisions. Uploading does not approve or publish the artwork.</p>
+        </>
+      )}
+      {latest?.replacement && <p><a href={latest.replacement.dataUrl} download={latest.replacement.name}>Download saved replacement: {latest.replacement.name}</a></p>}
+      {error && <p role="alert" className="orh-missing">{error}</p>}
       <div className="orh-decision__buttons">
         {options.map((o) => (
           <button
@@ -91,7 +127,7 @@ function DecisionBar({
             type="button"
             className={`orh-btn orh-btn--${o}`}
             onClick={() => save(o)}
-            disabled={(o === "request-changes" && !comment.trim())}
+            disabled={saving || (o === "request-changes" && !comment.trim()) || (o === "upload-replacement" && !file)}
           >
             {DECISION_LABEL[o]}
           </button>
@@ -242,7 +278,7 @@ function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChan
             <p className="orh-muted">Proposed: {r.remedy}</p>
             <DecisionBar
               itemId={`art:${r.id}`}
-              options={["keep-current", "request-changes", "reject"]}
+              options={["keep-current", "upload-replacement", "request-changes", "reject"]}
               history={history}
               onChange={onChange}
             />
@@ -332,7 +368,7 @@ export function OwnerReviewHub() {
         <h1>Review and approve</h1>
         <p>
           This is an <b>incomplete local draft</b>, not a finished review preview. Some evidence and review boards are missing. Nothing here is published. Your choices are saved in
-          this browser and can be downloaded.
+          this browser and can be downloaded. JSON includes replacement images; CSV lists their filenames. Browser data can be cleared, so keep a JSON backup.
         </p>
         <p className="orh-muted">Build: {REVIEW_REVISION}</p>
         <nav aria-label="Sections" className="orh-nav">
@@ -472,6 +508,7 @@ export function OwnerReviewHub() {
               <li key={`${r.itemId}-${r.at}`}>
                 {new Date(r.at).toLocaleString()} — <b>{r.itemId}</b>: {DECISION_LABEL[r.decision]}
                 {r.comment ? ` — “${r.comment}”` : ""}
+                {r.replacement && <> — <a href={r.replacement.dataUrl} download={r.replacement.name}>Download {r.replacement.name}</a></>}
               </li>
             ))}
         </ol>
