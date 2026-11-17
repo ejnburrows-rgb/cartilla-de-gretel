@@ -98,6 +98,23 @@ export const QUICK_LINKS: { group: string; links: ReviewLink[] }[] = [
     ],
   },
   {
+    group: "Games — existing routes, not A/B approvals",
+    links: [
+      { label: "Cow game", href: "/cartilla/juego/cow-game-m" },
+      { label: "Butterfly garden", href: "/cartilla/juego/mariposas-p" },
+      { label: "Payaso Chano", href: "/cartilla/juego/payaso-chano-ss" },
+      { label: "Vocal A", href: "/cartilla/juego/vocal-a" },
+      { label: "Fonética P", href: "/cartilla/juego/fonetica-p" },
+      { label: "Sílabas O", href: "/cartilla/juego/silabas-o" },
+      { label: "Sílabas M", href: "/cartilla/juego/silabas-m" },
+      { label: "Sílabas P", href: "/cartilla/juego/silabas-p" },
+      { label: "Rima P", href: "/cartilla/juego/rima-p" },
+      { label: "Palabras por minuto", href: "/cartilla/juego/palabras-minuto-p" },
+      { label: "Dibujos O", href: "/cartilla/juego/dibujos-o" },
+      { label: "Completar palabras", href: "/cartilla/juego/completar-palabras" },
+    ],
+  },
+  {
     group: "Voice",
     links: [{ label: "Gretel voice policy page", href: "/cartilla/voces" }],
   },
