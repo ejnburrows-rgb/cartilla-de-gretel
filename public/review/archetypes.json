@@ -1,0 +1,1932 @@
+{
+  "generatedAt": "2026-11-17",
+  "approvedModel": {
+    "lesson": 3,
+    "workbookPages": [
+      7,
+      8,
+      9
+    ],
+    "flipchartSheet": 5,
+    "option": "B"
+  },
+  "totals": {
+    "workbookPages": 90,
+    "workbookAvailable": 88,
+    "workbookSourceBlocked": 2,
+    "flipchartSheets": 62,
+    "totalLessons": 24
+  },
+  "types": {
+    "tap-circle-picture": {
+      "id": "tap-circle-picture",
+      "label": "Tap / Circle Picture",
+      "spanishLabel": "Encierra o marca el dibujo",
+      "surface": "workbook",
+      "usesSharedContractKernel": true,
+      "kernelComponent": "InteractivePictureGrid -> WorkbookPencilMark",
+      "modelPages": [
+        {
+          "sequence": "intro",
+          "lesson": 1,
+          "page": 1,
+          "route": "/cartilla/leccion/1"
+        },
+        {
+          "sequence": "vowels",
+          "lesson": 3,
+          "page": 7,
+          "route": "/cartilla/leccion/3",
+          "approvedModel": true
+        }
+      ],
+      "count": 6,
+      "pages": [
+        {
+          "lesson": 1,
+          "lessonLabel": "Lección 1 — Las vocales (O A E I U)",
+          "sequence": "intro",
+          "pageNumber": 1,
+          "route": "/cartilla/leccion/1",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=1",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 2,
+          "lessonLabel": "Lección 2 — Vocal Oo",
+          "sequence": "vowels",
+          "pageNumber": 4,
+          "route": "/cartilla/leccion/2",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=2",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 3,
+          "lessonLabel": "Lección 3 — Vocal Aa",
+          "sequence": "vowels",
+          "pageNumber": 7,
+          "route": "/cartilla/leccion/3",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=3",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 4,
+          "lessonLabel": "Lección 4 — Vocal Ee",
+          "sequence": "vowels",
+          "pageNumber": 10,
+          "route": "/cartilla/leccion/4",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=4",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 5,
+          "lessonLabel": "Lección 5 — Vocal Ii",
+          "sequence": "vowels",
+          "pageNumber": 13,
+          "route": "/cartilla/leccion/5",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=5",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 6,
+          "lessonLabel": "Lección 6 — Vocal Uu",
+          "sequence": "vowels",
+          "pageNumber": 16,
+          "route": "/cartilla/leccion/6",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=6",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "vowel-row-choice": {
+      "id": "vowel-row-choice",
+      "label": "Vowel Row Choice",
+      "spanishLabel": "Escoge el dibujo de cada vocal",
+      "surface": "workbook",
+      "usesSharedContractKernel": true,
+      "kernelComponent": "InteractiveVowelPickOne -> WorkbookPencilMark",
+      "modelPages": [
+        {
+          "sequence": "intro",
+          "lesson": 1,
+          "page": 2,
+          "route": "/cartilla/leccion/1"
+        }
+      ],
+      "count": 1,
+      "pages": [
+        {
+          "lesson": 1,
+          "lessonLabel": "Lección 1 — Las vocales (O A E I U)",
+          "sequence": "intro",
+          "pageNumber": 2,
+          "route": "/cartilla/leccion/1",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=1",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "line-connect-pairs": {
+      "id": "line-connect-pairs",
+      "label": "Line Connect (Pairs)",
+      "spanishLabel": "Une cada vocal con su dibujo",
+      "surface": "workbook",
+      "usesSharedContractKernel": true,
+      "kernelComponent": "DirectPencilConnector (aligned to PENCIL_CONTRACT + holdEraser)",
+      "modelPages": [
+        {
+          "sequence": "intro",
+          "lesson": 1,
+          "page": 3,
+          "route": "/cartilla/leccion/1"
+        }
+      ],
+      "count": 1,
+      "pages": [
+        {
+          "lesson": 1,
+          "lessonLabel": "Lección 1 — Las vocales (O A E I U)",
+          "sequence": "intro",
+          "pageNumber": 3,
+          "route": "/cartilla/leccion/1",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=1",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "line-connect-central": {
+      "id": "line-connect-central",
+      "label": "Line Connect (Central Target)",
+      "spanishLabel": "Traza línea desde la vocal central",
+      "surface": "workbook",
+      "usesSharedContractKernel": true,
+      "kernelComponent": "DirectPencilConnector (aligned to PENCIL_CONTRACT + holdEraser)",
+      "modelPages": [
+        {
+          "sequence": "vowels",
+          "lesson": 3,
+          "page": 8,
+          "route": "/cartilla/leccion/3",
+          "approvedModel": true
+        }
+      ],
+      "count": 5,
+      "pages": [
+        {
+          "lesson": 2,
+          "lessonLabel": "Lección 2 — Vocal Oo",
+          "sequence": "vowels",
+          "pageNumber": 5,
+          "route": "/cartilla/leccion/2",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=2",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 3,
+          "lessonLabel": "Lección 3 — Vocal Aa",
+          "sequence": "vowels",
+          "pageNumber": 8,
+          "route": "/cartilla/leccion/3",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=3",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 4,
+          "lessonLabel": "Lección 4 — Vocal Ee",
+          "sequence": "vowels",
+          "pageNumber": 11,
+          "route": "/cartilla/leccion/4",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=4",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 5,
+          "lessonLabel": "Lección 5 — Vocal Ii",
+          "sequence": "vowels",
+          "pageNumber": 14,
+          "route": "/cartilla/leccion/5",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=5",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 6,
+          "lessonLabel": "Lección 6 — Vocal Uu",
+          "sequence": "vowels",
+          "pageNumber": 17,
+          "route": "/cartilla/leccion/6",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=6",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "letter-trace-and-draw": {
+      "id": "letter-trace-and-draw",
+      "label": "Letter Trace + Draw",
+      "spanishLabel": "Traza la letra y haz un dibujo",
+      "surface": "workbook",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "WorkbookLetterTrace + DibujaHost (ContractPencilCursor)",
+      "modelPages": [
+        {
+          "sequence": "vowels",
+          "lesson": 3,
+          "page": 9,
+          "route": "/cartilla/leccion/3",
+          "approvedModel": true
+        },
+        {
+          "sequence": "first-consonants",
+          "lesson": 7,
+          "page": 19,
+          "route": "/cartilla/leccion/7"
+        },
+        {
+          "sequence": "later-consonants",
+          "lesson": 15,
+          "page": 51,
+          "route": "/cartilla/leccion/15"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 22,
+          "page": 79,
+          "route": "/cartilla/leccion/22"
+        }
+      ],
+      "count": 22,
+      "pages": [
+        {
+          "lesson": 2,
+          "lessonLabel": "Lección 2 — Vocal Oo",
+          "sequence": "vowels",
+          "pageNumber": 6,
+          "route": "/cartilla/leccion/2",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=2",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 3,
+          "lessonLabel": "Lección 3 — Vocal Aa",
+          "sequence": "vowels",
+          "pageNumber": 9,
+          "route": "/cartilla/leccion/3",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=3",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 4,
+          "lessonLabel": "Lección 4 — Vocal Ee",
+          "sequence": "vowels",
+          "pageNumber": 12,
+          "route": "/cartilla/leccion/4",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=4",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 5,
+          "lessonLabel": "Lección 5 — Vocal Ii",
+          "sequence": "vowels",
+          "pageNumber": 15,
+          "route": "/cartilla/leccion/5",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=5",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 6,
+          "lessonLabel": "Lección 6 — Vocal Uu",
+          "sequence": "vowels",
+          "pageNumber": 18,
+          "route": "/cartilla/leccion/6",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=6",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 7,
+          "lessonLabel": "Lección 7 — Letra M",
+          "sequence": "first-consonants",
+          "pageNumber": 19,
+          "route": "/cartilla/leccion/7",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=7",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 8,
+          "lessonLabel": "Lección 8 — Letra P",
+          "sequence": "first-consonants",
+          "pageNumber": 23,
+          "route": "/cartilla/leccion/8",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=8",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 9,
+          "lessonLabel": "Lección 9 — Letra S",
+          "sequence": "first-consonants",
+          "pageNumber": 27,
+          "route": "/cartilla/leccion/9",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=9",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 10,
+          "lessonLabel": "Lección 10 — Letra T",
+          "sequence": "first-consonants",
+          "pageNumber": 31,
+          "route": "/cartilla/leccion/10",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=10",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 11,
+          "lessonLabel": "Lección 11 — Letra D",
+          "sequence": "first-consonants",
+          "pageNumber": 35,
+          "route": "/cartilla/leccion/11",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=11",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 12,
+          "lessonLabel": "Lección 12 — Letra L",
+          "sequence": "first-consonants",
+          "pageNumber": 39,
+          "route": "/cartilla/leccion/12",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=12",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 13,
+          "lessonLabel": "Lección 13 — Letra N",
+          "sequence": "first-consonants",
+          "pageNumber": 43,
+          "route": "/cartilla/leccion/13",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=13",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 14,
+          "lessonLabel": "Lección 14 — Letra Ñ",
+          "sequence": "first-consonants",
+          "pageNumber": 47,
+          "route": "/cartilla/leccion/14",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=14",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 15,
+          "lessonLabel": "Lección 15 — Letra B",
+          "sequence": "later-consonants",
+          "pageNumber": 51,
+          "route": "/cartilla/leccion/15",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=15",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 16,
+          "lessonLabel": "Lección 16 — Letra V",
+          "sequence": "later-consonants",
+          "pageNumber": 55,
+          "route": "/cartilla/leccion/16",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=16",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 17,
+          "lessonLabel": "Lección 17 — Letra R",
+          "sequence": "later-consonants",
+          "pageNumber": 59,
+          "route": "/cartilla/leccion/17",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=17",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 18,
+          "lessonLabel": "Lección 18 — Letra RR",
+          "sequence": "later-consonants",
+          "pageNumber": 63,
+          "route": "/cartilla/leccion/18",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=18",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 19,
+          "lessonLabel": "Lección 19 — Letra G",
+          "sequence": "later-consonants",
+          "pageNumber": 67,
+          "route": "/cartilla/leccion/19",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=19",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 20,
+          "lessonLabel": "Lección 20 — Letra F",
+          "sequence": "later-consonants",
+          "pageNumber": 71,
+          "route": "/cartilla/leccion/20",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=20",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 21,
+          "lessonLabel": "Lección 21 — Letra J",
+          "sequence": "later-consonants",
+          "pageNumber": 75,
+          "route": "/cartilla/leccion/21",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=21",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 22,
+          "lessonLabel": "Lección 22 — Letra C",
+          "sequence": "combinations",
+          "pageNumber": 79,
+          "route": "/cartilla/leccion/22",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=22",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 23,
+          "lessonLabel": "Lección 23 — Letra Y",
+          "sequence": "combinations",
+          "pageNumber": 83,
+          "route": "/cartilla/leccion/23",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=23",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "syllable-circle": {
+      "id": "syllable-circle",
+      "label": "Syllable Circle",
+      "spanishLabel": "Encierra la sílaba en cada palabra",
+      "surface": "workbook",
+      "usesSharedContractKernel": true,
+      "kernelComponent": "SyllableWordCircle -> WorkbookPencilMark",
+      "modelPages": [
+        {
+          "sequence": "first-consonants",
+          "lesson": 7,
+          "page": 20,
+          "route": "/cartilla/leccion/7"
+        },
+        {
+          "sequence": "later-consonants",
+          "lesson": 15,
+          "page": 52,
+          "route": "/cartilla/leccion/15"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 22,
+          "page": 80,
+          "route": "/cartilla/leccion/22"
+        }
+      ],
+      "count": 18,
+      "pages": [
+        {
+          "lesson": 7,
+          "lessonLabel": "Lección 7 — Letra M",
+          "sequence": "first-consonants",
+          "pageNumber": 20,
+          "route": "/cartilla/leccion/7",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=7",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 8,
+          "lessonLabel": "Lección 8 — Letra P",
+          "sequence": "first-consonants",
+          "pageNumber": 24,
+          "route": "/cartilla/leccion/8",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=8",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 9,
+          "lessonLabel": "Lección 9 — Letra S",
+          "sequence": "first-consonants",
+          "pageNumber": 28,
+          "route": "/cartilla/leccion/9",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=9",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 10,
+          "lessonLabel": "Lección 10 — Letra T",
+          "sequence": "first-consonants",
+          "pageNumber": 32,
+          "route": "/cartilla/leccion/10",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=10",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 11,
+          "lessonLabel": "Lección 11 — Letra D",
+          "sequence": "first-consonants",
+          "pageNumber": 36,
+          "route": "/cartilla/leccion/11",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=11",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 12,
+          "lessonLabel": "Lección 12 — Letra L",
+          "sequence": "first-consonants",
+          "pageNumber": 40,
+          "route": "/cartilla/leccion/12",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=12",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 13,
+          "lessonLabel": "Lección 13 — Letra N",
+          "sequence": "first-consonants",
+          "pageNumber": 44,
+          "route": "/cartilla/leccion/13",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=13",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 14,
+          "lessonLabel": "Lección 14 — Letra Ñ",
+          "sequence": "first-consonants",
+          "pageNumber": 48,
+          "route": "/cartilla/leccion/14",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=14",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 15,
+          "lessonLabel": "Lección 15 — Letra B",
+          "sequence": "later-consonants",
+          "pageNumber": 52,
+          "route": "/cartilla/leccion/15",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=15",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 16,
+          "lessonLabel": "Lección 16 — Letra V",
+          "sequence": "later-consonants",
+          "pageNumber": 56,
+          "route": "/cartilla/leccion/16",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=16",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 17,
+          "lessonLabel": "Lección 17 — Letra R",
+          "sequence": "later-consonants",
+          "pageNumber": 60,
+          "route": "/cartilla/leccion/17",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=17",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 18,
+          "lessonLabel": "Lección 18 — Letra RR",
+          "sequence": "later-consonants",
+          "pageNumber": 64,
+          "route": "/cartilla/leccion/18",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=18",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 19,
+          "lessonLabel": "Lección 19 — Letra G",
+          "sequence": "later-consonants",
+          "pageNumber": 68,
+          "route": "/cartilla/leccion/19",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=19",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 20,
+          "lessonLabel": "Lección 20 — Letra F",
+          "sequence": "later-consonants",
+          "pageNumber": 72,
+          "route": "/cartilla/leccion/20",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=20",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 21,
+          "lessonLabel": "Lección 21 — Letra J",
+          "sequence": "later-consonants",
+          "pageNumber": 76,
+          "route": "/cartilla/leccion/21",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=21",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 22,
+          "lessonLabel": "Lección 22 — Letra C",
+          "sequence": "combinations",
+          "pageNumber": 80,
+          "route": "/cartilla/leccion/22",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=22",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 23,
+          "lessonLabel": "Lección 23 — Letra Y",
+          "sequence": "combinations",
+          "pageNumber": 84,
+          "route": "/cartilla/leccion/23",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=23",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 24,
+          "lessonLabel": "Lección 24 — Letra Z",
+          "sequence": "combinations",
+          "pageNumber": 88,
+          "route": "/cartilla/leccion/24",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=24",
+          "usesSharedContractKernel": true,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "read-word-list": {
+      "id": "read-word-list",
+      "label": "Read Word List & Sentences",
+      "spanishLabel": "Lee las sílabas, palabras y oraciones",
+      "surface": "workbook",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "FaithfulPageRenderer static reading surface (ContractPencilCursor + Curl B)",
+      "modelPages": [
+        {
+          "sequence": "first-consonants",
+          "lesson": 7,
+          "page": 21,
+          "route": "/cartilla/leccion/7"
+        },
+        {
+          "sequence": "later-consonants",
+          "lesson": 15,
+          "page": 53,
+          "route": "/cartilla/leccion/15"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 22,
+          "page": 81,
+          "route": "/cartilla/leccion/22"
+        }
+      ],
+      "count": 18,
+      "pages": [
+        {
+          "lesson": 7,
+          "lessonLabel": "Lección 7 — Letra M",
+          "sequence": "first-consonants",
+          "pageNumber": 21,
+          "route": "/cartilla/leccion/7",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=7",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 8,
+          "lessonLabel": "Lección 8 — Letra P",
+          "sequence": "first-consonants",
+          "pageNumber": 25,
+          "route": "/cartilla/leccion/8",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=8",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 9,
+          "lessonLabel": "Lección 9 — Letra S",
+          "sequence": "first-consonants",
+          "pageNumber": 29,
+          "route": "/cartilla/leccion/9",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=9",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 10,
+          "lessonLabel": "Lección 10 — Letra T",
+          "sequence": "first-consonants",
+          "pageNumber": 33,
+          "route": "/cartilla/leccion/10",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=10",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 11,
+          "lessonLabel": "Lección 11 — Letra D",
+          "sequence": "first-consonants",
+          "pageNumber": 37,
+          "route": "/cartilla/leccion/11",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=11",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 12,
+          "lessonLabel": "Lección 12 — Letra L",
+          "sequence": "first-consonants",
+          "pageNumber": 41,
+          "route": "/cartilla/leccion/12",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=12",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 13,
+          "lessonLabel": "Lección 13 — Letra N",
+          "sequence": "first-consonants",
+          "pageNumber": 45,
+          "route": "/cartilla/leccion/13",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=13",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 14,
+          "lessonLabel": "Lección 14 — Letra Ñ",
+          "sequence": "first-consonants",
+          "pageNumber": 49,
+          "route": "/cartilla/leccion/14",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=14",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 15,
+          "lessonLabel": "Lección 15 — Letra B",
+          "sequence": "later-consonants",
+          "pageNumber": 53,
+          "route": "/cartilla/leccion/15",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=15",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 16,
+          "lessonLabel": "Lección 16 — Letra V",
+          "sequence": "later-consonants",
+          "pageNumber": 57,
+          "route": "/cartilla/leccion/16",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=16",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 17,
+          "lessonLabel": "Lección 17 — Letra R",
+          "sequence": "later-consonants",
+          "pageNumber": 61,
+          "route": "/cartilla/leccion/17",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=17",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 18,
+          "lessonLabel": "Lección 18 — Letra RR",
+          "sequence": "later-consonants",
+          "pageNumber": 65,
+          "route": "/cartilla/leccion/18",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=18",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 19,
+          "lessonLabel": "Lección 19 — Letra G",
+          "sequence": "later-consonants",
+          "pageNumber": 69,
+          "route": "/cartilla/leccion/19",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=19",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 20,
+          "lessonLabel": "Lección 20 — Letra F",
+          "sequence": "later-consonants",
+          "pageNumber": 73,
+          "route": "/cartilla/leccion/20",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=20",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 21,
+          "lessonLabel": "Lección 21 — Letra J",
+          "sequence": "later-consonants",
+          "pageNumber": 77,
+          "route": "/cartilla/leccion/21",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=21",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 22,
+          "lessonLabel": "Lección 22 — Letra C",
+          "sequence": "combinations",
+          "pageNumber": 81,
+          "route": "/cartilla/leccion/22",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=22",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 23,
+          "lessonLabel": "Lección 23 — Letra Y",
+          "sequence": "combinations",
+          "pageNumber": 85,
+          "route": "/cartilla/leccion/23",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=23",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 24,
+          "lessonLabel": "Lección 24 — Letra Z",
+          "sequence": "combinations",
+          "pageNumber": 89,
+          "route": "/cartilla/leccion/24",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=24",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "fill-blank-and-write": {
+      "id": "fill-blank-and-write",
+      "label": "Fill Blank + Sentence Writing",
+      "spanishLabel": "Completa la palabra y escribe una oración",
+      "surface": "workbook",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "InteractiveFillInBlank + WorkbookWritingResponse",
+      "modelPages": [
+        {
+          "sequence": "first-consonants",
+          "lesson": 7,
+          "page": 22,
+          "route": "/cartilla/leccion/7"
+        },
+        {
+          "sequence": "later-consonants",
+          "lesson": 15,
+          "page": 54,
+          "route": "/cartilla/leccion/15"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 22,
+          "page": 82,
+          "route": "/cartilla/leccion/22"
+        }
+      ],
+      "count": 17,
+      "pages": [
+        {
+          "lesson": 7,
+          "lessonLabel": "Lección 7 — Letra M",
+          "sequence": "first-consonants",
+          "pageNumber": 22,
+          "route": "/cartilla/leccion/7",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=7",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 8,
+          "lessonLabel": "Lección 8 — Letra P",
+          "sequence": "first-consonants",
+          "pageNumber": 26,
+          "route": "/cartilla/leccion/8",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=8",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 9,
+          "lessonLabel": "Lección 9 — Letra S",
+          "sequence": "first-consonants",
+          "pageNumber": 30,
+          "route": "/cartilla/leccion/9",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=9",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 10,
+          "lessonLabel": "Lección 10 — Letra T",
+          "sequence": "first-consonants",
+          "pageNumber": 34,
+          "route": "/cartilla/leccion/10",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=10",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 11,
+          "lessonLabel": "Lección 11 — Letra D",
+          "sequence": "first-consonants",
+          "pageNumber": 38,
+          "route": "/cartilla/leccion/11",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=11",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 12,
+          "lessonLabel": "Lección 12 — Letra L",
+          "sequence": "first-consonants",
+          "pageNumber": 42,
+          "route": "/cartilla/leccion/12",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=12",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 13,
+          "lessonLabel": "Lección 13 — Letra N",
+          "sequence": "first-consonants",
+          "pageNumber": 46,
+          "route": "/cartilla/leccion/13",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=13",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 14,
+          "lessonLabel": "Lección 14 — Letra Ñ",
+          "sequence": "first-consonants",
+          "pageNumber": 50,
+          "route": "/cartilla/leccion/14",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=14",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 15,
+          "lessonLabel": "Lección 15 — Letra B",
+          "sequence": "later-consonants",
+          "pageNumber": 54,
+          "route": "/cartilla/leccion/15",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=15",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 16,
+          "lessonLabel": "Lección 16 — Letra V",
+          "sequence": "later-consonants",
+          "pageNumber": 58,
+          "route": "/cartilla/leccion/16",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=16",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 17,
+          "lessonLabel": "Lección 17 — Letra R",
+          "sequence": "later-consonants",
+          "pageNumber": 62,
+          "route": "/cartilla/leccion/17",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=17",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 18,
+          "lessonLabel": "Lección 18 — Letra RR",
+          "sequence": "later-consonants",
+          "pageNumber": 66,
+          "route": "/cartilla/leccion/18",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=18",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 19,
+          "lessonLabel": "Lección 19 — Letra G",
+          "sequence": "later-consonants",
+          "pageNumber": 70,
+          "route": "/cartilla/leccion/19",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=19",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 20,
+          "lessonLabel": "Lección 20 — Letra F",
+          "sequence": "later-consonants",
+          "pageNumber": 74,
+          "route": "/cartilla/leccion/20",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=20",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 21,
+          "lessonLabel": "Lección 21 — Letra J",
+          "sequence": "later-consonants",
+          "pageNumber": 78,
+          "route": "/cartilla/leccion/21",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=21",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 22,
+          "lessonLabel": "Lección 22 — Letra C",
+          "sequence": "combinations",
+          "pageNumber": 82,
+          "route": "/cartilla/leccion/22",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=22",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 24,
+          "lessonLabel": "Lección 24 — Letra Z",
+          "sequence": "combinations",
+          "pageNumber": 90,
+          "route": "/cartilla/leccion/24",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=24",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "source-blocked": {
+      "id": "source-blocked",
+      "label": "Source Blocked (Missing Scan)",
+      "spanishLabel": "Páginas faltantes en el escaneo (86–87)",
+      "surface": "workbook",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "SOURCE_BLOCKED notice",
+      "modelPages": [],
+      "count": 2,
+      "pages": [
+        {
+          "lesson": 23,
+          "lessonLabel": "Lección 23 — Letra Y",
+          "sequence": "combinations",
+          "pageNumber": 86,
+          "route": "/cartilla/leccion/23",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=23",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "SOURCE_BLOCKED"
+        },
+        {
+          "lesson": 24,
+          "lessonLabel": "Lección 24 — Letra Z",
+          "sequence": "combinations",
+          "pageNumber": 87,
+          "route": "/cartilla/leccion/24",
+          "flipchartRoute": "/cartilla/teacher/flipchart?lesson=24",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "SOURCE_BLOCKED"
+        }
+      ]
+    },
+    "flipchart-frontmatter": {
+      "id": "flipchart-frontmatter",
+      "label": "Flip Chart — Frontmatter",
+      "spanishLabel": "Rotafolio — Portada y créditos",
+      "surface": "flipchart",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "FlipchartHdPanel (Flip B top-spiral)",
+      "modelPages": [
+        {
+          "sequence": "frontmatter",
+          "lesson": 0,
+          "page": 1,
+          "route": "/cartilla/teacher/flipchart"
+        }
+      ],
+      "count": 2,
+      "pages": [
+        {
+          "lesson": 0,
+          "lessonLabel": "Portada / Preliminares",
+          "sequence": "frontmatter",
+          "pageNumber": 1,
+          "route": "/cartilla/teacher/flipchart",
+          "presentarRoute": null,
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 0,
+          "lessonLabel": "Portada / Preliminares",
+          "sequence": "frontmatter",
+          "pageNumber": 2,
+          "route": "/cartilla/teacher/flipchart",
+          "presentarRoute": null,
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "flipchart-vowel-header": {
+      "id": "flipchart-vowel-header",
+      "label": "Flip Chart — Vowel Intro & Vocab",
+      "spanishLabel": "Rotafolio — Presentación de vocales",
+      "surface": "flipchart",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "FlipchartHdPanel (Flip B top-spiral)",
+      "modelPages": [
+        {
+          "sequence": "intro",
+          "lesson": 1,
+          "page": 3,
+          "route": "/cartilla/teacher/flipchart?lesson=1"
+        },
+        {
+          "sequence": "vowels",
+          "lesson": 3,
+          "page": 5,
+          "route": "/cartilla/teacher/flipchart?lesson=3",
+          "approvedModel": true
+        }
+      ],
+      "count": 6,
+      "pages": [
+        {
+          "lesson": 1,
+          "lessonLabel": "Lección 1 — Las vocales (O A E I U)",
+          "sequence": "intro",
+          "pageNumber": 3,
+          "route": "/cartilla/teacher/flipchart?lesson=1",
+          "presentarRoute": "/cartilla/presentar/1",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 2,
+          "lessonLabel": "Lección 2 — Vocal Oo",
+          "sequence": "vowels",
+          "pageNumber": 4,
+          "route": "/cartilla/teacher/flipchart?lesson=2",
+          "presentarRoute": "/cartilla/presentar/2",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 3,
+          "lessonLabel": "Lección 3 — Vocal Aa",
+          "sequence": "vowels",
+          "pageNumber": 5,
+          "route": "/cartilla/teacher/flipchart?lesson=3",
+          "presentarRoute": "/cartilla/presentar/3",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 4,
+          "lessonLabel": "Lección 4 — Vocal Ee",
+          "sequence": "vowels",
+          "pageNumber": 6,
+          "route": "/cartilla/teacher/flipchart?lesson=4",
+          "presentarRoute": "/cartilla/presentar/4",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 5,
+          "lessonLabel": "Lección 5 — Vocal Ii",
+          "sequence": "vowels",
+          "pageNumber": 7,
+          "route": "/cartilla/teacher/flipchart?lesson=5",
+          "presentarRoute": "/cartilla/presentar/5",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 6,
+          "lessonLabel": "Lección 6 — Vocal Uu",
+          "sequence": "vowels",
+          "pageNumber": 8,
+          "route": "/cartilla/teacher/flipchart?lesson=6",
+          "presentarRoute": "/cartilla/presentar/6",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "flipchart-consonant-vocab": {
+      "id": "flipchart-consonant-vocab",
+      "label": "Flip Chart — Consonant Intro & Vocab",
+      "spanishLabel": "Rotafolio — Presentación de consonante y vocabulario",
+      "surface": "flipchart",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "FlipchartHdPanel (Flip B top-spiral)",
+      "modelPages": [
+        {
+          "sequence": "first-consonants",
+          "lesson": 7,
+          "page": 9,
+          "route": "/cartilla/teacher/flipchart?lesson=7"
+        },
+        {
+          "sequence": "later-consonants",
+          "lesson": 15,
+          "page": 33,
+          "route": "/cartilla/teacher/flipchart?lesson=15"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 22,
+          "page": 54,
+          "route": "/cartilla/teacher/flipchart?lesson=22"
+        }
+      ],
+      "count": 18,
+      "pages": [
+        {
+          "lesson": 7,
+          "lessonLabel": "Lección 7 — Letra M",
+          "sequence": "first-consonants",
+          "pageNumber": 9,
+          "route": "/cartilla/teacher/flipchart?lesson=7",
+          "presentarRoute": "/cartilla/presentar/7",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 8,
+          "lessonLabel": "Lección 8 — Letra P",
+          "sequence": "first-consonants",
+          "pageNumber": 12,
+          "route": "/cartilla/teacher/flipchart?lesson=8",
+          "presentarRoute": "/cartilla/presentar/8",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 9,
+          "lessonLabel": "Lección 9 — Letra S",
+          "sequence": "first-consonants",
+          "pageNumber": 15,
+          "route": "/cartilla/teacher/flipchart?lesson=9",
+          "presentarRoute": "/cartilla/presentar/9",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 10,
+          "lessonLabel": "Lección 10 — Letra T",
+          "sequence": "first-consonants",
+          "pageNumber": 18,
+          "route": "/cartilla/teacher/flipchart?lesson=10",
+          "presentarRoute": "/cartilla/presentar/10",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 11,
+          "lessonLabel": "Lección 11 — Letra D",
+          "sequence": "first-consonants",
+          "pageNumber": 21,
+          "route": "/cartilla/teacher/flipchart?lesson=11",
+          "presentarRoute": "/cartilla/presentar/11",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 12,
+          "lessonLabel": "Lección 12 — Letra L",
+          "sequence": "first-consonants",
+          "pageNumber": 24,
+          "route": "/cartilla/teacher/flipchart?lesson=12",
+          "presentarRoute": "/cartilla/presentar/12",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 13,
+          "lessonLabel": "Lección 13 — Letra N",
+          "sequence": "first-consonants",
+          "pageNumber": 27,
+          "route": "/cartilla/teacher/flipchart?lesson=13",
+          "presentarRoute": "/cartilla/presentar/13",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 14,
+          "lessonLabel": "Lección 14 — Letra Ñ",
+          "sequence": "first-consonants",
+          "pageNumber": 30,
+          "route": "/cartilla/teacher/flipchart?lesson=14",
+          "presentarRoute": "/cartilla/presentar/14",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 15,
+          "lessonLabel": "Lección 15 — Letra B",
+          "sequence": "later-consonants",
+          "pageNumber": 33,
+          "route": "/cartilla/teacher/flipchart?lesson=15",
+          "presentarRoute": "/cartilla/presentar/15",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 16,
+          "lessonLabel": "Lección 16 — Letra V",
+          "sequence": "later-consonants",
+          "pageNumber": 36,
+          "route": "/cartilla/teacher/flipchart?lesson=16",
+          "presentarRoute": "/cartilla/presentar/16",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 17,
+          "lessonLabel": "Lección 17 — Letra R",
+          "sequence": "later-consonants",
+          "pageNumber": 39,
+          "route": "/cartilla/teacher/flipchart?lesson=17",
+          "presentarRoute": "/cartilla/presentar/17",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 18,
+          "lessonLabel": "Lección 18 — Letra RR",
+          "sequence": "later-consonants",
+          "pageNumber": 42,
+          "route": "/cartilla/teacher/flipchart?lesson=18",
+          "presentarRoute": "/cartilla/presentar/18",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 19,
+          "lessonLabel": "Lección 19 — Letra G",
+          "sequence": "later-consonants",
+          "pageNumber": 45,
+          "route": "/cartilla/teacher/flipchart?lesson=19",
+          "presentarRoute": "/cartilla/presentar/19",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 20,
+          "lessonLabel": "Lección 20 — Letra F",
+          "sequence": "later-consonants",
+          "pageNumber": 48,
+          "route": "/cartilla/teacher/flipchart?lesson=20",
+          "presentarRoute": "/cartilla/presentar/20",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 21,
+          "lessonLabel": "Lección 21 — Letra J",
+          "sequence": "later-consonants",
+          "pageNumber": 51,
+          "route": "/cartilla/teacher/flipchart?lesson=21",
+          "presentarRoute": "/cartilla/presentar/21",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 22,
+          "lessonLabel": "Lección 22 — Letra C",
+          "sequence": "combinations",
+          "pageNumber": 54,
+          "route": "/cartilla/teacher/flipchart?lesson=22",
+          "presentarRoute": "/cartilla/presentar/22",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 23,
+          "lessonLabel": "Lección 23 — Letra Y",
+          "sequence": "combinations",
+          "pageNumber": 57,
+          "route": "/cartilla/teacher/flipchart?lesson=23",
+          "presentarRoute": "/cartilla/presentar/23",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 24,
+          "lessonLabel": "Lección 24 — Letra Z",
+          "sequence": "combinations",
+          "pageNumber": 60,
+          "route": "/cartilla/teacher/flipchart?lesson=24",
+          "presentarRoute": "/cartilla/presentar/24",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "flipchart-syllable-drill": {
+      "id": "flipchart-syllable-drill",
+      "label": "Flip Chart — Syllable & Word Drill",
+      "spanishLabel": "Rotafolio — Práctica de sílabas y palabras",
+      "surface": "flipchart",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "FlipchartHdPanel (Flip B top-spiral)",
+      "modelPages": [
+        {
+          "sequence": "first-consonants",
+          "lesson": 7,
+          "page": 10,
+          "route": "/cartilla/teacher/flipchart?lesson=7"
+        },
+        {
+          "sequence": "later-consonants",
+          "lesson": 15,
+          "page": 34,
+          "route": "/cartilla/teacher/flipchart?lesson=15"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 22,
+          "page": 55,
+          "route": "/cartilla/teacher/flipchart?lesson=22"
+        }
+      ],
+      "count": 18,
+      "pages": [
+        {
+          "lesson": 7,
+          "lessonLabel": "Lección 7 — Letra M",
+          "sequence": "first-consonants",
+          "pageNumber": 10,
+          "route": "/cartilla/teacher/flipchart?lesson=7",
+          "presentarRoute": "/cartilla/presentar/7",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 8,
+          "lessonLabel": "Lección 8 — Letra P",
+          "sequence": "first-consonants",
+          "pageNumber": 13,
+          "route": "/cartilla/teacher/flipchart?lesson=8",
+          "presentarRoute": "/cartilla/presentar/8",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 9,
+          "lessonLabel": "Lección 9 — Letra S",
+          "sequence": "first-consonants",
+          "pageNumber": 16,
+          "route": "/cartilla/teacher/flipchart?lesson=9",
+          "presentarRoute": "/cartilla/presentar/9",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 10,
+          "lessonLabel": "Lección 10 — Letra T",
+          "sequence": "first-consonants",
+          "pageNumber": 19,
+          "route": "/cartilla/teacher/flipchart?lesson=10",
+          "presentarRoute": "/cartilla/presentar/10",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 11,
+          "lessonLabel": "Lección 11 — Letra D",
+          "sequence": "first-consonants",
+          "pageNumber": 22,
+          "route": "/cartilla/teacher/flipchart?lesson=11",
+          "presentarRoute": "/cartilla/presentar/11",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 12,
+          "lessonLabel": "Lección 12 — Letra L",
+          "sequence": "first-consonants",
+          "pageNumber": 25,
+          "route": "/cartilla/teacher/flipchart?lesson=12",
+          "presentarRoute": "/cartilla/presentar/12",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 13,
+          "lessonLabel": "Lección 13 — Letra N",
+          "sequence": "first-consonants",
+          "pageNumber": 28,
+          "route": "/cartilla/teacher/flipchart?lesson=13",
+          "presentarRoute": "/cartilla/presentar/13",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 14,
+          "lessonLabel": "Lección 14 — Letra Ñ",
+          "sequence": "first-consonants",
+          "pageNumber": 31,
+          "route": "/cartilla/teacher/flipchart?lesson=14",
+          "presentarRoute": "/cartilla/presentar/14",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 15,
+          "lessonLabel": "Lección 15 — Letra B",
+          "sequence": "later-consonants",
+          "pageNumber": 34,
+          "route": "/cartilla/teacher/flipchart?lesson=15",
+          "presentarRoute": "/cartilla/presentar/15",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 16,
+          "lessonLabel": "Lección 16 — Letra V",
+          "sequence": "later-consonants",
+          "pageNumber": 37,
+          "route": "/cartilla/teacher/flipchart?lesson=16",
+          "presentarRoute": "/cartilla/presentar/16",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 17,
+          "lessonLabel": "Lección 17 — Letra R",
+          "sequence": "later-consonants",
+          "pageNumber": 40,
+          "route": "/cartilla/teacher/flipchart?lesson=17",
+          "presentarRoute": "/cartilla/presentar/17",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 18,
+          "lessonLabel": "Lección 18 — Letra RR",
+          "sequence": "later-consonants",
+          "pageNumber": 43,
+          "route": "/cartilla/teacher/flipchart?lesson=18",
+          "presentarRoute": "/cartilla/presentar/18",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 19,
+          "lessonLabel": "Lección 19 — Letra G",
+          "sequence": "later-consonants",
+          "pageNumber": 46,
+          "route": "/cartilla/teacher/flipchart?lesson=19",
+          "presentarRoute": "/cartilla/presentar/19",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 20,
+          "lessonLabel": "Lección 20 — Letra F",
+          "sequence": "later-consonants",
+          "pageNumber": 49,
+          "route": "/cartilla/teacher/flipchart?lesson=20",
+          "presentarRoute": "/cartilla/presentar/20",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 21,
+          "lessonLabel": "Lección 21 — Letra J",
+          "sequence": "later-consonants",
+          "pageNumber": 52,
+          "route": "/cartilla/teacher/flipchart?lesson=21",
+          "presentarRoute": "/cartilla/presentar/21",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 22,
+          "lessonLabel": "Lección 22 — Letra C",
+          "sequence": "combinations",
+          "pageNumber": 55,
+          "route": "/cartilla/teacher/flipchart?lesson=22",
+          "presentarRoute": "/cartilla/presentar/22",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 23,
+          "lessonLabel": "Lección 23 — Letra Y",
+          "sequence": "combinations",
+          "pageNumber": 58,
+          "route": "/cartilla/teacher/flipchart?lesson=23",
+          "presentarRoute": "/cartilla/presentar/23",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 24,
+          "lessonLabel": "Lección 24 — Letra Z",
+          "sequence": "combinations",
+          "pageNumber": 61,
+          "route": "/cartilla/teacher/flipchart?lesson=24",
+          "presentarRoute": "/cartilla/presentar/24",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "flipchart-reading-panel": {
+      "id": "flipchart-reading-panel",
+      "label": "Flip Chart — Reading Verse / Scene",
+      "spanishLabel": "Rotafolio — Lámina de lectura y escena",
+      "surface": "flipchart",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "FlipchartHdPanel (Flip B top-spiral)",
+      "modelPages": [
+        {
+          "sequence": "first-consonants",
+          "lesson": 7,
+          "page": 11,
+          "route": "/cartilla/teacher/flipchart?lesson=7"
+        },
+        {
+          "sequence": "later-consonants",
+          "lesson": 15,
+          "page": 35,
+          "route": "/cartilla/teacher/flipchart?lesson=15"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 22,
+          "page": 56,
+          "route": "/cartilla/teacher/flipchart?lesson=22"
+        }
+      ],
+      "count": 16,
+      "pages": [
+        {
+          "lesson": 7,
+          "lessonLabel": "Lección 7 — Letra M",
+          "sequence": "first-consonants",
+          "pageNumber": 11,
+          "route": "/cartilla/teacher/flipchart?lesson=7",
+          "presentarRoute": "/cartilla/presentar/7",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 8,
+          "lessonLabel": "Lección 8 — Letra P",
+          "sequence": "first-consonants",
+          "pageNumber": 14,
+          "route": "/cartilla/teacher/flipchart?lesson=8",
+          "presentarRoute": "/cartilla/presentar/8",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 9,
+          "lessonLabel": "Lección 9 — Letra S",
+          "sequence": "first-consonants",
+          "pageNumber": 17,
+          "route": "/cartilla/teacher/flipchart?lesson=9",
+          "presentarRoute": "/cartilla/presentar/9",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 10,
+          "lessonLabel": "Lección 10 — Letra T",
+          "sequence": "first-consonants",
+          "pageNumber": 20,
+          "route": "/cartilla/teacher/flipchart?lesson=10",
+          "presentarRoute": "/cartilla/presentar/10",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 11,
+          "lessonLabel": "Lección 11 — Letra D",
+          "sequence": "first-consonants",
+          "pageNumber": 23,
+          "route": "/cartilla/teacher/flipchart?lesson=11",
+          "presentarRoute": "/cartilla/presentar/11",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 12,
+          "lessonLabel": "Lección 12 — Letra L",
+          "sequence": "first-consonants",
+          "pageNumber": 26,
+          "route": "/cartilla/teacher/flipchart?lesson=12",
+          "presentarRoute": "/cartilla/presentar/12",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 13,
+          "lessonLabel": "Lección 13 — Letra N",
+          "sequence": "first-consonants",
+          "pageNumber": 29,
+          "route": "/cartilla/teacher/flipchart?lesson=13",
+          "presentarRoute": "/cartilla/presentar/13",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 14,
+          "lessonLabel": "Lección 14 — Letra Ñ",
+          "sequence": "first-consonants",
+          "pageNumber": 32,
+          "route": "/cartilla/teacher/flipchart?lesson=14",
+          "presentarRoute": "/cartilla/presentar/14",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 15,
+          "lessonLabel": "Lección 15 — Letra B",
+          "sequence": "later-consonants",
+          "pageNumber": 35,
+          "route": "/cartilla/teacher/flipchart?lesson=15",
+          "presentarRoute": "/cartilla/presentar/15",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 16,
+          "lessonLabel": "Lección 16 — Letra V",
+          "sequence": "later-consonants",
+          "pageNumber": 38,
+          "route": "/cartilla/teacher/flipchart?lesson=16",
+          "presentarRoute": "/cartilla/presentar/16",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 17,
+          "lessonLabel": "Lección 17 — Letra R",
+          "sequence": "later-consonants",
+          "pageNumber": 41,
+          "route": "/cartilla/teacher/flipchart?lesson=17",
+          "presentarRoute": "/cartilla/presentar/17",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 19,
+          "lessonLabel": "Lección 19 — Letra G",
+          "sequence": "later-consonants",
+          "pageNumber": 47,
+          "route": "/cartilla/teacher/flipchart?lesson=19",
+          "presentarRoute": "/cartilla/presentar/19",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 20,
+          "lessonLabel": "Lección 20 — Letra F",
+          "sequence": "later-consonants",
+          "pageNumber": 50,
+          "route": "/cartilla/teacher/flipchart?lesson=20",
+          "presentarRoute": "/cartilla/presentar/20",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 21,
+          "lessonLabel": "Lección 21 — Letra J",
+          "sequence": "later-consonants",
+          "pageNumber": 53,
+          "route": "/cartilla/teacher/flipchart?lesson=21",
+          "presentarRoute": "/cartilla/presentar/21",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 22,
+          "lessonLabel": "Lección 22 — Letra C",
+          "sequence": "combinations",
+          "pageNumber": 56,
+          "route": "/cartilla/teacher/flipchart?lesson=22",
+          "presentarRoute": "/cartilla/presentar/22",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 23,
+          "lessonLabel": "Lección 23 — Letra Y",
+          "sequence": "combinations",
+          "pageNumber": 59,
+          "route": "/cartilla/teacher/flipchart?lesson=23",
+          "presentarRoute": "/cartilla/presentar/23",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    },
+    "flipchart-story-letter": {
+      "id": "flipchart-story-letter",
+      "label": "Flip Chart — Special Story / Letter",
+      "spanishLabel": "Rotafolio — Lámina especial de historia (rr, z)",
+      "surface": "flipchart",
+      "usesSharedContractKernel": false,
+      "kernelComponent": "FlipchartHdPanel (Flip B top-spiral)",
+      "modelPages": [
+        {
+          "sequence": "later-consonants",
+          "lesson": 18,
+          "page": 44,
+          "route": "/cartilla/teacher/flipchart?lesson=18"
+        },
+        {
+          "sequence": "combinations",
+          "lesson": 24,
+          "page": 62,
+          "route": "/cartilla/teacher/flipchart?lesson=24"
+        }
+      ],
+      "count": 2,
+      "pages": [
+        {
+          "lesson": 18,
+          "lessonLabel": "Lección 18 — Letra RR",
+          "sequence": "later-consonants",
+          "pageNumber": 44,
+          "route": "/cartilla/teacher/flipchart?lesson=18",
+          "presentarRoute": "/cartilla/presentar/18",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        },
+        {
+          "lesson": 24,
+          "lessonLabel": "Lección 24 — Letra Z",
+          "sequence": "combinations",
+          "pageNumber": 62,
+          "route": "/cartilla/teacher/flipchart?lesson=24",
+          "presentarRoute": "/cartilla/presentar/24",
+          "usesSharedContractKernel": false,
+          "sourceStatus": "AVAILABLE"
+        }
+      ]
+    }
+  }
+}
