@@ -295,6 +295,10 @@ export function CowGame({ content }: { content: GameContent }) {
   }, [finished]);
 
   const reset = () => {
+    // A delivery may still have callbacks scheduled; cancel them before
+    // clearing state so a previous move cannot reappear after a restart.
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current.length = 0;
     setPlaced({});
     setActive(null);
     setOpenGate({});
@@ -302,6 +306,8 @@ export function CowGame({ content }: { content: GameContent }) {
     setTries(0);
     setSelCow(null);
     setSelSlot(null);
+    setMessage("");
+    setCheer(null);
     setFlips(COW_SYLLABLES.map(() => 1));
   };
 
