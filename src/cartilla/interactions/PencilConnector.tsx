@@ -454,13 +454,13 @@ export function DirectPencilConnector({
   );
 
   const attemptConnect = useCallback(
-    (target: PencilTarget) => {
+    (target: PencilTarget, isFromDrag = false) => {
       if (marked.has(target.id) || holdingLines.some((h) => h.key === target.id) || completed) return;
 
       const isCorrect = Boolean(target.correct);
 
       if (isCorrect) {
-        if (contract && !reducedMotion) {
+        if (contract && !reducedMotion && isFromDrag) {
           const from = centerPt;
           const to = getTargetCenter(target.id);
           setHoldingLines((lines) => [...lines, { key: target.id, from, to }]);
@@ -587,7 +587,7 @@ export function DirectPencilConnector({
       const left = targets.find((target) => target.id === sourceId);
       if (left) attemptPairConnect(left, releasedTarget);
     } else if (sourceId === "center") {
-      attemptConnect(releasedTarget);
+      attemptConnect(releasedTarget, true);
     }
   };
 
@@ -602,7 +602,7 @@ export function DirectPencilConnector({
 
   const handleTargetClick = (target: PencilTarget) => {
     if (marked.has(target.id) || completed) return;
-    attemptConnect(target);
+    attemptConnect(target, false);
     setSelectedStart(false);
   };
 
@@ -761,12 +761,12 @@ export function DirectPencilConnector({
                 y1={activeStartPt.y}
                 x2={dragPt.x}
                 y2={dragPt.y}
-                stroke={PENCIL_CONTRACT.charcoal}
+                stroke="#3a3a38"
                 strokeWidth={5}
                 strokeLinecap="round"
                 filter={`url(#${shadowUid})`}
               />
-              <circle cx={dragPt.x} cy={dragPt.y} r={5} fill={PENCIL_CONTRACT.charcoal} />
+              <circle cx={dragPt.x} cy={dragPt.y} r={5} fill="#3a3a38" />
               {/* Wooden Pencil at Tip (in contract mode, ContractPencilCursor is the single wooden tip) */}
               {!contract && hasPencilTurn && !wrongLine && !reducedMotion && (
                 <g
