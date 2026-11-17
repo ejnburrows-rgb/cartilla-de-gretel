@@ -12,7 +12,7 @@ import { Check } from "lucide-react";
 import { useActivityEvents } from "@/lib/activity-events";
 
 
-const CRAYON_COLORS = ["#1f2937", "#dc2626", "#2563eb", "#16a34a", "#f59e0b", "#9333ea"];
+const CRAYON_COLORS = ["#3a3a38", "#dc2626", "#2563eb", "#16a34a", "#f59e0b", "#9333ea"];
 
 interface DrawBoxCanvasProps {
   regionId: string;
@@ -70,8 +70,17 @@ export function DrawBoxCanvas({ regionId, hint, lessonId, retainCompletedImage =
   }, [completedImage]);
 
   const getPoint = (e: React.PointerEvent<HTMLCanvasElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    const canvas = e.currentTarget;
+    const rect = canvas.getBoundingClientRect();
+    const ratio = window.devicePixelRatio || 1;
+    const logicalW = canvas.width / ratio;
+    const logicalH = canvas.height / ratio;
+    const scaleX = rect.width > 0 && logicalW > 0 ? logicalW / rect.width : 1;
+    const scaleY = rect.height > 0 && logicalH > 0 ? logicalH / rect.height : 1;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY,
+    };
   };
 
   const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {

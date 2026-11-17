@@ -9,6 +9,9 @@ export type CursorMode = "normal" | "tip" | "contract";
 export const DEFAULT_CURSOR_MODE: CursorMode = "contract";
 export const CURSOR_MODE_KEY = "cartilla:cursor-mode";
 export const PENCIL_TIP_SRC = "/cartilla/images/ui/owner-pencil-tip.svg";
+export const PENCIL_TIP_VIEWBOX = { width: 388, height: 322 } as const;
+export const ERASER_CURSOR_SRC = "/cartilla/images/ui/owner-eraser.svg";
+export const ERASER_VIEWBOX = { width: 176, height: 112 } as const;
 let lastPointer: { x: number; y: number } | null = null;
 export function recordPointer(x: number, y: number) { lastPointer = { x, y }; }
 export function getLastPointer() { return lastPointer; }

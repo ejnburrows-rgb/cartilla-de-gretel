@@ -112,6 +112,7 @@ html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .fp-trace .workboo
   top: 0;
   z-index: 10000;
   pointer-events: none;
+  overflow: visible;
   opacity: 0;
   transition: opacity 120ms linear;
   will-change: transform;
@@ -126,14 +127,24 @@ html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .fp-trace .workboo
 }
 @media (hover: hover) and (pointer: fine) {
   html.student-pencil.cartilla-cursor-contract .native-lesson-viewer,
-  html.student-pencil.cartilla-cursor-contract .native-lesson-viewer * { cursor: none !important; }
+  html.student-pencil.cartilla-cursor-contract .native-lesson-viewer *,
+  html.cartilla-cursor-contract [data-pencil-cursor-host="true"],
+  html.cartilla-cursor-contract [data-pencil-cursor-host="true"] * { cursor: none !important; }
 }
-html.student-pencil.cartilla-cursor-contract .native-lesson-viewer .native-lesson-viewer__nav,
-html.student-pencil.cartilla-cursor-contract .native-lesson-viewer .native-lesson-viewer__nav * { cursor: pointer !important; }
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer .native-lesson-viewer__navigation,
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer .native-lesson-viewer__navigation * { cursor: pointer !important; }
 html.student-pencil.cartilla-cursor-contract .native-lesson-viewer input,
-html.student-pencil.cartilla-cursor-contract .native-lesson-viewer textarea { cursor: text !important; }
-/* One pencil only: the connector/trace pencils give way to the single tip cursor. */
-html.cartilla-cursor-contract .native-lesson-viewer .am-direct-pencil .workbook-pencil__shape,
-html.cartilla-cursor-contract .native-lesson-viewer .fp-trace .workbook-pencil__shape { display: none; }
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer textarea,
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer [contenteditable="true"],
+html.cartilla-cursor-contract [data-pencil-cursor-host="true"] input,
+html.cartilla-cursor-contract [data-pencil-cursor-host="true"] textarea,
+html.cartilla-cursor-contract [data-pencil-cursor-host="true"] [contenteditable="true"] { cursor: text !important; }
+html.student-pencil.cartilla-cursor-contract .native-lesson-viewer select,
+html.cartilla-cursor-contract [data-pencil-cursor-host="true"] select { cursor: auto !important; }
+/* One pencil only: the active-line/trace pencils give way to the single tip cursor, while retry erasers stay visible. */
+html.cartilla-cursor-contract .native-lesson-viewer .am-direct-pencil__active-line .workbook-pencil__shape,
+html.cartilla-cursor-contract .native-lesson-viewer .fp-trace .workbook-pencil__shape,
+html.cartilla-cursor-contract [data-pencil-cursor-host="true"] .am-direct-pencil__active-line .workbook-pencil__shape,
+html.cartilla-cursor-contract [data-pencil-cursor-host="true"] .fp-trace .workbook-pencil__shape { display: none; }
 @media (forced-colors: active) { .contract-pencil-cursor { display: none; } }
 @media (prefers-reduced-motion: reduce) { .contract-pencil-cursor { transition: none; } }
