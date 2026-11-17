@@ -25,6 +25,22 @@ export const REVIEW_REVISION = import.meta.env.VITE_REVIEW_REVISION ?? "work/les
 
 export const COMPARISONS: Comparison[] = [
   {
+    id: "cow-game",
+    title: "Cow game — draft comparison",
+    summary: "Two ways to play the same existing farm game. Neither is approved; audio is silent pending verified recordings. A includes misleading repeated side scenery on wide screens.",
+    a: {
+      name: "A — Free selection",
+      description: "Choose either a cow or a slot first. Existing farm scene and game flow.",
+      links: [{ label: "Open A — free selection", href: "/cartilla/juego/cow-game-m?cow=free" }],
+    },
+    b: {
+      name: "B — Guided steps",
+      description: "Choose a cow first, then a slot. An on-screen instruction changes at each step; repeated side scenery is removed.",
+      links: [{ label: "Open B — guided steps", href: "/cartilla/juego/cow-game-m?cow=guided" }],
+    },
+    evidence: [],
+  },
+  {
     id: "workbook-page-turn",
     title: "Workbook page turn — Lesson 3 (draft)",
     summary: "Two different paper folds. Complete page 7 to turn the page, or use an already completed local demo. Neither version is approved; all drawing/erasing guard paths still need checking.",
