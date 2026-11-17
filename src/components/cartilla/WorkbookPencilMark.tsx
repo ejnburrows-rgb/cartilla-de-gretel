@@ -12,6 +12,7 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
 import { getLastPointer, PENCIL_TIP_SRC, toolSize, useCursorMode } from "@/lib/cursor-mode";
 import {
+  contractPointAlong,
   endTipFlight,
   holdEraser,
   PENCIL_CONTRACT,
@@ -491,29 +492,6 @@ function handDrawnCross(height: number, round = false): Pt[][] {
   ];
 }
 
-/** Point at fraction `t` (0–1) of a polyline's length. */
-function pointAlong(points: Pt[], t: number): Pt {
-  const seg: number[] = [];
-  let total = 0;
-  for (let i = 1; i < points.length; i++) {
-    const l = Math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]);
-    seg.push(l);
-    total += l;
-  }
-  let target = Math.min(1, Math.max(0, t)) * total;
-  for (let i = 0; i < seg.length; i++) {
-    if (target <= seg[i] || i === seg.length - 1) {
-      const k = seg[i] ? Math.min(1, target / seg[i]) : 0;
-      return [
-        points[i][0] + (points[i + 1][0] - points[i][0]) * k,
-        points[i][1] + (points[i + 1][1] - points[i][1]) * k,
-      ];
-    }
-    target -= seg[i];
-  }
-  return points[points.length - 1];
-}
-
 /** Box aspect in CSS px (aspect drives the mark shape). */
 function useCellBox(ref: React.RefObject<HTMLDivElement | null>): { aspect: number } {
   const [aspect, setAspect] = useState(1);
@@ -929,7 +907,7 @@ function EraserCrumbs({
     for (let i = 0; i < n; i++) {
       // The eraser runs backwards along the mark, so crumbs break off from t=1 to 0.
       const t = 1 - (i + rnd() * 0.7) / n;
-      const [px, py] = pointAlong(points, t);
+      const [px, py] = contractPointAlong(points, t);
       // Small realistic rubber flakes.
       const r = 1 + rnd() * 1;
       out.push({
@@ -1043,8 +1021,15 @@ export function WorkbookPencilMark({
 }: WorkbookPencilMarkProps) {
   const reducedMotion = useReducedMotion();
   const cursorMode = useCursorMode();
-  /** Candidate B (`?cursor=contract`): November 1 pencil and mark contract. */
-  const contractStyle = cursorMode === "contract";
+  /** Option B default (`contract`, overridden by `?cursor=normal`): November 1 pencil and mark contract. */
+  const explicitCursor =
+    typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("cursor") : null;
+  const hasContractHost =
+    typeof document !== "undefined" &&
+    (explicitCursor === "contract" ||
+      document.documentElement.classList.contains("cartilla-cursor-contract") ||
+      !!document.querySelector(".native-lesson-viewer, .contract-pencil-cursor"));
+  const contractStyle = cursorMode === "contract" && hasContractHost;
   const contract = contractStyle && !externalStatus;
   const [rubbing, setRubbing] = useState(false);
   const { emit } = useActivityEvents();

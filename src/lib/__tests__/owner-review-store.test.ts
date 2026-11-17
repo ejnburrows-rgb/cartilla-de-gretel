@@ -34,16 +34,15 @@ describe("owner review store", () => {
     expect(loadHistory().map((r) => r.itemId)).toEqual(["a"]);
   });
 
-  it("restores an exported file without duplicating entries", () => {
+  it("restores an exported file without duplicating entries and validates replacement backups", () => {
     const h = recordDecision({ itemId: "a", decision: "approve-b", comment: "", revision: "x" });
     const json = JSON.stringify({ version: 1, history: h });
     localStorage.clear();
     expect(importHistory(json)).toHaveLength(1);
     expect(importHistory(json)).toHaveLength(1);
     expect(() => importHistory("{}")).toThrow();
-  });
 
-  it("backs up and recovers replacement image bytes along with its decision", () => {
+    localStorage.clear();
     const replacement = { name: "owner.png", dataUrl: "data:image/png;base64,iVBORw0KGgo=" };
     const history = recordDecision({ itemId: "art:one", decision: "upload-replacement", comment: "", revision: "x", replacement });
     const backup = historyToJson(history);
@@ -51,12 +50,10 @@ describe("owner review store", () => {
     localStorage.clear();
     expect(importHistory(backup)[0].replacement).toEqual(replacement);
     expect(loadHistory()[0].replacement?.dataUrl).toBe(replacement.dataUrl);
-  });
 
-  it("rejects unsafe replacement data in imported backups", () => {
-    const data = JSON.stringify({ version: 1, history: [{ itemId: "art:one", decision: "upload-replacement", at: "2026-11-16", replacement: { name: "bad", dataUrl: "javascript:alert(1)" } }] });
-    expect(() => importHistory(data)).toThrow();
+    localStorage.clear();
+    const bad = JSON.stringify({ version: 1, history: [{ itemId: "art:one", decision: "upload-replacement", at: "2026-11-16", replacement: { name: "bad", dataUrl: "javascript:alert(1)" } }] });
+    expect(() => importHistory(bad)).toThrow();
     expect(loadHistory()).toEqual([]);
   });
-
 });

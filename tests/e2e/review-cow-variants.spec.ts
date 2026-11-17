@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { completeAndReplayCowGame } from "./support/cow-game";
 
 test.use({ video: "on" });
 test.setTimeout(120_000);
@@ -30,20 +31,7 @@ for (const d of [{name:"phone-emulated",width:390,height:844,touch:true},{name:"
       await page.screenshot({path:info.outputPath("selected.png")});
       await slot.click();
       await expect(page.getByRole("status")).toHaveText("Inténtalo otra vez", {timeout:6000});
-      await expect(page.getByRole("status")).toHaveText("",{timeout:6000});
-      for(const syllable of ["mu","mo","me","ma","mi"]){
-        await page.getByRole("button",{name:`Vaca ${syllable}`}).click();
-        await page.getByRole("button",{name:`Casilla ${syllable}`}).click();
-        if(syllable !== "mi"){
-          await expect(page.getByRole("status")).toHaveText("¡Muy bien!",{timeout:6000});
-          await expect(page.getByRole("status")).toHaveText("",{timeout:4000});
-          await page.waitForTimeout(600);
-        }
-      }
-      await expect(page.getByRole("dialog",{name:"Juego completado"})).toBeVisible({timeout:6000});
-      await page.screenshot({path:info.outputPath("completed.png")});
-      await page.getByRole("button",{name:"Jugar otra vez"}).click();
-      await expect(page.getByRole("dialog",{name:"Juego completado"})).toHaveCount(0);
+      await completeAndReplayCowGame(page, info);
       expect(errors).toEqual([]);
       await context.close();
     });

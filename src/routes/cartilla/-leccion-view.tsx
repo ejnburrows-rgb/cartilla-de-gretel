@@ -17,7 +17,6 @@ import { sCopy } from "@/content/student-copy";
 import { useLearnerScope } from "@/lib/learner-storage";
 import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 import { gretelEvent } from "@/lib/gretel-bus";
-import { GretelPresence } from "@/components/gretel/GretelPresence";
 
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import "@/styles/lesson-fit.css";
@@ -35,6 +34,14 @@ import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
 
+function readInitialLessonTab(): "book" | "piano" | "review" {
+  if (typeof window === "undefined") return "book";
+  const modo = new URLSearchParams(window.location.search).get("modo");
+  if (modo === "piano") return "piano";
+  if (modo === "review" || modo === "repaso") return "review";
+  return "book";
+}
+
 export function Leccion() {
   const { lang } = useLanguage();
   const t = sCopy;
@@ -42,7 +49,7 @@ export function Leccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
   const [showIntro, setShowIntro] = useState(false);
-  const [lessonTab, setLessonTab] = useState<"book" | "piano" | "review">("book");
+  const [lessonTab, setLessonTab] = useState<"book" | "piano" | "review">(readInitialLessonTab);
   const [reviewStarted, setReviewStarted] = useState(false);
   const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
@@ -144,7 +151,7 @@ export function Leccion() {
 
   useEffect(() => { if (progressReady && !storedPianoBookmarkUnavailable) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages, storedPianoBookmarkUnavailable]);
   useEffect(() => {
-    setLessonTab("book");
+    setLessonTab(readInitialLessonTab());
     setReviewStarted(false);
   }, [n]);
   // Laptop full screen (owner decision 2026-10-12). Opening a lesson from the
@@ -247,23 +254,6 @@ export function Leccion() {
     }
     advanceAfterCompletion();
   };
-
-  const bookCompanion = (
-    <GretelPresence
-      key={`gretel-${n}`}
-      lesson={{
-        n: entry.n,
-        kind: entry.kind,
-        title: entry.title,
-        subtitle: entry.subtitle,
-        letter: entry.kind === "consonant" ? entry.letter : undefined,
-        vowel: entry.kind === "vowel" ? entry.vowel : undefined,
-      }}
-      autoIntro
-      bookMode
-      hideChrome
-    />
-  );
 
   return (
     <div className={`lc-lesson-shell lc-lesson-shell--fit ${n === 16 ? "lc-lesson-16" : ""} min-h-screen flex flex-col`}>
@@ -368,7 +358,6 @@ export function Leccion() {
                 lessonNumber={n}
                 autoTurn
                 swipe
-                bookCompanion={bookCompanion}
               />
             )}
             {progressReady && lessonTab === "piano" && (

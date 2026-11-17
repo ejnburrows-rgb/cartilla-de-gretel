@@ -83,6 +83,10 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   );
   const reducedMotion = useReducedMotion();
   const { laserPointerActive, handMode } = useTeacherPresentation();
+  const flipVariant =
+    typeof window !== "undefined" && new URLSearchParams(window.location.search).get("flip") === "a"
+      ? "a"
+      : "b";
 
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [targetIdx, setTargetIdx] = useState<number | null>(null);
@@ -612,6 +616,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       data-delivery-tier="independent-faithful-assets"
       data-page-turn-axis="vertical"
       data-page-turn-ms={FLIPCHART_FLIP_MS}
+      data-flip-variant={flipVariant}
       data-reduced-motion={reducedMotion ? "true" : "false"}
       data-chrome={chrome}
       data-hand-mode={handMode}

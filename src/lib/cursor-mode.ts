@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 /**
- * normal = current main (system cursor + flying wooden pencil);
+ * normal = previous main (system cursor + flying wooden pencil, override `?cursor=normal`);
  * tip = #1305 photo-tip candidate (not offered for approval);
- * contract = November 1 contract candidate (single close-up tip of the existing pencil).
+ * contract = Locked Option B default (November 1 contract: single close-up wooden tip).
  */
 export type CursorMode = "normal" | "tip" | "contract";
+export const DEFAULT_CURSOR_MODE: CursorMode = "contract";
 export const CURSOR_MODE_KEY = "cartilla:cursor-mode";
 export const PENCIL_TIP_SRC = "/cartilla/images/ui/owner-pencil-tip.svg";
 let lastPointer: { x: number; y: number } | null = null;
@@ -16,7 +17,7 @@ export function toolSize(kind: "tip" | "eraser") {
   return kind === "tip" ? (coarse ? 160 : 240) : (coarse ? 48 : 64);
 }
 export function readCursorMode(): CursorMode {
-  if (typeof window === "undefined") return "normal";
+  if (typeof window === "undefined") return DEFAULT_CURSOR_MODE;
   try {
     const requested = new URLSearchParams(window.location.search).get("cursor");
     if (requested === "tip" || requested === "normal" || requested === "contract") {
@@ -24,8 +25,8 @@ export function readCursorMode(): CursorMode {
       return requested;
     }
     const saved = localStorage.getItem(CURSOR_MODE_KEY);
-    return saved === "tip" || saved === "contract" ? saved : "normal";
-  } catch { return "normal"; }
+    return saved === "tip" || saved === "normal" || saved === "contract" ? saved : DEFAULT_CURSOR_MODE;
+  } catch { return DEFAULT_CURSOR_MODE; }
 }
 /** Accessibility settings and forced colors always keep the standard cursor and tool. */
 export function useCursorMode(): CursorMode {

@@ -13,10 +13,11 @@ export const Route = createLazyFileRoute("/cartilla/teacher/flipchart")({
 });
 
 function TeacherFlipchartPage() {
-  // `?leccion=3` opens a lesson directly (owner review deep link); default stays Lesson 1.
+  // `?lesson=3` / `?leccion=3` opens a lesson directly (owner review deep link); default stays Lesson 1.
   const [lessonNumber, setLessonNumber] = useState(() => {
     if (typeof window === "undefined") return 1;
-    const n = Number(new URLSearchParams(window.location.search).get("leccion"));
+    const params = new URLSearchParams(window.location.search);
+    const n = Number(params.get("lesson") ?? params.get("leccion"));
     return CATALOG.some((entry) => entry.n === n) ? n : 1;
   });
   const currentEntry = CATALOG.find((entry) => entry.n === lessonNumber) ?? CATALOG[0];
