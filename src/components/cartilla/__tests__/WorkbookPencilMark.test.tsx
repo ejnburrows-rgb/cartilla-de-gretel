@@ -10,6 +10,7 @@ import {
   WORKBOOK_MARK_TIMING,
   WorkbookPencilMark,
 } from "../WorkbookPencilMark";
+import { PENCIL_CONTRACT } from "@/lib/pencil-contract";
 
 const { drawMs, holdMs, eraseMs } = WORKBOOK_MARK_TIMING;
 import { gretelEvent } from "@/lib/gretel-bus";
@@ -203,6 +204,44 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     act(() => vi.advanceTimersByTime(drawMs + holdMs));
     expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "next" });
     expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", { itemId: "cancelled" });
+  });
+
+  it("locks Option B contract in lesson viewer: 400ms hold, 3.5s pink rub with 12 crumbs on red marks", () => {
+    const onSuccess = vi.fn();
+    const onRetry = vi.fn();
+    const { container, unmount } = render(
+      <div className="native-lesson-viewer">
+        <WorkbookPencilMark isCorrect itemId="contract-ok" onSuccess={onSuccess} />
+      </div>,
+    );
+    const mark = container.querySelector(".workbook-pencil-mark");
+    expect(mark?.getAttribute("data-pencil-mode")).toBe("contract");
+    expect(container.querySelectorAll(".workbook-pencil-mark__contract-strokes path")).toHaveLength(14);
+
+    const contractDrawMs = PENCIL_CONTRACT.approachMs + PENCIL_CONTRACT.circleMs;
+    act(() => vi.advanceTimersByTime(contractDrawMs));
+    expect(mark?.getAttribute("data-mark-status")).toBe("holding");
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.holdMs - 1));
+    expect(onSuccess).not.toHaveBeenCalled();
+    act(() => vi.advanceTimersByTime(1));
+    expect(onSuccess).toHaveBeenCalledTimes(1);
+    expect(mark?.getAttribute("data-mark-status")).toBe("correct");
+    unmount();
+
+    const wrongView = render(
+      <div className="native-lesson-viewer">
+        <WorkbookPencilMark isCorrect={false} itemId="contract-wrong" onRetry={onRetry} />
+      </div>,
+    );
+    act(() => vi.advanceTimersByTime(contractDrawMs + PENCIL_CONTRACT.holdMs));
+    const wrongMark = wrongView.container.querySelector(".workbook-pencil-mark");
+    expect(wrongMark?.getAttribute("data-mark-status")).toBe("erasing");
+    expect(wrongMark?.getAttribute("data-mark-result")).toBe("wrong");
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.redShowMs));
+    expect(wrongMark?.getAttribute("data-eraser-rubbing")).toBe("true");
+    expect(wrongView.container.querySelectorAll(".workbook-pencil__crumbs > g")).toHaveLength(12);
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
+    expect(onRetry).toHaveBeenCalledTimes(1);
   });
 
 });

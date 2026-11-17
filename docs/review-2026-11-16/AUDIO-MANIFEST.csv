@@ -1,0 +1,22 @@
+clip_id,game_id,cue_or_word,script_es,expected_path,status
+AUD-GAME-01,cow-game-m,instruction,"Coloca cada vaca en su sílaba",/audio/games/cow-game-m/instruction.mp3,WAITING
+AUD-GAME-02,cow-game-m,correct,"ma ma",/audio/games/cow-game-m/correct.mp3,WAITING
+AUD-GAME-03,cow-game-m,wrong,"moo (cow sound)",/audio/games/cow-game-m/wrong.mp3,WAITING
+AUD-GAME-04,cow-game-m,syllable-mo,"mo",/audio/games/cow-game-m/mo.mp3,WAITING
+AUD-GAME-05,cow-game-m,syllable-mu,"mu",/audio/games/cow-game-m/mu.mp3,WAITING
+AUD-GAME-06,cow-game-m,syllable-ma,"ma",/audio/games/cow-game-m/ma.mp3,WAITING
+AUD-GAME-07,cow-game-m,syllable-mi,"mi",/audio/games/cow-game-m/mi.mp3,WAITING
+AUD-GAME-08,cow-game-m,syllable-me,"me",/audio/games/cow-game-m/me.mp3,WAITING
+AUD-GAME-09,cow-game-m,syllable-ma-accent,"má",/audio/games/cow-game-m/ma-accent.mp3,WAITING
+AUD-GAME-10,payaso-chano-ss,paso,"paso",/audio/voz/vocabulario/paso.mp3,WAITING
+AUD-GAME-11,payaso-chano-ss,mesa,"mesa",/audio/voz/vocabulario/mesa.mp3,WAITING
+AUD-GAME-12,payaso-chano-ss,supo,"supo",/audio/voz/vocabulario/supo.mp3,WAITING
+AUD-GAME-13,payaso-chano-ss,asoma,"asoma",/audio/voz/vocabulario/asoma.mp3,WAITING
+AUD-GAME-14,payaso-chano-ss,suma,"suma",/audio/voz/vocabulario/suma.mp3,WAITING
+AUD-GAME-15,payaso-chano-ss,puso,"puso",/audio/voz/vocabulario/puso.mp3,WAITING
+AUD-GAME-16,mariposas-p,mapa,"mapa",/audio/voz/vocabulario/mapa.mp3,WAITING
+AUD-GAME-17,mariposas-p,pomo,"pomo",/audio/voz/vocabulario/pomo.mp3,WAITING
+AUD-GAME-18,mariposas-p,Mupi,"Mupi",/audio/voz/vocabulario/mupi.mp3,WAITING
+AUD-GAME-19,mariposas-p,Pepe,"Pepe",/audio/voz/vocabulario/pepe.mp3,WAITING
+AUD-GAME-20,mariposas-p,puma,"puma",/audio/voz/vocabulario/puma.mp3,WAITING
+AUD-GAME-21,mariposas-p,Pupi,"Pupi",/audio/voz/vocabulario/pupi.mp3,WAITING

@@ -172,11 +172,10 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
     });
 
     expect(current()).toBe(24);
-  });
 
-  it.each(["drawing", "holding", "erasing", "connector"]) (
-    "does not start or finish a corner drag while a mark is %s",
-    (status) => {
+    // Guard check: neither backward nor forward corner drags may start or finish while a mark is active.
+    for (const status of ["drawing", "holding", "erasing", "connector"] as const) {
+      cleanup();
       const onPageChange = vi.fn();
       render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} onPageChange={onPageChange} />);
       completePage(23);
@@ -196,7 +195,6 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
       expect(onPageChange).not.toHaveBeenCalled();
       expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
       mark.remove();
-      // A mark starting after drag initiation must also cancel the turn.
       fireEvent.pointerDown(next, { pointerId: 2, clientX: 500, clientY: 700 });
       fireEvent.pointerMove(next, { pointerId: 2, clientX: 100, clientY: 700 });
       viewer.appendChild(mark);
@@ -206,24 +204,11 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
       expect(onPageChange).not.toHaveBeenCalled();
       expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
       mark.remove();
-    },
-  );
 
-  it.each(["drawing", "holding", "erasing", "connector"])(
-    "blocks a backward corner drag while %s is active",
-    (status) => {
-      const onPageChange = vi.fn();
-      render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} onPageChange={onPageChange} />);
-      completePage(23);
       fireEvent.click(screen.getByTestId("button-next"));
       finishTurn();
       expect(current()).toBe(24);
       onPageChange.mockClear();
-      const viewer = document.querySelector(".native-lesson-viewer")!;
-      const mark = document.createElement("div");
-      mark.className = "workbook-pencil-mark";
-      if (status === "connector") mark.dataset.pageTurnBusy = "true";
-      else mark.dataset.markStatus = status;
       viewer.appendChild(mark);
       const prev = screen.getByTestId("corner-prev");
       fireEvent.pointerDown(prev, { pointerId: 3, clientX: 100, clientY: 700 });
@@ -235,8 +220,8 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
       expect(onPageChange).not.toHaveBeenCalled();
       expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
       mark.remove();
-    },
-  );
+    }
+  });
 
   it("cancelling a long corner drag never turns the page, even if a click follows", () => {
     const onPageChange = vi.fn();
