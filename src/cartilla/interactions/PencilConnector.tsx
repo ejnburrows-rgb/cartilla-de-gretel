@@ -15,7 +15,6 @@ import {
   WORKBOOK_MARK_TIMING,
   useWorkbookPencilTurn,
 } from "@/components/cartilla/WorkbookPencilMark";
-import { HdSchoolEraserShape } from "@/components/StudentBook/HdSchoolEraser";
 import { ERASER_VIEWBOX, toolSize, useCursorMode } from "@/lib/cursor-mode";
 import { holdEraser, PENCIL_CONTRACT } from "@/lib/pencil-contract";
 import type { WorkbookObject } from "@/content/workbook/types";
@@ -887,32 +886,24 @@ export function DirectPencilConnector({
                           repeatCount={Math.floor(rubMs / scrubPeriod)}
                           values={contract ? "0 0;9 -3;0 0;-8 2.5;0 0" : "0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"}
                         />
-                        {contract ? (
-                          <g
-                            transform={`scale(${((toolSize("eraser") * 1.45) / ERASER_VIEWBOX.width).toFixed(3)})`}
-                          >
-                            <HdSchoolEraserShape
-                              uid={`${shadowUid}-retry-eraser`}
-                              className="workbook-pencil__shape am-direct-pencil__eraser-shape"
+                        <g className="am-direct-pencil__eraser-shape" transform="rotate(30) scale(2.2)">
+                          <g>
+                            <animateTransform
+                              attributeName="transform"
+                              type="rotate"
+                              dur={`${eraseMs}ms`}
+                              fill="freeze"
+                              values={`0 0 ${PENCIL_CENTER_Y};0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
+                              keyTimes={`0;${kAppear};${kFlip};1`}
+                              calcMode="spline"
+                              keySplines="0 0 1 1;0.45 0.05 0.55 0.95;0 0 1 1"
+                            />
+                            <PencilShape
+                              uid={`${shadowUid}-retry-pencil`}
+                              className="workbook-pencil__shape workbook-pencil__eraser-hd"
                             />
                           </g>
-                        ) : (
-                          <g transform="rotate(30) scale(2.2)">
-                            <g>
-                              <animateTransform
-                                attributeName="transform"
-                                type="rotate"
-                                dur={`${eraseMs}ms`}
-                                fill="freeze"
-                                values={`0 0 ${PENCIL_CENTER_Y};0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
-                                keyTimes={`0;${kAppear};${kFlip};1`}
-                                calcMode="spline"
-                                keySplines="0 0 1 1;0.45 0.05 0.55 0.95;0 0 1 1"
-                              />
-                              <PencilShape uid={`${shadowUid}-retry-pencil`} />
-                            </g>
-                          </g>
-                        )}
+                        </g>
                       </g>
                     </g>
                     {contract && (

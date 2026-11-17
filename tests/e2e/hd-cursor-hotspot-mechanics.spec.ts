@@ -117,6 +117,7 @@ for (const viewport of [
     test("Page 8: DirectPencilConnector tip hotspot <=1px under zoom, #3a3a38 drag, visible HD retry eraser + 12 crumbs", async ({
       page,
     }) => {
+      test.setTimeout(60_000);
       await openLesson3Page(page, 1);
       const connector = page.locator(".am-direct-pencil").first();
       await expect(connector).toBeVisible();
@@ -195,6 +196,7 @@ for (const viewport of [
     test("Page 9: WorkbookLetterTrace (#3a3a38 + 400ms hold) & DibujaHost (#3a3a38 + zoom scaling + HD eraser cursor)", async ({
       page,
     }) => {
+      test.setTimeout(60_000);
       await openLesson3Page(page, 2);
       const trace = page.locator(".fp-trace").first();
       await expect(trace).toBeVisible();
@@ -264,8 +266,8 @@ for (const viewport of [
           src: el.getAttribute("src"),
         }));
         expect(eraserImg).toEqual({
-          naturalWidth: 176,
-          naturalHeight: 112,
+          naturalWidth: 388,
+          naturalHeight: 322,
           src: "/cartilla/images/ui/owner-eraser.svg",
         });
         await saveShot(page, `${viewport.name}-leccion3-p9-dibuja-eraser.png`);

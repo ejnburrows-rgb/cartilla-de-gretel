@@ -1,106 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="176" height="112" viewBox="0 0 176 112" overflow="visible">
-  <!-- High-definition uncropped classic chunky beveled pink school eraser. Active rubbing corner = (0,0) hotspot. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="388" height="322" viewBox="0 0 388 322" overflow="visible">
+  <!-- High-definition uncropped classic hexagonal wooden school pencil flipped to back eraser. Pink eraser dome = (0,0) hotspot. Silver ferrule and yellow barrel extend along body axis. No brand/grade stamp. -->
   <defs>
-    <linearGradient id="oe-top" x1="0" y1="0" x2="144" y2="62" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ffdce4" />
-      <stop offset="0.35" stop-color="#faabc0" />
-      <stop offset="0.78" stop-color="#ef8ba4" />
-      <stop offset="1" stop-color="#df708c" />
+    <linearGradient id="op-lead" x1="0" y1="-5.2" x2="0" y2="5.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6b6b75" />
+      <stop offset="0.38" stop-color="#36363d" />
+      <stop offset="1" stop-color="#141418" />
     </linearGradient>
-    <linearGradient id="oe-front" x1="0" y1="12" x2="98" y2="86" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ee88a2" />
-      <stop offset="0.55" stop-color="#d76683" />
-      <stop offset="1" stop-color="#b94a66" />
+    <linearGradient id="op-wood" x1="0" y1="-17" x2="0" y2="17" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fdf0d5" />
+      <stop offset="0.42" stop-color="#f1cd98" />
+      <stop offset="0.72" stop-color="#dda868" />
+      <stop offset="1" stop-color="#b27438" />
     </linearGradient>
-    <linearGradient id="oe-end" x1="86" y1="56" x2="156" y2="92" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#c95774" />
-      <stop offset="1" stop-color="#9c3852" />
+    <linearGradient id="op-collar-shade" x1="80" y1="0" x2="96" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7a4612" stop-opacity="0" />
+      <stop offset="1" stop-color="#7a4612" stop-opacity="0.36" />
+    </linearGradient>
+    <linearGradient id="op-lacq" x1="0" y1="-17" x2="0" y2="17" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe072" />
+      <stop offset="0.16" stop-color="#ffec9e" />
+      <stop offset="0.33" stop-color="#ffd040" />
+      <stop offset="0.336" stop-color="#ffb820" />
+      <stop offset="0.52" stop-color="#ffc332" />
+      <stop offset="0.665" stop-color="#f29f10" />
+      <stop offset="0.671" stop-color="#da8209" />
+      <stop offset="1" stop-color="#ad5c05" />
+    </linearGradient>
+    <linearGradient id="op-metal" x1="0" y1="-17.6" x2="0" y2="17.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6d747e" />
+      <stop offset="0.16" stop-color="#dfe5eb" />
+      <stop offset="0.3" stop-color="#ffffff" />
+      <stop offset="0.48" stop-color="#c2c8d0" />
+      <stop offset="0.75" stop-color="#969da6" />
+      <stop offset="1" stop-color="#565d65" />
+    </linearGradient>
+    <linearGradient id="op-eraser" x1="0" y1="-16.4" x2="0" y2="16.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f9b3c2" />
+      <stop offset="0.28" stop-color="#fed2dc" />
+      <stop offset="0.72" stop-color="#ee8ea4" />
+      <stop offset="1" stop-color="#cc637d" />
     </linearGradient>
   </defs>
-  <!-- Soft paper contact shadow -->
-  <path
-    d="M 2 5 Q 6 24 14 33 L 97 89 Q 101 92 106 92 L 154 95 Q 160 93 157 87 L 145 64 L 88 57 Z"
-    fill="#3b2a14"
-    opacity="0.14"
-  />
-  <!-- Front-left / bottom bevel face -->
-  <path
-    d="M 0.5 1.5 Q -0.2 5 2.5 12 L 10.5 27.5 Q 12.5 31.5 16.5 34 L 93.5 84.5 Q 98.5 88 101 84.5 L 87 56.5 L 3.5 2.5 Q 1.5 1 0.5 1.5 Z"
-    fill="url(#oe-front)"
-    stroke="#9d3c56"
-    stroke-width="0.95"
-    stroke-linejoin="round"
-  />
-  <!-- Right-end bevel face -->
-  <path
-    d="M 86 56 L 98 85 Q 100 88.5 104.5 89 L 151 92.5 Q 157 93 155 87 L 145 63.5 Q 143.5 60 139 59.5 L 89.5 55.5 Z"
-    fill="url(#oe-end)"
-    stroke="#8b3149"
-    stroke-width="0.95"
-    stroke-linejoin="round"
-  />
-  <!-- Top beveled pink rubber face -->
-  <path
-    d="M 1 0.8 Q 4 0 9 0.5 L 55 5.3 Q 60 5.8 64.5 8.8 L 142 59.5 Q 146 62 141.5 62.5 L 91 57.5 Q 86.5 57 82 54 L 4.5 3.2 Q 0.4 1 1 0.8 Z"
-    fill="url(#oe-top)"
-    stroke="#b7506b"
-    stroke-width="0.95"
-    stroke-linejoin="round"
-  />
-  <!-- Crisp bevel highlight ridges -->
-  <path
-    d="M 3.5 2 L 85.5 55"
-    fill="none"
-    stroke="#fff5f8"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    opacity="0.76"
-  />
-  <path
-    d="M 5 1.2 L 56 6.2"
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="1.15"
-    stroke-linecap="round"
-    opacity="0.62"
-  />
-  <!-- Subtle embossed classic school-eraser center lines -->
-  <path
-    d="M 42 16.5 L 96 51.5"
-    fill="none"
-    stroke="#cf5f7b"
-    stroke-width="1.1"
-    stroke-linecap="round"
-    opacity="0.28"
-  />
-  <path
-    d="M 43 15.7 L 97 50.7"
-    fill="none"
-    stroke="#ffeaf0"
-    stroke-width="0.85"
-    stroke-linecap="round"
-    opacity="0.5"
-  />
-  <path
-    d="M 55 12.5 L 109 47.5"
-    fill="none"
-    stroke="#cf5f7b"
-    stroke-width="0.9"
-    stroke-linecap="round"
-    opacity="0.22"
-  />
-  <!-- Matte rubber micro-speckles -->
-  <g fill="#a9445f" opacity="0.22">
-    <circle cx="24" cy="8.5" r="0.75" />
-    <circle cx="42" cy="12" r="0.6" />
-    <circle cx="66" cy="23" r="0.8" />
-    <circle cx="79" cy="34" r="0.65" />
-    <circle cx="94" cy="40" r="0.7" />
-    <circle cx="118" cy="52" r="0.75" />
-    <circle cx="52" cy="26" r="0.6" />
-    <circle cx="104" cy="49" r="0.65" />
-    <circle cx="30" cy="31" r="0.65" />
-    <circle cx="62" cy="52" r="0.7" />
-    <circle cx="82" cy="65" r="0.6" />
+
+  <g transform="rotate(39)">
+    <g transform="translate(463 0) scale(-1 1)">
+      <!-- Grained cedar sharpening cone -->
+      <path d="M 27.5 -5.05 L 96 -17 L 96 17 L 27.5 5.05 Z" fill="url(#op-wood)" />
+      <path d="M 27.5 -5.05 L 96 -17 L 96 -8.5 L 27.5 -2.5 Z" fill="#fff8ea" opacity="0.42" />
+      <path d="M 27.5 2.4 L 96 8.5 L 96 17 L 27.5 5.05 Z" fill="#703e12" opacity="0.22" />
+      <path
+        d="M 32 -3.6 L 86 -12.6 M 33 -1.6 L 88 -5.4 M 33 1.2 L 89 4.5 M 32 3.4 L 86 12.1"
+        fill="none"
+        stroke="#a56a30"
+        stroke-width="0.65"
+        opacity="0.48"
+      />
+      <path
+        d="M 36 -2.6 L 84 -9.2 M 38 0 L 86 0.2 M 36 2.5 L 84 8.8"
+        fill="none"
+        stroke="#985f27"
+        stroke-width="0.4"
+        opacity="0.38"
+      />
+      <path d="M 80 -14.2 L 96 -17 L 96 17 L 80 14.2 Z" fill="url(#op-collar-shade)" />
+
+      <!-- Sharp dark graphite tip anchored at exact (0, 0) -->
+      <path d="M 0.25 -0.35 Q -0.1 0 0.25 0.35 L 28.2 5.15 L 28.2 -5.15 Z" fill="url(#op-lead)" />
+      <path d="M 3 -1.05 L 26.2 -3.55" fill="none" stroke="#b6b6c2" stroke-width="1.15" stroke-linecap="round" opacity="0.78" />
+      <path d="M 0.25 0 L 28.2 1.4 L 28.2 5.15 Z" fill="#000000" opacity="0.3" />
+      <line x1="28.2" y1="-5.15" x2="28.2" y2="5.15" stroke="#5c3d1e" stroke-width="0.6" opacity="0.45" />
+      <circle cx="2.5" cy="-0.45" r="0.55" fill="#e0e0e8" opacity="0.82" />
+
+      <!-- Full hexagonal yellow lacquered wooden barrel with scalloped collar (unmarked, no grade stamp) -->
+      <path
+        d="M 93 -17 Q 85 -11.3 93 -5.67 Q 84 0 93 5.67 Q 85 11.3 93 17 L 386 17 L 386 -17 Z"
+        fill="url(#op-lacq)"
+      />
+      <path
+        d="M 93 -17 Q 85 -11.3 93 -5.67 Q 84 0 93 5.67 Q 85 11.3 93 17"
+        fill="none"
+        stroke="#8f5005"
+        stroke-width="0.9"
+        opacity="0.6"
+      />
+      <!-- Hexagonal facet ridges -->
+      <line x1="93" y1="-5.67" x2="386" y2="-5.67" stroke="#e39912" stroke-width="0.75" opacity="0.85" />
+      <line x1="93" y1="5.67" x2="386" y2="5.67" stroke="#a65e08" stroke-width="0.75" opacity="0.85" />
+      <line x1="93" y1="-16.85" x2="386" y2="-16.85" stroke="#b36a07" stroke-width="0.65" opacity="0.72" />
+      <line x1="93" y1="16.85" x2="386" y2="16.85" stroke="#824904" stroke-width="0.75" opacity="0.82" />
+      <!-- Glossy lacquer specular highlights -->
+      <rect x="95.5" y="-14.2" width="287" height="3.6" rx="1.8" fill="#fff9e2" opacity="0.66" />
+      <rect x="96" y="-12.8" width="286" height="0.9" fill="#ffffff" opacity="0.86" />
+      <rect x="96" y="-2.2" width="286" height="1.7" rx="0.85" fill="#fff3c4" opacity="0.38" />
+      <rect x="95.5" y="11" width="287" height="3.2" rx="1.5" fill="#ffd47a" opacity="0.32" />
+      <rect x="382" y="-17" width="4" height="34" fill="#000000" opacity="0.1" />
+
+      <!-- Crimped ribbed silver metal ferrule -->
+      <rect x="385" y="-17.6" width="41" height="35.2" rx="1.8" fill="url(#op-metal)" />
+      <rect x="385" y="-12.8" width="41" height="3.1" fill="#ffffff" opacity="0.56" />
+      <rect x="385" y="9.2" width="41" height="4.4" fill="#3b4148" opacity="0.2" />
+      <!-- Double-beaded crimp ribs -->
+      <g stroke-width="0.95">
+        <line x1="393" y1="-17.6" x2="393" y2="17.6" stroke="#535a62" opacity="0.8" />
+        <line x1="394.2" y1="-17.6" x2="394.2" y2="17.6" stroke="#ffffff" opacity="0.78" />
+        <line x1="400" y1="-17.6" x2="400" y2="17.6" stroke="#535a62" opacity="0.8" />
+        <line x1="401.2" y1="-17.6" x2="401.2" y2="17.6" stroke="#ffffff" opacity="0.78" />
+        <line x1="407" y1="-17.6" x2="407" y2="17.6" stroke="#535a62" opacity="0.8" />
+        <line x1="408.2" y1="-17.6" x2="408.2" y2="17.6" stroke="#ffffff" opacity="0.78" />
+        <line x1="414" y1="-17.6" x2="414" y2="17.6" stroke="#535a62" opacity="0.8" />
+        <line x1="415.2" y1="-17.6" x2="415.2" y2="17.6" stroke="#ffffff" opacity="0.78" />
+      </g>
+      <!-- Pressed ferrule dimples -->
+      <g fill="#4b5158" opacity="0.45">
+        <ellipse cx="389" cy="-12.5" rx="0.95" ry="1.4" />
+        <ellipse cx="389" cy="-6.2" rx="0.95" ry="1.4" />
+        <ellipse cx="389" cy="0" rx="0.95" ry="1.4" />
+        <ellipse cx="389" cy="6.2" rx="0.95" ry="1.4" />
+        <ellipse cx="389" cy="12.5" rx="0.95" ry="1.4" />
+      </g>
+      <line x1="385.2" y1="-17.6" x2="385.2" y2="17.6" stroke="#3b4148" stroke-width="0.75" opacity="0.62" />
+      <line x1="425.8" y1="-17.6" x2="425.8" y2="17.6" stroke="#454b52" stroke-width="0.7" opacity="0.55" />
+
+      <!-- Full pink school eraser end -->
+      <path
+        d="M 426 -16.4 L 448 -16.4 Q 463 -16.4 463 -5.5 L 463 5.5 Q 463 16.4 448 16.4 L 426 16.4 Z"
+        fill="url(#op-eraser)"
+      />
+      <path
+        d="M 429 -11.5 L 448 -11.5 Q 456.5 -11 457.5 -4.5"
+        fill="none"
+        stroke="#fff4f7"
+        stroke-width="2.3"
+        stroke-linecap="round"
+        opacity="0.76"
+      />
+      <path
+        d="M 460 8 Q 457.5 14.2 448 14.8"
+        fill="none"
+        stroke="#b44f69"
+        stroke-width="1.2"
+        opacity="0.42"
+      />
+      <ellipse cx="452" cy="-5.2" rx="2" ry="6.2" fill="#ffffff" opacity="0.42" />
+      <g fill="#af536b" opacity="0.2">
+        <circle cx="436" cy="-7" r="0.55" />
+        <circle cx="445" cy="4" r="0.55" />
+        <circle cx="454" cy="9.5" r="0.5" />
+        <circle cx="439" cy="9" r="0.5" />
+        <circle cx="450" cy="-9.5" r="0.5" />
+      </g>
+      <rect x="426" y="-16.4" width="3" height="32.8" fill="#7a293f" opacity="0.18" />
+    </g>
   </g>
 </svg>

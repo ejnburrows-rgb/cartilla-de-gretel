@@ -18,7 +18,6 @@ import {
   toolSize,
   useCursorMode,
 } from "@/lib/cursor-mode";
-import { HdSchoolEraserShape } from "@/components/StudentBook/HdSchoolEraser";
 import {
   contractPointAlong,
   endTipFlight,
@@ -113,7 +112,15 @@ const OFFSCREEN_MARGIN = 24;
  * screen — near the picture only its tip (or its eraser end) is seen, nothing is
  * faded or cut off. The eraser and band move back with the end of the body.
  */
-export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: number }) {
+export function PencilShape({
+  uid,
+  stretch = 0,
+  className = "workbook-pencil__shape",
+}: {
+  uid: string;
+  stretch?: number;
+  className?: string;
+}) {
   const back = -stretch;
   const top = f2(-60.2 - stretch);
   const g = (name: string) => `${uid}-${name}`;
@@ -126,7 +133,7 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
     </linearGradient>
   );
   return (
-    <g className="workbook-pencil__shape">
+    <g className={className}>
       <defs>
         {lin(
           "lacq",
@@ -1329,18 +1336,14 @@ export function WorkbookPencilMark({
                           <g transform={`scale(${toolSize("eraser") / 14 / unit})`}>
                             <PinkEraserBlock uid={`${baseId}-e`} />
                           </g>
-                        ) : contract ? (
-                          <g
-                            transform={`scale(${f2(
-                              unit > 0 ? (toolSize("eraser") * 1.45) / (ERASER_VIEWBOX.width * unit) : 0.45,
-                            )})`}
-                          >
-                            <HdSchoolEraserShape uid={`${baseId}-e`} />
-                          </g>
                         ) : (
                           <g transform={ERASER_POSE}>
                             <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
-                              <PencilShape uid={`${baseId}-e`} stretch={stretch} />
+                              <PencilShape
+                                uid={`${baseId}-e`}
+                                stretch={stretch}
+                                className="workbook-pencil__shape workbook-pencil__eraser-hd"
+                              />
                             </g>
                           </g>
                         )}

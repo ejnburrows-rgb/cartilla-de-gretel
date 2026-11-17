@@ -26,7 +26,7 @@ const ERASER_ASPECT = ERASER_VIEWBOX.height / ERASER_VIEWBOX.width;
 /**
  * Option B (Locked Default) — the single High-Definition uncropped classic
  * wooden pencil cursor (`owner-pencil-tip.svg`, graphite point at 0,0) and
- * full-body beveled pink school eraser (`owner-eraser.svg`, rubbing corner at 0,0)
+ * flipped back eraser (`owner-eraser.svg`, pink eraser dome at 0,0)
  * when a canvas eraser tool is active. It follows the real pointer, travels along
  * each mark while the kernel draws it, and hides while the autonomous wrong-mark
  * eraser rubs. Purely visual: pointer events always reach the real controls.
@@ -38,8 +38,8 @@ export function ContractPencilCursor() {
     typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)").matches;
   const pencilWidth = toolSize("tip");
   const pencilHeight = Math.round(pencilWidth * TIP_ASPECT);
-  const eraserWidth = Math.round(toolSize("eraser") * 1.45);
-  const eraserHeight = Math.round(eraserWidth * ERASER_ASPECT);
+  const eraserWidth = pencilWidth;
+  const eraserHeight = pencilHeight;
 
   useEffect(() => {
     const root = document.documentElement;

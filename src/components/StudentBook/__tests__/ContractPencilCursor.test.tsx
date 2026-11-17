@@ -69,9 +69,10 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(pencilSvg).toContain(`viewBox="0 0 ${PENCIL_TIP_VIEWBOX.width} ${PENCIL_TIP_VIEWBOX.height}"`);
     expect(pencilSvg).toContain('overflow="visible"');
 
-    // Full pencil parts present: graphite, cedar cone, yellow barrel, silver ferrule, pink eraser
+    // Full pencil parts present in both tip and flipped back-eraser: graphite, cedar cone, yellow barrel, silver ferrule, pink eraser
     for (const part of ["op-lead", "op-wood", "op-lacq", "op-metal", "op-eraser"]) {
       expect(pencilSvg).toContain(part);
+      expect(eraserSvg).toContain(part);
     }
 
     expect(eraserSvg).not.toContain("<image");
