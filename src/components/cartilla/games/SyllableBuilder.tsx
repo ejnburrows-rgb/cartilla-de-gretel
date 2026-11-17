@@ -17,6 +17,7 @@
 // for progress and the Gretel event bus for her reaction. The Gretel animation
 // state machine itself is never touched.
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Star } from "lucide-react";
 import { KidButton } from "@/components/ui/KidButton";
 import { recordEvent } from "@/lib/student-session";
 import { gretelEvent } from "@/lib/gretel-bus";
@@ -214,127 +215,160 @@ export function SyllableBuilder({ content }: { content: GameContent }) {
   const transition = reducedMotion ? "none" : "transform 140ms ease, box-shadow 140ms ease";
 
   return (
-    <section className="space-y-6" aria-label="Formar la palabra con sílabas">
-      {/* The picture: real book art, or an honest "pendiente" card. */}
-      <div className="flex justify-center">
-        {word.imageUrl ? (
-          <img
-            src={word.imageUrl}
-            alt={word.word}
-            className="h-40 w-auto rounded-2xl bg-white/70 p-2 shadow-sm sm:h-52"
-            draggable={false}
-          />
-        ) : (
-          <div
-            className="flex h-40 w-40 items-center justify-center rounded-2xl border-2 border-dashed border-stone-300 bg-white/60 text-sm font-bold text-stone-500 sm:h-52 sm:w-52"
-            role="img"
-            aria-label="Ilustración pendiente"
-          >
-            pendiente
-          </div>
-        )}
-      </div>
-
-      {/* The word being built. */}
-      <div
-        className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
-        role="group"
-        aria-label="Casillas de la palabra"
+    <div className="game-wood-frame">
+      <section
+        className="game-paper-board p-5 sm:p-8 space-y-6"
+        aria-label="Formar la palabra con sílabas"
       >
-        {target.map((_, i) => {
-          const value = placed[i];
-          const state = checked ? (grade.isCorrect ? "ok" : "bad") : "idle";
-          return (
-            <button
-              key={i}
-              type="button"
-              data-slot-index={i}
-              onClick={() => value && clearSlot(i)}
-              aria-label={
-                value ? `Casilla ${i + 1}: ${value}. Tocar para quitar.` : `Casilla ${i + 1}: vacía`
-              }
-              style={{ transition }}
-              className={[
-                "h-16 min-w-[4.5rem] rounded-xl border-4 px-3 text-2xl font-black sm:h-20 sm:min-w-[5.5rem] sm:text-3xl",
-                value ? "bg-white" : "border-dashed bg-white/50",
-                state === "ok"
-                  ? "border-emerald-500 text-emerald-700"
-                  : state === "bad"
-                    ? "border-rose-400 text-rose-600"
-                    : "border-stone-300 text-stone-800",
-              ].join(" ")}
+        <div className="flex items-center justify-between border-b border-[#E6DCC8] pb-3">
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#F5F1E8] border border-[#D4C4A8] px-3.5 py-1.5 text-sm font-black text-[#25313A]">
+            Palabra {wordIndex + 1} de {content.words.length}
+          </span>
+          <span className="text-xs sm:text-sm font-bold text-[#25313A]/70">
+            Arrastra o toca una sílaba
+          </span>
+        </div>
+
+        {/* The picture: real book art, or an honest "pendiente" card. */}
+        <div className="flex justify-center">
+          {word.imageUrl ? (
+            <div className="game-tactile-card rounded-2xl bg-white p-3 sm:p-4">
+              <img
+                src={word.imageUrl}
+                alt={word.word}
+                className="h-36 w-auto object-contain sm:h-48"
+                draggable={false}
+              />
+            </div>
+          ) : (
+            <div
+              className="flex h-40 w-40 items-center justify-center rounded-2xl border-2 border-dashed border-[#C9B798] bg-[#F5F1E8] text-sm font-bold text-[#25313A]/70 sm:h-48 sm:w-48"
+              role="img"
+              aria-label="Ilustración pendiente"
             >
-              {value ?? ""}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* The tray of syllables. */}
-      <div
-        className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
-        role="group"
-        aria-label="Sílabas disponibles"
-      >
-        {tiles.map((tile) => (
-          <button
-            key={tile.id}
-            type="button"
-            onPointerDown={onTilePointerDown(tile)}
-            onPointerMove={onTilePointerMove}
-            onPointerUp={onTilePointerUp(tile)}
-            onClick={(e) => {
-              if (e.detail === 0) {
-                placeTile(tile, nextEmptySlot(placed));
-              }
-            }}
-            aria-label={`Sílaba ${tile.syllable}`}
-            style={{ transition, touchAction: "none" }}
-            className="h-14 min-w-[4rem] touch-none select-none rounded-xl border-4 border-amber-400 bg-amber-100 px-3 text-xl font-black text-stone-800 shadow-[0_4px_0_rgb(180_130_20)] active:translate-y-[2px] active:shadow-[0_2px_0_rgb(180_130_20)] sm:h-16 sm:text-2xl"
-          >
-            {tile.syllable}
-          </button>
-        ))}
-        {tiles.length === 0 && (
-          <p className="text-sm font-bold text-stone-500">
-            Toca una casilla para devolver una sílaba.
-          </p>
-        )}
-      </div>
-
-      {/* Feedback + actions. */}
-      <div className="flex flex-col items-center gap-3">
-        {checked && (
-          <p
-            role="status"
-            className={`text-lg font-black ${grade.isCorrect ? "text-emerald-700" : "text-rose-600"}`}
-          >
-            {grade.isCorrect ? "¡Muy bien!" : "Casi. Inténtalo otra vez."}
-          </p>
-        )}
-        <div className="flex flex-wrap justify-center gap-3">
-          <KidButton onClick={onCheck} disabled={!grade.isComplete || checked}>
-            Comprobar
-          </KidButton>
-          {checked && grade.isCorrect && (
-            <KidButton variant="outline" onClick={onNext}>
-              {isLastWord ? "Terminar" : "Siguiente"}
-            </KidButton>
+              pendiente
+            </div>
           )}
         </div>
-      </div>
 
-      {/* The tile that follows the finger/cursor while dragging. */}
-      {dragging && !reducedMotion && (
+        {/* The word being built. */}
         <div
-          aria-hidden
-          className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 rounded-xl border-4 border-amber-400 bg-amber-200 px-3 py-2 text-xl font-black text-stone-800 shadow-lg"
-          style={{ left: dragging.x, top: dragging.y }}
+          className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3"
+          role="group"
+          aria-label="Casillas de la palabra"
         >
-          {dragging.tile.syllable}
+          {target.map((_, i) => {
+            const value = placed[i];
+            const state = checked ? (grade.isCorrect ? "ok" : "bad") : "idle";
+            return (
+              <button
+                key={i}
+                type="button"
+                data-slot-index={i}
+                onClick={() => value && clearSlot(i)}
+                aria-label={
+                  value ? `Casilla ${i + 1}: ${value}. Tocar para quitar.` : `Casilla ${i + 1}: vacía`
+                }
+                style={{ transition }}
+                className={[
+                  "min-h-16 min-w-[4.5rem] rounded-2xl px-4 text-2xl font-black sm:min-h-20 sm:min-w-[5.5rem] sm:text-3xl",
+                  value ? "bg-white border-2 border-[#D4C4A8] shadow-sm" : "game-slot-well",
+                  state === "ok"
+                    ? "game-correct-glow text-[#1D5631]"
+                    : state === "bad"
+                      ? "game-wrong-nudge text-[#8E2620]"
+                      : "text-[#25313A]",
+                ].join(" ")}
+              >
+                {value ?? ""}
+              </button>
+            );
+          })}
         </div>
-      )}
-    </section>
+
+        {/* The tray of syllables. */}
+        <div
+          className="rounded-2xl bg-[#F5F1E8] border border-[#E6DCC8] p-4 flex flex-wrap items-center justify-center gap-3"
+          role="group"
+          aria-label="Sílabas disponibles"
+        >
+          {tiles.map((tile) => (
+            <button
+              key={tile.id}
+              type="button"
+              onPointerDown={onTilePointerDown(tile)}
+              onPointerMove={onTilePointerMove}
+              onPointerUp={onTilePointerUp(tile)}
+              onClick={(e) => {
+                if (e.detail === 0) {
+                  placeTile(tile, nextEmptySlot(placed));
+                }
+              }}
+              aria-label={`Sílaba ${tile.syllable}`}
+              style={{ transition, touchAction: "none" }}
+              className="game-tactile-tile min-h-14 min-w-[4rem] touch-none select-none rounded-2xl px-4 text-xl font-black sm:min-h-16 sm:min-w-[4.5rem] sm:text-2xl"
+            >
+              {tile.syllable}
+            </button>
+          ))}
+          {tiles.length === 0 && (
+            <p className="text-sm font-bold text-[#25313A]/75">
+              Toca una casilla para devolver una sílaba.
+            </p>
+          )}
+        </div>
+
+        {/* Feedback + actions. */}
+        <div className="flex flex-col items-center gap-3">
+          {checked && (
+            <div
+              role="status"
+              className={`inline-flex items-center gap-2 rounded-2xl border-2 px-5 py-2.5 text-lg font-black ${
+                grade.isCorrect
+                  ? "game-correct-glow border-[#2F7D4A] bg-[#ECF9F0] text-[#1D5631]"
+                  : "game-wrong-nudge border-[#C2413A] bg-[#FDF0EF] text-[#8E2620]"
+              }`}
+            >
+              {grade.isCorrect && (
+                <span className="game-star-pop">
+                  <Star className="h-5 w-5 fill-[#F2B632] text-[#D99B1E]" aria-hidden />
+                </span>
+              )}
+              {grade.isCorrect ? "¡Muy bien!" : "Casi. Inténtalo otra vez."}
+            </div>
+          )}
+          <div className="flex flex-wrap justify-center gap-3">
+            <KidButton
+              onClick={onCheck}
+              disabled={!grade.isComplete || checked}
+              className="!min-h-14 !px-7 !text-base"
+            >
+              Comprobar
+            </KidButton>
+            {checked && grade.isCorrect && (
+              <KidButton
+                variant="outline"
+                onClick={onNext}
+                className="!min-h-14 !px-7 !text-base"
+              >
+                {isLastWord ? "Terminar" : "Siguiente"}
+              </KidButton>
+            )}
+          </div>
+        </div>
+
+        {/* The tile that follows the finger/cursor while dragging. */}
+        {dragging && !reducedMotion && (
+          <div
+            aria-hidden
+            className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 rounded-2xl border-3 border-[#D99B1E] bg-[#FDE79C] px-4 py-2.5 text-xl font-black text-[#25313A] shadow-xl"
+            style={{ left: dragging.x, top: dragging.y }}
+          >
+            {dragging.tile.syllable}
+          </div>
+        )}
+      </section>
+    </div>
   );
 }
 

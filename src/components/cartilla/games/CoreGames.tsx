@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState, useRef } from "react";
-import { Check, RotateCcw, Timer, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Check, RotateCcw, Sparkles, Star, Timer, X } from "lucide-react";
 import type { GameContent, WordItem } from "@/lib/games/gameContent";
 import { playWord } from "@/lib/games/wordAudio";
 import { recordEvent } from "@/lib/student-session";
@@ -18,14 +18,21 @@ function Result({ ok, text }: { ok: boolean; text: string }) {
   return (
     <div
       role="status"
-      className={`rounded-xl border-2 px-4 py-3 font-bold ${
+      className={`rounded-2xl border-2 px-5 py-3.5 font-extrabold shadow-sm ${
         ok
-          ? "border-emerald-300 bg-emerald-50 text-emerald-800"
-          : "border-rose-300 bg-rose-50 text-rose-800"
+          ? "game-correct-glow border-[#2F7D4A] bg-[#ECF9F0] text-[#1D5631]"
+          : "game-wrong-nudge border-[#C2413A] bg-[#FDF0EF] text-[#8E2620]"
       }`}
     >
-      <span className="inline-flex items-center gap-2">
-        {ok ? <Check className="h-5 w-5" /> : <X className="h-5 w-5" />}
+      <span className="inline-flex items-center gap-2.5 text-base sm:text-lg">
+        {ok ? (
+          <span className="game-star-pop inline-flex items-center gap-1 text-[#2F7D4A]">
+            <Star className="h-5 w-5 fill-[#F2B632] text-[#D99B1E]" aria-hidden />
+            <Check className="h-5 w-5" aria-hidden />
+          </span>
+        ) : (
+          <X className="h-5 w-5 text-[#C2413A]" aria-hidden />
+        )}
         {text}
       </span>
     </div>
@@ -33,7 +40,27 @@ function Result({ ok, text }: { ok: boolean; text: string }) {
 }
 
 function CompleteCard({ children }: { children: React.ReactNode }) {
-  return <section className="kid-card p-5 sm:p-7 space-y-5">{children}</section>;
+  return (
+    <div className="game-wood-frame">
+      <section className="game-paper-board p-5 sm:p-8 space-y-6">{children}</section>
+    </div>
+  );
+}
+
+function ProgressPill({ current, total, score }: { current: number; total: number; score?: number }) {
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E6DCC8] pb-3">
+      <span className="inline-flex items-center gap-2 rounded-full bg-[#F5F1E8] border border-[#D4C4A8] px-3.5 py-1.5 text-sm font-black text-[#25313A]">
+        Paso {Math.min(current, total)} de {total}
+      </span>
+      {typeof score === "number" && (
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF6D6] border border-[#D99B1E] px-3.5 py-1.5 text-sm font-black text-[#25313A]">
+          <Star className="h-4 w-4 fill-[#F2B632] text-[#D99B1E]" aria-hidden />
+          {score} / {total}
+        </span>
+      )}
+    </div>
+  );
 }
 
 export function MariposasGame({ content }: { content: GameContent }) {
@@ -54,12 +81,20 @@ export function MariposasGame({ content }: { content: GameContent }) {
   if (done) {
     return (
       <CompleteCard>
-        <h2 className="text-2xl font-black text-center">¡Las mariposas volvieron al jardín!</h2>
-        <p className="text-center font-bold text-stone-600">
-          {score} de {content.words.length} palabras completas
-        </p>
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-bold text-primary-foreground">
-          <RotateCcw className="h-4 w-4" /> Jugar otra vez
+        <div className="text-center space-y-2">
+          <div className="game-star-pop justify-center">
+            <Sparkles className="h-10 w-10 text-[#F2B632]" aria-hidden />
+          </div>
+          <h2 className="text-2xl font-black text-[#25313A]">¡Las mariposas volvieron al jardín!</h2>
+          <p className="font-bold text-[#25313A]/80">
+            {score} de {content.words.length} palabras completas
+          </p>
+        </div>
+        <button
+          onClick={reset}
+          className="mx-auto flex min-h-14 items-center gap-2 rounded-2xl bg-[#167A72] px-6 py-3 font-black text-white shadow-[0_4px_0_#0F544E] active:translate-y-[2px] active:shadow-[0_2px_0_#0F544E]"
+        >
+          <RotateCcw className="h-5 w-5" aria-hidden /> Jugar otra vez
         </button>
       </CompleteCard>
     );
@@ -69,7 +104,9 @@ export function MariposasGame({ content }: { content: GameContent }) {
     if (feedback) return;
     const next = [...picked, tile];
     const expected = word.syllables.slice(0, next.length);
-    const validPrefix = next.every((value, i) => value.toLocaleLowerCase("es") === expected[i]?.toLocaleLowerCase("es"));
+    const validPrefix = next.every(
+      (value, i) => value.toLocaleLowerCase("es") === expected[i]?.toLocaleLowerCase("es"),
+    );
     if (!validPrefix) {
       setFeedback("no");
       setTimeout(() => {
@@ -94,21 +131,30 @@ export function MariposasGame({ content }: { content: GameContent }) {
 
   return (
     <CompleteCard>
+      <ProgressPill current={wordIndex + 1} total={content.words.length} score={score} />
       <div className="text-center">
-        <div className="text-5xl" aria-hidden>🦋</div>
-        <p className="mt-2 text-sm font-bold text-stone-500">Palabra {wordIndex + 1} de {content.words.length}</p>
-        <h2 className="text-3xl font-black mt-1">{word.word}</h2>
+        <div className="text-5xl" aria-hidden>
+          🦋
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-black mt-2 text-[#25313A]">{word.word}</h2>
       </div>
-      <div className="min-h-16 rounded-2xl border-2 border-dashed border-stone-300 bg-white p-3 flex flex-wrap justify-center gap-2">
+      <div className="game-slot-well min-h-20 rounded-2xl p-3 flex flex-wrap justify-center gap-2.5">
         {word.syllables.map((_, i) => (
-          <span key={i} className="min-w-16 rounded-xl bg-stone-100 px-4 py-3 text-center text-2xl font-black">
+          <span
+            key={i}
+            className="min-w-16 min-h-14 inline-flex items-center justify-center rounded-xl bg-white border-2 border-[#D4C4A8] px-4 py-2 text-2xl font-black text-[#25313A] shadow-sm"
+          >
             {picked[i] ?? "__"}
           </span>
         ))}
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
         {(content.tiles ?? []).map((tile) => (
-          <button key={tile} onClick={() => choose(tile)} className="rounded-xl border-2 border-sky-200 bg-sky-50 py-3 text-xl font-black hover:bg-sky-100 active:scale-95">
+          <button
+            key={tile}
+            onClick={() => choose(tile)}
+            className="game-tactile-tile min-h-14 rounded-2xl py-3 text-xl font-black"
+          >
             {tile}
           </button>
         ))}
@@ -123,14 +169,15 @@ export function VowelGame({ content }: { content: GameContent }) {
   const target = content.letter.toLocaleLowerCase("es");
   const [answers, setAnswers] = useState<Record<string, boolean>>({});
   const [score, setScore] = useState(0);
-  const allDone = Object.keys(answers).length === content.words.length;
+  const answeredCount = Object.keys(answers).length;
+  const allDone = answeredCount === content.words.length;
 
   const answer = (item: WordItem, saysStarts: boolean) => {
     if (item.word in answers) return;
     const correct = item.word.toLocaleLowerCase("es").startsWith(target) === saysStarts;
     setAnswers((a) => ({ ...a, [item.word]: correct }));
     if (correct) setScore((s) => s + 1);
-    if (Object.keys(answers).length + 1 === content.words.length) {
+    if (answeredCount + 1 === content.words.length) {
       finishGame(content, score + (correct ? 1 : 0), content.words.length);
     }
   };
@@ -142,27 +189,68 @@ export function VowelGame({ content }: { content: GameContent }) {
 
   return (
     <CompleteCard>
-      <h2 className="text-xl font-black text-center">¿Comienza con {content.letter.toUpperCase()}?</h2>
-      <div className="grid sm:grid-cols-2 gap-3">
+      <ProgressPill current={answeredCount} total={content.words.length} score={score} />
+      <h2 className="text-2xl sm:text-3xl font-black text-center text-[#25313A]">
+        ¿Comienza con <span className="text-[#167A72]">{content.letter.toUpperCase()}</span>?
+      </h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {content.words.map((item) => {
           const marked = answers[item.word];
           const answered = item.word in answers;
           return (
-            <div key={item.word} className={`rounded-2xl border-2 p-3 bg-white ${answered ? (marked ? "border-emerald-400" : "border-rose-400") : "border-stone-200"}`}>
-              {item.imageUrl && <img src={item.imageUrl} alt={item.word} className="h-28 w-full object-contain" loading="lazy" />}
-              <p className="text-center text-xl font-black mt-2">{item.word}</p>
-              <div className="grid grid-cols-2 gap-2 mt-3">
-                <button disabled={answered} onClick={() => answer(item, true)} className="rounded-xl bg-emerald-100 px-3 py-2 font-bold disabled:opacity-50">Sí</button>
-                <button disabled={answered} onClick={() => answer(item, false)} className="rounded-xl bg-stone-100 px-3 py-2 font-bold disabled:opacity-50">No</button>
+            <div
+              key={item.word}
+              className={`rounded-2xl border-2 p-4 transition-all ${
+                answered
+                  ? marked
+                    ? "border-emerald-400 game-correct-glow"
+                    : "border-[#C2413A] game-wrong-nudge"
+                  : "game-tactile-card"
+              }`}
+            >
+              {item.imageUrl && (
+                <div className="rounded-xl bg-white border border-[#E6DCC8] p-2">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.word}
+                    className="h-28 w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <p className="text-center text-2xl font-black mt-3 text-[#25313A]">{item.word}</p>
+              <div className="grid grid-cols-2 gap-2.5 mt-3">
+                <button
+                  type="button"
+                  disabled={answered}
+                  onClick={() => answer(item, true)}
+                  className="min-h-14 rounded-xl border-2 border-[#2F7D4A] bg-[#ECF9F0] px-3 py-2 text-base font-black text-[#1D5631] shadow-[0_3px_0_#2F7D4A] hover:bg-[#D8F3E0] active:translate-y-[2px] active:shadow-none disabled:opacity-55 disabled:shadow-none"
+                >
+                  Sí
+                </button>
+                <button
+                  type="button"
+                  disabled={answered}
+                  onClick={() => answer(item, false)}
+                  className="min-h-14 rounded-xl border-2 border-[#C9B798] bg-[#F5F1E8] px-3 py-2 text-base font-black text-[#25313A] shadow-[0_3px_0_#B9A789] hover:bg-[#EDE5D5] active:translate-y-[2px] active:shadow-none disabled:opacity-55 disabled:shadow-none"
+                >
+                  No
+                </button>
               </div>
             </div>
           );
         })}
       </div>
       {allDone && (
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-4 pt-2">
           <Result ok={score === content.words.length} text={`${score} de ${content.words.length} correctas`} />
-          <button onClick={reset} className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+          <button
+            type="button"
+            onClick={reset}
+            className="inline-flex min-h-14 items-center gap-2 rounded-2xl bg-[#167A72] px-6 py-3 font-black text-white shadow-[0_4px_0_#0F544E] hover:brightness-105 active:translate-y-[2px] active:shadow-[0_2px_0_#0F544E]"
+          >
+            <RotateCcw className="h-5 w-5" aria-hidden /> Repetir
+          </button>
         </div>
       )}
     </CompleteCard>
@@ -187,14 +275,21 @@ export function PhonicsCompleteGame({ content }: { content: GameContent }) {
     return (
       <CompleteCard>
         <Result ok={score === content.words.length} text={`${score} de ${content.words.length} palabras completadas`} />
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+        <button
+          type="button"
+          onClick={reset}
+          className="mx-auto flex min-h-14 items-center gap-2 rounded-2xl bg-[#167A72] px-6 py-3 font-black text-white shadow-[0_4px_0_#0F544E] active:translate-y-[2px] active:shadow-[0_2px_0_#0F544E]"
+        >
+          <RotateCcw className="h-5 w-5" aria-hidden /> Repetir
+        </button>
       </CompleteCard>
     );
   }
 
   const choose = (tile: string) => {
     if (feedback) return;
-    const correct = tile.toLocaleLowerCase("es") === item.syllables[missingIndex].toLocaleLowerCase("es");
+    const correct =
+      tile.toLocaleLowerCase("es") === item.syllables[missingIndex].toLocaleLowerCase("es");
     setFeedback(correct ? "ok" : "no");
     if (correct) setScore((s) => s + 1);
     setTimeout(() => {
@@ -208,17 +303,41 @@ export function PhonicsCompleteGame({ content }: { content: GameContent }) {
 
   return (
     <CompleteCard>
-      <p className="text-center text-sm font-bold text-stone-500">Completa: {item.word}</p>
-      <div className="flex justify-center gap-2 text-3xl font-black">
-        {item.syllables.map((syllable, i) => (
-          <span key={`${syllable}-${i}`} className="rounded-xl bg-white border-2 border-stone-200 px-4 py-3">
-            {i === missingIndex ? "___" : syllable}
-          </span>
-        ))}
+      <ProgressPill current={index + 1} total={content.words.length} score={score} />
+      <p className="text-center text-base font-extrabold text-[#25313A]/75">
+        Completa la palabra: <span className="text-[#167A72]">{item.word}</span>
+      </p>
+      <div className="flex justify-center gap-3 text-3xl sm:text-4xl font-black">
+        {item.syllables.map((syllable, i) => {
+          const isBlank = i === missingIndex;
+          return (
+            <span
+              key={`${syllable}-${i}`}
+              className={`min-h-20 min-w-20 inline-flex items-center justify-center rounded-2xl px-5 py-3 ${
+                isBlank
+                  ? feedback === "ok"
+                    ? "game-correct-glow border-2 border-[#2F7D4A] text-[#1D5631]"
+                    : feedback === "no"
+                      ? "game-wrong-nudge border-2 border-[#C2413A] text-[#8E2620]"
+                      : "game-slot-well text-[#25313A]/45"
+                  : "game-tactile-card text-[#25313A]"
+              }`}
+            >
+              {isBlank ? (feedback === "ok" ? syllable : "___") : syllable}
+            </span>
+          );
+        })}
       </div>
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-3 pt-2">
         {(content.tiles ?? []).map((tile) => (
-          <button key={tile} onClick={() => choose(tile)} className="rounded-xl bg-amber-100 border-2 border-amber-200 px-5 py-3 text-xl font-black hover:bg-amber-200">{tile}</button>
+          <button
+            key={tile}
+            type="button"
+            onClick={() => choose(tile)}
+            className="game-tactile-tile min-h-14 min-w-16 rounded-2xl px-6 py-3 text-2xl font-black"
+          >
+            {tile}
+          </button>
         ))}
       </div>
       {feedback === "ok" && <Result ok text="¡Correcto!" />}
@@ -235,7 +354,9 @@ export function RhymeGame({ content }: { content: GameContent }) {
       const first = remaining.shift();
       if (!first) break;
       const ending = first.syllables.at(-1)?.toLocaleLowerCase("es");
-      const matchIndex = remaining.findIndex((w) => w.syllables.at(-1)?.toLocaleLowerCase("es") === ending);
+      const matchIndex = remaining.findIndex(
+        (w) => w.syllables.at(-1)?.toLocaleLowerCase("es") === ending,
+      );
       if (matchIndex >= 0) result.push([first, remaining.splice(matchIndex, 1)[0]]);
     }
     return result;
@@ -255,7 +376,13 @@ export function RhymeGame({ content }: { content: GameContent }) {
     return (
       <CompleteCard>
         <Result ok text={`${score} de ${pairs.length} rimas encontradas`} />
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+        <button
+          type="button"
+          onClick={reset}
+          className="mx-auto flex min-h-14 items-center gap-2 rounded-2xl bg-[#167A72] px-6 py-3 font-black text-white shadow-[0_4px_0_#0F544E] active:translate-y-[2px] active:shadow-[0_2px_0_#0F544E]"
+        >
+          <RotateCcw className="h-5 w-5" aria-hidden /> Repetir
+        </button>
       </CompleteCard>
     );
   }
@@ -277,13 +404,27 @@ export function RhymeGame({ content }: { content: GameContent }) {
     }, 650);
   };
 
+  const gridCols = candidates.length === 3 ? "grid-cols-1 sm:grid-cols-3" : "grid-cols-2";
+
   return (
     <CompleteCard>
-      <p className="text-center text-sm font-bold text-stone-500">¿Qué palabra rima con…?</p>
-      <div className="text-center text-4xl font-black">{pair[0].word}</div>
-      <div className="grid grid-cols-2 gap-3">
+      <ProgressPill current={index + 1} total={pairs.length} score={score} />
+      <div className="text-center space-y-2">
+        <p className="text-base font-extrabold text-[#25313A]/75">¿Qué palabra rima con…?</p>
+        <div className="inline-block rounded-2xl border-2 border-[#D99B1E] bg-[#FFF6D6] px-8 py-4 text-4xl sm:text-5xl font-black text-[#25313A] shadow-sm">
+          {pair[0].word}
+        </div>
+      </div>
+      <div className={`grid ${gridCols} gap-3.5 pt-2`}>
         {candidates.map((candidate) => (
-          <button key={candidate.word} onClick={() => choose(candidate)} className="rounded-2xl border-2 border-purple-200 bg-purple-50 py-4 text-xl font-black hover:bg-purple-100">{candidate.word}</button>
+          <button
+            key={candidate.word}
+            type="button"
+            onClick={() => choose(candidate)}
+            className="game-tactile-card min-h-16 rounded-2xl px-4 py-4 text-2xl font-black text-[#25313A] hover:bg-[#F5F1E8]"
+          >
+            {candidate.word}
+          </button>
         ))}
       </div>
       {feedback === "ok" && <Result ok text="¡Riman!" />}
@@ -297,7 +438,7 @@ export function WordsPerMinuteGame({ content }: { content: GameContent }) {
   const [seconds, setSeconds] = useState(60);
   const [count, setCount] = useState(0);
   const finished = !running && seconds === 0;
-  
+
   const countRef = useRef(count);
   countRef.current = count;
   const contentRef = useRef(content);
@@ -318,7 +459,7 @@ export function WordsPerMinuteGame({ content }: { content: GameContent }) {
       setSeconds((s) => s - 1);
     }, 1000);
     return () => window.clearTimeout(timer);
-  }, [running, seconds]); // Removed count and content from dependencies to prevent timer resets
+  }, [running, seconds]);
 
   const start = () => {
     hasFinishedRef.current = false;
@@ -329,28 +470,76 @@ export function WordsPerMinuteGame({ content }: { content: GameContent }) {
 
   return (
     <CompleteCard>
-      <div className="flex items-center justify-between rounded-2xl bg-white border-2 border-stone-200 p-4">
-        <span className="inline-flex items-center gap-2 font-black"><Timer className="h-5 w-5" /> {seconds}s</span>
-        <span className="font-black">Leídas: {count}</span>
+      <div className="flex items-center justify-between rounded-2xl bg-[#F5F1E8] border-2 border-[#D4C4A8] px-5 py-4">
+        <span className="inline-flex items-center gap-2 text-xl font-black text-[#25313A]">
+          <Timer className="h-6 w-6 text-[#167A72]" aria-hidden /> {seconds}s
+        </span>
+        <span className="inline-flex items-center gap-2 text-xl font-black text-[#25313A]">
+          <Star className="h-5 w-5 fill-[#F2B632] text-[#D99B1E]" aria-hidden />
+          Leídas: {count}
+        </span>
       </div>
-      {!running && !finished && <button onClick={start} className="w-full rounded-xl bg-primary py-3 text-lg font-black text-primary-foreground">Empezar 1 minuto</button>}
-      <div className="grid grid-cols-3 gap-2">
-        {content.words.map((item, i) => (
-          <button key={`${item.word}-${i}`} disabled={!running || i !== count} onClick={() => setCount((n) => Math.min(n + 1, content.words.length))} className={`rounded-xl border-2 p-3 text-lg font-black ${i < count ? "border-emerald-300 bg-emerald-50" : "border-stone-200 bg-white"} disabled:opacity-60`}>
-            {item.word}
-          </button>
-        ))}
+
+      {!running && !finished && (
+        <button
+          type="button"
+          onClick={start}
+          className="w-full min-h-14 rounded-2xl bg-[#167A72] py-3.5 text-lg font-black text-white shadow-[0_4px_0_#0F544E] hover:brightness-105 active:translate-y-[2px] active:shadow-[0_2px_0_#0F544E]"
+        >
+          Empezar 1 minuto
+        </button>
+      )}
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        {content.words.map((item, i) => {
+          const isRead = i < count;
+          const isCurrent = running && i === count;
+          return (
+            <button
+              key={`${item.word}-${i}`}
+              type="button"
+              disabled={!running || i !== count}
+              onClick={() => setCount((n) => Math.min(n + 1, content.words.length))}
+              className={`min-h-14 rounded-2xl border-2 px-3 py-3 text-xl font-black transition-all ${
+                isRead
+                  ? "border-[#2F7D4A] bg-[#ECF9F0] text-[#1D5631]"
+                  : isCurrent
+                    ? "game-tactile-tile ring-2 ring-[#F2B632]/50"
+                    : "border-[#DFD3BC] bg-white text-[#25313A]/60"
+              } disabled:cursor-default`}
+            >
+              {item.word}
+            </button>
+          );
+        })}
       </div>
-      {running && count >= content.words.length && <button onClick={() => { 
-        setRunning(false); 
-        setSeconds(0); 
-        if (!hasFinishedRef.current) {
-          hasFinishedRef.current = true;
-          finishGame(content, count, content.words.length);
-        }
-      }} className="w-full rounded-xl bg-emerald-600 py-3 font-black text-white">Terminé la lista</button>}
+
+      {running && count >= content.words.length && (
+        <button
+          type="button"
+          onClick={() => {
+            setRunning(false);
+            setSeconds(0);
+            if (!hasFinishedRef.current) {
+              hasFinishedRef.current = true;
+              finishGame(content, count, content.words.length);
+            }
+          }}
+          className="w-full min-h-14 rounded-2xl bg-[#2F7D4A] py-3.5 text-lg font-black text-white shadow-[0_4px_0_#1D5631]"
+        >
+          Terminé la lista
+        </button>
+      )}
       {finished && <Result ok text={`Leíste ${count} palabras.`} />}
-      {finished && <button onClick={start} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Otra vez</button>}
+      {finished && (
+        <button
+          type="button"
+          onClick={start}
+          className="mx-auto flex min-h-14 items-center gap-2 rounded-2xl bg-[#167A72] px-6 py-3 font-black text-white shadow-[0_4px_0_#0F544E] active:translate-y-[2px] active:shadow-[0_2px_0_#0F544E]"
+        >
+          <RotateCcw className="h-5 w-5" aria-hidden /> Otra vez
+        </button>
+      )}
     </CompleteCard>
   );
 }
@@ -371,7 +560,13 @@ export function DrawingsGame({ content }: { content: GameContent }) {
     return (
       <CompleteCard>
         <Result ok text={`${score} de ${content.words.length} dibujos correctos`} />
-        <button onClick={reset} className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-bold text-primary-foreground"><RotateCcw className="h-4 w-4" /> Repetir</button>
+        <button
+          type="button"
+          onClick={reset}
+          className="mx-auto flex min-h-14 items-center gap-2 rounded-2xl bg-[#167A72] px-6 py-3 font-black text-white shadow-[0_4px_0_#0F544E] active:translate-y-[2px] active:shadow-[0_2px_0_#0F544E]"
+        >
+          <RotateCcw className="h-5 w-5" aria-hidden /> Repetir
+        </button>
       </CompleteCard>
     );
   }
@@ -393,11 +588,31 @@ export function DrawingsGame({ content }: { content: GameContent }) {
 
   return (
     <CompleteCard>
-      <h2 className="text-center text-3xl font-black">{item.word}</h2>
-      <div className="grid grid-cols-3 gap-3">
+      <ProgressPill current={index + 1} total={content.words.length} score={score} />
+      <div className="text-center">
+        <span className="inline-block rounded-2xl border-2 border-[#D99B1E] bg-[#FFF6D6] px-8 py-3 text-3xl sm:text-4xl font-black text-[#25313A] shadow-sm">
+          {item.word}
+        </span>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {content.words.map((candidate) => (
-          <button key={candidate.word} onClick={() => choose(candidate)} aria-label={`Dibujo de ${candidate.word}`} className="rounded-2xl border-2 border-stone-200 bg-white p-2 hover:border-primary active:scale-95">
-            {candidate.imageUrl ? <img src={candidate.imageUrl} alt={candidate.word} className="h-32 w-full object-contain" loading="lazy" /> : <span className="font-bold">{candidate.word}</span>}
+          <button
+            key={candidate.word}
+            type="button"
+            onClick={() => choose(candidate)}
+            aria-label={`Dibujo de ${candidate.word}`}
+            className="game-tactile-card min-h-36 sm:min-h-44 rounded-2xl bg-white p-4 flex items-center justify-center"
+          >
+            {candidate.imageUrl ? (
+              <img
+                src={candidate.imageUrl}
+                alt={candidate.word}
+                className="h-32 sm:h-36 w-full object-contain"
+                loading="lazy"
+              />
+            ) : (
+              <span className="font-bold">{candidate.word}</span>
+            )}
           </button>
         ))}
       </div>

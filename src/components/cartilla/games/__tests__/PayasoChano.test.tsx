@@ -175,4 +175,16 @@ describe("PayasoChano completion logic", () => {
 
     vi.useRealTimers();
   });
+
+  it("supports tap-to-place fallback and tap-slot-to-return", () => {
+    render(<PayasoChano content={mockContent} />, { wrapper });
+
+    const gaBtn = screen.getByRole("button", { name: "Sílaba ga" });
+    fireEvent.click(gaBtn);
+    expect(screen.getByLabelText("Casilla 1: ga")).toBeTruthy();
+
+    // Tap filled slot to return it
+    fireEvent.click(screen.getByLabelText("Casilla 1: ga"));
+    expect(screen.getByLabelText("Casilla 1: vacía")).toBeTruthy();
+  });
 });

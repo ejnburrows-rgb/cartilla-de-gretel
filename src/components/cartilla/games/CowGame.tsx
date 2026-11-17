@@ -517,10 +517,10 @@ const CSS = `
 @keyframes cg-fly{0%{transform:translate(calc(-50% + var(--cg-fly-dx)),calc(-50% + var(--cg-fly-dy))) scale(.75);opacity:.85}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
 .cg-title,.cg-btn{position:absolute}
 .cg-title img,.cg-btn img{width:100%;height:100%;display:block;pointer-events:none}
-.cg-btn{padding:0;border:0;background:none;cursor:pointer;display:block}
-.cg-hit{position:absolute;background:transparent;border:0;cursor:pointer}
+.cg-btn{padding:0;border:0;background:none;cursor:pointer;display:block;min-width:56px;min-height:56px}
+.cg-hit{position:absolute;background:transparent;border:0;cursor:pointer;min-width:56px;min-height:56px}
 .cg-menu{position:absolute;right:2%;top:14%;z-index:120;display:flex;flex-direction:column;gap:1.2cqw;background:#fdf3dc;border:.5cqw solid #8a4a1c;border-radius:2cqw;padding:1.6cqw}
-.cg-menu button{font:900 max(14px,2.4cqw)/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#4a2610;background:#fff;border:.3cqw solid #c58b4e;border-radius:1.4cqw;padding:1.2cqw 2cqw;min-height:44px}
+.cg-menu button{font:900 max(14px,2.4cqw)/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#4a2610;background:#fff;border:.3cqw solid #c58b4e;border-radius:1.4cqw;padding:1.2cqw 2cqw;min-height:56px}
 .cg-open{position:absolute;border-radius:1.6cqw;background:linear-gradient(#d3ecb0,#a5d374);opacity:0;transition:opacity .4s;z-index:2;box-shadow:inset 0 0 1.5cqw rgba(40,90,20,.45)}
 .cg-open-on{opacity:1}
 .cg-slot{position:absolute;padding:0;border:0;background:transparent;z-index:60;cursor:pointer;border-radius:2cqw}
@@ -613,9 +613,9 @@ const CSS = `
 .cg-msg{position:absolute;left:50%;top:90%;transform:translateX(-50%);z-index:110;font:900 3.4cqw/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;text-shadow:0 .3cqw .6cqw rgba(60,30,10,.7),0 0 1cqw rgba(60,30,10,.5);pointer-events:none;white-space:nowrap}
 .cg-done{position:absolute;inset:0;z-index:130;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;background:rgba(255,255,255,.35);backdrop-filter:blur(2px)}
 .cg-done p{font:900 8cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#2c7a1e;text-shadow:0 .4cqw 0 #fff}
-.cg-done button{font:900 max(14px,3cqw)/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;background:#2e9bb0;border:.5cqw solid #fff;border-radius:3cqw;padding:1.6cqw 4cqw;min-height:44px;cursor:pointer}
+.cg-done button{font:900 max(14px,3cqw)/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;background:#167A72;border:.5cqw solid #fff;border-radius:3cqw;padding:1.6cqw 4cqw;min-height:56px;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob{animation-duration:12s!important}}
+@media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob{animation:none!important}}
 
 .cg-head-bottom { clip-path: polygon(0% 40%, 100% 40%, 100% 100%, 0% 100%); }
 .cg-head-top { clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%); transition: transform 0.5s ease-in-out; }
