@@ -260,13 +260,19 @@ function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChan
                 <figure>
                   <img
                     src={r.servedPath}
-                    alt={`Current image ${r.id}`}
+                    alt={`Configured image ${r.id}`}
                     loading="lazy"
                     style={{ width: r.displayWidth ? `${Math.min(220, Number(r.displayWidth))}px` : undefined }}
                   />
                   <figcaption>
-                    Current: {r.width}×{r.height}px
+                    Configured asset: {r.width === "vector" ? "vector" : `${r.width}×${r.height}px`}
                   </figcaption>
+                </figure>
+              )}
+              {r.candidatePath && (
+                <figure>
+                  <img src={r.candidatePath} alt={`Existing candidate ${r.id}`} loading="lazy" />
+                  <figcaption>Existing candidate — not applied or approved</figcaption>
                 </figure>
               )}
             </div>
