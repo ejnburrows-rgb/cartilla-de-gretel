@@ -25,6 +25,22 @@ export const REVIEW_REVISION = import.meta.env.VITE_REVIEW_REVISION ?? "work/les
 
 export const COMPARISONS: Comparison[] = [
   {
+    id: "workbook-page-turn",
+    title: "Workbook page turn — Lesson 3 (draft)",
+    summary: "Two different paper folds. Complete page 7 to turn the page, or use an already completed local demo. Neither version is approved; all drawing/erasing guard paths still need checking.",
+    a: {
+      name: "A — Corner lift",
+      description: "The current diagonal fold begins at the bottom-right corner and sweeps left.",
+      links: [{ label: "Open A — corner lift", href: "/cartilla/leccion/3?curl=corner" }],
+    },
+    b: {
+      name: "B — Straight-edge roll",
+      description: "An experimental straight vertical fold sweeps from right to left instead of tilting diagonally.",
+      links: [{ label: "Open B — straight-edge roll", href: "/cartilla/leccion/3?curl=edge" }],
+    },
+    evidence: [],
+  },
+  {
     id: "flipchart-lesson-3",
     title: "Teacher Flip Chart — Lesson 3 (sheet 5, “La niña enfermita”)",
     summary:
