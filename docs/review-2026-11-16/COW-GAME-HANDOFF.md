@@ -25,4 +25,11 @@
 - **Audio:** use silence until the actual authorized line is listened to, transcript-matched and mapped. A visible sound control must not imply that a missing recording is playing.
 - **Acceptance:** repeat wrong → retry → five correct → completion → replay; reset at every active phase; keyboard, touch and screen-reader operation; 390×844 and 1366×768 captures plus a physical phone; no clipped, ambiguous or false controls; no missing runtime assets. Review both proposed alternatives before any approval.
 
-**Two distinct cow-game alternatives have not been built.** Existing game screenshots or a replay of the same game do not count as two prototypes.
+## Two unapproved comparison drafts
+
+- **A — Free selection:** `/cartilla/juego/cow-game-m?cow=free`. Either a cow or a slot can be selected first; retains the existing wide-screen side repeats and their misleading partial slots.
+- **B — Guided steps:** `/cartilla/juego/cow-game-m?cow=guided`. The child selects a cow first; slots become available and the step prompt changes. No correct slot is revealed. Side repeats are hidden, leaving plain green margins on wide screens; this is a rough draft, not a finished premium treatment.
+- Both use the same existing farm and cow artwork; no artwork was newly created or replaced. Both preserve wrong/retry, correct delivery, completion and replay. The settings and replay text have a 14px minimum. The experiment is opt-in; the default route retains A behavior.
+- `tests/e2e/review-cow-variants.spec.ts` records continuous local Chromium runs at 390×844 emulation and 1366×768. It verifies A can select a slot first, B requires a cow first, and each completes a wrong attempt, all five correct placements and replay. It does not establish visual approval, screen-reader usability, real-device behavior, all reset phases for B, or audio quality. The recording shows automated interaction, not an owner review or approval.
+- No public review URL is established. To review the draft, run the project locally and open `/revision`; opening, trying or silence never counts as approval. Owner choices and uploads are browser-local; JSON is the backup.
+
