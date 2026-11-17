@@ -1,7 +1,6 @@
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { PencilShape } from "@/components/cartilla/WorkbookPencilMark";
-import { recordPointer } from "@/lib/cursor-mode";
+import { PENCIL_TIP_SRC, recordPointer, toolSize } from "@/lib/cursor-mode";
 import {
   contractEase,
   contractTipAt,
@@ -12,36 +11,22 @@ import {
   subscribeTip,
 } from "@/lib/pencil-contract";
 
-/** Size of the close-up window around the graphite point (CSS px). */
-const FINE_SIZE = 168;
-const COARSE_SIZE = 128;
-/** The graphite point sits this far inside the window so the tip is never clipped. */
-const PAD = 6;
-/** Space around the graphite point for optional whole-pencil pose experiments (CSS px). */
-const FINE_EXTENT = 145;
-const COARSE_EXTENT = 110;
+/** Natural aspect ratio of owner-pencil-tip.svg (600x497, graphite point at 0,0). */
+const TIP_ASPECT = 497 / 600;
 
 /**
- * Option B (Locked Default) — the single Large Realistic Wooden Pencil-Tip cursor
- * (November 1 contract). It is the existing Workbook PencilShape, shown close up
- * with its graphite point as the hotspot, pointing up-left. It follows the real
- * pointer, travels along each mark while the kernel draws it, and hides while the
- * eraser works. Purely visual: pointer events always reach the real controls.
+ * Option B (Locked Default) — the single High-Definition photographic wooden
+ * pencil tip cursor (`owner-pencil-tip.svg`, 600x497, graphite point at 0,0).
+ * It follows the real pointer, travels along each mark while the kernel draws
+ * it, and hides while the eraser works. Purely visual: pointer events always
+ * reach the real controls.
  */
 export function ContractPencilCursor() {
   const host = useRef<HTMLDivElement>(null);
-  const shape = useRef<SVGGElement>(null);
-  const uid = `contract-tip-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const coarse =
     typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)").matches;
-  const requestedPose =
-    typeof window !== "undefined"
-      ? new URLSearchParams(window.location.search).get("pencil")
-      : null;
-  const pose = requestedPose === "up" || requestedPose === "down" ? requestedPose : null;
-  const extent = coarse ? COARSE_EXTENT : FINE_EXTENT;
-  const size = pose ? extent * 2 : coarse ? COARSE_SIZE : FINE_SIZE;
-  const scale = pose ? (coarse ? 1.3 : 1.7) : coarse ? 2.6 : 3.4;
+  const width = toolSize("tip");
+  const height = Math.round(width * TIP_ASPECT);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -56,18 +41,8 @@ export function ContractPencilCursor() {
     const place = (x: number, y: number, visible: boolean) => {
       const el = host.current;
       if (!el) return;
-      if (pose) {
-        const directionX = x > window.innerWidth - extent ? -1 : 1;
-        const directionY =
-          y < extent ? 1 : y > window.innerHeight - extent ? -1 : pose === "up" ? -1 : 1;
-        el.style.transform = `translate3d(${(x - extent).toFixed(1)}px, ${(y - extent).toFixed(1)}px, 0)`;
-        shape.current?.setAttribute(
-          "transform",
-          `translate(${extent} ${extent}) scale(${directionX} ${directionY}) rotate(135) scale(${scale})`,
-        );
-      } else {
-        el.style.transform = `translate3d(${(x - PAD).toFixed(1)}px, ${(y - PAD).toFixed(1)}px, 0)`;
-      }
+      // Graphite point of owner-pencil-tip.svg is at (0, 0).
+      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
       el.dataset.visible = visible ? "true" : "false";
       if (visible) lastShown = [x, y];
     };
@@ -146,52 +121,27 @@ export function ContractPencilCursor() {
       document.removeEventListener("pointerleave", leave);
       window.removeEventListener("blur", leave);
     };
-  }, [coarse, extent, scale, pose]);
+  }, [coarse]);
 
   if (typeof document === "undefined") return null;
-  // Tip at (PAD, PAD); body runs down-right (rotate 135° turns the shape's -y body axis).
   return createPortal(
     <div
       ref={host}
       className="contract-pencil-cursor"
       data-visible="false"
       data-testid="contract-pencil-cursor"
-      data-pencil-pose={pose ?? "tip"}
+      data-pencil-pose="hd-tip"
       aria-hidden="true"
-      style={{ width: size, height: size }}
+      style={{ width, height }}
     >
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} overflow="hidden">
-        <defs>
-          {!pose && (
-            <>
-              <linearGradient id={`${uid}-fade`} x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0.55" stopColor="#fff" />
-                <stop offset="1" stopColor="#fff" stopOpacity="0" />
-              </linearGradient>
-              <mask id={`${uid}-mask`} maskUnits="userSpaceOnUse" x="0" y="0" width={size} height={size}>
-                <rect width={size} height={size} fill={`url(#${uid}-fade)`} />
-              </mask>
-            </>
-          )}
-          <filter id={`${uid}-shadow`} x="-30%" y="-30%" width="180%" height="180%">
-            <feDropShadow
-              dx="2.5"
-              dy="3.5"
-              stdDeviation="2.5"
-              floodColor="#3b2a14"
-              floodOpacity="0.28"
-            />
-          </filter>
-        </defs>
-        <g mask={pose ? undefined : `url(#${uid}-mask)`} filter={`url(#${uid}-shadow)`}>
-          <g
-            ref={shape}
-            transform={`translate(${pose ? extent : PAD} ${pose ? extent : PAD}) rotate(135) scale(${scale})`}
-          >
-            <PencilShape uid={uid} />
-          </g>
-        </g>
-      </svg>
+      <img
+        src={PENCIL_TIP_SRC}
+        width={width}
+        height={height}
+        alt=""
+        draggable={false}
+        className="contract-pencil-cursor__img"
+      />
     </div>,
     document.body,
   );
