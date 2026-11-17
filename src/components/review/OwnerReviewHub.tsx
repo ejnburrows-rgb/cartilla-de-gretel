@@ -357,6 +357,7 @@ export function OwnerReviewHub() {
 
       <section id="ab" aria-labelledby="ab-h">
         <h2 id="ab-h">A/B comparisons</h2>
+        <p className="orh-note"><b>Pencil: WAITING.</b> The two whole-pencil poses shown on November 16 were rejected by the owner. They are not offered as review options. The requested pencil reference and new alternatives remain unresolved; the eraser is also incomplete.</p>
         {COMPARISONS.map((c) => (
           <ComparisonCard key={c.id} c={c} history={history} onChange={setHistory} />
         ))}
@@ -380,7 +381,7 @@ export function OwnerReviewHub() {
         )}
         <Links
           links={[
-            { label: "Try it: Lesson 3 (B)", href: "/cartilla/leccion/3?cursor=contract" },
+            { label: "Try it: Lesson 3 (draft pencil not approved)", href: "/cartilla/leccion/3?cursor=contract" },
             { label: "Try it: pages 85 → 88 (book)", href: "/cartilla/cuaderno" },
             { label: "Try it: Flip Chart top flip", href: "/cartilla/presentar/3" },
           ]}
