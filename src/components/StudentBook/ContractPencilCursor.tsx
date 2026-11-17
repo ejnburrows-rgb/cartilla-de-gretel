@@ -1,32 +1,45 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { PENCIL_TIP_SRC, recordPointer, toolSize } from "@/lib/cursor-mode";
+import {
+  ERASER_CURSOR_SRC,
+  ERASER_VIEWBOX,
+  PENCIL_TIP_SRC,
+  PENCIL_TIP_VIEWBOX,
+  recordPointer,
+  toolSize,
+} from "@/lib/cursor-mode";
 import {
   contractEase,
   contractTipAt,
   getTipFlight,
   isEraserActive,
+  isManualEraserActive,
   markToScreen,
   PENCIL_CONTRACT,
   subscribeTip,
 } from "@/lib/pencil-contract";
 
-/** Natural aspect ratio of owner-pencil-tip.svg (600x497, graphite point at 0,0). */
-const TIP_ASPECT = 497 / 600;
+/** Natural aspect ratios of uncropped HD cursor SVGs (active tip/corner at 0,0). */
+const TIP_ASPECT = PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width;
+const ERASER_ASPECT = ERASER_VIEWBOX.height / ERASER_VIEWBOX.width;
 
 /**
- * Option B (Locked Default) — the single High-Definition photographic wooden
- * pencil tip cursor (`owner-pencil-tip.svg`, 600x497, graphite point at 0,0).
- * It follows the real pointer, travels along each mark while the kernel draws
- * it, and hides while the eraser works. Purely visual: pointer events always
- * reach the real controls.
+ * Option B (Locked Default) — the single High-Definition uncropped classic
+ * wooden pencil cursor (`owner-pencil-tip.svg`, graphite point at 0,0) and
+ * full-body beveled pink school eraser (`owner-eraser.svg`, rubbing corner at 0,0)
+ * when a canvas eraser tool is active. It follows the real pointer, travels along
+ * each mark while the kernel draws it, and hides while the autonomous wrong-mark
+ * eraser rubs. Purely visual: pointer events always reach the real controls.
  */
 export function ContractPencilCursor() {
   const host = useRef<HTMLDivElement>(null);
+  const [manualEraser, setManualEraser] = useState(isManualEraserActive);
   const coarse =
     typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)").matches;
-  const width = toolSize("tip");
-  const height = Math.round(width * TIP_ASPECT);
+  const pencilWidth = toolSize("tip");
+  const pencilHeight = Math.round(pencilWidth * TIP_ASPECT);
+  const eraserWidth = Math.round(toolSize("eraser") * 1.45);
+  const eraserHeight = Math.round(eraserWidth * ERASER_ASPECT);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -41,7 +54,7 @@ export function ContractPencilCursor() {
     const place = (x: number, y: number, visible: boolean) => {
       const el = host.current;
       if (!el) return;
-      // Graphite point of owner-pencil-tip.svg is at (0, 0).
+      // Graphite point (pencil) or active rubbing corner (eraser) is at exact (0, 0).
       el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
       el.dataset.visible = visible ? "true" : "false";
       if (visible) lastShown = [x, y];
@@ -86,10 +99,13 @@ export function ContractPencilCursor() {
       pointer = [event.clientX, event.clientY];
       const target = event.target instanceof Element ? event.target : null;
       inside =
-        !!target?.closest(".native-lesson-viewer") &&
+        !!target?.closest('.native-lesson-viewer, [data-pencil-cursor-host="true"]') &&
         !target.closest(
-          "input, textarea, select, [contenteditable=true], .native-lesson-viewer__nav",
+          "input, textarea, select, [contenteditable=true], .native-lesson-viewer__navigation",
         );
+      if (!getTipFlight() && (!returnFrom || performance.now() - returnFrom.at >= 300)) {
+        place(pointer[0], pointer[1], !isEraserActive() && inside && (!coarse || pressed));
+      }
     };
     const down = (event: PointerEvent) => {
       pressed = true;
@@ -102,8 +118,10 @@ export function ContractPencilCursor() {
       inside = false;
       pressed = false;
     };
-    const unsubscribe = subscribeTip(() => undefined);
+    const unsubscribe = subscribeTip(() => setManualEraser(isManualEraserActive()));
+    setManualEraser(isManualEraserActive());
     window.addEventListener("pointermove", move, true);
+    window.addEventListener("pointerover", move, true);
     window.addEventListener("pointerdown", down, true);
     window.addEventListener("pointerup", up, true);
     window.addEventListener("pointercancel", leave, true);
@@ -115,6 +133,7 @@ export function ContractPencilCursor() {
       unsubscribe();
       root.classList.remove("cartilla-cursor-contract");
       window.removeEventListener("pointermove", move, true);
+      window.removeEventListener("pointerover", move, true);
       window.removeEventListener("pointerdown", down, true);
       window.removeEventListener("pointerup", up, true);
       window.removeEventListener("pointercancel", leave, true);
@@ -124,23 +143,31 @@ export function ContractPencilCursor() {
   }, [coarse]);
 
   if (typeof document === "undefined") return null;
+  const showingEraser = manualEraser;
+  const width = showingEraser ? eraserWidth : pencilWidth;
+  const height = showingEraser ? eraserHeight : pencilHeight;
   return createPortal(
     <div
       ref={host}
       className="contract-pencil-cursor"
       data-visible="false"
       data-testid="contract-pencil-cursor"
-      data-pencil-pose="hd-tip"
+      data-pencil-pose={showingEraser ? "hd-eraser" : "hd-tip"}
+      data-tool={showingEraser ? "eraser" : "pencil"}
       aria-hidden="true"
-      style={{ width, height }}
+      style={{ width, height, overflow: "visible" }}
     >
       <img
-        src={PENCIL_TIP_SRC}
+        src={showingEraser ? ERASER_CURSOR_SRC : PENCIL_TIP_SRC}
         width={width}
         height={height}
         alt=""
         draggable={false}
-        className="contract-pencil-cursor__img"
+        className={
+          showingEraser
+            ? "contract-pencil-cursor__img contract-pencil-cursor__img--eraser"
+            : "contract-pencil-cursor__img"
+        }
       />
     </div>,
     document.body,

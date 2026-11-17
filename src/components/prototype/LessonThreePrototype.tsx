@@ -8,6 +8,9 @@ import { WorkbookPageRenderer } from "@/components/cartilla/WorkbookPageRenderer
 import { DrawBoxCanvas } from "@/components/cartilla/DrawBoxCanvas";
 import { PageFrame } from "@/components/cartilla/PageFrame";
 import { PageCurl } from "@/components/StudentBook/PageCurl";
+import { ContractPencilCursor } from "@/components/StudentBook/ContractPencilCursor";
+import { PencilTipCursor } from "@/components/StudentBook/PencilTipCursor";
+import { useCursorMode } from "@/lib/cursor-mode";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import "@/styles/prototype-lesson-three.css";
 
@@ -107,6 +110,7 @@ export function LessonThreePrototype() {
   const navigationLock = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const reduced = useReducedMotion();
+  const cursorMode = useCursorMode();
   const markDone = useCallback(
     (id: string) => setDone((prev) => (prev.has(id) ? prev : new Set(prev).add(id))),
     [],
@@ -154,11 +158,13 @@ export function LessonThreePrototype() {
   const leaf = turn?.direction === "prev" ? turn.to : index;
   return (
     <main className="lesson-prototype">
+      {cursorMode === "tip" && <PencilTipCursor />}
+      {cursorMode === "contract" && <ContractPencilCursor />}
       <header className="prototype-heading">
         <span>Lección 3 · Aa</span>
         <span>Vista previa</span>
       </header>
-      <div className="prototype-book" data-prototype-page={index + 7} data-turning={Boolean(turn)}>
+      <div className="prototype-book" data-pencil-cursor-host="true" data-prototype-page={index + 7} data-turning={Boolean(turn)}>
         {[7, 8, 9].map((page, i) => {
           const visible = i === index || i === turn?.to;
           return (

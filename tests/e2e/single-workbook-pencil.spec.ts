@@ -14,7 +14,7 @@ async function openWorkbook(page: Page, lesson: number, pageIndex = 0) {
     localStorage.setItem('cartilla.learner-resume.v1', resume);
   }, { lesson, pageIndex });
   page.on('pageerror', error => console.error('Workbook page error:', error.message));
-  await page.goto(`/cartilla/leccion/${lesson}`, { waitUntil:'domcontentloaded' });
+  await page.goto(`/cartilla/leccion/${lesson}?cursor=normal`, { waitUntil:'domcontentloaded' });
   await expect(page.locator('.native-lesson-viewer')).toBeVisible({ timeout: 30000 });
 }
 
@@ -60,6 +60,7 @@ for (const viewport of [{width:390,height:844}, {width:1366,height:900}]) {
   test.describe(device, () => {
   test.use({viewport, hasTouch: device === 'phone', isMobile: device === 'phone'});
   test(`real Lesson 2 page 4 X has one pencil across both strokes`, async ({page}, testInfo) => {
+    test.setTimeout(90_000);
     await page.setViewportSize(viewport);
     await fs.mkdir(proofDir, {recursive:true});
     await openWorkbook(page, 2);

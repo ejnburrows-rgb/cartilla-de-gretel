@@ -10,7 +10,15 @@ import {
 import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
-import { getLastPointer, PENCIL_TIP_SRC, toolSize, useCursorMode } from "@/lib/cursor-mode";
+import {
+  ERASER_VIEWBOX,
+  getLastPointer,
+  PENCIL_TIP_SRC,
+  PENCIL_TIP_VIEWBOX,
+  toolSize,
+  useCursorMode,
+} from "@/lib/cursor-mode";
+import { HdSchoolEraserShape } from "@/components/StudentBook/HdSchoolEraser";
 import {
   contractPointAlong,
   endTipFlight,
@@ -773,7 +781,7 @@ function DrawingPencil({
             keyTimes={`0;${kApproach};${((approachMs + (drawMs - approachMs) * 0.35) / total).toFixed(6)};${((approachMs + (drawMs - approachMs) * 0.75) / total).toFixed(6)};${kDone};1`}
             keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
           />
-          {tipSize ? <image className="workbook-pencil__photo-tip" href={PENCIL_TIP_SRC} x="0" y="0" width={tipSize} height={tipSize * 497 / 600} /> : <g transform={PENCIL_POSE}>
+          {tipSize ? <image className="workbook-pencil__photo-tip" href={PENCIL_TIP_SRC} x="0" y="0" width={tipSize} height={tipSize * PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width} /> : <g transform={PENCIL_POSE}>
             <PencilShape uid={uid} stretch={stretch} />
           </g>}
         </g>
@@ -866,13 +874,14 @@ const CRUMB_COLORS = ["#f3a9b8", "#ee93a7", "#f8c6d0", "#e59aa6", "#d98593"];
  * Eraser crumbs: rubber flakes that break off where the eraser rubs, tumble and
  * fall a little under gravity, and stay on the paper until the eraser leaves.
  */
-function EraserCrumbs({
+export function EraserCrumbs({
   points,
   seed,
   enterMs,
   rubMs,
   totalMs,
   count = 7,
+  scale = 1,
 }: {
   points: Pt[];
   seed: number;
@@ -881,6 +890,7 @@ function EraserCrumbs({
   totalMs: number;
   /** November 1 contract candidate uses 12 crumbs. */
   count?: number;
+  scale?: number;
 }) {
   const crumbs = useMemo(() => {
     let s = seed || 7;
@@ -909,12 +919,12 @@ function EraserCrumbs({
       const t = 1 - (i + rnd() * 0.7) / n;
       const [px, py] = contractPointAlong(points, t);
       // Small realistic rubber flakes.
-      const r = 1 + rnd() * 1;
+      const r = (1 + rnd() * 1) * scale;
       out.push({
-        x: px + (rnd() - 0.5) * 12,
-        y: py + (rnd() - 0.5) * 9,
-        dx: -4 + rnd() * 10,
-        dy: 8 + rnd() * 14,
+        x: px + (rnd() - 0.5) * 12 * scale,
+        y: py + (rnd() - 0.5) * 9 * scale,
+        dx: (-4 + rnd() * 10) * scale,
+        dy: (8 + rnd() * 14) * scale,
         rx: r * (1 + rnd() * 0.5),
         ry: r * (0.6 + rnd() * 0.3),
         rot: rnd() * 180,
@@ -1237,7 +1247,10 @@ export function WorkbookPencilMark({
    */
   const stretch = flightBox && !contract ? stretchToScreenEdge(flightBox, height) : 0;
   const unit = flightBox ? Math.min(flightBox.width / 100, flightBox.height / height) : 0;
-  const tipMode = cursorMode === "tip" && typeof document !== "undefined" && !!document.querySelector(".native-lesson-viewer");
+  const tipMode =
+    cursorMode === "tip" &&
+    typeof document !== "undefined" &&
+    !!document.querySelector('.native-lesson-viewer, [data-pencil-cursor-host="true"]');
   const flightLayer =
     flying && flightBox && typeof document !== "undefined"
       ? createPortal(
@@ -1312,44 +1325,25 @@ export function WorkbookPencilMark({
                           repeatCount={Math.floor(rubMs / scrubPeriod)}
                           values="0 0;5 -1.4;0 0;-4.5 1.2;0 0"
                         />
-                        {tipMode && unit > 0 ? <g transform={`scale(${toolSize("eraser") / 14 / unit})`}><PinkEraserBlock uid={`${baseId}-e`} /></g> : <g transform={ERASER_POSE}>
-                          <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
-                            {contract ? (
-                              <>
-                                <defs>
-                                  <linearGradient
-                                    id={`${baseId}-eraser-fade`}
-                                    x1="0"
-                                    y1="-64"
-                                    x2="0"
-                                    y2="-44"
-                                    gradientUnits="userSpaceOnUse"
-                                  >
-                                    <stop offset="0" stopColor="#fff" />
-                                    <stop offset="1" stopColor="#fff" stopOpacity="0" />
-                                  </linearGradient>
-                                  <mask
-                                    id={`${baseId}-eraser-mask`}
-                                    maskUnits="userSpaceOnUse"
-                                    maskContentUnits="userSpaceOnUse"
-                                    x="-30"
-                                    y="-100"
-                                    width="60"
-                                    height="110"
-                                  >
-                                    <rect x="-30" y="-100" width="60" height="110" fill={`url(#${baseId}-eraser-fade)`} />
-                                  </mask>
-                                </defs>
-                                {/* Close-up eraser end only; the body fades out (no full flying pencil). */}
-                                <g mask={`url(#${baseId}-eraser-mask)`}>
-                                  <PencilShape uid={`${baseId}-e`} stretch={0} />
-                                </g>
-                              </>
-                            ) : (
-                              <PencilShape uid={`${baseId}-e`} stretch={stretch} />
-                            )}
+                        {tipMode && unit > 0 ? (
+                          <g transform={`scale(${toolSize("eraser") / 14 / unit})`}>
+                            <PinkEraserBlock uid={`${baseId}-e`} />
                           </g>
-                        </g>}
+                        ) : contract ? (
+                          <g
+                            transform={`scale(${f2(
+                              unit > 0 ? (toolSize("eraser") * 1.45) / (ERASER_VIEWBOX.width * unit) : 0.45,
+                            )})`}
+                          >
+                            <HdSchoolEraserShape uid={`${baseId}-e`} />
+                          </g>
+                        ) : (
+                          <g transform={ERASER_POSE}>
+                            <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
+                              <PencilShape uid={`${baseId}-e`} stretch={stretch} />
+                            </g>
+                          </g>
+                        )}
                       </g>
                     </g>
                   </g>

@@ -150,6 +150,7 @@ export interface TipFlight {
 
 let flight: TipFlight | null = null;
 let erasing = 0;
+let manualErasing = 0;
 const listeners = new Set<() => void>();
 const notify = () => listeners.forEach((l) => l());
 
@@ -165,7 +166,7 @@ export function endTipFlight(id: symbol) {
     notify();
   }
 }
-/** While any eraser is active the pencil tip is hidden. Returns a release function. */
+/** While any autonomous mark/line eraser is active the cursor overlay is hidden. Returns a release function. */
 export function holdEraser(): () => void {
   erasing += 1;
   notify();
@@ -177,11 +178,26 @@ export function holdEraser(): () => void {
     notify();
   };
 }
+/** While a canvas drawing/paint eraser tool is selected by the learner, the cursor shows the HD eraser. */
+export function holdManualEraser(): () => void {
+  manualErasing += 1;
+  notify();
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    manualErasing = Math.max(0, manualErasing - 1);
+    notify();
+  };
+}
 export function getTipFlight() {
   return flight;
 }
 export function isEraserActive() {
   return erasing > 0;
+}
+export function isManualEraserActive() {
+  return manualErasing > 0;
 }
 export function subscribeTip(listener: () => void) {
   listeners.add(listener);

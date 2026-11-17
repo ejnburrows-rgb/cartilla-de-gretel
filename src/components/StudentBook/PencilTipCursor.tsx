@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { PENCIL_TIP_SRC, recordPointer, toolSize } from "@/lib/cursor-mode";
+import { PENCIL_TIP_SRC, PENCIL_TIP_VIEWBOX, recordPointer, toolSize } from "@/lib/cursor-mode";
 
 /** Visual pointer only: events continue to reach the real controls underneath. */
 export function PencilTipCursor() {
   const image = useRef<HTMLImageElement>(null);
+  const width = toolSize("tip");
+  const height = Math.round(width * (PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width));
   useEffect(() => {
     const root = document.documentElement;
     let hideTimer = 0;
@@ -13,7 +15,7 @@ export function PencilTipCursor() {
     const move = (event: PointerEvent) => {
       recordPointer(event.clientX, event.clientY);
       const target = event.target instanceof Element ? event.target : null;
-      const eligible = !!target?.closest(".native-lesson-viewer") && !target.closest("input, textarea, select, [contenteditable=true]");
+      const eligible = !!target?.closest('.native-lesson-viewer, [data-pencil-cursor-host="true"]') && !target.closest("input, textarea, select, [contenteditable=true]");
       if (image.current) image.current.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
       if (event.pointerType !== "touch" || event.buttons) root.classList.toggle("cartilla-cursor-tip-visible", eligible);
     };
@@ -31,5 +33,5 @@ export function PencilTipCursor() {
       window.removeEventListener("pointerup", up, true); window.removeEventListener("pointercancel", leave, true); window.removeEventListener("blur", leave);
     };
   }, []);
-  return createPortal(<img ref={image} className="pencil-tip-cursor" src={PENCIL_TIP_SRC} width={toolSize("tip")} alt="" aria-hidden="true" draggable={false} />, document.body);
+  return createPortal(<img ref={image} className="pencil-tip-cursor" src={PENCIL_TIP_SRC} width={width} height={height} alt="" aria-hidden="true" draggable={false} />, document.body);
 }

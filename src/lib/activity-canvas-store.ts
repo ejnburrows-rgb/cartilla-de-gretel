@@ -90,7 +90,7 @@ export const BOOK_PAINT_SWATCHES = [
 ] as const;
 
 export const BOOK_DRAW_SWATCHES = [
-  "#1f2937", // soft charcoal pencil
+  "#3a3a38", // approved charcoal pencil
   "#E85D4C",
   "#457B9D",
   "#2A9D8F",

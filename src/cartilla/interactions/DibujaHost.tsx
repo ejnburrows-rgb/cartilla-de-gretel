@@ -17,6 +17,7 @@ import { defaultDibujaMode, type InputModeDefault } from "@/lib/pointer-policy";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { holdManualEraser } from "@/lib/pencil-contract";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import "@/styles/activity-mechanics.css";
 
@@ -87,6 +88,11 @@ export function DibujaHost({
 
   useEffect(() => { if (drawDone || pickDone) gretelEvent("activity:complete", { restored: true }); }, [drawDone, pickDone, gretelEvent]);
 
+  useEffect(() => {
+    if (mode !== "draw" || !erasing || drawDone) return;
+    return holdManualEraser();
+  }, [mode, erasing, drawDone]);
+
   const resize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -147,8 +153,17 @@ export function DibujaHost({
   }, [pageKey, mode]);
 
   const getPoint = (e: React.PointerEvent<HTMLCanvasElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    const canvas = e.currentTarget;
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const logicalW = canvas.width / dpr;
+    const logicalH = canvas.height / dpr;
+    const scaleX = rect.width > 0 && logicalW > 0 ? logicalW / rect.width : 1;
+    const scaleY = rect.height > 0 && logicalH > 0 ? logicalH / rect.height : 1;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY,
+    };
   };
 
   const pushUndo = () => {
@@ -247,8 +262,8 @@ export function DibujaHost({
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
     pushUndo();
-    const rect = canvas.getBoundingClientRect();
-    ctx.clearRect(0, 0, rect.width, rect.height);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
     clearCanvasSnapshot(`dibuja:${pageKey}`);
     setDrawDone(false);
     gretelEvent("activity:retry", { reason: "work-cleared" });
