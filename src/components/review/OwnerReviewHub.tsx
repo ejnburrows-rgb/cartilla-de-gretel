@@ -174,16 +174,12 @@ const STATUS_CLASS: Record<OwnerStatus, string> = {
   "NOT TESTED": "untested",
 };
 
-function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChange: (h: DecisionRecord[]) => void }) {
-  const data = useJson<{ summary: Row; issues: Row[] }>("/review/artwork-board.json");
-  const [filter, setFilter] = useState("all");
-  if (!data) return <p className="orh-muted">Artwork review data is not available in this draft.</p>;
-  const rows = data.issues.filter((r) => filter === "all" || r.classification === filter);
-  const kinds = Array.from(new Set(data.issues.map((r) => r.classification)));
+function CoverageFilter({ summary, rows, filter, setFilter }: { summary: Row; rows: Row[]; filter: string; setFilter: (filter: string) => void }) {
+  const kinds = Array.from(new Set(rows.map((r) => r.classification)));
   return (
-    <div>
+    <>
       <dl className="orh-summary">
-        {Object.entries(data.summary).map(([k, v]) => (
+        {Object.entries(summary).map(([k, v]) => (
           <div key={k}>
             <dt>{k}</dt>
             <dd>{v}</dd>
@@ -193,14 +189,26 @@ function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChan
       <label className="orh-label">
         Show{" "}
         <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-          <option value="all">all ({data.issues.length})</option>
+          <option value="all">all ({rows.length})</option>
           {kinds.map((k) => (
             <option key={k} value={k}>
-              {k} ({data.issues.filter((r) => r.classification === k).length})
+              {k} ({rows.filter((r) => r.classification === k).length})
             </option>
           ))}
         </select>
       </label>
+    </>
+  );
+}
+
+function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChange: (h: DecisionRecord[]) => void }) {
+  const data = useJson<{ summary: Row; issues: Row[] }>("/review/artwork-board.json");
+  const [filter, setFilter] = useState("all");
+  if (!data) return <p className="orh-muted">Artwork review data is not available in this draft.</p>;
+  const rows = data.issues.filter((r) => filter === "all" || r.classification === filter);
+  return (
+    <div>
+      <CoverageFilter summary={data.summary} rows={data.issues} filter={filter} setFilter={setFilter} />
       <div className="orh-art-list">
         {rows.slice(0, 60).map((r) => (
           <article key={r.id} className="orh-art" id={`art-${r.id}`}>
@@ -250,29 +258,10 @@ function AudioBoard({ history, onChange }: { history: DecisionRecord[]; onChange
   const data = useJson<{ summary: Row; rows: Row[] }>("/review/audio-board.json");
   const [filter, setFilter] = useState("MISSING");
   if (!data) return <p className="orh-muted">Audio review data is not available in this draft.</p>;
-  const kinds = Array.from(new Set(data.rows.map((r) => r.classification)));
   const rows = data.rows.filter((r) => filter === "all" || r.classification === filter);
   return (
     <div>
-      <dl className="orh-summary">
-        {Object.entries(data.summary).map(([k, v]) => (
-          <div key={k}>
-            <dt>{k}</dt>
-            <dd>{v}</dd>
-          </div>
-        ))}
-      </dl>
-      <label className="orh-label">
-        Show{" "}
-        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-          <option value="all">all ({data.rows.length})</option>
-          {kinds.map((k) => (
-            <option key={k} value={k}>
-              {k} ({data.rows.filter((r) => r.classification === k).length})
-            </option>
-          ))}
-        </select>
-      </label>
+      <CoverageFilter summary={data.summary} rows={data.rows} filter={filter} setFilter={setFilter} />
       <div className="orh-audio-list">
         {rows.slice(0, 80).map((r) => (
           <article key={r.id} className="orh-audio">
