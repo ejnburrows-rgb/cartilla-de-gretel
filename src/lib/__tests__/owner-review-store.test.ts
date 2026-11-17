@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import {
   historyToCsv,
+  historyToJson,
   importHistory,
   latestDecisions,
   loadHistory,
@@ -41,4 +42,21 @@ describe("owner review store", () => {
     expect(importHistory(json)).toHaveLength(1);
     expect(() => importHistory("{}")).toThrow();
   });
+
+  it("backs up and recovers replacement image bytes along with its decision", () => {
+    const replacement = { name: "owner.png", dataUrl: "data:image/png;base64,iVBORw0KGgo=" };
+    const history = recordDecision({ itemId: "art:one", decision: "upload-replacement", comment: "", revision: "x", replacement });
+    const backup = historyToJson(history);
+    expect(historyToCsv(history)).toContain('"owner.png"');
+    localStorage.clear();
+    expect(importHistory(backup)[0].replacement).toEqual(replacement);
+    expect(loadHistory()[0].replacement?.dataUrl).toBe(replacement.dataUrl);
+  });
+
+  it("rejects unsafe replacement data in imported backups", () => {
+    const data = JSON.stringify({ version: 1, history: [{ itemId: "art:one", decision: "upload-replacement", at: "2026-11-16", replacement: { name: "bad", dataUrl: "javascript:alert(1)" } }] });
+    expect(() => importHistory(data)).toThrow();
+    expect(loadHistory()).toEqual([]);
+  });
+
 });
