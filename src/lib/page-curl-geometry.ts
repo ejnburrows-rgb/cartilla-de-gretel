@@ -4,6 +4,7 @@
  */
 
 export type Pt = [number, number];
+export type CurlStyle = "corner" | "edge";
 
 /** Smooth slow-in / slow-out, like a hand turning a page. */
 export function curlEase(t: number): number {
@@ -64,12 +65,13 @@ export interface CurlGeometry {
  * The fold line enters at the bottom-right corner, tilts while the sheet is
  * lifted and straightens as it lands, sweeping from right to left.
  */
-export function curlGeometry(w: number, h: number, p: number): CurlGeometry {
+export function curlGeometry(w: number, h: number, p: number, style: CurlStyle = "corner"): CurlGeometry {
   const prog = Math.min(1, Math.max(0, p));
   const rMax = Math.min(140, Math.max(28, w * 0.11));
   const radius = rMax * (0.4 + 0.6 * Math.sin(Math.PI * prog));
   const center = w - prog * (w * 1.03 + rMax);
-  const tilt = Math.min(h * 0.5, w * 0.38) * Math.pow(Math.sin(Math.PI * prog), 0.6);
+  // The edge variant rolls along a straight, vertical fold; the default lifts a corner.
+  const tilt = style === "edge" ? 0 : Math.min(h * 0.5, w * 0.38) * Math.pow(Math.sin(Math.PI * prog), 0.6);
   const xt = center + tilt / 2;
   const xb = center - tilt / 2;
   const len = Math.hypot(xb - xt, h) || 1;

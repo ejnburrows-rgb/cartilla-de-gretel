@@ -25,6 +25,15 @@ describe("PageCurl geometry (right-to-left paper curl)", () => {
     expect(maxX(0)).toBeGreaterThan(maxX(H));
   });
 
+  it("provides a distinct straight-edge fold without changing either endpoint", () => {
+    const edge = curlGeometry(W, H, 0.35, "edge");
+    const corner = curlGeometry(W, H, 0.35, "corner");
+    expect(edge.normal[1]).toBe(0);
+    expect(corner.normal[1]).toBeGreaterThan(0);
+    expect(area(curlGeometry(W, H, 0, "edge").front)).toBeCloseTo(W * H, 0);
+    expect(curlGeometry(W, H, 1, "edge").front.length).toBe(0);
+  });
+
   it("sweeps from right to left as it progresses", () => {
     let last = Infinity;
     for (let p = 0.1; p <= 0.9; p += 0.1) {
