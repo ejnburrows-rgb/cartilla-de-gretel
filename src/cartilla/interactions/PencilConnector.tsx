@@ -454,13 +454,13 @@ export function DirectPencilConnector({
   );
 
   const attemptConnect = useCallback(
-    (target: PencilTarget, isFromDrag = false) => {
+    (target: PencilTarget) => {
       if (marked.has(target.id) || holdingLines.some((h) => h.key === target.id) || completed) return;
 
       const isCorrect = Boolean(target.correct);
 
       if (isCorrect) {
-        if (contract && !reducedMotion && isFromDrag) {
+        if (contract && !reducedMotion) {
           const from = centerPt;
           const to = getTargetCenter(target.id);
           setHoldingLines((lines) => [...lines, { key: target.id, from, to }]);
@@ -587,7 +587,7 @@ export function DirectPencilConnector({
       const left = targets.find((target) => target.id === sourceId);
       if (left) attemptPairConnect(left, releasedTarget);
     } else if (sourceId === "center") {
-      attemptConnect(releasedTarget, true);
+      attemptConnect(releasedTarget);
     }
   };
 
@@ -602,7 +602,7 @@ export function DirectPencilConnector({
 
   const handleTargetClick = (target: PencilTarget) => {
     if (marked.has(target.id) || completed) return;
-    attemptConnect(target, false);
+    attemptConnect(target);
     setSelectedStart(false);
   };
 
@@ -1013,7 +1013,7 @@ export function DirectPencilConnector({
   );
 
   function renderTargetCell(t: PencilTarget) {
-    const isMarked = marked.has(t.id);
+    const isMarked = marked.has(t.id) || holdingLines.some((h) => h.key === t.id);
     const isApproaching = hoverTargetId === t.id;
     const isWrong = wrongLine?.targetId === t.id;
 
