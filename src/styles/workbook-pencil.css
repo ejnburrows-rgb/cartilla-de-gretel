@@ -117,7 +117,13 @@ html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .fp-trace .workboo
   will-change: transform;
 }
 .contract-pencil-cursor[data-visible="true"] { opacity: 1; }
-.contract-pencil-cursor svg { display: block; overflow: hidden; }
+.contract-pencil-cursor__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  filter: drop-shadow(3px 5px 4px rgba(59, 42, 20, 0.30));
+}
 @media (hover: hover) and (pointer: fine) {
   html.student-pencil.cartilla-cursor-contract .native-lesson-viewer,
   html.student-pencil.cartilla-cursor-contract .native-lesson-viewer * { cursor: none !important; }
