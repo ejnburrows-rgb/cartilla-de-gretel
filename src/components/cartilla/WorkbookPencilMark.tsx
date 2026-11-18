@@ -11,7 +11,6 @@ import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
 import {
-  ERASER_VIEWBOX,
   getLastPointer,
   PENCIL_TIP_SRC,
   PENCIL_TIP_VIEWBOX,
@@ -20,9 +19,10 @@ import {
 } from "@/lib/cursor-mode";
 import {
   contractPointAlong,
+  endEraseFlight,
   endTipFlight,
-  holdEraser,
   PENCIL_CONTRACT,
+  startEraseFlight,
   startTipFlight,
   velocitySegments,
   type ContractStroke,
@@ -79,10 +79,15 @@ export const WORKBOOK_MARK_TIMING = {
 
 const EASE = "0.45 0.05 0.55 0.95";
 /** Pencil geometry: tip at (0,0), body along -y. */
-const PENCIL_LENGTH = 79.5;
+export const PENCIL_LENGTH = 79.5;
 const PENCIL_CENTER_Y = -PENCIL_LENGTH / 2;
 /** Close-up pose: body runs up and to the right, about 30° above horizontal. */
 const PENCIL_TILT = 60;
+/** Shared full-pencil proportions for the unified ContractPencilCursor (tip + back eraser). */
+export const CONTRACT_PENCIL_STRETCH = 35;
+export const CONTRACT_PENCIL_LENGTH = PENCIL_LENGTH + CONTRACT_PENCIL_STRETCH;
+export const CONTRACT_PENCIL_CENTER_Y = -CONTRACT_PENCIL_LENGTH / 2;
+export const CONTRACT_PENCIL_TILT = PENCIL_TILT;
 /**
  * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
  * the box high, so it is always much longer than the box and only its front shows.
@@ -680,16 +685,6 @@ function pointerFrom(box: FlightBox, height: number, from: Pt): string {
   return `${f2(x)} ${f2(y)}`;
 }
 
-function PinkEraserBlock({ uid }: { uid: string }) {
-  const id = `${uid}-pink-school-eraser`;
-  return <g className="workbook-pencil__eraser-only">
-    <defs><linearGradient id={id} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#ffc4d0" /><stop offset=".48" stopColor="#ef8da3" /><stop offset="1" stopColor="#c95e78" /></linearGradient></defs>
-    <rect x="-7" y="-8" width="14" height="16" rx="2.6" fill={`url(#${id})`} stroke="#a64b63" strokeWidth=".8" />
-    <path d="M-4 -5 Q0 -7 4 -5" fill="none" stroke="#fff4f6" strokeWidth="1" opacity=".8" />
-    <path d="M-5 5 Q0 7 5 5" fill="none" stroke="#a64b63" strokeWidth=".7" opacity=".45" />
-  </g>;
-}
-
 /**
  * Draw phase. The big pencil starts completely off the right edge of the screen,
  * travels in over everything on the way and touches down on the starting point
@@ -1066,9 +1061,10 @@ export function WorkbookPencilMark({
     !reducedMotion &&
     !externalStatus &&
     (currentStatus === "drawing" || currentStatus === "holding" || currentStatus === "erasing");
-  // Candidate B never flies a full pencil: the single tip cursor draws; only the
-  // eraser end is shown, close up, while it rubs a wrong mark out.
-  const flying = contract ? markActive && currentStatus === "erasing" && rubbing : markActive;
+  // Option B contract mode uses ONE single physical pencil (`ContractPencilCursor`)
+  // for hovering, drawing, and flipping 180° onto its back pink eraser — never
+  // spawning a second separate flight pencil in WorkbookPencilMark.
+  const flying = contract ? false : markActive;
   // Keep the close-up a moment on a right answer's green circle before zooming out.
   const [lingerDone, setLingerDone] = useState(false);
   useEffect(() => {
@@ -1157,14 +1153,32 @@ export function WorkbookPencilMark({
   useEffect(() => {
     if (externalStatus || currentStatus !== "erasing" || !hasTurn) return;
     if (contract && !reducedMotion) {
-      // Red is seen first, then the eraser rubs it out; the tip hides meanwhile.
-      let release: (() => void) | undefined;
+      // Red is shown first, then the SAME single pencil smoothly flips 180° onto its
+      // back pink eraser dome via `startEraseFlight`, rubs the mark out with 12 crumbs,
+      // and flips back 180° to its graphite tip.
+      let eraseFlightId: symbol | undefined;
       const rubTimer = window.setTimeout(() => {
-        release = holdEraser();
+        const el = boxRef.current;
+        const strokesNow = contractFlightRef.current.strokes;
+        const pts = strokesNow[strokesNow.length - 1]?.points ?? [];
+        if (el && pts.length > 0) {
+          const totalMs = PENCIL_CONTRACT.eraseMs;
+          const enterMs = PENCIL_CONTRACT.eraseEnterMs;
+          const liftMs = PENCIL_CONTRACT.eraseLiftMs;
+          eraseFlightId = startEraseFlight({
+            el,
+            height: contractFlightRef.current.height,
+            points: pts,
+            enterMs,
+            rubMs: totalMs - enterMs - liftMs,
+            liftMs,
+            totalMs,
+          });
+        }
         setRubbing(true);
       }, PENCIL_CONTRACT.redShowMs);
       const doneTimer = window.setTimeout(() => {
-        release?.();
+        if (eraseFlightId) endEraseFlight(eraseFlightId);
         setRubbing(false);
         setInternalStatus("erased");
         onRetryRef.current?.();
@@ -1172,7 +1186,7 @@ export function WorkbookPencilMark({
       return () => {
         window.clearTimeout(rubTimer);
         window.clearTimeout(doneTimer);
-        release?.();
+        if (eraseFlightId) endEraseFlight(eraseFlightId);
       };
     }
     const timer = window.setTimeout(
@@ -1332,21 +1346,15 @@ export function WorkbookPencilMark({
                           repeatCount={Math.floor(rubMs / scrubPeriod)}
                           values="0 0;5 -1.4;0 0;-4.5 1.2;0 0"
                         />
-                        {tipMode && unit > 0 ? (
-                          <g transform={`scale(${toolSize("eraser") / 14 / unit})`}>
-                            <PinkEraserBlock uid={`${baseId}-e`} />
+                        <g transform={ERASER_POSE}>
+                          <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
+                            <PencilShape
+                              uid={`${baseId}-e`}
+                              stretch={stretch}
+                              className="workbook-pencil__shape workbook-pencil__eraser-hd"
+                            />
                           </g>
-                        ) : (
-                          <g transform={ERASER_POSE}>
-                            <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
-                              <PencilShape
-                                uid={`${baseId}-e`}
-                                stretch={stretch}
-                                className="workbook-pencil__shape workbook-pencil__eraser-hd"
-                              />
-                            </g>
-                          </g>
-                        )}
+                        </g>
                       </g>
                     </g>
                   </g>

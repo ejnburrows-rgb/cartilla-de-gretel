@@ -125,6 +125,14 @@ html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .fp-trace .workboo
   max-width: none;
   filter: drop-shadow(3px 5px 4px rgba(59, 42, 20, 0.30));
 }
+.contract-pencil-cursor__svg {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  max-width: none;
+  pointer-events: none;
+  filter: drop-shadow(3px 5px 4px rgba(59, 42, 20, 0.30));
+}
 @media (hover: hover) and (pointer: fine) {
   html.student-pencil.cartilla-cursor-contract .native-lesson-viewer,
   html.student-pencil.cartilla-cursor-contract .native-lesson-viewer *,

@@ -9,7 +9,9 @@ import { playCorrectChord } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import {
+  CONTRACT_PENCIL_STRETCH,
   EraserCrumbs,
+  PENCIL_LENGTH,
   PencilShape,
   WorkbookPencilMark,
   WORKBOOK_MARK_TIMING,
@@ -840,7 +842,8 @@ export function DirectPencilConnector({
                 const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
                 const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
                 const scrubPeriod = 190;
-                const PENCIL_CENTER_Y = -36;
+                const retryStretch = contract ? CONTRACT_PENCIL_STRETCH : 0;
+                const PENCIL_CENTER_Y = -(PENCIL_LENGTH + retryStretch) / 2;
                 const linePath = `M ${wrongLine.from.x} ${wrongLine.from.y} L ${wrongLine.to.x} ${wrongLine.to.y}`;
 
                 return (
@@ -900,6 +903,7 @@ export function DirectPencilConnector({
                             />
                             <PencilShape
                               uid={`${shadowUid}-retry-pencil`}
+                              stretch={retryStretch}
                               className="workbook-pencil__shape workbook-pencil__eraser-hd"
                             />
                           </g>

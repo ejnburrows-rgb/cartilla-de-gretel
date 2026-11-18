@@ -148,7 +148,79 @@ export interface TipFlight {
   start: number;
 }
 
+export interface EraseFlight {
+  id: symbol;
+  el: HTMLElement;
+  /** viewBox height of the mark (width is always 100). */
+  height: number;
+  /** Polyline points of the stroke being erased (rubbed backwards from end to start). */
+  points: ContractPt[];
+  enterMs: number;
+  rubMs: number;
+  liftMs: number;
+  totalMs: number;
+  start: number;
+}
+
+export interface ErasePose {
+  /** Mark-coordinate target along the stroke. */
+  markPt: ContractPt;
+  /** Screen-pixel back-and-forth scrubbing oscillation (0,0 during enter/lift). */
+  scrubPx: ContractPt;
+  /** Degrees rotated around the pencil's midpoint: 0 = graphite tip, 180 = back pink eraser dome. */
+  flipDeg: number;
+  /** Smooth 0..1 lift arc while flipping (0 when touching paper). */
+  lift: number;
+  phase: "enter" | "rub" | "lift";
+}
+
+/**
+ * Compute the single physical pencil's pose at `ms` into an autonomous erase flight:
+ * smoothly flips 0° → 180° onto its back pink eraser dome during `enterMs`,
+ * rubs back-and-forth along the stroke from end → start during `rubMs`,
+ * then flips 180° → 0° back to its graphite tip during `liftMs`.
+ */
+export function contractEraseAt(
+  f: Pick<EraseFlight, "points" | "enterMs" | "rubMs" | "liftMs" | "totalMs">,
+  ms: number,
+): ErasePose {
+  const t = Math.max(0, Math.min(f.totalMs, ms));
+  const rubEnd = f.enterMs + f.rubMs;
+  if (t < f.enterMs) {
+    const k = contractEase(t / Math.max(1, f.enterMs));
+    return {
+      markPt: contractPointAlong(f.points, 1),
+      scrubPx: [0, 0],
+      flipDeg: 180 * k,
+      lift: Math.sin(Math.PI * k),
+      phase: "enter",
+    };
+  }
+  if (t <= rubEnd) {
+    const rubElapsed = t - f.enterMs;
+    const p = 1 - rubElapsed / Math.max(1, f.rubMs);
+    const scrubPeriod = 220;
+    const angle = (rubElapsed / scrubPeriod) * Math.PI * 2;
+    return {
+      markPt: contractPointAlong(f.points, p),
+      scrubPx: [Math.sin(angle) * 9, -Math.sin(angle) * 3],
+      flipDeg: 180,
+      lift: 0,
+      phase: "rub",
+    };
+  }
+  const k = contractEase((t - rubEnd) / Math.max(1, f.liftMs));
+  return {
+    markPt: contractPointAlong(f.points, 0),
+    scrubPx: [0, 0],
+    flipDeg: 180 * (1 - k),
+    lift: Math.sin(Math.PI * k),
+    phase: "lift",
+  };
+}
+
 let flight: TipFlight | null = null;
+let eraseFlight: EraseFlight | null = null;
 let erasing = 0;
 let manualErasing = 0;
 const listeners = new Set<() => void>();
@@ -166,7 +238,19 @@ export function endTipFlight(id: symbol) {
     notify();
   }
 }
-/** While any autonomous mark/line eraser is active the cursor overlay is hidden. Returns a release function. */
+export function startEraseFlight(f: Omit<EraseFlight, "id" | "start">): symbol {
+  const id = Symbol("erase-flight");
+  eraseFlight = { ...f, id, start: performance.now() };
+  notify();
+  return id;
+}
+export function endEraseFlight(id: symbol) {
+  if (eraseFlight?.id === id) {
+    eraseFlight = null;
+    notify();
+  }
+}
+/** While an external inline eraser (e.g. PencilConnector) is active, the cursor overlay hides. Returns a release function. */
 export function holdEraser(): () => void {
   erasing += 1;
   notify();
@@ -178,7 +262,7 @@ export function holdEraser(): () => void {
     notify();
   };
 }
-/** While a canvas drawing/paint eraser tool is selected by the learner, the cursor shows the HD eraser. */
+/** While a canvas drawing/paint eraser tool is selected by the learner, the cursor flips to its back pink eraser. */
 export function holdManualEraser(): () => void {
   manualErasing += 1;
   notify();
@@ -193,8 +277,14 @@ export function holdManualEraser(): () => void {
 export function getTipFlight() {
   return flight;
 }
-export function isEraserActive() {
+export function getEraseFlight() {
+  return eraseFlight;
+}
+export function isExternalEraserActive() {
   return erasing > 0;
+}
+export function isEraserActive() {
+  return erasing > 0 || eraseFlight !== null;
 }
 export function isManualEraserActive() {
   return manualErasing > 0;

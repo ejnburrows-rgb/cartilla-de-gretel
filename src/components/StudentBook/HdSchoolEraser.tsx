@@ -1,4 +1,4 @@
-import { PencilShape } from "@/components/cartilla/WorkbookPencilMark";
+import { PENCIL_LENGTH, PencilShape } from "@/components/cartilla/WorkbookPencilMark";
 
 /**
  * High-definition pencil back eraser end (pink dome + ribbed silver ferrule + barrel).
@@ -7,14 +7,17 @@ import { PencilShape } from "@/components/cartilla/WorkbookPencilMark";
  */
 export function HdSchoolEraserShape({
   uid,
+  stretch = 0,
   className = "workbook-pencil__eraser-hd",
 }: {
   uid: string;
+  stretch?: number;
   className?: string;
 }) {
+  const centerY = -(PENCIL_LENGTH + stretch) / 2;
   return (
-    <g className={className} transform="rotate(180 0 -39.75)">
-      <PencilShape uid={uid} />
+    <g className={className} transform={`rotate(180 0 ${centerY.toFixed(2)})`}>
+      <PencilShape uid={uid} stretch={stretch} />
     </g>
   );
 }

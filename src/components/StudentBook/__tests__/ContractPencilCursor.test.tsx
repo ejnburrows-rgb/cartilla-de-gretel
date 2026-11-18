@@ -3,20 +3,16 @@
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { ContractPencilCursor } from "../ContractPencilCursor";
 import {
-  ERASER_CURSOR_SRC,
-  ERASER_VIEWBOX,
-  PENCIL_TIP_SRC,
-  PENCIL_TIP_VIEWBOX,
-} from "@/lib/cursor-mode";
-import {
+  contractEraseAt,
+  endEraseFlight,
   holdEraser,
   holdManualEraser,
+  isEraserActive,
   isManualEraserActive,
   PENCIL_CONTRACT,
+  startEraseFlight,
 } from "@/lib/pencil-contract";
 import { DirectPencilConnector, type PencilTarget } from "@/cartilla/interactions/PencilConnector";
 import { WorkbookLetterTrace } from "@/components/cartilla/WorkbookLetterTrace";
@@ -51,38 +47,66 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     document.documentElement.className = "";
   });
 
-  it("ships uncropped resolution-independent vector SVGs for pencil and eraser with zero HB stamp", () => {
-    const pencilSvg = readFileSync(
-      resolve(process.cwd(), "public/cartilla/images/ui/owner-pencil-tip.svg"),
-      "utf8",
+  it("renders ONE single uncropped classic wooden PencilShape SVG with zero HB stamp, zero img, and zero fade mask", () => {
+    render(
+      <div className="native-lesson-viewer">
+        <ContractPencilCursor />
+      </div>,
     );
-    const eraserSvg = readFileSync(
-      resolve(process.cwd(), "public/cartilla/images/ui/owner-eraser.svg"),
-      "utf8",
-    );
+    const cursor = document.querySelector<HTMLDivElement>('[data-testid="contract-pencil-cursor"]')!;
+    const svg = cursor.querySelector("svg.contract-pencil-cursor__svg")!;
+    expect(svg).toBeTruthy();
+    expect(cursor.querySelector("img")).toBeNull();
+    expect(svg.getAttribute("overflow")).toBe("visible");
+    expect(svg.querySelector("image")).toBeNull();
+    expect(svg.querySelector("text")).toBeNull();
+    expect(svg.querySelector("mask")).toBeNull();
+    expect(svg.textContent ?? "").not.toContain("HB");
 
-    // Pure vector HD (no embedded raster WebP/PNG image, no HB/text stamp)
-    expect(pencilSvg).not.toContain("<image");
-    expect(pencilSvg).not.toContain("data:image/");
-    expect(pencilSvg).not.toContain("<text");
-    expect(pencilSvg).not.toContain("HB");
-    expect(pencilSvg).toContain(`viewBox="0 0 ${PENCIL_TIP_VIEWBOX.width} ${PENCIL_TIP_VIEWBOX.height}"`);
-    expect(pencilSvg).toContain('overflow="visible"');
-
-    // Full pencil parts present in both tip and flipped back-eraser: graphite, cedar cone, yellow barrel, silver ferrule, pink eraser
-    for (const part of ["op-lead", "op-wood", "op-lacq", "op-metal", "op-eraser"]) {
-      expect(pencilSvg).toContain(part);
-      expect(eraserSvg).toContain(part);
+    // Full classic wooden pencil parts present: graphite, cedar cone, yellow barrel, silver ferrule, pink eraser
+    for (const part of ["lead", "wood", "lacq", "metal", "eraser"]) {
+      expect(svg.querySelector(`linearGradient[id$="-${part}"]`)).toBeTruthy();
     }
-
-    expect(eraserSvg).not.toContain("<image");
-    expect(eraserSvg).not.toContain("<text");
-    expect(eraserSvg).toContain(`viewBox="0 0 ${ERASER_VIEWBOX.width} ${ERASER_VIEWBOX.height}"`);
-    expect(eraserSvg).toContain('overflow="visible"');
   });
 
-  it("ContractPencilCursor positions at exact (0,0), excludes __navigation, and switches to HD eraser", () => {
+  it("computes smooth 0° -> 180° -> 0° back-eraser flip and scrubbing via contractEraseAt", () => {
+    const flight = {
+      points: [
+        [10, 10] as [number, number],
+        [90, 90] as [number, number],
+      ],
+      enterMs: 450,
+      rubMs: 2600,
+      liftMs: 450,
+      totalMs: 3500,
+    };
+    const start = contractEraseAt(flight, 0);
+    expect(start.phase).toBe("enter");
+    expect(start.flipDeg).toBe(0);
+    expect(start.markPt).toEqual([90, 90]);
+
+    const midEnter = contractEraseAt(flight, 225);
+    expect(midEnter.phase).toBe("enter");
+    expect(midEnter.flipDeg).toBeCloseTo(90, 1);
+    expect(midEnter.lift).toBeGreaterThan(0.9);
+
+    const midRub = contractEraseAt(flight, 450 + 1300);
+    expect(midRub.phase).toBe("rub");
+    expect(midRub.flipDeg).toBe(180);
+    expect(midRub.lift).toBe(0);
+    expect(midRub.markPt[0]).toBeCloseTo(50, 1);
+    expect(midRub.markPt[1]).toBeCloseTo(50, 1);
+
+    const end = contractEraseAt(flight, 3500);
+    expect(end.phase).toBe("lift");
+    expect(end.flipDeg).toBe(0);
+    expect(end.markPt).toEqual([10, 10]);
+  });
+
+  it("ContractPencilCursor positions at exact (0,0), excludes __navigation, flips 180° for manual & auto erase", () => {
     let rafCb: FrameRequestCallback | null = null;
+    let fakeNow = 1000;
+    vi.spyOn(performance, "now").mockImplementation(() => fakeNow);
     vi.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => {
       rafCb = cb;
       return 1;
@@ -102,17 +126,20 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     );
 
     const cursor = document.querySelector<HTMLDivElement>('[data-testid="contract-pencil-cursor"]')!;
+    const flipGroup = cursor.querySelector<SVGGElement>('[data-testid="contract-pencil-flip"]')!;
     expect(cursor).toBeTruthy();
     expect(cursor.dataset.tool).toBe("pencil");
     expect(cursor.dataset.pencilPose).toBe("hd-tip");
     expect(cursor.style.overflow).toBe("visible");
-    expect(cursor.querySelector("img")?.getAttribute("src")).toBe(PENCIL_TIP_SRC);
+    expect(cursor.querySelector("img")).toBeNull();
+    expect(cursor.querySelector(".workbook-pencil__shape")).toBeTruthy();
 
     // Move inside activity content -> visible at exact (142.5, 218.0)
     const activityBtn = container.querySelector(".native-lesson-viewer__content button")!;
     fireEvent.pointerMove(activityBtn, { clientX: 142.5, clientY: 218 });
     act(() => {
-      rafCb?.(16);
+      fakeNow += 16;
+      rafCb?.(fakeNow);
     });
     expect(cursor.dataset.visible).toBe("true");
     expect(cursor.style.transform).toBe("translate3d(142.5px, 218.0px, 0)");
@@ -121,34 +148,69 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     const navBtn = container.querySelector(".native-lesson-viewer__navigation button")!;
     fireEvent.pointerMove(navBtn, { clientX: 400, clientY: 500 });
     act(() => {
-      rafCb?.(32);
+      fakeNow += 16;
+      rafCb?.(fakeNow);
     });
     expect(cursor.dataset.visible).toBe("false");
 
-    // Back over activity + activate manual eraser -> switches to HD eraser SVG
+    // Back over activity + activate manual eraser -> SAME single pencil flips 180° onto back pink eraser
     fireEvent.pointerMove(activityBtn, { clientX: 160, clientY: 220 });
     let releaseManual!: () => void;
     act(() => {
       releaseManual = holdManualEraser();
-      rafCb?.(48);
+      fakeNow += 16;
+      rafCb?.(fakeNow);
+      fakeNow += 300;
+      rafCb?.(fakeNow);
     });
     expect(cursor.dataset.visible).toBe("true");
     expect(cursor.dataset.tool).toBe("eraser");
     expect(cursor.dataset.pencilPose).toBe("hd-eraser");
-    expect(cursor.querySelector("img")?.getAttribute("src")).toBe(ERASER_CURSOR_SRC);
+    expect(cursor.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd")).toBeTruthy();
+    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -57.25)");
 
-    // Autonomous wrong-mark rub hides cursor overlay to maintain single-tool invariant
+    // Autonomous wrong-mark erase flight keeps the SAME single pencil visible and flips 180° to rub
+    let eraseId!: symbol;
+    act(() => {
+      releaseManual();
+      eraseId = startEraseFlight({
+        el: activityBtn as HTMLElement,
+        height: 100,
+        points: [
+          [10, 10],
+          [90, 90],
+        ],
+        enterMs: 450,
+        rubMs: 2600,
+        liftMs: 450,
+        totalMs: 3500,
+      });
+      fakeNow += 600;
+      rafCb?.(fakeNow);
+    });
+    expect(isEraserActive()).toBe(true);
+    expect(cursor.dataset.visible).toBe("true");
+    expect(cursor.dataset.tool).toBe("eraser");
+    expect(cursor.dataset.pencilPose).toBe("hd-eraser");
+    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -57.25)");
+
+    act(() => {
+      endEraseFlight(eraseId);
+    });
+
+    // External inline eraser (e.g. PencilConnector) hides cursor overlay to maintain single-tool invariant
     let releaseAuto!: () => void;
     act(() => {
       releaseAuto = holdEraser();
-      rafCb?.(64);
+      fakeNow += 16;
+      rafCb?.(fakeNow);
     });
     expect(cursor.dataset.visible).toBe("false");
 
     act(() => {
       releaseAuto();
-      releaseManual();
-      rafCb?.(80);
+      fakeNow += 300;
+      rafCb?.(fakeNow);
     });
     expect(cursor.dataset.visible).toBe("true");
     expect(cursor.dataset.tool).toBe("pencil");
