@@ -11,6 +11,8 @@ import {
   contractEase,
   contractEraseAt,
   contractTipAt,
+  endEraseFlight,
+  endTipFlight,
   getEraseFlight,
   getTipFlight,
   isExternalEraserActive,
@@ -68,6 +70,8 @@ export function ContractPencilCursor() {
     let wasVisible = false;
     let activeEraseId: symbol | null = null;
     let eraseOrigin: [number, number] | null = null;
+    let activeTipId: symbol | null = null;
+    let tipOrigin: [number, number] | null = null;
     let currentFlipDeg = isManualEraserActive() ? 180 : 0;
     let manualFlip: { from: number; to: number; start: number } | null = null;
     let raf = 0;
@@ -105,58 +109,101 @@ export function ContractPencilCursor() {
       const now = performance.now();
       const externalErasing = isExternalEraserActive();
       const eraseFlight = getEraseFlight();
-      if (eraseFlight && eraseFlight.el.isConnected) {
-        const ms = now - eraseFlight.start;
-        const pose = contractEraseAt(eraseFlight, ms);
-        const anchor = markToScreen(eraseFlight.el, eraseFlight.height, pose.markPt);
-        if (activeEraseId !== eraseFlight.id) {
-          activeEraseId = eraseFlight.id;
-          eraseOrigin =
-            wasVisible && lastShown ? lastShown : [anchor[0] + 18, anchor[1] - 14];
-        }
-        let target: [number, number];
-        if (pose.phase === "enter") {
-          const k = contractEase(ms / Math.max(1, eraseFlight.enterMs));
-          const from = eraseOrigin ?? anchor;
-          target = [from[0] + (anchor[0] - from[0]) * k, from[1] + (anchor[1] - from[1]) * k];
-        } else if (pose.phase === "rub") {
-          target = [anchor[0] + pose.scrubPx[0], anchor[1] + pose.scrubPx[1]];
+      if (eraseFlight) {
+        if (!eraseFlight.el.isConnected) {
+          endEraseFlight(eraseFlight.id);
         } else {
-          const k = contractEase(
-            (ms - (eraseFlight.enterMs + eraseFlight.rubMs)) / Math.max(1, eraseFlight.liftMs),
-          );
-          const dest: [number, number] =
-            !coarse && pointer && inside ? pointer : [anchor[0] + 14, anchor[1] - 12];
-          target = [anchor[0] + (dest[0] - anchor[0]) * k, anchor[1] + (dest[1] - anchor[1]) * k];
+          const ms = now - eraseFlight.start;
+          const pose = contractEraseAt(eraseFlight, ms);
+          const anchor = markToScreen(eraseFlight.el, eraseFlight.height, pose.markPt);
+          if (activeEraseId !== eraseFlight.id) {
+            activeEraseId = eraseFlight.id;
+            eraseOrigin =
+              wasVisible && lastShown ? lastShown : [anchor[0] + 18, anchor[1] - 14];
+          }
+          let target: [number, number];
+          if (pose.phase === "enter") {
+            const k = contractEase(ms / Math.max(1, eraseFlight.enterMs));
+            const from = eraseOrigin ?? anchor;
+            target = [from[0] + (anchor[0] - from[0]) * k, from[1] + (anchor[1] - from[1]) * k];
+          } else if (pose.phase === "rub") {
+            target = [anchor[0] + pose.scrubPx[0], anchor[1] + pose.scrubPx[1]];
+          } else {
+            const k = contractEase(
+              (ms - (eraseFlight.enterMs + eraseFlight.rubMs)) / Math.max(1, eraseFlight.liftMs),
+            );
+            const dest: [number, number] =
+              !coarse && pointer && inside ? pointer : [anchor[0] + 14, anchor[1] - 12];
+            target = [anchor[0] + (dest[0] - anchor[0]) * k, anchor[1] + (dest[1] - anchor[1]) * k];
+          }
+          activeTipId = null;
+          tipOrigin = null;
+          manualFlip = null;
+          setPose(pose.flipDeg, pose.lift);
+          returnFrom = { at: now, pt: target };
+          place(target[0], target[1], true);
+          return;
         }
-        manualFlip = null;
-        setPose(pose.flipDeg, pose.lift);
-        returnFrom = { at: now, pt: target };
-        place(target[0], target[1], true);
-        return;
       }
-      activeEraseId = null;
-      eraseOrigin = null;
+      if (activeEraseId !== null) {
+        activeEraseId = null;
+        eraseOrigin = null;
+        // Snap cleanly to graphite tip (0°) once auto-erase completes so tiny
+        // remaining fractional degrees do not trigger a spurious 240ms flip hop.
+        if (!isManualEraserActive()) {
+          manualFlip = null;
+          setPose(0, 0);
+        }
+      }
 
       const flight = getTipFlight();
-      if (flight && flight.el.isConnected) {
-        manualFlip = null;
-        setPose(0, 0);
-        const ms = now - flight.start;
-        const first = flight.strokes[0];
-        const tip = contractTipAt(flight.strokes, ms);
-        let target: [number, number];
-        if (tip) target = markToScreen(flight.el, flight.height, tip);
-        else {
-          const startPt = markToScreen(flight.el, flight.height, first.points[0]);
-          const from = lastShown ?? pointer ?? startPt;
-          const k = contractEase(ms / Math.max(1, first.begin));
-          target = [from[0] + (startPt[0] - from[0]) * k, from[1] + (startPt[1] - from[1]) * k];
+      if (flight) {
+        if (!flight.el.isConnected) {
+          endTipFlight(flight.id);
+        } else {
+          manualFlip = null;
+          const ms = now - flight.start;
+          const first = flight.strokes[0];
+          const last = flight.strokes[flight.strokes.length - 1];
+          const lastEnd = last ? last.begin + last.dur : 0;
+          const tip = contractTipAt(flight.strokes, ms);
+          let target: [number, number];
+          let lift = 0;
+          if (ms < first.begin) {
+            const startPt = markToScreen(flight.el, flight.height, first.points[0]);
+            if (activeTipId !== flight.id) {
+              activeTipId = flight.id;
+              tipOrigin = wasVisible && lastShown ? lastShown : pointer ?? [startPt[0] + 22, startPt[1] - 18];
+            }
+            const from = tipOrigin ?? startPt;
+            const k = contractEase(ms / Math.max(1, first.begin));
+            target = [from[0] + (startPt[0] - from[0]) * k, from[1] + (startPt[1] - from[1]) * k];
+            lift = (1 - k) * 0.45;
+          } else if (tip) {
+            activeTipId = flight.id;
+            target = markToScreen(flight.el, flight.height, tip);
+          } else {
+            // Poised hold after stroke completion (400ms hold / 600ms red show before erase):
+            // gently lift beside the final stroke end instead of teleporting back to stroke[0]
+            // or vanishing on touch devices right before the 180° back-eraser flip.
+            activeTipId = flight.id;
+            const endPt = markToScreen(
+              flight.el,
+              flight.height,
+              last.points[last.points.length - 1],
+            );
+            const k = contractEase((ms - lastEnd) / 180);
+            target = [endPt[0] + 10 * k, endPt[1] - 10 * k];
+            lift = 0.35 * k;
+          }
+          setPose(0, lift);
+          returnFrom = { at: now, pt: target };
+          place(target[0], target[1], !externalErasing);
+          return;
         }
-        returnFrom = { at: now, pt: target };
-        place(target[0], target[1], !externalErasing);
-        return;
       }
+      activeTipId = null;
+      tipOrigin = null;
 
       const targetFlip = isManualEraserActive() ? 180 : 0;
       if (!manualFlip && Math.abs(currentFlipDeg - targetFlip) > 0.1) {
@@ -173,7 +220,7 @@ export function ContractPencilCursor() {
         if (k >= 1) manualFlip = null;
       }
 
-      if (returnFrom && pointer && now - returnFrom.at < 300) {
+      if (returnFrom && !coarse && pointer && inside && now - returnFrom.at < 300) {
         const k = contractEase((now - returnFrom.at) / 300);
         place(
           returnFrom.pt[0] + (pointer[0] - returnFrom.pt[0]) * k,

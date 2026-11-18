@@ -7,15 +7,21 @@ import { ContractPencilCursor } from "../ContractPencilCursor";
 import {
   contractEraseAt,
   endEraseFlight,
+  endTipFlight,
+  eraseStrokeSchedule,
+  getEraseFlight,
   holdEraser,
   holdManualEraser,
   isEraserActive,
   isManualEraserActive,
   PENCIL_CONTRACT,
   startEraseFlight,
+  startTipFlight,
 } from "@/lib/pencil-contract";
 import { DirectPencilConnector, type PencilTarget } from "@/cartilla/interactions/PencilConnector";
 import { WorkbookLetterTrace } from "@/components/cartilla/WorkbookLetterTrace";
+import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
+import { DrawBoxCanvas } from "@/components/cartilla/DrawBoxCanvas";
 import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { ActivityContext } from "@/lib/activity-events";
 
@@ -399,5 +405,232 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(isManualEraserActive()).toBe(true);
     unmount();
     expect(isManualEraserActive()).toBe(false);
+  });
+
+  it("rubs multi-stroke X marks sequentially (stroke 0 -> hop -> stroke 1) via contractEraseAt", () => {
+    const diag2: [number, number][] = [
+      [80, 20],
+      [20, 80],
+    ];
+    const diag1: [number, number][] = [
+      [20, 20],
+      [80, 80],
+    ];
+    const flight = {
+      points: diag2,
+      strokes: [diag2, diag1],
+      enterMs: 450,
+      rubMs: 2600,
+      liftMs: 450,
+      totalMs: 3500,
+    };
+    const [win0, win1] = eraseStrokeSchedule(2, 450, 2600);
+    expect(win0.begin).toBe(450);
+    expect(win1.begin).toBeGreaterThan(win0.begin + win0.dur);
+
+    // Mid first erased stroke (diag2 rubbed from [20,80] -> [80,20])
+    const mid0 = contractEraseAt(flight, win0.begin + win0.dur / 2);
+    expect(mid0.phase).toBe("rub");
+    expect(mid0.flipDeg).toBe(180);
+    expect(mid0.lift).toBe(0);
+    expect(mid0.markPt[0]).toBeCloseTo(50, 1);
+    expect(mid0.markPt[1]).toBeCloseTo(50, 1);
+
+    // Mid hop between diag2 start [80,20] and diag1 end [80,80]
+    const hopMid = contractEraseAt(flight, (win0.begin + win0.dur + win1.begin) / 2);
+    expect(hopMid.phase).toBe("rub");
+    expect(hopMid.flipDeg).toBe(180);
+    expect(hopMid.lift).toBeGreaterThan(0.3);
+    expect(hopMid.scrubPx).toEqual([0, 0]);
+    expect(hopMid.markPt[0]).toBeCloseTo(80, 1);
+    expect(hopMid.markPt[1]).toBeCloseTo(50, 1);
+
+    // End of lift returns to diag1 start [20,20] and 0° graphite tip
+    const end = contractEraseAt(flight, 3500);
+    expect(end.phase).toBe("lift");
+    expect(end.flipDeg).toBe(0);
+    expect(end.markPt).toEqual([20, 20]);
+  });
+
+  it("holds tip poised after lastEnd without teleporting to stroke[0] and cleans up detached erase flights", () => {
+    let rafCb: FrameRequestCallback | null = null;
+    let fakeNow = 2000;
+    vi.spyOn(performance, "now").mockImplementation(() => fakeNow);
+    vi.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => {
+      rafCb = cb;
+      return 1;
+    });
+    vi.spyOn(window, "cancelAnimationFrame").mockImplementation(() => {});
+
+    const { container } = render(
+      <div className="native-lesson-viewer">
+        <div className="native-lesson-viewer__content">
+          <div data-testid="mark-host" />
+        </div>
+        <ContractPencilCursor />
+      </div>,
+    );
+
+    const markHost = container.querySelector<HTMLDivElement>('[data-testid="mark-host"]')!;
+    vi.spyOn(markHost, "getBoundingClientRect").mockReturnValue({
+      left: 100,
+      top: 100,
+      width: 100,
+      height: 100,
+      right: 200,
+      bottom: 200,
+      x: 100,
+      y: 100,
+      toJSON: () => {},
+    });
+    const cursor = document.querySelector<HTMLDivElement>('[data-testid="contract-pencil-cursor"]')!;
+
+    let tipId!: symbol;
+    act(() => {
+      tipId = startTipFlight({
+        el: markHost,
+        height: 100,
+        strokes: [
+          {
+            points: [
+              [10, 10],
+              [90, 90],
+            ],
+            begin: 300,
+            dur: 800,
+          },
+        ],
+      });
+      // Advance well past lastEnd (300 + 800 = 1100ms) -> poised near [90,90] => screen (190,190) + (+10,-10) = (200,180)
+      fakeNow += 1500;
+      rafCb?.(fakeNow);
+    });
+    expect(cursor.dataset.visible).toBe("true");
+    // Must stay poised near stroke end (200, 180), NEVER teleporting back to stroke[0] (110, 110)
+    expect(cursor.style.transform).toBe("translate3d(200.0px, 180.0px, 0)");
+
+    act(() => {
+      endTipFlight(tipId);
+    });
+
+    // Detached erase flight element is cleaned up automatically so cursor never sticks in eraser mode
+    const detached = document.createElement("div");
+    act(() => {
+      startEraseFlight({
+        el: detached,
+        height: 100,
+        points: [
+          [10, 10],
+          [90, 90],
+        ],
+        enterMs: 450,
+        rubMs: 2600,
+        liftMs: 450,
+        totalMs: 3500,
+      });
+      fakeNow += 16;
+      rafCb?.(fakeNow);
+    });
+    expect(getEraseFlight()).toBeNull();
+    expect(cursor.dataset.tool).toBe("pencil");
+  });
+
+  it("DrawBoxCanvas toggles manual eraser mode (holdManualEraser + destination-out) and releases cleanly", () => {
+    let composite = "source-over";
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (HTMLCanvasElement.prototype as any).getContext = function () {
+      return {
+        scale: vi.fn(),
+        beginPath: vi.fn(),
+        moveTo: vi.fn(),
+        lineTo: vi.fn(),
+        stroke: vi.fn(function (this: { globalCompositeOperation: string }) {
+          composite = this.globalCompositeOperation;
+        }),
+        clearRect: vi.fn(),
+        drawImage: vi.fn(),
+        globalCompositeOperation: "source-over",
+        strokeStyle: "#000",
+        lineWidth: 4,
+        lineCap: "round",
+        lineJoin: "round",
+      };
+    };
+
+    const { container, unmount } = render(<DrawBoxCanvas regionId="eraser-test" />);
+    const canvas = container.querySelector<HTMLCanvasElement>("canvas")!;
+    canvas.setPointerCapture = vi.fn();
+    vi.spyOn(canvas, "getBoundingClientRect").mockReturnValue({
+      left: 0,
+      top: 0,
+      width: 200,
+      height: 120,
+      right: 200,
+      bottom: 120,
+      x: 0,
+      y: 0,
+      toJSON: () => {},
+    });
+
+    const eraserBtn = screen.getByRole("button", { name: "Borrador de goma" });
+    expect(isManualEraserActive()).toBe(false);
+    fireEvent.click(eraserBtn);
+    expect(isManualEraserActive()).toBe(true);
+    expect(eraserBtn.getAttribute("aria-pressed")).toBe("true");
+
+    fireEvent.pointerDown(canvas, { clientX: 20, clientY: 20, pointerId: 1 });
+    fireEvent.pointerMove(canvas, { clientX: 60, clientY: 60, pointerId: 1 });
+    fireEvent.pointerUp(canvas);
+    expect(composite).toBe("destination-out");
+
+    // Selecting a crayon color exits manual eraser mode
+    fireEvent.click(screen.getByRole("button", { name: "Color #dc2626" }));
+    expect(isManualEraserActive()).toBe(false);
+
+    // Re-enable eraser and unmount -> releases cleanly
+    fireEvent.click(eraserBtn);
+    expect(isManualEraserActive()).toBe(true);
+    unmount();
+    expect(isManualEraserActive()).toBe(false);
+  });
+
+  it("WorkbookPencilMark avoids non-scaling-stroke + pathLength dashes and queues consecutive wrong X marks cleanly", () => {
+    vi.useFakeTimers();
+    const retry1 = vi.fn();
+    const retry2 = vi.fn();
+    const { container } = render(
+      <div className="native-lesson-viewer">
+        <WorkbookPencilMark markType="x" isCorrect={false} itemId="x-1" onRetry={retry1} />
+        <WorkbookPencilMark markType="x" isCorrect={false} itemId="x-2" onRetry={retry2} />
+      </div>,
+    );
+
+    // Regression lock: non-scaling-stroke ContractSegment paths must NEVER carry pathLength/strokeDasharray
+    const segPaths = [...container.querySelectorAll(".workbook-pencil-mark__contract-strokes path")];
+    expect(segPaths).toHaveLength(28);
+    for (const p of segPaths) {
+      expect(p.getAttribute("pathLength")).toBeNull();
+      expect(p.getAttribute("stroke-dasharray")).toBeNull();
+    }
+
+    const xDrawMs = PENCIL_CONTRACT.approachMs + 2 * PENCIL_CONTRACT.crossStrokeMs + PENCIL_CONTRACT.hopMs;
+    act(() => vi.advanceTimersByTime(xDrawMs + PENCIL_CONTRACT.holdMs));
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.redShowMs));
+    // First wrong X is now rubbing with 2 distinct sequential mask windows and 12 crumbs
+    const rubMasks = [...container.querySelectorAll('mask[id$="-rub"] path animate')];
+    expect(rubMasks).toHaveLength(2);
+    expect(rubMasks[0].getAttribute("keyTimes")).not.toBe(rubMasks[1].getAttribute("keyTimes"));
+    expect(container.querySelectorAll(".workbook-pencil__crumbs > g")).toHaveLength(12);
+
+    // Finish first wrong X -> second wrong X automatically takes turn and completes cleanly
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
+    expect(retry1).toHaveBeenCalledTimes(1);
+    expect(retry2).not.toHaveBeenCalled();
+
+    act(() => vi.advanceTimersByTime(xDrawMs + PENCIL_CONTRACT.holdMs));
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.redShowMs));
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
+    expect(retry2).toHaveBeenCalledTimes(1);
+    expect(getEraseFlight()).toBeNull();
   });
 });
