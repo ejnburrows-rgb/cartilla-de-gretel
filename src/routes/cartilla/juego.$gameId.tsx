@@ -53,7 +53,7 @@ function renderGame(content: GameContent) {
 
 function Juego() {
   const { gameId } = Route.useParams();
-  const content = GAMES[gameId];
+  const content = GAMES[gameId] ?? (gameId === "vaca-p-free" || gameId === "vaca-p-guided" ? { ...COW_GAMES[0], id: gameId } : undefined);
 
   if (!content) {
     return (
