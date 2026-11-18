@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ContractPencilCursor } from "@/components/StudentBook/ContractPencilCursor";
 import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
+import { useCursorMode } from "@/lib/cursor-mode";
 import {
   download,
   historyToCsv,
@@ -378,6 +379,7 @@ function TopTwoPencilPrototypes({
   history: DecisionRecord[];
   onChange: (h: DecisionRecord[]) => void;
 }) {
+  const cursorMode = useCursorMode();
   const [circleState, setCircleState] = useState<"idle" | "drawing" | "done">("idle");
   const [circleRun, setCircleRun] = useState(0);
   const [xState, setXState] = useState<"idle" | "drawing" | "done">("idle");
@@ -397,9 +399,9 @@ function TopTwoPencilPrototypes({
       className="orh-card"
       id="top-two-pencil-prototypes"
       data-testid="top-two-pencil-prototypes"
-      data-pencil-cursor-host="true"
+      data-pencil-cursor-host={cursorMode === "contract" ? "true" : undefined}
     >
-      <ContractPencilCursor />
+      {cursorMode === "contract" && <ContractPencilCursor />}
       <p className="orh-kicker">Top Two Revised Pencil Cursor Prototypes · @image1 + Prototype B Orientation</p>
       <h3>Extreme Close-Up Sharpened Pencil Cursor — Circle &amp; X Actions</h3>
       <p>
@@ -427,6 +429,7 @@ function TopTwoPencilPrototypes({
                     markType="circle"
                     round
                     isCorrect
+                    disableCloseUp
                     itemId={`proto-circle-${circleRun}`}
                     status={circleState === "done" ? "correct" : undefined}
                     onSuccess={() => setCircleState("done")}
@@ -477,6 +480,7 @@ function TopTwoPencilPrototypes({
                     markType="x"
                     round
                     isCorrect
+                    disableCloseUp
                     itemId={`proto-x-${xRun}`}
                     status={xState === "done" ? "correct" : undefined}
                     onSuccess={() => setXState("done")}

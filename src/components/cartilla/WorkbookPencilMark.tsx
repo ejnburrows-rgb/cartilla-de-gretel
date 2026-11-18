@@ -47,6 +47,8 @@ export interface WorkbookPencilMarkProps {
   itemId?: string;
   status?: WorkbookMarkStatus;
   className?: string;
+  /** Keep page scale fixed instead of zooming the worksheet container (e.g. static `/revision` prototypes). */
+  disableCloseUp?: boolean;
   onSuccess?: () => void;
   onRetry?: () => void;
 }
@@ -1063,6 +1065,7 @@ export function WorkbookPencilMark({
   itemId,
   status: externalStatus,
   className = "",
+  disableCloseUp = false,
   onSuccess,
   onRetry,
 }: WorkbookPencilMarkProps) {
@@ -1108,7 +1111,7 @@ export function WorkbookPencilMark({
     return () => window.clearTimeout(timer);
   }, [currentStatus, externalStatus, reducedMotion]);
   const closeUp =
-    !contractStyle &&
+    !disableCloseUp &&
     (markActive || (!reducedMotion && !externalStatus && currentStatus === "correct" && !lingerDone));
   usePageCloseUp(boxRef, closeUp);
   const flightBox = useFlightBox(boxRef, flying);
