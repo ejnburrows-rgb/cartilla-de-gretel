@@ -9,7 +9,7 @@ export type CursorMode = "normal" | "tip" | "contract";
 export const DEFAULT_CURSOR_MODE: CursorMode = "contract";
 export const CURSOR_MODE_KEY = "cartilla:cursor-mode";
 export const PENCIL_TIP_SRC = "/cartilla/images/ui/owner-pencil-tip.svg";
-export const PENCIL_TIP_VIEWBOX = { width: 388, height: 322 } as const;
+export const PENCIL_TIP_VIEWBOX = { width: 600, height: 497 } as const;
 export const ERASER_CURSOR_SRC = "/cartilla/images/ui/owner-eraser.svg";
 export const ERASER_VIEWBOX = { width: 388, height: 322 } as const;
 let lastPointer: { x: number; y: number } | null = null;
@@ -17,7 +17,7 @@ export function recordPointer(x: number, y: number) { lastPointer = { x, y }; }
 export function getLastPointer() { return lastPointer; }
 export function toolSize(kind: "tip" | "eraser" = "tip") {
   const coarse = typeof window !== "undefined" && window.matchMedia?.("(pointer: coarse)").matches;
-  return coarse ? 160 : 240;
+  return coarse ? 168 : 252;
 }
 export function readCursorMode(): CursorMode {
   if (typeof window === "undefined") return DEFAULT_CURSOR_MODE;

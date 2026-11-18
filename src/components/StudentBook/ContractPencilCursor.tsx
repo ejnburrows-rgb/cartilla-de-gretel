@@ -6,10 +6,15 @@ import {
   CONTRACT_PENCIL_TILT,
   PencilShape,
 } from "@/components/cartilla/WorkbookPencilMark";
-import { recordPointer } from "@/lib/cursor-mode";
+import { PENCIL_TIP_VIEWBOX, recordPointer, toolSize } from "@/lib/cursor-mode";
+import {
+  OWNER_PENCIL_BARREL_TILE_DATA_URI,
+  OWNER_PENCIL_HEAD_DATA_URI,
+} from "./ownerPencilPhotoAssets";
 import {
   contractEase,
   contractEraseAt,
+  contractPointAlong,
   contractTipAt,
   endEraseFlight,
   endTipFlight,
@@ -23,9 +28,8 @@ import {
 } from "@/lib/pencil-contract";
 
 /**
- * Uncropped SVG viewBox centered generously around the full classic wooden pencil
- * at `rotate(60)` across every 0°–180° flip angle so neither the pencil nor its
- * drop-shadow ever clips. SVG origin (0, 0) aligns 1:1 to the cursor hotspot.
+ * Uncropped SVG viewBox centered generously around the back eraser pencil pose
+ * so neither the eraser nor its drop-shadow ever clips during erasing.
  */
 const VB_X = -25;
 const VB_Y = -105;
@@ -33,20 +37,21 @@ const VB_W = 155;
 const VB_H = 155;
 
 /**
- * Option B (Locked Default) — ONE single physical classic wooden pencil (`PencilShape`)
- * rendered directly as crisp uncropped vector SVG at natural up-right writing angle
- * (`rotate(60)`):
- * - Hovering & drawing: graphite point sits at exact `(0, 0)` hotspot.
- * - Autonomous wrong-mark erasing: the EXACT SAME single pencil smoothly flips 180°
- *   around its midpoint onto its back pink eraser dome (attached to the silver ribbed
- *   ferrule), rubs back-and-forth for 3.5s while 12 pink crumbs scatter, and flips
- *   smoothly back 180° to its graphite tip.
- * - Manual canvas eraser tool (`DibujaHost`, `DrawBoxCanvas`, `WorkbookWritingResponse`):
- *   the same pencil flips 180° onto its back pink eraser dome at exact `(0, 0)` hotspot.
- * Purely visual: pointer events always reach the real controls.
+ * Option B (Locked Default) — Extreme close-up photographic sharpened wooden pencil
+ * (`owner-pencil-tip.svg`, 600×497, matching `@image1` and Prototype B orientation):
+ * - Point faces **up and to the left** with the very end of the dark graphite point at
+ *   exact `(0, 0)` hotspot, visible wood fibers on the sharpening cone, and yellow-painted
+ *   barrel extending **down and to the right**, cropped at the frame boundary with zero
+ *   checkerboard background.
+ * - Lowers onto the page and guides each stroke as though by hand (without showing any hand),
+ *   keeping the exact same close-up scale and sharp detail throughout circle and X actions
+ *   with zero gap or offset (`transform-origin: 0px 0px`).
+ * - Purely visual: pointer events always reach the real controls.
  */
 export function ContractPencilCursor() {
   const host = useRef<HTMLDivElement>(null);
+  const tipImgRef = useRef<SVGSVGElement>(null);
+  const tipShadowRef = useRef<SVGGElement>(null);
   const poseRef = useRef<SVGGElement>(null);
   const flipRef = useRef<SVGGElement>(null);
   const uid = `contract-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
@@ -58,6 +63,10 @@ export function ContractPencilCursor() {
     typeof window !== "undefined" &&
     !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   const scale = coarse ? 1.45 : 2.0;
+  const tipWidth = toolSize("tip");
+  const tipHeight = Math.round(
+    tipWidth * (PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width),
+  );
 
   useEffect(() => {
     const root = document.documentElement;
@@ -76,8 +85,25 @@ export function ContractPencilCursor() {
     let manualFlip: { from: number; to: number; start: number } | null = null;
     let raf = 0;
 
-    const setPose = (flipDeg: number, lift = 0) => {
+    const setPose = (flipDeg: number, lift = 0, wristDeg = 0) => {
       currentFlipDeg = flipDeg;
+      if (tipImgRef.current) {
+        // Pivoting strictly around (0, 0) keeps the graphite point locked to the mark
+        // coordinate with 0.00px offset when touched down (lift === 0), while lowering
+        // naturally onto the page before each stroke (lift > 0).
+        const liftX = lift * 6;
+        const liftY = -lift * 16;
+        const parts: string[] = [];
+        if (lift > 0.001) parts.push(`translate3d(${liftX.toFixed(2)}px, ${liftY.toFixed(2)}px, 0)`);
+        if (Math.abs(wristDeg) > 0.01) parts.push(`rotate(${wristDeg.toFixed(2)}deg)`);
+        tipImgRef.current.style.transform = parts.length ? parts.join(" ") : "rotate(0deg)";
+      }
+      if (tipShadowRef.current) {
+        const dx = 10 + lift * 22;
+        const dy = 14 + lift * 28;
+        tipShadowRef.current.setAttribute("transform", `translate(${dx.toFixed(1)} ${dy.toFixed(1)})`);
+        tipShadowRef.current.setAttribute("opacity", (0.24 - Math.min(0.1, lift * 0.1)).toFixed(3));
+      }
       if (poseRef.current) {
         poseRef.current.setAttribute(
           "transform",
@@ -97,7 +123,7 @@ export function ContractPencilCursor() {
     const place = (x: number, y: number, visible: boolean) => {
       const el = host.current;
       if (!el) return;
-      // Graphite point (0°) or back pink eraser dome (180°) sits at exact (0, 0).
+      // Very end of the graphite point (0, 0) sits at exact (x, y).
       el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
       el.dataset.visible = visible ? "true" : "false";
       wasVisible = visible;
@@ -139,7 +165,7 @@ export function ContractPencilCursor() {
           activeTipId = null;
           tipOrigin = null;
           manualFlip = null;
-          setPose(pose.flipDeg, pose.lift);
+          setPose(pose.flipDeg, pose.lift, 0);
           returnFrom = { at: now, pt: target };
           place(target[0], target[1], true);
           return;
@@ -148,11 +174,9 @@ export function ContractPencilCursor() {
       if (activeEraseId !== null) {
         activeEraseId = null;
         eraseOrigin = null;
-        // Snap cleanly to graphite tip (0°) once auto-erase completes so tiny
-        // remaining fractional degrees do not trigger a spurious 240ms flip hop.
         if (!isManualEraserActive()) {
           manualFlip = null;
-          setPose(0, 0);
+          setPose(0, 0, 0);
         }
       }
 
@@ -166,26 +190,63 @@ export function ContractPencilCursor() {
           const first = flight.strokes[0];
           const last = flight.strokes[flight.strokes.length - 1];
           const lastEnd = last ? last.begin + last.dur : 0;
-          const tip = contractTipAt(flight.strokes, ms);
           let target: [number, number];
           let lift = 0;
+          let wristDeg = 0;
           if (ms < first.begin) {
             const startPt = markToScreen(flight.el, flight.height, first.points[0]);
             if (activeTipId !== flight.id) {
               activeTipId = flight.id;
-              tipOrigin = wasVisible && lastShown ? lastShown : pointer ?? [startPt[0] + 22, startPt[1] - 18];
+              tipOrigin =
+                wasVisible && lastShown
+                  ? lastShown
+                  : pointer ?? [startPt[0] + 24, startPt[1] - 20];
             }
             const from = tipOrigin ?? startPt;
             const k = contractEase(ms / Math.max(1, first.begin));
-            target = [from[0] + (startPt[0] - from[0]) * k, from[1] + (startPt[1] - from[1]) * k];
+            // Smoothly lower onto startPt: at k=1 (ms === first.begin), lift and wristDeg
+            // settle to exact 0 so the very end of the graphite point touches startPt with 0px offset.
+            target = [
+              from[0] + (startPt[0] - from[0]) * k,
+              from[1] + (startPt[1] - from[1]) * k,
+            ];
             lift = (1 - k) * 0.45;
-          } else if (tip) {
+            wristDeg = (1 - k) * 2.6;
+          } else if (ms <= lastEnd) {
             activeTipId = flight.id;
-            target = markToScreen(flight.el, flight.height, tip);
+            let activeStroke = null;
+            for (let i = 0; i < flight.strokes.length; i++) {
+              const s = flight.strokes[i];
+              if (ms >= s.begin && ms <= s.begin + s.dur) {
+                activeStroke = s;
+                break;
+              }
+            }
+            if (activeStroke) {
+              const p = contractEase((ms - activeStroke.begin) / Math.max(1, activeStroke.dur));
+              const pt = contractPointAlong(activeStroke.points, p);
+              target = markToScreen(flight.el, flight.height, pt);
+              lift = 0;
+              wristDeg = Math.sin(p * Math.PI * 2) * 1.35;
+            } else {
+              // Hand-guided hop between diagonal strokes of an X
+              const tip = contractTipAt(flight.strokes, ms);
+              target = markToScreen(flight.el, flight.height, tip ?? first.points[0]);
+              for (let i = 1; i < flight.strokes.length; i++) {
+                const prev = flight.strokes[i - 1];
+                const curr = flight.strokes[i];
+                const hopStart = prev.begin + prev.dur;
+                if (ms > hopStart && ms < curr.begin) {
+                  const hk = contractEase((ms - hopStart) / Math.max(1, curr.begin - hopStart));
+                  const arc = Math.sin(Math.PI * hk);
+                  lift = arc * 0.35;
+                  wristDeg = arc * 2.2;
+                  break;
+                }
+              }
+            }
           } else {
-            // Poised hold after stroke completion (400ms hold / 600ms red show before erase):
-            // gently lift beside the final stroke end instead of teleporting back to stroke[0]
-            // or vanishing on touch devices right before the 180° back-eraser flip.
+            // Poised hold after stroke completion (400ms hold / 600ms red show before erase)
             activeTipId = flight.id;
             const endPt = markToScreen(
               flight.el,
@@ -195,8 +256,9 @@ export function ContractPencilCursor() {
             const k = contractEase((ms - lastEnd) / 180);
             target = [endPt[0] + 10 * k, endPt[1] - 10 * k];
             lift = 0.35 * k;
+            wristDeg = 1.6 * k;
           }
-          setPose(0, lift);
+          setPose(0, lift, wristDeg);
           returnFrom = { at: now, pt: target };
           place(target[0], target[1], !externalErasing);
           return;
@@ -216,8 +278,10 @@ export function ContractPencilCursor() {
         const k = dur <= 0 ? 1 : contractEase((now - manualFlip.start) / dur);
         const deg = manualFlip.from + (manualFlip.to - manualFlip.from) * k;
         const lift = dur <= 0 ? 0 : Math.sin(Math.PI * k) * 0.6;
-        setPose(deg, lift);
+        setPose(deg, lift, 0);
         if (k >= 1) manualFlip = null;
+      } else {
+        setPose(currentFlipDeg, 0, 0);
       }
 
       if (returnFrom && !coarse && pointer && inside && now - returnFrom.at < 300) {
@@ -271,7 +335,7 @@ export function ContractPencilCursor() {
     };
     const unsubscribe = subscribeTip(syncState);
     syncState();
-    setPose(currentFlipDeg, 0);
+    setPose(currentFlipDeg, 0, 0);
     window.addEventListener("pointermove", move, true);
     window.addEventListener("pointerover", move, true);
     window.addEventListener("pointerdown", down, true);
@@ -310,8 +374,69 @@ export function ContractPencilCursor() {
       data-pencil-pose={showingEraser ? "hd-eraser" : "hd-tip"}
       data-tool={showingEraser ? "eraser" : "pencil"}
       aria-hidden="true"
-      style={{ width: 1, height: 1, overflow: "visible" }}
+      style={{
+        width: showingEraser ? 1 : tipWidth,
+        height: showingEraser ? 1 : tipHeight,
+        overflow: "visible",
+      }}
     >
+      <svg
+        ref={tipImgRef}
+        width={tipWidth}
+        height={tipHeight}
+        viewBox={`0 0 ${PENCIL_TIP_VIEWBOX.width} ${PENCIL_TIP_VIEWBOX.height}`}
+        overflow="visible"
+        aria-hidden="true"
+        className="contract-pencil-cursor__img"
+        data-testid="contract-pencil-photo-tip"
+        style={{
+          display: showingEraser ? "none" : "block",
+          width: `${tipWidth}px`,
+          height: `${tipHeight}px`,
+          transformOrigin: "0px 0px",
+        }}
+      >
+        <defs>
+          <clipPath id={`${uid}-head-clip`}>
+            <polygon points="0,0 600,0 600,210 313,497 0,497" />
+          </clipPath>
+          <pattern
+            id={`${uid}-barrel-pat`}
+            patternUnits="userSpaceOnUse"
+            x="0"
+            y="-140"
+            width="96"
+            height="255"
+          >
+            <image width="96" height="255" href={OWNER_PENCIL_BARREL_TILE_DATA_URI} />
+          </pattern>
+        </defs>
+        <g ref={tipShadowRef} transform="translate(8 12)" opacity="0.15">
+          <g transform="translate(405 405) rotate(45)">
+            <path
+              d="M -566 -12 L -200 -126 L 8000 -126 L 8000 106 L -200 106 Z"
+              fill="#3b2a14"
+            />
+          </g>
+        </g>
+        <g transform="translate(405 405) rotate(45)">
+          <rect
+            data-testid="contract-pencil-barrel-extension"
+            x="-12"
+            y="-140"
+            width="8000"
+            height="255"
+            fill={`url(#${uid}-barrel-pat)`}
+          />
+        </g>
+        <image
+          width={PENCIL_TIP_VIEWBOX.width}
+          height={PENCIL_TIP_VIEWBOX.height}
+          clipPath={`url(#${uid}-head-clip)`}
+          href={OWNER_PENCIL_HEAD_DATA_URI}
+          data-testid="contract-pencil-photo-head"
+        />
+      </svg>
       <svg
         className="contract-pencil-cursor__svg"
         width={svgW}
@@ -320,6 +445,7 @@ export function ContractPencilCursor() {
         overflow="visible"
         aria-hidden="true"
         style={{
+          display: showingEraser ? "block" : "none",
           left: `${svgLeft}px`,
           top: `${svgTop}px`,
           width: `${svgW}px`,

@@ -18,10 +18,12 @@ import {
   useCursorMode,
 } from "@/lib/cursor-mode";
 import {
+  contractEase,
   contractPointAlong,
   endEraseFlight,
   endTipFlight,
   eraseStrokeSchedule,
+  getTipFlight,
   PENCIL_CONTRACT,
   startEraseFlight,
   startTipFlight,
@@ -463,6 +465,10 @@ function smoothPath(points: Pt[]): string {
   return d;
 }
 
+function polylinePath(points: Pt[]): string {
+  return points.map((p, i) => `${i === 0 ? "M" : "L"} ${f2(p[0])} ${f2(p[1])}`).join(" ");
+}
+
 /**
  * A child's single pencil loop around the picture: slightly irregular, with a
  * small overlap where the pencil comes back past its starting point.
@@ -475,15 +481,17 @@ function handDrawnLoop(height: number, seed: number, round = false): Pt[] {
   const ry = round ? r : Math.max(12, height / 2 - 5);
   const p1 = (seed % 628) / 100 || 0.6;
   const p2 = ((seed >>> 10) % 628) / 100 || 1.1;
-  // Starts on the right of the picture, where the pencil first touches down.
+  // Starts on the right of the picture, where the pencil first touches down,
+  // and closes gently without creating a heavy double-width lump.
   const start = (-35 * Math.PI) / 180;
-  const sweep = (382 * Math.PI) / 180;
+  const sweep = (368 * Math.PI) / 180;
   const steps = 20;
   const points: Pt[] = [];
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
     const a = start + sweep * t;
-    const wobble = 1 + 0.02 * Math.sin(2 * a + p1) + 0.012 * Math.sin(3 * a + p2) + 0.035 * t;
+    const wobble =
+      1 + 0.02 * Math.sin(2 * a + p1) + 0.012 * Math.sin(3 * a + p2) + 0.014 * Math.sin(Math.PI * t);
     points.push([cx + rx * wobble * Math.cos(a), cy + ry * wobble * Math.sin(a)]);
   }
   return points;
@@ -846,18 +854,27 @@ function MarkStroke({
 function ContractSegment({
   d,
   width,
-  begin,
   animate,
+  segKey,
 }: {
   d: string;
   width: number;
   begin: number;
   dur?: number;
   animate: boolean;
+  segKey?: string;
 }) {
   const style = { strokeWidth: `${width}px` };
   if (!animate)
-    return <path className="workbook-pencil-mark__stroke" d={d} style={style} vectorEffect="non-scaling-stroke" />;
+    return (
+      <path
+        className="workbook-pencil-mark__stroke"
+        d={d}
+        style={style}
+        vectorEffect="non-scaling-stroke"
+        data-contract-seg={segKey}
+      />
+    );
   return (
     <path
       className="workbook-pencil-mark__stroke"
@@ -865,9 +882,8 @@ function ContractSegment({
       style={style}
       vectorEffect="non-scaling-stroke"
       opacity="0"
-    >
-      <set attributeName="opacity" to="1" begin={`${begin}ms`} fill="freeze" />
-    </path>
+      data-contract-seg={segKey}
+    />
   );
 }
 
@@ -1092,7 +1108,8 @@ export function WorkbookPencilMark({
     return () => window.clearTimeout(timer);
   }, [currentStatus, externalStatus, reducedMotion]);
   const closeUp =
-    markActive || (!reducedMotion && !externalStatus && currentStatus === "correct" && !lingerDone);
+    !contractStyle &&
+    (markActive || (!reducedMotion && !externalStatus && currentStatus === "correct" && !lingerDone));
   usePageCloseUp(boxRef, closeUp);
   const flightBox = useFlightBox(boxRef, flying);
   const height = Math.round(100 * aspect * 10) / 10;
@@ -1241,7 +1258,49 @@ export function WorkbookPencilMark({
     const el = boxRef.current;
     if (!tipFlightActive || !el) return;
     const id = startTipFlight({ el, ...contractFlightRef.current });
+    let raf = 0;
+    const syncReveal = () => {
+      const activeFlight = getTipFlight();
+      if (!activeFlight || activeFlight.id !== id) return;
+      const ms = performance.now() - activeFlight.start;
+      const strokesList = activeFlight.strokes;
+      for (let si = 0; si < strokesList.length; si++) {
+        const s = strokesList[si];
+        const maskPath = el.querySelector<SVGPathElement>(`[data-contract-mask-path="${si}"]`);
+        const maskCap = el.querySelector<SVGCircleElement>(`[data-contract-mask-cap="${si}"]`);
+        if (ms < s.begin) {
+          maskCap?.setAttribute("opacity", "0");
+          if (maskPath) {
+            maskPath.setAttribute("opacity", "0");
+            maskPath.setAttribute("stroke-dashoffset", "100");
+          }
+          for (let k = 0; k < 14; k++) {
+            el.querySelector<SVGPathElement>(`[data-contract-seg="${si}-${k}"]`)?.setAttribute(
+              "opacity",
+              "0",
+            );
+          }
+        } else {
+          const p =
+            ms >= s.begin + s.dur ? 1 : contractEase((ms - s.begin) / Math.max(1, s.dur));
+          maskCap?.setAttribute("opacity", "1");
+          if (maskPath) {
+            maskPath.setAttribute("opacity", "1");
+            maskPath.setAttribute("stroke-dashoffset", ((1 - p) * 100).toFixed(3));
+          }
+          for (let k = 0; k < 14; k++) {
+            el.querySelector<SVGPathElement>(`[data-contract-seg="${si}-${k}"]`)?.setAttribute(
+              "opacity",
+              p >= k / 14 ? "1" : "0",
+            );
+          }
+        }
+      }
+      raf = window.requestAnimationFrame(syncReveal);
+    };
+    syncReveal();
     return () => {
+      if (raf) window.cancelAnimationFrame(raf);
       endTipFlight(id);
     };
   }, [tipFlightActive]);
@@ -1432,29 +1491,27 @@ export function WorkbookPencilMark({
                     height={height + 40}
                   >
                     <rect x="-20" y="-20" width="140" height={height + 40} fill="#000" />
+                    <circle
+                      data-contract-mask-cap={si}
+                      cx={f2(stroke.points[0][0])}
+                      cy={f2(stroke.points[0][1])}
+                      r="3.8"
+                      fill="#fff"
+                      opacity="0"
+                    />
                     <path
-                      d={strokes[si]}
+                      data-contract-mask-path={si}
+                      d={polylinePath(stroke.points)}
                       fill="none"
                       stroke="#fff"
-                      strokeWidth="22"
-                      strokeLinecap="round"
+                      strokeWidth="12"
+                      strokeLinecap="butt"
+                      strokeLinejoin="round"
                       pathLength={100}
                       strokeDasharray="100 100"
                       strokeDashoffset="100"
                       opacity="0"
-                    >
-                      <animate
-                        attributeName="stroke-dashoffset"
-                        begin={`${stroke.begin}ms`}
-                        dur={`${stroke.dur}ms`}
-                        fill="freeze"
-                        calcMode="spline"
-                        keyTimes="0;1"
-                        keySplines="0.3333 0 0.6667 1"
-                        values="100;0"
-                      />
-                      <set attributeName="opacity" to="1" begin={`${stroke.begin}ms`} fill="freeze" />
-                    </path>
+                    />
                   </mask>
                 ))}
             </defs>
@@ -1464,6 +1521,7 @@ export function WorkbookPencilMark({
                   {segs.map((seg) => (
                     <ContractSegment
                       key={seg.key}
+                      segKey={seg.key}
                       d={seg.d}
                       width={seg.width}
                       begin={seg.begin}

@@ -60,22 +60,30 @@ for (const viewport of [
         expect(Math.abs(cbox.x - tx)).toBeLessThanOrEqual(1);
         expect(Math.abs(cbox.y - ty)).toBeLessThanOrEqual(1);
 
-        // Inline uncropped vector PencilShape SVG with no HB stamp, no <img>, and no fade mask
+        // Photographic @image1 close-up pencil tip (600×497, extended barrel off-screen)
         const svgMeta = await cursor.evaluate((el) => {
+          const photoSvg = el.querySelector<SVGSVGElement>('[data-testid="contract-pencil-photo-tip"]');
+          const barrel = el.querySelector<SVGRectElement>(
+            '[data-testid="contract-pencil-barrel-extension"]',
+          );
           const svg = el.querySelector("svg.contract-pencil-cursor__svg");
+          const barrelRect = barrel?.getBoundingClientRect();
           return {
-            hasImg: !!el.querySelector("img"),
+            hasPhotoSvg: !!photoSvg && getComputedStyle(photoSvg).display !== "none",
+            barrelReachesEdge:
+              !!barrelRect &&
+              (barrelRect.right >= window.innerWidth - 1 ||
+                barrelRect.bottom >= window.innerHeight - 1),
             hasText: !!svg?.querySelector("text"),
             hasHB: (svg?.textContent ?? "").includes("HB"),
-            hasImage: !!svg?.querySelector("image"),
             hasOverflowVisible: svg?.getAttribute("overflow") === "visible",
           };
         });
         expect(svgMeta).toEqual({
-          hasImg: false,
+          hasPhotoSvg: true,
+          barrelReachesEdge: true,
           hasText: false,
           hasHB: false,
-          hasImage: false,
           hasOverflowVisible: true,
         });
 
@@ -262,12 +270,16 @@ for (const viewport of [
         await expect(cursor).toHaveAttribute("data-tool", "eraser");
         await expect(cursor).toHaveAttribute("data-pencil-pose", "hd-eraser");
         await page.waitForTimeout(300);
-        const eraserMeta = await cursor.evaluate((el) => ({
-          hasImg: !!el.querySelector("img"),
-          hasBackEraser: !!el.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd"),
-          flipTransform: el.querySelector('[data-testid="contract-pencil-flip"]')?.getAttribute("transform") ?? "",
-        }));
-        expect(eraserMeta.hasImg).toBe(false);
+        const eraserMeta = await cursor.evaluate((el) => {
+          const tip = el.querySelector<SVGSVGElement>('[data-testid="contract-pencil-photo-tip"]');
+          return {
+            hasImgVisible: !!tip && getComputedStyle(tip).display !== "none",
+            hasBackEraser: !!el.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd"),
+            flipTransform:
+              el.querySelector('[data-testid="contract-pencil-flip"]')?.getAttribute("transform") ?? "",
+          };
+        });
+        expect(eraserMeta.hasImgVisible).toBe(false);
         expect(eraserMeta.hasBackEraser).toBe(true);
         expect(eraserMeta.flipTransform).toContain("rotate(180.00");
         await saveShot(page, `${viewport.name}-leccion3-p9-dibuja-eraser.png`);

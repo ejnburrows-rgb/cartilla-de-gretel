@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ContractPencilCursor } from "@/components/StudentBook/ContractPencilCursor";
+import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
 import {
   download,
   historyToCsv,
@@ -369,6 +371,151 @@ const SECTIONS = [
   ["history", "12. Your decisions"],
 ] as const;
 
+function TopTwoPencilPrototypes({
+  history,
+  onChange,
+}: {
+  history: DecisionRecord[];
+  onChange: (h: DecisionRecord[]) => void;
+}) {
+  const [circleState, setCircleState] = useState<"idle" | "drawing" | "done">("idle");
+  const [circleRun, setCircleRun] = useState(0);
+  const [xState, setXState] = useState<"idle" | "drawing" | "done">("idle");
+  const [xRun, setXRun] = useState(0);
+
+  const triggerCircle = () => {
+    setCircleRun((n) => n + 1);
+    setCircleState("drawing");
+  };
+  const triggerX = () => {
+    setXRun((n) => n + 1);
+    setXState("drawing");
+  };
+
+  return (
+    <article
+      className="orh-card"
+      id="top-two-pencil-prototypes"
+      data-testid="top-two-pencil-prototypes"
+      data-pencil-cursor-host="true"
+    >
+      <ContractPencilCursor />
+      <p className="orh-kicker">Top Two Revised Pencil Cursor Prototypes · @image1 + Prototype B Orientation</p>
+      <h3>Extreme Close-Up Sharpened Pencil Cursor — Circle &amp; X Actions</h3>
+      <p>
+        Extreme close-up of the real sharpened wooden pencil from <b>@image1</b> (sharp dark graphite point, visible wood fibers, scalloped yellow-painted barrel extending seamlessly all the way past the edge of the screen with no cut-off gap and zero checkerboard background) oriented as in <b>Prototype B</b>: point facing <b>up and to the left</b> at exact <code>(0, 0)</code> hotspot. The pencil lowers onto the page as though guided by hand (no hand shown), keeping the exact same zoomed close-up scale and sharp detail throughout both actions while the mark forms directly at the very end of the graphite point with zero gap or offset.
+      </p>
+      <div className="orh-ab">
+        <section className="orh-variant" data-testid="prototype-circle-card">
+          <h4>Prototype 1 — Circle Action (“Encierra en un círculo”)</h4>
+          <p>
+            The pencil lowers onto the page and guides the graphite point around the picture; the charcoal line forms continuously right behind the moving point with zero gap or offset.
+          </p>
+          <div className="orh-proto-stage">
+            <button
+              type="button"
+              className="orh-proto-tile"
+              data-testid="prototype-circle-trigger"
+              aria-label="Dibujar círculo alrededor de aro"
+              aria-pressed={circleState === "done"}
+              onClick={triggerCircle}
+            >
+              <img src="/cartilla/art/faithful/vocal-a/aro.webp" alt="aro" loading="lazy" draggable={false} />
+              {circleState !== "idle" && (
+                <span className="orh-proto-tile__mark" key={`circle-${circleRun}`}>
+                  <WorkbookPencilMark
+                    markType="circle"
+                    round
+                    isCorrect
+                    itemId={`proto-circle-${circleRun}`}
+                    status={circleState === "done" ? "correct" : undefined}
+                    onSuccess={() => setCircleState("done")}
+                  />
+                </span>
+              )}
+            </button>
+            <div className="orh-decision__buttons">
+              <button
+                type="button"
+                className="orh-btn orh-btn--approve-b"
+                data-testid="prototype-circle-play"
+                onClick={triggerCircle}
+              >
+                Draw Circle
+              </button>
+              <button
+                type="button"
+                className="orh-btn"
+                data-testid="prototype-circle-reset"
+                onClick={() => setCircleState("idle")}
+              >
+                Reset Circle
+              </button>
+            </div>
+          </div>
+          <Links links={[{ label: "Open Circle in Lesson 1 Workbook", href: "/cartilla/leccion/1" }]} />
+        </section>
+
+        <section className="orh-variant" data-testid="prototype-x-card">
+          <h4>Prototype 2 — X Action (“Marca con una X”)</h4>
+          <p>
+            At the exact same close-up scale and sharp detail, the pencil lowers onto the page and draws each diagonal stroke sequentially right from the very end of the graphite tip with zero gap or offset.
+          </p>
+          <div className="orh-proto-stage">
+            <button
+              type="button"
+              className="orh-proto-tile"
+              data-testid="prototype-x-trigger"
+              aria-label="Marcar con una X sobre abanico"
+              aria-pressed={xState === "done"}
+              onClick={triggerX}
+            >
+              <img src="/cartilla/art/faithful/vocal-a/abanico.webp" alt="abanico" loading="lazy" draggable={false} />
+              {xState !== "idle" && (
+                <span className="orh-proto-tile__mark" key={`x-${xRun}`}>
+                  <WorkbookPencilMark
+                    markType="x"
+                    round
+                    isCorrect
+                    itemId={`proto-x-${xRun}`}
+                    status={xState === "done" ? "correct" : undefined}
+                    onSuccess={() => setXState("done")}
+                  />
+                </span>
+              )}
+            </button>
+            <div className="orh-decision__buttons">
+              <button
+                type="button"
+                className="orh-btn orh-btn--approve-b"
+                data-testid="prototype-x-play"
+                onClick={triggerX}
+              >
+                Mark X
+              </button>
+              <button
+                type="button"
+                className="orh-btn"
+                data-testid="prototype-x-reset"
+                onClick={() => setXState("idle")}
+              >
+                Reset X
+              </button>
+            </div>
+          </div>
+          <Links links={[{ label: "Open X in Lesson 3 Workbook", href: "/cartilla/leccion/3" }]} />
+        </section>
+      </div>
+      <DecisionBar
+        itemId="top-two-pencil-prototypes"
+        options={["approve-b", "request-changes", "reject-both"]}
+        history={history}
+        onChange={onChange}
+      />
+    </article>
+  );
+}
+
 export function OwnerReviewHub() {
   const [history, setHistory] = useHistory();
   const [msg, setMsg] = useState("");
@@ -396,7 +543,7 @@ export function OwnerReviewHub() {
 
       <section id="ab" aria-labelledby="ab-h">
         <h2 id="ab-h">A/B comparisons</h2>
-        <p className="orh-note"><b>Pencil: WAITING.</b> The two whole-pencil poses shown on November 16 were rejected by the owner. They are not offered as review options. The requested pencil reference and new alternatives remain unresolved; the eraser is also incomplete.</p>
+        <TopTwoPencilPrototypes history={history} onChange={setHistory} />
         {COMPARISONS.map((c) => (
           <ComparisonCard key={c.id} c={c} history={history} onChange={setHistory} />
         ))}
