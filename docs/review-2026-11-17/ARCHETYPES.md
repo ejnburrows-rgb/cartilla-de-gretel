@@ -1,6 +1,6 @@
 # Lesson & Flip Chart Archetypes Inventory (2026-11-17)
 
-Approved Option B model: **Lesson 3** (Workbook pages 7–9, Flip Chart sheet 5).
+Approved Option A model (locked 2026-11-18): **Lesson 3** (Workbook pages 7–9 with `curl=a` corner lift + `PENCIL-CURSOR-SPEC.md` `@image1` cursor; Flip Chart sheet 5 on Projector Presenter `/cartilla/presentar/$n`).
 
 ## Curriculum Lesson Sequences
 - **Intro**: Lesson 1 (`O A E I U`, Workbook pp. 1–3, Flip Chart sheet 3)

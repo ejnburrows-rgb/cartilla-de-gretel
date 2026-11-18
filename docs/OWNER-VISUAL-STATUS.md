@@ -18,7 +18,7 @@ flowchart TD
     SPEC["OFFICIAL SOURCE OF TRUTH ON MAIN<br/>PENCIL-CURSOR-SPEC.md + OwnerPhotoPencilSvg.tsx<br/>(@image1 Close-Up · Prototype B · Extended to Screen Edge)"]
     TEST["Verified After Final Edit<br/>0 TS Errors · 95/95 Policy · 45/45 Unit · 12/12 Playwright E2E"]
     MAIN["Branch: main (Unified Source of Truth)<br/>DONE but not live until 'deploy it'"]
-    NEXT["NEXT OWNER MILESTONE (#877)<br/>Pick Lesson Style Prototypes (2 Workbook + 2 Flip Chart)<br/>Before Rolling Out Across Lessons 1–24"]
+    NEXT["NEXT OWNER MILESTONE (#877)<br/>Option A Locked for Workbook & Flip Chart (Lessons 1–24)<br/>Workbook Artwork Audit Ready for Owner Review"]
 
     SPEC --> TEST --> MAIN --> NEXT
 ```

@@ -240,63 +240,150 @@ function CoverageFilter({ summary, rows, filter, setFilter }: { summary: Row; ro
   );
 }
 
+interface WorkbookAuditItem {
+  id: string;
+  page: number;
+  lesson: number | null;
+  lessonTitle: string;
+  word: string;
+  pageImage: string | null;
+  servedPath: string | null;
+  candidatePath?: string | null;
+  box: { x: number; y: number; width: number; height: number } | null;
+  status: "READY" | "FLAGGED" | "NOT_INTEGRATED" | "MISSING" | "TEXT_ONLY" | "SOURCE_BLOCKED";
+  problem: string;
+}
+
+const AUDIT_STATUS_LABEL: Record<WorkbookAuditItem["status"], string> = {
+  READY: "Ready (wired)",
+  FLAGGED: "Flagged crop/edge",
+  NOT_INTEGRATED: "Not integrated yet",
+  MISSING: "Missing file",
+  TEXT_ONLY: "Text / tracing page",
+  SOURCE_BLOCKED: "Source blocked (pp. 86–87)",
+};
+
 function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChange: (h: DecisionRecord[]) => void }) {
-  const data = useJson<{ summary: Row; issues: Row[] }>("/review/artwork-board.json");
-  const [filter, setFilter] = useState("all");
-  const [shown, setShown] = useState(60);
-  if (!data) return <p className="orh-muted">Artwork review data is not available in this draft.</p>;
-  const rows = data.issues.filter((r) => filter === "all" || r.classification === filter);
+  const audit = useJson<{ summary: Row; items: WorkbookAuditItem[] }>("/review/workbook-artwork-audit.json");
+  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [pageFilter, setPageFilter] = useState<string>("all");
+  const [shown, setShown] = useState(40);
+  const latestMap = useMemo(() => latestDecisions(history), [history]);
+
+  if (!audit) return <p className="orh-muted">Loading complete 90-page workbook artwork audit…</p>;
+
+  const pages = Array.from(new Set(audit.items.map((i) => i.page))).sort((a, b) => a - b);
+  const statuses: WorkbookAuditItem["status"][] = ["READY", "FLAGGED", "NOT_INTEGRATED", "MISSING", "TEXT_ONLY", "SOURCE_BLOCKED"];
+  const rows = audit.items.filter(
+    (item) =>
+      (statusFilter === "all" || item.status === statusFilter) &&
+      (pageFilter === "all" || String(item.page) === pageFilter),
+  );
+
   return (
     <div>
-      <CoverageFilter summary={data.summary} rows={data.issues} filter={filter} setFilter={(value) => { setFilter(value); setShown(60); }} />
+      <dl className="orh-summary">
+        {Object.entries(audit.summary).map(([k, v]) => (
+          <div key={k}>
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </div>
+        ))}
+      </dl>
+      <div className="orh-art-filters">
+        <label className="orh-label">
+          Status{" "}
+          <select value={statusFilter} onChange={(e) => { setStatusFilter(e.target.value); setShown(40); }}>
+            <option value="all">All ({audit.items.length})</option>
+            {statuses.map((s) => (
+              <option key={s} value={s}>
+                {AUDIT_STATUS_LABEL[s]} ({audit.items.filter((i) => i.status === s).length})
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="orh-label">
+          Page{" "}
+          <select value={pageFilter} onChange={(e) => { setPageFilter(e.target.value); setShown(40); }}>
+            <option value="all">All pages (1–90)</option>
+            {pages.map((p) => (
+              <option key={p} value={String(p)}>
+                Page {p} ({audit.items.filter((i) => i.page === p).length})
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
       <div className="orh-art-list">
-        {rows.slice(0, shown).map((r) => (
-          <article key={r.id} className="orh-art" id={`art-${r.id}`}>
-            <div className="orh-art__images">
-              {r.pageImage && (
-                <figure>
-                  <img src={r.pageImage} alt={`Printed page ${r.page}`} loading="lazy" />
-                  <figcaption>Printed page {r.page}</figcaption>
-                </figure>
-              )}
-              {r.servedPath && (
-                <figure>
-                  <img
-                    src={r.servedPath}
-                    alt={`Configured image ${r.id}`}
-                    loading="lazy"
-                    style={{ width: r.displayWidth ? `${Math.min(220, Number(r.displayWidth))}px` : undefined }}
-                  />
+        {rows.slice(0, shown).map((r) => {
+          const uploaded = latestMap.get(`art:${r.id}`)?.replacement;
+          const rightImgSrc = uploaded?.dataUrl || r.servedPath || r.candidatePath;
+          return (
+            <article key={r.id} className="orh-art" id={`art-${r.id}`}>
+              <div className="orh-art__header">
+                <b>{r.id}</b> · Page {r.page}{r.lesson ? ` (Lesson ${r.lesson})` : ""} · <span>{r.word}</span>{" "}
+                <span className={`orh-pill orh-pill--${r.status === "READY" ? "live" : r.status === "FLAGGED" || r.status === "MISSING" || r.status === "NOT_INTEGRATED" ? "waiting" : "untested"}`}>
+                  {AUDIT_STATUS_LABEL[r.status]}
+                </span>
+              </div>
+              <div className="orh-art__pair">
+                <figure className="orh-art__source">
+                  {r.pageImage ? (
+                    <div className="orh-art__scan-wrap">
+                      <img src={r.pageImage} alt={`Workbook page ${r.page} scan`} loading="lazy" />
+                      {r.box && (
+                        <svg className="orh-art__circle-overlay" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true">
+                          <ellipse
+                            cx={r.box.x + r.box.width / 2}
+                            cy={r.box.y + r.box.height / 2}
+                            rx={r.box.width * 0.56}
+                            ry={r.box.height * 0.56}
+                            fill="rgba(196, 50, 10, 0.08)"
+                            stroke="#c4320a"
+                            strokeWidth="0.012"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="orh-art__empty">Source scan unavailable (SOURCE_BLOCKED)</div>
+                  )}
                   <figcaption>
-                    Configured asset: {r.width === "vector" ? "vector" : `${r.width}×${r.height}px`}
+                    Original workbook page {r.page} {r.box ? "(circled asset)" : "(full page)"}
                   </figcaption>
                 </figure>
-              )}
-              {r.candidatePath && (
-                <figure>
-                  <img src={r.candidatePath} alt={`Existing candidate ${r.id}`} loading="lazy" />
-                  <figcaption>Existing candidate — not applied or approved</figcaption>
+                <figure className="orh-art__updated">
+                  {rightImgSrc ? (
+                    <img src={rightImgSrc} alt={`Updated asset for ${r.word}`} loading="lazy" />
+                  ) : (
+                    <div className="orh-art__empty">
+                      {r.status === "TEXT_ONLY"
+                        ? "No individual picture cutout configured — upload if needed"
+                        : "Missing / not yet integrated — upload image below"}
+                    </div>
+                  )}
+                  <figcaption>
+                    {uploaded
+                      ? `Uploaded replacement: ${uploaded.name}`
+                      : r.servedPath
+                        ? `Updated image: ${r.servedPath}`
+                        : "No updated image wired"}
+                  </figcaption>
                 </figure>
-              )}
-            </div>
-            <p>
-              <b>{r.id}</b> · page {r.page} · <code>{r.servedPath}</code>
-            </p>
-            <p>
-              <b>{r.classification}</b> — {r.problem}
-            </p>
-            <p className="orh-muted">Proposed: {r.remedy}</p>
-            <DecisionBar
-              itemId={`art:${r.id}`}
-              options={["keep-current", "upload-replacement", "request-changes", "reject"]}
-              history={history}
-              onChange={onChange}
-            />
-          </article>
-        ))}
+              </div>
+              <p className="orh-muted">{r.problem}</p>
+              <DecisionBar
+                itemId={`art:${r.id}`}
+                options={["keep-current", "upload-replacement", "request-changes", "reject"]}
+                history={history}
+                onChange={onChange}
+              />
+            </article>
+          );
+        })}
       </div>
-      <p className="orh-muted" aria-live="polite">Showing {Math.min(shown, rows.length)} of {rows.length} artwork entries.</p>
-      {shown < rows.length && <button type="button" className="orh-btn" onClick={() => setShown((n) => n + 60)}>Show more artwork</button>}
+      <p className="orh-muted" aria-live="polite">Showing {Math.min(shown, rows.length)} of {rows.length} workbook entries.</p>
+      {shown < rows.length && <button type="button" className="orh-btn" onClick={() => setShown((n) => n + 40)}>Show more workbook assets</button>}
     </div>
   );
 }

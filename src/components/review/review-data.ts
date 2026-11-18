@@ -29,20 +29,20 @@ const toLinks = (pairs: [string, string][]): ReviewLink[] =>
 export const COMPARISONS: Comparison[] = [
   {
     id: "workbook-lesson-3",
-    title: "Student Workbook — Lesson 3 (Pages 7–9, Locked @image1 Pencil)",
+    title: "Student Workbook — Lesson 3 (Pages 7–9, Option A Locked Default)",
     summary:
-      "Both candidates use the locked PENCIL-CURSOR-SPEC.md (@image1) pencil cursor. Compare Option A (corner lift without specular highlight, ?cursor=contract&curl=a) against Option B (locked default: clean canvas + warm cream roll with specular highlight and mark-in-progress guard).",
+      "Option A (corner lift without specular highlight + locked PENCIL-CURSOR-SPEC.md @image1 pencil cursor) is locked as the application default across Lessons 1–24. Option B (warm cream roll with specular highlight) remains accessible via ?curl=b.",
     a: {
-      name: "A — Corner lift baseline curl (curl=a)",
+      name: "A — Corner lift baseline curl (Locked Default)",
       description:
-        "Locked @image1 pencil cursor (#3a3a38 charcoal, green/red feedback, 12 pink crumbs) with corner-lift page curl without specular highlight.",
-      links: toLinks([["Open A — corner curl", "/cartilla/leccion/3?cursor=contract&curl=a"]]),
+        "Locked @image1 pencil cursor (#3a3a38 charcoal, green/red feedback, 12 pink crumbs) with corner-lift page curl.",
+      links: toLinks([["Open A — default", "/cartilla/leccion/3?cursor=contract"]]),
     },
     b: {
-      name: "B — Warm cream roll with specular highlight (Locked Default)",
+      name: "B — Warm cream roll with specular highlight (override)",
       description:
-        "Locked @image1 pencil cursor (#3a3a38 charcoal, 3.3–6.4 px stroke, 400 ms hold, 12 pink crumbs on red wrong marks), clean canvas (no Gretel overlay), warm cream roll with specular highlight and mark-in-progress guard.",
-      links: toLinks([["Open B — default", "/cartilla/leccion/3?cursor=contract"]]),
+        "Locked @image1 pencil cursor with warm cream roll and specular highlight (?curl=b).",
+      links: toLinks([["Open B — specular roll", "/cartilla/leccion/3?cursor=contract&curl=b"]]),
     },
     evidence: toLinks([["A vs B side by side (desktop)", "/review/media/ab-lesson3-1366.svg"]]),
   },
