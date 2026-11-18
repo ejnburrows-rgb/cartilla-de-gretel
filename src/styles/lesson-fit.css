@@ -28,9 +28,20 @@
 }
 @media (orientation: portrait) {
   .lc-lesson-shell--fit .lc-lesson-main {
-    --lc-top: 44px;
-    --lc-bottom: 76px;
+    --lc-top: 8px;
+    --lc-bottom: 138px;
     --pw: calc(100cqw - 20px);
+  }
+}
+@media (min-width: 601px) and (orientation: portrait) {
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] {
+    margin-top: 40px;
+    margin-bottom: 8px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1520px) {
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] {
+    max-width: min(640px, calc(100vw - 640px));
   }
 }
 /* Short landscape phones: narrower side margins. */
