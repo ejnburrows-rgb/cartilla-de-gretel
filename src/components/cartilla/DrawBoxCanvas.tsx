@@ -8,8 +8,9 @@
 // Reports through the same pipeline as the other interactive exercises
 // (recordEvent + gretelEvent); student workbook only.
 import { useRef, useState, useEffect } from "react";
-import { Check } from "lucide-react";
+import { Check, RotateCcw } from "lucide-react";
 import { useActivityEvents } from "@/lib/activity-events";
+import { holdManualEraser } from "@/lib/pencil-contract";
 
 
 const CRAYON_COLORS = ["#3a3a38", "#dc2626", "#2563eb", "#16a34a", "#f59e0b", "#9333ea"];
@@ -29,9 +30,15 @@ export function DrawBoxCanvas({ regionId, hint, lessonId, retainCompletedImage =
   const hasStrokeRef = useRef(false);
   const lastPointRef = useRef<{ x: number; y: number } | null>(null);
   const [color, setColor] = useState(CRAYON_COLORS[0]);
+  const [erasing, setErasing] = useState(false);
   const [hasStroke, setHasStroke] = useState(false);
   const [done, setDone] = useState(false);
   const [completedImage, setCompletedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!erasing || done) return;
+    return holdManualEraser();
+  }, [erasing, done]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -97,16 +104,18 @@ export function DrawBoxCanvas({ regionId, hint, lessonId, retainCompletedImage =
     const last = lastPointRef.current;
     const next = getPoint(e);
     if (!ctx || !last) return;
+    ctx.globalCompositeOperation = erasing ? "destination-out" : "source-over";
     ctx.strokeStyle = color;
-    ctx.lineWidth = 4;
+    ctx.lineWidth = erasing ? 18 : 4;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.beginPath();
     ctx.moveTo(last.x, last.y);
     ctx.lineTo(next.x, next.y);
     ctx.stroke();
+    ctx.globalCompositeOperation = "source-over";
     lastPointRef.current = next;
-    if (!hasStrokeRef.current) {
+    if (!erasing && !hasStrokeRef.current) {
       hasStrokeRef.current = true;
       setHasStroke(true);
     }
@@ -124,12 +133,14 @@ export function DrawBoxCanvas({ regionId, hint, lessonId, retainCompletedImage =
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     hasStrokeRef.current = false;
     setHasStroke(false);
+    setErasing(false);
   };
 
   const finish = () => {
     if (!hasStroke || done) return;
     if (retainCompletedImage && canvasRef.current) setCompletedImage(canvasRef.current.toDataURL("image/png"));
     setDone(true);
+    setErasing(false);
     gretelEvent("activity:complete");
     if (lessonId) {
       recordEvent({
@@ -162,12 +173,15 @@ export function DrawBoxCanvas({ regionId, hint, lessonId, retainCompletedImage =
                 <button
                   key={c}
                   type="button"
-                  onClick={() => setColor(c)}
+                  onClick={() => {
+                    setColor(c);
+                    setErasing(false);
+                  }}
                   aria-label={`Color ${c}`}
                   className="fp-draw-box__color-swatch"
                   style={{
                     background: c,
-                    outline: color === c ? "2px solid var(--book-teal)" : "none",
+                    outline: !erasing && color === c ? "2px solid var(--book-teal)" : "none",
                     outlineOffset: 2,
                   }}
                 />
@@ -175,16 +189,27 @@ export function DrawBoxCanvas({ regionId, hint, lessonId, retainCompletedImage =
             </div>
             <button
               type="button"
-              onClick={clearCanvas}
-              className="fp-draw-box__btn fp-draw-box__btn--eraser"
-              aria-label="Borrar"
-              title="Borrar con goma"
+              onClick={() => setErasing((v) => !v)}
+              className={`fp-draw-box__btn fp-draw-box__btn--eraser${erasing ? " is-active" : ""}`}
+              aria-label="Borrador de goma"
+              aria-pressed={erasing}
+              title="Borrador de goma"
+              style={erasing ? { outline: "2px solid var(--book-teal)", outlineOffset: 2 } : undefined}
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 inline-block" aria-hidden="true">
                 <path d="M4 15 L14 5 L20 11 L10 21 L4 21 Z" fill="#f498a9" stroke="#d9768c" strokeWidth="1.5" strokeLinejoin="round" />
                 <path d="M10 9 L16 15" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.8" />
                 <path d="M7 18 L10 21 L21 21" fill="none" stroke="#6c737b" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
+            </button>
+            <button
+              type="button"
+              onClick={clearCanvas}
+              className="fp-draw-box__btn fp-draw-box__btn--clear"
+              aria-label="Borrar"
+              title="Limpiar dibujo"
+            >
+              <RotateCcw className="w-4 h-4" />
             </button>
             <button
               type="button"

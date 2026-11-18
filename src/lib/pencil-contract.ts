@@ -153,8 +153,14 @@ export interface EraseFlight {
   el: HTMLElement;
   /** viewBox height of the mark (width is always 100). */
   height: number;
-  /** Polyline points of the stroke being erased (rubbed backwards from end to start). */
+  /** Polyline points of the primary stroke being erased (rubbed backwards from end to start). */
   points: ContractPt[];
+  /**
+   * Optional ordered strokes to rub out sequentially (each rubbed end -> start).
+   * Used for multi-stroke marks (e.g. X) so the back pink eraser touches every
+   * stroke in lockstep with the SVG rub-out mask and crumbs.
+   */
+  strokes?: ContractPt[][];
   enterMs: number;
   rubMs: number;
   liftMs: number;
@@ -165,31 +171,58 @@ export interface EraseFlight {
 export interface ErasePose {
   /** Mark-coordinate target along the stroke. */
   markPt: ContractPt;
-  /** Screen-pixel back-and-forth scrubbing oscillation (0,0 during enter/lift). */
+  /** Screen-pixel back-and-forth scrubbing oscillation (0,0 during enter/lift/hop). */
   scrubPx: ContractPt;
   /** Degrees rotated around the pencil's midpoint: 0 = graphite tip, 180 = back pink eraser dome. */
   flipDeg: number;
-  /** Smooth 0..1 lift arc while flipping (0 when touching paper). */
+  /** Smooth 0..1 lift arc while flipping or hopping (0 when touching paper). */
   lift: number;
   phase: "enter" | "rub" | "lift";
+}
+
+export interface EraseStrokeWindow {
+  /** ms after erase start when rubbing begins for this stroke */
+  begin: number;
+  /** ms duration spent rubbing this stroke */
+  dur: number;
+}
+
+/**
+ * Partition `rubMs` across `count` strokes (1 for circles, 2 for X marks) with
+ * a short lifted hop between strokes so the eraser rubs each stroke sequentially.
+ */
+export function eraseStrokeSchedule(
+  count: number,
+  enterMs: number,
+  rubMs: number,
+): EraseStrokeWindow[] {
+  const n = Math.max(1, count);
+  if (n === 1) return [{ begin: enterMs, dur: rubMs }];
+  const hopMs = Math.min(220, Math.floor((rubMs * 0.1) / (n - 1)));
+  const eachDur = (rubMs - hopMs * (n - 1)) / n;
+  return Array.from({ length: n }, (_, i) => ({
+    begin: enterMs + i * (eachDur + hopMs),
+    dur: eachDur,
+  }));
 }
 
 /**
  * Compute the single physical pencil's pose at `ms` into an autonomous erase flight:
  * smoothly flips 0° → 180° onto its back pink eraser dome during `enterMs`,
- * rubs back-and-forth along the stroke from end → start during `rubMs`,
+ * rubs back-and-forth along each stroke sequentially (end → start) during `rubMs`,
  * then flips 180° → 0° back to its graphite tip during `liftMs`.
  */
 export function contractEraseAt(
-  f: Pick<EraseFlight, "points" | "enterMs" | "rubMs" | "liftMs" | "totalMs">,
+  f: Pick<EraseFlight, "points" | "strokes" | "enterMs" | "rubMs" | "liftMs" | "totalMs">,
   ms: number,
 ): ErasePose {
+  const strokes = f.strokes && f.strokes.length > 0 ? f.strokes : [f.points];
   const t = Math.max(0, Math.min(f.totalMs, ms));
   const rubEnd = f.enterMs + f.rubMs;
   if (t < f.enterMs) {
     const k = contractEase(t / Math.max(1, f.enterMs));
     return {
-      markPt: contractPointAlong(f.points, 1),
+      markPt: contractPointAlong(strokes[0], 1),
       scrubPx: [0, 0],
       flipDeg: 180 * k,
       lift: Math.sin(Math.PI * k),
@@ -197,21 +230,41 @@ export function contractEraseAt(
     };
   }
   if (t <= rubEnd) {
-    const rubElapsed = t - f.enterMs;
-    const p = 1 - rubElapsed / Math.max(1, f.rubMs);
+    const schedule = eraseStrokeSchedule(strokes.length, f.enterMs, f.rubMs);
     const scrubPeriod = 220;
-    const angle = (rubElapsed / scrubPeriod) * Math.PI * 2;
-    return {
-      markPt: contractPointAlong(f.points, p),
-      scrubPx: [Math.sin(angle) * 9, -Math.sin(angle) * 3],
-      flipDeg: 180,
-      lift: 0,
-      phase: "rub",
-    };
+    for (let i = 0; i < schedule.length; i++) {
+      const win = schedule[i];
+      if (t < win.begin && i > 0) {
+        const prevWin = schedule[i - 1];
+        const hopDur = Math.max(1, win.begin - (prevWin.begin + prevWin.dur));
+        const k = contractEase((t - (prevWin.begin + prevWin.dur)) / hopDur);
+        const from = contractPointAlong(strokes[i - 1], 0);
+        const to = contractPointAlong(strokes[i], 1);
+        return {
+          markPt: [from[0] + (to[0] - from[0]) * k, from[1] + (to[1] - from[1]) * k],
+          scrubPx: [0, 0],
+          flipDeg: 180,
+          lift: Math.sin(Math.PI * k) * 0.45,
+          phase: "rub",
+        };
+      }
+      if (t <= win.begin + win.dur || i === schedule.length - 1) {
+        const rubElapsed = Math.max(0, Math.min(win.dur, t - win.begin));
+        const p = 1 - rubElapsed / Math.max(1, win.dur);
+        const angle = (rubElapsed / scrubPeriod) * Math.PI * 2;
+        return {
+          markPt: contractPointAlong(strokes[i], p),
+          scrubPx: [Math.sin(angle) * 9, -Math.sin(angle) * 3],
+          flipDeg: 180,
+          lift: 0,
+          phase: "rub",
+        };
+      }
+    }
   }
   const k = contractEase((t - rubEnd) / Math.max(1, f.liftMs));
   return {
-    markPt: contractPointAlong(f.points, 0),
+    markPt: contractPointAlong(strokes[strokes.length - 1], 0),
     scrubPx: [0, 0],
     flipDeg: 180 * (1 - k),
     lift: Math.sin(Math.PI * k),

@@ -61,9 +61,16 @@ for (const device of [
       else await wrong.click();
 
       await expect(cursor).toHaveAttribute("data-visible", "true", { timeout: 10000 });
-      await page.waitForTimeout(500);
+      await page.waitForTimeout(700);
       // Zero separate flight pencil in contract mode — only ONE physical pencil exists
       await expect(page.locator(".workbook-pencil-flight")).toHaveCount(0);
+      // Regression lock: contract non-scaling-stroke segments must never carry pathLength/dasharray
+      const dashedSegments = await page.evaluate(() =>
+        [...document.querySelectorAll(".workbook-pencil-mark__contract-strokes path")].filter(
+          (p) => p.hasAttribute("pathLength") || p.hasAttribute("stroke-dasharray"),
+        ).length,
+      );
+      expect(dashedSegments).toBe(0);
       const drawBox = await pencilShape.boundingBox();
       expect(drawBox).not.toBeNull();
       expect(drawBox!.width).toBeGreaterThanOrEqual(device.touch ? 120 : 180);
@@ -81,8 +88,16 @@ for (const device of [
       await expect(page.locator(".workbook-pencil-flight")).toHaveCount(0);
       await expect(page.locator('[id$="-eraser-mask"]')).toHaveCount(0);
       await expect(page.locator(".workbook-pencil__crumbs > g")).toHaveCount(12);
-      // Let the 450ms flip finish so the back pink eraser dome is fully touching and rubbing the red mark
-      await page.waitForTimeout(700);
+      // Sequential X rub-out mask: the two diagonals have distinct rub windows matching eraser motion
+      const rubKeyTimes = await page.evaluate(() =>
+        [...document.querySelectorAll('mask[id$="-rub"] path animate')].map((a) =>
+          a.getAttribute("keyTimes"),
+        ),
+      );
+      expect(rubKeyTimes).toHaveLength(2);
+      expect(rubKeyTimes[0]).not.toBe(rubKeyTimes[1]);
+      // Let the 450ms flip finish and rub well into Diagonal 2 so pink crumbs & sequential rub are clearly visible
+      await page.waitForTimeout(1050);
       const flipTransform = await cursor
         .locator('[data-testid="contract-pencil-flip"]')
         .getAttribute("transform");

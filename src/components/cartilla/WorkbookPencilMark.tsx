@@ -21,6 +21,7 @@ import {
   contractPointAlong,
   endEraseFlight,
   endTipFlight,
+  eraseStrokeSchedule,
   PENCIL_CONTRACT,
   startEraseFlight,
   startTipFlight,
@@ -836,18 +837,22 @@ function MarkStroke({
   );
 }
 
-/** Candidate B: one short pencil piece; its width follows the pencil speed. */
+/**
+ * Candidate B: one short pencil piece; its width follows the pencil speed (3.3–6.4px).
+ * Never combines `vectorEffect="non-scaling-stroke"` with `pathLength` + `strokeDasharray`
+ * (which causes Chromium/Skia to break strokes into dashed lines on zoomed desktop viewports);
+ * smooth progressive reveal is driven by a per-stroke user-space SVG `<mask>`.
+ */
 function ContractSegment({
   d,
   width,
   begin,
-  dur,
   animate,
 }: {
   d: string;
   width: number;
   begin: number;
-  dur: number;
+  dur?: number;
   animate: boolean;
 }) {
   const style = { strokeWidth: `${width}px` };
@@ -859,12 +864,8 @@ function ContractSegment({
       d={d}
       style={style}
       vectorEffect="non-scaling-stroke"
-      pathLength={100}
-      strokeDasharray="100 100"
-      strokeDashoffset="100"
       opacity="0"
     >
-      <animate attributeName="stroke-dashoffset" begin={`${begin}ms`} dur={`${dur}ms`} fill="freeze" values="100;0" />
       <set attributeName="opacity" to="1" begin={`${begin}ms`} fill="freeze" />
     </path>
   );
@@ -878,6 +879,7 @@ const CRUMB_COLORS = ["#f3a9b8", "#ee93a7", "#f8c6d0", "#e59aa6", "#d98593"];
  */
 export function EraserCrumbs({
   points,
+  strokes,
   seed,
   enterMs,
   rubMs,
@@ -886,6 +888,8 @@ export function EraserCrumbs({
   scale = 1,
 }: {
   points: Pt[];
+  /** Optional ordered strokes rubbed sequentially; defaults to `[points]`. */
+  strokes?: Pt[][];
   seed: number;
   enterMs: number;
   rubMs: number;
@@ -895,6 +899,8 @@ export function EraserCrumbs({
   scale?: number;
 }) {
   const crumbs = useMemo(() => {
+    const strokeList = strokes && strokes.length > 0 ? strokes : [points];
+    const schedule = eraseStrokeSchedule(strokeList.length, enterMs, rubMs);
     let s = seed || 7;
     const rnd = () => {
       s = Math.imul(s ^ (s >>> 15), 2246822507) >>> 0;
@@ -911,15 +917,22 @@ export function EraserCrumbs({
       rot: number;
       spin: number;
       c: string;
-      t: number;
+      appearMs: number;
     }[] = [];
     // Few, small, realistic crumbs — a pink eraser leaves only a handful of
     // tiny flakes behind, not a shower of confetti (F05 conformance).
     const n = count;
+    const m = strokeList.length;
     for (let i = 0; i < n; i++) {
-      // The eraser runs backwards along the mark, so crumbs break off from t=1 to 0.
-      const t = 1 - (i + rnd() * 0.7) / n;
-      const [px, py] = contractPointAlong(points, t);
+      const si = Math.min(m - 1, Math.floor((i * m) / n));
+      const strokeStartIdx = Math.ceil((si * n) / m);
+      const strokeEndIdx = Math.ceil(((si + 1) * n) / m);
+      const perStroke = Math.max(1, strokeEndIdx - strokeStartIdx);
+      const li = i - strokeStartIdx;
+      // The eraser runs backwards along each stroke, so crumbs break off from t=1 to 0.
+      const t = 1 - (li + rnd() * 0.7) / perStroke;
+      const [px, py] = contractPointAlong(strokeList[si], t);
+      const win = schedule[si];
       // Small realistic rubber flakes.
       const r = (1 + rnd() * 1) * scale;
       out.push({
@@ -932,16 +945,16 @@ export function EraserCrumbs({
         rot: rnd() * 180,
         spin: (rnd() - 0.5) * 240,
         c: CRUMB_COLORS[Math.floor(rnd() * CRUMB_COLORS.length)],
-        t: 1 - t,
+        appearMs: win.begin + (1 - t) * win.dur,
       });
     }
     return out;
-  }, [points, seed, count]);
+  }, [points, strokes, seed, count, scale, enterMs, rubMs]);
   const kEnd = (enterMs + rubMs) / totalMs;
   return (
     <g className="workbook-pencil__crumbs">
       {crumbs.map((c, i) => {
-        const appear = (enterMs + c.t * rubMs) / totalMs;
+        const appear = c.appearMs / totalMs;
         const kA = appear.toFixed(4);
         const kB = Math.min(appear + 0.015, kEnd - 0.001).toFixed(4);
         const kFall = Math.min(appear + 0.17, 0.995).toFixed(4);
@@ -973,7 +986,13 @@ export function EraserCrumbs({
                 values={`${c.rot.toFixed(0)};${c.rot.toFixed(0)};${(c.rot + c.spin).toFixed(0)};${(c.rot + c.spin).toFixed(0)}`}
                 keyTimes={`0;${kA};${kFall};1`}
               />
-              <ellipse rx={f2(c.rx)} ry={f2(c.ry)} fill={c.c} />
+              <ellipse
+                rx={f2(c.rx)}
+                ry={f2(c.ry)}
+                fill={c.c}
+                stroke="#b85d75"
+                strokeWidth="0.28"
+              />
             </g>
           </g>
         );
@@ -1098,13 +1117,14 @@ export function WorkbookPencilMark({
     PENCIL_CONTRACT.approachMs +
     strokePoints.length * contractStrokeMs +
     (strokePoints.length - 1) * PENCIL_CONTRACT.hopMs;
-  const contractSegments = useMemo(
+  const contractSegmentsByStroke = useMemo(
     () =>
-      contractStrokes.flatMap((stroke, si) =>
+      contractStrokes.map((stroke, si) =>
         velocitySegments(stroke).map((seg, k) => ({ ...seg, key: `${si}-${k}`, d: smoothPath(seg.points) })),
       ),
     [contractStrokes],
   );
+  const contractSegments = useMemo(() => contractSegmentsByStroke.flat(), [contractSegmentsByStroke]);
   // Green when right, red when wrong — from the first line the pencil draws.
   const result =
     externalStatus === "correct"
@@ -1160,7 +1180,8 @@ export function WorkbookPencilMark({
       const rubTimer = window.setTimeout(() => {
         const el = boxRef.current;
         const strokesNow = contractFlightRef.current.strokes;
-        const pts = strokesNow[strokesNow.length - 1]?.points ?? [];
+        const eraseStrokes = [...strokesNow].reverse().map((s) => s.points);
+        const pts = eraseStrokes[0] ?? [];
         if (el && pts.length > 0) {
           const totalMs = PENCIL_CONTRACT.eraseMs;
           const enterMs = PENCIL_CONTRACT.eraseEnterMs;
@@ -1169,6 +1190,7 @@ export function WorkbookPencilMark({
             el,
             height: contractFlightRef.current.height,
             points: pts,
+            strokes: eraseStrokes,
             enterMs,
             rubMs: totalMs - enterMs - liftMs,
             liftMs,
@@ -1187,6 +1209,7 @@ export function WorkbookPencilMark({
         window.clearTimeout(rubTimer);
         window.clearTimeout(doneTimer);
         if (eraseFlightId) endEraseFlight(eraseFlightId);
+        setRubbing(false);
       };
     }
     const timer = window.setTimeout(
@@ -1199,8 +1222,16 @@ export function WorkbookPencilMark({
     return () => window.clearTimeout(timer);
   }, [currentStatus, externalStatus, reducedMotion, hasTurn, contract]);
 
-  // Candidate B: the single tip cursor travels each stroke while the kernel draws it.
-  const drawingNow = contract && !reducedMotion && hasTurn && currentStatus === "drawing";
+  // Candidate B: the single tip cursor travels each stroke and stays gently poised
+  // through the 400ms charcoal hold and 600ms red flash so it hands off in 0 frames
+  // directly into the 180° back-eraser flip without vanishing on touch devices.
+  const tipFlightActive =
+    contract &&
+    !reducedMotion &&
+    hasTurn &&
+    (currentStatus === "drawing" ||
+      currentStatus === "holding" ||
+      (currentStatus === "erasing" && !rubbing));
   const contractFlightRef = useRef<{ height: number; strokes: ContractStroke[] }>({
     height,
     strokes: contractStrokes,
@@ -1208,14 +1239,12 @@ export function WorkbookPencilMark({
   contractFlightRef.current = { height, strokes: contractStrokes };
   useEffect(() => {
     const el = boxRef.current;
-    if (!drawingNow || !el) return;
+    if (!tipFlightActive || !el) return;
     const id = startTipFlight({ el, ...contractFlightRef.current });
-    const timer = window.setTimeout(() => endTipFlight(id), contractDrawMs);
     return () => {
-      window.clearTimeout(timer);
       endTipFlight(id);
     };
-  }, [drawingNow, contractDrawMs]);
+  }, [tipFlightActive]);
 
   if (currentStatus === "erased") return null;
 
@@ -1376,66 +1405,134 @@ export function WorkbookPencilMark({
       data-pencil-mode={contractStyle ? "contract" : undefined}
       data-eraser-rubbing={contract && rubbing ? "true" : undefined}
     >
-      {contractStyle && !waiting && (!erasing || !rubbing || reducedMotion) && (
-        <svg
-          key={erasing ? "contract-red" : "contract-mark"}
-          className="workbook-pencil-mark__svg workbook-pencil-mark__svg--contract"
-          viewBox={viewBox}
-          aria-hidden="true"
-        >
-          <defs>
-            <filter id={`${baseId}-grain`} x="-10%" y="-10%" width="120%" height="120%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={seed % 97} result="noise" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9" xChannelSelector="R" yChannelSelector="G" />
-            </filter>
-          </defs>
-          <g filter={`url(#${baseId}-grain)`} className="workbook-pencil-mark__contract-strokes">
-            {contractSegments.map((seg) => (
-              <ContractSegment
-                key={seg.key}
-                d={seg.d}
-                width={seg.width}
-                begin={seg.begin}
-                dur={seg.dur}
-                animate={contract && !reducedMotion && !erasing && currentStatus === "drawing"}
-              />
-            ))}
-          </g>
-        </svg>
-      )}
-      {contractStyle && erasing && rubbing && !reducedMotion && (
-        <svg key="contract-erase" className="workbook-pencil-mark__svg workbook-pencil-mark__svg--contract" viewBox={viewBox} aria-hidden="true">
-          <defs>
-            <mask id={`${baseId}-rub`} maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-20" y="-20" width="140" height={height + 40}>
-              <rect x="-20" y="-20" width="140" height={height + 40} fill="#fff" />
-              {strokes.map((d, i) => (
-                <path key={i} d={d} fill="none" stroke="#000" strokeWidth="16" strokeLinecap="round" pathLength={100} strokeDasharray="100 100" strokeDashoffset="-100">
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    dur={`${eraseMs}ms`}
-                    fill="freeze"
-                    values="-100;-100;0;0"
-                    keyTimes={`0;${kTouch};${kRubbed};1`}
-                  />
-                </path>
+      {contractStyle && !waiting && (!erasing || !rubbing || reducedMotion) && (() => {
+        const animateContract = contract && !reducedMotion && !erasing && currentStatus === "drawing";
+        return (
+          <svg
+            key={erasing ? "contract-red" : "contract-mark"}
+            className="workbook-pencil-mark__svg workbook-pencil-mark__svg--contract"
+            viewBox={viewBox}
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id={`${baseId}-grain`} x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={seed % 97} result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+              {animateContract &&
+                contractStrokes.map((stroke, si) => (
+                  <mask
+                    key={si}
+                    id={`${baseId}-draw-${si}`}
+                    maskUnits="userSpaceOnUse"
+                    maskContentUnits="userSpaceOnUse"
+                    x="-20"
+                    y="-20"
+                    width="140"
+                    height={height + 40}
+                  >
+                    <rect x="-20" y="-20" width="140" height={height + 40} fill="#000" />
+                    <path
+                      d={strokes[si]}
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="22"
+                      strokeLinecap="round"
+                      pathLength={100}
+                      strokeDasharray="100 100"
+                      strokeDashoffset="100"
+                      opacity="0"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        begin={`${stroke.begin}ms`}
+                        dur={`${stroke.dur}ms`}
+                        fill="freeze"
+                        calcMode="spline"
+                        keyTimes="0;1"
+                        keySplines="0.3333 0 0.6667 1"
+                        values="100;0"
+                      />
+                      <set attributeName="opacity" to="1" begin={`${stroke.begin}ms`} fill="freeze" />
+                    </path>
+                  </mask>
+                ))}
+            </defs>
+            <g filter={`url(#${baseId}-grain)`} className="workbook-pencil-mark__contract-strokes">
+              {contractSegmentsByStroke.map((segs, si) => (
+                <g key={si} mask={animateContract ? `url(#${baseId}-draw-${si})` : undefined}>
+                  {segs.map((seg) => (
+                    <ContractSegment
+                      key={seg.key}
+                      d={seg.d}
+                      width={seg.width}
+                      begin={seg.begin}
+                      dur={seg.dur}
+                      animate={animateContract}
+                    />
+                  ))}
+                </g>
               ))}
-            </mask>
-          </defs>
-          <g mask={`url(#${baseId}-rub)`}>
-            {contractSegments.map((seg) => (
-              <ContractSegment key={seg.key} d={seg.d} width={seg.width} begin={0} dur={1} animate={false} />
-            ))}
-          </g>
-          <EraserCrumbs
-            points={lastPoints}
-            seed={seed}
-            enterMs={enterMs}
-            rubMs={rubMs}
-            totalMs={eraseMs}
-            count={PENCIL_CONTRACT.crumbCount}
-          />
-        </svg>
-      )}
+            </g>
+          </svg>
+        );
+      })()}
+      {contractStyle && erasing && rubbing && !reducedMotion && (() => {
+        const eraseSchedule = eraseStrokeSchedule(strokes.length, enterMs, rubMs);
+        const eraseOrderPoints = [...strokePoints].reverse();
+        return (
+          <svg key="contract-erase" className="workbook-pencil-mark__svg workbook-pencil-mark__svg--contract" viewBox={viewBox} aria-hidden="true">
+            <defs>
+              <mask id={`${baseId}-rub`} maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-20" y="-20" width="140" height={height + 40}>
+                <rect x="-20" y="-20" width="140" height={height + 40} fill="#fff" />
+                {strokes.map((d, i) => {
+                  const eraseIdx = strokes.length - 1 - i;
+                  const win = eraseSchedule[eraseIdx] ?? { begin: enterMs, dur: rubMs };
+                  const kStart = (win.begin / eraseMs).toFixed(4);
+                  const kEnd = ((win.begin + win.dur) / eraseMs).toFixed(4);
+                  return (
+                    <path
+                      key={i}
+                      d={d}
+                      fill="none"
+                      stroke="#000"
+                      strokeWidth="16"
+                      strokeLinecap="round"
+                      pathLength={100}
+                      strokeDasharray="100 100"
+                      strokeDashoffset="-100"
+                      opacity="0"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        dur={`${eraseMs}ms`}
+                        fill="freeze"
+                        values="-100;-100;0;0"
+                        keyTimes={`0;${kStart};${kEnd};1`}
+                      />
+                      <set attributeName="opacity" to="1" begin={`${Math.round(win.begin)}ms`} fill="freeze" />
+                    </path>
+                  );
+                })}
+              </mask>
+            </defs>
+            <g mask={`url(#${baseId}-rub)`}>
+              {contractSegments.map((seg) => (
+                <ContractSegment key={seg.key} d={seg.d} width={seg.width} begin={0} dur={1} animate={false} />
+              ))}
+            </g>
+            <EraserCrumbs
+              points={lastPoints}
+              strokes={eraseOrderPoints}
+              seed={seed}
+              enterMs={enterMs}
+              rubMs={rubMs}
+              totalMs={eraseMs}
+              count={PENCIL_CONTRACT.crumbCount}
+            />
+          </svg>
+        );
+      })()}
       {!contractStyle && !waiting && !erasing && (
         <svg key="mark" className="workbook-pencil-mark__svg" viewBox={viewBox} aria-hidden="true">
           {strokes.map((d, i) => (
