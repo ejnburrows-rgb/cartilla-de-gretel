@@ -29,20 +29,20 @@ const toLinks = (pairs: [string, string][]): ReviewLink[] =>
 export const COMPARISONS: Comparison[] = [
   {
     id: "workbook-lesson-3",
-    title: "Student Workbook — Lesson 3 (Pages 7–9, Option B Locked Default)",
+    title: "Student Workbook — Lesson 3 (Pages 7–9, Locked @image1 Pencil)",
     summary:
-      "Option B (November 1 contract pencil + curl B, no Gretel overlay) is locked as the application default. Fallback Option A remains accessible via ?cursor=normal&curl=a.",
+      "Both candidates use the locked PENCIL-CURSOR-SPEC.md (@image1) pencil cursor. Compare Option A (corner lift without specular highlight, ?cursor=contract&curl=a) against Option B (locked default: clean canvas + warm cream roll with specular highlight and mark-in-progress guard).",
     a: {
-      name: "A — Previous book pencil & curl (fallback)",
+      name: "A — Corner lift baseline curl (curl=a)",
       description:
-        "Standard arrow pointer; full wooden pencil flies in from the right edge, draws in green/red, and eraser flies in for 4.0 s.",
-      links: toLinks([["Open A — fallback", "/cartilla/leccion/3?cursor=normal&curl=a"]]),
+        "Locked @image1 pencil cursor (#3a3a38 charcoal, green/red feedback, 12 pink crumbs) with corner-lift page curl without specular highlight.",
+      links: toLinks([["Open A — corner curl", "/cartilla/leccion/3?cursor=contract&curl=a"]]),
     },
     b: {
-      name: "B — Contract pencil & curl B (Locked Default)",
+      name: "B — Warm cream roll with specular highlight (Locked Default)",
       description:
-        "Single wooden tip (#3a3a38 charcoal, 3.3–6.4 px stroke, 400 ms hold), 3.5 s pink rub with 12 pink crumbs on red wrong marks, warm cream roll with specular highlight and mark-in-progress guard.",
-      links: toLinks([["Open B — default", "/cartilla/leccion/3"]]),
+        "Locked @image1 pencil cursor (#3a3a38 charcoal, 3.3–6.4 px stroke, 400 ms hold, 12 pink crumbs on red wrong marks), clean canvas (no Gretel overlay), warm cream roll with specular highlight and mark-in-progress guard.",
+      links: toLinks([["Open B — default", "/cartilla/leccion/3?cursor=contract"]]),
     },
     evidence: toLinks([["A vs B side by side (desktop)", "/review/media/ab-lesson3-1366.svg"]]),
   },
@@ -85,7 +85,7 @@ export const COMPARISONS: Comparison[] = [
     id: "flipchart-lesson-3",
     title: "Teacher Flip Chart — Lesson 3 (sheet 5, “La niña enfermita”)",
     summary:
-      "Both use the authentic crisp unstretched sheet 5 and the top-bound 2.0 s spiral flip (override: ?flip=a).",
+      "Both use the authentic crisp unstretched sheet 5 and the top-bound 2.0 s spiral flip.",
     a: {
       name: "A — Projector presenter",
       description:

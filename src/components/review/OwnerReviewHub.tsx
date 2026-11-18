@@ -571,7 +571,7 @@ export function OwnerReviewHub() {
         )}
         <Links
           links={[
-            { label: "Try it: Lesson 3 (draft pencil not approved)", href: "/cartilla/leccion/3?cursor=contract" },
+            { label: "Try it: Lesson 3 (locked pencil)", href: "/cartilla/leccion/3?cursor=contract" },
             { label: "Try it: pages 85 → 88 (book)", href: "/cartilla/cuaderno" },
             { label: "Try it: Flip Chart top flip", href: "/cartilla/presentar/3" },
           ]}
