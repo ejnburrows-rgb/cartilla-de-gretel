@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { PENCIL_TIP_SRC, PENCIL_TIP_VIEWBOX, recordPointer, toolSize } from "@/lib/cursor-mode";
+import { PENCIL_TIP_VIEWBOX, recordPointer, toolSize } from "@/lib/cursor-mode";
+import { OwnerPhotoPencilSvg } from "./OwnerPhotoPencilSvg";
 
 /** Visual pointer only: events continue to reach the real controls underneath. */
 export function PencilTipCursor() {
-  const image = useRef<HTMLImageElement>(null);
+  const image = useRef<SVGSVGElement>(null);
   const width = toolSize("tip");
   const height = Math.round(width * (PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width));
   useEffect(() => {
@@ -33,5 +34,14 @@ export function PencilTipCursor() {
       window.removeEventListener("pointerup", up, true); window.removeEventListener("pointercancel", leave, true); window.removeEventListener("blur", leave);
     };
   }, []);
-  return createPortal(<img ref={image} className="pencil-tip-cursor" src={PENCIL_TIP_SRC} width={width} height={height} alt="" aria-hidden="true" draggable={false} />, document.body);
+  return createPortal(
+    <OwnerPhotoPencilSvg
+      ref={image}
+      className="pencil-tip-cursor"
+      width={width}
+      height={height}
+      style={{ width: `${width}px`, height: `${height}px`, transformOrigin: "0px 0px" }}
+    />,
+    document.body,
+  );
 }

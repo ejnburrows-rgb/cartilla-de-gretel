@@ -120,10 +120,9 @@ html.student-pencil.cartilla-cursor-tip .native-lesson-viewer .fp-trace .workboo
 .contract-pencil-cursor[data-visible="true"] { opacity: 1; }
 .contract-pencil-cursor__img {
   display: block;
-  width: 100%;
-  height: auto;
+  overflow: visible;
   max-width: none;
-  filter: drop-shadow(3px 5px 4px rgba(59, 42, 20, 0.30));
+  pointer-events: none;
 }
 .contract-pencil-cursor__svg {
   position: absolute;

@@ -5,15 +5,19 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { ContractPencilCursor } from "../ContractPencilCursor";
 import {
+  contractEase,
   contractEraseAt,
+  contractPointAlong,
   endEraseFlight,
   endTipFlight,
   eraseStrokeSchedule,
   getEraseFlight,
+  getTipFlight,
   holdEraser,
   holdManualEraser,
   isEraserActive,
   isManualEraserActive,
+  markToScreen,
   PENCIL_CONTRACT,
   startEraseFlight,
   startTipFlight,
@@ -53,26 +57,30 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     document.documentElement.className = "";
   });
 
-  it("renders ONE single uncropped classic wooden PencilShape SVG with zero HB stamp, zero img, and zero fade mask", () => {
+  it("renders the @image1 extreme close-up photographic pencil tip (600×497, point up-left at 0,0) with seamless extended barrel in pencil mode", () => {
     render(
       <div className="native-lesson-viewer">
         <ContractPencilCursor />
       </div>,
     );
     const cursor = document.querySelector<HTMLDivElement>('[data-testid="contract-pencil-cursor"]')!;
-    const svg = cursor.querySelector("svg.contract-pencil-cursor__svg")!;
-    expect(svg).toBeTruthy();
-    expect(cursor.querySelector("img")).toBeNull();
-    expect(svg.getAttribute("overflow")).toBe("visible");
-    expect(svg.querySelector("image")).toBeNull();
-    expect(svg.querySelector("text")).toBeNull();
-    expect(svg.querySelector("mask")).toBeNull();
-    expect(svg.textContent ?? "").not.toContain("HB");
-
-    // Full classic wooden pencil parts present: graphite, cedar cone, yellow barrel, silver ferrule, pink eraser
-    for (const part of ["lead", "wood", "lacq", "metal", "eraser"]) {
-      expect(svg.querySelector(`linearGradient[id$="-${part}"]`)).toBeTruthy();
-    }
+    const photoTip = cursor.querySelector<SVGSVGElement>('[data-testid="contract-pencil-photo-tip"]')!;
+    const photoHead = cursor.querySelector<SVGImageElement>('[data-testid="contract-pencil-photo-head"]')!;
+    const barrelExt = cursor.querySelector<SVGRectElement>('[data-testid="contract-pencil-barrel-extension"]')!;
+    const eraserSvg = cursor.querySelector("svg.contract-pencil-cursor__svg")!;
+    expect(photoTip).toBeTruthy();
+    expect(photoTip.getAttribute("viewBox")).toBe("0 0 600 497");
+    expect(photoTip.getAttribute("overflow")).toBe("visible");
+    expect(photoTip.getAttribute("width")).toBe("252");
+    expect(photoTip.getAttribute("height")).toBe("209");
+    expect(photoTip.style.display).toBe("block");
+    expect(photoTip.style.transformOrigin).toBe("0px 0px");
+    expect(photoHead).toBeTruthy();
+    expect(photoHead.getAttribute("href")?.startsWith("data:image/webp;base64,")).toBe(true);
+    expect(barrelExt).toBeTruthy();
+    expect(Number(barrelExt.getAttribute("width"))).toBeGreaterThanOrEqual(8000);
+    expect(eraserSvg).toBeTruthy();
+    expect(eraserSvg.getAttribute("overflow")).toBe("visible");
   });
 
   it("computes smooth 0° -> 180° -> 0° back-eraser flip and scrubbing via contractEraseAt", () => {
@@ -137,7 +145,8 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(cursor.dataset.tool).toBe("pencil");
     expect(cursor.dataset.pencilPose).toBe("hd-tip");
     expect(cursor.style.overflow).toBe("visible");
-    expect(cursor.querySelector("img")).toBeNull();
+    expect(cursor.querySelector('[data-testid="contract-pencil-photo-tip"]')).toBeTruthy();
+    expect(cursor.querySelector('[data-testid="contract-pencil-barrel-extension"]')).toBeTruthy();
     expect(cursor.querySelector(".workbook-pencil__shape")).toBeTruthy();
 
     // Move inside activity content -> visible at exact (142.5, 218.0)
@@ -632,5 +641,77 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
     expect(retry2).toHaveBeenCalledTimes(1);
     expect(getEraseFlight()).toBeNull();
+  });
+
+  it("synchronizes the @image1 graphite tip (0,0) with the butt-capped reveal mask at 0.0px offset for both Circle and X marks", () => {
+    const rafCallbacks = new Map<number, FrameRequestCallback>();
+    let nextRafId = 1;
+    let fakeNow = 5000;
+    vi.spyOn(performance, "now").mockImplementation(() => fakeNow);
+    vi.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => {
+      const id = nextRafId++;
+      rafCallbacks.set(id, cb);
+      return id;
+    });
+    vi.spyOn(window, "cancelAnimationFrame").mockImplementation((id) => {
+      rafCallbacks.delete(id);
+    });
+    const stepFrame = (dt: number) => {
+      fakeNow += dt;
+      const cbs = [...rafCallbacks.values()];
+      rafCallbacks.clear();
+      for (const cb of cbs) cb(fakeNow);
+    };
+
+    for (const markType of ["circle", "x"] as const) {
+      cleanup();
+      rafCallbacks.clear();
+      const { container } = render(
+        <div className="native-lesson-viewer">
+          <WorkbookPencilMark markType={markType} round isCorrect itemId={`sync-${markType}`} />
+          <ContractPencilCursor />
+        </div>,
+      );
+      const markEl = container.querySelector<HTMLDivElement>(".workbook-pencil-mark")!;
+      vi.spyOn(markEl, "getBoundingClientRect").mockReturnValue({
+        left: 100,
+        top: 100,
+        width: 200,
+        height: 200,
+        right: 300,
+        bottom: 300,
+        x: 100,
+        y: 100,
+        toJSON: () => {},
+      });
+      const cursor = document.querySelector<HTMLDivElement>('[data-testid="contract-pencil-cursor"]')!;
+      const flight = getTipFlight()!;
+      expect(flight).toBeTruthy();
+
+      for (let si = 0; si < flight.strokes.length; si++) {
+        const s = flight.strokes[si];
+        for (const frac of [0, 0.25, 0.5, 0.75, 1]) {
+          const targetMs = s.begin + s.dur * frac;
+          stepFrame(targetMs - (fakeNow - flight.start));
+          const p = contractEase(frac);
+          const expectedPt = markToScreen(
+            markEl,
+            flight.height,
+            contractPointAlong(s.points, p),
+          );
+          expect(cursor.style.transform).toBe(
+            `translate3d(${expectedPt[0].toFixed(1)}px, ${expectedPt[1].toFixed(1)}px, 0)`,
+          );
+          const maskPath = markEl.querySelector<SVGPathElement>(
+            `[data-contract-mask-path="${si}"]`,
+          )!;
+          expect(maskPath.getAttribute("stroke-linecap")).toBe("butt");
+          expect(Number(maskPath.getAttribute("stroke-dashoffset"))).toBeCloseTo(
+            (1 - p) * 100,
+            2,
+          );
+        }
+      }
+    }
   });
 });

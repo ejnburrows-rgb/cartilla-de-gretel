@@ -57,7 +57,7 @@ Everything below those annotation bars is the approved visual direction for the 
 
 ## Shared Workbook visual treatment
 
-The November 1 pencil and mark contract in `STUDENT_INTERACTION_STANDARD.md` governs all shared marks: ONE realistic pencil-tip cursor, velocity-modulated charcoal with paper grain, 400ms hold, then persistent Forest Green or Crimson Red erased with 12 pink crumbs. This supersedes older teal connector presentation; source teal frames and printed decoration remain unchanged. Runtime compliance requires separate real-route verification.
+The November 1 pencil and mark contract in [STUDENT_INTERACTION_STANDARD.md](STUDENT_INTERACTION_STANDARD.md) together with the **Official Source of Truth** in [PENCIL-CURSOR-SPEC.md](PENCIL-CURSOR-SPEC.md) governs all shared marks: ONE `@image1` extreme close-up sharpened wooden pencil cursor in Prototype B orientation (point facing up-left at `(0,0)` hotspot, seamless unclipped barrel extending down-right off the screen edge), velocity-modulated charcoal with paper grain, 400ms hold, then persistent Forest Green or Crimson Red erased with 12 pink crumbs. This supersedes older teal connector presentation and all older cropped/toothpick pencil variants; source teal frames and printed decoration remain unchanged. Runtime compliance requires separate real-route verification.
 
 Across all eight archetypes:
 - warm off-white / very subtle clean paper surface;
