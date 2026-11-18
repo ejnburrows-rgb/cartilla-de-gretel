@@ -18,15 +18,15 @@
 
 **Status:** CANONICAL OWNER-APPROVED STUDENT INTERACTION DIRECTION  
 **Approved by:** Emilio  
-**Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06; pencil look, close-up zoom, eraser crumbs and realistic living-picture motion updated by owner decision 2026-10-11
+**Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06; pencil look, close-up zoom, eraser crumbs and realistic living-picture motion updated by owner decision 2026-10-11; official extreme close-up pencil cursor specification locked 2026-11-18 in [PENCIL-CURSOR-SPEC.md](PENCIL-CURSOR-SPEC.md).
 
-This file is the source of truth for the premium student-facing Workbook interaction language. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
+This file is the source of truth for the premium student-facing Workbook interaction language. `PENCIL-CURSOR-SPEC.md` owns the official photographic close-up pencil cursor visual and zero-offset writing specification. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
 
-## Latest pencil and mark contract — 2026-11-01
+## Latest pencil and mark contract — 2026-11-01 (Cursor Spec Updated 2026-11-18)
 
-The owner's November 1 direction supersedes the older pencil entry/exit and immediate-color choreography below. This is a required behavior contract, not evidence that the current runtime implements it.
+The owner's November 1 direction — together with the official [PENCIL-CURSOR-SPEC.md](PENCIL-CURSOR-SPEC.md) approved 2026-11-18 — supersedes the older pencil entry/exit and immediate-color choreography below. This is a required behavior contract, not evidence that the current runtime implements it.
 
-- Only ONE Large Realistic Wooden Pencil-Tip Cursor ("Inside the PC") may appear. Its viewport host is anchored at `(0,0)`; the graphite point is the cursor hotspot. Hovering and writing use the same appearance, size and angle. Never spawn a second autonomous miniature flying pencil sprite.
+- Only ONE Large Realistic Wooden Pencil-Tip Cursor ("Inside the PC") matching `@image1` and Prototype B orientation may appear (see [PENCIL-CURSOR-SPEC.md](PENCIL-CURSOR-SPEC.md)). Its graphite point faces **up and to the left** at exact `(0, 0)` hotspot, and its yellow-painted barrel extends seamlessly **down and to the right** past the edges of the screen with zero mid-screen cutoff or viewport-edge gap. Hovering, lowering, and writing use the same close-up scale and sharp detail (no hand shown, zero offset between graphite point and mark formation). Never spawn a second autonomous miniature flying pencil sprite.
 - Circles, source-required X marks and connecting lines in `WorkbookPencilMark.tsx`, `PencilConnector.tsx` and `SyllableWordCircle.tsx` draw first in velocity-modulated Charcoal Gray (`#3a3a38`, `3.3px–6.4px`). Use the SVG `<feTurbulence>` plus `<feDisplacementMap>` paper-grain filter (`#charcoal-paper-grain`; the connector uses `#connector-charcoal-paper-grain`).
 - Hold the completed charcoal mark for `400ms`, then transition to Forest Green (`#258351`, stays) or Crimson Red (`#c4320a`, erased by the physical pink school eraser with 12 small pink SVG crumbs using `<animate>` tags).
 - Preserve existing exercise logic, source geometry, saved work and reduced-motion accessibility. A source-required X is a workbook mark, not an added punitive failure icon.

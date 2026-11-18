@@ -7,10 +7,7 @@ import {
   PencilShape,
 } from "@/components/cartilla/WorkbookPencilMark";
 import { PENCIL_TIP_VIEWBOX, recordPointer, toolSize } from "@/lib/cursor-mode";
-import {
-  OWNER_PENCIL_BARREL_TILE_DATA_URI,
-  OWNER_PENCIL_HEAD_DATA_URI,
-} from "./ownerPencilPhotoAssets";
+import { OwnerPhotoPencilSvg } from "./OwnerPhotoPencilSvg";
 import {
   contractEase,
   contractEraseAt,
@@ -380,63 +377,19 @@ export function ContractPencilCursor() {
         overflow: "visible",
       }}
     >
-      <svg
+      <OwnerPhotoPencilSvg
         ref={tipImgRef}
+        shadowRef={tipShadowRef}
         width={tipWidth}
         height={tipHeight}
-        viewBox={`0 0 ${PENCIL_TIP_VIEWBOX.width} ${PENCIL_TIP_VIEWBOX.height}`}
-        overflow="visible"
-        aria-hidden="true"
-        className="contract-pencil-cursor__img"
-        data-testid="contract-pencil-photo-tip"
+        testId="contract-pencil-photo-tip"
         style={{
           display: showingEraser ? "none" : "block",
           width: `${tipWidth}px`,
           height: `${tipHeight}px`,
           transformOrigin: "0px 0px",
         }}
-      >
-        <defs>
-          <clipPath id={`${uid}-head-clip`}>
-            <polygon points="0,0 600,0 600,210 313,497 0,497" />
-          </clipPath>
-          <pattern
-            id={`${uid}-barrel-pat`}
-            patternUnits="userSpaceOnUse"
-            x="0"
-            y="-140"
-            width="96"
-            height="255"
-          >
-            <image width="96" height="255" href={OWNER_PENCIL_BARREL_TILE_DATA_URI} />
-          </pattern>
-        </defs>
-        <g ref={tipShadowRef} transform="translate(8 12)" opacity="0.15">
-          <g transform="translate(405 405) rotate(45)">
-            <path
-              d="M -566 -12 L -200 -126 L 8000 -126 L 8000 106 L -200 106 Z"
-              fill="#3b2a14"
-            />
-          </g>
-        </g>
-        <g transform="translate(405 405) rotate(45)">
-          <rect
-            data-testid="contract-pencil-barrel-extension"
-            x="-12"
-            y="-140"
-            width="8000"
-            height="255"
-            fill={`url(#${uid}-barrel-pat)`}
-          />
-        </g>
-        <image
-          width={PENCIL_TIP_VIEWBOX.width}
-          height={PENCIL_TIP_VIEWBOX.height}
-          clipPath={`url(#${uid}-head-clip)`}
-          href={OWNER_PENCIL_HEAD_DATA_URI}
-          data-testid="contract-pencil-photo-head"
-        />
-      </svg>
+      />
       <svg
         className="contract-pencil-cursor__svg"
         width={svgW}

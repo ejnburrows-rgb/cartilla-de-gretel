@@ -27,7 +27,7 @@ For curriculum, wording, page order, exercise content, and source-page structure
 ## Active rules
 
 1. Read `CARTILLA_DIGITAL_DIRECTIVE.md` for page/content/presentation rules and `WORKBOOK_ARCHETYPE_STANDARD.md` for the owner-locked recurring Student Workbook visual families.
-2. Read `ASSET_FIDELITY_POLICY.md` before touching images or source-preserving color transfer; read `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md` before changing student Workbook interactions or page transitions; read `repo.md` before generating any Workbook or Flip Chart background.
+2. Read `ASSET_FIDELITY_POLICY.md` before touching images or source-preserving color transfer; read `PENCIL-CURSOR-SPEC.md`, `STUDENT_INTERACTION_STANDARD.md`, `DESIGN.md`, and `UX-CONTRACT.md` before changing student Workbook interactions or page transitions; read `repo.md` before generating any Workbook or Flip Chart background.
 3. Lessons 8–24 must match the physical Workbook **word for word** and in the correct order.
 4. Digital interaction may change the physical gesture, not the lesson content or educational objective.
 5. A student cannot advance with **Next** until the required work on the current page is completed.
