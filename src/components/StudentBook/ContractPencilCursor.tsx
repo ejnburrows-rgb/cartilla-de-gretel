@@ -1,45 +1,61 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
-  ERASER_CURSOR_SRC,
-  ERASER_VIEWBOX,
-  PENCIL_TIP_SRC,
-  PENCIL_TIP_VIEWBOX,
-  recordPointer,
-  toolSize,
-} from "@/lib/cursor-mode";
+  CONTRACT_PENCIL_CENTER_Y,
+  CONTRACT_PENCIL_STRETCH,
+  CONTRACT_PENCIL_TILT,
+  PencilShape,
+} from "@/components/cartilla/WorkbookPencilMark";
+import { recordPointer } from "@/lib/cursor-mode";
 import {
   contractEase,
+  contractEraseAt,
   contractTipAt,
+  getEraseFlight,
   getTipFlight,
-  isEraserActive,
+  isExternalEraserActive,
   isManualEraserActive,
   markToScreen,
   PENCIL_CONTRACT,
   subscribeTip,
 } from "@/lib/pencil-contract";
 
-/** Natural aspect ratios of uncropped HD cursor SVGs (active tip/corner at 0,0). */
-const TIP_ASPECT = PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width;
-const ERASER_ASPECT = ERASER_VIEWBOX.height / ERASER_VIEWBOX.width;
+/**
+ * Uncropped SVG viewBox centered generously around the full classic wooden pencil
+ * at `rotate(60)` across every 0°–180° flip angle so neither the pencil nor its
+ * drop-shadow ever clips. SVG origin (0, 0) aligns 1:1 to the cursor hotspot.
+ */
+const VB_X = -25;
+const VB_Y = -105;
+const VB_W = 155;
+const VB_H = 155;
 
 /**
- * Option B (Locked Default) — the single High-Definition uncropped classic
- * wooden pencil cursor (`owner-pencil-tip.svg`, graphite point at 0,0) and
- * flipped back eraser (`owner-eraser.svg`, pink eraser dome at 0,0)
- * when a canvas eraser tool is active. It follows the real pointer, travels along
- * each mark while the kernel draws it, and hides while the autonomous wrong-mark
- * eraser rubs. Purely visual: pointer events always reach the real controls.
+ * Option B (Locked Default) — ONE single physical classic wooden pencil (`PencilShape`)
+ * rendered directly as crisp uncropped vector SVG at natural up-right writing angle
+ * (`rotate(60)`):
+ * - Hovering & drawing: graphite point sits at exact `(0, 0)` hotspot.
+ * - Autonomous wrong-mark erasing: the EXACT SAME single pencil smoothly flips 180°
+ *   around its midpoint onto its back pink eraser dome (attached to the silver ribbed
+ *   ferrule), rubs back-and-forth for 3.5s while 12 pink crumbs scatter, and flips
+ *   smoothly back 180° to its graphite tip.
+ * - Manual canvas eraser tool (`DibujaHost`, `DrawBoxCanvas`, `WorkbookWritingResponse`):
+ *   the same pencil flips 180° onto its back pink eraser dome at exact `(0, 0)` hotspot.
+ * Purely visual: pointer events always reach the real controls.
  */
 export function ContractPencilCursor() {
   const host = useRef<HTMLDivElement>(null);
+  const poseRef = useRef<SVGGElement>(null);
+  const flipRef = useRef<SVGGElement>(null);
+  const uid = `contract-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const [manualEraser, setManualEraser] = useState(isManualEraserActive);
+  const [autoErasing, setAutoErasing] = useState(() => getEraseFlight() !== null);
   const coarse =
     typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)").matches;
-  const pencilWidth = toolSize("tip");
-  const pencilHeight = Math.round(pencilWidth * TIP_ASPECT);
-  const eraserWidth = pencilWidth;
-  const eraserHeight = pencilHeight;
+  const reducedMotion =
+    typeof window !== "undefined" &&
+    !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const scale = coarse ? 1.45 : 2.0;
 
   useEffect(() => {
     const root = document.documentElement;
@@ -49,23 +65,83 @@ export function ContractPencilCursor() {
     let pressed = false;
     let returnFrom: { at: number; pt: [number, number] } | null = null;
     let lastShown: [number, number] | null = null;
+    let wasVisible = false;
+    let activeEraseId: symbol | null = null;
+    let eraseOrigin: [number, number] | null = null;
+    let currentFlipDeg = isManualEraserActive() ? 180 : 0;
+    let manualFlip: { from: number; to: number; start: number } | null = null;
     let raf = 0;
+
+    const setPose = (flipDeg: number, lift = 0) => {
+      currentFlipDeg = flipDeg;
+      if (poseRef.current) {
+        poseRef.current.setAttribute(
+          "transform",
+          lift > 0.001
+            ? `translate(${(lift * 5).toFixed(2)} ${(-lift * 9).toFixed(2)}) rotate(${CONTRACT_PENCIL_TILT})`
+            : `rotate(${CONTRACT_PENCIL_TILT})`,
+        );
+      }
+      if (flipRef.current) {
+        flipRef.current.setAttribute(
+          "transform",
+          `rotate(${flipDeg.toFixed(2)} 0 ${CONTRACT_PENCIL_CENTER_Y})`,
+        );
+      }
+    };
 
     const place = (x: number, y: number, visible: boolean) => {
       const el = host.current;
       if (!el) return;
-      // Graphite point (pencil) or active rubbing corner (eraser) is at exact (0, 0).
+      // Graphite point (0°) or back pink eraser dome (180°) sits at exact (0, 0).
       el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
       el.dataset.visible = visible ? "true" : "false";
+      wasVisible = visible;
       if (visible) lastShown = [x, y];
     };
 
     const frame = () => {
       raf = requestAnimationFrame(frame);
       const now = performance.now();
-      const erasing = isEraserActive();
+      const externalErasing = isExternalEraserActive();
+      const eraseFlight = getEraseFlight();
+      if (eraseFlight && eraseFlight.el.isConnected) {
+        const ms = now - eraseFlight.start;
+        const pose = contractEraseAt(eraseFlight, ms);
+        const anchor = markToScreen(eraseFlight.el, eraseFlight.height, pose.markPt);
+        if (activeEraseId !== eraseFlight.id) {
+          activeEraseId = eraseFlight.id;
+          eraseOrigin =
+            wasVisible && lastShown ? lastShown : [anchor[0] + 18, anchor[1] - 14];
+        }
+        let target: [number, number];
+        if (pose.phase === "enter") {
+          const k = contractEase(ms / Math.max(1, eraseFlight.enterMs));
+          const from = eraseOrigin ?? anchor;
+          target = [from[0] + (anchor[0] - from[0]) * k, from[1] + (anchor[1] - from[1]) * k];
+        } else if (pose.phase === "rub") {
+          target = [anchor[0] + pose.scrubPx[0], anchor[1] + pose.scrubPx[1]];
+        } else {
+          const k = contractEase(
+            (ms - (eraseFlight.enterMs + eraseFlight.rubMs)) / Math.max(1, eraseFlight.liftMs),
+          );
+          const dest: [number, number] =
+            !coarse && pointer && inside ? pointer : [anchor[0] + 14, anchor[1] - 12];
+          target = [anchor[0] + (dest[0] - anchor[0]) * k, anchor[1] + (dest[1] - anchor[1]) * k];
+        }
+        manualFlip = null;
+        setPose(pose.flipDeg, pose.lift);
+        returnFrom = { at: now, pt: target };
+        place(target[0], target[1], true);
+        return;
+      }
+      activeEraseId = null;
+      eraseOrigin = null;
+
       const flight = getTipFlight();
       if (flight && flight.el.isConnected) {
+        manualFlip = null;
+        setPose(0, 0);
         const ms = now - flight.start;
         const first = flight.strokes[0];
         const tip = contractTipAt(flight.strokes, ms);
@@ -78,20 +154,40 @@ export function ContractPencilCursor() {
           target = [from[0] + (startPt[0] - from[0]) * k, from[1] + (startPt[1] - from[1]) * k];
         }
         returnFrom = { at: now, pt: target };
-        place(target[0], target[1], !erasing);
+        place(target[0], target[1], !externalErasing);
         return;
       }
+
+      const targetFlip = isManualEraserActive() ? 180 : 0;
+      if (!manualFlip && Math.abs(currentFlipDeg - targetFlip) > 0.1) {
+        manualFlip = { from: currentFlipDeg, to: targetFlip, start: now };
+      } else if (manualFlip && manualFlip.to !== targetFlip) {
+        manualFlip = { from: currentFlipDeg, to: targetFlip, start: now };
+      }
+      if (manualFlip) {
+        const dur = reducedMotion ? 0 : 240;
+        const k = dur <= 0 ? 1 : contractEase((now - manualFlip.start) / dur);
+        const deg = manualFlip.from + (manualFlip.to - manualFlip.from) * k;
+        const lift = dur <= 0 ? 0 : Math.sin(Math.PI * k) * 0.6;
+        setPose(deg, lift);
+        if (k >= 1) manualFlip = null;
+      }
+
       if (returnFrom && pointer && now - returnFrom.at < 300) {
         const k = contractEase((now - returnFrom.at) / 300);
         place(
           returnFrom.pt[0] + (pointer[0] - returnFrom.pt[0]) * k,
           returnFrom.pt[1] + (pointer[1] - returnFrom.pt[1]) * k,
-          !erasing,
+          !externalErasing,
         );
         return;
       }
-      if (pointer) place(pointer[0], pointer[1], !erasing && inside && (!coarse || pressed));
-      else if (host.current) host.current.dataset.visible = "false";
+      if (pointer) {
+        place(pointer[0], pointer[1], !externalErasing && inside && (!coarse || pressed));
+      } else if (host.current) {
+        host.current.dataset.visible = "false";
+        wasVisible = false;
+      }
     };
 
     const move = (event: PointerEvent) => {
@@ -103,8 +199,12 @@ export function ContractPencilCursor() {
         !target.closest(
           "input, textarea, select, [contenteditable=true], .native-lesson-viewer__navigation",
         );
-      if (!getTipFlight() && (!returnFrom || performance.now() - returnFrom.at >= 300)) {
-        place(pointer[0], pointer[1], !isEraserActive() && inside && (!coarse || pressed));
+      if (
+        !getTipFlight() &&
+        !getEraseFlight() &&
+        (!returnFrom || performance.now() - returnFrom.at >= 300)
+      ) {
+        place(pointer[0], pointer[1], !isExternalEraserActive() && inside && (!coarse || pressed));
       }
     };
     const down = (event: PointerEvent) => {
@@ -118,8 +218,13 @@ export function ContractPencilCursor() {
       inside = false;
       pressed = false;
     };
-    const unsubscribe = subscribeTip(() => setManualEraser(isManualEraserActive()));
-    setManualEraser(isManualEraserActive());
+    const syncState = () => {
+      setManualEraser(isManualEraserActive());
+      setAutoErasing(getEraseFlight() !== null);
+    };
+    const unsubscribe = subscribeTip(syncState);
+    syncState();
+    setPose(currentFlipDeg, 0);
     window.addEventListener("pointermove", move, true);
     window.addEventListener("pointerover", move, true);
     window.addEventListener("pointerdown", down, true);
@@ -140,12 +245,15 @@ export function ContractPencilCursor() {
       document.removeEventListener("pointerleave", leave);
       window.removeEventListener("blur", leave);
     };
-  }, [coarse]);
+  }, [coarse, reducedMotion]);
 
   if (typeof document === "undefined") return null;
-  const showingEraser = manualEraser;
-  const width = showingEraser ? eraserWidth : pencilWidth;
-  const height = showingEraser ? eraserHeight : pencilHeight;
+  const showingEraser = manualEraser || autoErasing;
+  const svgW = (VB_W * scale).toFixed(2);
+  const svgH = (VB_H * scale).toFixed(2);
+  const svgLeft = (VB_X * scale).toFixed(2);
+  const svgTop = (VB_Y * scale).toFixed(2);
+
   return createPortal(
     <div
       ref={host}
@@ -155,20 +263,43 @@ export function ContractPencilCursor() {
       data-pencil-pose={showingEraser ? "hd-eraser" : "hd-tip"}
       data-tool={showingEraser ? "eraser" : "pencil"}
       aria-hidden="true"
-      style={{ width, height, overflow: "visible" }}
+      style={{ width: 1, height: 1, overflow: "visible" }}
     >
-      <img
-        src={showingEraser ? ERASER_CURSOR_SRC : PENCIL_TIP_SRC}
-        width={width}
-        height={height}
-        alt=""
-        draggable={false}
-        className={
-          showingEraser
-            ? "contract-pencil-cursor__img contract-pencil-cursor__img--eraser"
-            : "contract-pencil-cursor__img"
-        }
-      />
+      <svg
+        className="contract-pencil-cursor__svg"
+        width={svgW}
+        height={svgH}
+        viewBox={`${VB_X} ${VB_Y} ${VB_W} ${VB_H}`}
+        overflow="visible"
+        aria-hidden="true"
+        style={{
+          left: `${svgLeft}px`,
+          top: `${svgTop}px`,
+          width: `${svgW}px`,
+          height: `${svgH}px`,
+        }}
+      >
+        <g
+          ref={poseRef}
+          className={
+            showingEraser
+              ? "contract-pencil-cursor__pencil workbook-pencil--eraser"
+              : "contract-pencil-cursor__pencil"
+          }
+        >
+          <g ref={flipRef} data-testid="contract-pencil-flip">
+            <PencilShape
+              uid={uid}
+              stretch={CONTRACT_PENCIL_STRETCH}
+              className={
+                showingEraser
+                  ? "workbook-pencil__shape workbook-pencil__eraser-hd"
+                  : "workbook-pencil__shape"
+              }
+            />
+          </g>
+        </g>
+      </svg>
     </div>,
     document.body,
   );

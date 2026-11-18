@@ -60,22 +60,23 @@ for (const viewport of [
         expect(Math.abs(cbox.x - tx)).toBeLessThanOrEqual(1);
         expect(Math.abs(cbox.y - ty)).toBeLessThanOrEqual(1);
 
-        // SVG is uncropped vector with no HB stamp
-        const svgMeta = await page.evaluate(async () => {
-          const res = await fetch("/cartilla/images/ui/owner-pencil-tip.svg");
-          const txt = await res.text();
+        // Inline uncropped vector PencilShape SVG with no HB stamp, no <img>, and no fade mask
+        const svgMeta = await cursor.evaluate((el) => {
+          const svg = el.querySelector("svg.contract-pencil-cursor__svg");
           return {
-            hasText: txt.includes("<text"),
-            hasHB: txt.includes("HB"),
-            hasImage: txt.includes("<image"),
-            hasViewBox: txt.includes('viewBox="0 0 388 322"'),
+            hasImg: !!el.querySelector("img"),
+            hasText: !!svg?.querySelector("text"),
+            hasHB: (svg?.textContent ?? "").includes("HB"),
+            hasImage: !!svg?.querySelector("image"),
+            hasOverflowVisible: svg?.getAttribute("overflow") === "visible",
           };
         });
         expect(svgMeta).toEqual({
+          hasImg: false,
           hasText: false,
           hasHB: false,
           hasImage: false,
-          hasViewBox: true,
+          hasOverflowVisible: true,
         });
 
         await saveShot(page, `${viewport.name}-leccion3-p7-pencil-hover.png`);
@@ -254,22 +255,21 @@ for (const viewport of [
         });
         expect(hasCharcoalPixel).toBe(true);
 
-        // Toggle eraser -> ContractPencilCursor switches to HD uncropped pink eraser
+        // Toggle eraser -> SAME single ContractPencilCursor flips 180° onto its back pink eraser dome
         await dibuja.getByRole("button", { name: "Borrador de goma" }).click();
         await page.mouse.move(px + 15, py + 5);
         const cursor = page.locator('[data-testid="contract-pencil-cursor"]');
         await expect(cursor).toHaveAttribute("data-tool", "eraser");
         await expect(cursor).toHaveAttribute("data-pencil-pose", "hd-eraser");
-        const eraserImg = await cursor.locator("img").evaluate((el: HTMLImageElement) => ({
-          naturalWidth: el.naturalWidth,
-          naturalHeight: el.naturalHeight,
-          src: el.getAttribute("src"),
+        await page.waitForTimeout(300);
+        const eraserMeta = await cursor.evaluate((el) => ({
+          hasImg: !!el.querySelector("img"),
+          hasBackEraser: !!el.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd"),
+          flipTransform: el.querySelector('[data-testid="contract-pencil-flip"]')?.getAttribute("transform") ?? "",
         }));
-        expect(eraserImg).toEqual({
-          naturalWidth: 388,
-          naturalHeight: 322,
-          src: "/cartilla/images/ui/owner-eraser.svg",
-        });
+        expect(eraserMeta.hasImg).toBe(false);
+        expect(eraserMeta.hasBackEraser).toBe(true);
+        expect(eraserMeta.flipTransform).toContain("rotate(180.00");
         await saveShot(page, `${viewport.name}-leccion3-p9-dibuja-eraser.png`);
       }
     });

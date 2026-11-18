@@ -6,14 +6,14 @@ for (const device of [
   { name: "phone", width: 390, height: 844, touch: true },
   { name: "desktop", width: 1366, height: 768, touch: false },
 ]) {
-  test.describe(`${device.name}: hd uncropped cursor & eraser`, () => {
+  test.describe(`${device.name}: unified single HD classic wooden pencil & back eraser`, () => {
     test.use({
       viewport: { width: device.width, height: device.height },
       hasTouch: device.touch,
       isMobile: device.touch,
     });
 
-    test("uncropped HD pencil cursor draws wrong answer, full HD eraser + 12 crumbs rub it out", async ({
+    test("single classic wooden pencil draws wrong answer, flips 180° onto back pink eraser + 12 crumbs to rub it out", async ({
       page,
     }, info) => {
       await page.goto("/cartilla/leccion/3?cursor=contract", {
@@ -22,21 +22,37 @@ for (const device of [
       await expect(page.locator(".native-lesson-viewer")).toBeVisible({ timeout: 30000 });
 
       const cursor = page.locator('[data-testid="contract-pencil-cursor"]');
+      const pencilShape = cursor.locator("svg.contract-pencil-cursor__svg .workbook-pencil__shape");
+
       if (!device.touch) {
         const stage = page.locator(".native-lesson-viewer__content");
         const sb = (await stage.boundingBox())!;
         await page.mouse.move(sb.x + sb.width * 0.25, sb.y + sb.height * 0.25);
         await expect(cursor).toHaveAttribute("data-visible", "true", { timeout: 10000 });
         await expect(cursor).toHaveAttribute("data-pencil-pose", "hd-tip");
-        const img = cursor.locator("img");
-        const dims = await img.evaluate((el: HTMLImageElement) => ({
-          naturalWidth: el.naturalWidth,
-          naturalHeight: el.naturalHeight,
-          src: el.getAttribute("src"),
-        }));
-        expect(dims.src).toBe("/cartilla/images/ui/owner-pencil-tip.svg");
-        expect(dims.naturalWidth).toBe(388);
-        expect(dims.naturalHeight).toBe(322);
+        const meta = await cursor.evaluate((el) => {
+          const svg = el.querySelector("svg.contract-pencil-cursor__svg");
+          return {
+            hasImg: !!el.querySelector("img"),
+            hasSvg: !!svg,
+            overflow: svg?.getAttribute("overflow"),
+            hasText: !!svg?.querySelector("text"),
+            hasHB: (svg?.textContent ?? "").includes("HB"),
+            hasMask: !!svg?.querySelector("mask"),
+            parts: ["lead", "wood", "lacq", "metal", "eraser"].every(
+              (p) => !!svg?.querySelector(`linearGradient[id$="-${p}"]`),
+            ),
+          };
+        });
+        expect(meta).toEqual({
+          hasImg: false,
+          hasSvg: true,
+          overflow: "visible",
+          hasText: false,
+          hasHB: false,
+          hasMask: false,
+          parts: true,
+        });
       }
 
       const wrong = page.locator('.fp-ix-cell[data-gretel-correct="false"]').first();
@@ -45,26 +61,43 @@ for (const device of [
       else await wrong.click();
 
       await expect(cursor).toHaveAttribute("data-visible", "true", { timeout: 10000 });
-      await page.waitForTimeout(450);
-      const imgBox = await cursor.locator("img").boundingBox();
-      expect(imgBox).not.toBeNull();
-      expect(imgBox!.width).toBeGreaterThanOrEqual(150);
-      expect(imgBox!.x).toBeGreaterThanOrEqual(0);
-      expect(imgBox!.y).toBeGreaterThanOrEqual(0);
+      await page.waitForTimeout(500);
+      // Zero separate flight pencil in contract mode — only ONE physical pencil exists
+      await expect(page.locator(".workbook-pencil-flight")).toHaveCount(0);
+      const drawBox = await pencilShape.boundingBox();
+      expect(drawBox).not.toBeNull();
+      expect(drawBox!.width).toBeGreaterThanOrEqual(device.touch ? 120 : 180);
+      expect(drawBox!.x).toBeGreaterThanOrEqual(0);
+      expect(drawBox!.y).toBeGreaterThanOrEqual(0);
       if (!device.touch) {
-        expect(imgBox!.x + imgBox!.width).toBeLessThanOrEqual(device.width);
-        expect(imgBox!.y + imgBox!.height).toBeLessThanOrEqual(device.height);
+        expect(drawBox!.x + drawBox!.width).toBeLessThanOrEqual(device.width);
+        expect(drawBox!.y + drawBox!.height).toBeLessThanOrEqual(device.height);
       }
       await page.screenshot({ path: info.outputPath("whole-pencil.png") });
 
-      // Full HD uncropped eraser appears (no eraser-mask fade) with 12 pink crumbs
-      const eraser = page.locator(".workbook-pencil--eraser .workbook-pencil__eraser-hd");
+      // Wait for the EXACT SAME single pencil to flip 180° onto its back pink eraser dome + 12 crumbs
+      const eraser = cursor.locator(".workbook-pencil--eraser .workbook-pencil__eraser-hd");
       await expect(eraser).toBeVisible({ timeout: 10000 });
+      await expect(page.locator(".workbook-pencil-flight")).toHaveCount(0);
       await expect(page.locator('[id$="-eraser-mask"]')).toHaveCount(0);
       await expect(page.locator(".workbook-pencil__crumbs > g")).toHaveCount(12);
+      // Let the 450ms flip finish so the back pink eraser dome is fully touching and rubbing the red mark
+      await page.waitForTimeout(700);
+      const flipTransform = await cursor
+        .locator('[data-testid="contract-pencil-flip"]')
+        .getAttribute("transform");
+      expect(flipTransform).toContain("rotate(180.00");
+
+      // Size consistency: erasing pencil is the EXACT SAME single physical pencil (no 4× giant replacement)
+      const eraseBox = await eraser.boundingBox();
+      expect(eraseBox).not.toBeNull();
+      expect(Math.abs(eraseBox!.width - drawBox!.width) / drawBox!.width).toBeLessThan(0.15);
+      expect(Math.abs(eraseBox!.height - drawBox!.height) / drawBox!.height).toBeLessThan(0.15);
       await page.screenshot({ path: info.outputPath("hd-eraser.png") });
 
+      // After erasing finishes, mark is cleared and cursor returns to graphite tip pose
       await expect(wrong).toHaveAttribute("aria-pressed", "false", { timeout: 12000 });
+      await expect(cursor).toHaveAttribute("data-tool", "pencil", { timeout: 5000 });
     });
   });
 }
