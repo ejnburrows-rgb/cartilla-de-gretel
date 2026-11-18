@@ -44,7 +44,7 @@ Digital chrome should recede. The book/page is the main object. Do not surround 
 
 ## Shared school-tool family
 
-There is one canonical classic wooden pencil and one matching physical school eraser treatment across student activities.
+[PENCIL-CURSOR-SPEC.md](PENCIL-CURSOR-SPEC.md) is the official source of truth for the pencil cursor visual and writing mechanics: ONE `@image1` extreme close-up photographic sharpened wooden pencil (point facing up-left at exact `(0, 0)` hotspot, yellow barrel extending seamlessly past the screen edge in Prototype B orientation) and one matching physical school eraser treatment across student activities.
 
 The same family must drive:
 - marks and circles;
@@ -54,11 +54,11 @@ The same family must drive:
 - pencil-written completions;
 - handwriting-adjacent feedback.
 
-Do not create screen-local pencil variants, cartoon-faced tools, generic flat eraser icons, glossy game controls, or unrelated animation styles.
+Do not create screen-local pencil variants, cropped/chopped barrel stubs, cartoon-faced tools, generic flat eraser icons, glossy game controls, or unrelated animation styles.
 
 ### Pencil presence
 
-Outside the drawing-tool activity, the pencil behaves like a physical **actor**, not permanent UI chrome: it appears near the learner's action, performs one clear mark/draw/erase action, then settles or leaves the active area. It must not float continuously while the child is thinking or cover source lesson content. The drawing activity is the exception because the pencil is an explicitly selected tool.
+The zoomed extreme close-up `@image1` pencil tip cursor remains anchored seamlessly from the bottom-right screen edge to the pointer `(0, 0)` inside interactive Workbook surfaces, lowers onto the page without showing a hand, draws continuously behind its graphite tip with zero offset, and settles cleanly upon completion. The drawing activity reuses the same physical cursor host while exposing explicit draw/erase tool selection.
 
 ## Motion language
 

@@ -1,10 +1,12 @@
-# PENCIL CURSOR SPECIFICATION — La Cartilla de Gretel
+# OFFICIAL SOURCE OF TRUTH — PENCIL CURSOR & WRITING MECHANICS (`PENCIL-CURSOR-SPEC.md`)
 
-> **Execution policy:** [AGENTS.md](AGENTS.md). **Current assignments and approval status:** [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). This document defines the official visual and motion specification for the Student Workbook pencil cursor.
+> **Execution policy:** [AGENTS.md](AGENTS.md). **Current assignments and approval status:** [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). **Authoritative Status:** THIS DOCUMENT IS THE SINGLE **OFFICIAL SOURCE OF TRUTH** FOR THE PENCIL CURSOR VISUALS AND WRITING MECHANICS ACROSS THE ENTIRE REPOSITORY.
 
-**Status:** OFFICIAL OWNER-APPROVED PENCIL CURSOR SPECIFICATION  
+**Status:** OFFICIAL OWNER-APPROVED SOURCE OF TRUTH  
 **Approved by:** Emilio  
 **Approved on:** 2026-11-18  
+
+> **Supersedes & Retires All Earlier Pencil Proposals:** All older cropped stubs, mid-air chopped barrels, fade-out opacity linear-gradient masks, checkerboard screenshots, skinny SVG toothpicks (`scale(0.65)`), standalone pink eraser bricks on non-canvas modes, and duplicate secondary flying pencil sprites in older docs or obsolete branches are permanently retired and prohibited.
 
 ---
 

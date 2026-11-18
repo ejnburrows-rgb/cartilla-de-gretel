@@ -20,7 +20,7 @@
 **Approved by:** Emilio  
 **Approved on:** 2026-10-03; archetype relationship clarified 2026-10-06; pencil look, close-up zoom, eraser crumbs and realistic living-picture motion updated by owner decision 2026-10-11; official extreme close-up pencil cursor specification locked 2026-11-18 in [PENCIL-CURSOR-SPEC.md](PENCIL-CURSOR-SPEC.md).
 
-This file is the source of truth for the premium student-facing Workbook interaction language. `PENCIL-CURSOR-SPEC.md` owns the official photographic close-up pencil cursor visual and zero-offset writing specification. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file on student interaction behavior, this file wins.
+This file is the source of truth for the premium student-facing Workbook interaction language. [PENCIL-CURSOR-SPEC.md](PENCIL-CURSOR-SPEC.md) is the **OFFICIAL SOURCE OF TRUTH** for the `@image1` extreme close-up photographic pencil cursor visual, Prototype B orientation, seamless edge-to-edge barrel, and tip-locked stroke mechanics. `WORKBOOK_ARCHETYPE_STANDARD.md` separately owns the recurring visual/source-layout family. When an older issue, mockup, implementation note, or active non-archived document conflicts with this file or `PENCIL-CURSOR-SPEC.md` on student interaction behavior, those canonical specs win.
 
 ## Latest pencil and mark contract — 2026-11-01 (Cursor Spec Updated 2026-11-18)
 
