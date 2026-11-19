@@ -53,7 +53,13 @@ function renderGame(content: GameContent) {
 
 function Juego() {
   const { gameId } = Route.useParams();
-  const content = GAMES[gameId] ?? (gameId === "vaca-p-free" || gameId === "vaca-p-guided" ? { ...COW_GAMES[0], id: gameId } : undefined);
+  const content =
+    GAMES[gameId] ??
+    (gameId === "vaca-p-free" || gameId === "vaca-p-guided"
+      ? { ...COW_GAMES[0], id: gameId }
+      : gameId === "payaso-chano" || gameId === "chano"
+        ? { ...PAYASO_CHANO_SS, id: gameId }
+        : undefined);
 
   if (!content) {
     return (
