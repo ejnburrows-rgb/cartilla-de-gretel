@@ -188,7 +188,7 @@ function Cow({
 }
 
 export function CowGame({ content }: { content: GameContent }) {
-  const [guided] = useState(() => typeof window !== "undefined" && (new URLSearchParams(window.location.search).get("cow") === "guided" || content?.id === "vaca-p-guided"));
+  const [guided] = useState(() => typeof window !== "undefined" && new URLSearchParams(window.location.search).get("cow") === "guided");
   const [placed, setPlaced] = useState<Record<number, Pos>>({});
   const [selCow, setSelCow] = useState<number | null>(null);
   const [selSlot, setSelSlot] = useState<number | null>(null);
@@ -492,12 +492,10 @@ export function CowGame({ content }: { content: GameContent }) {
 
         {finished && (
           <div className="cg-done" role="dialog" aria-label="Juego completado">
-            <div className="cg-done-card">
-              <p>¡Muy bien!</p>
-              <button type="button" onClick={reset}>
-                Jugar otra vez
-              </button>
-            </div>
+            <p>¡Muy bien!</p>
+            <button type="button" onClick={reset}>
+              Jugar otra vez
+            </button>
           </div>
         )}
       </div>
@@ -507,11 +505,11 @@ export function CowGame({ content }: { content: GameContent }) {
 }
 
 const CSS = `
-.cg-root{position:fixed;inset:0;overflow:hidden;background:radial-gradient(circle at 50% 38%, #a2e065 0%, #62b52e 52%, #387818 100%);box-shadow:inset 0 0 120px rgba(18, 48, 10, 0.42);touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.cg-root{position:fixed;inset:0;overflow:hidden;background:#7ec850;touch-action:manipulation;user-select:none;-webkit-user-select:none}
 .cg-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);container-type:inline-size;overflow:visible;border-radius:0}
 .cg-scene{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
 .cg-guided .cg-side-scene{display:none}
-.cg-guide{position:absolute;z-index:105;left:50%;bottom:1.5%;transform:translateX(-50%);margin:0;padding:.8cqw 2.4cqw;max-width:92%;background:linear-gradient(180deg, #fdf6e2 0%, #f4e1b8 100%);border:.35cqw solid #8a4a1c;border-radius:2cqw;box-shadow:0 .6cqw 1.4cqw rgba(35, 18, 5, 0.38), inset 0 .2cqw 0 #ffffff;color:#3e1b08;font:900 clamp(15px, 2.2cqw, 22px)/1.2 "Fredoka", ui-rounded, system-ui, sans-serif;text-shadow:0 1px 0 rgba(255,255,255,0.8);white-space:nowrap}
+.cg-guide{position:absolute;z-index:105;left:50%;bottom:1%;transform:translateX(-50%);margin:0;padding:6px 14px;max-width:92%;border:2px solid #8a4a1c;border-radius:12px;background:#fff4d6;color:#3a1a0e;font:700 clamp(14px,2cqw,20px)/1.3 ui-rounded,system-ui,sans-serif;white-space:nowrap}
 .cg-guided .cg-slot:disabled{cursor:default}
 .cg-scene-top{position:absolute;left:0;top:0;width:100%;display:block;pointer-events:none;z-index:1}
 .cg-scene-fence{position:absolute;left:0;width:100%;display:block;pointer-events:none;z-index:30}
@@ -519,7 +517,7 @@ const CSS = `
 @keyframes cg-fly{0%{transform:translate(calc(-50% + var(--cg-fly-dx)),calc(-50% + var(--cg-fly-dy))) scale(.75);opacity:.85}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
 .cg-title,.cg-btn{position:absolute}
 .cg-title img,.cg-btn img{width:100%;height:100%;display:block;pointer-events:none}
-.cg-btn{padding:0;border:0;background:none;cursor:pointer;display:block;min-width:56px;min-height:56px;filter:drop-shadow(0 .4cqw .6cqw rgba(40,20,5,0.35))}
+.cg-btn{padding:0;border:0;background:none;cursor:pointer;display:block;min-width:56px;min-height:56px}
 .cg-hit{position:absolute;background:transparent;border:0;cursor:pointer;min-width:56px;min-height:56px}
 .cg-menu{position:absolute;right:2%;top:14%;z-index:120;display:flex;flex-direction:column;gap:1.2cqw;background:#fdf3dc;border:.5cqw solid #8a4a1c;border-radius:2cqw;padding:1.6cqw}
 .cg-menu button{font:900 max(14px,2.4cqw)/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#4a2610;background:#fff;border:.3cqw solid #c58b4e;border-radius:1.4cqw;padding:1.2cqw 2cqw;min-height:56px}
@@ -527,21 +525,19 @@ const CSS = `
 .cg-open-on{opacity:1}
 .cg-slot{position:absolute;padding:0;border:0;background:transparent;z-index:60;cursor:pointer;border-radius:2cqw}
 .cg-slot-sel{outline:.5cqw solid #ffe27a;box-shadow:0 0 2.5cqw 1cqw rgba(255,226,122,.85);animation:cg-pulse 1.1s ease-in-out infinite}
-.cg-door{position:absolute;left:4px;top:6px;right:4px;bottom:6px;background:linear-gradient(180deg, #fdf1d6 0%, #edd3a4 28%, #dcba82 72%, #c2965d 100%);background-image:repeating-linear-gradient(180deg, transparent, transparent 1.8cqw, rgba(115, 55, 18, 0.16) 1.8cqw, rgba(115, 55, 18, 0.16) 2cqw);border:.35cqw solid #8a4a1c;border-radius:1.4cqw;box-shadow:inset 0 .2cqw .5cqw rgba(255,255,255,0.7), inset 0 -.3cqw .6cqw rgba(80,35,10,0.3), 0 .5cqw 1cqw rgba(40,20,5,0.35);transform-origin:left center;transition:transform .55s cubic-bezier(0.34, 1.2, 0.64, 1), opacity .35s ease .55s;z-index:3;pointer-events:none}
-.cg-door::after{content:"";position:absolute;right:8%;top:44%;width:1.4cqw;height:1.4cqw;background:radial-gradient(circle, #f5d061 0%, #8a4a1c 100%);border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,0.5)}
+.cg-door{position:absolute;left:4px;top:6px;right:4px;bottom:6px;background:#fdf3dc;border:.35cqw dashed #e0b27a;border-radius:1.6cqw;transform-origin:left center;transition:transform .55s ease-in-out,opacity .35s ease .6s;box-shadow:0 0 0 .2cqw #fff;z-index:3;pointer-events:none}
 .cg-door-open{transform:perspective(900px) rotateY(-78deg);opacity:0}
-.cg-cow{position:absolute;padding:0;border:0;background:none;cursor:pointer;container-type:inline-size;transition-property:left,top,width,height;transition-timing-function:ease-in-out;filter:drop-shadow(0 14px 12px rgba(25, 55, 12, 0.32))}
+.cg-cow{position:absolute;padding:0;border:0;background:none;cursor:pointer;container-type:inline-size;transition-property:left,top,width,height;transition-timing-function:ease-in-out}
 .cg-cow:focus-visible{outline:.5cqw solid #1f8fa6;outline-offset:2px}
 .cg-bob,.cg-sprite{position:absolute;inset:0;display:block}
 .cg-sprite{transform-origin:50% 90%}
 .cg-p{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
-.cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #8a4a1c;border-radius:1cqw;background:linear-gradient(145deg, #fffdf7 0%, #faecd0 100%);color:#3e1b08;font:900 3.3cqw/1 "Fredoka", ui-rounded, system-ui, sans-serif;letter-spacing:.08cqw;text-shadow:0 1px 0 rgba(255,255,255,0.9);box-shadow:0 .6cqw 1.2cqw rgba(35, 18, 5, 0.42), inset 0 0 0 .15cqw #fffcf2, inset 0 0 .8cqw rgba(210, 155, 80, 0.22);transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top,transform}
+.cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top,transform}
 .cg-card-lean{transform:translate(-50%, calc(-10% + 16cqw)) !important; transition:transform 0.5s}
 .cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
 .cg-label{position:absolute;left:52%;top:58%;font:900 19cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;padding:4cqw 7cqw;background:radial-gradient(ellipse,rgba(255,244,214,.95) 55%,rgba(255,244,214,0) 72%);pointer-events:none;z-index:5}
-.cg-selected{filter:drop-shadow(0 14px 12px rgba(25, 55, 12, 0.32)) drop-shadow(0 0 1.6cqw #ffe27a) drop-shadow(0 0 3.2cqw rgba(255, 215, 80, 0.65))}
-.cg-selected .cg-head{animation:cg-selected-head 1.2s ease-in-out infinite !important}
-@keyframes cg-selected-head{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(4deg)}}
+.cg-selected{filter:drop-shadow(0 0 1.6cqw #fff3a0) drop-shadow(0 0 .8cqw #ffd54a)}
+.cg-selected{outline:2px solid #ffe27a}
 .cg-hop .cg-bob{animation:cg-shake .22s linear 3}
 .cg-p{will-change:transform}
 .cg-leg-a{transform-origin:30.09% 75.71%}.cg-leg-b{transform-origin:47.69% 75.71%}
@@ -567,7 +563,7 @@ const CSS = `
 .cg-walking .cg-tail{animation:cg-tail .5s ease-in-out infinite}
 .cg-walking .cg-tongue{animation:cg-tongue 1.8s ease-in-out infinite}
 
-.cg-slot-text{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:.6cqw;justify-content:center;font:900 4.4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#431f0a;letter-spacing:.25cqw;text-shadow:0 1px 0 rgba(255,255,255,0.75), 0 -1px 1px rgba(60,25,8,0.5);white-space:nowrap;z-index:4;pointer-events:none}
+.cg-slot-text{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:.5cqw;justify-content:center;font:700 4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;letter-spacing:.3cqw;white-space:nowrap;z-index:4;pointer-events:none}
 .cg-cheer .cg-bob{animation:cg-cheer-hop .42s ease-in-out 3}
 .cg-cheer .cg-head{animation:cg-cheer-head .3s ease-in-out 5!important}
 .cg-cheer .cg-tongue{animation:cg-tongue-out 1.5s ease-in-out 1!important}
@@ -615,13 +611,9 @@ const CSS = `
 @keyframes cg-new-nod{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
 @keyframes cg-new-tail{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
 .cg-msg{position:absolute;left:50%;top:90%;transform:translateX(-50%);z-index:110;font:900 3.4cqw/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;text-shadow:0 .3cqw .6cqw rgba(60,30,10,.7),0 0 1cqw rgba(60,30,10,.5);pointer-events:none;white-space:nowrap}
-.cg-done{position:absolute;inset:0;z-index:130;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2cqw;background:radial-gradient(circle, rgba(255, 250, 235, 0.88) 0%, rgba(240, 225, 185, 0.85) 100%);backdrop-filter:blur(5px);animation:cg-fade-in .4s ease-out}
-.cg-done-card{display:flex;flex-direction:column;align-items:center;gap:1.8cqw;padding:3.5cqw 6cqw;background:linear-gradient(180deg, #fffcf4 0%, #faecd0 100%);border:.45cqw solid #8a4a1c;border-radius:3cqw;box-shadow:0 1.2cqw 2.8cqw rgba(40, 20, 5, 0.45), inset 0 .3cqw 0 #ffffff}
-.cg-done p{font:900 7.2cqw/1 "Fredoka", ui-rounded, system-ui, sans-serif;color:#235c17;text-shadow:0 .2cqw 0 #ffffff, 0 .4cqw 1cqw rgba(30, 70, 15, 0.3);margin:0}
-.cg-done button{font:900 max(15px, 2.6cqw)/1 "Fredoka", ui-rounded, system-ui, sans-serif;color:#ffffff;background:linear-gradient(180deg, #1c9288 0%, #12635c 100%);border:.35cqw solid #ffffff;border-radius:2cqw;padding:1.2cqw 3.5cqw;min-height:56px;min-width:180px;cursor:pointer;box-shadow:0 .5cqw 1cqw rgba(15, 60, 55, 0.4);transition:transform .15s ease, filter .15s ease}
-.cg-done button:hover{filter:brightness(1.08);transform:scale(1.02)}
-.cg-done button:active{transform:scale(0.98)}
-@keyframes cg-fade-in{0%{opacity:0;transform:scale(0.95)}100%{opacity:1;transform:scale(1)}}
+.cg-done{position:absolute;inset:0;z-index:130;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;background:rgba(255,255,255,.35);backdrop-filter:blur(2px)}
+.cg-done p{font:900 8cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#2c7a1e;text-shadow:0 .4cqw 0 #fff}
+.cg-done button{font:900 max(14px,3cqw)/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;background:#167A72;border:.5cqw solid #fff;border-radius:3cqw;padding:1.6cqw 4cqw;min-height:56px;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob{animation:none!important}}
 
