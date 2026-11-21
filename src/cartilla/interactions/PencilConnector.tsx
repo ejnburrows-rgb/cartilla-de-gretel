@@ -9,15 +9,14 @@ import { playCorrectChord } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import {
-  CONTRACT_PENCIL_STRETCH,
   EraserCrumbs,
-  PENCIL_LENGTH,
   PencilShape,
   WorkbookPencilMark,
   WORKBOOK_MARK_TIMING,
   useWorkbookPencilTurn,
 } from "@/components/cartilla/WorkbookPencilMark";
-import { useCursorMode } from "@/lib/cursor-mode";
+import { OwnerPhotoEraserContent } from "@/components/StudentBook/OwnerPhotoPencilSvg";
+import { PENCIL_TIP_VIEWBOX, toolSize, useCursorMode } from "@/lib/cursor-mode";
 import { holdEraser, PENCIL_CONTRACT } from "@/lib/pencil-contract";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
@@ -843,8 +842,6 @@ export function DirectPencilConnector({
                 const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
                 const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
                 const scrubPeriod = 190;
-                const retryStretch = CONTRACT_PENCIL_STRETCH;
-                const PENCIL_CENTER_Y = -(PENCIL_LENGTH + retryStretch) / 2;
                 const linePath = `M ${wrongLine.from.x} ${wrongLine.from.y} L ${wrongLine.to.x} ${wrongLine.to.y}`;
 
                 return (
@@ -890,14 +887,11 @@ export function DirectPencilConnector({
                           repeatCount={Math.floor(rubMs / scrubPeriod)}
                           values={contract ? "0 0;9 -3;0 0;-8 2.5;0 0" : "0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"}
                         />
-                        <g className="am-direct-pencil__eraser-shape" transform="rotate(30) scale(2.2)">
-                          <g transform={`rotate(180 0 ${PENCIL_CENTER_Y})`}>
-                            <PencilShape
-                              uid={`${shadowUid}-retry-pencil`}
-                              stretch={retryStretch}
-                              className="workbook-pencil__shape workbook-pencil__eraser-hd"
-                            />
-                          </g>
+                        <g
+                          className="am-direct-pencil__eraser-shape workbook-pencil__shape workbook-pencil__eraser-hd"
+                          transform={`scale(${(toolSize("tip") / PENCIL_TIP_VIEWBOX.width).toFixed(4)})`}
+                        >
+                          <OwnerPhotoEraserContent uid={`${shadowUid}-retry-eraser`} />
                         </g>
                       </g>
                     </g>

@@ -1,13 +1,7 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import {
-  CONTRACT_PENCIL_CENTER_Y,
-  CONTRACT_PENCIL_STRETCH,
-  CONTRACT_PENCIL_TILT,
-  PencilShape,
-} from "@/components/cartilla/WorkbookPencilMark";
 import { PENCIL_TIP_VIEWBOX, recordPointer, toolSize } from "@/lib/cursor-mode";
-import { OwnerPhotoPencilSvg } from "./OwnerPhotoPencilSvg";
+import { OwnerPhotoEraserSvg, OwnerPhotoPencilSvg } from "./OwnerPhotoPencilSvg";
 import {
   contractEase,
   contractEraseAt,
@@ -25,33 +19,22 @@ import {
 } from "@/lib/pencil-contract";
 
 /**
- * Uncropped SVG viewBox centered generously around the back eraser pencil pose
- * so neither the eraser nor its drop-shadow ever clips during erasing.
- */
-const VB_X = -25;
-const VB_Y = -105;
-const VB_W = 155;
-const VB_H = 155;
-
-/**
- * Option B (Locked Default) — Extreme close-up photographic sharpened wooden pencil
+ * Official `@image1` extreme close-up photographic sharpened wooden pencil
  * (`owner-pencil-tip.svg`, 600×497, matching `@image1` and Prototype B orientation):
  * - Point faces **up and to the left** with the very end of the dark graphite point at
  *   exact `(0, 0)` hotspot, visible wood fibers on the sharpening cone, and yellow-painted
- *   barrel extending **down and to the right**, cropped at the frame boundary with zero
- *   checkerboard background.
- * - Lowers onto the page and guides each stroke as though by hand (without showing any hand),
- *   keeping the exact same close-up scale and sharp detail throughout circle and X actions
- *   with zero gap or offset (`transform-origin: 0px 0px`).
+ *   barrel extending **down and to the right** off the viewport edges with zero gap.
+ * - When erasing, rotates smoothly onto the macro close-up pink eraser tip + brushed silver
+ *   ferrule (`OwnerPhotoEraserSvg`) at the exact same `600×497` scale and `45°` down-right
+ *   photographic yellow barrel extending off the viewport edges with zero gap.
  * - Purely visual: pointer events always reach the real controls.
  */
 export function ContractPencilCursor() {
   const host = useRef<HTMLDivElement>(null);
   const tipImgRef = useRef<SVGSVGElement>(null);
   const tipShadowRef = useRef<SVGGElement>(null);
-  const poseRef = useRef<SVGGElement>(null);
-  const flipRef = useRef<SVGGElement>(null);
-  const uid = `contract-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
+  const eraserImgRef = useRef<SVGSVGElement>(null);
+  const eraserShadowRef = useRef<SVGGElement>(null);
   const [manualEraser, setManualEraser] = useState(isManualEraserActive);
   const [autoErasing, setAutoErasing] = useState(() => getEraseFlight() !== null);
   const coarse =
@@ -59,7 +42,6 @@ export function ContractPencilCursor() {
   const reducedMotion =
     typeof window !== "undefined" &&
     !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-  const scale = coarse ? 1.45 : 2.0;
   const tipWidth = toolSize("tip");
   const tipHeight = Math.round(
     tipWidth * (PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width),
@@ -101,23 +83,22 @@ export function ContractPencilCursor() {
         tipShadowRef.current.setAttribute("transform", `translate(${dx.toFixed(1)} ${dy.toFixed(1)})`);
         tipShadowRef.current.setAttribute("opacity", (0.24 - Math.min(0.1, lift * 0.1)).toFixed(3));
       }
-      if (poseRef.current) {
-        poseRef.current.setAttribute(
-          "transform",
-          lift > 0.001
-            ? `translate(${(lift * 5).toFixed(2)} ${(-lift * 9).toFixed(2)}) rotate(${CONTRACT_PENCIL_TILT})`
-            : `rotate(${CONTRACT_PENCIL_TILT})`,
-        );
+      if (eraserImgRef.current) {
+        const liftX = lift * 8;
+        const liftY = -lift * 18;
+        // Subtle wrist rotation during enter/lift (flipDeg approaching 180°), settling to 0° on touchdown
+        const turnDelta = (180 - flipDeg) * 0.14;
+        const parts: string[] = [];
+        if (lift > 0.001) parts.push(`translate3d(${liftX.toFixed(2)}px, ${liftY.toFixed(2)}px, 0)`);
+        const rot = wristDeg + turnDelta;
+        if (Math.abs(rot) > 0.01) parts.push(`rotate(${rot.toFixed(2)}deg)`);
+        eraserImgRef.current.style.transform = parts.length ? parts.join(" ") : "rotate(0deg)";
       }
-      if (flipRef.current) {
-        // The SVG pencil is only shown in eraser mode (writing uses OwnerPhotoPencilSvg).
-        // Keeping it anchored at 180° around CONTRACT_PENCIL_CENTER_Y locks the pink eraser
-        // dome to exact (0, 0) while the extended wooden barrel runs continuously off the
-        // edge of the page/viewport without swinging in a giant arc during enter/lift.
-        flipRef.current.setAttribute(
-          "transform",
-          `rotate(180.00 0 ${CONTRACT_PENCIL_CENTER_Y})`,
-        );
+      if (eraserShadowRef.current) {
+        const dx = 10 + lift * 22;
+        const dy = 14 + lift * 28;
+        eraserShadowRef.current.setAttribute("transform", `translate(${dx.toFixed(1)} ${dy.toFixed(1)})`);
+        eraserShadowRef.current.setAttribute("opacity", (0.24 - Math.min(0.1, lift * 0.1)).toFixed(3));
       }
     };
 
@@ -361,10 +342,6 @@ export function ContractPencilCursor() {
 
   if (typeof document === "undefined") return null;
   const showingEraser = manualEraser || autoErasing;
-  const svgW = (VB_W * scale).toFixed(2);
-  const svgH = (VB_H * scale).toFixed(2);
-  const svgLeft = (VB_X * scale).toFixed(2);
-  const svgTop = (VB_Y * scale).toFixed(2);
 
   return createPortal(
     <div
@@ -376,8 +353,8 @@ export function ContractPencilCursor() {
       data-tool={showingEraser ? "eraser" : "pencil"}
       aria-hidden="true"
       style={{
-        width: showingEraser ? 1 : tipWidth,
-        height: showingEraser ? 1 : tipHeight,
+        width: tipWidth,
+        height: tipHeight,
         overflow: "visible",
       }}
     >
@@ -394,42 +371,20 @@ export function ContractPencilCursor() {
           transformOrigin: "0px 0px",
         }}
       />
-      <svg
-        className="contract-pencil-cursor__svg"
-        width={svgW}
-        height={svgH}
-        viewBox={`${VB_X} ${VB_Y} ${VB_W} ${VB_H}`}
-        overflow="visible"
-        aria-hidden="true"
+      <OwnerPhotoEraserSvg
+        ref={eraserImgRef}
+        shadowRef={eraserShadowRef}
+        width={tipWidth}
+        height={tipHeight}
+        testId="contract-pencil-flip"
+        className="contract-pencil-cursor__img contract-pencil-cursor__svg workbook-pencil__shape workbook-pencil__eraser-hd workbook-pencil--eraser"
         style={{
           display: showingEraser ? "block" : "none",
-          left: `${svgLeft}px`,
-          top: `${svgTop}px`,
-          width: `${svgW}px`,
-          height: `${svgH}px`,
+          width: `${tipWidth}px`,
+          height: `${tipHeight}px`,
+          transformOrigin: "0px 0px",
         }}
-      >
-        <g
-          ref={poseRef}
-          className={
-            showingEraser
-              ? "contract-pencil-cursor__pencil workbook-pencil--eraser"
-              : "contract-pencil-cursor__pencil"
-          }
-        >
-          <g ref={flipRef} data-testid="contract-pencil-flip">
-            <PencilShape
-              uid={uid}
-              stretch={CONTRACT_PENCIL_STRETCH}
-              className={
-                showingEraser
-                  ? "workbook-pencil__shape workbook-pencil__eraser-hd"
-                  : "workbook-pencil__shape"
-              }
-            />
-          </g>
-        </g>
-      </svg>
+      />
     </div>,
     document.body,
   );

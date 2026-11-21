@@ -278,15 +278,17 @@ for (const viewport of [
             hasImgVisible: !!tip && getComputedStyle(tip).display !== "none",
             hasBackEraser: !!eraserEl,
             eraserReachesEdge:
-              !!eraserRect && (eraserRect.right >= window.innerWidth - 1 || eraserRect.top <= 1),
-            flipTransform:
-              el.querySelector('[data-testid="contract-pencil-flip"]')?.getAttribute("transform") ?? "",
+              !!eraserRect &&
+              (eraserRect.right >= window.innerWidth - 1 ||
+                eraserRect.bottom >= window.innerHeight - 1 ||
+                eraserRect.top <= 1),
+            hasMacroPinkDome: !!el.querySelector('[data-testid="contract-eraser-pink-dome"]'),
           };
         });
         expect(eraserMeta.hasImgVisible).toBe(false);
         expect(eraserMeta.hasBackEraser).toBe(true);
         expect(eraserMeta.eraserReachesEdge).toBe(true);
-        expect(eraserMeta.flipTransform).toContain("rotate(180.00");
+        expect(eraserMeta.hasMacroPinkDome).toBe(true);
         await saveShot(page, `${viewport.name}-leccion3-p9-dibuja-eraser.png`);
       }
     });
