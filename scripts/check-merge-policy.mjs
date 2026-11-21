@@ -246,6 +246,14 @@ export function validateLockedVisualAuthority(root = '.') {
       errors.push(`${rel}: missing or unreadable locked visual file`);
     }
   }
+  try {
+    const fpr = fs.readFileSync(path.join(root, 'src/components/cartilla/FaithfulPageRenderer.tsx'), 'utf8');
+    if (/pageSize\s*=\s*\{[^}]*pageNumber\s*===\s*7/.test(fpr)) {
+      errors.push('src/components/cartilla/FaithfulPageRenderer.tsx: Page 7 must render all 16 pictures together (never split into 8+8 screens)');
+    }
+  } catch {
+    errors.push('src/components/cartilla/FaithfulPageRenderer.tsx: missing or unreadable');
+  }
   return {ok:errors.length===0,errors};
 }
 
