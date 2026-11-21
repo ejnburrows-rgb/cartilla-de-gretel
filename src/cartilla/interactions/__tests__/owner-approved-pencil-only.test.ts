@@ -50,8 +50,8 @@ describe("owner-locked pencil-only Workbook runtime", () => {
     expect(connector).not.toMatch(/stroke="#0d9488"\s*strokeWidth=\{5\}/);
     // Enforce approved classic wooden pencil scale(2.4) at natural writing angle rotate(55)
     expect(connector).toContain("rotate(55) scale(2.4)");
-    // Enforce approved retry eraser scale(2.2)
-    expect(connector).toContain("rotate(30) scale(2.2)");
+    // Enforce macro close-up rotated retry eraser matching @image1 scale
+    expect(connector).toContain("OwnerPhotoEraserContent");
     // Enforce charcoal gray drag stroke
     expect(connector).toContain('stroke="#3a3a38"');
   });
