@@ -112,6 +112,12 @@ for (const device of [
       expect(eraseBox).not.toBeNull();
       expect(eraseBox!.width).toBeGreaterThan(80);
       expect(eraseBox!.height).toBeGreaterThan(60);
+      // Extended wooden eraser barrel reaches past the top or right viewport edge with zero gap
+      const eraserReachesEdge = await eraser.evaluate((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.right >= window.innerWidth - 1 || rect.top <= 1;
+      });
+      expect(eraserReachesEdge).toBe(true);
       await page.screenshot({ path: info.outputPath("hd-eraser.png") });
 
       // After erasing finishes, mark is cleared and cursor returns to graphite tip pose

@@ -36,6 +36,16 @@
 .orh-art__images figure { margin: 0; }
 .orh-art__images img { max-width: 100%; max-height: 260px; border: 1px solid #ddd; background: #fff; }
 .orh-art__images figcaption { font-size: 0.8rem; color: #5f6b6b; }
+.orh-art-filters { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0; }
+.orh-art__header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+.orh-art__pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; align-items: start; margin-bottom: 8px; }
+.orh-art__pair figure { margin: 0; }
+.orh-art__pair figcaption { font-size: 0.8rem; color: #5f6b6b; margin-top: 4px; }
+.orh-art__scan-wrap { position: relative; display: inline-block; max-width: 100%; border: 1px solid #d7cbb2; background: #fff; }
+.orh-art__scan-wrap img { display: block; width: 100%; max-width: 320px; height: auto; }
+.orh-art__circle-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.orh-art__updated img { max-width: 240px; max-height: 240px; object-fit: contain; border: 1px solid #d7cbb2; background: #fff; padding: 6px; border-radius: 8px; }
+.orh-art__empty { padding: 18px 12px; border: 1px dashed #c8bca4; border-radius: 8px; background: #faf6ed; color: #5f6b6b; font-size: 0.85rem; text-align: center; }
 .orh-audio audio { width: 100%; }
 .orh-pill { display: inline-block; font-size: 0.75rem; font-weight: 700; border-radius: 999px; padding: 2px 8px; border: 1px solid; }
 .orh-pill--live { color: #14532d; border-color: #258351; background: #e8f6ee; }

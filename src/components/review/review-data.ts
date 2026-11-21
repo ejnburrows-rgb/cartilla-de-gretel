@@ -29,20 +29,20 @@ const toLinks = (pairs: [string, string][]): ReviewLink[] =>
 export const COMPARISONS: Comparison[] = [
   {
     id: "workbook-lesson-3",
-    title: "Student Workbook — Lesson 3 (Pages 7–9, Option B Locked Default)",
+    title: "Student Workbook — Lesson 3 (Pages 7–9, Option A Locked Default)",
     summary:
-      "Option B (November 1 contract pencil + curl B, no Gretel overlay) is locked as the application default. Fallback Option A remains accessible via ?cursor=normal&curl=a.",
+      "Option A (corner lift without specular highlight + locked PENCIL-CURSOR-SPEC.md @image1 pencil cursor) is locked as the application default across Lessons 1–24. Option B (warm cream roll with specular highlight) remains accessible via ?curl=b.",
     a: {
-      name: "A — Previous book pencil & curl (fallback)",
+      name: "A — Corner lift baseline curl (Locked Default)",
       description:
-        "Standard arrow pointer; full wooden pencil flies in from the right edge, draws in green/red, and eraser flies in for 4.0 s.",
-      links: toLinks([["Open A — fallback", "/cartilla/leccion/3?cursor=normal&curl=a"]]),
+        "Locked @image1 pencil cursor (#3a3a38 charcoal, green/red feedback, 12 pink crumbs) with corner-lift page curl.",
+      links: toLinks([["Open A — default", "/cartilla/leccion/3?cursor=contract"]]),
     },
     b: {
-      name: "B — Contract pencil & curl B (Locked Default)",
+      name: "B — Warm cream roll with specular highlight (override)",
       description:
-        "Single wooden tip (#3a3a38 charcoal, 3.3–6.4 px stroke, 400 ms hold), 3.5 s pink rub with 12 pink crumbs on red wrong marks, warm cream roll with specular highlight and mark-in-progress guard.",
-      links: toLinks([["Open B — default", "/cartilla/leccion/3"]]),
+        "Locked @image1 pencil cursor with warm cream roll and specular highlight (?curl=b).",
+      links: toLinks([["Open B — specular roll", "/cartilla/leccion/3?cursor=contract&curl=b"]]),
     },
     evidence: toLinks([["A vs B side by side (desktop)", "/review/media/ab-lesson3-1366.svg"]]),
   },
@@ -83,20 +83,26 @@ export const COMPARISONS: Comparison[] = [
   },
   {
     id: "flipchart-lesson-3",
-    title: "Teacher Flip Chart — Lesson 3 (sheet 5, “La niña enfermita”)",
+    title: "Teacher Flip Chart — Lesson 3 (Sheet 5, “La niña enfermita” — Owner Decision: A for all)",
     summary:
-      "Both use the authentic crisp unstretched sheet 5 and the top-bound 2.0 s spiral flip (override: ?flip=a).",
+      "Owner decision: approve-a (“A for all”). Candidate A (2000 ms 5-stop top-bound spiral rotateX turn) is locked as the production default on /cartilla/presentar/3 and /cartilla/teacher/flipchart?lesson=3. Lesson 3 has 1 mapped sheet (Sheet 5). Review-only Candidate B (1200 ms smooth 2-stop, lighter shading, zero easel zoom) and the real neighboring vowel sequence (?sheets=4,5,6,7 for L2–L5) remain available via query parameters.",
     a: {
-      name: "A — Projector presenter",
+      name: "A — 2.0 s top-spiral turn (Locked Default — “A for all”)",
       description:
-        "Full-screen classroom view with Puntero, Mano izquierda, Enfoque and Pantalla completa controls; keyboard arrows turn sheets.",
-      links: toLinks([["Open A — sheet 5", "/cartilla/presentar/3"]]),
+        "Production default: 2000 ms 5-stop top-bound spiral turn on authentic Sheet 5, plus real L2–L5 sequence via ?sheets=4,5,6,7.",
+      links: toLinks([
+        ["Open A — Sheet 5 (default)", "/cartilla/presentar/3"],
+        ["Open A — Teacher panel", "/cartilla/teacher/flipchart?lesson=3"],
+        ["Open A — L2–L5 sequence (sheets 4–7)", "/cartilla/presentar/3?sheets=4,5,6,7"],
+      ]),
     },
     b: {
-      name: "B — Teacher panel presenter",
+      name: "B — 1.2 s smooth subtle top-bound turn (Review-only ?flip=b)",
       description:
-        "The same sheet inside the teacher panel, with the lesson picker, class navigation and a ‘Proyectar pantalla completa’ button.",
-      links: toLinks([["Open B — sheet 5", "/cartilla/teacher/flipchart?lesson=3"]]),
+        "Review-only override (?flip=b): 1200 ms smooth 2-stop rotateX turn, lighter shading, zero easel zoom.",
+      links: toLinks([
+        ["Open B — review (?flip=b&sheets=4,5,6,7)", "/cartilla/presentar/3?flip=b&sheets=4,5,6,7"],
+      ]),
     },
     evidence: [],
   },

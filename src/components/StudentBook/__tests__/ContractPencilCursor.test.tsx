@@ -57,7 +57,7 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     document.documentElement.className = "";
   });
 
-  it("renders the @image1 extreme close-up photographic pencil tip (600×497, point up-left at 0,0) with seamless extended barrel in pencil mode", () => {
+  it("renders the owner-approved 74ccee59 photographic pencil tip (600×497, point up-left at 0,0) with seamless off-screen barrel extension in pencil mode", () => {
     render(
       <div className="native-lesson-viewer">
         <ContractPencilCursor />
@@ -66,7 +66,7 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     const cursor = document.querySelector<HTMLDivElement>('[data-testid="contract-pencil-cursor"]')!;
     const photoTip = cursor.querySelector<SVGSVGElement>('[data-testid="contract-pencil-photo-tip"]')!;
     const photoHead = cursor.querySelector<SVGImageElement>('[data-testid="contract-pencil-photo-head"]')!;
-    const barrelExt = cursor.querySelector<SVGRectElement>('[data-testid="contract-pencil-barrel-extension"]')!;
+    const barrelExt = cursor.querySelector<SVGRectElement>('[data-testid="contract-pencil-barrel-extension"]');
     const eraserSvg = cursor.querySelector("svg.contract-pencil-cursor__svg")!;
     expect(photoTip).toBeTruthy();
     expect(photoTip.getAttribute("viewBox")).toBe("0 0 600 497");
@@ -77,8 +77,9 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(photoTip.style.transformOrigin).toBe("0px 0px");
     expect(photoHead).toBeTruthy();
     expect(photoHead.getAttribute("href")?.startsWith("data:image/webp;base64,")).toBe(true);
+    expect(photoHead.getAttribute("clip-path")).toMatch(/^url\(#owner-pencil-.*-head-clip\)$/);
     expect(barrelExt).toBeTruthy();
-    expect(Number(barrelExt.getAttribute("width"))).toBeGreaterThanOrEqual(8000);
+    expect(Number(barrelExt?.getAttribute("width"))).toBeGreaterThanOrEqual(8000);
     expect(eraserSvg).toBeTruthy();
     expect(eraserSvg.getAttribute("overflow")).toBe("visible");
   });
@@ -182,7 +183,7 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(cursor.dataset.tool).toBe("eraser");
     expect(cursor.dataset.pencilPose).toBe("hd-eraser");
     expect(cursor.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd")).toBeTruthy();
-    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -57.25)");
+    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -839.75)");
 
     // Autonomous wrong-mark erase flight keeps the SAME single pencil visible and flips 180° to rub
     let eraseId!: symbol;
@@ -207,7 +208,7 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(cursor.dataset.visible).toBe("true");
     expect(cursor.dataset.tool).toBe("eraser");
     expect(cursor.dataset.pencilPose).toBe("hd-eraser");
-    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -57.25)");
+    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -839.75)");
 
     act(() => {
       endEraseFlight(eraseId);

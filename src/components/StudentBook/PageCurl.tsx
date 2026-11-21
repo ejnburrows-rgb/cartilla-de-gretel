@@ -40,7 +40,7 @@ export function PageCurl({
 }) {
   const curlParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("curl") : null;
   const style = curlParam === "edge" ? "edge" : "corner";
-  const curlVariant = curlParam === "a" ? "a" : "b";
+  const curlVariant = curlParam === "b" ? "b" : "a";
   const svgRef = useRef<SVGSVGElement>(null);
   const progressRef = useRef(0);
   const animRef = useRef<{ from: number; start: number; dur: number } | null>(null);

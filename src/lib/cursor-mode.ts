@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 
 /**
- * normal = previous main (system cursor + flying wooden pencil, override `?cursor=normal`);
- * tip = #1305 photo-tip candidate (not offered for approval);
- * contract = Locked Option B default (November 1 contract: single close-up wooden tip).
+ * normal = accessibility/forced-colors fallback only (override `?cursor=normal`);
+ * tip = legacy photo-tip pointer override (`?cursor=tip`);
+ * contract = Locked PENCIL-CURSOR-SPEC.md default (Nov 1 @image1 extended photo pencil + Oct 11 classic wooden eraser).
  */
 export type CursorMode = "normal" | "tip" | "contract";
 export const DEFAULT_CURSOR_MODE: CursorMode = "contract";
 export const CURSOR_MODE_KEY = "cartilla:cursor-mode";
 export const PENCIL_TIP_SRC = "/cartilla/images/ui/owner-pencil-tip.svg";
 export const PENCIL_TIP_VIEWBOX = { width: 600, height: 497 } as const;
-export const ERASER_CURSOR_SRC = "/cartilla/images/ui/owner-eraser.svg";
-export const ERASER_VIEWBOX = { width: 388, height: 322 } as const;
 let lastPointer: { x: number; y: number } | null = null;
 export function recordPointer(x: number, y: number) { lastPointer = { x, y }; }
 export function getLastPointer() { return lastPointer; }

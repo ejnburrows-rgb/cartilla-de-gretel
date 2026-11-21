@@ -24,13 +24,29 @@
   --lc-top: 12px;
   --lc-bottom: 12px;
   --ph: calc(100cqh - var(--lc-top) - var(--lc-bottom));
-  --pw: min(100cqw - 96px, var(--ph) * 1.56);
+  --pw: min(100cqw - 156px, var(--ph) * 1.56);
 }
 @media (orientation: portrait) {
   .lc-lesson-shell--fit .lc-lesson-main {
-    --lc-top: 44px;
-    --lc-bottom: 76px;
+    --lc-top: 8px;
+    --lc-bottom: 138px;
     --pw: calc(100cqw - 20px);
+  }
+}
+@media (min-width: 601px) and (orientation: portrait) {
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] {
+    margin-top: 40px;
+    margin-bottom: 8px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1520px) {
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] {
+    max-width: min(640px, calc(100vw - 640px));
+    flex-wrap: nowrap;
+    margin-bottom: 6px;
+  }
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] button {
+    white-space: nowrap;
   }
 }
 /* Short landscape phones: narrower side margins. */
@@ -169,7 +185,11 @@
  * until the page is finished. Labels stay for screen readers. */
 .lc-lesson-shell--fit .native-lesson-viewer__footer { position: fixed; right: 14px; bottom: 10px; z-index: 50; margin: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; max-width: min(360px, calc(100vw - 28px)); }
 .lc-lesson-shell--fit .native-lesson-viewer__hint { margin: 0; padding: 8px 12px; border-radius: 12px; background: #fffdf9; box-shadow: 0 4px 14px -6px #0004; font-size: 14px; }
-.lc-lesson-shell--fit .native-lesson-viewer__navigation { gap: 8px; }
+.lc-lesson-shell--fit .native-lesson-viewer__navigation { gap: 8px; margin-top: 0; padding-top: 0; border-top: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__progress { margin: 2px 0 8px; }
+@media (orientation: landscape) {
+  .lc-lesson-shell--fit .native-lesson-viewer__navigation { flex-direction: column-reverse; }
+}
 .lc-lesson-shell--fit .native-lesson-viewer__navigation > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .lc-lesson-shell--fit .native-lesson-viewer__navigation button { width: 52px; height: 52px; min-height: 0; padding: 0; border-radius: 50%; justify-content: center; box-shadow: 0 4px 12px -4px #0003; }
 .lc-lesson-shell--fit .native-lesson-viewer__navigation button svg { width: 24px; height: 24px; flex: none; }

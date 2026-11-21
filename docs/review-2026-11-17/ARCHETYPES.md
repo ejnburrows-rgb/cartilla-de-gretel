@@ -1,6 +1,6 @@
 # Lesson & Flip Chart Archetypes Inventory (2026-11-17)
 
-Approved Option B model: **Lesson 3** (Workbook pages 7–9, Flip Chart sheet 5).
+Approved Option A model (locked 2026-11-18): **Lesson 3** (Workbook pages 7–9 with `curl=a` corner lift + `PENCIL-CURSOR-SPEC.md` `@image1` cursor; Flip Chart sheet 5 on Projector Presenter `/cartilla/presentar/$n`).
 
 ## Curriculum Lesson Sequences
 - **Intro**: Lesson 1 (`O A E I U`, Workbook pp. 1–3, Flip Chart sheet 3)
@@ -56,7 +56,7 @@ Approved Option B model: **Lesson 3** (Workbook pages 7–9, Flip Chart sheet 5)
 - **Pages**: L7 p.20, L8 p.24, L9 p.28, L10 p.32, L11 p.36, L12 p.40, L13 p.44, L14 p.48, L15 p.52, L16 p.56, L17 p.60, L18 p.64, L19 p.68, L20 p.72, L21 p.76, L22 p.80, L23 p.84, L24 p.88
 
 ### Read Word List & Sentences (`read-word-list`, 18)
-- **Kernel / Host**: FaithfulPageRenderer static reading surface (ContractPencilCursor + Curl B)
+- **Kernel / Host**: FaithfulPageRenderer static reading surface (ContractPencilCursor + Curl A `curl=a`)
 - **Pages**: L7 p.21, L8 p.25, L9 p.29, L10 p.33, L11 p.37, L12 p.41, L13 p.45, L14 p.49, L15 p.53, L16 p.57, L17 p.61, L18 p.65, L19 p.69, L20 p.73, L21 p.77, L22 p.81, L23 p.85, L24 p.89
 
 ### Fill Blank + Sentence Writing (`fill-blank-and-write`, 17)
@@ -68,26 +68,26 @@ Approved Option B model: **Lesson 3** (Workbook pages 7–9, Flip Chart sheet 5)
 - **Pages**: L23 p.86 [SOURCE_BLOCKED], L24 p.87 [SOURCE_BLOCKED]
 
 ### Flip Chart — Frontmatter (`flipchart-frontmatter`, 2)
-- **Kernel / Host**: FlipchartHdPanel (Flip B top-spiral)
+- **Kernel / Host**: FlipchartHdPanel (Candidate A top-spiral, 2000 ms)
 - **Pages**: L0 p.1, L0 p.2
 
 ### Flip Chart — Vowel Intro & Vocab (`flipchart-vowel-header`, 6)
-- **Kernel / Host**: FlipchartHdPanel (Flip B top-spiral)
+- **Kernel / Host**: FlipchartHdPanel (Candidate A top-spiral, 2000 ms)
 - **Pages**: L1 p.3, L2 p.4, L3 p.5, L4 p.6, L5 p.7, L6 p.8
 
 ### Flip Chart — Consonant Intro & Vocab (`flipchart-consonant-vocab`, 18)
-- **Kernel / Host**: FlipchartHdPanel (Flip B top-spiral)
+- **Kernel / Host**: FlipchartHdPanel (Candidate A top-spiral, 2000 ms)
 - **Pages**: L7 p.9, L8 p.12, L9 p.15, L10 p.18, L11 p.21, L12 p.24, L13 p.27, L14 p.30, L15 p.33, L16 p.36, L17 p.39, L18 p.42, L19 p.45, L20 p.48, L21 p.51, L22 p.54, L23 p.57, L24 p.60
 
 ### Flip Chart — Syllable & Word Drill (`flipchart-syllable-drill`, 18)
-- **Kernel / Host**: FlipchartHdPanel (Flip B top-spiral)
+- **Kernel / Host**: FlipchartHdPanel (Candidate A top-spiral, 2000 ms)
 - **Pages**: L7 p.10, L8 p.13, L9 p.16, L10 p.19, L11 p.22, L12 p.25, L13 p.28, L14 p.31, L15 p.34, L16 p.37, L17 p.40, L18 p.43, L19 p.46, L20 p.49, L21 p.52, L22 p.55, L23 p.58, L24 p.61
 
 ### Flip Chart — Reading Verse / Scene (`flipchart-reading-panel`, 16)
-- **Kernel / Host**: FlipchartHdPanel (Flip B top-spiral)
+- **Kernel / Host**: FlipchartHdPanel (Candidate A top-spiral, 2000 ms)
 - **Pages**: L7 p.11, L8 p.14, L9 p.17, L10 p.20, L11 p.23, L12 p.26, L13 p.29, L14 p.32, L15 p.35, L16 p.38, L17 p.41, L19 p.47, L20 p.50, L21 p.53, L22 p.56, L23 p.59
 
 ### Flip Chart — Special Story / Letter (`flipchart-story-letter`, 2)
-- **Kernel / Host**: FlipchartHdPanel (Flip B top-spiral)
+- **Kernel / Host**: FlipchartHdPanel (Candidate A top-spiral, 2000 ms)
 - **Pages**: L18 p.44, L24 p.62
 

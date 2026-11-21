@@ -104,8 +104,15 @@ export function InteractivePictureGrid({
     if (solved || validated.has(i) || markingCells.has(i)) return;
     if (markingCells.size > 0) {
       for (const [prevIdx, wasCorrect] of markingCells) {
-        if (wasCorrect) handleCellCorrect(prevIdx);
-        else handleCellRetry();
+        const itemId = `${region.id}-${prevIdx}`;
+        if (wasCorrect) {
+          const complete = new Set(validated).add(prevIdx).size === totalCorrectRequired;
+          gretelEvent(complete ? "activity:complete" : "answer:correct", { itemId });
+          handleCellCorrect(prevIdx);
+        } else {
+          gretelEvent("answer:wrong", { itemId });
+          handleCellRetry();
+        }
       }
     }
     const cell = cells[i];
@@ -333,8 +340,15 @@ export function InteractiveVowelPickOne({
     if (markingCells.size > 0) {
       for (const [prevKey, wasCorrect] of markingCells) {
         const prevRow = Number(prevKey.split("-")[0]);
-        if (wasCorrect) handleCellCorrect(prevRow);
-        else handleCellRetry();
+        const itemId = `${region.id}-${prevKey}`;
+        if (wasCorrect) {
+          const complete = new Set(correctRows).add(prevRow).size === rows.length;
+          gretelEvent(complete ? "activity:complete" : "answer:correct", { itemId });
+          handleCellCorrect(prevRow);
+        } else {
+          gretelEvent("answer:wrong", { itemId });
+          handleCellRetry();
+        }
       }
     }
     const cell = rows[rowIdx]?.cells[cellIdx];

@@ -60,7 +60,7 @@ for (const viewport of [
         expect(Math.abs(cbox.x - tx)).toBeLessThanOrEqual(1);
         expect(Math.abs(cbox.y - ty)).toBeLessThanOrEqual(1);
 
-        // Photographic @image1 close-up pencil tip (600×497, extended barrel off-screen)
+        // Owner-approved 74ccee59 photographic pencil tip (600×497, extended barrel off-screen)
         const svgMeta = await cursor.evaluate((el) => {
           const photoSvg = el.querySelector<SVGSVGElement>('[data-testid="contract-pencil-photo-tip"]');
           const barrel = el.querySelector<SVGRectElement>(
@@ -272,15 +272,20 @@ for (const viewport of [
         await page.waitForTimeout(300);
         const eraserMeta = await cursor.evaluate((el) => {
           const tip = el.querySelector<SVGSVGElement>('[data-testid="contract-pencil-photo-tip"]');
+          const eraserEl = el.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd");
+          const eraserRect = eraserEl?.getBoundingClientRect();
           return {
             hasImgVisible: !!tip && getComputedStyle(tip).display !== "none",
-            hasBackEraser: !!el.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd"),
+            hasBackEraser: !!eraserEl,
+            eraserReachesEdge:
+              !!eraserRect && (eraserRect.right >= window.innerWidth - 1 || eraserRect.top <= 1),
             flipTransform:
               el.querySelector('[data-testid="contract-pencil-flip"]')?.getAttribute("transform") ?? "",
           };
         });
         expect(eraserMeta.hasImgVisible).toBe(false);
         expect(eraserMeta.hasBackEraser).toBe(true);
+        expect(eraserMeta.eraserReachesEdge).toBe(true);
         expect(eraserMeta.flipTransform).toContain("rotate(180.00");
         await saveShot(page, `${viewport.name}-leccion3-p9-dibuja-eraser.png`);
       }

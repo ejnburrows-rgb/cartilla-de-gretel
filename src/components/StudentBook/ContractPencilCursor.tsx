@@ -110,9 +110,13 @@ export function ContractPencilCursor() {
         );
       }
       if (flipRef.current) {
+        // The SVG pencil is only shown in eraser mode (writing uses OwnerPhotoPencilSvg).
+        // Keeping it anchored at 180° around CONTRACT_PENCIL_CENTER_Y locks the pink eraser
+        // dome to exact (0, 0) while the extended wooden barrel runs continuously off the
+        // edge of the page/viewport without swinging in a giant arc during enter/lift.
         flipRef.current.setAttribute(
           "transform",
-          `rotate(${flipDeg.toFixed(2)} 0 ${CONTRACT_PENCIL_CENTER_Y})`,
+          `rotate(180.00 0 ${CONTRACT_PENCIL_CENTER_Y})`,
         );
       }
     };

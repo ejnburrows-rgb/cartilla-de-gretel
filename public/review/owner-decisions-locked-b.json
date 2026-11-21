@@ -32,10 +32,10 @@
     },
     {
       "itemId": "teacher-flipchart",
-      "decision": "approve-b",
-      "comment": "Option B locked as default: 2.0s top-spiral turn, crisp unstretched Sheet 5 (override: ?flip=a)",
-      "at": "2026-11-17T06:00:04.000Z",
-      "revision": "work/lessons"
+      "decision": "approve-a",
+      "comment": "A for all — Candidate A locked as production default: 2.0s 5-stop top-spiral turn, crisp unstretched Sheet 5 (review-only Candidate B via ?flip=b&sheets=4,5,6,7)",
+      "at": "2026-11-20T00:00:00.000Z",
+      "revision": "fix/lesson-style-review-links"
     },
     {
       "itemId": "workbook-lesson-3",
@@ -46,10 +46,10 @@
     },
     {
       "itemId": "flipchart-lesson-3",
-      "decision": "approve-b",
-      "comment": "Option B locked as default: Sheet 5 with flip B on /presentar/3 and /teacher/flipchart?lesson=3 (override: ?flip=a)",
-      "at": "2026-11-17T06:00:06.000Z",
-      "revision": "work/lessons"
+      "decision": "approve-a",
+      "comment": "A for all — Candidate A locked as production default: Sheet 5 (only mapped L3 sheet) with 2.0s top-spiral turn on /presentar/3 and /teacher/flipchart?lesson=3 (review-only ?flip=b&sheets=4,5,6,7)",
+      "at": "2026-11-20T00:00:01.000Z",
+      "revision": "fix/lesson-style-review-links"
     }
   ]
 }
