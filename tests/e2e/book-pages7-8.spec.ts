@@ -4,16 +4,14 @@ async function openBook(page: import('@playwright/test').Page,n:number){
  await page.goto('/cartilla/cuaderno');
  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-native-page',String(n));
 }
-test('page7 splits8plus8 and keeps validated original cell when changing screens',async({page})=>{
+test('page7 renders the full 16-picture page together without splitting into two sections',async({page})=>{
  await openBook(page,7);
- await expect(page.locator('.fp-ix-cell')).toHaveCount(8);
- await page.getByRole('button',{name:'abanico',exact:true}).click();
- await expect(page.getByRole('button',{name:'abanico',exact:true})).toHaveAttribute('aria-pressed','true');
- const next=page.getByRole('button',{name:'Dibujos 9-16'});
- await expect(next).toBeEnabled({timeout:15000});await next.click();
- await expect(page.locator('.fp-ix-cell')).toHaveCount(8);
+ await expect(page.locator('.fp-ix-cell')).toHaveCount(16);
+ await expect(page.getByRole('button',{name:'Dibujos 1-8'})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Dibujos 9-16'})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'abanico',exact:true})).toBeVisible();
  await expect(page.getByRole('button',{name:'uno',exact:true})).toBeVisible();
- await page.getByRole('button',{name:'Dibujos 1-8'}).click();
+ await page.getByRole('button',{name:'abanico',exact:true}).click();
  await expect(page.getByRole('button',{name:'abanico',exact:true})).toHaveAttribute('aria-pressed','true');
  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-native-page','7');
 });
