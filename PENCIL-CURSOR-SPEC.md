@@ -17,9 +17,9 @@
    - Rendered via an unclipped `overflow="visible"` SVG where the seamless photographic yellow hexagonal barrel extends continuously from `x + y = 810` along the `45°` barrel axis well past the bottom and right edges of every Desktop (`1366×768`), Phone (`390×844`), and Projector (`1920×1080`) viewport with **zero space** between the end of the pencil and the page/viewport edges.
    - Casts a soft unified vector contact shadow under both cone and extended barrel (never a box-clipped CSS filter).
 
-2. **Eraser End (`74d904ec` #692 / `b402cde8` `PencilShape` + Continuous Off-Screen Barrel):**
-   - When erasing a wrong mark (or in manual eraser mode), the single cursor switches to the owner-approved classic wooden pencil (`PencilShape` / `ClassicWoodenPencil` in `WorkbookPencilMark.tsx`), oriented eraser-first (`180°` onto its **pink eraser dome and ribbed silver ferrule** at exact `(0, 0)` hotspot) with `CONTRACT_PENCIL_STRETCH = 1600` (`overflow="visible"`) so its wooden barrel runs continuously past the edge of the page/viewport on Desktop, Phone, and Projector with **zero mid-air cutoff** and **zero space** between the pencil end and the page edge.
-   - Standalone pink eraser bricks (`PinkEraserBlock`) and the Nov 17 cartoon `owner-eraser.svg` are permanently prohibited.
+2. **Rotated Macro Eraser End (`OwnerPhotoEraserSvg` — Same Close-Up Scale & Photographic Barrel):**
+   - When erasing a wrong mark (or in manual eraser mode), the pencil rotates onto **just the zoomed-in macro eraser tip** (rounded pink rubber dome + brushed silver metallic ferrule at exact `(0, 0)` hotspot, **never** a small/skinny full pencil) at the **exact same `600×497` close-up scale (`252×209` desktop, `168×139` mobile) and `45°` down-right orientation** as the writing pencil, with the **same seamless photographic yellow hexagonal barrel** (`OWNER_PENCIL_BARREL_TILE_DATA_URI`, `overflow="visible"`) extending continuously past the page/viewport edges with **zero gap**.
+   - Small/skinny full pencils, standalone pink eraser bricks (`PinkEraserBlock`), and the Nov 17 cartoon `owner-eraser.svg` are permanently prohibited.
 
 ---
 

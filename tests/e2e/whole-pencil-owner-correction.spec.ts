@@ -103,10 +103,8 @@ for (const device of [
       expect(rubKeyTimes[0]).not.toBe(rubKeyTimes[1]);
       // Let the 450ms flip finish and rub well into Diagonal 2 so pink crumbs & sequential rub are clearly visible
       await page.waitForTimeout(1050);
-      const flipTransform = await cursor
-        .locator('[data-testid="contract-pencil-flip"]')
-        .getAttribute("transform");
-      expect(flipTransform).toContain("rotate(180.00");
+      await expect(cursor.locator('[data-testid="contract-eraser-pink-dome"]')).toBeVisible();
+      await expect(cursor.locator('[data-testid="contract-eraser-ferrule"]')).toBeVisible();
 
       const eraseBox = await eraser.boundingBox();
       expect(eraseBox).not.toBeNull();

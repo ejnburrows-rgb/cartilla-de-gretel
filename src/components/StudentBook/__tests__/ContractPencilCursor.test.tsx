@@ -182,8 +182,13 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(cursor.dataset.visible).toBe("true");
     expect(cursor.dataset.tool).toBe("eraser");
     expect(cursor.dataset.pencilPose).toBe("hd-eraser");
-    expect(cursor.querySelector(".workbook-pencil--eraser .workbook-pencil__eraser-hd")).toBeTruthy();
-    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -839.75)");
+    expect(cursor.querySelector(".workbook-pencil--eraser.workbook-pencil__eraser-hd")).toBeTruthy();
+    expect(flipGroup.getAttribute("overflow")).toBe("visible");
+    expect(cursor.querySelector('[data-testid="contract-eraser-pink-dome"]')).toBeTruthy();
+    expect(cursor.querySelector('[data-testid="contract-eraser-ferrule"]')).toBeTruthy();
+    expect(
+      Number(cursor.querySelector('[data-testid="contract-eraser-barrel-extension"]')?.getAttribute("width")),
+    ).toBeGreaterThanOrEqual(8000);
 
     // Autonomous wrong-mark erase flight keeps the SAME single pencil visible and flips 180° to rub
     let eraseId!: symbol;
@@ -208,7 +213,7 @@ describe("HD uncropped pencil & eraser cursors and R2 hotspot mechanics", () => 
     expect(cursor.dataset.visible).toBe("true");
     expect(cursor.dataset.tool).toBe("eraser");
     expect(cursor.dataset.pencilPose).toBe("hd-eraser");
-    expect(flipGroup.getAttribute("transform")).toContain("rotate(180.00 0 -839.75)");
+    expect((flipGroup as SVGSVGElement).style.display).toBe("block");
 
     act(() => {
       endEraseFlight(eraseId);
