@@ -37,7 +37,13 @@ export const audioEngine = {
   setMuted(muted: boolean) {
     if (typeof window === "undefined") return;
     localStorage.setItem(MUTE_KEY, String(muted));
-    if (muted) stopSpeech("picture");
+    if (muted) {
+      stopSpeech("picture");
+      if (pageTurnAudio) {
+        pageTurnAudio.pause();
+        pageTurnAudio.currentTime = 0;
+      }
+    }
     window.dispatchEvent(new Event("cartilla:audio-settings"));
     if (ambientAudio) {
       if (muted) {

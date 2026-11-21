@@ -114,6 +114,10 @@ describe("audioEngine", () => {
       expect(created[0].paused).toBe(true);
       expect(created[0].currentTime).toBe(0);
       expect(created[1].played).toBe(true);
+
+      audioEngine.setMuted(true);
+      expect(created[1].paused).toBe(true);
+      expect(created[1].currentTime).toBe(0);
     });
   });
 });

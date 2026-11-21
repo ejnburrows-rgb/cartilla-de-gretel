@@ -140,4 +140,83 @@ test.describe("Flip Chart Corner Flip & Teacher Hand Mode E2E Proof", () => {
 
     expect(consoleErrors).toHaveLength(0);
   });
+
+  test("Lesson 3 locks Candidate A (Sheet 5, 2000ms) and review-only ?flip=b&sheets=4,5,6,7 animates 1200ms with zero zoom", async ({ page }) => {
+    const consoleErrors: string[] = [];
+    page.on("console", (msg) => {
+      if (msg.type() === "error") consoleErrors.push(msg.text());
+    });
+
+    await page.setViewportSize({ width: 1366, height: 768 });
+
+    // 1. Default /cartilla/presentar/3 -> Candidate A, 2000ms, single real Sheet 5
+    await page.goto("/cartilla/presentar/3", { waitUntil: "domcontentloaded" });
+    const panel = page.getByTestId("flipchart-hd-panel");
+    await expect(panel).toBeVisible({ timeout: 15000 });
+    await expect(panel).toHaveAttribute("data-flip-variant", "a");
+    await expect(panel).toHaveAttribute("data-page-turn-ms", "2000");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Hoja 1 de 1");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Lámina 5 · Lección 3");
+
+    // 2. Teacher panel /cartilla/teacher/flipchart?lesson=3 -> Candidate A, Sheet 5
+    await page.goto("/cartilla/teacher/flipchart?lesson=3", { waitUntil: "domcontentloaded" });
+    await expect(panel).toBeVisible({ timeout: 15000 });
+    await expect(panel).toHaveAttribute("data-flip-variant", "a");
+    await expect(panel).toHaveAttribute("data-page-turn-ms", "2000");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Lámina 5 · Lección 3");
+
+    // 3. Candidate A on real L2-L5 sequence (?sheets=4,5,6,7)
+    await page.goto("/cartilla/presentar/3?sheets=4,5,6,7", { waitUntil: "domcontentloaded" });
+    await expect(panel).toBeVisible({ timeout: 15000 });
+    await expect(panel).toHaveAttribute("data-flip-variant", "a");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Hoja 1 de 4");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Lámina 4 · Lección 2");
+    await page.getByRole("button", { name: "Lámina siguiente", exact: true }).click();
+    await expect(page.locator(".fc-turn__leaf")).toBeVisible();
+    const animA = await page.evaluate(() => {
+      const leaf = document.querySelector<HTMLElement>(".fc-turn__leaf");
+      const easel = document.querySelector<HTMLElement>(".fc-board__easel");
+      return {
+        animationName: leaf ? getComputedStyle(leaf).animationName : null,
+        animationDuration: leaf ? getComputedStyle(leaf).animationDuration : null,
+        easelZoom: easel?.classList.contains("is-cinematic-zoom") ?? false,
+      };
+    });
+    expect(animA.animationName).toBe("fc-turn-leaf");
+    expect(animA.animationDuration).toBe("2s");
+    expect(animA.easelZoom).toBe(true);
+    await page.waitForTimeout(700);
+    await page.screenshot({ path: path.join(PROOF_DIR, "nov20-flipchart-candidate-a-midturn.png") });
+    await page.waitForTimeout(1600);
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Hoja 2 de 4");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Lámina 5 · Lección 3");
+
+    // 4. Review-only Candidate B (?flip=b&sheets=4,5,6,7): 1200ms, fc-turn-leaf-b, zero easel zoom
+    await page.goto("/cartilla/presentar/3?flip=b&sheets=4,5,6,7", { waitUntil: "domcontentloaded" });
+    await expect(panel).toBeVisible({ timeout: 15000 });
+    await expect(panel).toHaveAttribute("data-flip-variant", "b");
+    await expect(panel).toHaveAttribute("data-page-turn-ms", "1200");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Lámina 4 · Lección 2");
+    await page.getByRole("button", { name: "Lámina siguiente", exact: true }).click();
+    await expect(page.locator(".fc-turn__leaf")).toBeVisible();
+    const animB = await page.evaluate(() => {
+      const leaf = document.querySelector<HTMLElement>(".fc-turn__leaf");
+      const easel = document.querySelector<HTMLElement>(".fc-board__easel");
+      return {
+        animationName: leaf ? getComputedStyle(leaf).animationName : null,
+        animationDuration: leaf ? getComputedStyle(leaf).animationDuration : null,
+        easelZoom: easel?.classList.contains("is-cinematic-zoom") ?? false,
+      };
+    });
+    expect(animB.animationName).toBe("fc-turn-leaf-b");
+    expect(animB.animationDuration).toBe("1.2s");
+    expect(animB.easelZoom).toBe(false);
+    await page.waitForTimeout(500);
+    await page.screenshot({ path: path.join(PROOF_DIR, "nov20-flipchart-candidate-b-midturn.png") });
+    await page.waitForTimeout(1000);
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Hoja 2 de 4");
+    await expect(page.getByTestId("flipchart-counter")).toContainText("Lámina 5 · Lección 3");
+
+    expect(consoleErrors).toHaveLength(0);
+  });
 });

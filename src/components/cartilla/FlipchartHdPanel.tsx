@@ -78,38 +78,35 @@ function FlipchartFace({
 }
 
 export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }: FlipchartHdPanelProps) {
+  const search = typeof window !== "undefined" ? window.location.search : "";
+  const searchParams = useMemo(() => new URLSearchParams(search), [search]);
+  const sheetsParam = searchParams.get("sheets");
   const pages: FlipchartPage[] = useMemo(() => {
-    if (typeof window !== "undefined") {
-      const sheetsParam = new URLSearchParams(window.location.search).get("sheets");
-      if (sheetsParam) {
-        const requested = sheetsParam
-          .split(",")
-          .map((s) => Number(s.trim()))
-          .filter((n) => Number.isInteger(n) && n > 0);
-        const byPage = new Map(FLIPCHART_PAGES.map((p) => [p.flipchartPage, p]));
-        const resolved: FlipchartPage[] = [];
-        const seen = new Set<number>();
-        for (const num of requested) {
-          const found = byPage.get(num);
-          if (found && !seen.has(num)) {
-            seen.add(num);
-            resolved.push(found);
-          }
+    if (sheetsParam) {
+      const requested = sheetsParam
+        .split(",")
+        .map((s) => Number(s.trim()))
+        .filter((n) => Number.isInteger(n) && n > 0);
+      const byPage = new Map(FLIPCHART_PAGES.map((p) => [p.flipchartPage, p]));
+      const resolved: FlipchartPage[] = [];
+      const seen = new Set<number>();
+      for (const num of requested) {
+        const found = byPage.get(num);
+        if (found && !seen.has(num)) {
+          seen.add(num);
+          resolved.push(found);
         }
-        if (resolved.length > 0) return resolved;
       }
+      if (resolved.length > 0) return resolved;
     }
     return getFlipchartPagesForLesson(lessonNumber);
-  }, [lessonNumber]);
+  }, [lessonNumber, sheetsParam]);
   const reducedMotion = useReducedMotion();
   const { laserPointerActive, handMode } = useTeacherPresentation();
   // Owner decision ("A for all"): Candidate A (2000ms 5-stop top-spiral turn) is
   // locked as production default; Candidate B (1200ms smooth 2-stop, lighter shading,
   // zero easel zoom) is review-only via `?flip=b`.
-  const flipVariant: "a" | "b" =
-    typeof window !== "undefined" && new URLSearchParams(window.location.search).get("flip") === "b"
-      ? "b"
-      : "a";
+  const flipVariant: "a" | "b" = searchParams.get("flip") === "b" ? "b" : "a";
   const flipDurationMs = flipVariant === "b" ? 1200 : FLIPCHART_FLIP_MS;
 
   const [selectedIdx, setSelectedIdx] = useState(0);
@@ -193,7 +190,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       if (flipTimerRef.current) clearTimeout(flipTimerRef.current);
       if (zoomTimerRef.current) clearTimeout(zoomTimerRef.current);
     };
-  }, [lessonNumber]);
+  }, [lessonNumber, sheetsParam, flipDurationMs]);
 
   const afterFlip = useCallback((newIndex: number, token: number) => {
     if (token !== flipTokenRef.current) return;
@@ -777,7 +774,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
         <div className="fc-board__counter" data-testid="flipchart-counter">
           <span>Hoja {safeIdx + 1} de {pages.length}</span>
           <span className="fc-board__counter-sub">
-            Lámina {currentPage?.flipchartPage ?? "—"} · Lección {lessonNumber}
+            Lámina {currentPage?.flipchartPage ?? "—"} · Lección {currentPage?.lesson ?? lessonNumber}
           </span>
         </div>
 

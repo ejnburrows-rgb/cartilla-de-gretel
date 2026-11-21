@@ -454,21 +454,25 @@ describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () 
 
   it("locks Candidate A (2000ms) as default for Lesson 3 (1 real sheet: Sheet 5) and supports review-only ?flip=b&sheets=4,5,6,7", () => {
     history.replaceState(null, "", "/cartilla/presentar/3");
-    const { container, unmount } = render(<FlipchartHdPanel lessonNumber={3} />);
+    const { container, rerender } = render(<FlipchartHdPanel lessonNumber={3} />);
     const panelA = container.querySelector('[data-testid="flipchart-hd-panel"]')!;
     expect(panelA.getAttribute("data-flip-variant")).toBe("a");
     expect(panelA.getAttribute("data-page-turn-ms")).toBe(String(FLIPCHART_FLIP_MS));
     expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 1");
-    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 5");
-    unmount();
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 5 · Lección 3");
 
+    // In-place query param update (same lessonNumber) must refresh sheets and variant.
     history.replaceState(null, "", "/cartilla/presentar/3?flip=b&sheets=4,5,6,7");
-    const { container: cB } = render(<FlipchartHdPanel lessonNumber={3} />);
-    const panelB = cB.querySelector('[data-testid="flipchart-hd-panel"]')!;
+    rerender(<FlipchartHdPanel lessonNumber={3} />);
+    const panelB = container.querySelector('[data-testid="flipchart-hd-panel"]')!;
     expect(panelB.getAttribute("data-flip-variant")).toBe("b");
     expect(panelB.getAttribute("data-page-turn-ms")).toBe("1200");
     expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 4");
-    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 4");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 4 · Lección 2");
+
+    fireEvent.click(screen.getByRole("button", { name: "Lámina siguiente" }));
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 2 de 4");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 5 · Lección 3");
     history.replaceState(null, "", "/");
   });
 });
