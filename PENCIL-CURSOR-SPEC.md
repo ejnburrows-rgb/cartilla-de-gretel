@@ -4,21 +4,21 @@
 
 **Status:** OFFICIAL OWNER-APPROVED SOURCE OF TRUTH  
 **Approved by:** Emilio  
-**Approved on:** 2026-11-18 (amended 2026-11-20: exact `74ccee59` cursor pencil photo + Oct 11 `74d904ec` classic wooden pencil with pink eraser)  
+**Approved on:** 2026-11-18 (amended 2026-11-20: exact `74ccee59` cursor pencil photo + Oct 11 `74d904ec` classic wooden pencil with pink eraser, both extended continuously past the page/viewport edges with zero gap)  
 
-> **Supersedes & Retires Rejected Redraws:** The Nov 17 cartoon `owner-eraser.svg` redraw, added synthetic barrel extensions, checkerboard screenshots, skinny SVG toothpicks (`scale(0.65)`), standalone pink eraser bricks (`PinkEraserBlock`) on non-canvas modes, and duplicate secondary flying pencil sprites are permanently retired and prohibited.
+> **Supersedes & Retires Rejected Redraws:** The Nov 17 cartoon `owner-eraser.svg` redraw, mid-air chopped barrels leaving space between the pencil end and page edges, checkerboard screenshots, skinny SVG toothpicks (`scale(0.65)`), standalone pink eraser bricks (`PinkEraserBlock`) on non-canvas modes, and duplicate secondary flying pencil sprites are permanently retired and prohibited.
 
 ---
 
-## 1. Visual Identity (Two Exact Owner-Approved Sources)
+## 1. Visual Identity (Two Exact Owner-Approved Sources, Zero Edge Gap)
 
-1. **Cursor / Writing Pencil (`74ccee59` / `b402cde8`):**
-   - Exact owner-selected photographic sharpened wooden pencil (`owner-pencil-tip.webp` embedded byte-for-byte in `public/cartilla/images/ui/owner-pencil-tip.svg` and `ownerPencilPhotoAssets.ts`, `600×497`, `38,250` bytes, transparent background).
-   - Shown **exactly as approved**: no added synthetic barrel extension, no clipping, no checkerboard background.
-   - Sharp dark graphite point sits at exact `(0, 0)` hotspot (`transform-origin: 0px 0px`).
+1. **Cursor / Writing Pencil (`74ccee59` / `b402cde8` + `9b379ad2` Seamless Edge Extension):**
+   - Exact owner-selected photographic sharpened wooden pencil (`owner-pencil-tip.webp` embedded in `public/cartilla/images/ui/owner-pencil-tip.svg` and `ownerPencilPhotoAssets.ts`, `600×497`, transparent background, sharp dark graphite point at exact `(0, 0)` hotspot, `transform-origin: 0px 0px`).
+   - Rendered via an unclipped `overflow="visible"` SVG where the seamless photographic yellow hexagonal barrel extends continuously from `x + y = 810` along the `45°` barrel axis well past the bottom and right edges of every Desktop (`1366×768`), Phone (`390×844`), and Projector (`1920×1080`) viewport with **zero space** between the end of the pencil and the page/viewport edges.
+   - Casts a soft unified vector contact shadow under both cone and extended barrel (never a box-clipped CSS filter).
 
-2. **Eraser End (`74d904ec` #692 / `b402cde8` `PencilShape`):**
-   - When erasing a wrong mark (or in manual eraser mode), the single cursor switches to the owner-approved classic wooden pencil (`PencilShape` / `ClassicWoodenPencil` in `WorkbookPencilMark.tsx`), flipping `180°` onto its **pink eraser dome and ribbed silver ferrule** (`ERASER_POSE`).
+2. **Eraser End (`74d904ec` #692 / `b402cde8` `PencilShape` + Continuous Off-Screen Barrel):**
+   - When erasing a wrong mark (or in manual eraser mode), the single cursor switches to the owner-approved classic wooden pencil (`PencilShape` / `ClassicWoodenPencil` in `WorkbookPencilMark.tsx`), oriented eraser-first (`180°` onto its **pink eraser dome and ribbed silver ferrule** at exact `(0, 0)` hotspot) with `CONTRACT_PENCIL_STRETCH = 1600` (`overflow="visible"`) so its wooden barrel runs continuously past the edge of the page/viewport on Desktop, Phone, and Projector with **zero mid-air cutoff** and **zero space** between the pencil end and the page edge.
    - Standalone pink eraser bricks (`PinkEraserBlock`) and the Nov 17 cartoon `owner-eraser.svg` are permanently prohibited.
 
 ---
@@ -52,8 +52,8 @@
 
 | Responsibility | Canonical File |
 | :--- | :--- |
-| Photographic `74ccee59` cursor pencil asset | [ownerPencilPhotoAssets.ts](src/components/StudentBook/ownerPencilPhotoAssets.ts) |
-| Shared unclipped SVG renderer (`74ccee59` photo only) | [OwnerPhotoPencilSvg.tsx](src/components/StudentBook/OwnerPhotoPencilSvg.tsx) |
+| Photographic `74ccee59` head & seamless barrel tile assets | [ownerPencilPhotoAssets.ts](src/components/StudentBook/ownerPencilPhotoAssets.ts) |
+| Shared unclipped extended SVG renderer (`74ccee59` photo + seamless barrel + vector shadow) | [OwnerPhotoPencilSvg.tsx](src/components/StudentBook/OwnerPhotoPencilSvg.tsx) |
 | Single pointer-following & flight-choreography host (writing photo + Oct 11 `PencilShape` eraser) | [ContractPencilCursor.tsx](src/components/StudentBook/ContractPencilCursor.tsx) |
 | Legacy `?cursor=tip` pointer renderer | [PencilTipCursor.tsx](src/components/StudentBook/PencilTipCursor.tsx) |
 | Synchronized `butt`-capped reveal mask, Oct 11 `PencilShape` eraser & loop geometry | [WorkbookPencilMark.tsx](src/components/cartilla/WorkbookPencilMark.tsx) |

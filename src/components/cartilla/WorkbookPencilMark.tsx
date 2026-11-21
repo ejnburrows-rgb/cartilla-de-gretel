@@ -88,8 +88,14 @@ export const PENCIL_LENGTH = 79.5;
 const PENCIL_CENTER_Y = -PENCIL_LENGTH / 2;
 /** Close-up pose: body runs up and to the right, about 30° above horizontal. */
 const PENCIL_TILT = 60;
-/** Shared full-pencil proportions for the unified ContractPencilCursor (tip + back eraser). */
-export const CONTRACT_PENCIL_STRETCH = 35;
+/**
+ * Shared full-pencil proportions for the unified ContractPencilCursor (back eraser)
+ * and PencilConnector retry eraser. Long enough (1679.5 SVG units = ~3359 px on desktop,
+ * ~2435 px on phone) so the wooden barrel always runs continuously past the edge of the
+ * page and viewport on Desktop (1366×768), Phone (390×844), and Projector (1920×1080)
+ * with zero mid-air cutoff and zero space between the pencil end and the page edge.
+ */
+export const CONTRACT_PENCIL_STRETCH = 1600;
 export const CONTRACT_PENCIL_LENGTH = PENCIL_LENGTH + CONTRACT_PENCIL_STRETCH;
 export const CONTRACT_PENCIL_CENTER_Y = -CONTRACT_PENCIL_LENGTH / 2;
 export const CONTRACT_PENCIL_TILT = PENCIL_TILT;

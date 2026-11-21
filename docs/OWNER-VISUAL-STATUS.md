@@ -16,7 +16,7 @@
 
 ```mermaid
 flowchart TD
-    SPEC["OFFICIAL SOURCE OF TRUTH (Nov 20 Owner Decision)<br/>Cursor: exact 74ccee59 photo (600×497, no barrel extension)<br/>Eraser: Oct 11 74d904ec classic wooden pencil (PencilShape, 180° flip)"]
+    SPEC["OFFICIAL SOURCE OF TRUTH (Nov 20 Owner Decision)<br/>Cursor: 74ccee59 photo + seamless edge barrel (zero gap)<br/>Eraser: Oct 11 74d904ec classic wooden pencil (extended to edge, zero gap)"]
     FC["TEACHER FLIP CHART — OWNER DECISION 'A FOR ALL'<br/>Candidate A (2000ms 5-stop top-spiral) Locked Default<br/>Review-only Candidate B via ?flip=b&sheets=4,5,6,7"]
     MAIN["Review Branch: fix/lesson-style-review-links<br/>DONE but not live until owner says 'deploy it'"]
 
@@ -28,8 +28,8 @@ flowchart TD
 
 ## 2. Official Pencil & Eraser Standard (Locked in `PENCIL-CURSOR-SPEC.md`, Amended Nov 20)
 
-- **Cursor / Writing Pencil (`74ccee59` / `b402cde8`):** Exact owner-selected photographic sharpened wooden pencil (`owner-pencil-tip.webp`, `600×497`, `38,250` bytes, transparent background, sharp graphite point at exact `(0, 0)` hotspot). Shown **exactly as approved** with zero synthetic barrel extension and zero clipping.
-- **Eraser End (`74d904ec` #692 / `b402cde8` `PencilShape`):** Classic wooden pencil with pink eraser dome and ribbed silver ferrule, flipping `180°` onto its eraser end (`ERASER_POSE`) during wrong-answer rubbing (`3.5 s`, `12` pink crumbs) and manual canvas erasing. The Nov 17 cartoon `owner-eraser.svg` has been deleted; standalone `PinkEraserBlock` remains retired.
+- **Cursor / Writing Pencil (`74ccee59` / `b402cde8` + `9b379ad2` Seamless Edge Extension):** Exact owner-selected photographic sharpened wooden pencil (`owner-pencil-tip.webp`, `600×497`, transparent background, sharp graphite point at exact `(0, 0)` hotspot) with seamless photographic yellow barrel extending continuously past the viewport edges on Desktop (`1366×768`), Phone (`390×844`), and Projector (`1920×1080`) — zero gap to page/viewport edges.
+- **Eraser End (`74d904ec` #692 / `b402cde8` `PencilShape`):** Classic wooden pencil with pink eraser dome and ribbed silver ferrule, oriented eraser-first (`180°` at `(0, 0)` hotspot) with continuous off-screen barrel extension (`CONTRACT_PENCIL_STRETCH = 1600`, `overflow="visible"`) during wrong-answer rubbing (`3.5 s`, `12` pink crumbs) and manual canvas erasing — zero mid-air cutoff and zero gap to page/viewport edges. The Nov 17 cartoon `owner-eraser.svg` has been deleted; standalone `PinkEraserBlock` remains retired.
 - **Zero-Offset Lowering & Writing Mechanics:** Smooth approach lowering without showing any hand (`lift` → `0.00px`), `strokeLinecap="butt"` mask synchronized with `getTipFlight()`, velocity-modulated charcoal `#3a3a38` (`3.3–6.4px`), `400ms` hold, Forest Green (`#258351`) on correct / Crimson Red (`#c4320a`) + 12-crumb erase on wrong.
 - **Shared Implementation:** Unified across `ContractPencilCursor.tsx`, `PencilTipCursor.tsx`, `WorkbookPencilMark.tsx`, and `PencilConnector.tsx`.
 

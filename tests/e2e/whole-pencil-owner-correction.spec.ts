@@ -35,11 +35,15 @@ for (const device of [
           const headImg = el.querySelector<SVGImageElement>('[data-testid="contract-pencil-photo-head"]');
           const barrel = el.querySelector<SVGRectElement>('[data-testid="contract-pencil-barrel-extension"]');
           const svg = el.querySelector("svg.contract-pencil-cursor__svg");
+          const barrelRect = barrel?.getBoundingClientRect();
           return {
             hasPhotoSvg: !!photoSvg && getComputedStyle(photoSvg).display !== "none",
             photoOverflow: photoSvg?.getAttribute("overflow"),
             hasPhotoHead: !!headImg?.getAttribute("href")?.startsWith("data:image/webp;base64,"),
-            hasBarrelExtension: !!barrel,
+            barrelReachesEdge:
+              !!barrelRect &&
+              (barrelRect.right >= window.innerWidth - 1 ||
+                barrelRect.bottom >= window.innerHeight - 1),
             hasSvg: !!svg,
             overflow: svg?.getAttribute("overflow"),
             hasText: !!svg?.querySelector("text"),
@@ -51,7 +55,7 @@ for (const device of [
           hasPhotoSvg: true,
           photoOverflow: "visible",
           hasPhotoHead: true,
-          hasBarrelExtension: false,
+          barrelReachesEdge: true,
           hasSvg: true,
           overflow: "visible",
           hasText: false,
@@ -108,6 +112,12 @@ for (const device of [
       expect(eraseBox).not.toBeNull();
       expect(eraseBox!.width).toBeGreaterThan(80);
       expect(eraseBox!.height).toBeGreaterThan(60);
+      // Extended wooden eraser barrel reaches past the top or right viewport edge with zero gap
+      const eraserReachesEdge = await eraser.evaluate((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.right >= window.innerWidth - 1 || rect.top <= 1;
+      });
+      expect(eraserReachesEdge).toBe(true);
       await page.screenshot({ path: info.outputPath("hd-eraser.png") });
 
       // After erasing finishes, mark is cleared and cursor returns to graphite tip pose
@@ -132,19 +142,23 @@ for (const device of [
       const photoTip = cursor.locator('[data-testid="contract-pencil-photo-tip"]');
       await expect(cursor).toHaveAttribute("data-visible", "true", { timeout: 10000 });
 
-      // Verify exact 74ccee59 600×497 photographic asset loads synchronously with (0,0) top-left hotspot
-      // and zero synthetic barrel extension
+      // Verify @image1 600×497 photographic asset loads synchronously with (0,0) top-left hotspot
+      // and extended yellow barrel reaches past viewport edges with zero cut-off gap
       const photoMeta = await photoTip.evaluate((svgEl: SVGSVGElement) => {
         const head = svgEl.querySelector<SVGImageElement>('[data-testid="contract-pencil-photo-head"]');
         const barrel = svgEl.querySelector<SVGRectElement>(
           '[data-testid="contract-pencil-barrel-extension"]',
         );
+        const barrelRect = barrel?.getBoundingClientRect();
         return {
           viewBox: svgEl.getAttribute("viewBox"),
           overflow: svgEl.getAttribute("overflow"),
           hasHeadWebp: !!head?.getAttribute("href")?.startsWith("data:image/webp;base64,"),
           transformOrigin: svgEl.style.transformOrigin,
-          hasBarrelExtension: !!barrel,
+          barrelReachesEdge:
+            !!barrelRect &&
+            (barrelRect.right >= window.innerWidth - 1 ||
+              barrelRect.bottom >= window.innerHeight - 1),
         };
       });
       expect(photoMeta).toEqual({
@@ -152,7 +166,7 @@ for (const device of [
         overflow: "visible",
         hasHeadWebp: true,
         transformOrigin: "0px 0px",
-        hasBarrelExtension: false,
+        barrelReachesEdge: true,
       });
       await page.waitForTimeout(1150);
       const circleMaskMeta = await page.evaluate(() => {

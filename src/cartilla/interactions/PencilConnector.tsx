@@ -830,6 +830,7 @@ export function DirectPencilConnector({
           <svg
             key={`retry-svg-${wrongLine.retryId}`}
             className="am-direct-pencil__svg-layer am-direct-pencil__retry-svg"
+            overflow="visible"
             aria-hidden="true"
           >
             <g className="am-direct-pencil__retry-group" data-mark-status="erasing">
@@ -842,7 +843,7 @@ export function DirectPencilConnector({
                 const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
                 const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
                 const scrubPeriod = 190;
-                const retryStretch = contract ? CONTRACT_PENCIL_STRETCH : 0;
+                const retryStretch = CONTRACT_PENCIL_STRETCH;
                 const PENCIL_CENTER_Y = -(PENCIL_LENGTH + retryStretch) / 2;
                 const linePath = `M ${wrongLine.from.x} ${wrongLine.from.y} L ${wrongLine.to.x} ${wrongLine.to.y}`;
 
@@ -890,17 +891,7 @@ export function DirectPencilConnector({
                           values={contract ? "0 0;9 -3;0 0;-8 2.5;0 0" : "0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"}
                         />
                         <g className="am-direct-pencil__eraser-shape" transform="rotate(30) scale(2.2)">
-                          <g>
-                            <animateTransform
-                              attributeName="transform"
-                              type="rotate"
-                              dur={`${eraseMs}ms`}
-                              fill="freeze"
-                              values={`0 0 ${PENCIL_CENTER_Y};0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
-                              keyTimes={`0;${kAppear};${kFlip};1`}
-                              calcMode="spline"
-                              keySplines="0 0 1 1;0.45 0.05 0.55 0.95;0 0 1 1"
-                            />
+                          <g transform={`rotate(180 0 ${PENCIL_CENTER_Y})`}>
                             <PencilShape
                               uid={`${shadowUid}-retry-pencil`}
                               stretch={retryStretch}
