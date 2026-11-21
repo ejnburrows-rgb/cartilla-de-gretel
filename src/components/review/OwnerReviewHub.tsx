@@ -366,10 +366,18 @@ function ArtworkBoard({ history, onChange }: { history: DecisionRecord[]; onChan
                     {uploaded
                       ? `Uploaded replacement: ${uploaded.name}`
                       : r.servedPath
-                        ? `Updated image: ${r.servedPath}`
-                        : "No updated image wired"}
+                        ? `Current image: ${r.servedPath}`
+                        : r.candidatePath
+                          ? `Candidate image: ${r.candidatePath}`
+                          : "No updated image wired"}
                   </figcaption>
                 </figure>
+                {!uploaded && r.servedPath && r.candidatePath && r.candidatePath !== r.servedPath && (
+                  <figure className="orh-art__updated">
+                    <img src={r.candidatePath} alt={`Replacement candidate for ${r.word}`} loading="lazy" />
+                    <figcaption>Replacement candidate: {r.candidatePath}</figcaption>
+                  </figure>
+                )}
               </div>
               <p className="orh-muted">{r.problem}</p>
               <DecisionBar

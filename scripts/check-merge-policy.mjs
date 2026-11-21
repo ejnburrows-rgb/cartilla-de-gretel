@@ -234,7 +234,8 @@ export function validateLockedVisualAuthority(root = '.') {
     ['src/components/StudentBook/OwnerPhotoPencilSvg.tsx', /overflow="visible"/, 'unclipped overflow="visible" on OwnerPhotoPencilSvg'],
     ['src/components/StudentBook/ContractPencilCursor.tsx', /CONTRACT_PENCIL_STRETCH/, 'continuous off-screen classic wooden eraser stretch'],
     ['src/components/StudentBook/PageCurl.tsx', /curlVariant\s*=\s*curlParam\s*===\s*"b"\s*\?\s*"b"\s*:\s*"a"/, 'Workbook Option A curl=a default'],
-    ['src/components/cartilla/FlipchartHdPanel.tsx', /2000/, 'Flip Chart Candidate A (2000ms) default'],
+    ['src/components/cartilla/FlipchartHdPanel.tsx', /const\s+flipVariant(?:\s*:\s*"a"\s*\|\s*"b")?\s*=\s*searchParams\.get\("flip"\)\s*===\s*"b"\s*\?\s*"b"\s*:\s*"a"/, 'Flip Chart Candidate A default expression'],
+    ['src/components/cartilla/FlipchartHdPanel.tsx', /const\s+flipDurationMs\s*=\s*flipVariant\s*===\s*"b"\s*\?\s*1200\s*:\s*FLIPCHART_FLIP_MS/, 'Flip Chart Candidate A duration binding'],
   ];
   for (const [rel, pattern, label] of requiredSnippets) {
     try {
