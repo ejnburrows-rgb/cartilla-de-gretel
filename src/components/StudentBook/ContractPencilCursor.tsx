@@ -48,7 +48,6 @@ const VB_H = 155;
 export function ContractPencilCursor() {
   const host = useRef<HTMLDivElement>(null);
   const tipImgRef = useRef<SVGSVGElement>(null);
-  const tipShadowRef = useRef<SVGGElement>(null);
   const poseRef = useRef<SVGGElement>(null);
   const flipRef = useRef<SVGGElement>(null);
   const uid = `contract-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
@@ -94,12 +93,6 @@ export function ContractPencilCursor() {
         if (lift > 0.001) parts.push(`translate3d(${liftX.toFixed(2)}px, ${liftY.toFixed(2)}px, 0)`);
         if (Math.abs(wristDeg) > 0.01) parts.push(`rotate(${wristDeg.toFixed(2)}deg)`);
         tipImgRef.current.style.transform = parts.length ? parts.join(" ") : "rotate(0deg)";
-      }
-      if (tipShadowRef.current) {
-        const dx = 10 + lift * 22;
-        const dy = 14 + lift * 28;
-        tipShadowRef.current.setAttribute("transform", `translate(${dx.toFixed(1)} ${dy.toFixed(1)})`);
-        tipShadowRef.current.setAttribute("opacity", (0.24 - Math.min(0.1, lift * 0.1)).toFixed(3));
       }
       if (poseRef.current) {
         poseRef.current.setAttribute(
@@ -379,7 +372,6 @@ export function ContractPencilCursor() {
     >
       <OwnerPhotoPencilSvg
         ref={tipImgRef}
-        shadowRef={tipShadowRef}
         width={tipWidth}
         height={tipHeight}
         testId="contract-pencil-photo-tip"

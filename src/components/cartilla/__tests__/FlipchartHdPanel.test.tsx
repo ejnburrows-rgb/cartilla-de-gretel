@@ -451,4 +451,24 @@ describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () 
     fireEvent.keyDown(rightCorner, { key: " " });
     expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
   });
+
+  it("locks Candidate A (2000ms) as default for Lesson 3 (1 real sheet: Sheet 5) and supports review-only ?flip=b&sheets=4,5,6,7", () => {
+    history.replaceState(null, "", "/cartilla/presentar/3");
+    const { container, unmount } = render(<FlipchartHdPanel lessonNumber={3} />);
+    const panelA = container.querySelector('[data-testid="flipchart-hd-panel"]')!;
+    expect(panelA.getAttribute("data-flip-variant")).toBe("a");
+    expect(panelA.getAttribute("data-page-turn-ms")).toBe(String(FLIPCHART_FLIP_MS));
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 1");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 5");
+    unmount();
+
+    history.replaceState(null, "", "/cartilla/presentar/3?flip=b&sheets=4,5,6,7");
+    const { container: cB } = render(<FlipchartHdPanel lessonNumber={3} />);
+    const panelB = cB.querySelector('[data-testid="flipchart-hd-panel"]')!;
+    expect(panelB.getAttribute("data-flip-variant")).toBe("b");
+    expect(panelB.getAttribute("data-page-turn-ms")).toBe("1200");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 4");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 4");
+    history.replaceState(null, "", "/");
+  });
 });

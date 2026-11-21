@@ -60,20 +60,16 @@ for (const viewport of [
         expect(Math.abs(cbox.x - tx)).toBeLessThanOrEqual(1);
         expect(Math.abs(cbox.y - ty)).toBeLessThanOrEqual(1);
 
-        // Photographic @image1 close-up pencil tip (600×497, extended barrel off-screen)
+        // Owner-approved 74ccee59 photographic pencil tip (600×497, no synthetic barrel extension)
         const svgMeta = await cursor.evaluate((el) => {
           const photoSvg = el.querySelector<SVGSVGElement>('[data-testid="contract-pencil-photo-tip"]');
           const barrel = el.querySelector<SVGRectElement>(
             '[data-testid="contract-pencil-barrel-extension"]',
           );
           const svg = el.querySelector("svg.contract-pencil-cursor__svg");
-          const barrelRect = barrel?.getBoundingClientRect();
           return {
             hasPhotoSvg: !!photoSvg && getComputedStyle(photoSvg).display !== "none",
-            barrelReachesEdge:
-              !!barrelRect &&
-              (barrelRect.right >= window.innerWidth - 1 ||
-                barrelRect.bottom >= window.innerHeight - 1),
+            hasBarrelExtension: !!barrel,
             hasText: !!svg?.querySelector("text"),
             hasHB: (svg?.textContent ?? "").includes("HB"),
             hasOverflowVisible: svg?.getAttribute("overflow") === "visible",
@@ -81,7 +77,7 @@ for (const viewport of [
         });
         expect(svgMeta).toEqual({
           hasPhotoSvg: true,
-          barrelReachesEdge: true,
+          hasBarrelExtension: false,
           hasText: false,
           hasHB: false,
           hasOverflowVisible: true,

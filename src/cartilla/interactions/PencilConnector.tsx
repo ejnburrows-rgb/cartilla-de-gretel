@@ -17,7 +17,7 @@ import {
   WORKBOOK_MARK_TIMING,
   useWorkbookPencilTurn,
 } from "@/components/cartilla/WorkbookPencilMark";
-import { ERASER_VIEWBOX, toolSize, useCursorMode } from "@/lib/cursor-mode";
+import { useCursorMode } from "@/lib/cursor-mode";
 import { holdEraser, PENCIL_CONTRACT } from "@/lib/pencil-contract";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";

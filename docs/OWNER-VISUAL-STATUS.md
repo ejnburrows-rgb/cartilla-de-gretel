@@ -5,9 +5,10 @@
 **Official Pencil Cursor Spec:** [PENCIL-CURSOR-SPEC.md](../PENCIL-CURSOR-SPEC.md) (Approved 2026-11-18)  
 **Production URL (Live Baseline):** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
 **Production Alias:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
-**Last Checked Date:** 2026-11-18  
-**Canonical Main Branch:** `main` (includes PR #1312 — `PENCIL-CURSOR-SPEC.md`, shared `OwnerPhotoPencilSvg.tsx`, and Top Two Revised Pencil Prototypes)  
-**Deployment Gate:** Live Vercel production remains at the previous verified baseline (`e03ed1d2` / `dpl_DBYEi1HrNNCajXf6oDvrcCccWukU`) until the owner explicitly says `"deploy it"`.
+**Last Checked Date:** 2026-11-20  
+**Canonical Main Branch:** `main` (`9a61b2ba`); review branch `fix/lesson-style-review-links` (merged with `main`, not yet merged to `main` or deployed)  
+**Deployment Gate:** Live Vercel production remains at the previous verified baseline (`e03ed1d2` / `dpl_DBYEi1HrNNCajXf6oDvrcCccWukU`; `vercel.json` has `git.deploymentEnabled: false`) until the owner explicitly says `"deploy it"`.
+**Ledger Note:** `docs/COMPLETION_LEDGER.csv` does not exist on `main`; this document and `public/review/owner-decisions-locked-b.json` are the active status records.
 
 ---
 
@@ -15,34 +16,34 @@
 
 ```mermaid
 flowchart TD
-    SPEC["OFFICIAL SOURCE OF TRUTH ON MAIN<br/>PENCIL-CURSOR-SPEC.md + OwnerPhotoPencilSvg.tsx<br/>(@image1 Close-Up · Prototype B · Extended to Screen Edge)"]
-    TEST["Verified After Final Edit<br/>0 TS Errors · 95/95 Policy · 45/45 Unit · 12/12 Playwright E2E"]
-    MAIN["Branch: main (Unified Source of Truth)<br/>DONE but not live until 'deploy it'"]
-    NEXT["NEXT OWNER MILESTONE (#877)<br/>Option A Locked for Workbook & Flip Chart (Lessons 1–24)<br/>Workbook Artwork Audit Ready for Owner Review"]
+    SPEC["OFFICIAL SOURCE OF TRUTH (Nov 20 Owner Decision)<br/>Cursor: exact 74ccee59 photo (600×497, no barrel extension)<br/>Eraser: Oct 11 74d904ec classic wooden pencil (PencilShape, 180° flip)"]
+    FC["TEACHER FLIP CHART — OWNER DECISION 'A FOR ALL'<br/>Candidate A (2000ms 5-stop top-spiral) Locked Default<br/>Review-only Candidate B via ?flip=b&sheets=4,5,6,7"]
+    MAIN["Review Branch: fix/lesson-style-review-links<br/>DONE but not live until owner says 'deploy it'"]
 
-    SPEC --> TEST --> MAIN --> NEXT
+    SPEC --> MAIN
+    FC --> MAIN
 ```
 
 ---
 
-## 2. Official Pencil Cursor Standard (Locked in `PENCIL-CURSOR-SPEC.md`)
+## 2. Official Pencil & Eraser Standard (Locked in `PENCIL-CURSOR-SPEC.md`, Amended Nov 20)
 
-- **Asset & Orientation:** Transparent `@image1` extreme close-up real sharpened wooden pencil (`600×497` head extraction, zero checkerboard, sharp graphite point at exact `(0, 0)` facing **up and to the left**, visible wood fibers, scalloped yellow barrel extending **down and to the right** at `45°`).
-- **Seamless Screen-Edge Barrel:** Photographic yellow hexagonal barrel extends continuously past the bottom and right viewport boundaries on desktop (`252×209` px head) and phone (`168×139` px head) — zero mid-screen cutoff and zero gap to viewport edges.
+- **Cursor / Writing Pencil (`74ccee59` / `b402cde8`):** Exact owner-selected photographic sharpened wooden pencil (`owner-pencil-tip.webp`, `600×497`, `38,250` bytes, transparent background, sharp graphite point at exact `(0, 0)` hotspot). Shown **exactly as approved** with zero synthetic barrel extension and zero clipping.
+- **Eraser End (`74d904ec` #692 / `b402cde8` `PencilShape`):** Classic wooden pencil with pink eraser dome and ribbed silver ferrule, flipping `180°` onto its eraser end (`ERASER_POSE`) during wrong-answer rubbing (`3.5 s`, `12` pink crumbs) and manual canvas erasing. The Nov 17 cartoon `owner-eraser.svg` has been deleted; standalone `PinkEraserBlock` remains retired.
 - **Zero-Offset Lowering & Writing Mechanics:** Smooth approach lowering without showing any hand (`lift` → `0.00px`), `strokeLinecap="butt"` mask synchronized with `getTipFlight()`, velocity-modulated charcoal `#3a3a38` (`3.3–6.4px`), `400ms` hold, Forest Green (`#258351`) on correct / Crimson Red (`#c4320a`) + 12-crumb erase on wrong.
-- **Shared Implementation:** Unified across both `ContractPencilCursor.tsx` and `PencilTipCursor.tsx` via `OwnerPhotoPencilSvg.tsx`.
+- **Shared Implementation:** Unified across `ContractPencilCursor.tsx`, `PencilTipCursor.tsx`, `WorkbookPencilMark.tsx`, and `PencilConnector.tsx`.
 
 ---
 
 ## 3. Seven Product Areas Status
 
 1. **Book Cover & Opening:** `DONE and live` (Verified on production).
-2. **Student Workbook:** `DONE but not live` on `main` (Official `@image1` unclipped pencil cursor + top two Circle/X prototypes locked in `PENCIL-CURSOR-SPEC.md`; ready for owner lesson-style selection and `"deploy it"`).
-3. **Teacher Flip Chart:** `DONE and live` (`Sheet 5` top-spiral flip presenter live on `/cartilla/presentar/3` and `/cartilla/teacher/flipchart?lesson=3`; next milestone: pick between Projector vs Teacher Panel lesson-style prototypes for rollout).
+2. **Student Workbook:** `DONE but not live` on `fix/lesson-style-review-links` (Restored exact `74ccee59` cursor photo + Oct 11 `PencilShape` eraser; fixed rapid-tap Gretel event emission, page-turn audio overlap, landscape button/corner-curl separation, and top-bar spacing; awaits owner visual sign-off and `"deploy it"`).
+3. **Teacher Flip Chart:** `DONE but not live` (`approve-a` / `"A for all"`: Candidate A `2000ms` 5-stop top-spiral turn locked as production default on `/cartilla/presentar/3` and `/cartilla/teacher/flipchart?lesson=3` with Lesson 3's single real Sheet 5; review-only Candidate B via `?flip=b&sheets=4,5,6,7`).
 4. **Artwork & Motion:** `WAITING` (108/108 canonical groups intact; 27 flagged crops in `docs/review-2026-11-16/ARTWORK-ISSUES.csv`, pages 86–87 permanently `SOURCE_BLOCKED`, `0/1` Gretel welcome loop).
 5. **Gretel Voice & Tutor:** `WAITING` (`AUDIO_POLICY.allowTts: false`; 59 human recordings listed in `docs/review-2026-11-16/AUDIO-MANIFEST.csv` & `docs/audio/MISSING_PICTURE_RECORDINGS.csv`).
 6. **Games & Activities:** `DONE and live` (Mic-only piano & tactile games live; game audio clips `WAITING`).
-7. **Website & Publication:** `DONE and live` at `e03ed1d2`; latest `main` awaits owner `"deploy it"` to update production.
+7. **Website & Publication:** `DONE and live` at `e03ed1d2`; review branch awaits owner `"deploy it"` to merge and deploy.
 
 ---
 

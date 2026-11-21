@@ -83,20 +83,26 @@ export const COMPARISONS: Comparison[] = [
   },
   {
     id: "flipchart-lesson-3",
-    title: "Teacher Flip Chart — Lesson 3 (sheet 5, “La niña enfermita”)",
+    title: "Teacher Flip Chart — Lesson 3 (Sheet 5, “La niña enfermita” — Owner Decision: A for all)",
     summary:
-      "Both use the authentic crisp unstretched sheet 5 and the top-bound 2.0 s spiral flip.",
+      "Owner decision: approve-a (“A for all”). Candidate A (2000 ms 5-stop top-bound spiral rotateX turn) is locked as the production default on /cartilla/presentar/3 and /cartilla/teacher/flipchart?lesson=3. Lesson 3 has 1 mapped sheet (Sheet 5). Review-only Candidate B (1200 ms smooth 2-stop, lighter shading, zero easel zoom) and the real neighboring vowel sequence (?sheets=4,5,6,7 for L2–L5) remain available via query parameters.",
     a: {
-      name: "A — Projector presenter",
+      name: "A — 2.0 s top-spiral turn (Locked Default — “A for all”)",
       description:
-        "Full-screen classroom view with Puntero, Mano izquierda, Enfoque and Pantalla completa controls; keyboard arrows turn sheets.",
-      links: toLinks([["Open A — sheet 5", "/cartilla/presentar/3"]]),
+        "Production default: 2000 ms 5-stop top-bound spiral turn on authentic Sheet 5, plus real L2–L5 sequence via ?sheets=4,5,6,7.",
+      links: toLinks([
+        ["Open A — Sheet 5 (default)", "/cartilla/presentar/3"],
+        ["Open A — Teacher panel", "/cartilla/teacher/flipchart?lesson=3"],
+        ["Open A — L2–L5 sequence (sheets 4–7)", "/cartilla/presentar/3?sheets=4,5,6,7"],
+      ]),
     },
     b: {
-      name: "B — Teacher panel presenter",
+      name: "B — 1.2 s smooth subtle top-bound turn (Review-only ?flip=b)",
       description:
-        "The same sheet inside the teacher panel, with the lesson picker, class navigation and a ‘Proyectar pantalla completa’ button.",
-      links: toLinks([["Open B — sheet 5", "/cartilla/teacher/flipchart?lesson=3"]]),
+        "Review-only override (?flip=b): 1200 ms smooth 2-stop rotateX turn, lighter shading, zero easel zoom.",
+      links: toLinks([
+        ["Open B — review (?flip=b&sheets=4,5,6,7)", "/cartilla/presentar/3?flip=b&sheets=4,5,6,7"],
+      ]),
     },
     evidence: [],
   },

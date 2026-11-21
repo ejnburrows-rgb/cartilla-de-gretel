@@ -18,6 +18,7 @@ import {
 } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import {
+  FLIPCHART_PAGES,
   getFlipchartPagesForLesson,
   getFlipchartPageSrc,
   isHdFlipchartPath,
@@ -77,16 +78,39 @@ function FlipchartFace({
 }
 
 export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }: FlipchartHdPanelProps) {
-  const pages: FlipchartPage[] = useMemo(
-    () => getFlipchartPagesForLesson(lessonNumber),
-    [lessonNumber],
-  );
+  const pages: FlipchartPage[] = useMemo(() => {
+    if (typeof window !== "undefined") {
+      const sheetsParam = new URLSearchParams(window.location.search).get("sheets");
+      if (sheetsParam) {
+        const requested = sheetsParam
+          .split(",")
+          .map((s) => Number(s.trim()))
+          .filter((n) => Number.isInteger(n) && n > 0);
+        const byPage = new Map(FLIPCHART_PAGES.map((p) => [p.flipchartPage, p]));
+        const resolved: FlipchartPage[] = [];
+        const seen = new Set<number>();
+        for (const num of requested) {
+          const found = byPage.get(num);
+          if (found && !seen.has(num)) {
+            seen.add(num);
+            resolved.push(found);
+          }
+        }
+        if (resolved.length > 0) return resolved;
+      }
+    }
+    return getFlipchartPagesForLesson(lessonNumber);
+  }, [lessonNumber]);
   const reducedMotion = useReducedMotion();
   const { laserPointerActive, handMode } = useTeacherPresentation();
-  const flipVariant =
-    typeof window !== "undefined" && new URLSearchParams(window.location.search).get("flip") === "a"
-      ? "a"
-      : "b";
+  // Owner decision ("A for all"): Candidate A (2000ms 5-stop top-spiral turn) is
+  // locked as production default; Candidate B (1200ms smooth 2-stop, lighter shading,
+  // zero easel zoom) is review-only via `?flip=b`.
+  const flipVariant: "a" | "b" =
+    typeof window !== "undefined" && new URLSearchParams(window.location.search).get("flip") === "b"
+      ? "b"
+      : "a";
+  const flipDurationMs = flipVariant === "b" ? 1200 : FLIPCHART_FLIP_MS;
 
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [targetIdx, setTargetIdx] = useState<number | null>(null);
@@ -96,7 +120,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   const [pageReady, setPageReady] = useState(false);
   const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
   const [flipTransform, setFlipTransform] = useState("rotateX(0deg)");
-  const [flipTransitionMs, setFlipTransitionMs] = useState(FLIPCHART_FLIP_MS);
+  const [flipTransitionMs, setFlipTransitionMs] = useState(flipDurationMs);
 
   const easelRef = useRef<HTMLDivElement | null>(null);
   const pageInnerRef = useRef<HTMLDivElement | null>(null);
@@ -162,7 +186,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
     setPageReady((pages[0]?.flipchartPage ?? 0) > 2);
     setFlipDirection(null);
     setFlipTransform("rotateX(0deg)");
-    setFlipTransitionMs(FLIPCHART_FLIP_MS);
+    setFlipTransitionMs(flipDurationMs);
     return () => {
       flipTokenRef.current += 1;
       flipLockedRef.current = false;
@@ -212,10 +236,10 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       setFlipDirection(direction);
       setIsFlipping(true);
       setIsDragging(false);
-      setFlipTransitionMs(FLIPCHART_FLIP_MS);
+      setFlipTransitionMs(flipDurationMs);
       setFlipTransform(start);
 
-      if (!options?.skipZoom) {
+      if (!options?.skipZoom && flipVariant !== "b") {
         triggerCinematicZoom();
       }
 
@@ -229,10 +253,10 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
 
       flipTimerRef.current = window.setTimeout(
         () => afterFlip(index, token),
-        FLIPCHART_FLIP_MS,
+        flipDurationMs,
       );
     },
-    [afterFlip, isFlipping, measureLeaf, pages.length, reducedMotion, safeIdx, triggerCinematicZoom],
+    [afterFlip, flipDurationMs, flipVariant, isFlipping, measureLeaf, pages.length, reducedMotion, safeIdx, triggerCinematicZoom],
   );
 
   const handlePrev = useCallback(() => {
@@ -603,7 +627,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
   const boardStyle = {
     ["--fc-sheet-ratio" as string]: pageFrame ? pageFrame.width / pageFrame.height : 0.73,
     ...(accentColor ? { ["--fc-accent" as string]: accentColor } : {}),
-    ["--fc-turn-ms" as string]: `${FLIPCHART_FLIP_MS}ms`,
+    ["--fc-turn-ms" as string]: `${flipDurationMs}ms`,
   } as CSSProperties;
 
   return (
@@ -615,7 +639,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor, chrome = "full" }:
       data-presenter-mode="native"
       data-delivery-tier="independent-faithful-assets"
       data-page-turn-axis="vertical"
-      data-page-turn-ms={FLIPCHART_FLIP_MS}
+      data-page-turn-ms={flipDurationMs}
       data-flip-variant={flipVariant}
       data-reduced-motion={reducedMotion ? "true" : "false"}
       data-chrome={chrome}

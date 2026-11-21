@@ -79,5 +79,41 @@ describe("audioEngine", () => {
         audioEngine.playPageTurn();
       }).not.toThrow();
     });
+
+    it("always uses /audio/page-turn-soft.mp3 and pauses any active page-turn clip before playing", () => {
+      const created: Array<{ src: string; paused: boolean; currentTime: number; played: boolean }> = [];
+      class MockAudio {
+        src: string;
+        paused = false;
+        currentTime = 1.25;
+        played = false;
+        volume = 1;
+        constructor(src: string) {
+          this.src = src;
+          created.push(this);
+        }
+        play() {
+          this.played = true;
+          return Promise.resolve();
+        }
+        pause() {
+          this.paused = true;
+        }
+      }
+
+      global.Audio = MockAudio as unknown as typeof global.Audio;
+      window.Audio = MockAudio as unknown as typeof window.Audio;
+      audioEngine.setMuted(false);
+
+      audioEngine.playPageTurn(false);
+      audioEngine.playPageTurn(true);
+
+      expect(created).toHaveLength(2);
+      expect(created[0].src).toBe("/audio/page-turn-soft.mp3");
+      expect(created[1].src).toBe("/audio/page-turn-soft.mp3");
+      expect(created[0].paused).toBe(true);
+      expect(created[0].currentTime).toBe(0);
+      expect(created[1].played).toBe(true);
+    });
   });
 });
