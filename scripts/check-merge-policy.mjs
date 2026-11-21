@@ -211,6 +211,42 @@ export function validateDeploymentConfig(config) {
   return {ok:errors.length===0,errors};
 }
 
+/** Fail closed if any retired cartoon/icon pencil/eraser asset returns or locked
+ * Option A / extended @image1 pencil / continuous off-screen eraser guards drift.
+ */
+export function validateLockedVisualAuthority(root = '.') {
+  const errors = [];
+  const prohibitedFiles = [
+    'public/cartilla/images/ui/owner-eraser.svg',
+    'public/cartilla/images/ui/pencil-cursor.svg',
+    'src/components/StudentBook/HdSchoolEraser.tsx',
+  ];
+  for (const rel of prohibitedFiles) {
+    if (fs.existsSync(path.join(root, rel))) {
+      errors.push(`${rel}: retired/prohibited pencil or eraser file must not exist`);
+    }
+  }
+  const requiredSnippets = [
+    ['AGENTS.md', /Locked Visual & Pencil Source of Truth/i, 'AGENTS.md permanent pencil/style lock'],
+    ['public/cartilla/images/ui/owner-pencil-tip.svg', /op-barrel-pat/, 'extended @image1 photographic barrel pattern'],
+    ['public/cartilla/images/ui/owner-pencil-tip.svg', /overflow="visible"/, 'unclipped overflow="visible" on owner-pencil-tip.svg'],
+    ['src/components/StudentBook/OwnerPhotoPencilSvg.tsx', /OWNER_PENCIL_BARREL_TILE_DATA_URI/, 'seamless photographic barrel tile in OwnerPhotoPencilSvg'],
+    ['src/components/StudentBook/OwnerPhotoPencilSvg.tsx', /overflow="visible"/, 'unclipped overflow="visible" on OwnerPhotoPencilSvg'],
+    ['src/components/StudentBook/ContractPencilCursor.tsx', /CONTRACT_PENCIL_STRETCH/, 'continuous off-screen classic wooden eraser stretch'],
+    ['src/components/StudentBook/PageCurl.tsx', /curlVariant\s*=\s*curlParam\s*===\s*"b"\s*\?\s*"b"\s*:\s*"a"/, 'Workbook Option A curl=a default'],
+    ['src/components/cartilla/FlipchartHdPanel.tsx', /2000/, 'Flip Chart Candidate A (2000ms) default'],
+  ];
+  for (const [rel, pattern, label] of requiredSnippets) {
+    try {
+      const content = fs.readFileSync(path.join(root, rel), 'utf8');
+      if (!pattern.test(content)) errors.push(`${rel}: missing ${label}`);
+    } catch {
+      errors.push(`${rel}: missing or unreadable locked visual file`);
+    }
+  }
+  return {ok:errors.length===0,errors};
+}
+
 /** Fail closed when a tracked document is unavailable, including evidence files.
  * Coverage describes the tracked documentation inventory, not semantic proof.
  */
@@ -256,7 +292,10 @@ function cli() {
   const [flag,arg]=process.argv.slice(2);
   let result;
   if (flag==='--docs' && !arg) {
-    result=validateRepositoryDocumentation();
+    const docResult=validateRepositoryDocumentation();
+    const visualResult=validateLockedVisualAuthority();
+    const errors=[...docResult.errors, ...visualResult.errors];
+    result={...docResult, ok:errors.length===0, errors, lockedVisualAuthority:visualResult.ok};
   } else if (flag==='--evidence' && arg) {
     result=assessMerge(JSON.parse(fs.readFileSync(path.resolve(arg),'utf8')));
   } else {

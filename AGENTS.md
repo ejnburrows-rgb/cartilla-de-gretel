@@ -94,6 +94,16 @@ Never deploy unless the owner says exactly "deploy it" for the specific release.
 ## 8. Authentic sources and protected work
 Never invent art, voice or educational content; use only owner files. Mark unavailable sources "missing". Never alter original foreground art to solve layout. No device TTS/`speechSynthesis`, cloned voice or `rec_gretel_*`. Only `Gretel_558674_Original.m4a` with verified transcript match is permitted for newly wired audio; otherwise silence/unavailable. Mariposas is included; do not edit its assets or rebuild its verified game. Do not invent Workbook pages 86–87. Do not touch Tutor #1073 files in this management correction; reconcile existing specialist work without rebuilding it.
 
+### 8a. Locked Visual & Pencil Source of Truth (Permanent Owner Lock — Never Revert)
+- **`PENCIL-CURSOR-SPEC.md` is the ONLY source of truth** for the pencil cursor and eraser. Never replace, redraw, crop, or revert either design:
+  1. **Writing / Cursor Pencil:** The exact owner-approved Nov 1 photographic pencil (`74ccee59` / `9b379ad2`, `public/cartilla/images/ui/owner-pencil-tip.svg` + `OwnerPhotoPencilSvg.tsx`) with its seamless photographic yellow barrel extending off-screen (`op-barrel-pat`, `overflow="visible"`) — **zero gap** between the pencil end and page/viewport edges.
+  2. **Eraser Pencil:** The exact owner-approved Oct 8/11 classic wooden pencil (`74d904ec` / `b402cde8`, `PencilShape` in `WorkbookPencilMark.tsx`) flipped eraser-first (`180°` onto the pink dome + ribbed silver ferrule) with continuous off-screen barrel extension (`CONTRACT_PENCIL_STRETCH = 1600`, `overflow="visible"`) — **zero gap** to page/viewport edges.
+  3. **Permanently Prohibited:** Cartoon eraser SVGs (`owner-eraser.svg`), flat icon cursors (`pencil-cursor.svg`), standalone pink eraser bricks (`PinkEraserBlock`), unused `HdSchoolEraser.tsx`, chopped mid-air barrels, and duplicate pencils.
+- **Locked Option A Styles (Lessons 1–24):**
+  - **Student Workbook:** `curl=a` corner lift (no specular highlight) is the sole production default.
+  - **Teacher Flip Chart:** Candidate A (`2000 ms` top-bound spiral flip) is the sole production default.
+- Any commit that violates these locks must fail `pnpm verify:policy` and be rejected.
+
 ## 9. Focused verification
 Test affected behavior and source fidelity; reuse valid proof. Visual claims need actual rendered screenshots; motion, audio, navigation and gameplay need recordings or observed runs. Use real product routes, not /dev-* substitutes. Record exact revision, changed files, actual counts, proof, gaps and next action in #877. Phone 390x844 and desktop 1366x768 are required where relevant; final verification also covers tablet/projector and both student and teacher paths. SonarCloud/SonarQube is advisory and non-blocking; independently confirmed serious defects, missing required proof and protections remain gates. A merge or passing build never establishes live delivery.
 

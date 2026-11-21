@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 /**
- * normal = previous main (system cursor + flying wooden pencil, override `?cursor=normal`);
- * tip = #1305 photo-tip candidate (not offered for approval);
- * contract = Locked Option B default (November 1 contract: single close-up wooden tip).
+ * normal = accessibility/forced-colors fallback only (override `?cursor=normal`);
+ * tip = legacy photo-tip pointer override (`?cursor=tip`);
+ * contract = Locked PENCIL-CURSOR-SPEC.md default (Nov 1 @image1 extended photo pencil + Oct 11 classic wooden eraser).
  */
 export type CursorMode = "normal" | "tip" | "contract";
 export const DEFAULT_CURSOR_MODE: CursorMode = "contract";
