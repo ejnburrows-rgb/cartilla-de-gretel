@@ -1423,12 +1423,12 @@
             },
             {
               "caption": "avión",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp",
               "correct": false
             },
             {
               "caption": "uña",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp",
               "correct": true
             },
             {
@@ -1444,7 +1444,7 @@
             {
               "caption": "uniforme",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uniforme.webp"
             },
             {
               "caption": "elefante",
@@ -1478,7 +1478,7 @@
             },
             {
               "caption": "uniforme",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uniforme.webp",
               "correct": true
             },
             {

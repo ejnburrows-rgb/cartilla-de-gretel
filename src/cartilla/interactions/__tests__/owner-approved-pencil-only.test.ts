@@ -56,12 +56,13 @@ describe("owner-locked pencil-only Workbook runtime", () => {
     expect(connector).toContain('stroke="#3a3a38"');
   });
 
-  it("ensures letter tracing exercises use the approved shared pencil shape and natural angle", () => {
+  it("ensures letter tracing exercises use the owner-approved @image1 wooden pencil photo", () => {
     const letterTrace = source("src/components/cartilla/WorkbookLetterTrace.tsx");
-    expect(letterTrace).toContain('import { PencilShape } from "./WorkbookPencilMark"');
-    expect(letterTrace).toContain("rotate(55) scale(0.38)");
-    expect(letterTrace).toContain("rotate(55) scale(0.32)");
-    expect(letterTrace).toContain("<PencilShape uid=\"letter-trace-live-pencil\" />");
+    expect(letterTrace).toContain('import { OwnerPhotoPencilSvg } from "@/components/StudentBook/OwnerPhotoPencilSvg"');
+    expect(letterTrace).not.toContain("PencilShape");
+    expect(letterTrace).toContain("<OwnerPhotoPencilSvg");
+    expect(letterTrace).toContain('testId="letter-trace-live-pencil"');
+    expect(letterTrace).toContain('testId="letter-trace-tap-pencil"');
   });
 });
 

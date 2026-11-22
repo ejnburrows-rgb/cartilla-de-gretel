@@ -39,10 +39,10 @@ test.describe('Student Route Smoke Test', () => {
       await page.setViewportSize(viewport);
       const errors = setupErrorTracking(page);
 
-      // 1. Student entry (/cartilla)
+      // 1. Student entry (/cartilla) — Living Book Cover
       await page.goto('/cartilla');
       await expect(page.locator('text=La Cartilla de Gretel').first()).toBeVisible();
-      await expect(page.locator('img[alt*="Gretel"]').first()).toBeVisible();
+      await expect(page.getByTestId('welcome-splash')).toBeVisible();
       await page.screenshot({ path: path.join(proofDir, `${name.toLowerCase()}-entry.png`) });
 
       // 2. Lesson list (/cartilla/lecciones)

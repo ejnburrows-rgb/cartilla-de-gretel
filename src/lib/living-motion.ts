@@ -9,8 +9,8 @@ export const ELEGANT_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 /** Physical student-workbook curl: intentionally slow enough to read as a real paper leaf. Target 0.75–0.85s. */
 export const STUDENT_PAGE_TURN_MS = 800;
 
-/** Lesson screen real-paper curl, slow motion (owner decisions 2026-10-09, 2026-10-14). */
-export const LESSON_PAGE_TURN_MS = 2600;
+/** Lesson screen real-paper curl (matches Teacher Flip Chart 2.0s and CARTILLA_DIGITAL_DIRECTIVE.md:165). */
+export const LESSON_PAGE_TURN_MS = 2000;
 /** The corner of the lesson page lifts before the curl. */
 export const LESSON_PAGE_LIFT_MS = 300;
 /** Whole lesson page turn: lift + curl + settle. */
