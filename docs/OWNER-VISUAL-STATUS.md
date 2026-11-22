@@ -5,14 +5,31 @@
 **Official Pencil Cursor Spec:** [PENCIL-CURSOR-SPEC.md](../PENCIL-CURSOR-SPEC.md) (Approved 2026-11-18, locked 2026-11-21)  
 **Production URL (Live):** [https://cartilla-de-gretel-psi.vercel.app](https://cartilla-de-gretel-psi.vercel.app)  
 **Production Alias:** [https://cartilla-de-gretel-ejn.vercel.app](https://cartilla-de-gretel-ejn.vercel.app)  
-**Last Checked Date:** 2026-11-21  
-**Canonical Main Branch:** `main` (`3c559eea` — PRs `#1316`, `#1317`, `#1318`, `#1319`)  
+**Last Checked Date:** 2026-11-22  
+**Canonical Main Branch:** `main` (`3c559eea` + Two-Map Standard — PRs `#1316`, `#1317`, `#1318`, `#1319`, `#1320`)  
 **Live Vercel Production:** `dpl_2mPdaWjZvBsypz61U6KCk5gej8Uh` (`READY`, `main` `3c559eea`, all 244/244 Vitest test files passed; `vercel.json` keeps `git.deploymentEnabled: false`).  
+**Presentation Standard:** Approved Two-Map Standard (Map A 5-Branch Mind Map + Map B GitHub Timeline) — Zero technical jargon, zero ASCII boards.  
 **Ledger Note:** `docs/COMPLETION_LEDGER.csv` does not exist on `main`; this document and `public/review/owner-decisions-locked-b.json` are the active status records.
 
 ---
 
-## 1. Complete Repository & Release Map
+## Map A — Simple Mind Map (5 Branches Maximum)
+
+![Map A — La Cartilla de Gretel at a Glance](mapA_desktop.png)
+
+*(Phone version `390×844`: `docs/mapA_mobile.png`)*
+
+---
+
+## Map B — GitHub Timeline (Start → Today → Finish)
+
+![Map B — La Cartilla de Gretel Journey](mapB_desktop.png)
+
+*(Phone version `390×844`: `docs/mapB_mobile.png`)*
+
+---
+
+## 1. Complete Repository & Release Lock Summary
 
 ```mermaid
 flowchart TD

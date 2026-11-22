@@ -23,17 +23,26 @@ This contract governs all coding agents across La Cartilla de Gretel, LANY Books
   7. Verify the actual public website.
   8. Confirm approved designs and interactions appear correctly.
   9. Report the real production link and proof.
-- **Branch Cleanup**: After a branch is safely merged to `main`, confirm no active work depends on it, delete the obsolete remote branch, update the visual repository board, and preserve commit history. Never delete active or unmerged unique work.
+- **Branch Cleanup**: After a branch is safely merged to `main`, confirm no active work depends on it, delete the obsolete remote branch, update the project mind map and status mirror, and preserve commit history. Never delete active or unmerged unique work.
 - If a branch is unfinished, truthfully report it as unfinished with its exact blocker; never disguise it as delivered.
 
-## 3. The Two Mandatory Visual Boards in Every Session
-Every coding session must present two visual boards directly inside the chat reply. They must be readable on mobile, clean, and understandable without technical knowledge:
-- **BOARD 1 — COMPLETE REPOSITORY AND RELEASE MAP**: Covers the whole project.
-  `PROJECT → MAIN BRANCH → APPLICATION AREAS → ACTIVE BRANCHES → UNMERGED WORK → MERGED WORK → PRODUCTION DEPLOYMENT → VERIFIED PUBLIC WEBSITE`
-  Shows all remote branches (grouped: main, active development, awaiting review, approved for integration, blocked/unverified, obsolete cleanup candidates) with their purpose explained in everyday words. Compares current `main` against current Vercel production revision, and displays a prominent warning if production is behind.
-- **BOARD 2 — THIS SESSION'S WORK MAP**: A focused, minimalist view of the current conversation.
-  `MY REQUEST → WHAT WE ARE CHANGING → WHAT ALREADY EXISTS → WHAT IS BEING CREATED → WHERE IT WILL BE SAVED → WHAT NEEDS APPROVAL → WHERE IT WILL BE MERGED → WHERE IT WILL BE DEPLOYED → WHAT HAS BEEN VERIFIED`
-- **Repository-Backed Mirror**: Both boards must be grounded in the authoritative repository state and mirrored in `docs/OWNER-VISUAL-STATUS.md` in GitHub.
+## 3. The Mandatory Two-Map Visual Standard in Every Session (Map A & Map B)
+Do NOT output rigid ASCII tree diagrams, flowchart boards (e.g. "BOARD 1" or "BOARD 2"), or technical pipeline boxes.
+Instead, every coding session must lead with the **Approved Two-Map Visual Standard**, chunked, scannable, and color-coded (ADHD-friendly) with zero technical jargon:
+- **Map A — Simple Mind Map (5 Branches Maximum)**:
+  Shows the project at a glance across five clear categories:
+  1. 🎨 **Art & Look**: Book cover & opening, owner-approved photo pencil & macro eraser, PC artwork & living-motion review.
+  2. 📚 **Curriculum**: Student Workbook (90 pages, Lessons 1–24), full 16-picture Page 7, Teacher Flip Chart (62 HD sheets).
+  3. ✏️ **Activities & Tools**: 11/12 live learning games, Option A page-turn & audio, Gretel human voice & welcome video.
+  4. 👩‍🏫 **Classroom & Web**: Phone/laptop/projector fit, 244/244 automated tests passing, fill-in-word answer keys.
+  5. 🗂️ **GitHub**: Main version synchronized with live website, locked design rules active, specialist branches in review.
+- **Map B — GitHub Timeline (Start → Today → Finish)**:
+  Visualizes the entire project journey under the hood in GitHub:
+  - **The Main Track (Blue Line)**: Traces every milestone merged and live on the public site from project start through current status.
+  - **Side Branches (Green Twigs)**: Shows feature branches cleanly developed, verified, and merged.
+  - **Waiting Track (Orange Track)**: Clearly isolates art, voice, and specialist review branches held safely off the live site.
+  - **Finish Line (Checkered Goal)**: Highlights the specific owner milestones on `#877` (PC artwork approval, 3 living-motion rebuilds, human voice & video drops, answer keys).
+- **Repository-Backed Mirror**: Both maps must be maintained and mirrored in `docs/OWNER-VISUAL-STATUS.md` in GitHub, with high-resolution rendered visual assets in `docs/` (`docs/mapA_desktop.png`, `docs/mapB_desktop.png`, `docs/mapA_mobile.png`, `docs/mapB_mobile.png`).
 
 ## 4. Mandatory Obsolete-Work & Stale-Version Cleanup
 - Ensure Emilio and clients never repeatedly encounter old designs, outdated illustrations, duplicate approvals, or retired application versions.

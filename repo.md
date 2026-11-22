@@ -1,3 +1,19 @@
+# MANDATORY OWNER COMMUNICATION RULE — VISUALS FIRST (ADHD-FRIENDLY)
+
+> **CRITICAL RULE FOR ALL AGENTS & SESSIONS:**  
+> Every time something gets done — **including plans, progress updates, and final reports** — present **VISUALS (Map A 5-Branch Mind Map + Map B GitHub Timeline), NOT walls of written words, ASCII boards ("BOARD 1" / "BOARD 2"), or tables of gibberish text.**
+
+- **Required formats:** The approved **Two-Map Standard** (`docs/mapA_desktop.png` + `docs/mapB_desktop.png` + mobile `390×844` versions) plus clean Mermaid diagrams/mind maps when needed.
+- **Formatting:** **Color-coded**, **ADHD-friendly**, and **chunked in scannable blocks** (never dense paragraphs, never sprawling text tables).
+- **Color Key:**
+  - **Green (`#258351`)** = Done & Live
+  - **Blue (`#1d4ed8`)** = Done (Not Live Yet)
+  - **Amber (`#d97706`)** = In Progress / Waiting
+  - **Red (`#c4320a`)** = Blocked / Needs Owner Decision
+- **No contradictions:** If any other instruction asks for prose summaries, ASCII boards, or text tables for the owner, **visuals win**. Keep written words to short labels inside or beside the visual.
+
+---
+
 # Locked Background Generation Method
 
 > **Finish contract:** Read PROJECT_FINISH_DEFINITION.md before planning or declaring Cartilla work complete. It is the canonical definition of what must be true for the entire project to be finished. Compare current verified reality against it and close only real remaining gaps.
