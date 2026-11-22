@@ -11,6 +11,7 @@ export type GretelPresenceProps = {
   lesson?: IntroCatalogSlice; instruction?: string | null; className?: string;
   autoIntro?: boolean; variant?: 'lesson' | 'home'; hideChrome?: boolean; bookMode?: boolean;
 };
+const PRAISE_LINES = ['¡Muy bien!', '¡Excelente!', '¡Buen trabajo!'];
 export function GretelPresence({ lesson, instruction, className = '', autoIntro = true, variant = 'lesson', hideChrome = false, bookMode = false }: GretelPresenceProps) {
   const [entered, setEntered] = useState(!bookMode);
   const [muted, setMuted] = useState(false);
@@ -29,6 +30,8 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
   const lastActivity = useRef(Date.now());
   const nudged = useRef(false);
   const contextToken = useRef(0);
+  const praiseIdx = useRef(0);
+  const deliveredInDispatch = useRef(false);
 
   const say = useCallback((text: string, delay = 0) => {
     if (!text.trim() || !ready.current) return;
@@ -73,7 +76,7 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
         return;
       }
       if (type === 'task:point' && detail.targetId && detail.activityId === active.current.activityId) { active.current = { ...active.current, targetId: detail.targetId }; setContext(active.current); return; }
-      if (type === 'support:delivered' && detail.text) { setSupportText(detail.text); say(detail.text, 80); return; }
+      if (type === 'support:delivered' && detail.text) { deliveredInDispatch.current = true; setSupportText(detail.text); say(detail.text, 80); return; }
       if (type === 'activity:focus') {
         contextToken.current += 1;
         clearTimeout(speechTimer.current); avatarRef.current?.cancel();
@@ -99,9 +102,15 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
       learning.current.set(id, result.state);
       if (!result.reaction) return;
       setFocused(false); setReaction(result.reaction); lastActivity.current = Date.now();
+      deliveredInDispatch.current = false;
       gretelEvent('guide:reaction', { ...detail, activityId: id, reaction: result.reaction });
-      // Completion immediately follows a correct answer; one sentence is enough.
       if (input === 'complete') say('Terminaste la actividad.', 80);
+      else if (result.reaction === 'success' || result.reaction === 'independent-retry') {
+        const line = PRAISE_LINES[praiseIdx.current++ % PRAISE_LINES.length]!;
+        say(result.reaction === 'independent-retry' ? `${line} Ahora inténtalo sin ayuda.` : line, 80);
+      } else if (input === 'wrong' && !deliveredInDispatch.current) {
+        say('Inténtalo otra vez.', 80);
+      }
     });
     const idleTimer = setInterval(() => {
       if (!ready.current || nudged.current || document.hidden || !active.current.activityId) return;

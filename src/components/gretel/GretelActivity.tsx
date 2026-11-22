@@ -51,22 +51,22 @@ function LearnerActivity({ id, pageNumber, kind, children, scope }: Props & { sc
           if (target) {
             target.id ||= `${id}-target`;
             target.setAttribute('data-gretel-highlight', detail.reaction);
-            gretelEvent('support:delivered', { ...detail, activityId: id, targetId: target.id, text: 'Mira esta opción y comprueba si cumple la consigna.' });
+            gretelEvent('support:delivered', { ...detail, activityId: id, targetId: target.id, text: 'Inténtalo otra vez. Mira esta opción y comprueba si cumple la consigna.' });
             gretelEvent('task:point', { activityId: id, pageNumber, encounterId: context.encounterId, targetId: target.id });
           }
         }
         if (['cue', 'hint', 'demonstration'].includes(detail.reaction || '') && !ref.current?.querySelector('[data-gretel-highlight]')) {
           const strategies: Record<string, string> = {
-            'picture-grid': 'Di el nombre de cada dibujo y escucha el sonido que pide la consigna.',
-            'vowel-line-match': 'Di el nombre de cada dibujo y escucha si empieza con la vocal de la consigna.',
-            'vowel-match-all': 'Di el nombre de cada dibujo y escucha su vocal inicial antes de unirlo.',
-            'vowel-pick-one': 'Di los nombres de los dibujos y escucha con qué vocal empiezan.',
-            'syllable-match': 'Lee la sílaba de la consigna. Busca ese sonido dentro de cada palabra.',
-            'fill-in-blank': 'Prueba cada sílaba en el espacio y lee la palabra completa.',
+            'picture-grid': 'Inténtalo otra vez. Di el nombre de cada dibujo y escucha el sonido que pide la consigna.',
+            'vowel-line-match': 'Inténtalo otra vez. Di el nombre de cada dibujo y escucha si empieza con la vocal de la consigna.',
+            'vowel-match-all': 'Inténtalo otra vez. Di el nombre de cada dibujo y escucha su vocal inicial antes de unirlo.',
+            'vowel-pick-one': 'Inténtalo otra vez. Di los nombres de los dibujos y escucha con qué vocal empiezan.',
+            'syllable-match': 'Inténtalo otra vez. Lee la sílaba de la consigna y busca ese sonido dentro de cada palabra.',
+            'fill-in-blank': 'Inténtalo otra vez. Prueba cada sílaba en el espacio y lee la palabra completa.',
             'draw-box': 'Dibuja lo que pide la consigna. Cuando termines, toca Listo.',
             'writing-line': 'Sigue los puntos en orden y continúa el trazo de la letra. Tu escritura se conserva.',
             'writing-response': 'Escribe tu respuesta a la consigna. Cuando termines, toca Listo.',
-            'connect': 'Di el nombre del dibujo y escucha el sonido inicial antes de unirlo.',
+            'connect': 'Inténtalo otra vez. Di el nombre del dibujo y escucha el sonido inicial antes de unirlo.',
           };
           const text = strategies[kind];
           if (text) gretelEvent('support:delivered', { ...detail, activityId: id, text });

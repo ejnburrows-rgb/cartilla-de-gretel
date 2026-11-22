@@ -7,6 +7,7 @@ import {
   forwardRef,
   type KeyboardEvent,
 } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Heart, Sparkles, Star } from "lucide-react";
 import { onGretelEvent } from "@/lib/gretel-bus";
@@ -86,8 +87,19 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const [listening, setListening] = useState(false);
     const [pointingLeft, setPointingLeft] = useState(bubblePosition === "right");
     const [particles, setParticles] = useState<Particle[]>([]);
+    const [zoomedView, setZoomedView] = useState(false);
     const particleId = useRef(0);
     const speechRequestId = useRef(0);
+
+    useEffect(() => {
+      if (typeof document === "undefined") return;
+      const root = document.documentElement;
+      const syncZoom = () => setZoomedView(root.classList.contains("workbook-close-up-zooming"));
+      syncZoom();
+      const obs = new MutationObserver(syncZoom);
+      obs.observe(root, { attributes: true, attributeFilter: ["class"] });
+      return () => obs.disconnect();
+    }, []);
 
     const burst = useCallback((kind: Particle["kind"], count: number) => {
       if (reducedMotion) return;
@@ -349,6 +361,18 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
             {bubbleText}
           </motion.div>
         )}
+        {showBubble && bubbleText && zoomedView && typeof document !== "undefined" &&
+          createPortal(
+            <div
+              className={`gretel-zoom-pill ${machineState === "cheering" ? "gretel-zoom-pill--correct" : "gretel-zoom-pill--encourage"}`}
+              role="status"
+              aria-live="polite"
+            >
+              <span className="gretel-zoom-pill__name">Gretel:</span>{" "}
+              <span>{bubbleText}</span>
+            </div>,
+            document.body,
+          )}
       </div>
     );
   },

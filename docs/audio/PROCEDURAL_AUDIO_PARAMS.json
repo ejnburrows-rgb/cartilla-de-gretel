@@ -1,0 +1,552 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "version": "1.0.0",
+    "project": "Project Gretel",
+    "title": "Machine-Readable Procedural Audio and Sound Effects Parameter Specification",
+    "generated_at": "2026-11-12T16:45:00Z",
+    "delivery_lane": "Audio",
+    "repository_access": "NONE",
+    "status": "PRODUCTION_CANONICAL"
+  },
+  "procedural_synthesizers": {
+    "pencil_graphite_stroke": {
+      "sfx_id": "sfx_proc_graphite_01",
+      "name": "Procedural Pencil Graphite Sound",
+      "category": "tactile_writing",
+      "source_references": [
+        "src/lib/paper-sound.ts:30-73",
+        "src/lib/piano-audio.ts:65-109"
+      ],
+      "synthesis_engine": "Web Audio API",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "duration": {
+        "default_ms": 160,
+        "min_ms": 60,
+        "max_ms": 450,
+        "context_presets": {
+          "accent_or_dot": 110,
+          "letter_tracing_short": 120,
+          "cursive_loop": 140,
+          "syllable_stroke": 170,
+          "workbook_circle_or_cross": 240
+        }
+      },
+      "buffer_generation": {
+        "noise_generator": "pink_noise_first_order_iir",
+        "difference_equation": "prev = 0.72 * prev + 0.28 * white_noise",
+        "windowing_envelope": "half_sine",
+        "envelope_formula": "env = Math.sin((Math.PI * i) / frameCount)",
+        "output_sample_formula": "data[i] = prev * env"
+      },
+      "audio_node_graph": [
+        {
+          "node_index": 0,
+          "node_type": "AudioBufferSourceNode",
+          "config": {
+            "loop": false
+          }
+        },
+        {
+          "node_index": 1,
+          "node_type": "BiquadFilterNode",
+          "config": {
+            "type": "bandpass",
+            "frequency_hz": 1350,
+            "q_factor": 1.6
+          }
+        },
+        {
+          "node_index": 2,
+          "node_type": "GainNode",
+          "config": {
+            "gain_multiplier": 0.04,
+            "target_peak_gain": 0.35,
+            "modulated_by": "audioEngine.getVolume()"
+          }
+        },
+        {
+          "node_index": 3,
+          "node_type": "AudioDestinationNode"
+        }
+      ],
+      "connections": [
+        { "from": 0, "to": 1 },
+        { "from": 1, "to": 2 },
+        { "from": 2, "to": 3 }
+      ],
+      "execution_constraints": {
+        "rate_limiting_ms": 90,
+        "rate_limiting_check": "nowMs - lastGraphiteAt < 90",
+        "respect_mute": true,
+        "respect_reduced_motion": true
+      },
+      "visual_synchronization": {
+        "cursor_pose": "Cedar pencil tipped at 55°-60° angle along motion vector",
+        "stroke_duration_ms": 2000,
+        "mark_completion_hold_ms": 400,
+        "emotional_rationale": "Pencil settles for 400ms before color confirmation glow (Forest Green #15803d or Crimson Red #c4320a) to ensure the physical writing action is felt before digital assessment."
+      },
+      "trigger_events": [
+        "WorkbookLetterTrace.onCorrectTap",
+        "WorkbookPencilMark pointerDown",
+        "DragLetterTrace touchMove",
+        "CompletarPalabras tile placement"
+      ]
+    },
+    "eraser_rubber_friction": {
+      "sfx_id": "sfx_proc_eraser_01",
+      "name": "Procedural Eraser Rubber Sound",
+      "category": "tactile_correction",
+      "source_references": [
+        "src/lib/paper-sound.ts:78-115",
+        "src/lib/piano-audio.ts:114-152"
+      ],
+      "synthesis_engine": "Web Audio API",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "duration": {
+        "default_ms": 260,
+        "min_ms": 100,
+        "max_ms": 600,
+        "context_presets": {
+          "mini_game_quick_rub": 200,
+          "tracing_correction": 220,
+          "workbook_mark_rubout": 320
+        }
+      },
+      "buffer_generation": {
+        "noise_generator": "two_cycle_sinusoidal_friction_swell",
+        "rub_formula": "rub = Math.abs(Math.sin((Math.PI * 2 * i) / frameCount))",
+        "output_sample_formula": "data[i] = (Math.random() * 2 - 1) * rub"
+      },
+      "audio_node_graph": [
+        {
+          "node_index": 0,
+          "node_type": "AudioBufferSourceNode",
+          "config": {
+            "loop": false
+          }
+        },
+        {
+          "node_index": 1,
+          "node_type": "BiquadFilterNode",
+          "config": {
+            "type": "bandpass",
+            "frequency_hz": 620,
+            "q_factor": 1.8
+          }
+        },
+        {
+          "node_index": 2,
+          "node_type": "GainNode",
+          "config": {
+            "gain_multiplier": 0.045,
+            "target_peak_gain": 0.40,
+            "modulated_by": "audioEngine.getVolume()"
+          }
+        },
+        {
+          "node_index": 3,
+          "node_type": "AudioDestinationNode"
+        }
+      ],
+      "connections": [
+        { "from": 0, "to": 1 },
+        { "from": 1, "to": 2 },
+        { "from": 2, "to": 3 }
+      ],
+      "execution_constraints": {
+        "respect_mute": true,
+        "respect_reduced_motion": true
+      },
+      "visual_synchronization": {
+        "eraser_animation": "Pink rubber block eraser sweeps along stroke path from t = 1 to 0",
+        "crumbs_count": 12,
+        "crumb_color_palette": ["#f472b6", "#fb7185", "#fda4af"],
+        "crumb_physics": {
+          "fall_distance_px": "8px to 22px Y-translation",
+          "lateral_scatter_px": "-4px to +10px X-translation",
+          "rotation_deg": "-120deg to +120deg",
+          "fade_out_duration_ms": 600
+        },
+        "pedagogical_intent": "Clean paper restoration without punitive markings, allowing fresh retry."
+      },
+      "trigger_events": [
+        "WorkbookPencilMark erasing state",
+        "DragLetterTrace reset",
+        "CompletarPalabras retry"
+      ]
+    },
+    "non_punitive_wrong_answer_cue": {
+      "sfx_id": "sfx_proc_wrong_01",
+      "name": "Non-Punitive Try-Again Piano Cue",
+      "category": "pedagogical_feedback",
+      "source_references": [
+        "src/lib/piano-audio.ts:48-58"
+      ],
+      "synthesis_engine": "Steinway Grand Piano Sample Engine with Hall Reverb",
+      "musical_interval": "Descending Major Second (D4 -> C4)",
+      "tone_sequence": [
+        {
+          "step": 1,
+          "note": "D4",
+          "frequency_hz": 293.66,
+          "duration_seconds": 0.24,
+          "velocity": 0.60,
+          "delay_offset_ms": 0
+        },
+        {
+          "step": 2,
+          "inter_note_delay_ms": 110,
+          "note": "C4",
+          "frequency_hz": 261.63,
+          "duration_seconds": 0.28,
+          "velocity": 0.55,
+          "delay_offset_ms": 110
+        }
+      ],
+      "acoustic_characteristics": {
+        "sample_source": "University of Iowa Steinway Grand Piano",
+        "reverb_tail_seconds": 2.4,
+        "tone_filter_lowpass_hz": 7200,
+        "sound_philosophy": "Calm, musical sigh conveying 'try again'; strict prohibition of harsh buzzers, square waves, or dissonant alarms."
+      },
+      "trigger_events": [
+        "feelBus.emit('error')",
+        "Workbook exercise incorrect choice",
+        "Mini-game missed placement"
+      ]
+    },
+    "ui_tick": {
+      "sfx_id": "sfx_proc_tick_01",
+      "name": "Steinway Grand Piano UI Tick",
+      "category": "ui_feedback",
+      "source_references": [
+        "src/lib/piano-audio.ts:166-172"
+      ],
+      "synthesis_engine": "Steinway Grand Piano Sample Engine",
+      "tone": {
+        "note": "G4",
+        "frequency_hz": 392.00,
+        "duration_seconds": 0.14,
+        "velocity": 0.65
+      },
+      "acoustic_characteristics": {
+        "character": "Warm, minimal acoustic piano strike; non-intrusive alternative to high-pitched digital blips"
+      },
+      "trigger_events": [
+        "Fallback for tap.mp3",
+        "Fallback for drag-pick.mp3",
+        "Fallback for drag-drop.mp3"
+      ]
+    },
+    "tactile_wood_click": {
+      "sfx_id": "sfx_proc_wood_click_01",
+      "name": "Tactile Wooden Block Click Synthesizer",
+      "category": "manipulative_tactile",
+      "source_references": [
+        "dist/docs/OWNER_MASTER_APPROVAL_AND_HANDOFF.html:2180"
+      ],
+      "synthesis_engine": "Web Audio API",
+      "duration_seconds": 0.08,
+      "audio_node_graph": [
+        {
+          "node_index": 0,
+          "node_type": "OscillatorNode",
+          "config": {
+            "type": "triangle",
+            "frequency_curve": {
+              "start_value_hz": 220,
+              "end_value_hz": 80,
+              "ramp_type": "exponentialRampToValueAtTime",
+              "duration_seconds": 0.08
+            }
+          }
+        },
+        {
+          "node_index": 1,
+          "node_type": "GainNode",
+          "config": {
+            "gain_curve": {
+              "start_value": 0.3,
+              "end_value": 0.001,
+              "ramp_type": "exponentialRampToValueAtTime",
+              "duration_seconds": 0.08
+            }
+          }
+        },
+        {
+          "node_index": 2,
+          "node_type": "AudioDestinationNode"
+        }
+      ],
+      "connections": [
+        { "from": 0, "to": 1 },
+        { "from": 1, "to": 2 }
+      ],
+      "acoustic_characteristics": {
+        "character": "Acoustic percussive 'thunk' simulating physical hardwood syllable blocks docking together"
+      },
+      "trigger_events": [
+        "Wooden tile snapping",
+        "Montessori stamp press in interactive playground"
+      ]
+    }
+  },
+  "steinway_grand_piano_engine": {
+    "engine_id": "steinway_grand_model_d",
+    "source_references": [
+      "src/components/cartilla/piano/piano-sound.ts",
+      "src/components/cartilla/piano/piano-samples.ts"
+    ],
+    "sample_origin": "University of Iowa Electronic Music Studios (Steinway Model D, mezzo-forte)",
+    "embedded_sample_table": {
+      "C4": { "midi_note": 60, "fundamental_hz": 261.63 },
+      "Ds4": { "midi_note": 63, "fundamental_hz": 311.13 },
+      "Fs4": { "midi_note": 66, "fundamental_hz": 369.99 },
+      "A4": { "midi_note": 69, "fundamental_hz": 440.00 },
+      "C5": { "midi_note": 72, "fundamental_hz": 523.25 },
+      "Ds5": { "midi_note": 75, "fundamental_hz": 622.25 }
+    },
+    "dynamic_repitching": {
+      "algorithm": "nearest_sample_resampling",
+      "formula": "rate = Math.pow(2, (targetMidi - bestMidi) / 12)",
+      "max_pitch_distance_semitones": 1.5
+    },
+    "envelope": {
+      "min_held_seconds": 0.25,
+      "default_duration_seconds": 0.8,
+      "damper_release_seconds": 0.45,
+      "damper_release_curve": "setTargetAtTime(0.0001, now + held, release / 4)",
+      "velocity_scaling_formula": "level = volume * (0.35 + 0.65 * velocity) * 0.9"
+    },
+    "dsp_chain": {
+      "tone_filter": {
+        "type": "lowpass",
+        "frequency_hz": 7200,
+        "q_factor": 0.4,
+        "purpose": "Removes high digital sampling glare and simulates acoustic felt damping"
+      },
+      "convolution_reverb": {
+        "impulse_generator": "synthetic_warm_hall_impulse",
+        "channels": 2,
+        "duration_seconds": 2.4,
+        "early_reflection_mute_ms": 12,
+        "decay_one_pole_filter_equation": "k = 0.55 - 0.4 * (i / length); last = last + k * (white - last)",
+        "decay_envelope_formula": "(1 - t)^3.2",
+        "wet_gain": 0.28,
+        "dry_gain": 0.86
+      },
+      "studio_limiter": {
+        "type": "DynamicsCompressorNode",
+        "threshold_db": -10,
+        "knee_db": 8,
+        "ratio": 4.0,
+        "attack_seconds": 0.004,
+        "release_seconds": 0.25,
+        "purpose": "Prevents clipping and harsh distortion during multi-note chord arpeggios"
+      }
+    },
+    "celebration_chord": {
+      "name": "¡Muy bien! Rolled C-Major Arpeggio",
+      "source_reference": "src/components/cartilla/piano/piano-sound.ts:213-221",
+      "notes": [
+        { "step": 0, "note": "C4", "freq_hz": 261.63, "velocity": 0.65, "held_seconds": 1.6, "stagger_ms": 0 },
+        { "step": 1, "note": "E4", "freq_hz": 329.63, "velocity": 0.65, "held_seconds": 1.6, "stagger_ms": 70 },
+        { "step": 2, "note": "G4", "freq_hz": 392.00, "velocity": 0.65, "held_seconds": 1.6, "stagger_ms": 140 },
+        { "step": 3, "note": "C5", "freq_hz": 523.25, "velocity": 0.80, "held_seconds": 1.6, "stagger_ms": 210 }
+      ]
+    }
+  },
+  "audio_samples": {
+    "page_turn": {
+      "sfx_id": "sfx_sample_turn_01",
+      "filename": "page-turn.mp3",
+      "path": "/audio/page-turn.mp3",
+      "duration_seconds": 1.854694,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 185,
+      "acoustic_profile": "Heavy acoustic paper workbook page turn with air displacement and settling flutter",
+      "trigger_events": [
+        "DigitalPageViewer navigation buttons",
+        "CurlPageViewer 3D page turn",
+        "Keyboard PageDown / PageUp / ArrowRight / ArrowLeft / Space"
+      ],
+      "ducking_rules": {
+        "ducks_target": "/audio/ambient-classroom.mp3",
+        "duck_duration_ms": 600,
+        "speech_interruption": true
+      }
+    },
+    "page_turn_soft": {
+      "sfx_id": "sfx_sample_turn_02",
+      "filename": "page-turn-soft.mp3",
+      "path": "/audio/page-turn-soft.mp3",
+      "duration_seconds": 1.515102,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 192,
+      "acoustic_profile": "Gentle, velvety parchment leaf glide with attenuated high-end transients",
+      "trigger_events": [
+        "Touch swipe gesture on mobile/tablet viewport (>55px delta)",
+        "Flipchart HD slide change",
+        "cartilla:page-flip custom event with { detail: { soft: true } }"
+      ]
+    },
+    "page_flip": {
+      "sfx_id": "sfx_sample_turn_03",
+      "filename": "page-flip.mp3",
+      "path": "/audio/feel/page-flip.mp3",
+      "duration_seconds": 0.276417,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 185,
+      "acoustic_profile": "Rapid tactile leaf flick or page corner snap",
+      "trigger_events": [
+        "Thumbnail browsing scrub in page navigator",
+        "Lift-the-flap toggle interactions"
+      ],
+      "haptic_pattern": [15, 10, 15]
+    },
+    "tap": {
+      "sfx_id": "sfx_sample_ui_tap",
+      "filename": "tap.mp3",
+      "path": "/audio/feel/tap.mp3",
+      "duration_seconds": 0.048,
+      "channels": 1,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 192,
+      "acoustic_profile": "Warm, subtle wooden button tap",
+      "trigger_events": [
+        "Button tap",
+        "Tile selection",
+        "Menu tab change"
+      ],
+      "fallback": "playUiTick()"
+    },
+    "drag_pick": {
+      "sfx_id": "sfx_sample_ui_drag_pick",
+      "filename": "drag-pick.mp3",
+      "path": "/audio/feel/drag-pick.mp3",
+      "duration_seconds": 0.062,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 192,
+      "acoustic_profile": "Gentle magnetic tile detachment snap",
+      "trigger_events": [
+        "Draggable token pointerDown / dragStart"
+      ],
+      "fallback": "playUiTick()"
+    },
+    "drag_drop": {
+      "sfx_id": "sfx_sample_ui_drag_drop",
+      "filename": "drag-drop.mp3",
+      "path": "/audio/feel/drag-drop.mp3",
+      "duration_seconds": 0.084,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 192,
+      "acoustic_profile": "Soft felt-lined dock snap",
+      "trigger_events": [
+        "Tile drop into target exercise slot"
+      ],
+      "fallback": "playUiTick()"
+    },
+    "chime": {
+      "sfx_id": "sfx_sample_ui_chime",
+      "filename": "chime.mp3",
+      "path": "/audio/feel/chime.mp3",
+      "duration_seconds": 0.442,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 185,
+      "acoustic_profile": "Bright, pure crystal bell chime",
+      "trigger_events": [
+        "Streak count increment",
+        "Correct syllable placement"
+      ],
+      "fallback": "playCorrectChord()"
+    },
+    "sparkle": {
+      "sfx_id": "sfx_sample_ui_sparkle",
+      "filename": "sparkle.mp3",
+      "path": "/audio/feel/sparkle.mp3",
+      "duration_seconds": 0.384,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 185,
+      "acoustic_profile": "Shimmering upward fairy glissando with glockenspiel overtone dust",
+      "trigger_events": [
+        "3x and 5x streak milestones",
+        "Star unlock award"
+      ],
+      "fallback": "playCorrectChord()"
+    },
+    "success": {
+      "sfx_id": "sfx_sample_ui_success",
+      "filename": "success.mp3",
+      "path": "/audio/feel/success.mp3",
+      "duration_seconds": 0.518,
+      "channels": 2,
+      "sample_rate_hz": 44100,
+      "bit_rate_kbps": 185,
+      "acoustic_profile": "Warm orchestral celebration mini-fanfare",
+      "trigger_events": [
+        "Workbook page completion",
+        "Mini-game round victory"
+      ],
+      "fallback": "playCorrectChord()"
+    }
+  },
+  "volume_balance_matrix": {
+    "spoken_voice_anchor": {
+      "target_peak_dbfs": -6.0,
+      "relative_gain": 1.0,
+      "spatial_staging": "Mono centered, 0% ducking"
+    },
+    "steinway_piano_engine": {
+      "target_peak_dbfs": -9.0,
+      "relative_gain": 0.85,
+      "spatial_staging": "Stereo 2.4s hall reverb"
+    },
+    "page_turn_acoustic": {
+      "target_peak_dbfs": -12.0,
+      "relative_gain": 0.80,
+      "spatial_staging": "Stereo wide air displacement"
+    },
+    "celebration_cues": {
+      "target_peak_dbfs": -10.0,
+      "relative_gain": 0.80,
+      "spatial_staging": "Stereo crystal shimmer"
+    },
+    "ui_interaction_cues": {
+      "target_peak_dbfs": -16.0,
+      "relative_gain": 0.55,
+      "spatial_staging": "Mono centered, tight transient"
+    },
+    "procedural_graphite": {
+      "target_peak_dbfs": -20.0,
+      "relative_gain": 0.35,
+      "spatial_staging": "Mono intimate paper proximity"
+    },
+    "procedural_eraser": {
+      "target_peak_dbfs": -19.0,
+      "relative_gain": 0.40,
+      "spatial_staging": "Mono intimate paper proximity"
+    },
+    "classroom_ambient_loop": {
+      "target_peak_dbfs": -24.0,
+      "relative_gain": 0.40,
+      "spatial_staging": "Stereo diffuse background; auto-ducks during page turns"
+    }
+  },
+  "concurrency_and_lifecycle_policy": {
+    "single_owner_token": "src/lib/speech-playback.ts claims active playback token; speech and SFX run in parallel without blocking",
+    "page_navigation_preemption": "Navigating to a new page instantly stops active speech narration to prevent audio bleed",
+    "background_tab_suspension": "window.visibilitychange listener halts/suspends audio contexts immediately when document.hidden is true",
+    "zero_tts_mandate": "Strict prohibition of synthetic speech fallback; silent respect guarantee when voice audio is missing"
+  }
+}
