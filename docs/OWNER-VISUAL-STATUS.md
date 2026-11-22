@@ -9,7 +9,8 @@
 **Canonical Main Branch:** `main` (`3c559eea` + Two-Map Standard — PRs `#1316`, `#1317`, `#1318`, `#1319`, `#1320`)  
 **Live Vercel Production:** `dpl_2mPdaWjZvBsypz61U6KCk5gej8Uh` (`READY`, `main` `3c559eea`, all 244/244 Vitest test files passed; `vercel.json` keeps `git.deploymentEnabled: false`).  
 **Presentation Standard:** Approved Two-Map Standard (Map A 5-Branch Mind Map + Map B GitHub Timeline) — Zero technical jargon, zero ASCII boards.  
-**Ledger Note:** `docs/COMPLETION_LEDGER.csv` does not exist on `main`; this document and `public/review/owner-decisions-locked-b.json` are the active status records.
+**Ledger Note:** `docs/COMPLETION_LEDGER.csv` does not exist on `main`; this document and `public/review/owner-decisions-locked-b.json` (updated to `lockedDefault: "A"`) are the active status records.
+**Step 1 Local Readiness (`DONE but not live`):** Security dependency patches (`seroval@1.6.8`, `vite@7.3.7`, `postcss@8.5.23`, `zod@4.6.6`, `nanoid@3.3.18`, `source-map-js@1.2.2` from PR `#1243`) and `/revision` Option A cleanup (with `/review/audio-board.json`, `/review/games.json`, `/review/page-turn-timing.json` restored) are prepared locally on `swarm/step1-security-revision` — not yet merged to `main` or deployed to production.
 
 ---
 

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Cow game",
+    "route": "/cartilla/juego/cow-game-m",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone; audio stays silent pending verified recordings."
+  },
+  {
+    "name": "Butterfly garden",
+    "route": "/cartilla/juego/mariposas-p",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone; untouched."
+  },
+  {
+    "name": "Payaso Chano",
+    "route": "/cartilla/juego/payaso-chano-ss",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Vocal A",
+    "route": "/cartilla/juego/vocal-a",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Fonética P",
+    "route": "/cartilla/juego/fonetica-p",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Sílabas O",
+    "route": "/cartilla/juego/silabas-o",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Sílabas M",
+    "route": "/cartilla/juego/silabas-m",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Sílabas P",
+    "route": "/cartilla/juego/silabas-p",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Rima P",
+    "route": "/cartilla/juego/rima-p",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Palabras por minuto",
+    "route": "/cartilla/juego/palabras-minuto-p",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Dibujos O",
+    "route": "/cartilla/juego/dibujos-o",
+    "result": "DONE and live",
+    "note": "Live on desktop and phone."
+  },
+  {
+    "name": "Completar palabras",
+    "route": "/cartilla/juego/completar-palabras",
+    "result": "WAITING",
+    "note": "Waiting on owner answer keys."
+  }
+]

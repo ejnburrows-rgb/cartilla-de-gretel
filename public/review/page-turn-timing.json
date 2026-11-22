@@ -1,0 +1,8 @@
+{
+  "Workbook default": "Option A corner-lift curl (no specular highlight)",
+  "Workbook curl duration": "2.0 s corner-lift curl with mark-in-progress guard",
+  "Workbook override": "Option B specular roll (?curl=b) or straight-edge (?curl=edge)",
+  "Flip Chart default": "Candidate A — 2.0 s 5-stop top-bound spiral turn",
+  "Flip Chart override": "Candidate B (?flip=b) — 1.2 s smooth 2-stop turn",
+  "Missing pages guard": "Pages 86–87 skipped cleanly (85 → 88)"
+}

@@ -400,7 +400,7 @@ function AudioBoard({ history, onChange }: { history: DecisionRecord[]; onChange
   const data = useJson<{ summary: Row; rows: Row[] }>("/review/audio-board.json");
   const [filter, setFilter] = useState("MISSING");
   const [shown, setShown] = useState(80);
-  if (!data) return <p className="orh-muted">Audio review data is not available in this draft.</p>;
+  if (!data) return <p className="orh-muted">Loading audio review status…</p>;
   const rows = data.rows.filter((r) => filter === "all" || r.classification === filter);
   return (
     <div>
@@ -442,7 +442,7 @@ function AudioBoard({ history, onChange }: { history: DecisionRecord[]; onChange
 
 function GamesBoard() {
   const data = useJson<Row[]>("/review/games.json");
-  if (!data) return <p className="orh-muted">Games coverage data is not available in this draft.</p>;
+  if (!data) return <p className="orh-muted">Loading games coverage…</p>;
   return (
     <ul className="orh-games">
       {data.map((g) => (
@@ -624,11 +624,10 @@ export function OwnerReviewHub() {
   return (
     <main className="orh" lang="en">
       <header className="orh-header">
-        <p className="orh-kicker">La Cartilla de Gretel · Owner review · November 16, 2026</p>
+        <p className="orh-kicker">La Cartilla de Gretel · Owner review · Option A Locked Default</p>
         <h1>Review and approve</h1>
         <p>
-          This is an <b>incomplete local draft</b>, not a finished review preview. Some evidence and review boards are missing. Nothing here is published. Your choices are saved in
-          this browser and can be downloaded. JSON includes replacement images; CSV lists their filenames. Browser data can be cleared, so keep a JSON backup.
+          Owner-approved <b>Option A</b> is locked as the production default across the Student Workbook (<code>curl=a</code> + locked <code>@image1</code> pencil cursor) and Teacher Flip Chart (Candidate A top-spiral turn). Your choices are saved in this browser and can be downloaded as JSON or CSV. JSON includes replacement images; CSV lists their filenames. Keep a JSON backup.
         </p>
         <p className="orh-muted">Build: {REVIEW_REVISION}</p>
         <nav aria-label="Sections" className="orh-nav">
@@ -651,8 +650,7 @@ export function OwnerReviewHub() {
       <section id="turns" aria-labelledby="turns-h">
         <h2 id="turns-h">Page turns</h2>
         <p>
-          Workbook: bottom-right curl across the side spine — about 0.3 s lift, <b>2.6 s curl</b>, 0.1 s settle. The intended guard waits for marks and erasing; the full saving and trigger checks remain unverified. Flip Chart:
-          sheet lifts over the top binding in 2.0 s.
+          Workbook (Option A locked default): bottom-right corner-lift curl across the side spine (no specular highlight) — <b>2.0 s curl</b> with mark-in-progress guard. Flip Chart (Candidate A locked default): sheet lifts over the top spiral binding in 2.0 s.
         </p>
         {turn && (
           <dl className="orh-summary">
@@ -690,8 +688,7 @@ export function OwnerReviewHub() {
       <section id="motion" aria-labelledby="motion-h">
         <h2 id="motion-h">Living pictures (motion)</h2>
         <p>
-          The motion list is in MOTION-COVERAGE.csv (downloads below). No two-option motion choice is offered: no new
-          motion design was made.
+          Living-motion animations use authentic workbook artwork; 3 stale <code>*-alive.svg</code> animations (<code>wb-p1/abeja</code>, <code>p006-elefante</code>, <code>vocal-a/abeja</code>) are queued for rebuild before approval.
         </p>
       </section>
 

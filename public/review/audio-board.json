@@ -1,0 +1,35 @@
+{
+  "summary": {
+    "Voice policy": "AUDIO_POLICY.allowTts = false (zero synthetic TTS)",
+    "Missing word/cue clips": "59",
+    "Missing lesson narrations": "24",
+    "Missing Gretel welcome video": "1",
+    "Status": "WAITING on owner authentic human recordings"
+  },
+  "rows": [
+    {
+      "id": "gretel-word-clips",
+      "classification": "MISSING",
+      "script": "59 vocabulario y pistas de voz humana",
+      "category": "Word & cue recordings",
+      "where": "Student Workbook & Games (Lessons 1–24)",
+      "note": "Waiting on 59 authentic human voice MP3 clips; cues stay silent until approved."
+    },
+    {
+      "id": "gretel-lesson-narrations",
+      "classification": "MISSING",
+      "script": "24 narraciones completas de lecciones",
+      "category": "Lesson narrations",
+      "where": "Lessons 1–24 (Student Workbook & Teacher Flip Chart)",
+      "note": "Waiting on 24 authentic human lesson narration recordings; zero TTS fallback."
+    },
+    {
+      "id": "gretel-welcome-video",
+      "classification": "MISSING",
+      "script": "Video de bienvenida de Gretel (MP4)",
+      "category": "Welcome video",
+      "where": "Opening / Welcome screen (/intro)",
+      "note": "Waiting on 1 authentic Gretel welcome MP4 loop from owner."
+    }
+  ]
+}

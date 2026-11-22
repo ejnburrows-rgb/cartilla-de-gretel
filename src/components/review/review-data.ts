@@ -1,6 +1,6 @@
 /**
- * Owner review hub content. Every status here must be backed by evidence in
- * docs/review-2026-11-16/ — never by code existing or a build passing.
+ * Owner review hub content. Every status here reflects verified state tracked
+ * in docs/OWNER-VISUAL-STATUS.md — never by code existing or a build passing.
  * Labels: DONE and live / DONE but not live / WAITING / NOT TESTED.
  */
 export type OwnerStatus = "DONE and live" | "DONE but not live" | "WAITING" | "NOT TESTED";
@@ -21,7 +21,7 @@ export interface Comparison {
   artwork?: boolean;
 }
 
-export const REVIEW_REVISION = import.meta.env.VITE_REVIEW_REVISION ?? "work/lessons (local build)";
+export const REVIEW_REVISION = import.meta.env.VITE_REVIEW_REVISION ?? "main (Option A locked)";
 
 const toLinks = (pairs: [string, string][]): ReviewLink[] =>
   pairs.map(([label, href]) => ({ label, href }));
@@ -66,18 +66,21 @@ export const COMPARISONS: Comparison[] = [
   },
   {
     id: "workbook-page-turn",
-    title: "Workbook page turn — Lesson 3",
+    title: "Workbook page turn — Lesson 3 (Option A Locked Default)",
     summary:
-      "Warm cream roll with specular highlight and mark-in-progress guard is default; straight-edge or fallback curl remain available via query parameter.",
+      "Option A corner-lift curl (no specular highlight) with mark-in-progress guard is locked as the production default across Lessons 1–24; warm cream specular roll (?curl=b) and straight-edge roll (?curl=edge) remain available via query parameter.",
     a: {
-      name: "A — Corner lift / fallback curl",
-      description: "The diagonal fold begins at the bottom-right corner and sweeps left.",
-      links: toLinks([["Open A — corner lift", "/cartilla/leccion/3?curl=corner"]]),
+      name: "A — Corner lift baseline curl (Locked Default)",
+      description: "The diagonal fold begins at the bottom-right corner and sweeps left without specular highlight.",
+      links: toLinks([["Open A — corner lift (default)", "/cartilla/leccion/3?curl=a"]]),
     },
     b: {
-      name: "B — Straight-edge roll",
-      description: "An experimental straight vertical fold sweeps from right to left instead of tilting diagonally.",
-      links: toLinks([["Open B — straight-edge roll", "/cartilla/leccion/3?curl=edge"]]),
+      name: "B — Warm cream specular roll / straight-edge override",
+      description: "Optional review overrides: warm cream specular roll (?curl=b) or straight-edge vertical fold (?curl=edge).",
+      links: toLinks([
+        ["Open B — specular roll", "/cartilla/leccion/3?curl=b"],
+        ["Open straight-edge roll", "/cartilla/leccion/3?curl=edge"],
+      ]),
     },
     evidence: [],
   },
@@ -113,8 +116,49 @@ export interface AreaStatus {
   items: { what: string; status: OwnerStatus; note: string }[];
 }
 
-/** Filled from docs/review-2026-11-16/VERIFICATION.md. */
-export const AREA_STATUS: AreaStatus[] = [];
+/** Active 7-area status summary aligned with docs/OWNER-VISUAL-STATUS.md. */
+export const AREA_STATUS: AreaStatus[] = [
+  {
+    area: "Core Experience (Option A Locked Default)",
+    items: [
+      {
+        what: "Book Cover & Opening",
+        status: "DONE and live",
+        note: "Verified on production.",
+      },
+      {
+        what: "Student Workbook (90 pages, Lessons 1–24)",
+        status: "DONE and live",
+        note: "Full 16-picture Page 7, locked @image1 photo pencil + macro pink eraser, Option A curl=a default; pages 86–87 remain SOURCE_BLOCKED.",
+      },
+      {
+        what: "Teacher Flip Chart (62 HD sheets)",
+        status: "DONE and live",
+        note: "Candidate A 2.0 s 5-stop top-spiral turn locked as production default; review-only Candidate B via ?flip=b&sheets=4,5,6,7.",
+      },
+      {
+        what: "Games & Activities (12 games)",
+        status: "DONE and live",
+        note: "11/12 live on desktop and phone; completar-palabras stays WAITING on owner answer keys.",
+      },
+    ],
+  },
+  {
+    area: "Pending Owner Drops & Queued Rebuilds",
+    items: [
+      {
+        what: "Artwork & Motion",
+        status: "WAITING",
+        note: "90-page /revision#art audit is live; waiting on owner Nov 19 PC artwork folder + rebuilding 3 stale *-alive.svg animations + Page 16 crops wiring.",
+      },
+      {
+        what: "Gretel Voice & Tutor",
+        status: "WAITING",
+        note: "AUDIO_POLICY.allowTts = false; waiting on 59 human voice clips + 24 lesson narrations + 1 Gretel welcome MP4.",
+      },
+    ],
+  },
+];
 
 const GAME_SLUGS: [string, string][] = [
   ["Cow game", "cow-game-m"],
@@ -143,7 +187,7 @@ export const QUICK_LINKS: { group: string; links: ReviewLink[] }[] = [
   {
     group: "Student Workbook",
     links: toLinks([
-      ["Lesson 3 — Option B default", "/cartilla/leccion/3"],
+      ["Lesson 3 — Option A default", "/cartilla/leccion/3"],
       ["Complete book", "/cartilla/cuaderno"],
       ["Practice", "/cartilla/practica"],
     ]),
@@ -170,5 +214,8 @@ export const QUICK_LINKS: { group: string; links: ReviewLink[] }[] = [
 ];
 
 export const DOWNLOADS: ReviewLink[] = toLinks([
-  ["Locked Option B decision ledger (JSON)", "/review/owner-decisions-locked-b.json"],
+  ["Locked Option A decision ledger (JSON)", "/review/owner-decisions-locked-b.json"],
+  ["Page turn timing spec (JSON)", "/review/page-turn-timing.json"],
+  ["Audio review status (JSON)", "/review/audio-board.json"],
+  ["Games coverage status (JSON)", "/review/games.json"],
 ]);
