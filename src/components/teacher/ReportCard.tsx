@@ -105,6 +105,13 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   const classProgressData = isSeed ? seedClassProgressData : realClassProgressData;
   const loadingClass = !isSeed && loadingRealClass;
 
+  const exerciseKinds = useMemo(() => {
+    if (!classProgressData) return [];
+    return Array.from(
+      new Set(Object.values(classProgressData.perStudentExercise ?? {}).flatMap((row) => Object.keys(row ?? {}))),
+    ).sort();
+  }, [classProgressData]);
+
   const loading = studentId ? loadingStudent : loadingClass;
 
   if (loading) {
@@ -255,9 +262,6 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   // ── Render Class Report ──
   if (classProgressData) {
     const { perStudent, perLesson, perStudentExercise, assignments } = classProgressData;
-    const exerciseKinds = Array.from(
-      new Set(Object.values(perStudentExercise ?? {}).flatMap((row) => Object.keys(row ?? {}))),
-    ).sort();
 
     return (
       <div className={cardClass}>
