@@ -1,5 +1,5 @@
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useDeferredValue } from "react";
 import {
   Sparkles,
   Search,
@@ -40,20 +40,21 @@ const CATEGORIES = [
 function TeacherGretelPage() {
   const [lang, setLang] = useState<Lang>("es");
   const [searchQuery, setSearchQuery] = useState("");
+  const deferredSearchQuery = useDeferredValue(searchQuery);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [activeTopicId, setActiveTopicId] = useState<string>("metodologia");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const filteredTopics = useMemo(() => {
     let list = TEACHER_TOPICS;
-    if (searchQuery.trim()) {
-      list = searchTeacherKB(searchQuery, lang);
+    if (deferredSearchQuery.trim()) {
+      list = searchTeacherKB(deferredSearchQuery, lang);
     }
     if (selectedCategory !== "all") {
       list = list.filter((t) => t.category === selectedCategory);
     }
     return list;
-  }, [searchQuery, selectedCategory, lang]);
+  }, [deferredSearchQuery, selectedCategory, lang]);
 
   const activeTopic: TeacherTopic | undefined = useMemo(() => {
     const found = filteredTopics.find((t) => t.id === activeTopicId);
