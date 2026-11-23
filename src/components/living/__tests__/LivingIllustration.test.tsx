@@ -53,8 +53,8 @@ describe("LivingIllustration faithful recovered art", () => {
   });
 
   it("keeps an explicitly approved source animated and tap-reactive", () => {
-    // leccion-1/pez.webp is the Workbook's airplane: it may glide as a whole.
-    render(<LivingIllustration src="/cartilla/art/faithful/leccion-1/pez.webp" alt="avión" />);
+    // The Workbook airplane may glide as a whole.
+    render(<LivingIllustration src="/cartilla/art/faithful/leccion-1/avion.webp" alt="avión" />);
     const wrapper = screen.getByRole("img", { name: "avión" }).parentElement;
     expect(wrapper?.getAttribute("data-blink-mode")).toBe("none");
     expect(wrapper?.getAttribute("data-interactive")).toBe("true");

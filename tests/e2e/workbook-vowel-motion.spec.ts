@@ -88,9 +88,9 @@ for (const [viewport, size] of [
         expect(p.natural, `${p.name} stays still`).toBe("false");
       }
       if (lesson === 5 || lesson === 6) {
-        // leccion-1/pez.webp is the book's airplane (pages 13, 16): it glides as a
+        // leccion-1/avion.webp is the book's airplane (pages 13, 16): it glides as a
         // whole like a flying airplane and never wags a fish tail.
-        const plane = all.find((p) => p.src.endsWith("/leccion-1/pez.webp"));
+        const plane = all.find((p) => p.src.endsWith("/leccion-1/avion.webp"));
         expect(plane?.name).toBe("avión");
         expect(plane?.ambient).toBe("glide");
         expect(plane?.parts).toBe(0);
