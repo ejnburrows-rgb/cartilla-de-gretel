@@ -4,13 +4,26 @@
 //   node docs/proofs/assets-motion-2026-11-26/scripts/chano-full-rounds.mjs
 import { chromium } from "@playwright/test";
 import fs from "node:fs";
-import { execFileSync } from "node:child_process";
+import path from "node:path";
 
 // Fixed URL and output paths; no arguments.
 const BASE = "http://127.0.0.1:5173";
-const OUT = "/tmp/ev/chano-full";
+// Output goes to the repo's ignored test-results folder.
+const OUT = path.join(process.cwd(), "test-results", "assets-motion-proof", "chano-full");
 fs.mkdirSync(OUT, { recursive: true });
-const HEAD = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+const HEAD = readHead();
+
+/** The checked-out commit, read from the repository's own files (no external command). */
+function readHead() {
+  const git = path.join(process.cwd(), ".git");
+  const head = fs.readFileSync(path.join(git, "HEAD"), "utf8").trim();
+  if (!head.startsWith("ref: ")) return head;
+  const ref = head.slice(5);
+  const loose = path.join(git, ...ref.split("/"));
+  if (fs.existsSync(loose)) return fs.readFileSync(loose, "utf8").trim();
+  const packed = fs.readFileSync(path.join(git, "packed-refs"), "utf8").split("\n");
+  return packed.find((l) => l.endsWith(` ${ref}`))?.split(" ")[0] ?? "unknown";
+}
 const b = await chromium.launch({ channel: "chromium", args: ["--disable-dev-shm-usage"] });
 const report = [];
 

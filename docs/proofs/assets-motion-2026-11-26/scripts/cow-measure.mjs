@@ -4,12 +4,14 @@
 // Measures both the local branch and the production preview. Fixed URLs and output paths.
 import { chromium } from "@playwright/test";
 import fs from "node:fs";
+import path from "node:path";
 
 const TARGETS = {
   branch: "http://127.0.0.1:5173",
   production: "https://cartilla-de-gretel-psi.vercel.app",
 };
-const OUT = "/tmp/ev/cow-measure";
+// Output goes to the repo's ignored test-results folder.
+const OUT = path.join(process.cwd(), "test-results", "assets-motion-proof", "cow-measure");
 const SIZES = {
   phone: [390, 844],
   "phone-land": [844, 390],
