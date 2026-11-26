@@ -1,0 +1,810 @@
+[
+ {
+  "section": "FLIP CHART",
+  "lesson": 2,
+  "letter": "Vowel A",
+  "title": "Oto",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p004-oto.png",
+  "location": "Flip Chart p4",
+  "defect": "DEFECT: clipped: lower portrait of Oto cut",
+  "book_code": "FC-004-03",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p004-oto.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 7,
+  "letter": "Letter M",
+  "title": "Ilustración de la página 11",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p011-scene.png",
+  "location": "Flip Chart p11",
+  "defect": "DEFECT: clipped: lower flower border cut + spiral binding artifact at top",
+  "book_code": "FC-011-01",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p011-scene.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 8,
+  "letter": "Letter P",
+  "title": "Pepe",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p012-pepe.png",
+  "location": "Flip Chart p12 | Lesson screen",
+  "defect": "DEFECT: clipped: top of hair cut flat",
+  "book_code": "FC-012-04",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p012-pepe.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 9,
+  "letter": "Letter S",
+  "title": "pisa",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p015-pisa.png",
+  "location": "Flip Chart p15 | Lesson screen",
+  "defect": "DEFECT: missing banana peel and ground shadow from the book drawing",
+  "book_code": "FC-015-05",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p015-pisa.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 9,
+  "letter": "Letter S",
+  "title": "sopa",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p015-sopa.png",
+  "location": "Flip Chart p15 | Lesson screen",
+  "defect": "DEFECT: different version: pink steam added, bowl reshaped; not the book drawing",
+  "book_code": "FC-015-03",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p015-sopa.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 9,
+  "letter": "Letter S",
+  "title": "Susi",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p015-susi.png",
+  "location": "Flip Chart p15 | Lesson screen",
+  "defect": "DEFECT: cropped at bottom: legs cut off (book shows full kneeling legs + shoe)",
+  "book_code": "FC-015-06",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p015-susi.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 9,
+  "letter": "Letter S",
+  "title": "Ilustración de la página 17",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p017-scene.png",
+  "location": "Flip Chart p17",
+  "defect": "DEFECT: cropped/squashed: bottom flowers, grass and small frog lost",
+  "book_code": "FC-017-01",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p017-scene.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 9,
+  "letter": "Letter S",
+  "title": "sopa",
+  "status": "PENDING - minor issue",
+  "current_file": "sopa.webp",
+  "location": "Lesson screen",
+  "defect": "MINOR: steam tips cut at top edge",
+  "book_code": "FC-015-03",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-9-s/sopa.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-9-s/sopa.webp",
+   "/cartilla/art/faithful/leccion-9-s/sopa.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 11,
+  "letter": "Letter D",
+  "title": "dados",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p021-dados.webp",
+  "location": "Flip Chart p21 | Lesson screen",
+  "defect": "DEFECT: caption \"dados\" baked into the picture (book has no caption)",
+  "book_code": "FC-021-03",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p021-dados.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 11,
+  "letter": "Letter D",
+  "title": "dedo",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p021-dedo.webp",
+  "location": "Flip Chart p21 | Lesson screen",
+  "defect": "DEFECT: caption \"dedo\" baked into the picture",
+  "book_code": "FC-021-04",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p021-dedo.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 11,
+  "letter": "Letter D",
+  "title": "Dunia",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p021-dunia.webp",
+  "location": "Flip Chart p21 | Lesson screen",
+  "defect": "DEFECT: caption \"Dunia\" baked into the picture",
+  "book_code": "FC-021-06",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p021-dunia.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 12,
+  "letter": "Letter L",
+  "title": "Ilustración de la página 24",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p024-scene.png",
+  "location": "Flip Chart p24",
+  "defect": "DEFECT: different layout: extra moon character added, scene rearranged",
+  "book_code": "FC-024-01",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p024-scene.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 12,
+  "letter": "Letter L",
+  "title": "Lala",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p024-lala.png",
+  "location": "Flip Chart p24 | Lesson screen",
+  "defect": "DEFECT: degraded: darkened, heavier outlines, distorted vs book",
+  "book_code": "FC-024-06",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p024-lala.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 14,
+  "letter": "Letter Ñ",
+  "title": "Ñuno",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p030-nuno.png",
+  "location": "Flip Chart p30 | Lesson screen",
+  "defect": "DEFECT: missing head and neck of the ostrich",
+  "book_code": "FC-030-03",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p030-nuno.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 14,
+  "letter": "Letter Ñ",
+  "title": "piñata",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p030-pinata.png",
+  "location": "Flip Chart p30 | Lesson screen",
+  "defect": "DEFECT: cropped at bottom: boy legs cut off",
+  "book_code": "FC-030-02",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p030-pinata.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 15,
+  "letter": "Letter B",
+  "title": "bebita",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p033-bebita.png",
+  "location": "Flip Chart p33 | Lesson screen",
+  "defect": "DEFECT: cropped: bassinet legs and wheels missing (book shows full stand)",
+  "book_code": "FC-033-06",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p033-bebita.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 15,
+  "letter": "Letter B",
+  "title": "Ilustración de la página 35",
+  "status": "PENDING - minor issue",
+  "current_file": "p035-scene.png",
+  "location": "Flip Chart p35",
+  "defect": "MINOR: reframed: boy shrunk, extra sketched ball at top - owner should judge against the physical book",
+  "book_code": "FC-035-01",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p035-scene.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 16,
+  "letter": "Letter V",
+  "title": "Vuli",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p036-vuli.png",
+  "location": "Flip Chart p36 | Lesson screen",
+  "defect": "DEFECT: cropped at bottom: paws and lower body cut off",
+  "book_code": "FC-036-06",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p036-vuli.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 18,
+  "letter": "Letter RR",
+  "title": "burro",
+  "status": "PENDING - NO VERIFIED PAGE",
+  "current_file": "p042-burro.png",
+  "location": "Flip Chart p42",
+  "defect": "",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p042-burro.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 19,
+  "letter": "Letter G",
+  "title": "gorra",
+  "status": "PENDING - minor issue",
+  "current_file": "p045-gorra.png",
+  "location": "Flip Chart p45",
+  "defect": "MINOR: mild shrink",
+  "book_code": "FC-045-05",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p045-gorra.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 19,
+  "letter": "Letter G",
+  "title": "cubo",
+  "status": "PENDING - minor issue",
+  "current_file": "cubo.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "MINOR: right edge possibly clipped | COLOR: arrows red -> orange, bucket green -> lime",
+  "book_code": "FC-054-05",
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-19-c/cubo.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 19,
+  "letter": "Letter G",
+  "title": "gato",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "gato.webp",
+  "location": "Lesson screen",
+  "defect": "DEFECT: scene-fragment crop (FC p47 scene incl. hearts/tail)",
+  "book_code": "FC-045-05",
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-19-g/gato.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 19,
+  "letter": "Letter G",
+  "title": "gorra",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "gorra.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "DEFECT: bottom brim clipped flat",
+  "book_code": "FC-045-05",
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-19-g/gorra.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 20,
+  "letter": "Letter F",
+  "title": "familia",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p048-familia.png",
+  "location": "Flip Chart p48",
+  "defect": "DEFECT: heads cropped at top",
+  "book_code": "FC-048-04",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p048-familia.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 20,
+  "letter": "Letter F",
+  "title": "familia",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "familia.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "DEFECT: right-edge seam strip",
+  "book_code": "FC-048-04",
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-20-f/familia.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 20,
+  "letter": "Letter F",
+  "title": "fiesta",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "fiesta.webp",
+  "location": "Lesson screen",
+  "defect": "DEFECT: scene-fragment crop (FC p50) + right seam",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-20-f/fiesta.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 21,
+  "letter": "Letter J",
+  "title": "jarra",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p051-jarra.png",
+  "location": "Flip Chart p51",
+  "defect": "DEFECT: shrunken in canvas",
+  "book_code": "FC-051-06",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p051-jarra.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 21,
+  "letter": "Letter J",
+  "title": "jugo",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p051-jugo.png",
+  "location": "Flip Chart p51",
+  "defect": "DEFECT: shrunken + bottom clipped",
+  "book_code": "FC-051-03",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p051-jugo.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 21,
+  "letter": "Letter J",
+  "title": "Ilustración de la página 53",
+  "status": "PENDING - minor issue",
+  "current_file": "p053-scene.png",
+  "location": "Flip Chart p53",
+  "defect": "MINOR: left-edge seam strip",
+  "book_code": "FC-053-01",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p053-scene.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 21,
+  "letter": "Letter J",
+  "title": "jarra",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "jarra.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "DEFECT: bottom cropped (base/fruit cut) | COLOR: crimson -> hot pink",
+  "book_code": "FC-051-06",
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-21-j/jarra.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 21,
+  "letter": "Letter J",
+  "title": "jugo",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "jugo.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "DEFECT: bottom cropped",
+  "book_code": "FC-051-03",
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-21-j/jugo.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 22,
+  "letter": "Letter C",
+  "title": "cubo",
+  "status": "PENDING - minor issue",
+  "current_file": "p054-cubo.png",
+  "location": "Flip Chart p54",
+  "defect": "MINOR: mild shrink",
+  "book_code": "FC-054-05",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p054-cubo.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 22,
+  "letter": "Letter C",
+  "title": "Ilustración de la página 54",
+  "status": "PENDING - minor issue",
+  "current_file": "p054-scene.png",
+  "location": "Flip Chart p54",
+  "defect": "MINOR: left-edge strip + corner mark",
+  "book_code": "FC-054-01",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p054-scene.png"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 22,
+  "letter": "Letter C",
+  "title": "yema",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "yema.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "DEFECT: rough sketchy re-trace, degraded",
+  "book_code": "FC-057-03",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-22-y/yema.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-22-y/yema.webp",
+   "/cartilla/art/faithful/leccion-22-y/yema.webp"
+  ]
+ },
+ {
+  "section": "FLIP CHART",
+  "lesson": 23,
+  "letter": "Letter Y",
+  "title": "yema",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "p057-yema.png",
+  "location": "Flip Chart p57",
+  "defect": "DEFECT: shrunken in canvas",
+  "book_code": "FC-057-03",
+  "current_paths": [
+   "/cartilla/art/optimized/flipchart-native/p057-yema.png"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 1,
+  "letter": "Vowel O",
+  "title": "globo",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "globo.webp",
+  "location": "Workbook p2 | Lesson screen p2",
+  "defect": "DEFECT: tinted: balloon rendered near-black, unreadable | COLOR: balloon rendered near-black, unreadable",
+  "book_code": "WB-S008-OBJ14-GLOBO",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-1/globo.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-1/globo.webp",
+   "/cartilla/art/faithful/leccion-1/globo.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 1,
+  "letter": "Vowel O",
+  "title": "pera",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "pera.webp",
+  "location": "Workbook p2 | Lesson screen",
+  "defect": "DEFECT: distorted: pear stretched horizontal vs upright book pear",
+  "book_code": "WB-S008-OBJ09-PERA",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-1/pera.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-1/pera.webp",
+   "/cartilla/art/faithful/leccion-1/pera.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 1,
+  "letter": "Vowel O",
+  "title": "arco",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "arco.webp",
+  "location": "Workbook p4 | Workbook p13 | Workbook p14 | Workbook p16 | Workbook p17 | Lesson screen p16",
+  "defect": "DEFECT: COLOR: red background removed, nail turned beige (same FC-003-06 original as una)",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-1/arco.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-1/arco.webp",
+   "/cartilla/art/faithful/leccion-1/arco.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 1,
+  "letter": "Vowel O",
+  "title": "traje",
+  "status": "PENDING - NO VERIFIED PAGE",
+  "current_file": "traje.webp",
+  "location": "Workbook p4 | Workbook p10 | Workbook p16 | Workbook p16 | Workbook p17 | Lesson screen p16 | Vowel screen",
+  "defect": "",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-1/traje.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-1/traje.webp",
+   "/cartilla/art/faithful/leccion-1/traje.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 1,
+  "letter": "Vowel O",
+  "title": "pez",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "pez.webp",
+  "location": "Workbook p8 | Workbook p13 | Workbook p16 | Lesson screen p16",
+  "defect": "DEFECT: COLOR: teal duotone; flip chart original is full color",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-1/pez.webp",
+   "/cartilla/art/faithful/leccion-1/pez.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 1,
+  "letter": "Vowel O",
+  "title": "aguila",
+  "status": "PENDING - NO VERIFIED PAGE",
+  "current_file": "aguila.webp",
+  "location": "Workbook p10 | Workbook p16 | Lesson screen p16",
+  "defect": "",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-1/aguila.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-1/aguila.webp",
+   "/cartilla/art/faithful/leccion-1/aguila.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 1,
+  "letter": "Vowel O",
+  "title": "oso (parpadeo)",
+  "status": "PENDING - NO VERIFIED PAGE",
+  "current_file": "oso-blink.webp",
+  "location": "Vowel screen",
+  "defect": "",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/faithful/vocal-o/oso-blink.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 2,
+  "letter": "Vowel A",
+  "title": "arbol",
+  "status": "PENDING - minor issue",
+  "current_file": "arbol.webp",
+  "location": "Workbook p2 | Workbook p7 | Workbook p16 | Vowel screen | Vowel screen",
+  "defect": "MINOR: green halo speckle",
+  "book_code": "WB-S008-OBJ05-ARBOL",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/vocal-a/arbol.webp",
+   "/cartilla/art/delivery/faithful/768/vocal-a/arbol.webp",
+   "/cartilla/art/faithful/vocal-a/arbol.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 2,
+  "letter": "Vowel A",
+  "title": "alas",
+  "status": "PENDING - NO VERIFIED PAGE",
+  "current_file": "alas.webp",
+  "location": "Workbook p4 | Workbook p5 | Workbook p7 | Workbook p8 | Workbook p13 | Vowel screen | Vowel screen",
+  "defect": "",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/vocal-a/alas.webp",
+   "/cartilla/art/delivery/faithful/768/vocal-a/alas.webp",
+   "/cartilla/art/faithful/vocal-a/alas.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 4,
+  "letter": "Vowel I",
+  "title": "iglesia",
+  "status": "PENDING - minor issue",
+  "current_file": "iglesia.webp",
+  "location": "Workbook p3 | Vowel screen",
+  "defect": "MINOR: sepia tint (colors-free rule - owner call)",
+  "book_code": "WB-S009-OBJ01-IGLESIA",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/vocal-i/iglesia.webp",
+   "/cartilla/art/delivery/faithful/768/vocal-i/iglesia.webp",
+   "/cartilla/art/faithful/vocal-i/iglesia.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 4,
+  "letter": "Vowel I",
+  "title": "igual",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "igual.webp",
+  "location": "Workbook p13 | Workbook p14 | Vowel screen",
+  "defect": "DEFECT: degraded: equals sign thin and wispy vs bold book bars | extra stray line included + navy tint",
+  "book_code": "WB-S019-OBJ14-IGUAL",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
+   "/cartilla/art/delivery/faithful/768/vocal-i/igual.webp",
+   "/cartilla/art/faithful/vocal-i/igual.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 4,
+  "letter": "Vowel I",
+  "title": "iguana",
+  "status": "PENDING - minor issue",
+  "current_file": "iguana.webp",
+  "location": "Workbook p13 | Workbook p14 | Vowel screen | Vowel screen",
+  "defect": "MINOR: speckle top-right",
+  "book_code": "WB-S019-OBJ03-IGUANA",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/vocal-i/iguana.webp",
+   "/cartilla/art/delivery/faithful/768/vocal-i/iguana.webp",
+   "/cartilla/art/faithful/vocal-i/iguana.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 4,
+  "letter": "Vowel I",
+  "title": "invierno",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "invierno.webp",
+  "location": "Workbook p13 | Vowel screen",
+  "defect": "DEFECT: clipped: left part of winter scene cut | cropped right + top frame line",
+  "book_code": "WB-S019-OBJ08-INVIERNO",
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/vocal-i/invierno.webp",
+   "/cartilla/art/delivery/faithful/768/vocal-i/invierno.webp",
+   "/cartilla/art/faithful/vocal-i/invierno.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 5,
+  "letter": "Vowel U",
+  "title": "uvas",
+  "status": "PENDING - minor issue",
+  "current_file": "uvas.webp",
+  "location": "Workbook p4 | Workbook p16 | Workbook p17 | Vowel screen | Vowel screen",
+  "defect": "MINOR: clipped: bottom grapes cut | slightly tighter crop",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/vocal-u/uvas.webp",
+   "/cartilla/art/delivery/faithful/768/vocal-u/uvas.webp",
+   "/cartilla/art/faithful/vocal-u/uvas.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 11,
+  "letter": "Letter D",
+  "title": "dado",
+  "status": "PENDING - NO VERIFIED PAGE",
+  "current_file": "dado.webp",
+  "location": "Lesson screen",
+  "defect": "",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-11-d/dado.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-11-d/dado.webp",
+   "/cartilla/art/faithful/leccion-11-d/dado.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 14,
+  "letter": "Letter Ñ",
+  "title": "niño",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "nino.webp",
+  "location": "Lesson screen",
+  "defect": "DEFECT: cropped at bottom: crossed feet cut off",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-14-n/nino.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-14-n/nino.webp",
+   "/cartilla/art/faithful/leccion-14-n/nino.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 15,
+  "letter": "Letter B",
+  "title": "bebé",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "bebe.webp",
+  "location": "Lesson screen",
+  "defect": "DEFECT: cropped: bassinet legs and wheels missing (book shows full stand) | COLOR: bassinet crimson -> hot pink, trim",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-15-b/bebe.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-15-b/bebe.webp",
+   "/cartilla/art/faithful/leccion-15-b/bebe.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 17,
+  "letter": "Letter R",
+  "title": "remo",
+  "status": "PENDING - minor issue",
+  "current_file": "remo.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "MINOR: COLOR: mauve -> vivid purple",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/delivery/faithful/384/leccion-17-r/remo.webp",
+   "/cartilla/art/delivery/faithful/768/leccion-17-r/remo.webp",
+   "/cartilla/art/faithful/leccion-17-r/remo.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 18,
+  "letter": "Letter RR",
+  "title": "burro",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "burro.webp",
+  "location": "Lesson screen | Lesson screen",
+  "defect": "DEFECT: COLOR: gray-brown body -> mustard/olive halftone",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-18-rr/burro.webp"
+  ]
+ },
+ {
+  "section": "WORKBOOK",
+  "lesson": 18,
+  "letter": "Letter RR",
+  "title": "perro",
+  "status": "PENDING - DEFECT FLAGGED",
+  "current_file": "perro.webp",
+  "location": "Lesson screen",
+  "defect": "DEFECT: scene-fragment crop (rhyme scene), not word cutout",
+  "book_code": null,
+  "current_paths": [
+   "/cartilla/art/faithful/leccion-18-rr/perro.webp"
+  ]
+ }
+]
