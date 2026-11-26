@@ -21,6 +21,13 @@ CANDIDATES = {
     "leccion-23-z/zorro.webp": "p060-zorro",
     "leccion-8-p/papa.webp": "p012-papa",
     "leccion-14-n/nino.webp": "p028-nino",
+    "leccion-19-c/casa.webp": "p054-casa",
+    "vocal-a/anillo.webp": "p005-anillo",
+    "vocal-o/olla.webp": "p004-olla",
+    "vocal-o/oreja.webp": "p004-oreja",
+    "vocal-o/oso.webp": "p004-oso",
+    "vocal-u/uno.webp": "p008-uno",
+    "vocal-u/unicornio.webp": "p008-unicornio",
 }
 PAD = 0.06  # extra sheet margin around the recorded crop so nothing touches the edge
 
