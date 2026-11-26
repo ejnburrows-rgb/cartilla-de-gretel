@@ -16,7 +16,7 @@ flowchart TD
   C --> D["Five approved work lanes established; old work preserved"]
   D --> E["Curriculum source coverage and provenance repair checked"]
   D --> F["Audio PR proposed; browser and voice-policy checks pending"]
-  D --> G["Images / motion / performance / visual QA acknowledged"]
+  D --> G["Motion candidate pushed; images / performance / visual QA evidence pending"]
   E --> H["Independent exact-head review"]
   F --> H
   G --> H
@@ -30,7 +30,7 @@ flowchart TD
 | Viktor | Coordination + curriculum | work/curriculum | DONE but not live: bounded source-reader provenance repair and complete source coverage report; overall curriculum runtime NOT TESTED | Wrong legacy image provenance; excluded p87 leaked image references; both reproduced before repair | [#1324](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1324) | 24 lessons / 88 available pages / 62 teacher sheets inventoried; 115 focused tests; full unit suite 2326 pass + 2 expected failures; typecheck, scoped lint, worker and policy checks pass | Independent final-head review; full physical-source and runtime acceptance outstanding |
 | Devin | Audio, speech, demo navigation and interactions | work/audio-interactions | NOT TESTED: proposed implementation unit-tested by lane; browser acceptance outstanding | Demo progression isolation proposed; recorded instruction recovery has unresolved approval/provenance conflict | [#1325](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1325), inspected head 3cdaad6c | [Lane receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7199844638); reported 2333 tests/typecheck/policy; coordinator read PR and recovery document | Browser proof and voice-policy resolution; global Muy bien remains unbound pending approval |
 | hoplite, images thread | All Workbook / teacher / game artwork | work/images | NOT TESTED: source inventory rechecked; broad rendered audit underway per lane | 25 quality + 124 provenance flags retained as review flags, not all confirmed visual defects; two stale unused audit rows noted | Existing #1171 / #943 / #1209 / #1166 / #1168 reviewed by lane; no new image PR confirmed | [Images receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7199774563) | Exact rendered evidence and authentic-source approvals; delivery sizing handed to performance |
-| hoplite, assets thread | Living illustrations, games and motion | work/assets-motion | NOT TESTED: separate lane acknowledged | Three stale motion assets and cow follow-behavior require exact-head reproduction/fixes | Existing candidates retained; no new PR confirmed | Slack lane acknowledgement; corrected #1321 inventory | Exact file reservations, current-head evidence and independent complete-round QA pending |
+| hoplite, assets thread | Living illustrations, games and motion | work/assets-motion | NOT TESTED: candidate code pushed; visual/full-round acceptance outstanding | Cow paint-order fix, Chano recovery and three motion rebuilds present in source; lane reports 24 baseline browser failures | No PR found at verification; [candidate c303ead3](https://github.com/ejnburrows-rgb/cartilla-de-gretel/commit/c303ead3ec23eaefe1c213e212cec07abc972a54) | [Motion receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7200277591); coordinator compared all 33 changed paths against main | Chano provenance, elephant motion-off intent, exact test evidence and complete-round recordings pending |
 | Computer | Performance, layout and stability | work/performance | NOT TESTED: inspection acknowledged | Repository-wide lint fails (8058 errors / 59 warnings); GitHub reports dependency alerts, exploitability not assessed | Existing performance proposals retained | Slack receipt; coordinator full-lint output; GitHub push alert summary | Full health findings/browser evidence pending; cross-lane source changes require writer handoff |
 | Instinct | Independent visual/interaction QA | None, read-only | NOT TESTED: read-only inspection acknowledged | Findings must distinguish observed failures from untested behavior | None | Slack receipt: testing private review site; cannot record browser video | Exact revision, screenshots and complete coverage receipt pending; video evidence must come from another authorized lane |
 | CodeRabbit | Independent integration and cleanup review | None, read-only | WAITING for material exact-head review receipt | Check fixes, overlap, security and incomplete claims | #1324 / #1325 and every later proposal | Review requested in Slack; PR review checks are not assumed approvals | No final-head independent approval receipt yet |
@@ -57,9 +57,9 @@ flowchart TD
 | Book Cover & Opening | NOT TESTED | Existing main preserved; current opening/browser acceptance |
 | Student Workbook | NOT TESTED overall; source-reader repair DONE but not live | 24 lessons / 88 available pages source-covered; full interactions, source fidelity and demo evidence pending; 85→88 preserved |
 | Teacher Flip Chart | NOT TESTED | 62 source sheets inventoried; verify content/rendered classroom behavior; preserve Candidate A and approved whole-sheet exceptions |
-| Artwork & Motion | NOT TESTED | Images/motion exact-head comparisons; no unapproved replacements; preserve Option A and approved artwork |
+| Artwork & Motion | NOT TESTED | Three rebuilt motion candidates in c303ead3; images confirms Chano provenance and elephant motion-off intent before any registry change; recordings pending |
 | Gretel Voice & Tutor | WAITING for audio approval/provenance resolution | #1325 recovered-master document names WhatsApp MP3s and pending approval; current AGENTS allows newly wired approved-original audio only. Preserve files; provide exact later approval or leave wiring silent. Tutor #1073/#1322/#1323 retains separate approval boundaries |
-| Games & Activities | NOT TESTED | Recover useful existing candidates; preserve Butterfly Garden; independent full-round QA |
+| Games & Activities | NOT TESTED | Cow paint-order repair and Chano recovery in c303ead3; no draft PR yet; baseline failures and complete-round QA pending; Butterfly Garden preserved |
 | Website & Publication | WAITING for separately authorized release | Main 5e1c8378 differs from latest recorded production 3c559eea only in owner-status documentation. Actual served revision and complete demonstration not reverified here |
 
 ### Complete repository and release map
@@ -88,7 +88,7 @@ flowchart TD
   S --> T["Focused/full unit checks, typecheck, policy and worker checks passed"]
   T --> L["Full-repository lint: WAITING; thousands of unrelated-file findings"]
   T --> P["Saved on work/curriculum / PR1324 / shared report"]
-  P --> Q["Independent review and remaining lane evidence"]
+  P --> Q["Independent review; motion candidate c303ead3 needs provenance and recordings"]
   Q --> D["No merge / deployment / deletion without scoped approval"]
 ```
 
@@ -447,3 +447,15 @@ flowchart TD
 
 
 </details>
+
+
+### Motion dependency checkpoint: 2026-11-26
+
+Coordinator compared main 5e1c8378 to work/assets-motion c303ead3: two commits, 33 changed paths. The source contains the cow stacking-order repair, Chano route recovery, three rebuilt motion files, and an emptied stale-motion index. This is source evidence, not independent visual acceptance. No open PR was returned for that branch at this check.
+
+- Motion reserves CowGame.tsx, games/chano/, the game route juego.$gameId.tsx, scripts/living-motion/, the three rebuilt motion outputs, stale-motion-art.json, current-art-precedence.test.ts and the new cow browser test. GameShell.tsx is unchanged. Current PR1325 file list does not overlap this motion diff.
+- Images retains flipchart-native-assets.json and approved-pixel/provenance decisions. Coordinator confirmed p006-elefante still has motionDisabled=true on work/images. Images and motion must establish whether that restriction is intentional before any change; do not bulk-enable sheet 4.
+- Images must verify recovered Chano scene artwork against the approved originals. Rebuilt motion and an empty stale list alone are not visual acceptance. Requested current-still comparisons and rendered motion recordings.
+- Lane reports 24 identical browser failures on baseline and candidate, including three Piano microphone tests. Requested exact test names/output and audio-lane coordination; not independently rerun. Keep other failures explicitly unresolved, not assumed obsolete tests.
+- Lane reports board game missing. The universal claim across every branch is not coordinator-verified; Gitar's actual-content inventory must locate any historical candidate. No new educational game invented.
+- Existing owner decisions for Rima, Palabras, other game candidates and source audio remain gates. All historical refs are retained. No merge, deployment, paid service, new voice or destructive cleanup authorized.
