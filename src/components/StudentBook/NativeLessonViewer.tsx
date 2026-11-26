@@ -49,6 +49,8 @@ export function NativeLessonViewer({
   autoTurn = false,
   swipe = false,
   gated = true,
+  demoUnlocked = false,
+  onDemoSkip,
   bookCompanion,
 }: {
   pages: WorkbookPageEntry[];
@@ -64,6 +66,10 @@ export function NativeLessonViewer({
   swipe?: boolean;
   /** Require page completion before turning forward (lessons). The complete book browses freely. */
   gated?: boolean;
+  /** Demonstration mode: forward turns are allowed on an unfinished page without marking it complete. */
+  demoUnlocked?: boolean;
+  /** Called when a demonstration forward turn leaves an unfinished page. */
+  onDemoSkip?: () => void;
   /** Gretel or other companion positioned in the book anchor */
   bookCompanion?: React.ReactNode;
 }) {
@@ -97,6 +103,7 @@ export function NativeLessonViewer({
   const page = pages[index];
   const pageCompletion = usePageCompletion(page?.pageNumber, lessonNumber);
   const completion = gated ? pageCompletion : { ...pageCompletion, remaining: [], complete: true };
+  const canTurnForward = completion.complete || demoUnlocked;
   const isLast = index === pages.length - 1;
   const isBookEnd = isLast && !gated && !onFinish;
   useFitToPage(containerRef, index);
@@ -152,10 +159,11 @@ export function NativeLessonViewer({
       // detach a page while a pencil mark is drawing/holding or the eraser works.
       if (markInProgress(containerRef.current)) return;
 
-      if (direction === "next" && !completion.complete) {
+      if (direction === "next" && !canTurnForward) {
         showRemaining();
         return;
       }
+      if (direction === "next" && !completion.complete) onDemoSkip?.();
 
       setHint("");
       gretelEvent("page-turn:start");
@@ -211,17 +219,19 @@ export function NativeLessonViewer({
         }, LESSON_PAGE_TURN_MS);
       }, LESSON_PAGE_LIFT_MS);
     },
-    [turning, pages, index, completion.complete, showRemaining, onPageChange],
+    [turning, pages, index, completion.complete, canTurnForward, onDemoSkip, showRemaining, onPageChange],
   );
 
   const forward = useCallback(() => {
-    if (!completion.complete) {
+    if (!canTurnForward) {
       showRemaining();
       return;
     }
-    if (isLast) onFinish?.();
-    else executeTurn(index + 1, "next");
-  }, [completion.complete, isLast, onFinish, executeTurn, index, showRemaining]);
+    if (isLast) {
+      if (!completion.complete) onDemoSkip?.();
+      onFinish?.();
+    } else executeTurn(index + 1, "next");
+  }, [canTurnForward, completion.complete, onDemoSkip, isLast, onFinish, executeTurn, index, showRemaining]);
 
   const turnPrev = useCallback(() => {
     executeTurn(index - 1, "prev");
@@ -415,7 +425,7 @@ export function NativeLessonViewer({
 
     if (!dragStartRef.current.isDragging) {
       if (Math.abs(deltaX) < 6) return; // threshold for drag vs tap
-      if (direction === "next" && !completion.complete) {
+      if (direction === "next" && !canTurnForward) {
         showRemaining();
         dragStartRef.current.active = false;
         suppressCornerClickRef.current = true;
@@ -508,6 +518,7 @@ export function NativeLessonViewer({
           return;
         }
         // Complete the turn
+        if (direction === "next" && !completion.complete) onDemoSkip?.();
         audioEngine.playPageTurn(true);
         gretelEvent("page-turn:start");
         setTurnPhase("curling");
@@ -570,6 +581,7 @@ export function NativeLessonViewer({
       aria-label="Página de aprendizaje"
       data-native-page={page.pageNumber}
       data-page-complete={completion.complete ? "true" : "false"}
+      data-demo-unlocked={demoUnlocked ? "true" : undefined}
       data-turn-direction={turnDirection || undefined}
       data-turn-phase={turnPhase}
       data-page-turn-ms={LESSON_PAGE_TURN_MS}
@@ -616,11 +628,11 @@ export function NativeLessonViewer({
               data-testid="corner-next"
               aria-label="Avanzar de página (doblar esquina)"
               title={
-                completion.complete
+                canTurnForward
                   ? "Doblar esquina para avanzar"
                   : "Termina la actividad de esta página para seguir"
               }
-              data-locked={completion.complete ? undefined : "true"}
+              data-locked={canTurnForward ? undefined : "true"}
               onClick={() => handleCornerClick("next")}
               onPointerDown={(e) => handlePointerDown("next", e)}
               onPointerMove={(e) => handlePointerMove("next", e)}
@@ -701,12 +713,12 @@ export function NativeLessonViewer({
             type="button"
             onClick={forward}
             disabled={turning || isBookEnd}
-            aria-disabled={completion.complete ? undefined : true}
+            aria-disabled={canTurnForward ? undefined : true}
             aria-describedby={hint ? "native-lesson-next-hint" : undefined}
-            data-locked={completion.complete ? undefined : "true"}
+            data-locked={canTurnForward ? undefined : "true"}
             data-testid="button-next"
             title={
-              completion.complete
+              canTurnForward
                 ? undefined
                 : "Termina la actividad de esta página para seguir"
             }

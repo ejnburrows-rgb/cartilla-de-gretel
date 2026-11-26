@@ -1,4 +1,5 @@
 import { learnerStorageKey } from "./learner-storage";
+import { getStudentSession } from "./student-session";
 import { useEffect, useState } from "react";
 
 const KEY = "cartilla.lesson-progress.v1";
@@ -53,6 +54,13 @@ export function setDemoSkipEnabled(enabled: boolean) {
   }
 }
 
+/** Demonstration mode: every lesson and Workbook page can be opened without
+ * marking any exercise complete. A signed-in real student keeps the normal
+ * sequential progression. */
+export function isDemoNavigationEnabled(): boolean {
+  return isDemoSkipEnabled() && !getStudentSession();
+}
+
 /** Open access exposes every lesson; otherwise preserve the sequential rule. */
 export function isLessonUnlocked(n: number): boolean {
   if (
@@ -61,7 +69,7 @@ export function isLessonUnlocked(n: number): boolean {
   ) {
     return true;
   }
-  if (isDemoSkipEnabled()) return true;
+  if (isDemoNavigationEnabled()) return true;
   if (n <= 1) return true;
   return read().has(n - 1);
 }

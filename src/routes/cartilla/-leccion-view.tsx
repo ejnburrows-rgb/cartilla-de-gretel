@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
-import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
+import { useLessonProgress, isDemoNavigationEnabled, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { getMyProgress, saveLastPage } from "@/lib/student.functions";
@@ -205,6 +205,12 @@ export function Leccion() {
   };
 
   const unlocked = typeof window === "undefined" || isLessonUnlocked(n);
+  const demoNavigation = typeof window !== "undefined" && isDemoNavigationEnabled();
+  // A demonstration turn past an unfinished page must never record the lesson as completed.
+  const demoSkippedRef = useRef(false);
+  useEffect(() => {
+    demoSkippedRef.current = false;
+  }, [n, scope]);
   const startedAt = useRef<number>(Date.now());
 
   useEffect(() => {
@@ -242,6 +248,10 @@ export function Leccion() {
     if (!reviewStarted) {
       setReviewStarted(true);
       setLessonTab("review");
+      return;
+    }
+    if (demoSkippedRef.current) {
+      advanceAfterCompletion();
       return;
     }
     markLessonCompleted(n);
@@ -356,6 +366,10 @@ export function Leccion() {
                 onPageChange={handlePageChange}
                 onFinish={goNext}
                 lessonNumber={n}
+                demoUnlocked={demoNavigation}
+                onDemoSkip={() => {
+                  demoSkippedRef.current = true;
+                }}
                 autoTurn
                 swipe
               />

@@ -1,10 +1,11 @@
 /**
  * @vitest-environment jsdom
  */
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import {
   isLessonCompleted,
   isLessonUnlocked,
+  isDemoNavigationEnabled,
   hydrateLessonProgress,
   markLessonCompleted,
   resetProgress,
@@ -87,5 +88,29 @@ describe("lesson-progress", () => {
       expect(getCompletedPageActivities(23)).toEqual([]);
       expect(getCompletedPageActivities(24)).toEqual(["b"]); // Preserves valid entries
     });
+  });
+});
+
+describe("demonstration navigation", () => {
+  it("is off under test mode so sequential progression stays the default contract", () => {
+    expect(isDemoNavigationEnabled()).toBe(false);
+  });
+
+  it("opens every lesson in demonstration mode without completing any lesson", async () => {
+    vi.resetModules();
+    vi.stubEnv("MODE", "development");
+    vi.stubEnv("VITE_CRM_REVIEW", "false");
+    try {
+      const mod = await import("../lesson-progress");
+      expect(mod.isDemoNavigationEnabled()).toBe(true);
+      expect(mod.isLessonUnlocked(24)).toBe(true);
+      expect(mod.isLessonCompleted(23)).toBe(false);
+      localStorage.setItem("cartilla.demo.skip-lessons", "false");
+      expect(mod.isDemoNavigationEnabled()).toBe(false);
+      expect(mod.isLessonUnlocked(24)).toBe(false);
+    } finally {
+      vi.unstubAllEnvs();
+      vi.resetModules();
+    }
   });
 });

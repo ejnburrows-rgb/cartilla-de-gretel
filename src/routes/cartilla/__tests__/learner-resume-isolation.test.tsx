@@ -34,6 +34,7 @@ vi.mock("@/lib/student-session", () => ({ useStudentSession: () => identity.sess
 vi.mock("@/lib/lesson-progress", () => ({
   useLessonProgress: vi.fn(),
   isLessonUnlocked: () => true,
+  isDemoNavigationEnabled: () => false,
   markLessonCompleted: vi.fn(),
 }));
 vi.mock("@/lib/seed-data", () => ({ listSeedStudentAssignments: () => [] }));
