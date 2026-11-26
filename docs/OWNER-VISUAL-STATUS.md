@@ -114,6 +114,8 @@ flowchart TD
 
 <details><summary>Complete captured branch map: 271 exact references</summary>
 
+Capture-time identities from branch-current.csv, not moving live heads. In particular, work/assets-motion was captured at 5e1c8378 before its later c303ead3 implementation. Later evidence is pinned separately below; do not rewrite the captured map or CSV to match a newer head.
+
 - `activity/chano-rebuild-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `87ba23cc`
 - `activity/completar-palabras`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `22a179df`
 - `activity/cow-game`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0f88b8f5`
@@ -449,7 +451,7 @@ flowchart TD
 </details>
 
 
-### Motion dependency checkpoint: 2026-11-26
+### Motion dependency checkpoint: 2026-11-26 (post-capture source review at c303ead3)
 
 Coordinator compared main 5e1c8378 to work/assets-motion c303ead3: two commits, 33 changed paths. The source contains the cow stacking-order repair, Chano route recovery, three rebuilt motion files, and an emptied stale-motion index. This is source evidence, not independent visual acceptance. No open PR was returned for that branch at this check.
 
@@ -467,3 +469,7 @@ Review6078849732 correctly identified that enhanced/projection used the same fix
 Mutation proof: temporarily forced projection through enhanced mode. Old fixture passed (exit0); strengthened fixture failed on the wrong image path (exit1); restored the exact resolver and the strengthened fixture passed (exit0). The deliberate mutation is not committed.
 
 Current checks: focused file10 pass; full244 files,2326 pass plus2 expected failures; typecheck, scoped ESLint, policy95 and snapshot-integrity271 branch heads/25 curriculum PR heads pass. Full lint remains8117 findings (8058 errors/59 warnings), identical to the prior run. No unrelated cleanup applied. Independent newest-head review remains pending. No merge or deployment.
+
+### Qodo snapshot-boundary clarification: 2026-11-26
+
+Confirmed baseline CSV270 rows including five approved refs; corrected SNAPSHOT-NOTES wording rather than rewriting retained evidence. Captured motion head5e1c8378 and post-capture reviewed headc303ead3 are now explicitly separated. A subsequent live-ref check returned bd62f2c66be2d6866d8b93ca0d69a26c380eff1b; that newer motion delta is not accepted by the prior c303ead3 source inspection. Remaster inventory re-read at curriculum389eb9b6:121 entries, all pending, none canonical-keyed. No verified same-page mapping exists to implement the requested alias safely; candidate assets remain preserved. No runtime or test changes in this clarification.
