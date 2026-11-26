@@ -1,0 +1,234 @@
+[
+ {
+  "name": "cow",
+  "vp": "phone",
+  "ok": true,
+  "note": "wrong try + 5/5 placed + completion dialog",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "cow",
+  "vp": "tablet",
+  "ok": true,
+  "note": "wrong try + 5/5 placed + completion dialog",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "cow",
+  "vp": "desktop",
+  "ok": true,
+  "note": "wrong try + 5/5 placed + completion dialog",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "cow",
+  "vp": "projector",
+  "ok": true,
+  "note": "wrong try + 5/5 placed + completion dialog",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "chano",
+  "vp": "phone",
+  "ok": true,
+  "note": "¡Terminaste!",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "chano",
+  "vp": "desktop",
+  "ok": true,
+  "note": "¡Terminaste!",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "chano",
+  "vp": "projector",
+  "ok": true,
+  "note": "¡Terminaste!",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "vocal-a",
+  "vp": "phone",
+  "ok": false,
+  "note": "TimeoutError: locator.waitFor: Timeout 6000ms exceeded.",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "fonetica-p",
+  "vp": "phone",
+  "ok": true,
+  "note": "shows \"¡Correcto!\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "rima-p",
+  "vp": "phone",
+  "ok": true,
+  "note": "shows \"¡Riman!\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "palabras-minuto-p",
+  "vp": "phone",
+  "ok": true,
+  "note": "shows \"/59s|60s|58s/\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "dibujos-o",
+  "vp": "phone",
+  "ok": true,
+  "note": "shows \"¡Ese es el dibujo!\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "vocal-a",
+  "vp": "desktop",
+  "ok": false,
+  "note": "TimeoutError: locator.waitFor: Timeout 6000ms exceeded.",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "fonetica-p",
+  "vp": "desktop",
+  "ok": true,
+  "note": "shows \"¡Correcto!\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "rima-p",
+  "vp": "desktop",
+  "ok": true,
+  "note": "shows \"¡Riman!\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "palabras-minuto-p",
+  "vp": "desktop",
+  "ok": true,
+  "note": "shows \"/59s|60s|58s/\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "dibujos-o",
+  "vp": "desktop",
+  "ok": true,
+  "note": "shows \"¡Ese es el dibujo!\"",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "silabas-o",
+  "vp": "phone",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "silabas-p",
+  "vp": "phone",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "silabas-m",
+  "vp": "phone",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "completar-palabras",
+  "vp": "phone",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "mariposas-p",
+  "vp": "phone",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "silabas-o",
+  "vp": "desktop",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "silabas-p",
+  "vp": "desktop",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "silabas-m",
+  "vp": "desktop",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "completar-palabras",
+  "vp": "desktop",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "mariposas-p",
+  "vp": "desktop",
+  "ok": true,
+  "note": "mounts",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "piano",
+  "vp": "phone",
+  "ok": true,
+  "note": "keys:0",
+  "errors": [],
+  "overflowX": false
+ },
+ {
+  "name": "piano",
+  "vp": "desktop",
+  "ok": true,
+  "note": "keys:0",
+  "errors": [],
+  "overflowX": false
+ }
+]
