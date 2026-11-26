@@ -64,6 +64,24 @@
   will-change: transform;
   backface-visibility: hidden;
 }
+.chano-juggle-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.chano-juggle-layer img {
+  position: absolute;
+  display: block;
+  transition: filter 0.2s;
+}
+/* The ball the child picked glows until Chano catches it, then settles on its slot. */
+.chano-juggle-ball[data-state="chosen"] {
+  filter: drop-shadow(0 0 14px #fff6a0) drop-shadow(0 0 6px #ffd84a);
+}
+.chano-juggle-ball[data-state="placing"],
+.chano-juggle-ball[data-state="on-board"] {
+  filter: drop-shadow(0 6px 6px #0007);
+}
 
 .chano-panel {
   position: absolute;
@@ -282,4 +300,71 @@
   .chano-btn svg {
     display: none;
   }
+}
+
+/* Portrait keeps the reference layout: buttons and status line below the scene. */
+.chano-aside {
+  display: contents;
+}
+.chano-backdrop {
+  display: none;
+}
+
+/* Landscape (owner note on #1015, 2026-10-20): fill the screen edge to edge instead of a
+   centred card on blue. The approved portrait scene keeps its proportions at full height;
+   the same scene, softened, fills the sides; the buttons stand in a column beside it. */
+.chano-wide {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background: #0c4486;
+}
+.chano-wide .chano-backdrop {
+  display: block;
+  position: absolute;
+  inset: -6vmax;
+  width: calc(100% + 12vmax);
+  max-width: none;
+  height: calc(100% + 12vmax);
+  object-fit: cover;
+  filter: blur(16px) saturate(1.1) brightness(0.85);
+  pointer-events: none;
+}
+.chano-wide .chano-stage {
+  position: relative;
+}
+.chano-wide .chano-card {
+  border-radius: 6px;
+  box-shadow: 0 0 24px 6px #0007;
+}
+.chano-wide .chano-aside {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: clamp(150px, 22vw, 260px);
+}
+.chano-wide .chano-controls {
+  grid-template-columns: 1fr;
+  gap: clamp(6px, 1.6vh, 14px);
+}
+.chano-wide .chano-btn {
+  height: clamp(44px, 12vh, 72px);
+  gap: 8px;
+  font-size: clamp(14px, 2.6vh, 22px);
+  border-radius: 14px;
+}
+.chano-wide .chano-btn svg {
+  display: block;
+  width: 1.1em;
+  height: 1.1em;
+}
+.chano-wide .chano-status {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #062a5acc;
+  font-size: clamp(12px, 2vh, 16px);
+  line-height: 1.35;
 }

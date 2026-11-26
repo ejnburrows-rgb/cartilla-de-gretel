@@ -9,6 +9,8 @@
 //
 // All coordinates are scene-art pixels (1086 × 1448).
 
+import { sameSyllable } from "./words";
+
 export type Pt = { x: number; y: number };
 
 /** The five painted balls: syllable, sprite box (cut from the scene) and painted centre. */
@@ -217,4 +219,89 @@ export function circleHitsBox(
   const nx = Math.max(box.x, Math.min(p.x, box.x + box.w));
   const ny = Math.max(box.y, Math.min(p.y, box.y + box.h));
   return Math.hypot(p.x - nx, p.y - ny) < r;
+}
+
+// ---- Catch and place (owner order on #1015, 2026-10-20) -----------------------------------
+// When the child picks a syllable, Chano catches THAT ball: it keeps juggling until it next
+// lands in one of his hands, then leaves the juggle, arcs down onto the chalkboard slot and
+// stays there. Clearing the slot tosses the same ball back into the juggle. One ball per
+// syllable; nothing is copied, teleported or thrown away.
+
+/** Hand-to-slot flight and slot-to-juggle toss. */
+export const PLACE_MS = 760;
+export const TOSS_MS = 680;
+const PLACE_LIFT = 150;
+const TOSS_LIFT = 220;
+
+/** First time ≥ tMs at which ball `i` rests in either hand (the moment it can be caught). */
+export function nextCatchTime(tMs: number, i: number): number {
+  for (let dt = 0; dt <= LOOP_MS; dt += 8) {
+    const phase = ballAt(tMs + dt, i).phase;
+    if (phase === "left-hand" || phase === "right-hand") return tMs + dt;
+  }
+  return tMs;
+}
+
+export type Placement = {
+  slot: Pt;
+  scale: number;
+  pickT: number;
+  catchT: number;
+  /** Start of the flight when the ball moves from another slot instead of from a hand. */
+  from?: Pt;
+  fromScale?: number;
+};
+export type Toss = { from: Pt; fromScale: number; startT: number };
+export type BallPose = Pt & {
+  scale: number;
+  state: "juggling" | "chosen" | "placing" | "on-board" | "tossing";
+};
+
+function arc(a: Pt, b: Pt, u: number, lift: number): Pt {
+  const e = easeInOut(u);
+  return { x: a.x + (b.x - a.x) * e, y: a.y + (b.y - a.y) * e - lift * Math.sin(Math.PI * u) };
+}
+
+/** Where ball `i` is at `tMs`, given its placement on the board or its toss back. */
+export function poseAt(
+  tMs: number,
+  i: number,
+  place?: Placement | null,
+  toss?: Toss | null,
+): BallPose {
+  if (place) {
+    if (tMs < place.catchT) return { ...ballAt(tMs, i), scale: 1, state: "chosen" };
+    const u = (tMs - place.catchT) / PLACE_MS;
+    if (u >= 1) return { ...place.slot, scale: place.scale, state: "on-board" };
+    const start = place.from ?? ballAt(place.catchT, i);
+    const s0 = place.fromScale ?? 1;
+    return {
+      ...arc(start, place.slot, u, PLACE_LIFT),
+      scale: s0 + (place.scale - s0) * easeInOut(u),
+      state: "placing",
+    };
+  }
+  if (toss) {
+    const u = (tMs - toss.startT) / TOSS_MS;
+    const live = ballAt(tMs, i);
+    if (u >= 1) return { ...live, scale: 1, state: "juggling" };
+    return {
+      ...arc(toss.from, live, u, TOSS_LIFT),
+      scale: toss.fromScale + (1 - toss.fromScale) * easeInOut(u),
+      state: "tossing",
+    };
+  }
+  return { ...ballAt(tMs, i), scale: 1, state: "juggling" };
+}
+/** Which juggling ball sits in each slot: one ball per syllable, the first slot wins.
+ * A repeated syllable ("ma" + "ma") gets chalk writing in the second slot, never a copy. */
+export function slotBalls(slots: (string | null)[]): number[] {
+  const used = new Set<number>();
+  return slots.map((s) => {
+    if (!s) return -1;
+    const j = JUGGLE_BALLS.findIndex((b) => sameSyllable(s, b.syllable));
+    if (j < 0 || used.has(j)) return -1;
+    used.add(j);
+    return j;
+  });
 }
