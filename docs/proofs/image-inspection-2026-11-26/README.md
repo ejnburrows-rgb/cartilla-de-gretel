@@ -81,10 +81,10 @@ In 2 of about 6 headless captures under heavy machine load, the p.7 **ojo** card
 
 ```
 pnpm dev:worker   # http://127.0.0.1:5173
-node scripts/image-inspection/inspect-rendered-images.mjs --only workbook --viewports phone --out /tmp/insp/workbook-phone
-python3 scripts/image-inspection/summarize.py /tmp/insp docs/proofs/image-inspection-2026-11-26
-python3 scripts/image-inspection/check-crop-edges.py docs/proofs/image-inspection-2026-11-26
-python3 scripts/image-inspection/verify-flipchart-layer-provenance.py /tmp/prov
-python3 scripts/image-inspection/build-recrop-candidates.py docs/proofs/image-inspection-2026-11-26/recrop-candidates
+node scripts/image-inspection/inspect-rendered-images.mjs --only workbook --viewports phone --out test-results/image-inspection/workbook-phone
+python3 scripts/image-inspection/summarize.py
+python3 scripts/image-inspection/check-crop-edges.py
+python3 scripts/image-inspection/verify-flipchart-layer-provenance.py
+python3 scripts/image-inspection/build-recrop-candidates.py && python3 scripts/image-inspection/check-mirroring.py
 ```
-(Python needs Pillow and numpy.)
+(Python needs Pillow and numpy. The Python scripts take no path arguments: they read `test-results/image-inspection/` and write only into this folder.)

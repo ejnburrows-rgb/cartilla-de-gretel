@@ -1,9 +1,9 @@
 """Merge per-surface inspection results into one CSV + summary counts.
-usage: python3 scripts/image-inspection/summarize.py RESULTS_DIR OUT_DIR"""
+usage: python3 scripts/image-inspection/summarize.py  (reads test-results/image-inspection)"""
 import csv, json, os, sys, glob
 from collections import Counter, defaultdict
-from _paths import safe_dir, arg
-src, out = safe_dir(arg(1)), safe_dir(arg(2))
+from _paths import PROOF, RESULTS
+src, out = RESULTS, PROOF
 os.makedirs(out, exist_ok=True)
 rows, notes, views = [], [], Counter()
 for f in sorted(glob.glob(os.path.join(src, "*", "results.json"))):

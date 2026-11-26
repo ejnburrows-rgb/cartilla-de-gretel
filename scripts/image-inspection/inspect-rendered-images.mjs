@@ -7,7 +7,7 @@
 // learner resume pointer used by the existing e2e suites.
 //
 // Usage: node scripts/image-inspection/inspect-rendered-images.mjs \
-//   [--base http://127.0.0.1:5173] [--out docs/proofs/image-inspection] \
+//   [--base http://127.0.0.1:5173] [--out test-results/image-inspection/<surface>-<viewport>] \
 //   [--only workbook,flipchart,games] [--viewports phone,desktop,projector] [--shots]
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
@@ -19,7 +19,7 @@ const arg = (name, fallback) => {
   return i >= 0 ? args[i + 1] : fallback;
 };
 const BASE = arg("base", "http://127.0.0.1:5173");
-const OUT = path.resolve(arg("out", "docs/proofs/image-inspection"));
+const OUT = path.resolve(arg("out", "test-results/image-inspection/run"));
 const ONLY = new Set(arg("only", "workbook,flipchart,games").split(","));
 const SHOTS = args.includes("--shots");
 const VIEWPORTS = [

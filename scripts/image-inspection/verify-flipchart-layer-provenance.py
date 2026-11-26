@@ -2,15 +2,16 @@
 HD sheet scan it claims to come from (src/data/flipchart-native-assets.json).
 
 Writes JSON results plus side-by-side contact sheets. Read-only on art files.
-usage: python3 scripts/image-inspection/verify-flipchart-layer-provenance.py OUT_DIR
+usage: python3 scripts/image-inspection/verify-flipchart-layer-provenance.py
 """
 import json, sys, os
 import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-from _paths import safe_dir, arg
-OUT = safe_dir(arg(1), os.path.join(ROOT, "docs/proofs/image-inspection/flipchart-provenance"))
+from _paths import PROOF, PROVENANCE_SCRATCH
+OUT = os.path.join(PROOF, "flipchart-provenance")
+os.makedirs(PROVENANCE_SCRATCH, exist_ok=True)
 os.makedirs(OUT, exist_ok=True)
 assets = json.load(open(os.path.join(ROOT, "src/data/flipchart-native-assets.json")))
 audit = json.load(open(os.path.join(ROOT, "docs/production-art-classification-audit.json")))
@@ -87,7 +88,7 @@ for page, tiles in sheets.items():
     sheet = Image.new("RGB", (cols * 380, rows * 210), "white")
     for i, t in enumerate(tiles):
         sheet.paste(t, ((i % cols) * 380, (i // cols) * 210))
-    sheet.save(os.path.join(OUT, f"sheet-{page:03d}.jpg" if page else "needs-review.jpg"), quality=78)
+    sheet.save(os.path.join(PROVENANCE_SCRATCH, f"sheet-{page:03d}.jpg") if page else os.path.join(OUT, "needs-review.jpg"), quality=78)
 
 json.dump(results, open(os.path.join(OUT, "provenance.json"), "w"), indent=1, ensure_ascii=False)
 from collections import Counter

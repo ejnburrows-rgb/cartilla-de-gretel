@@ -1,13 +1,13 @@
 """File-level check: does the drawing touch the edge of its own image (a cut-off crop)?
 Reads the unique picture paths from inspection-results.csv. Writes edge-touch.json.
-usage: python3 scripts/image-inspection/check-crop-edges.py PROOF_DIR"""
+usage: python3 scripts/image-inspection/check-crop-edges.py"""
 import csv, json, os, sys
 import numpy as np
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-from _paths import safe_dir, arg
-P = safe_dir(arg(1))
+from _paths import PROOF
+P = PROOF
 srcs = sorted({r["src"].split("?")[0] for r in csv.DictReader(open(os.path.join(P, "inspection-results.csv")))
                if r["src"].startswith("/") and r["surface"] in ("workbook", "flipchart")})
 
