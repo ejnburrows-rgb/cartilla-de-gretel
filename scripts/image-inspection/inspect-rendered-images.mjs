@@ -8,7 +8,7 @@
 //
 // Usage: node scripts/image-inspection/inspect-rendered-images.mjs \
 //   [--base http://127.0.0.1:5173] [--out test-results/image-inspection/<surface>-<viewport>] \
-//   [--only workbook,flipchart,games] [--viewports phone,desktop,projector] [--shots]
+//   [--only workbook,flipchart,games] [--viewports phone,desktop,projector] [--lessons 24] [--shots]
 import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -289,28 +289,36 @@ async function inspect(page, vp, surface, id, results, shotDir) {
 }
 
 async function workbook(page, vp, results, shotDir) {
-  for (let lesson = 1; lesson <= 40; lesson += 1) {
+  const only = arg("lessons", "");
+  const lessons = only ? only.split(",").map(Number) : Array.from({ length: 40 }, (_, i) => i + 1);
+  for (const lesson of lessons) {
     let total = 1;
     for (let idx = 0; idx < total; idx += 1) {
-      await page.addInitScript(
-        ({ l, p }) => {
-          const payload = JSON.stringify({ lesson: l, page: p });
-          localStorage.setItem(`cartilla.learner-resume.v1:${l}`, payload);
-          localStorage.setItem("cartilla.learner-resume.v1", payload);
-        },
-        { l: lesson, p: idx },
-      );
-      await page.goto(`${BASE}/cartilla/leccion/${lesson}`, { waitUntil: "domcontentloaded" });
-      await settle(page);
-      await dismissIntro(page);
-      await settle(page);
-      const label = await page.evaluate(
-        () =>
-          document.body.innerText
-            .match(/P[áa]gina (\d+) · (\d+) de (\d+)/)
-            ?.slice(1)
-            .map(Number) ?? null,
-      );
+      const openAt = async (seed) => {
+        await page.addInitScript(
+          ({ l, p }) => {
+            const payload = JSON.stringify({ lesson: l, page: p });
+            localStorage.setItem(`cartilla.learner-resume.v1:${l}`, payload);
+            localStorage.setItem("cartilla.learner-resume.v1", payload);
+          },
+          { l: lesson, p: seed },
+        );
+        await page.goto(`${BASE}/cartilla/leccion/${lesson}`, { waitUntil: "domcontentloaded" });
+        await settle(page);
+        await dismissIntro(page);
+        await settle(page);
+        return page.evaluate(
+          () =>
+            document.body.innerText
+              .match(/P[áa]gina (\d+) · (\d+) de (\d+)/)
+              ?.slice(1)
+              .map(Number) ?? null,
+        );
+      };
+      let label = await openAt(idx);
+      // Lesson 24 migrates legacy bookmarks (no printed page) back by one index, so
+      // correct the seed by the observed offset and retry once.
+      if (label && label[1] !== idx + 1) label = await openAt(idx + (idx + 1 - label[1]));
       if (!label) {
         if (idx === 0) {
           const any = await page.locator(".native-lesson-viewer").count();
