@@ -1,0 +1,105 @@
+{
+  "images_head": "65d3361ef92db7951320fc91fab2da9e1287e9d3",
+  "motion_source_head": "0b59012c69ef3a3f3118c88268dda369c4a29bce",
+  "six_flipchart_blob_checks": {
+    "main": {
+      "public/cartilla/art/optimized/flipchart-native/p003-scene.png": "5d63802454b154768e3ea188900b6df3b305250c",
+      "public/cartilla/art/optimized/flipchart-native/p008-uva.png": "de0a5a1cb8a7c559b5a71a67256781d909e58168",
+      "public/cartilla/art/optimized/flipchart-native/p015-sopa.png": "f63d4b2962717c6893de974de020a16331e9abd5",
+      "public/cartilla/art/optimized/flipchart-native/p017-scene.png": "21cc516aec28b8033f08a9dc89b41d677284d565",
+      "public/cartilla/art/optimized/flipchart-native/p021-dedo.webp": "3ac0b4f231a14b1987105f5b071c9067b860d1ae",
+      "public/cartilla/art/optimized/flipchart-native/p042-burro.png": "8dec8ad0c6fde70efe4bfb0732d74aea494f5641"
+    },
+    "dc20ffb": {
+      "public/cartilla/art/optimized/flipchart-native/p003-scene.png": "5d63802454b154768e3ea188900b6df3b305250c",
+      "public/cartilla/art/optimized/flipchart-native/p008-uva.png": "de0a5a1cb8a7c559b5a71a67256781d909e58168",
+      "public/cartilla/art/optimized/flipchart-native/p015-sopa.png": "f63d4b2962717c6893de974de020a16331e9abd5",
+      "public/cartilla/art/optimized/flipchart-native/p017-scene.png": "21cc516aec28b8033f08a9dc89b41d677284d565",
+      "public/cartilla/art/optimized/flipchart-native/p021-dedo.webp": "3ac0b4f231a14b1987105f5b071c9067b860d1ae",
+      "public/cartilla/art/optimized/flipchart-native/p042-burro.png": "8dec8ad0c6fde70efe4bfb0732d74aea494f5641"
+    },
+    "65f30fe": {
+      "public/cartilla/art/optimized/flipchart-native/p003-scene.png": "5d63802454b154768e3ea188900b6df3b305250c",
+      "public/cartilla/art/optimized/flipchart-native/p008-uva.png": "1fc6fffccd53f0a60e69154b4c380832605edbbf",
+      "public/cartilla/art/optimized/flipchart-native/p015-sopa.png": "e5214a4504f5fc3a9fe3ad09b637be8faf2e1003",
+      "public/cartilla/art/optimized/flipchart-native/p017-scene.png": "e2bc88145436b82b1e39a58c6b35b446a8b01310",
+      "public/cartilla/art/optimized/flipchart-native/p021-dedo.webp": "d33f234c7baafa97d443ee762c1fa9db32aa529d",
+      "public/cartilla/art/optimized/flipchart-native/p042-burro.png": "7152b16a2f56f29dcc47b1227afe144ebc7ee189"
+    }
+  },
+  "chano_identities": {
+    "trees": {
+      "0b59012c69ef3a3f3118c88268dda369c4a29bce": {
+        "public/cartilla/art/chano-scene/ball-ma.svg": "6f375b3c7433c112616967d6b74f262b2f6939e8",
+        "public/cartilla/art/chano-scene/ball-me.svg": "c9d18e2d8378157e272fd19da6225f709aacbb7b",
+        "public/cartilla/art/chano-scene/ball-mi.svg": "43ee0e0bf94f312bbe3b5891368714701e772c35",
+        "public/cartilla/art/chano-scene/ball-mu.svg": "26693878042a36964064c580ec339912b38ba47f",
+        "public/cartilla/art/chano-scene/chano-arm-left.svg": "e63459816c67f1213918502a5c18c95466bd5075",
+        "public/cartilla/art/chano-scene/chano-arm-right.svg": "88111110097fc8819e54d700967180160ad3f93f",
+        "public/cartilla/art/chano-scene/chano-body.svg": "3ee703972c2628fb1f5cca621208ccc84a6adb15",
+        "public/cartilla/art/chano-scene/juggle-ball-ma.svg": "9f72eb351463ed45e85d1a9ed74c5f54123950c1",
+        "public/cartilla/art/chano-scene/juggle-ball-me.svg": "52ea1c85ef27d13b1f2b2eb94257d4f676e196d7",
+        "public/cartilla/art/chano-scene/juggle-ball-mi.svg": "caf3fb5c7dce87b2a220845084bcbd8c00aef026",
+        "public/cartilla/art/chano-scene/juggle-ball-mo.svg": "1e5168b8c9960125a11876287fe89a0d7c0191d9",
+        "public/cartilla/art/chano-scene/juggle-ball-mu.svg": "a2e6d6964ce974ac1912cf649340b6449acfa57a",
+        "public/cartilla/art/chano-scene/scene-juggle-bg.svg": "bcbf94345e2ee0e06433527c326bb4f9febb0c92",
+        "public/cartilla/art/chano-scene/scene.svg": "47bb50f128ad5db0d1a5dc7888fdefe62b09d621"
+      },
+      "10409fe": {
+        "public/cartilla/art/chano-scene/ball-ma.svg": "6f375b3c7433c112616967d6b74f262b2f6939e8",
+        "public/cartilla/art/chano-scene/ball-me.svg": "c9d18e2d8378157e272fd19da6225f709aacbb7b",
+        "public/cartilla/art/chano-scene/ball-mi.svg": "43ee0e0bf94f312bbe3b5891368714701e772c35",
+        "public/cartilla/art/chano-scene/ball-mu.svg": "26693878042a36964064c580ec339912b38ba47f",
+        "public/cartilla/art/chano-scene/chano-arm-left.svg": "e63459816c67f1213918502a5c18c95466bd5075",
+        "public/cartilla/art/chano-scene/chano-arm-right.svg": "88111110097fc8819e54d700967180160ad3f93f",
+        "public/cartilla/art/chano-scene/chano-body.svg": "3ee703972c2628fb1f5cca621208ccc84a6adb15",
+        "public/cartilla/art/chano-scene/scene.svg": "47bb50f128ad5db0d1a5dc7888fdefe62b09d621"
+      },
+      "c7c5059": {
+        "public/cartilla/art/chano-scene/ball-ma.svg": "6f375b3c7433c112616967d6b74f262b2f6939e8",
+        "public/cartilla/art/chano-scene/ball-me.svg": "c9d18e2d8378157e272fd19da6225f709aacbb7b",
+        "public/cartilla/art/chano-scene/ball-mi.svg": "43ee0e0bf94f312bbe3b5891368714701e772c35",
+        "public/cartilla/art/chano-scene/ball-mu.svg": "26693878042a36964064c580ec339912b38ba47f",
+        "public/cartilla/art/chano-scene/chano-arm-left.svg": "e63459816c67f1213918502a5c18c95466bd5075",
+        "public/cartilla/art/chano-scene/chano-arm-right.svg": "88111110097fc8819e54d700967180160ad3f93f",
+        "public/cartilla/art/chano-scene/chano-body.svg": "3ee703972c2628fb1f5cca621208ccc84a6adb15",
+        "public/cartilla/art/chano-scene/juggle-ball-ma.svg": "9f72eb351463ed45e85d1a9ed74c5f54123950c1",
+        "public/cartilla/art/chano-scene/juggle-ball-me.svg": "52ea1c85ef27d13b1f2b2eb94257d4f676e196d7",
+        "public/cartilla/art/chano-scene/juggle-ball-mi.svg": "caf3fb5c7dce87b2a220845084bcbd8c00aef026",
+        "public/cartilla/art/chano-scene/juggle-ball-mo.svg": "1e5168b8c9960125a11876287fe89a0d7c0191d9",
+        "public/cartilla/art/chano-scene/juggle-ball-mu.svg": "a2e6d6964ce974ac1912cf649340b6449acfa57a",
+        "public/cartilla/art/chano-scene/scene-juggle-bg.svg": "bcbf94345e2ee0e06433527c326bb4f9febb0c92",
+        "public/cartilla/art/chano-scene/scene.svg": "47bb50f128ad5db0d1a5dc7888fdefe62b09d621"
+      }
+    },
+    "matches": {
+      "public/cartilla/art/chano-scene/ball-ma.svg": "10409fe",
+      "public/cartilla/art/chano-scene/ball-me.svg": "10409fe",
+      "public/cartilla/art/chano-scene/ball-mi.svg": "10409fe",
+      "public/cartilla/art/chano-scene/ball-mu.svg": "10409fe",
+      "public/cartilla/art/chano-scene/chano-arm-left.svg": "10409fe",
+      "public/cartilla/art/chano-scene/chano-arm-right.svg": "10409fe",
+      "public/cartilla/art/chano-scene/chano-body.svg": "10409fe",
+      "public/cartilla/art/chano-scene/juggle-ball-ma.svg": "c7c5059",
+      "public/cartilla/art/chano-scene/juggle-ball-me.svg": "c7c5059",
+      "public/cartilla/art/chano-scene/juggle-ball-mi.svg": "c7c5059",
+      "public/cartilla/art/chano-scene/juggle-ball-mo.svg": "c7c5059",
+      "public/cartilla/art/chano-scene/juggle-ball-mu.svg": "c7c5059",
+      "public/cartilla/art/chano-scene/scene-juggle-bg.svg": "c7c5059",
+      "public/cartilla/art/chano-scene/scene.svg": "10409fe"
+    }
+  },
+  "source_search_scope": "Opened lane contact sheets of all69 October14 originals; independently made and opened contact sheet of8 files across October20-recovered and October22 intakes; compared against seven current drawings. No same-drawing HD match found in those three known intake directories. This is not proof of absence across all historical refs.",
+  "sampled_visuals_opened": [
+    "intake-1-36.jpg",
+    "intake-37-69.jpg",
+    "igual-options.jpg",
+    "elephant-motion-check.jpg",
+    "chano-scene-check.jpg",
+    "removed-specks-zoom.jpg",
+    "oso-removed-pixels.jpg",
+    "other-intakes.jpg",
+    "seven-current.jpg"
+  ],
+  "boundary": "No coordinator motion/browser rerun. Pixel fidelity for all12 recrops not independently certified from the sampled audit. No new owner art/voice/release approval inferred."
+}

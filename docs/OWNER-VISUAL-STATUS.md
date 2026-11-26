@@ -1,3 +1,42 @@
+### Images correction and motion dependency receipt: 2026-11-26
+
+Images draft #1327 inspected at65d3361ef92db7951320fc91fab2da9e1287e9d3. Its new33-path delta contains evidence/scripts only: no production source/art path or candidate binary changed. [Lane receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7203476286). Coordinator opened nine visual artifacts and the raw source-reconciliation records; no full browser rerun claimed.
+
+- **Preserve six Flip Chart exceptions.** Independently compared all six current blobs with the recorded historical sources: five match dc20ffb and p003-scene matches65f30fe. These scan differences do not require replacement or another owner decision. Singular ojo is now correctly documented as approved as-is.
+- **Recovered a useful equals-sign original.** The69-file October14 intake contains a1254x1254 owner equals sign. The opened comparison shows it has a brown outline, unlike the current bars; it is a disconnected candidate, not an exact same-drawing source replacement. Owner approval remains required. The sharpened enlargement is correctly labelled as adding no detail.
+- **Bound the remaining source gaps.** Opened the lane's two69-original contact sheets and independently checked eight additional saved files across the October20-recovered/October22 folders against the seven current drawings. No same-drawing HD match for niño, pájaro, pera, taza, ola, águila or ardilla was found in these three known intake directories. This does not prove absence across every historical ref. Existing low-resolution files remain intact.
+- **Candidate fidelity:** opened removed-speck and bear overlays; they corroborate the sampled removal audit. Other12-crop details remain lane-reviewed, not independently fully certified. New evidence changed none of the13 candidate binaries. No artwork swap authorized.
+- **Chano source identity:** independently checked all14 recovered scene-file blobs against10409fe/c7c5059 via GitHub; every one matches. Opened the background/ball comparison. This closes the recovered-file identity question, not full gameplay acceptance.
+- **Elephant handoff:** opened comparison/raw frame results: lane reports reduced-motion equality with the approved still and up to2.19% changed pixels in sampled motion. Images relinquishes only the elephant's motionDisabled line to Motion, paired with the rebuilt SVG; other six sheet6 holds stay. [Coordinator handoff on #1326](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1326#issuecomment-7203657042). Actual presenter phone/projector and reduced-motion acceptance remains NOT TESTED.
+- **New motion source:** inspected e9872187...0b59012c delta. Cow proportions/seam changes and Chano exact-ball/landscape changes now exist in source; the added catch unit tests and complete Chano source were read. Old recordings do not certify this new implementation. Exact-head browser results, corrected VocalA and deduplicated baseline failures remain outstanding.
+
+[Independent identity proof and search boundaries](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/work/curriculum/docs/consolidation/IMAGE-FOLLOWUP-2026-11-26.json). Coordinator mirror contains only documentation/evidence. No merge, deployment, deletion, additional branch, production art edit or new voice wiring.
+
+```mermaid
+flowchart TD
+ A["Repository: last complete capture271 refs /92 PRs /74 drafts"] --> B["main5e1c8378; five approved lanes"]
+ B --> C["Historical work preserved; cleanup review WAITING"]
+ B --> D["Images65d3361 and motion0b59012c proposals"]
+ D --> E["Exact-head browser and independent acceptance WAITING"]
+ E --> F["Merge/publication not authorized"]
+ B --> G["Last successful production record3c559eea; docs-only main difference"]
+ G --> H["Current complete public demonstration NOT TESTED"]
+```
+
+```mermaid
+flowchart TD
+ A["New images source-reconciliation receipt"] --> B["Six approved Flip Chart drawings retained"]
+ A --> C["Equals-sign original recovered as an option"]
+ A --> D["14 Chano source identities independently matched"]
+ D --> E["Motion owns only elephant registry handoff"]
+ E --> F["Phone/projector and exact-head game proof WAITING"]
+ C --> G["Artwork swaps WAITING for owner choice"]
+ B --> H["Evidence saved on curriculum lane and same report"]
+```
+
+
+---
+
 ### Continuation checkpoint: 2026-11-26T21:00:43.225829+00:00
 
 Current-source check: **271 remote branches, 92 open PRs, 74 drafts**. The two additional drafts are #1326 and #1327; retained earlier snapshots remain unchanged. [Complete new capture and five-lane changed-path evidence](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/work/curriculum/docs/consolidation/CONTINUATION-2026-11-26.json) includes every current branch and open PR, not substantive cleanup dispositions.
