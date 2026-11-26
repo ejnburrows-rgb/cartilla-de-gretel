@@ -1,41 +1,43 @@
 """Re-fit motion coordinates after a still picture is replaced.
 
-    python3 scripts/living-motion/fit.py <old-alive.svg or old still> <new still>
+    python3 scripts/living-motion/fit.py <old> <new>
 
-Prints the similarity transform (old still -> new still) found by SIFT feature
-matching + RANSAC, with inlier count and residual. Compose it with the picture's
-existing fit in wb_vowels.FITS / fc_natives.FITS (see compose()), then rebuild.
-The old still can be read from the previous `*-alive.svg`, which embeds it.
+Each argument is a picture name from STILLS in build.py (e.g. `vocal-a-abeja`) for
+its current still, or `<name>:alive` for the drawing embedded in its existing
+`*-alive.svg` (the still the old motion was built from). File paths always come
+from STILLS, never from the command line.
+
+Prints the similarity transform (old -> new) found by SIFT feature matching +
+RANSAC, with inlier count and residual. Compose it with the picture's existing fit
+in wb_vowels.FITS / fc_natives.FITS (see compose()), then rebuild.
 """
 import base64, io, os, re, sys
 import numpy as np, cv2
 from PIL import Image
 
-ROOT = os.path.realpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
-PICTURE_EXT = ('.svg', '.png', '.webp', '.jpg', '.jpeg')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build import STILLS, ROOT  # noqa: E402
 
 
-def safe_picture_path(path):
-    """Only pictures inside this repository may be read."""
-    real = os.path.realpath(os.path.join(ROOT, path))
-    if os.path.commonpath([ROOT, real]) != ROOT or not real.lower().endswith(PICTURE_EXT) or not os.path.isfile(real):
-        sys.exit(f'{path}: not a picture inside the repository')
-    return real
-
-
-def largest_embedded(path):
-    path = safe_picture_path(path)
-    with open(path, 'rb') as f:
+def picture(arg):
+    """Load a registered still, or the base drawing embedded in its alive SVG."""
+    name, _, kind = arg.partition(':')
+    if name not in STILLS or kind not in ('', 'alive'):
+        sys.exit(f'unknown picture: {arg} (use a STILLS name, optionally with :alive)')
+    still = STILLS[name]
+    rel = still[:-len(os.path.splitext(still)[1])] + '-alive.svg' if kind else still
+    with open(os.path.join(ROOT, rel), 'rb') as f:
         data = f.read()
-    if not path.endswith('.svg'):
+    if not rel.endswith('.svg'):
         return Image.open(io.BytesIO(data)).convert('RGBA')
+    # The base drawing is the last full-size embedded image (earlier ones are motion maps).
     best = None
     for m in re.finditer(rb'data:image/(?:png|webp|jpeg);base64,([A-Za-z0-9+/=]+)', data):
         im = Image.open(io.BytesIO(base64.b64decode(m.group(1)))).convert('RGBA')
-        if best is None or im.size[0] * im.size[1] > best.size[0] * best.size[1]:
+        if best is None or im.size[0] * im.size[1] >= best.size[0] * best.size[1]:
             best = im
     if best is None:
-        sys.exit(f'{path}: no embedded picture')
+        sys.exit(f'{rel}: no embedded picture')
     return best
 
 
@@ -76,7 +78,9 @@ def compose(outer, inner):
 
 
 if __name__ == '__main__':
-    old, new = largest_embedded(sys.argv[1]), largest_embedded(sys.argv[2])
+    if len(sys.argv) != 3:
+        sys.exit(__doc__)
+    old, new = picture(sys.argv[1]), picture(sys.argv[2])
     print(f'old {old.size} -> new {new.size}')
     for mirror in (False, True):
         print('mirror' if mirror else 'direct', fit(old, new, mirror))
