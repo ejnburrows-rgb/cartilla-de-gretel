@@ -7,13 +7,26 @@ matching + RANSAC, with inlier count and residual. Compose it with the picture's
 existing fit in wb_vowels.FITS / fc_natives.FITS (see compose()), then rebuild.
 The old still can be read from the previous `*-alive.svg`, which embeds it.
 """
-import base64, io, re, sys
+import base64, io, os, re, sys
 import numpy as np, cv2
 from PIL import Image
 
+ROOT = os.path.realpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
+PICTURE_EXT = ('.svg', '.png', '.webp', '.jpg', '.jpeg')
+
+
+def safe_picture_path(path):
+    """Only pictures inside this repository may be read."""
+    real = os.path.realpath(os.path.join(ROOT, path))
+    if os.path.commonpath([ROOT, real]) != ROOT or not real.lower().endswith(PICTURE_EXT) or not os.path.isfile(real):
+        sys.exit(f'{path}: not a picture inside the repository')
+    return real
+
 
 def largest_embedded(path):
-    data = open(path, 'rb').read()
+    path = safe_picture_path(path)
+    with open(path, 'rb') as f:
+        data = f.read()
     if not path.endswith('.svg'):
         return Image.open(io.BytesIO(data)).convert('RGBA')
     best = None
