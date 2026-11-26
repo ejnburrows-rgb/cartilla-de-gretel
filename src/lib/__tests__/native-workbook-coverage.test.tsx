@@ -14,7 +14,7 @@ import {
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 import { allLessonExercises, lessonExercisesFor } from "@/data/lesson-exercises";
 import transcription from "@/data/book-transcription/lessons-08-24.json";
-import { getPageLayout } from "@/lib/book-faithful";
+import { getPageLayout, getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { pageCompletionState, requiredActivitiesForPage } from "@/lib/page-completion";
 import { getPageBinding } from "@/hooks/usePageBinding";
 
@@ -88,10 +88,57 @@ describe("native workbook coverage", () => {
     expect(page87Source?.hasVerifiedText).toBe(false);
   });
 
+  it("reports the canonical scan for every available printed page in every quality mode", () => {
+    for (const mode of ["source", "enhanced", "projection"] as const) {
+      const sources = CATALOG.flatMap(
+        (lesson) => getWorkbookPageSourcesForLesson(lesson.n, lesson.pages, mode).pages,
+      );
+      expect(sources).toHaveLength(90);
+      expect(new Set(sources.map((source) => source.pageNumber)).size).toBe(90);
+      for (const source of sources) {
+        if (isWorkbookPageSourceBlocked(source.pageNumber)) continue;
+        const canonical = `/cartilla/art/source/workbook/page-${String(source.pageNumber).padStart(3, "0")}.jpg`;
+        expect(source.originalImageRef, `page ${source.pageNumber} / ${mode}`).toBe(canonical);
+        expect(source.imageRef, `page ${source.pageNumber} / ${mode}`).toBe(canonical);
+        expect(source.fallbackChain?.[0]).toBe(canonical);
+        expect(source.hasVerifiedImage).toBe(true);
+        // A connected scan is not new evidence of a verified transcription.
+        const legacyPage = getWorkbookPagesForLesson(source.lessonNumber).find(
+          (page) => page.pageNumber === source.pageNumber,
+        );
+        const existingTextFlag = Boolean(legacyPage?.verifiedTextBlocks.length);
+        expect(source.hasVerifiedText).toBe(existingTextFlag);
+        expect(source.status).toBe(existingTextFlag ? "image-available" : "pending-transcription");
+      }
+      expect(sources.filter((source) => source.hasVerifiedImage)).toHaveLength(88);
+    }
+  });
+
+  it("never exposes inferred image references for the permanently excluded pages", () => {
+    for (const lesson of CATALOG) {
+      const sources = getWorkbookPageSourcesForLesson(lesson.n, lesson.pages).pages;
+      for (const source of sources.filter((page) => isWorkbookPageSourceBlocked(page.pageNumber))) {
+        expect(source.status).toBe("source-blocked");
+        expect(source.imageRef).toBeUndefined();
+        expect(source.originalImageRef).toBeUndefined();
+        expect(source.lineartImageRef).toBeUndefined();
+        expect(source.hdImageRef).toBeUndefined();
+        expect(source.remasteredPath).toBeUndefined();
+        expect(source.remasteredPathV2).toBeUndefined();
+        expect(source.fallbackChain).toEqual([]);
+        expect(source.hasVerifiedImage).toBe(false);
+        expect(source.hasVerifiedText).toBe(false);
+      }
+    }
+  });
+
   it("SOURCE_BLOCKED pages 86–87 render no inferred regions and require no completion", () => {
     for (const page of SOURCE_BLOCKED_WORKBOOK_PAGES) {
       expect(getPageBinding(page)).toBeNull();
-      expect((pageLayouts.pages as Record<string, { sourceBlocked?: boolean }>)[String(page)].sourceBlocked).toBe(true);
+      expect(
+        (pageLayouts.pages as Record<string, { sourceBlocked?: boolean }>)[String(page)]
+          .sourceBlocked,
+      ).toBe(true);
       expect(getPageLayout(page)).toEqual([]);
       expect(requiredActivitiesForPage(page)).toEqual([]);
       expect(pageCompletionState(page, undefined, []).complete).toBe(true);

@@ -8,7 +8,11 @@ import {
   getRemasterAssetByOriginal,
   type QualityMode,
 } from "@/lib/remaster-assets";
-import { getWorkbookPageFallbackChain, getLineartPathFromSource } from "@/lib/bookImages";
+import {
+  getBookPageImage,
+  getWorkbookPageFallbackChain,
+  getLineartPathFromSource,
+} from "@/lib/bookImages";
 
 export const WORKBOOK_PDF_PATH = assetPath("book/book.pdf");
 
@@ -75,9 +79,27 @@ export function getWorkbookPageSourcesForLesson(
   const verifiedPages = getWorkbookPagesForLesson(lessonNumber);
   const pdfStatus = getWorkbookPdfStatus();
 
-  const sources = pageNumbers.map((pageNumber) => {
+  const sources = pageNumbers.map((pageNumber): WorkbookPageSource => {
+    const isBlocked = SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber);
+    // The physical scan permanently skips these leaves. Do not leak legacy
+    // scaffold/remaster references for pages that must never be reconstructed.
+    if (isBlocked) {
+      return {
+        pageNumber,
+        lessonNumber,
+        pdfPath: pdfStatus.pdfPath,
+        fallbackChain: [],
+        hasVerifiedImage: false,
+        hasVerifiedText: false,
+        status: "source-blocked",
+      };
+    }
+
     const verifiedPage = verifiedPages.find((page) => page.pageNumber === pageNumber);
-    const originalRef = verifiedPage?.imageScanReference ?? undefined;
+    // Printed-page identity comes from the canonical scan resolver, not the
+    // positional legacy scaffold list. A connected scan does not verify text.
+    const originalRef =
+      getBookPageImage(pageNumber) ?? verifiedPage?.imageScanReference ?? undefined;
     const remasterAsset = getRemasterAssetByOriginal(originalRef);
     const fallbackChain = getWorkbookPageFallbackChain(pageNumber, originalRef);
     const hdImageRef = fallbackChain[0];
@@ -91,7 +113,6 @@ export function getWorkbookPageSourcesForLesson(
     const remasteredPathV2 = remasterAsset?.remasteredPathV2
       ? assetPath(remasterAsset.remasteredPathV2)
       : undefined;
-    const isBlocked = SOURCE_BLOCKED_WORKBOOK_PAGES.includes(pageNumber);
     const hasVerifiedImage = isBlocked ? false : Boolean(imageRef);
     const hasVerifiedText = isBlocked ? false : Boolean(verifiedPage?.verifiedTextBlocks.length);
     const baseStatus: WorkbookSourceStatus = isBlocked
