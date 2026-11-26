@@ -17,6 +17,8 @@ import transcription from "@/data/book-transcription/lessons-08-24.json";
 import { getPageLayout, getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { pageCompletionState, requiredActivitiesForPage } from "@/lib/page-completion";
 import { getPageBinding } from "@/hooks/usePageBinding";
+import remasterInventory from "@/data/remaster-inventory.json";
+import { getBestDisplayPath, type RemasterAsset } from "@/lib/remaster-assets";
 
 describe("native workbook coverage", () => {
   it("has structured native coverage for all 90 instructional pages", () => {
@@ -99,7 +101,9 @@ describe("native workbook coverage", () => {
         if (isWorkbookPageSourceBlocked(source.pageNumber)) continue;
         const canonical = `/cartilla/art/source/workbook/page-${String(source.pageNumber).padStart(3, "0")}.jpg`;
         expect(source.originalImageRef, `page ${source.pageNumber} / ${mode}`).toBe(canonical);
-        expect(source.imageRef, `page ${source.pageNumber} / ${mode}`).toBe(canonical);
+        expect(source.imageRef, `page ${source.pageNumber} / ${mode}`).toBe(
+          getBestDisplayPath(canonical, mode),
+        );
         expect(source.fallbackChain?.[0]).toBe(canonical);
         expect(source.hasVerifiedImage).toBe(true);
         // A connected scan is not new evidence of a verified transcription.
@@ -111,6 +115,36 @@ describe("native workbook coverage", () => {
         expect(source.status).toBe(existingTextFlag ? "image-available" : "pending-transcription");
       }
       expect(sources.filter((source) => source.hasVerifiedImage)).toHaveLength(88);
+    }
+  });
+
+  it("retains mode-appropriate remasters explicitly keyed to canonical printed-page provenance", () => {
+    const canonical = "/cartilla/art/source/workbook/page-001.jpg";
+    // Metadata-only fixture: no artwork is created or placed in the product.
+    const fixture: RemasterAsset = {
+      originalSourcePath: canonical,
+      remasteredPath: "__test_only__/page-001-enhanced.jpg",
+      cleanupStatus: "approved",
+      artifactFixed: true,
+      remasterType: "test fixture",
+      approvalStatus: "approved",
+      type: "student-workbook",
+    };
+    const assets = remasterInventory.assets as RemasterAsset[];
+    assets.push(fixture);
+    try {
+      for (const mode of ["source", "enhanced", "projection"] as const) {
+        const source = getWorkbookPageSourcesForLesson(1, "1-3", mode).pages[0]!;
+        expect(source.originalImageRef).toBe(canonical);
+        expect(source.fallbackChain?.[0]).toBe(canonical);
+        expect(source.imageRef).toBe(
+          mode === "source" ? canonical : "/__test_only__/page-001-enhanced.jpg",
+        );
+        expect(source.remasteredPath).toBe("/__test_only__/page-001-enhanced.jpg");
+        expect(source.remasterStatus).toBe("approved");
+      }
+    } finally {
+      assets.splice(assets.indexOf(fixture), 1);
     }
   });
 
