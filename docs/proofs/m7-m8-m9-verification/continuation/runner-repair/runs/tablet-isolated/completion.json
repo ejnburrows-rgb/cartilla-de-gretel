@@ -1,0 +1,32 @@
+{
+  "startedUtc": "2026-11-03T19:56:16.275658+00:00",
+  "wrapperPid": 42300,
+  "head": "610727d749f018c49826e2b5f31f7df84953b453",
+  "command": [
+    "pnpm.cmd",
+    "exec",
+    "playwright",
+    "test",
+    "tests/e2e/final-candidate.spec.ts",
+    "--grep",
+    "all teacher plates, final artwork and geometry \u2014 tablet",
+    "--project=chromium",
+    "--workers=1",
+    "--reporter=line,json",
+    "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\tablet-isolated\\artifacts"
+  ],
+  "status": "finished",
+  "runnerPid": 43340,
+  "exitCode": 0,
+  "jsonPresent": true,
+  "jsonSha256": "8f77e76427c0deeca894ffa9c2015649f7b3f0f9c4f62bdf8b1ffdb772c223ef",
+  "stats": {
+    "startTime": "2026-11-03T19:56:34.065Z",
+    "duration": 334058.11600000004,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "finishedUtc": "2026-11-03T20:02:08.296095+00:00"
+}

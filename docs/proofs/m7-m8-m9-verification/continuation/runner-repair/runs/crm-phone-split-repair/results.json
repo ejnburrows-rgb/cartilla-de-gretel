@@ -1,0 +1,154 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\node_modules\\playwright\\cli.js",
+      "test",
+      "tests/e2e/crm-local-demo.spec.ts",
+      "--project=chromium",
+      "--grep=at phone size",
+      "--workers=1",
+      "--reporter=line,json",
+      "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\crm-phone-split-repair\\artifacts"
+    ],
+    "configFile": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\playwright.config.ts",
+    "rootDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/docs/proofs/m7-m8-m9-verification/continuation/runner-repair/runs/crm-phone-split-repair/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+        "testIgnore": [
+          "**/student-assignment-flow.spec.ts",
+          "**/classroom-readiness-gated.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "crm-local-demo.spec.ts",
+      "file": "crm-local-demo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "local CRM demo completes student activity, notes, assignment and report at phone size without Supabase",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 112829,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Hoy en tu clase' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Hoy en tu clase' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Hoy en tu clase' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Hoy en tu clase' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Hoy en tu clase' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Hoy en tu clase' })\u001b[22m\n\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:58:68",
+                    "location": {
+                      "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts",
+                      "column": 68,
+                      "line": 58
+                    },
+                    "snippet": "  56 |   await page.route('**/auth/v1/**',route=>{backendRequests.push(route.request().url());return route.abort();});\n  57 |   await page.goto('/cartilla/teacher/crm');\n> 58 |   await expect(page.getByRole('heading',{name:'Hoy en tu clase'})).toBeVisible();\n     |                                                                    ^\n  59 |   await page.getByRole('button',{name:'Nueva clase',exact:true}).click();\n  60 |   await page.getByRole('textbox',{name:'Nombre de la nueva clase'}).fill(`Demo ${name}`);\n  61 |   await page.getByRole('button',{name:'Crear clase',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts",
+                        "column": 68,
+                        "line": 58
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Hoy en tu clase' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Hoy en tu clase' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Hoy en tu clase' })\u001b[22m\n\n\n  56 |   await page.route('**/auth/v1/**',route=>{backendRequests.push(route.request().url());return route.abort();});\n  57 |   await page.goto('/cartilla/teacher/crm');\n> 58 |   await expect(page.getByRole('heading',{name:'Hoy en tu clase'})).toBeVisible();\n     |                                                                    ^\n  59 |   await page.getByRole('button',{name:'Nueva clase',exact:true}).click();\n  60 |   await page.getByRole('textbox',{name:'Nombre de la nueva clase'}).fill(`Demo ${name}`);\n  61 |   await page.getByRole('button',{name:'Crear clase',exact:true}).click();\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts:58:68"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T21:51:11.493Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\crm-phone-split-repair\\artifacts\\crm-local-demo-local-CRM-d-2419d-phone-size-without-Supabase-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\crm-local-demo.spec.ts",
+                    "column": 68,
+                    "line": 58
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d25a19420f7bb1e78abc-bc1981a124b928e42cd9",
+          "file": "crm-local-demo.spec.ts",
+          "line": 51,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T21:50:32.166Z",
+    "duration": 178519.96300000002,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

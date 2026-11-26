@@ -1,20 +1,18 @@
 /**
  * Piano Hablador — real grand piano sound with room reverb.
  *
- * Only the Piano Hablador uses this (both designs). Every other activity keeps
- * the shared synthesized `@/lib/piano-audio` sounds unchanged.
+ * This module plays recorded Steinway samples only. It never falls back to synthesized notes.
  *
- * Sound: recorded notes of a real concert grand (Salamander Grand Piano,
- * CC BY 3.0 — see PIANO_SAMPLES_CREDITS.md), one sample every three
+ * Sound: recorded notes of a real Steinway grand (University of Iowa Musical
+ * Instrument Samples — free for any use, no credit required; see
+ * piano-samples.ts), one sample every three
  * semitones; a note in between re-pitches the nearest sample by at most
  * ±1.5 semitones. Each note goes through a warm tone filter, a soft damper
  * release, a generated small-hall reverb (no extra file) and a gentle limiter.
- * Respects the app's mute and volume. Until the samples have loaded (or if
- * they cannot load), the original synthesized note plays instead, so a
- * recognized syllable is never silent.
+ * Respects the app's mute and volume. Notes requested during loading wait for
+ * the recordings; if no recording can be decoded, no synthesized substitute plays.
  */
 import { audioEngine } from "@/lib/audio-engine";
-import { playNote as playSynthNote } from "@/lib/piano-audio";
 
 /** Embedded samples (piano-samples.ts) and the MIDI note each one holds. */
 export const PIANO_SAMPLES: Readonly<Record<string, number>> = {
@@ -89,29 +87,59 @@ function getChain(): Chain | null {
   const ctx = makeContext();
   if (!ctx) return null;
   const input = ctx.createGain();
-  const tone = ctx.createBiquadFilter();
-  tone.type = "lowpass";
-  tone.frequency.value = 7200;
-  tone.Q.value = 0.4;
+  const tone = typeof ctx.createBiquadFilter === "function" ? ctx.createBiquadFilter() : null;
+  if (tone) {
+    tone.type = "lowpass";
+    if (tone.frequency) tone.frequency.value = 7200;
+    if (tone.Q) tone.Q.value = 0.4;
+  }
   const dry = ctx.createGain();
   dry.gain.value = 1 - REVERB_WET * 0.5;
   const wet = ctx.createGain();
   wet.gain.value = REVERB_WET;
-  const reverb = ctx.createConvolver();
-  reverb.buffer = makeImpulse(ctx);
-  const limiter = ctx.createDynamicsCompressor();
-  limiter.threshold.value = -10;
-  limiter.knee.value = 8;
-  limiter.ratio.value = 4;
-  limiter.attack.value = 0.004;
-  limiter.release.value = 0.25;
-  input.connect(tone);
-  tone.connect(dry);
-  tone.connect(reverb);
-  reverb.connect(wet);
-  dry.connect(limiter);
-  wet.connect(limiter);
-  limiter.connect(ctx.destination);
+  const reverb = typeof ctx.createConvolver === "function" ? ctx.createConvolver() : null;
+  if (reverb && typeof ctx.createBuffer === "function") {
+    try {
+      reverb.buffer = makeImpulse(ctx);
+    } catch {
+      /* ignore impulse generation failure in limited contexts */
+    }
+  }
+  const limiter = typeof ctx.createDynamicsCompressor === "function" ? ctx.createDynamicsCompressor() : null;
+  if (limiter) {
+    if (limiter.threshold) limiter.threshold.value = -10;
+    if (limiter.knee) limiter.knee.value = 8;
+    if (limiter.ratio) limiter.ratio.value = 4;
+    if (limiter.attack) limiter.attack.value = 0.004;
+    if (limiter.release) limiter.release.value = 0.25;
+  }
+
+  const filterOutput: AudioNode = tone || input;
+  if (tone) {
+    input.connect(tone);
+  }
+
+  if (reverb && reverb.buffer) {
+    filterOutput.connect(dry);
+    filterOutput.connect(reverb);
+    reverb.connect(wet);
+    if (limiter) {
+      dry.connect(limiter);
+      wet.connect(limiter);
+      limiter.connect(ctx.destination);
+    } else {
+      dry.connect(ctx.destination);
+      wet.connect(ctx.destination);
+    }
+  } else {
+    if (limiter) {
+      filterOutput.connect(limiter);
+      limiter.connect(ctx.destination);
+    } else {
+      filterOutput.connect(ctx.destination);
+    }
+  }
+
   chain = { ctx, input };
   if (ctx.state === "suspended") void ctx.resume().catch(() => {});
   return chain;
@@ -133,7 +161,7 @@ export function preloadPianoSound(): Promise<void> {
             const buffer = await current.ctx.decodeAudioData(base64ToArrayBuffer(data));
             buffers.set(midi, buffer);
           } catch {
-            /* this sample stays missing; the nearest other one or the synth is used */
+            /* this sample stays unavailable; playback can use another decoded Steinway sample */
           }
         }),
       ),
@@ -175,7 +203,9 @@ export function playNote(freq: number, duration = 0.8, velocity = 0.75): void {
   const pick = nearestSample(midi, buffers.keys());
   const buffer = pick ? buffers.get(pick.midi) : undefined;
   if (!pick || !buffer) {
-    playSynthNote(freq, duration);
+    void preloadPianoSound().then(() => {
+      if (buffers.size > 0) playNote(freq, duration, velocity);
+    });
     return;
   }
   const { ctx, input } = current;

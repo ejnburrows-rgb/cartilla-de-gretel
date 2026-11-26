@@ -1,0 +1,34 @@
+{
+  "url": "http://127.0.0.1:5173/cartilla/presentar/22",
+  "events": [
+    {
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5173/src/components/gretel/GretelSceneMedia.tsx",
+      "failure": {
+        "errorText": "net::ERR_INSUFFICIENT_RESOURCES"
+      }
+    },
+    {
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5173/src/data/book-transcription/lessons-01-07.json?import",
+      "failure": {
+        "errorText": "net::ERR_INSUFFICIENT_RESOURCES"
+      }
+    },
+    {
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5173/src/lib/activity-events.tsx",
+      "failure": {
+        "errorText": "net::ERR_INSUFFICIENT_RESOURCES"
+      }
+    },
+    {
+      "kind": "requestfailed",
+      "url": "http://127.0.0.1:5173/src/components/cartilla/WorkbookPencilMark.tsx",
+      "failure": {
+        "errorText": "net::ERR_INSUFFICIENT_RESOURCES"
+      }
+    }
+  ],
+  "stage": []
+}

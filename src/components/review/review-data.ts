@@ -1,0 +1,174 @@
+/**
+ * Owner review hub content. Every status here must be backed by evidence in
+ * docs/review-2026-11-16/ — never by code existing or a build passing.
+ * Labels: DONE and live / DONE but not live / WAITING / NOT TESTED.
+ */
+export type OwnerStatus = "DONE and live" | "DONE but not live" | "WAITING" | "NOT TESTED";
+
+export interface ReviewLink {
+  label: string;
+  href: string;
+}
+export interface Comparison {
+  id: string;
+  title: string;
+  summary: string;
+  a: { name: string; description: string; links: ReviewLink[] };
+  b?: { name: string; description: string; links: ReviewLink[] };
+  /** Why there is no genuine second option, when that is the case. */
+  singleOptionReason?: string;
+  evidence: ReviewLink[];
+  artwork?: boolean;
+}
+
+export const REVIEW_REVISION = import.meta.env.VITE_REVIEW_REVISION ?? "work/lessons (local build)";
+
+const toLinks = (pairs: [string, string][]): ReviewLink[] =>
+  pairs.map(([label, href]) => ({ label, href }));
+
+export const COMPARISONS: Comparison[] = [
+  {
+    id: "workbook-lesson-3",
+    title: "Student Workbook — Lesson 3 (Pages 7–9, Option A Locked Default)",
+    summary:
+      "Option A (corner lift without specular highlight + locked PENCIL-CURSOR-SPEC.md @image1 pencil cursor) is locked as the application default across Lessons 1–24. Option B (warm cream roll with specular highlight) remains accessible via ?curl=b.",
+    a: {
+      name: "A — Corner lift baseline curl (Locked Default)",
+      description:
+        "Locked @image1 pencil cursor (#3a3a38 charcoal, green/red feedback, 12 pink crumbs) with corner-lift page curl.",
+      links: toLinks([["Open A — default", "/cartilla/leccion/3?cursor=contract"]]),
+    },
+    b: {
+      name: "B — Warm cream roll with specular highlight (override)",
+      description:
+        "Locked @image1 pencil cursor with warm cream roll and specular highlight (?curl=b).",
+      links: toLinks([["Open B — specular roll", "/cartilla/leccion/3?cursor=contract&curl=b"]]),
+    },
+    evidence: toLinks([["A vs B side by side (desktop)", "/review/media/ab-lesson3-1366.svg"]]),
+  },
+  {
+    id: "cow-game",
+    title: "Cow game — draft comparison",
+    summary:
+      "Two ways to play the same existing farm game. Neither is approved; audio is silent pending verified recordings. A includes misleading repeated side scenery on wide screens.",
+    a: {
+      name: "A — Free selection",
+      description: "Choose either a cow or a slot first. Existing farm scene and game flow.",
+      links: toLinks([["Open A — free selection", "/cartilla/juego/cow-game-m?cow=free"]]),
+    },
+    b: {
+      name: "B — Guided steps",
+      description:
+        "Choose a cow first, then a slot. An on-screen instruction changes at each step; repeated side scenery is removed.",
+      links: toLinks([["Open B — guided steps", "/cartilla/juego/cow-game-m?cow=guided"]]),
+    },
+    evidence: [],
+  },
+  {
+    id: "workbook-page-turn",
+    title: "Workbook page turn — Lesson 3",
+    summary:
+      "Warm cream roll with specular highlight and mark-in-progress guard is default; straight-edge or fallback curl remain available via query parameter.",
+    a: {
+      name: "A — Corner lift / fallback curl",
+      description: "The diagonal fold begins at the bottom-right corner and sweeps left.",
+      links: toLinks([["Open A — corner lift", "/cartilla/leccion/3?curl=corner"]]),
+    },
+    b: {
+      name: "B — Straight-edge roll",
+      description: "An experimental straight vertical fold sweeps from right to left instead of tilting diagonally.",
+      links: toLinks([["Open B — straight-edge roll", "/cartilla/leccion/3?curl=edge"]]),
+    },
+    evidence: [],
+  },
+  {
+    id: "flipchart-lesson-3",
+    title: "Teacher Flip Chart — Lesson 3 (Sheet 5, “La niña enfermita” — Owner Decision: A for all)",
+    summary:
+      "Owner decision: approve-a (“A for all”). Candidate A (2000 ms 5-stop top-bound spiral rotateX turn) is locked as the production default on /cartilla/presentar/3 and /cartilla/teacher/flipchart?lesson=3. Lesson 3 has 1 mapped sheet (Sheet 5). Review-only Candidate B (1200 ms smooth 2-stop, lighter shading, zero easel zoom) and the real neighboring vowel sequence (?sheets=4,5,6,7 for L2–L5) remain available via query parameters.",
+    a: {
+      name: "A — 2.0 s top-spiral turn (Locked Default — “A for all”)",
+      description:
+        "Production default: 2000 ms 5-stop top-bound spiral turn on authentic Sheet 5, plus real L2–L5 sequence via ?sheets=4,5,6,7.",
+      links: toLinks([
+        ["Open A — Sheet 5 (default)", "/cartilla/presentar/3"],
+        ["Open A — Teacher panel", "/cartilla/teacher/flipchart?lesson=3"],
+        ["Open A — L2–L5 sequence (sheets 4–7)", "/cartilla/presentar/3?sheets=4,5,6,7"],
+      ]),
+    },
+    b: {
+      name: "B — 1.2 s smooth subtle top-bound turn (Review-only ?flip=b)",
+      description:
+        "Review-only override (?flip=b): 1200 ms smooth 2-stop rotateX turn, lighter shading, zero easel zoom.",
+      links: toLinks([
+        ["Open B — review (?flip=b&sheets=4,5,6,7)", "/cartilla/presentar/3?flip=b&sheets=4,5,6,7"],
+      ]),
+    },
+    evidence: [],
+  },
+];
+
+export interface AreaStatus {
+  area: string;
+  items: { what: string; status: OwnerStatus; note: string }[];
+}
+
+/** Filled from docs/review-2026-11-16/VERIFICATION.md. */
+export const AREA_STATUS: AreaStatus[] = [];
+
+const GAME_SLUGS: [string, string][] = [
+  ["Cow game", "cow-game-m"],
+  ["Butterfly garden", "mariposas-p"],
+  ["Payaso Chano", "payaso-chano-ss"],
+  ["Vocal A", "vocal-a"],
+  ["Fonética P", "fonetica-p"],
+  ["Sílabas O", "silabas-o"],
+  ["Sílabas M", "silabas-m"],
+  ["Sílabas P", "silabas-p"],
+  ["Rima P", "rima-p"],
+  ["Palabras por minuto", "palabras-minuto-p"],
+  ["Dibujos O", "dibujos-o"],
+  ["Completar palabras", "completar-palabras"],
+];
+
+export const QUICK_LINKS: { group: string; links: ReviewLink[] }[] = [
+  {
+    group: "Cover and opening",
+    links: toLinks([
+      ["Book cover (student entry)", "/"],
+      ["Opening", "/intro"],
+      ["Lessons list", "/cartilla/lecciones"],
+    ]),
+  },
+  {
+    group: "Student Workbook",
+    links: toLinks([
+      ["Lesson 3 — Option B default", "/cartilla/leccion/3"],
+      ["Complete book", "/cartilla/cuaderno"],
+      ["Practice", "/cartilla/practica"],
+    ]),
+  },
+  {
+    group: "Teacher",
+    links: toLinks([
+      ["Teacher home", "/cartilla/teacher"],
+      ["Flip Chart picker", "/cartilla/teacher/flipchart?lesson=3"],
+      ["Class & students (demo)", "/cartilla/teacher/crm"],
+      ["Reports", "/cartilla/teacher/reportes"],
+      ["Progress", "/cartilla/teacher/progreso"],
+      ["Artwork board", "/cartilla/teacher/crm/artwork"],
+    ]),
+  },
+  {
+    group: "Games — existing routes, not A/B approvals",
+    links: GAME_SLUGS.map(([label, slug]) => ({ label, href: `/cartilla/juego/${slug}` })),
+  },
+  {
+    group: "Voice",
+    links: toLinks([["Gretel voice policy page", "/cartilla/voces"]]),
+  },
+];
+
+export const DOWNLOADS: ReviewLink[] = toLinks([
+  ["Locked Option B decision ledger (JSON)", "/review/owner-decisions-locked-b.json"],
+]);

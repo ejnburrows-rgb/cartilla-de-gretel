@@ -1,0 +1,12 @@
+[
+  {
+    "source": "docs\\proofs\\crm-demo\\dashboard-laptop.png",
+    "backup": "work\\preserved-before-runs\\crm-layout-replay\\dashboard-laptop.png",
+    "sha256": "339943186feeb0ff67b169989662d2e6cce99bdf45023cb24bf2b3ae7f7b2e91"
+  },
+  {
+    "source": "docs\\proofs\\crm-demo\\student-laptop.png",
+    "backup": "work\\preserved-before-runs\\crm-layout-replay\\student-laptop.png",
+    "sha256": "2203218824ad96593fbae09c4aa2e46698f30463cdd6bd971a6b15bf61dee3ab"
+  }
+]

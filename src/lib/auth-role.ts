@@ -1,5 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
-
 /**
  * Whether a signed-in user actually holds the teacher or admin role (via
  * the has_role RPC), not just any authenticated Supabase session. Every
@@ -8,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
  * for an account with no role row at all.
  */
 export async function hasTeacherOrAdminRole(userId: string): Promise<boolean> {
+  const { supabase } = await import("@/integrations/supabase/client");
   const [teacherCheck, adminCheck] = await Promise.all([
     supabase.rpc("has_role", { _user_id: userId, _role: "teacher" }),
     supabase.rpc("has_role", { _user_id: userId, _role: "admin" }),

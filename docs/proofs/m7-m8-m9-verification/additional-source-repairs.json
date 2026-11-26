@@ -1,0 +1,111 @@
+[
+  {
+    "page": 26,
+    "pdf": "La Cartilla de Gretel Flip Chart.pdf",
+    "scanSize": [
+      2096,
+      2784
+    ],
+    "sourceCropLTRB": [
+      1017,
+      42,
+      2023,
+      1499
+    ],
+    "labelExclusion1000": [
+      485,
+      700,
+      560,
+      715
+    ],
+    "destination": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
+    "sha256": "c89713ab65bc5d914e753009d4450bf49105fda97922c006aa1919937236d97f",
+    "rgbMatch": true
+  },
+  {
+    "page": 32,
+    "pdf": "La Cartilla de Gretel Flip Chart.pdf",
+    "scanSize": [
+      2088,
+      2680
+    ],
+    "sourceCropLTRB": [
+      1054,
+      52,
+      2057,
+      1441
+    ],
+    "labelExclusion1000": [
+      505,
+      660,
+      512,
+      690
+    ],
+    "destination": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
+    "sha256": "11ba21f29552bc535dd2c8edc1bfd8688e086724760c0574e6798eab1f61c01d",
+    "rgbMatch": true
+  },
+  {
+    "page": 38,
+    "pdf": "La Cartilla de Gretel Flip Chart.pdf",
+    "scanSize": [
+      2144,
+      2864
+    ],
+    "sourceCropLTRB": [
+      1072,
+      54,
+      2080,
+      1512
+    ],
+    "labelExclusion1000": [
+      500,
+      690,
+      510,
+      705
+    ],
+    "destination": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
+    "sha256": "62102212825dc835c90a76ea500f1c74aba28fb9653d90ebb7218e9fdeb314a2",
+    "rgbMatch": true
+  },
+  {
+    "page": 62,
+    "pdf": "La Cartilla de Gretel Flip Chart.pdf",
+    "scanSize": [
+      1984,
+      2608
+    ],
+    "sourceCropLTRB": [
+      863,
+      40,
+      1944,
+      1369
+    ],
+    "labelExclusion1000": [
+      435,
+      570,
+      550,
+      690
+    ],
+    "destination": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
+    "sha256": "47e045fa7a9408139bc63d0c78f457a217e7735e24e03145e2c689ec0067f1ab",
+    "rgbMatch": true
+  },
+  {
+    "page": 29,
+    "pdf": "La Cartilla de Gretel Flip Chart.pdf",
+    "scanSize": [
+      2232,
+      2840
+    ],
+    "sourceCropLTRB": [
+      1120,
+      45,
+      2190,
+      1560
+    ],
+    "destination": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
+    "sha256": "1e2e5c52758c899f6a8aeea025a437c5574bf98b0ae45fd699165c06ec5f8e6a",
+    "rgbMatch": true
+  }
+]

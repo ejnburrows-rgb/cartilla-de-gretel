@@ -11,6 +11,7 @@ const MUTE_KEY = "cartilla:audio:muted";
 const AMBIENT_ACTIVE_KEY = "cartilla:audio:ambient-active";
 
 let ambientAudio: HTMLAudioElement | null = null;
+let pageTurnAudio: HTMLAudioElement | null = null;
 
 export const audioEngine = {
   getVolume(): number {
@@ -36,7 +37,13 @@ export const audioEngine = {
   setMuted(muted: boolean) {
     if (typeof window === "undefined") return;
     localStorage.setItem(MUTE_KEY, String(muted));
-    if (muted) stopSpeech("picture");
+    if (muted) {
+      stopSpeech("picture");
+      if (pageTurnAudio) {
+        pageTurnAudio.pause();
+        pageTurnAudio.currentTime = 0;
+      }
+    }
     window.dispatchEvent(new Event("cartilla:audio-settings"));
     if (ambientAudio) {
       if (muted) {
@@ -47,7 +54,7 @@ export const audioEngine = {
     }
   },
 
-  playPageTurn(soft = false) {
+  playPageTurn(_soft = false) {
     if (typeof window === "undefined" || this.isMuted()) return;
     try {
       // Pause ambient audio briefly during flip
@@ -56,8 +63,14 @@ export const audioEngine = {
         ambientAudio.pause();
       }
 
-      const src = soft ? "/audio/page-turn-soft.mp3" : "/audio/page-turn.mp3";
-      const audio = new Audio(src);
+      // Always route to /audio/page-turn-soft.mp3 (43.5 KB; /audio/page-turn.mp3 is an 84-byte stub)
+      // and stop any in-flight page-turn clip so rapid turns never overlap.
+      if (pageTurnAudio) {
+        pageTurnAudio.pause();
+        pageTurnAudio.currentTime = 0;
+      }
+      const audio = new Audio("/audio/page-turn-soft.mp3");
+      pageTurnAudio = audio;
       audio.volume = this.getVolume();
       audio.play().catch(() => {
         /* ignore */

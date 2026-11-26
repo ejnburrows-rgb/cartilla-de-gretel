@@ -1,0 +1,484 @@
+(node:23456) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:38380) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+vite v7.3.3 building client environment for production...
+transforming...
+✓ 2846 modules transformed.
+rendering chunks...
+[esbuild css minify]
+▲ [WARNING] Unexpected "{" [css-syntax-error]
+
+    <stdin>:318:0:
+      318 │ {
+          ╵ ^
+
+
+▲ [WARNING] Unexpected "{" [css-syntax-error]
+
+    <stdin>:1374:0:
+      1374 │ {
+           ╵ ^
+
+
+computing gzip size...
+dist/assets/crm-student-progress.HEnMtcXt.js.br                        0.24 kB
+dist/assets/crm-student-progress.HEnMtcXt.js.gz                        0.26 kB
+dist/assets/learner-resume.DWeZmMAa.js.br                              0.34 kB
+dist/assets/csv.CrugNsGl.js.br                                         0.35 kB
+dist/assets/bookImages.DDlEGVgD.js.br                                  0.36 kB
+dist/assets/intro.BzK4ngJD.css.br                                      0.39 kB
+dist/assets/learner-resume.DWeZmMAa.js.gz                              0.40 kB
+dist/assets/storage-keys.BcMFXzSZ.js.br                                0.40 kB
+dist/assets/csv.CrugNsGl.js.gz                                         0.41 kB
+dist/assets/bookImages.DDlEGVgD.js.gz                                  0.42 kB
+dist/assets/GretelLayerRig.aJpdw791.js.br                              0.42 kB
+dist/assets/CrmBreadcrumbs.Bkq1O0kX.js.br                              0.47 kB
+dist/assets/lecciones.lazy.DbaiEQ3h.js.br                              0.47 kB
+dist/assets/storage-keys.BcMFXzSZ.js.gz                                0.47 kB
+dist/assets/teacher-chrome.Be_YPX-O.css.br                             0.47 kB
+dist/assets/tslib.es6.Du-meQkk.js.br                                   0.47 kB
+dist/assets/intro.BzK4ngJD.css.gz                                      0.48 kB
+dist/assets/assignments.functions.CNO7h9OT.js.br                       0.49 kB
+dist/assets/teacher-print.BmM_lcBC.css.br                              0.50 kB
+dist/index.html.br                                                     0.52 kB
+dist/assets/GretelLayerRig.aJpdw791.js.gz                              0.53 kB
+dist/assets/imprimir.all.Brj7fzvC.js.br                                0.53 kB
+dist/assets/tslib.es6.Du-meQkk.js.gz                                   0.54 kB
+dist/assets/imprimir._n.BfHwFy9_.js.br                                 0.55 kB
+dist/assets/csv-export.BR2zh_3E.js.br                                  0.55 kB
+dist/assets/teacher-chrome.Be_YPX-O.css.gz                             0.56 kB
+dist/assets/lecciones.lazy.DbaiEQ3h.js.gz                              0.56 kB
+dist/assets/CrmBreadcrumbs.Bkq1O0kX.js.gz                              0.56 kB
+dist/assets/activity-events.BsSrt6nj.js.br                             0.57 kB
+dist/assets/assignments.functions.CNO7h9OT.js.gz                       0.57 kB
+dist/assets/GardenBackdrop.D7B-3ZuQ.js.br                              0.57 kB
+dist/assets/piano-audio.DEEspvaF.js.br                                 0.58 kB
+dist/assets/imprimir.all.Brj7fzvC.js.gz                                0.59 kB
+dist/assets/KidButton.ClXEKSA5.js.br                                   0.59 kB
+dist/assets/imprimir._n.BfHwFy9_.js.gz                                 0.62 kB
+dist/assets/teacher-crm.DCXYJT9J.css.br                                0.63 kB
+dist/assets/piano-audio.DEEspvaF.js.gz                                 0.64 kB
+dist/assets/activity-events.BsSrt6nj.js.gz                             0.65 kB
+dist/assets/teacher-print.BmM_lcBC.css.gz                              0.66 kB
+dist/assets/csv-export.BR2zh_3E.js.gz                                  0.66 kB
+dist/assets/PdfPage.CIy7vSIY.js.br                                     0.67 kB
+dist/assets/GardenBackdrop.D7B-3ZuQ.js.gz                              0.69 kB
+dist/assets/KidButton.ClXEKSA5.js.gz                                   0.71 kB
+dist/index.html.gz                                                     0.71 kB
+dist/assets/lesson-progress.D-mzbfpy.js.br                             0.72 kB
+dist/assets/teacher-crm.DCXYJT9J.css.gz                                0.77 kB
+dist/assets/PdfPage.CIy7vSIY.js.gz                                     0.80 kB
+dist/assets/lesson-progress.D-mzbfpy.js.gz                             0.81 kB
+dist/assets/credits.CTbv2Hyw.js.br                                     0.88 kB
+dist/assets/dev-gretel.Di8e0PRw.js.br                                  0.96 kB
+dist/assets/credits.CTbv2Hyw.js.gz                                     1.01 kB
+dist/assets/useGretelAnimation.D75Z9kIX.js.br                          1.04 kB
+dist/assets/dev-living-workbook.CF1HoTAz.css.br                        1.06 kB
+dist/assets/dev-gretel.Di8e0PRw.js.gz                                  1.13 kB
+dist/assets/cuaderno.ClGkWiu-.js.br                                    1.13 kB
+dist/assets/useGretelAnimation.D75Z9kIX.js.gz                          1.18 kB
+dist/assets/flipchart.lazy.BBdDCdtk.js.br                              1.20 kB
+dist/assets/Topbar.o8_CvUAN.js.br                                      1.23 kB
+dist/assets/PrintableWorkbook.Cb5BQzj4.js.br                           1.23 kB
+dist/assets/prototype.BlW4LBoY.css.br                                  1.25 kB
+dist/assets/cuaderno.ClGkWiu-.js.gz                                    1.26 kB
+dist/assets/dev-living-workbook.CF1HoTAz.css.gz                        1.27 kB
+dist/assets/_recursoId.lazy.xtCcjKhF.js.br                             1.27 kB
+dist/assets/letras.CecqZqTF.js.br                                      1.29 kB
+dist/assets/admin-overview.functions.Bus6SSp5.js.br                    1.33 kB
+dist/assets/flipchart.lazy.BBdDCdtk.js.gz                              1.37 kB
+dist/assets/PrintableWorkbook.Cb5BQzj4.js.gz                           1.40 kB
+dist/assets/animales.BXYmn3o_.js.br                                    1.41 kB
+dist/assets/Topbar.o8_CvUAN.js.gz                                      1.41 kB
+dist/assets/_recursoId.lazy.xtCcjKhF.js.gz                             1.44 kB
+dist/assets/admin-overview.functions.Bus6SSp5.js.gz                    1.44 kB
+dist/assets/letras.CecqZqTF.js.gz                                      1.45 kB
+dist/index.html                                                        1.47 kB │ gzip:   0.71 kB
+dist/assets/pilot-faithful._n.DEYcUwND.js.br                           1.48 kB
+dist/assets/prototype.BlW4LBoY.css.gz                                  1.53 kB
+dist/assets/animales.BXYmn3o_.js.gz                                    1.55 kB
+dist/assets/WelcomeSplash.CLJ1bUAb.css.br                              1.59 kB
+dist/assets/index.lazy.XkrajaMd.js.br                                  1.60 kB
+dist/assets/repaso.CmLeb3dw.js.br                                      1.63 kB
+dist/assets/pilot-faithful._n.DEYcUwND.js.gz                           1.69 kB
+dist/assets/autora.Dpyoxhvi.js.br                                      1.71 kB
+dist/assets/route.lazy.DhNXbhnk.js.br                                  1.73 kB
+dist/assets/GretelFeedback.Buj1-PCj.js.br                              1.76 kB
+dist/assets/index.BBx-yKL1.js.br                                       1.78 kB
+dist/assets/index.lazy.XkrajaMd.js.gz                                  1.82 kB
+dist/assets/repaso.CmLeb3dw.js.gz                                      1.85 kB
+dist/assets/gretel-cinematics.B3S1rDr1.js.br                           1.85 kB
+dist/assets/lecciones.B5LunFpg.js.br                                   1.87 kB
+dist/assets/LessonCatalog.CzjNlQ0D.js.br                               1.88 kB
+dist/assets/WelcomeSplash.CLJ1bUAb.css.gz                              1.88 kB
+dist/assets/crm._classId._studentId._lessonId.lazy.DYiHjKTd.js.br      1.90 kB
+dist/assets/unirse.D5vdiyww.js.br                                      1.91 kB
+dist/assets/progreso.lazy.D97ieLHu.js.br                               1.95 kB
+dist/assets/presentar._n.DG9SdCnJ.js.br                                1.96 kB
+dist/assets/autora.Dpyoxhvi.js.gz                                      1.97 kB
+dist/assets/route.lazy.DhNXbhnk.js.gz                                  1.99 kB
+dist/assets/GretelFeedback.Buj1-PCj.js.gz                              2.00 kB
+dist/assets/index.BBx-yKL1.js.gz                                       2.01 kB
+dist/assets/gretel-cinematics.B3S1rDr1.js.gz                           2.07 kB
+dist/assets/PageCurl.uVMItKqO.js.br                                    2.10 kB
+dist/assets/lecciones.B5LunFpg.js.gz                                   2.10 kB
+dist/assets/ayuda.BsumpWxw.js.br                                       2.12 kB
+dist/assets/crm._classId._studentId._lessonId.lazy.DYiHjKTd.js.gz      2.12 kB
+dist/assets/LessonCatalog.CzjNlQ0D.js.gz                               2.16 kB
+dist/assets/progreso.lazy.D97ieLHu.js.gz                               2.17 kB
+dist/assets/unirse.D5vdiyww.js.gz                                      2.20 kB
+dist/assets/presentar._n.DG9SdCnJ.js.gz                                2.21 kB
+dist/assets/student-copy.kLgW176A.js.br                                2.30 kB
+dist/assets/PageCurl.uVMItKqO.js.gz                                    2.31 kB
+dist/assets/ayuda.BsumpWxw.js.gz                                       2.42 kB
+dist/assets/EscucharInstruccionButton.C1o91soh.js.br                   2.48 kB
+dist/assets/GretelLiveAvatar.CXxMVf0B.js.br                            2.56 kB
+dist/assets/literacy-insights.CuqzRPTT.js.br                           2.58 kB
+dist/assets/student-copy.kLgW176A.js.gz                                2.59 kB
+dist/assets/PageFrame.CVTrNvUd.css.br                                  2.67 kB
+dist/assets/teacher.functions.D3RMRQaK.js.br                           2.67 kB
+dist/assets/WelcomeSplash.Bf8lkOU6.js.br                               2.69 kB
+dist/assets/crm._classId.index.lazy.BxAxuix9.js.br                     2.70 kB
+dist/assets/leccion._n.ByvC-LuE.css.br                                 2.74 kB
+dist/assets/guide.lazy.DlOvY1p0.js.br                                  2.78 kB
+dist/assets/voces.CkF1avVB.js.br                                       2.79 kB
+dist/assets/paginas._n.lazy.DpnfikuY.js.br                             2.83 kB
+dist/assets/EscucharInstruccionButton.C1o91soh.js.gz                   2.86 kB
+dist/assets/literacy-insights.CuqzRPTT.js.gz                           2.88 kB
+dist/assets/GretelLiveAvatar.CXxMVf0B.js.gz                            2.92 kB
+dist/assets/teacher.functions.D3RMRQaK.js.gz                           2.98 kB
+dist/assets/crm._classId.index.lazy.BxAxuix9.js.gz                     3.04 kB
+dist/assets/WelcomeSplash.Bf8lkOU6.js.gz                               3.05 kB
+dist/assets/PageFrame.CVTrNvUd.css.gz                                  3.13 kB
+dist/assets/voces.CkF1avVB.js.gz                                       3.13 kB
+dist/assets/guide.lazy.DlOvY1p0.js.gz                                  3.19 kB
+dist/assets/paginas._n.lazy.DpnfikuY.js.gz                             3.21 kB
+dist/assets/useQuery.1N7QnvR0.js.br                                    3.25 kB
+dist/assets/login.lazy.ClduJFmo.js.br                                  3.25 kB
+dist/assets/admin.lazy.D9v0wIPv.js.br                                  3.29 kB
+dist/assets/crm._classId._studentId.reporte.lazy.BXsQf89a.js.br        3.40 kB
+dist/assets/PencilConnector.C5DRS6wk.css.br                            3.45 kB
+dist/assets/leccion._n.ByvC-LuE.css.gz                                 3.45 kB
+dist/assets/useQuery.1N7QnvR0.js.gz                                    3.59 kB
+dist/assets/intro.DWZ0lu10.js.br                                       3.61 kB
+dist/assets/login.lazy.ClduJFmo.js.gz                                  3.69 kB
+dist/assets/admin.lazy.D9v0wIPv.js.gz                                  3.74 kB
+dist/assets/DemoControlCenter.Glku3Oc7.js.br                           3.78 kB
+dist/assets/crm._classId._studentId.reporte.lazy.BXsQf89a.js.gz        3.90 kB
+dist/assets/PencilConnector.C5DRS6wk.css.gz                            3.97 kB
+dist/assets/intro.DWZ0lu10.js.gz                                       3.99 kB
+dist/assets/ayuda.lazy.BGXGTip1.js.br                                  4.15 kB
+dist/assets/PageFrame.CsCITlEd.js.br                                   4.27 kB
+dist/assets/DemoControlCenter.Glku3Oc7.js.gz                           4.33 kB
+dist/assets/reportes.lazy.DdCvoSoK.js.br                               4.49 kB
+dist/assets/practica.lazy.ilQlkn_0.js.br                               4.52 kB
+dist/assets/NativeLessonViewer.Cjzg1goY.js.br                          4.62 kB
+dist/assets/guia.index.lazy.DjxQOyVG.js.br                             4.72 kB
+dist/assets/ayuda.lazy.BGXGTip1.js.gz                                  4.86 kB
+dist/assets/ActivityCarousel.DZ0VeOn1.css.br                           4.97 kB
+dist/assets/NativeLessonViewer.Cjzg1goY.js.gz                          5.14 kB
+dist/assets/practica.lazy.ilQlkn_0.js.gz                               5.14 kB
+dist/assets/reportes.lazy.DdCvoSoK.js.gz                               5.22 kB
+dist/assets/guia.index.lazy.DjxQOyVG.js.gz                             5.31 kB
+dist/assets/PageFrame.CsCITlEd.js.gz                                   5.34 kB
+dist/assets/crm._classId._studentId.index.lazy.C6G9Cdnv.js.br          5.37 kB
+dist/assets/roster.lazy.BqUgiXR7.js.br                                 5.37 kB
+dist/assets/dev-living-workbook.lazy.CgHT2JxV.js.br                    5.50 kB
+dist/assets/FaithfulPageRenderer.Cbd9Zn1B.css.br                       5.56 kB
+dist/assets/ActivityCarousel.DZ0VeOn1.css.gz                           5.72 kB
+dist/assets/book-faithful.CI6M8tUD.js.br                               5.85 kB
+dist/assets/crm._classId._studentId.index.lazy.C6G9Cdnv.js.gz          6.14 kB
+dist/assets/crm.index.lazy.BCNdiOyP.js.br                              6.27 kB
+dist/assets/dev-living-workbook.lazy.CgHT2JxV.js.gz                    6.28 kB
+dist/assets/roster.lazy.BqUgiXR7.js.gz                                 6.33 kB
+dist/assets/FaithfulPageRenderer.Cbd9Zn1B.css.gz                       6.37 kB
+dist/assets/mi-progreso.Dm1sgtyE.js.br                                 6.50 kB
+dist/assets/PaintCanvas.Cx2oh0SF.js.br                                 6.55 kB
+dist/assets/leccion._n.lazy.CcF1BM3w.js.br                             6.89 kB
+dist/assets/crm.index.lazy.BCNdiOyP.js.gz                              7.21 kB
+dist/assets/mi-progreso.Dm1sgtyE.js.gz                                 7.35 kB
+dist/assets/book-faithful.CI6M8tUD.js.gz                               7.44 kB
+dist/assets/PaintCanvas.Cx2oh0SF.js.gz                                 7.49 kB
+dist/assets/utils.DaT-yT0k.js.br                                       7.61 kB
+dist/assets/lucide.BgWP-KFW.js.br                                      7.71 kB
+dist/assets/leccion._n.lazy.CcF1BM3w.js.gz                             7.87 kB
+dist/assets/LivingIllustration.1e8FSmGL.js.br                          8.27 kB
+dist/assets/utils.DaT-yT0k.js.gz                                       8.69 kB
+dist/assets/lucide.BgWP-KFW.js.gz                                      9.21 kB
+dist/assets/LivingIllustration.1e8FSmGL.js.gz                          9.83 kB
+dist/assets/page-layouts.D9ILynTV.js.br                               10.36 kB
+dist/assets/loader.Buq_gRL-.js.br                                     10.77 kB
+dist/assets/prototype.lesson-3-a.Ds09ZHmb.js.br                       11.02 kB
+dist/assets/core.esm.Brd7wRPV.js.br                                   11.39 kB
+dist/assets/PencilConnector.D2Gj246u.js.br                            11.50 kB
+dist/assets/guia._n.lazy.2zVhhLb9.js.br                               11.88 kB
+dist/assets/core.esm.Brd7wRPV.js.gz                                   12.64 kB
+dist/assets/PencilConnector.D2Gj246u.js.gz                            13.16 kB
+dist/assets/page-layouts.D9ILynTV.js.gz                               13.33 kB
+dist/assets/prototype.lesson-3-a.Ds09ZHmb.js.gz                       13.71 kB
+dist/assets/loader.Buq_gRL-.js.gz                                     14.17 kB
+dist/assets/FaithfulPageRenderer.cBrKUlPN.js.br                       16.66 kB
+dist/assets/guia._n.lazy.2zVhhLb9.js.gz                               16.89 kB
+dist/assets/fl_tulip.Kf8TshXk.png                                     19.05 kB
+dist/assets/fl_tulip.Kf8TshXk.png.br                                  19.05 kB
+dist/assets/fl_tulip.Kf8TshXk.png.gz                                  19.08 kB
+dist/assets/fl_pinktulip.C_PX8IPu.png                                 19.44 kB
+dist/assets/fl_pinktulip.C_PX8IPu.png.br                              19.44 kB
+dist/assets/fl_pinktulip.C_PX8IPu.png.gz                              19.47 kB
+dist/assets/FaithfulPageRenderer.cBrKUlPN.js.gz                       19.64 kB
+dist/assets/FlipchartHdPanel.DvJmhepO.js.br                           21.08 kB
+dist/assets/ui_sign.BKdX88pT.jpg.br                                   23.60 kB
+dist/assets/ActivityCarousel.Cbg43oD1.js.br                           23.77 kB
+dist/assets/ui_sign.BKdX88pT.jpg.gz                                   23.87 kB
+dist/assets/ui_sign.BKdX88pT.jpg                                      24.05 kB
+dist/assets/FlipchartHdPanel.DvJmhepO.js.gz                           25.43 kB
+dist/assets/tanstack-router.tiHaf-V4.js.br                            27.71 kB
+dist/assets/ActivityCarousel.Cbg43oD1.js.gz                           28.07 kB
+dist/assets/juego._gameId.DJWSlCli.js.br                              30.38 kB
+dist/assets/tanstack-router.tiHaf-V4.js.gz                            31.07 kB
+dist/assets/flipchart-native.BEAfJwxs.js.br                           31.67 kB
+dist/assets/juego._gameId.DJWSlCli.js.gz                              35.49 kB
+dist/assets/proxy.D0Gr_lWt.js.br                                      36.62 kB
+dist/assets/index.DLoY_Kak.css.br                                     37.62 kB
+dist/assets/flipchart-native.BEAfJwxs.js.gz                           39.28 kB
+dist/assets/fl_orange.DkECseLV.png                                    40.95 kB
+dist/assets/fl_orange.DkECseLV.png.br                                 40.95 kB
+dist/assets/fl_orange.DkECseLV.png.gz                                 40.98 kB
+dist/assets/proxy.D0Gr_lWt.js.gz                                      41.09 kB
+dist/assets/client.BKa7G59Y.js.br                                     45.90 kB
+dist/assets/index.DSGOhr1C.js.br                                      46.91 kB
+dist/assets/index.DLoY_Kak.css.gz                                     47.41 kB
+dist/assets/client.BKa7G59Y.js.gz                                     54.34 kB
+dist/assets/index.DSGOhr1C.js.gz                                      55.59 kB
+dist/assets/FlipchartHdPanel.Dpon4mak.css.br                          65.42 kB
+dist/assets/FlipchartHdPanel.Dpon4mak.css.gz                          68.73 kB
+dist/assets/fl_rose.BDiorK-n.png                                      85.73 kB
+dist/assets/fl_rose.BDiorK-n.png.br                                   85.73 kB
+dist/assets/fl_rose.BDiorK-n.png.gz                                   85.78 kB
+dist/assets/ui_sun.F1sANm2l.png                                       90.53 kB
+dist/assets/ui_sun.F1sANm2l.png.br                                    90.53 kB
+dist/assets/ui_sun.F1sANm2l.png.gz                                    90.57 kB
+dist/assets/react-vendor.B68mAgyd.js.br                               96.43 kB
+dist/assets/fl_sunflower.Fug2iIHn.png                                102.09 kB
+dist/assets/fl_sunflower.Fug2iIHn.png.br                             102.09 kB
+dist/assets/fl_sunflower.Fug2iIHn.png.gz                             102.14 kB
+dist/assets/ui_can.BpzX8cgM.png                                      103.85 kB
+dist/assets/ui_can.BpzX8cgM.png.br                                   103.86 kB
+dist/assets/ui_can.BpzX8cgM.png.gz                                   103.89 kB
+dist/assets/fl_whitedaisy.pWPn8D7V.png                               104.33 kB
+dist/assets/fl_whitedaisy.pWPn8D7V.png.br                            104.33 kB
+dist/assets/fl_whitedaisy.pWPn8D7V.png.gz                            104.38 kB
+dist/assets/fl_pinkdaisy.BiWdzpAS.png                                107.90 kB
+dist/assets/fl_pinkdaisy.BiWdzpAS.png.br                             107.91 kB
+dist/assets/fl_pinkdaisy.BiWdzpAS.png.gz                             107.95 kB
+dist/assets/crm.artwork.lazy.bqQDXHLm.js.br                          109.77 kB
+dist/assets/react-vendor.B68mAgyd.js.gz                              118.59 kB
+dist/assets/crm.artwork.lazy.bqQDXHLm.js.gz                          131.76 kB
+dist/assets/bf_pi.-cDuIcTN.png                                       134.33 kB
+dist/assets/bf_pi.-cDuIcTN.png.br                                    134.33 kB
+dist/assets/bf_pi.-cDuIcTN.png.gz                                    134.38 kB
+dist/assets/bt_pi.CvsSMuDo.png                                       138.32 kB
+dist/assets/bt_pi.CvsSMuDo.png.br                                    138.32 kB
+dist/assets/bt_pi.CvsSMuDo.png.gz                                    138.38 kB
+dist/assets/bt_po.BFgchUck.png                                       144.58 kB
+dist/assets/bt_po.BFgchUck.png.br                                    144.58 kB
+dist/assets/bt_po.BFgchUck.png.gz                                    144.64 kB
+dist/assets/bt_Pu.DElj1JzO.png                                       149.15 kB
+dist/assets/bt_Pu.DElj1JzO.png.br                                    149.16 kB
+dist/assets/bt_Pu.DElj1JzO.png.gz                                    149.21 kB
+dist/assets/bf_ma.CWqhq_Tq.png                                       153.51 kB
+dist/assets/bf_ma.CWqhq_Tq.png.br                                    153.52 kB
+dist/assets/bf_ma.CWqhq_Tq.png.gz                                    153.55 kB
+dist/assets/bt_ma.CQrGPhvq.png                                       153.85 kB
+dist/assets/bt_ma.CQrGPhvq.png.br                                    153.86 kB
+dist/assets/bt_ma.CQrGPhvq.png.gz                                    153.91 kB
+dist/assets/fl_purple.CRUqhySp.png                                   154.28 kB
+dist/assets/fl_purple.CRUqhySp.png.br                                154.29 kB
+dist/assets/bt_pa.BQY_aMt0.png                                       154.34 kB
+dist/assets/bt_pa.BQY_aMt0.png.br                                    154.35 kB
+dist/assets/fl_purple.CRUqhySp.png.gz                                154.35 kB
+dist/assets/bt_pa.BQY_aMt0.png.gz                                    154.40 kB
+dist/assets/bf_me.D3x7hCc5.png                                       155.90 kB
+dist/assets/bf_me.D3x7hCc5.png.br                                    155.91 kB
+dist/assets/bf_me.D3x7hCc5.png.gz                                    155.94 kB
+dist/assets/bf_po.BvZ8hKqF.png                                       156.06 kB
+dist/assets/bf_po.BvZ8hKqF.png.br                                    156.06 kB
+dist/assets/bf_po.BvZ8hKqF.png.gz                                    156.10 kB
+dist/assets/bt_mi.CVo8nVNa.png                                       157.08 kB
+dist/assets/bt_mi.CVo8nVNa.png.br                                    157.08 kB
+dist/assets/bt_mi.CVo8nVNa.png.gz                                    157.14 kB
+dist/assets/bf_mi.thpScvZp.png                                       158.96 kB
+dist/assets/bf_mi.thpScvZp.png.br                                    158.96 kB
+dist/assets/bf_mi.thpScvZp.png.gz                                    158.99 kB
+dist/assets/bf_Mu.6OwAFZ7E.png                                       160.05 kB
+dist/assets/bf_Mu.6OwAFZ7E.png.br                                    160.05 kB
+dist/assets/bf_Mu.6OwAFZ7E.png.gz                                    160.09 kB
+dist/assets/bf_pa.BHez1GFB.png                                       160.72 kB
+dist/assets/bf_pa.BHez1GFB.png.br                                    160.73 kB
+dist/assets/bf_pa.BHez1GFB.png.gz                                    160.75 kB
+dist/assets/bt_Mu.C6xks-K5.png                                       164.32 kB
+dist/assets/bt_Mu.C6xks-K5.png.br                                    164.32 kB
+dist/assets/bt_Mu.C6xks-K5.png.gz                                    164.39 kB
+dist/assets/bt_me.CmveztnI.png                                       164.70 kB
+dist/assets/bt_me.CmveztnI.png.br                                    164.70 kB
+dist/assets/bt_me.CmveztnI.png.gz                                    164.77 kB
+dist/assets/bt_mo.vF3ra4Al.png                                       167.59 kB
+dist/assets/bt_mo.vF3ra4Al.png.br                                    167.60 kB
+dist/assets/bt_mo.vF3ra4Al.png.gz                                    167.67 kB
+dist/assets/bf_Pe.DF6LWnVR.png                                       171.10 kB
+dist/assets/bf_Pe.DF6LWnVR.png.br                                    171.11 kB
+dist/assets/bf_Pe.DF6LWnVR.png.gz                                    171.17 kB
+dist/assets/bf_mo.DLUZ4fHe.png                                       178.39 kB
+dist/assets/bf_mo.DLUZ4fHe.png.br                                    178.39 kB
+dist/assets/bf_mo.DLUZ4fHe.png.gz                                    178.45 kB
+dist/assets/bf_Pu.DaB1RpGS.png                                       186.31 kB
+dist/assets/bf_Pu.DaB1RpGS.png.br                                    186.31 kB
+dist/assets/bf_Pu.DaB1RpGS.png.gz                                    186.35 kB
+dist/assets/bt_Pe.DJTni6BV.png                                       196.97 kB
+dist/assets/bt_Pe.DJTni6BV.png.br                                    196.98 kB
+dist/assets/bt_Pe.DJTni6BV.png.gz                                    197.06 kB
+dist/assets/piano-samples.BAJlL56g.js.br                             226.67 kB
+dist/assets/piano-samples.BAJlL56g.js.gz                             230.23 kB
+dist/assets/garden.C47XDQy-.jpg.gz                                   257.33 kB
+dist/assets/garden.C47XDQy-.jpg                                      257.39 kB
+dist/assets/garden.C47XDQy-.jpg.br                                   257.39 kB
+dist/assets/pdf.worker.min.iDqQPrd3.mjs.br                           298.69 kB
+dist/assets/grass.BNsK8xJw.png                                       351.22 kB
+dist/assets/grass.BNsK8xJw.png.br                                    351.22 kB
+dist/assets/grass.BNsK8xJw.png.gz                                    351.35 kB
+dist/assets/pdf.worker.min.iDqQPrd3.mjs.gz                           364.73 kB
+dist/assets/pdf.worker.min.iDqQPrd3.mjs                            1,232.30 kB
+dist/assets/autora-portrait.DK9aYRi8.png                           2,243.05 kB
+dist/assets/autora-portrait.DK9aYRi8.png.br                        2,243.06 kB
+dist/assets/autora-portrait.DK9aYRi8.png.gz                        2,243.73 kB
+dist/assets/intro.BzK4ngJD.css                                         1.18 kB │ gzip:   0.48 kB
+dist/assets/teacher-chrome.Be_YPX-O.css                                1.35 kB │ gzip:   0.56 kB
+dist/assets/teacher-print.BmM_lcBC.css                                 1.86 kB │ gzip:   0.66 kB
+dist/assets/teacher-crm.DCXYJT9J.css                                   2.07 kB │ gzip:   0.77 kB
+dist/assets/dev-living-workbook.CF1HoTAz.css                           4.25 kB │ gzip:   1.27 kB
+dist/assets/WelcomeSplash.CLJ1bUAb.css                                 5.24 kB │ gzip:   1.88 kB
+dist/assets/prototype.BlW4LBoY.css                                     5.63 kB │ gzip:   1.53 kB
+dist/assets/PageFrame.CVTrNvUd.css                                    13.09 kB │ gzip:   3.13 kB
+dist/assets/PencilConnector.C5DRS6wk.css                              18.07 kB │ gzip:   3.97 kB
+dist/assets/ActivityCarousel.DZ0VeOn1.css                             27.01 kB │ gzip:   5.72 kB
+dist/assets/FaithfulPageRenderer.Cbd9Zn1B.css                         31.43 kB │ gzip:   6.37 kB
+dist/assets/leccion._n.ByvC-LuE.css                                   47.35 kB │ gzip:   3.45 kB
+dist/assets/FlipchartHdPanel.Dpon4mak.css                            122.77 kB │ gzip:  68.73 kB
+dist/assets/index.DLoY_Kak.css                                       291.58 kB │ gzip:  47.41 kB
+dist/assets/useServerFn.BrBTNyhO.js                                    0.04 kB │ gzip:   0.06 kB
+dist/assets/classroom.DtqBFgK5.js                                      0.04 kB │ gzip:   0.06 kB
+dist/assets/book.DtqBFgK5.js                                           0.04 kB │ gzip:   0.06 kB
+dist/assets/gretel-master.Cp0_M3In.js                                  0.12 kB │ gzip:   0.11 kB
+dist/assets/activity-routing.DsUJejgo.js                               0.14 kB │ gzip:   0.13 kB
+dist/assets/use-reduced-motion.DP2Lc3tO.js                             0.32 kB │ gzip:   0.25 kB
+dist/assets/crm.Ds0gHB-6.js                                            0.32 kB │ gzip:   0.25 kB
+dist/assets/entrar.DmJHDAeN.js                                         0.33 kB │ gzip:   0.23 kB
+dist/assets/index.Bbp-nYMw.js                                          0.33 kB │ gzip:   0.23 kB
+dist/assets/index.C6xdqUw_.js                                          0.33 kB │ gzip:   0.23 kB
+dist/assets/crm._classId.XrHKYXHm.js                                   0.33 kB │ gzip:   0.26 kB
+dist/assets/crm._classId._studentId.BPm4Ewaa.js                        0.34 kB │ gzip:   0.27 kB
+dist/assets/useReducedMotion.DQ-owtHS.js                               0.38 kB │ gzip:   0.26 kB
+dist/assets/workbook-pages.DPahBGZD.js                                 0.48 kB │ gzip:   0.30 kB
+dist/assets/living-motion.C0I7nr5w.js                                  0.48 kB │ gzip:   0.30 kB
+dist/assets/index.CUstY6YE.js                                          0.49 kB │ gzip:   0.33 kB
+dist/assets/lesson-fullscreen.B9rbKMxn.js                              0.50 kB │ gzip:   0.27 kB
+dist/assets/crm-student-progress.HEnMtcXt.js                           0.58 kB │ gzip:   0.26 kB
+dist/assets/csv.CrugNsGl.js                                            0.59 kB │ gzip:   0.41 kB
+dist/assets/bookImages.DDlEGVgD.js                                     0.63 kB │ gzip:   0.42 kB
+dist/assets/learner-resume.DWeZmMAa.js                                 0.66 kB │ gzip:   0.40 kB
+dist/assets/GretelLayerRig.aJpdw791.js                                 0.93 kB │ gzip:   0.53 kB
+dist/assets/imprimir.all.Brj7fzvC.js                                   1.01 kB │ gzip:   0.59 kB
+dist/assets/imprimir._n.BfHwFy9_.js                                    1.06 kB │ gzip:   0.62 kB
+dist/assets/tslib.es6.Du-meQkk.js                                      1.08 kB │ gzip:   0.54 kB
+dist/assets/KidButton.ClXEKSA5.js                                      1.11 kB │ gzip:   0.71 kB
+dist/assets/assignments.functions.CNO7h9OT.js                          1.20 kB │ gzip:   0.57 kB
+dist/assets/csv-export.BR2zh_3E.js                                     1.21 kB │ gzip:   0.66 kB
+dist/assets/activity-events.BsSrt6nj.js                                1.21 kB │ gzip:   0.65 kB
+dist/assets/storage-keys.BcMFXzSZ.js                                   1.26 kB │ gzip:   0.47 kB
+dist/assets/piano-audio.DEEspvaF.js                                    1.29 kB │ gzip:   0.64 kB
+dist/assets/lecciones.lazy.DbaiEQ3h.js                                 1.49 kB │ gzip:   0.56 kB
+dist/assets/CrmBreadcrumbs.Bkq1O0kX.js                                 1.54 kB │ gzip:   0.56 kB
+dist/assets/PdfPage.CIy7vSIY.js                                        1.88 kB │ gzip:   0.80 kB
+dist/assets/lesson-progress.D-mzbfpy.js                                2.15 kB │ gzip:   0.81 kB
+dist/assets/GardenBackdrop.D7B-3ZuQ.js                                 2.26 kB │ gzip:   0.69 kB
+dist/assets/admin-overview.functions.Bus6SSp5.js                       3.18 kB │ gzip:   1.44 kB
+dist/assets/useGretelAnimation.D75Z9kIX.js                             3.61 kB │ gzip:   1.18 kB
+dist/assets/cuaderno.ClGkWiu-.js                                       3.66 kB │ gzip:   1.26 kB
+dist/assets/credits.CTbv2Hyw.js                                        3.73 kB │ gzip:   1.01 kB
+dist/assets/index.BBx-yKL1.js                                          4.20 kB │ gzip:   2.01 kB
+dist/assets/PrintableWorkbook.Cb5BQzj4.js                              5.05 kB │ gzip:   1.40 kB
+dist/assets/gretel-cinematics.B3S1rDr1.js                              5.18 kB │ gzip:   2.07 kB
+dist/assets/letras.CecqZqTF.js                                         5.21 kB │ gzip:   1.45 kB
+dist/assets/flipchart.lazy.BBdDCdtk.js                                 5.26 kB │ gzip:   1.37 kB
+dist/assets/dev-gretel.Di8e0PRw.js                                     5.93 kB │ gzip:   1.13 kB
+dist/assets/_recursoId.lazy.xtCcjKhF.js                                6.26 kB │ gzip:   1.44 kB
+dist/assets/pilot-faithful._n.DEYcUwND.js                              6.58 kB │ gzip:   1.69 kB
+dist/assets/animales.BXYmn3o_.js                                       6.72 kB │ gzip:   1.55 kB
+dist/assets/GretelFeedback.Buj1-PCj.js                                 6.96 kB │ gzip:   2.00 kB
+dist/assets/literacy-insights.CuqzRPTT.js                              7.50 kB │ gzip:   2.88 kB
+dist/assets/PageCurl.uVMItKqO.js                                       7.97 kB │ gzip:   2.31 kB
+dist/assets/EscucharInstruccionButton.C1o91soh.js                      8.02 kB │ gzip:   2.86 kB
+dist/assets/GretelLiveAvatar.CXxMVf0B.js                               8.05 kB │ gzip:   2.92 kB
+dist/assets/index.lazy.XkrajaMd.js                                     8.53 kB │ gzip:   1.82 kB
+dist/assets/repaso.CmLeb3dw.js                                         8.75 kB │ gzip:   1.85 kB
+dist/assets/student-copy.kLgW176A.js                                   8.76 kB │ gzip:   2.59 kB
+dist/assets/teacher.functions.D3RMRQaK.js                              9.23 kB │ gzip:   2.98 kB
+dist/assets/Topbar.o8_CvUAN.js                                         9.39 kB │ gzip:   1.41 kB
+dist/assets/useQuery.1N7QnvR0.js                                       9.59 kB │ gzip:   3.59 kB
+dist/assets/progreso.lazy.D97ieLHu.js                                  9.73 kB │ gzip:   2.17 kB
+dist/assets/route.lazy.DhNXbhnk.js                                    10.12 kB │ gzip:   1.99 kB
+dist/assets/unirse.D5vdiyww.js                                        10.19 kB │ gzip:   2.20 kB
+dist/assets/presentar._n.DG9SdCnJ.js                                  10.34 kB │ gzip:   2.21 kB
+dist/assets/voces.CkF1avVB.js                                         10.63 kB │ gzip:   3.13 kB
+dist/assets/lecciones.B5LunFpg.js                                     10.75 kB │ gzip:   2.10 kB
+dist/assets/WelcomeSplash.Bf8lkOU6.js                                 10.78 kB │ gzip:   3.05 kB
+dist/assets/ayuda.BsumpWxw.js                                         11.20 kB │ gzip:   2.42 kB
+dist/assets/LessonCatalog.CzjNlQ0D.js                                 11.68 kB │ gzip:   2.16 kB
+dist/assets/autora.Dpyoxhvi.js                                        12.00 kB │ gzip:   1.97 kB
+dist/assets/crm._classId._studentId._lessonId.lazy.DYiHjKTd.js        12.74 kB │ gzip:   2.12 kB
+dist/assets/login.lazy.ClduJFmo.js                                    13.03 kB │ gzip:   3.69 kB
+dist/assets/intro.DWZ0lu10.js                                         13.14 kB │ gzip:   3.99 kB
+dist/assets/paginas._n.lazy.DpnfikuY.js                               13.24 kB │ gzip:   3.21 kB
+dist/assets/crm._classId.index.lazy.BxAxuix9.js                       16.47 kB │ gzip:   3.04 kB
+dist/assets/guide.lazy.DlOvY1p0.js                                    16.69 kB │ gzip:   3.19 kB
+dist/assets/NativeLessonViewer.Cjzg1goY.js                            18.74 kB │ gzip:   5.14 kB
+dist/assets/PageFrame.CsCITlEd.js                                     20.38 kB │ gzip:   5.34 kB
+dist/assets/admin.lazy.D9v0wIPv.js                                    22.23 kB │ gzip:   3.74 kB
+dist/assets/crm._classId._studentId.reporte.lazy.BXsQf89a.js          22.24 kB │ gzip:   3.90 kB
+dist/assets/DemoControlCenter.Glku3Oc7.js                             24.95 kB │ gzip:   4.33 kB
+dist/assets/guia.index.lazy.DjxQOyVG.js                               25.03 kB │ gzip:   5.31 kB
+dist/assets/practica.lazy.ilQlkn_0.js                                 27.22 kB │ gzip:   5.14 kB
+dist/assets/lucide.BgWP-KFW.js                                        27.27 kB │ gzip:   9.21 kB
+dist/assets/dev-living-workbook.lazy.CgHT2JxV.js                      27.37 kB │ gzip:   6.28 kB
+dist/assets/ayuda.lazy.BGXGTip1.js                                    27.50 kB │ gzip:   4.86 kB
+dist/assets/utils.DaT-yT0k.js                                         27.54 kB │ gzip:   8.69 kB
+dist/assets/leccion._n.lazy.CcF1BM3w.js                               30.11 kB │ gzip:   7.87 kB
+dist/assets/PaintCanvas.Cx2oh0SF.js                                   31.29 kB │ gzip:   7.49 kB
+dist/assets/crm._classId._studentId.index.lazy.C6G9Cdnv.js            33.13 kB │ gzip:   6.14 kB
+dist/assets/reportes.lazy.DdCvoSoK.js                                 35.65 kB │ gzip:   5.22 kB
+dist/assets/crm.index.lazy.BCNdiOyP.js                                37.32 kB │ gzip:   7.21 kB
+dist/assets/core.esm.Brd7wRPV.js                                      37.42 kB │ gzip:  12.64 kB
+dist/assets/roster.lazy.BqUgiXR7.js                                   37.79 kB │ gzip:   6.33 kB
+dist/assets/mi-progreso.Dm1sgtyE.js                                   38.26 kB │ gzip:   7.35 kB
+dist/assets/PencilConnector.D2Gj246u.js                               62.33 kB │ gzip:  13.16 kB
+dist/assets/LivingIllustration.1e8FSmGL.js                            69.94 kB │ gzip:   9.83 kB
+dist/assets/book-faithful.CI6M8tUD.js                                 72.83 kB │ gzip:   7.44 kB
+dist/assets/loader.Buq_gRL-.js                                        95.84 kB │ gzip:  14.17 kB
+dist/assets/tanstack-router.tiHaf-V4.js                               96.61 kB │ gzip:  31.07 kB
+dist/assets/page-layouts.D9ILynTV.js                                 102.85 kB │ gzip:  13.33 kB
+dist/assets/FaithfulPageRenderer.cBrKUlPN.js                         114.06 kB │ gzip:  19.64 kB
+dist/assets/FlipchartHdPanel.DvJmhepO.js                             118.70 kB │ gzip:  25.43 kB
+dist/assets/prototype.lesson-3-a.Ds09ZHmb.js                         119.10 kB │ gzip:  13.71 kB
+dist/assets/proxy.D0Gr_lWt.js                                        124.47 kB │ gzip:  41.09 kB
+dist/assets/ActivityCarousel.Cbg43oD1.js                             136.67 kB │ gzip:  28.06 kB
+dist/assets/juego._gameId.DJWSlCli.js                                153.00 kB │ gzip:  35.49 kB
+dist/assets/client.BKa7G59Y.js                                       207.48 kB │ gzip:  54.34 kB
+dist/assets/guia._n.lazy.2zVhhLb9.js                                 237.56 kB │ gzip:  16.89 kB
+dist/assets/index.DSGOhr1C.js                                        249.31 kB │ gzip:  58.33 kB
+dist/assets/flipchart-native.BEAfJwxs.js                             257.56 kB │ gzip:  39.28 kB
+dist/assets/piano-samples.BAJlL56g.js                                313.91 kB │ gzip: 230.23 kB
+dist/assets/react-vendor.B68mAgyd.js                                 395.44 kB │ gzip: 118.59 kB
+dist/assets/crm.artwork.lazy.bqQDXHLm.js                             458.76 kB │ gzip: 131.76 kB
+✓ built in 2m 27s
+JSON report written to D:/Downloads/cartilla-1247-continuation-work/test-repairs/work/performance-focused.json

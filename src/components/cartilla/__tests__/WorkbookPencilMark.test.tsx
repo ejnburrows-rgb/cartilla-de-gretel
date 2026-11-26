@@ -10,6 +10,7 @@ import {
   WORKBOOK_MARK_TIMING,
   WorkbookPencilMark,
 } from "../WorkbookPencilMark";
+import { PENCIL_CONTRACT } from "@/lib/pencil-contract";
 
 const { drawMs, holdMs, eraseMs } = WORKBOOK_MARK_TIMING;
 import { gretelEvent } from "@/lib/gretel-bus";
@@ -154,4 +155,93 @@ describe("WorkbookPencilMark shared feedback kernel", () => {
     expect(WORKBOOK_MARK_TIMING.drawMs).toBe(2800);
     expect(WORKBOOK_MARK_TIMING.eraseMs).toBe(4000);
   });
+  it("uses exactly one physical pencil throughout the former 1670–1930ms X overlap", () => {
+    render(<WorkbookPencilMark markType="x" isCorrect itemId="x-overlap" />);
+    const count = () => document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape").length;
+    expect(count()).toBe(1);
+    const motion = [...document.querySelectorAll(".workbook-pencil > animateMotion")];
+    expect(motion.map((el) => el.getAttribute("begin")).sort()).toEqual(["0ms", "1670ms", "1930ms"]);
+    // The hop connects the existing diagonals without adding an ink stroke.
+    expect(document.querySelectorAll(".workbook-pencil-mark__stroke")).toHaveLength(2);
+    act(() => vi.advanceTimersByTime(1670));
+    for (let ms = 1670; ms <= 1930; ms += 10) {
+      expect(count()).toBe(1);
+      act(() => vi.advanceTimersByTime(10));
+    }
+    act(() => vi.advanceTimersByTime(drawMs + holdMs - 1940));
+    expect(count()).toBe(0);
+  });
+
+  it("queues independent marks without grading or drawing the waiting answer early", () => {
+    const first = vi.fn();
+    const second = vi.fn();
+    render(<>
+      <WorkbookPencilMark markType="x" isCorrect itemId="first" onSuccess={first} />
+      <WorkbookPencilMark isCorrect={false} itemId="second" onRetry={second} />
+    </>);
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    expect(document.querySelectorAll("[data-pencil-waiting='true']")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
+    expect(first).toHaveBeenCalledTimes(1);
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:wrong", expect.anything());
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
+    expect(gretelEvent).toHaveBeenCalledWith("answer:wrong", { itemId: "second" });
+    expect(document.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(eraseMs));
+    expect(second).toHaveBeenCalledTimes(1);
+    expect(document.querySelectorAll(".workbook-pencil-flight")).toHaveLength(0);
+    expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
+  });
+
+  it("releases pencil ownership and restores the cursor on cancellation", () => {
+    const result = render(<WorkbookPencilMark isCorrect itemId="cancelled" />);
+    expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(true);
+    result.unmount();
+    expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
+    render(<WorkbookPencilMark isCorrect itemId="next" />);
+    expect(document.querySelectorAll(".workbook-pencil-flight .workbook-pencil__shape")).toHaveLength(1);
+    act(() => vi.advanceTimersByTime(drawMs + holdMs));
+    expect(gretelEvent).toHaveBeenCalledWith("answer:correct", { itemId: "next" });
+    expect(gretelEvent).not.toHaveBeenCalledWith("answer:correct", { itemId: "cancelled" });
+  });
+
+  it("locks Option B contract in lesson viewer: 400ms hold, 3.5s pink rub with 12 crumbs on red marks", () => {
+    const onSuccess = vi.fn();
+    const onRetry = vi.fn();
+    const { container, unmount } = render(
+      <div className="native-lesson-viewer">
+        <WorkbookPencilMark isCorrect itemId="contract-ok" onSuccess={onSuccess} />
+      </div>,
+    );
+    const mark = container.querySelector(".workbook-pencil-mark");
+    expect(mark?.getAttribute("data-pencil-mode")).toBe("contract");
+    expect(container.querySelectorAll(".workbook-pencil-mark__contract-strokes path")).toHaveLength(14);
+
+    const contractDrawMs = PENCIL_CONTRACT.approachMs + PENCIL_CONTRACT.circleMs;
+    act(() => vi.advanceTimersByTime(contractDrawMs));
+    expect(mark?.getAttribute("data-mark-status")).toBe("holding");
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.holdMs - 1));
+    expect(onSuccess).not.toHaveBeenCalled();
+    act(() => vi.advanceTimersByTime(1));
+    expect(onSuccess).toHaveBeenCalledTimes(1);
+    expect(mark?.getAttribute("data-mark-status")).toBe("correct");
+    unmount();
+
+    const wrongView = render(
+      <div className="native-lesson-viewer">
+        <WorkbookPencilMark isCorrect={false} itemId="contract-wrong" onRetry={onRetry} />
+      </div>,
+    );
+    act(() => vi.advanceTimersByTime(contractDrawMs + PENCIL_CONTRACT.holdMs));
+    const wrongMark = wrongView.container.querySelector(".workbook-pencil-mark");
+    expect(wrongMark?.getAttribute("data-mark-status")).toBe("erasing");
+    expect(wrongMark?.getAttribute("data-mark-result")).toBe("wrong");
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.redShowMs));
+    expect(wrongMark?.getAttribute("data-eraser-rubbing")).toBe("true");
+    expect(wrongView.container.querySelectorAll(".workbook-pencil__crumbs > g")).toHaveLength(12);
+    act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
+    expect(onRetry).toHaveBeenCalledTimes(1);
+  });
+
 });

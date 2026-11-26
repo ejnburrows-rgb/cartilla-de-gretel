@@ -124,11 +124,17 @@ export function ClassRoster() {
     return (realClassData?.students ?? []) as RosterStudent[];
   }, [isSeed, seedClassData, realClassData]);
 
+  // Cache name normalization when roster data changes, rather than on each key.
+  // Keep the existing Unicode lowercase/substring semantics (i also finds İnés).
+  const searchableStudents = useMemo(
+    () => allStudents.map((student) => ({ student, name: student.display_name.toLowerCase() })),
+    [allStudents],
+  );
   const studentsList = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return allStudents;
-    return allStudents.filter((s) => s.display_name.toLowerCase().includes(q));
-  }, [allStudents, searchQuery]);
+    return searchableStudents.filter(({ name }) => name.includes(q)).map(({ student }) => student);
+  }, [allStudents, searchableStudents, searchQuery]);
 
   const loadingStudents = !isSeed && loadingRealStudents;
 

@@ -1,0 +1,38 @@
+[
+  {
+    "destination": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+    "sourceRevision": "5905dcadfa007a5aa630cd7816aafcb1af6d42e6",
+    "sourceArchive": "docs/proofs/m7-m8-m9-verification/continuation/superseded-sources/p006-elefante.png",
+    "historicalSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662",
+    "supersededBy": {
+      "revision": "ab06a8b9",
+      "sha256": "d0c044b079af68d6e7ca87c65a3cfa75dd9883b50e138b24be25f9777975b8fa",
+      "sourceEvidence": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.json",
+      "status": "Independent visible-RGB derivative chain verified; original RGB not byte-exact and alpha processing not certified"
+    }
+  },
+  {
+    "destination": "public/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+    "sourceRevision": "5905dcadfa007a5aa630cd7816aafcb1af6d42e6",
+    "sourceArchive": "docs/proofs/m7-m8-m9-verification/continuation/superseded-sources/p006-escalera.png",
+    "historicalSha256": "25371aa6729925613e8124a1311eadbb5b464dde7090dec9788eee6d0733ed52",
+    "supersededBy": {
+      "revision": "ab06a8b9",
+      "sha256": "d12189f53a8ffe2cae80dcc9f144c2fc5d6db6606aa3e4f0cfb6b521a3f12247",
+      "sourceEvidence": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.json",
+      "status": "Independent visible-RGB derivative chain verified; original RGB not byte-exact and alpha processing not certified"
+    }
+  },
+  {
+    "destination": "public/cartilla/art/optimized/flipchart-native/p006-ema.png",
+    "sourceRevision": "5905dcadfa007a5aa630cd7816aafcb1af6d42e6",
+    "sourceArchive": "docs/proofs/m7-m8-m9-verification/continuation/superseded-sources/p006-ema.png",
+    "historicalSha256": "b7bfa21fd4d69e1df405b8e78f22597b6f49198af69a86f4d6c422ad067c76a3",
+    "supersededBy": {
+      "revision": "ab06a8b9",
+      "sha256": "2c7f6c1a34ba21bc36bc96148cfac4cdbc7329bb82447b3b836d750b47bf6ca7",
+      "sourceEvidence": "docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.json",
+      "status": "Independent visible-RGB derivative chain verified; original RGB not byte-exact and alpha processing not certified"
+    }
+  }
+]

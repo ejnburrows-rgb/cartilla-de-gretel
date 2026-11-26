@@ -2,6 +2,9 @@ import { useState } from "react";
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
+import { ContractPencilCursor } from "@/components/StudentBook/ContractPencilCursor";
+import { PencilTipCursor } from "@/components/StudentBook/PencilTipCursor";
+import { useCursorMode } from "@/lib/cursor-mode";
 import { lessonForWorkbookPage, SOURCE_BLOCKED_WORKBOOK_PAGES } from "@/lib/workbook-pages";
 
 /** Every printed instructional Workbook page (1–90) can be opened here for
@@ -44,9 +47,12 @@ function PilotFaithfulPage() {
   const { n } = Route.useParams();
   const pageNumber = Number(n);
   const lesson = lessonForWorkbookPage(pageNumber);
+  const cursorMode = useCursorMode();
 
   return (
     <div className="min-h-screen bg-background px-4 py-6">
+      {cursorMode === "tip" && <PencilTipCursor />}
+      {cursorMode === "contract" && <ContractPencilCursor />}
       <div className="mx-auto max-w-6xl">
         <Link
           to="/cartilla"
@@ -88,7 +94,7 @@ function PilotFaithfulPage() {
               Digital (estudiante)
             </h2>
             {/* Same container the student lesson viewer uses, so this shows exactly what the child sees. */}
-            <div className="native-lesson-viewer__content overflow-hidden rounded-xl border border-foreground/10 bg-[#fffaf0] p-4">
+            <div data-pencil-cursor-host="true" className="native-lesson-viewer__content overflow-hidden rounded-xl border border-foreground/10 bg-[#fffaf0] p-4">
               <FaithfulPageRenderer key={pageNumber} pageNumber={pageNumber} lessonNumber={lesson} interactive native />
             </div>
           </section>

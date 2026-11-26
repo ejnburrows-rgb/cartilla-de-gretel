@@ -1,0 +1,2284 @@
+[
+  {
+    "path": "/cartilla/teacher/crm",
+    "startedUtc": "2026-11-03T21:21:43.632Z",
+    "durationMs": 7352.3,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 7341.834,
+      "receive": 10.466
+    }
+  },
+  {
+    "path": "/@react-refresh",
+    "startedUtc": "2026-11-03T21:21:51.016Z",
+    "durationMs": 246.553,
+    "status": 200,
+    "timings": {
+      "dns": 0.01,
+      "connect": 1.395,
+      "ssl": 86.326,
+      "send": 0,
+      "wait": 140.944,
+      "receive": 17.878
+    }
+  },
+  {
+    "path": "/src/main.tsx",
+    "startedUtc": "2026-11-03T21:21:51.002Z",
+    "durationMs": 871.015,
+    "status": 200,
+    "timings": {
+      "dns": 0.01,
+      "connect": 0.813,
+      "ssl": 84.819,
+      "send": 0,
+      "wait": 753.772,
+      "receive": 31.601
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+    "startedUtc": "2026-11-03T21:21:51.874Z",
+    "durationMs": 3179.659,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 3166.23,
+      "receive": 13.429
+    }
+  },
+  {
+    "path": "/@vite/client",
+    "startedUtc": "2026-11-03T21:21:51.001Z",
+    "durationMs": 4089.849,
+    "status": 200,
+    "timings": {
+      "dns": 0.016,
+      "connect": 0.871,
+      "ssl": 2.451,
+      "send": 0,
+      "wait": 4055.725,
+      "receive": 30.786
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/react.js",
+    "startedUtc": "2026-11-03T21:21:51.874Z",
+    "durationMs": 3422.552,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 3408.935,
+      "receive": 13.617
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/@tanstack_react-router.js",
+    "startedUtc": "2026-11-03T21:21:51.875Z",
+    "durationMs": 3452.7000000000003,
+    "status": 200,
+    "timings": {
+      "dns": 0.012,
+      "connect": 0.942,
+      "ssl": 5.889,
+      "send": 0,
+      "wait": 3431.327,
+      "receive": 14.53
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/react-dom_client.js",
+    "startedUtc": "2026-11-03T21:21:51.875Z",
+    "durationMs": 3587.682,
+    "status": 200,
+    "timings": {
+      "dns": 0.011,
+      "connect": 1.254,
+      "ssl": 4.587,
+      "send": 0,
+      "wait": 3564.611,
+      "receive": 17.219
+    }
+  },
+  {
+    "path": "/src/router.tsx",
+    "startedUtc": "2026-11-03T21:21:51.875Z",
+    "durationMs": 646.9010000000001,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 633.214,
+      "receive": 13.687
+    }
+  },
+  {
+    "path": "/src/lib/art-blend.ts",
+    "startedUtc": "2026-11-03T21:21:51.875Z",
+    "durationMs": 1105.489,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 1091.469,
+      "receive": 14.02
+    }
+  },
+  {
+    "path": "/src/lib/living-art-runtime.ts",
+    "startedUtc": "2026-11-03T21:21:51.875Z",
+    "durationMs": 1077.385,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 1063.413,
+      "receive": 13.972
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/chunk-RDKGUBC5.js",
+    "startedUtc": "2026-11-03T21:21:55.060Z",
+    "durationMs": 74.256,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 70.516,
+      "receive": 3.74
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/chunk-YSF3WIBJ.js",
+    "startedUtc": "2026-11-03T21:21:55.060Z",
+    "durationMs": 79.65299999999999,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 75.865,
+      "receive": 3.788
+    }
+  },
+  {
+    "path": "/@fs/D:/Downloads/La%20Cartilla%20de%20Gretel/node_modules/.pnpm/vite@7.3.3_@types+node@22.1_ddc2d9c3127b38ccbab91683f02d47ae/node_modules/vite/dist/client/env.mjs",
+    "startedUtc": "2026-11-03T21:21:55.096Z",
+    "durationMs": 32.739,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 29.011,
+      "receive": 3.728
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/chunk-U7ANR7BC.js",
+    "startedUtc": "2026-11-03T21:21:55.339Z",
+    "durationMs": 32.372,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 29.547,
+      "receive": 2.825
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/chunk-FSQXOB2X.js",
+    "startedUtc": "2026-11-03T21:21:55.340Z",
+    "durationMs": 13.16,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 7.853,
+      "receive": 5.307
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/@tanstack_react-query.js",
+    "startedUtc": "2026-11-03T21:21:55.523Z",
+    "durationMs": 2954.645,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 2919.493,
+      "receive": 35.152
+    }
+  },
+  {
+    "path": "/src/lib/living-blink-map.ts",
+    "startedUtc": "2026-11-03T21:21:56.156Z",
+    "durationMs": 3218.323,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 3215.826,
+      "receive": 2.497
+    }
+  },
+  {
+    "path": "/src/routeTree.gen.ts",
+    "startedUtc": "2026-11-03T21:21:55.523Z",
+    "durationMs": 6328.75,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 6293.589,
+      "receive": 35.161
+    }
+  },
+  {
+    "path": "/cartilla/art/manifest.json",
+    "startedUtc": "2026-11-03T21:21:51.011Z",
+    "durationMs": 3851.318,
+    "status": 200,
+    "timings": {
+      "dns": 0.009,
+      "connect": 0.719,
+      "ssl": 3.971,
+      "send": 0,
+      "wait": 3581.784,
+      "receive": 264.835
+    }
+  },
+  {
+    "path": "/src/routes/login.tsx",
+    "startedUtc": "2026-11-03T21:22:02.566Z",
+    "durationMs": 3984.508,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 3959.763,
+      "receive": 24.745
+    }
+  },
+  {
+    "path": "/src/styles/art-blend.css",
+    "startedUtc": "2026-11-03T21:21:51.876Z",
+    "durationMs": 12498.25,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 12484.169,
+      "receive": 14.081
+    }
+  },
+  {
+    "path": "/src/styles/gretel-presence.css",
+    "startedUtc": "2026-11-03T21:21:51.876Z",
+    "durationMs": 12533.487,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 12519.068,
+      "receive": 14.419
+    }
+  },
+  {
+    "path": "/src/styles/living-art.css",
+    "startedUtc": "2026-11-03T21:21:51.876Z",
+    "durationMs": 12669.472,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 12654.501,
+      "receive": 14.971
+    }
+  },
+  {
+    "path": "/src/routes/intro.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 1471.162,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 1445.027,
+      "receive": 26.135
+    }
+  },
+  {
+    "path": "/src/styles.css",
+    "startedUtc": "2026-11-03T21:21:51.875Z",
+    "durationMs": 12713.217999999999,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 12697.758,
+      "receive": 15.46
+    }
+  },
+  {
+    "path": "/src/routes/__root.tsx",
+    "startedUtc": "2026-11-03T21:22:02.566Z",
+    "durationMs": 5491.061,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 5467.226,
+      "receive": 23.835
+    }
+  },
+  {
+    "path": "/src/routes/entrar.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 146.459,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 120.367,
+      "receive": 26.092
+    }
+  },
+  {
+    "path": "/src/routes/dev-living-workbook.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 147.964,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 121.405,
+      "receive": 26.559
+    }
+  },
+  {
+    "path": "/src/routes/dev-gretel.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 149.798,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 122.448,
+      "receive": 27.35
+    }
+  },
+  {
+    "path": "/src/routes/credits.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 133.63299999999998,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 105.752,
+      "receive": 27.881
+    }
+  },
+  {
+    "path": "/src/routes/classroom.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 134.00900000000001,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 105.682,
+      "receive": 28.327
+    }
+  },
+  {
+    "path": "/src/routes/book.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 74.384,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 45.887,
+      "receive": 28.497
+    }
+  },
+  {
+    "path": "/src/routes/index.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 40.286,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 11.927,
+      "receive": 28.359
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/index.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 40.225,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 11.432,
+      "receive": 28.793
+    }
+  },
+  {
+    "path": "/src/routes/prototype.lesson-3-a.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 39.924,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 9.929,
+      "receive": 29.995
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/voces.tsx",
+    "startedUtc": "2026-11-03T21:22:02.567Z",
+    "durationMs": 42.428,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 9.22,
+      "receive": 33.208
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/unirse.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 393.12,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 362.928,
+      "receive": 30.192
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/student-login.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 393.24399999999997,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 362.109,
+      "receive": 31.135
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/repaso.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 391.339,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 359.676,
+      "receive": 31.663
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/practica.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 527.162,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 496.746,
+      "receive": 30.416
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/letras.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 527.3589999999999,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 495.929,
+      "receive": 31.43
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/mi-progreso.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 529.3720000000001,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 498.343,
+      "receive": 31.029
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/lecciones.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 179.736,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 148.679,
+      "receive": 31.057
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/cuaderno.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 581.954,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 550.442,
+      "receive": 31.512
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/ayuda.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 590.371,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 549.953,
+      "receive": 40.418
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/autora.tsx",
+    "startedUtc": "2026-11-03T21:22:02.568Z",
+    "durationMs": 454.98400000000004,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 413.43,
+      "receive": 41.554
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/animales.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 454.1,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 411.951,
+      "receive": 42.149
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/route.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 457.431,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 416.188,
+      "receive": 41.243
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/index.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 454.378,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 412.762,
+      "receive": 41.616
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/roster.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 369.334,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 328.01,
+      "receive": 41.324
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/reportes.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 368.479,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 326.472,
+      "receive": 42.007
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/progreso.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 370.273,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 325.576,
+      "receive": 44.697
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/guide.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 366.035,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 320.668,
+      "receive": 45.367
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/lecciones.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 370.52,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 324.828,
+      "receive": 45.692
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/flipchart.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 366.53,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 320.881,
+      "receive": 45.649
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.tsx",
+    "startedUtc": "2026-11-03T21:22:02.569Z",
+    "durationMs": 89.753,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 48.105,
+      "receive": 41.648
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/ayuda.tsx",
+    "startedUtc": "2026-11-03T21:22:02.570Z",
+    "durationMs": 90.265,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 48.202,
+      "receive": 42.063
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/admin.tsx",
+    "startedUtc": "2026-11-03T21:22:02.570Z",
+    "durationMs": 99.047,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 57.448,
+      "receive": 41.599
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/presentar.$n.tsx",
+    "startedUtc": "2026-11-03T21:22:02.570Z",
+    "durationMs": 99.339,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 56.827,
+      "receive": 42.512
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/pilot-faithful.$n.tsx",
+    "startedUtc": "2026-11-03T21:22:02.570Z",
+    "durationMs": 100.386,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 57.635,
+      "receive": 42.751
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/leccion.$n.tsx",
+    "startedUtc": "2026-11-03T21:22:02.571Z",
+    "durationMs": 101.378,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 58.301,
+      "receive": 43.077
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/juego.$gameId.tsx",
+    "startedUtc": "2026-11-03T21:22:02.571Z",
+    "durationMs": 153.053,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 111.376,
+      "receive": 41.677
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/imprimir.all.tsx",
+    "startedUtc": "2026-11-03T21:22:02.571Z",
+    "durationMs": 958.071,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 916.441,
+      "receive": 41.63
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/imprimir.$n.tsx",
+    "startedUtc": "2026-11-03T21:22:02.571Z",
+    "durationMs": 946.748,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 904.604,
+      "receive": 42.144
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/guia.index.tsx",
+    "startedUtc": "2026-11-03T21:22:02.571Z",
+    "durationMs": 945.901,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 903.39,
+      "receive": 42.511
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.index.tsx",
+    "startedUtc": "2026-11-03T21:22:02.571Z",
+    "durationMs": 946.503,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 902.981,
+      "receive": 43.522
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/recursos/$recursoId.tsx",
+    "startedUtc": "2026-11-03T21:22:02.571Z",
+    "durationMs": 945.748,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 901.618,
+      "receive": 44.13
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/paginas.$n.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 1068.067,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 1026.011,
+      "receive": 42.056
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/guia.$n.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 263.801,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 221.8,
+      "receive": 42.001
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.artwork.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 263.73,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 220.765,
+      "receive": 42.965
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.$classId.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 264.088,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 220.668,
+      "receive": 43.42
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.$classId.index.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 263.829,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 220.126,
+      "receive": 43.703
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 264.31100000000004,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 220.317,
+      "receive": 43.994
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.index.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 129.559,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 86.9,
+      "receive": 42.659
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.reporte.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 129.072,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 85.435,
+      "receive": 43.637
+    }
+  },
+  {
+    "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.$lessonId.tsx",
+    "startedUtc": "2026-11-03T21:22:02.572Z",
+    "durationMs": 129.25,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 84.663,
+      "receive": 44.587
+    }
+  },
+  {
+    "path": "/src/components/intro/IntroSplash.tsx",
+    "startedUtc": "2026-11-03T21:22:08.006Z",
+    "durationMs": 90.38499999999999,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 84.699,
+      "receive": 5.686
+    }
+  },
+  {
+    "path": "/src/components/audio/PictureAudioLifecycle.tsx",
+    "startedUtc": "2026-11-03T21:22:08.066Z",
+    "durationMs": 159.358,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 155.659,
+      "receive": 3.699
+    }
+  },
+  {
+    "path": "/src/components/ServiceWorkerRegister.tsx",
+    "startedUtc": "2026-11-03T21:22:08.066Z",
+    "durationMs": 158.845,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 154.597,
+      "receive": 4.248
+    }
+  },
+  {
+    "path": "/src/context/LanguageContext.tsx",
+    "startedUtc": "2026-11-03T21:22:08.066Z",
+    "durationMs": 208.902,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 204.231,
+      "receive": 4.671
+    }
+  },
+  {
+    "path": "/src/components/a11y/SkipLink.tsx",
+    "startedUtc": "2026-11-03T21:22:08.067Z",
+    "durationMs": 209.144,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 203.591,
+      "receive": 5.553
+    }
+  },
+  {
+    "path": "/src/components/StudentCursor.tsx",
+    "startedUtc": "2026-11-03T21:22:08.067Z",
+    "durationMs": 688.842,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 684.297,
+      "receive": 4.545
+    }
+  },
+  {
+    "path": "/src/components/gretel/useGretelAnimation.ts",
+    "startedUtc": "2026-11-03T21:22:08.111Z",
+    "durationMs": 622.7669999999999,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 613.949,
+      "receive": 8.818
+    }
+  },
+  {
+    "path": "/src/components/intro/WelcomeSplash.tsx",
+    "startedUtc": "2026-11-03T21:22:08.104Z",
+    "durationMs": 693.376,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 683.579,
+      "receive": 9.797
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/lucide-react.js",
+    "startedUtc": "2026-11-03T21:22:08.113Z",
+    "durationMs": 628.307,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 615.842,
+      "receive": 12.465
+    }
+  },
+  {
+    "path": "/src/components/prototype/LessonThreePrototype.tsx",
+    "startedUtc": "2026-11-03T21:22:08.124Z",
+    "durationMs": 632.512,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 625.502,
+      "receive": 7.01
+    }
+  },
+  {
+    "path": "/src/lib/gretel-voice.ts",
+    "startedUtc": "2026-11-03T21:22:08.126Z",
+    "durationMs": 632.518,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 624.879,
+      "receive": 7.639
+    }
+  },
+  {
+    "path": "/src/lib/useServerFn.ts",
+    "startedUtc": "2026-11-03T21:22:08.479Z",
+    "durationMs": 193.552,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 188.422,
+      "receive": 5.13
+    }
+  },
+  {
+    "path": "/src/lib/student.functions.ts",
+    "startedUtc": "2026-11-03T21:22:08.479Z",
+    "durationMs": 193.75799999999998,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 187.742,
+      "receive": 6.016
+    }
+  },
+  {
+    "path": "/src/lib/student-session.ts",
+    "startedUtc": "2026-11-03T21:22:08.480Z",
+    "durationMs": 195.861,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 187.45,
+      "receive": 8.411
+    }
+  },
+  {
+    "path": "/src/integrations/supabase/client.ts",
+    "startedUtc": "2026-11-03T21:22:08.480Z",
+    "durationMs": 190.921,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 179.289,
+      "receive": 11.632
+    }
+  },
+  {
+    "path": "/src/components/cartilla/GardenBackdrop.tsx",
+    "startedUtc": "2026-11-03T21:22:08.480Z",
+    "durationMs": 59.385,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 47.454,
+      "receive": 11.931
+    }
+  },
+  {
+    "path": "/src/content/student-copy.ts",
+    "startedUtc": "2026-11-03T21:22:08.480Z",
+    "durationMs": 86.17,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 77.458,
+      "receive": 8.712
+    }
+  },
+  {
+    "path": "/src/styles/interactive-exercises.css",
+    "startedUtc": "2026-11-03T21:22:08.480Z",
+    "durationMs": 45.35,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 34.817,
+      "receive": 10.533
+    }
+  },
+  {
+    "path": "/src/lib/lesson-catalog.ts",
+    "startedUtc": "2026-11-03T21:22:08.482Z",
+    "durationMs": 44.488,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 34.133,
+      "receive": 10.355
+    }
+  },
+  {
+    "path": "/src/lib/lesson-progress.ts",
+    "startedUtc": "2026-11-03T21:22:08.482Z",
+    "durationMs": 149.03,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 141.141,
+      "receive": 7.889
+    }
+  },
+  {
+    "path": "/src/lib/exercise-stats.ts",
+    "startedUtc": "2026-11-03T21:22:08.483Z",
+    "durationMs": 148.548,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 139.474,
+      "receive": 9.074
+    }
+  },
+  {
+    "path": "/src/components/ui/KidButton.tsx",
+    "startedUtc": "2026-11-03T21:22:08.483Z",
+    "durationMs": 147.43900000000002,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 138.341,
+      "receive": 9.098
+    }
+  },
+  {
+    "path": "/src/components/cartilla/LetterPickerHub.tsx",
+    "startedUtc": "2026-11-03T21:22:08.623Z",
+    "durationMs": 125.753,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 112.089,
+      "receive": 13.664
+    }
+  },
+  {
+    "path": "/src/lib/activity-routing.ts",
+    "startedUtc": "2026-11-03T21:22:08.623Z",
+    "durationMs": 209.801,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 195.414,
+      "receive": 14.387
+    }
+  },
+  {
+    "path": "/src/components/cartilla/SimpleBarChart.tsx",
+    "startedUtc": "2026-11-03T21:22:08.623Z",
+    "durationMs": 209.977,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 194.699,
+      "receive": 15.278
+    }
+  },
+  {
+    "path": "/src/lib/rewards.ts",
+    "startedUtc": "2026-11-03T21:22:08.623Z",
+    "durationMs": 106.874,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 89.844,
+      "receive": 17.03
+    }
+  },
+  {
+    "path": "/src/lib/csv.ts",
+    "startedUtc": "2026-11-03T21:22:08.623Z",
+    "durationMs": 104.821,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 88.809,
+      "receive": 16.012
+    }
+  },
+  {
+    "path": "/src/components/ui/skeleton.tsx",
+    "startedUtc": "2026-11-03T21:22:08.624Z",
+    "durationMs": 107.41199999999999,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 89.419,
+      "receive": 17.993
+    }
+  },
+  {
+    "path": "/src/components/feel/Shimmer.tsx",
+    "startedUtc": "2026-11-03T21:22:08.624Z",
+    "durationMs": 164.872,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 149.644,
+      "receive": 15.228
+    }
+  },
+  {
+    "path": "/src/lib/progress-calculation.ts",
+    "startedUtc": "2026-11-03T21:22:08.624Z",
+    "durationMs": 81.517,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 65.697,
+      "receive": 15.82
+    }
+  },
+  {
+    "path": "/src/lib/gretel-master.ts",
+    "startedUtc": "2026-11-03T21:22:08.632Z",
+    "durationMs": 76.238,
+    "status": 200,
+    "timings": {
+      "dns": -1,
+      "connect": -1,
+      "ssl": -1,
+      "send": 0,
+      "wait": 64.748,
+      "receive": 11.49
+    }
+  },
+  {
+    "path": "/",
+    "startedUtc": "2026-11-03T21:21:56.267Z",
+    "durationMs": 0,
+    "status": 101,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/learner-resume.ts",
+    "startedUtc": "2026-11-03T21:22:08.633Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/piano-audio.ts",
+    "startedUtc": "2026-11-03T21:22:08.633Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/lesson-fullscreen.ts",
+    "startedUtc": "2026-11-03T21:22:08.633Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/audio-engine.ts",
+    "startedUtc": "2026-11-03T21:22:08.634Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/learner-storage.ts",
+    "startedUtc": "2026-11-03T21:22:09.030Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/storage-keys.ts",
+    "startedUtc": "2026-11-03T21:22:09.031Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/StudentBook/NativeLessonViewer.tsx",
+    "startedUtc": "2026-11-03T21:22:09.031Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/styles/lesson-fit.css",
+    "startedUtc": "2026-11-03T21:22:09.031Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/FaithfulPageRenderer.tsx",
+    "startedUtc": "2026-11-03T21:22:09.031Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/workbook-pages.ts",
+    "startedUtc": "2026-11-03T21:22:09.031Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/assets/autora-portrait.png",
+    "startedUtc": "2026-11-03T21:22:09.037Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/animal-gallery.ts",
+    "startedUtc": "2026-11-03T21:22:09.037Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/gretel/GretelLiveAvatar.tsx",
+    "startedUtc": "2026-11-03T21:22:09.038Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/living/LivingIllustration.tsx",
+    "startedUtc": "2026-11-03T21:22:09.038Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/styles/animal-gallery.css",
+    "startedUtc": "2026-11-03T21:22:09.038Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/demo-student-session.ts",
+    "startedUtc": "2026-11-03T21:22:09.042Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/auth-role.ts",
+    "startedUtc": "2026-11-03T21:22:09.043Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/seed-data.ts",
+    "startedUtc": "2026-11-03T21:22:09.043Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/demo-roster.ts",
+    "startedUtc": "2026-11-03T21:22:09.043Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/TeacherPresentationShell.tsx",
+    "startedUtc": "2026-11-03T21:22:09.426Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/FlipchartHdPanel.tsx",
+    "startedUtc": "2026-11-03T21:22:09.427Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/flipchart-hd.ts",
+    "startedUtc": "2026-11-03T21:22:09.428Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/games/GameShell.tsx",
+    "startedUtc": "2026-11-03T21:22:09.521Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/games/PayasoChano.tsx",
+    "startedUtc": "2026-11-03T21:22:09.521Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/games/SyllableBuilder.tsx",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/games/CoreGames.tsx",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/games/CowGame.tsx",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/games/ButterflyGarden.tsx",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/games/payaso-chano-ss.ts",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/games/syllable-builder-pilot.ts",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/games/core-games.ts",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/games/cow-game.ts",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/games/completar-palabras.ts",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/games/CompletarPalabras.tsx",
+    "startedUtc": "2026-11-03T21:22:09.522Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/teacher/PrintableWorkbook.tsx",
+    "startedUtc": "2026-11-03T21:22:10.328Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/styles/student-print.css",
+    "startedUtc": "2026-11-03T21:22:10.328Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/styles/cartilla-student.css",
+    "startedUtc": "2026-11-03T21:22:10.333Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/zod.js",
+    "startedUtc": "2026-11-03T21:22:10.333Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/framer-motion.js",
+    "startedUtc": "2026-11-03T21:22:10.640Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/intro/BookHeroGretel.tsx",
+    "startedUtc": "2026-11-03T21:22:10.640Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/picture-audio.ts",
+    "startedUtc": "2026-11-03T21:22:10.710Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/styles/a11y.css",
+    "startedUtc": "2026-11-03T21:22:10.842Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/student-cursor.ts",
+    "startedUtc": "2026-11-03T21:22:11.324Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/gretel/gretelMachine.ts",
+    "startedUtc": "2026-11-03T21:22:11.326Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/gretel/GretelSceneMedia.tsx",
+    "startedUtc": "2026-11-03T21:22:11.326Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/gretel-cinematics.ts",
+    "startedUtc": "2026-11-03T21:22:11.326Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/intro/LivingBookCover.tsx",
+    "startedUtc": "2026-11-03T21:22:11.326Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/styles/welcome-splash.css",
+    "startedUtc": "2026-11-03T21:22:11.327Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/data/page-layouts.json",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/data/book-transcription/lessons-01-07.json",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/activity-events.tsx",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/WorkbookPencilMark.tsx",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/cartilla/interactions/PencilConnector.tsx",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/WorkbookPageRenderer.tsx",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/DrawBoxCanvas.tsx",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/cartilla/PageFrame.tsx",
+    "startedUtc": "2026-11-03T21:22:11.471Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/components/StudentBook/PageCurl.tsx",
+    "startedUtc": "2026-11-03T21:22:11.472Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/hooks/useReducedMotion.ts",
+    "startedUtc": "2026-11-03T21:22:11.472Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/styles/prototype-lesson-three.css",
+    "startedUtc": "2026-11-03T21:22:11.472Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/speech-playback.ts",
+    "startedUtc": "2026-11-03T21:22:11.473Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/progress-semantics.ts",
+    "startedUtc": "2026-11-03T21:22:11.521Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/gretel-bus.ts",
+    "startedUtc": "2026-11-03T21:22:11.521Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/node_modules/.vite/deps/@supabase_supabase-js.js",
+    "startedUtc": "2026-11-03T21:22:11.521Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/cartilla-content.ts",
+    "startedUtc": "2026-11-03T21:22:11.553Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/content/consonants.json",
+    "startedUtc": "2026-11-03T21:22:11.553Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/lesson-accents.ts",
+    "startedUtc": "2026-11-03T21:22:11.553Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/living-motion.ts",
+    "startedUtc": "2026-11-03T21:22:11.661Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/lib/utils.ts",
+    "startedUtc": "2026-11-03T21:22:11.755Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  },
+  {
+    "path": "/src/data/gretel-approved-master.json",
+    "startedUtc": "2026-11-03T21:22:11.817Z",
+    "durationMs": -1,
+    "status": -1,
+    "timings": {
+      "send": -1,
+      "wait": -1,
+      "receive": -1
+    }
+  }
+]

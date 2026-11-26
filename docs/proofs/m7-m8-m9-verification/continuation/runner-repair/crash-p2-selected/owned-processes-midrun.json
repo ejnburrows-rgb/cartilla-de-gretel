@@ -1,0 +1,44 @@
+[
+  {
+    "ProcessId": 11780,
+    "ParentProcessId": 39464,
+    "Name": "node.exe",
+    "CommandLine": "node   \"D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\node_modules\\.bin\\\\..\\playwright\\cli.js\" \"test\" \"tests/e2e/activity-completion-foundation.spec.ts\" \"--grep\" \"p2 uses shared pencil\" \"--project=chromium\" \"--workers=1\" \"--reporter=line,json\" \"--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\crash-p2-selected\\artifacts\""
+  },
+  {
+    "ProcessId": 15024,
+    "ParentProcessId": 24624,
+    "Name": "node.exe",
+    "CommandLine": "node   \"D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\node_modules\\.bin\\\\..\\vite\\bin\\vite.js\" dev --mode worker \"--port\" \"5173\" \"--host\" \"127.0.0.1\""
+  },
+  {
+    "ProcessId": 8684,
+    "ParentProcessId": 40044,
+    "Name": "node.exe",
+    "CommandLine": "node   \"D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\node_modules\\.bin\\\\..\\vite\\bin\\vite.js\" dev --mode worker \"--port\" \"5174\" \"--host\" \"127.0.0.1\""
+  },
+  {
+    "ProcessId": 13436,
+    "ParentProcessId": 17832,
+    "Name": "chrome-headless-shell.exe",
+    "CommandLine": "D:\\Relocated-C-Cache\\ms-playwright\\chromium_headless_shell-1243\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=D:\\UserTemp-EJN\\playwright_chromiumdev_profile-Vd2Wf4 --remote-debugging-pipe --no-startup-window"
+  },
+  {
+    "ProcessId": 39364,
+    "ParentProcessId": 13436,
+    "Name": "chrome-headless-shell.exe",
+    "CommandLine": "\"D:\\Relocated-C-Cache\\ms-playwright\\chromium_headless_shell-1243\\chrome-headless-shell-win64\\chrome-headless-shell.exe\" --type=gpu-process --no-sandbox --disable-breakpad --headless --use-angle=swiftshader-webgl --enable-unsafe-swiftshader --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAADAAAAAEAAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1120,i,12487164481918016740,17929442148028553010,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BlockOriginHeaderModificationOnRedirect,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1424,i,14719165059298674093,3512867629043117176,4 --trace-process-track-uuid=3190708988185955192 --enable-logging=handle --log-file=1464 --mojo-platform-channel-handle=1264 /prefetch:2"
+  },
+  {
+    "ProcessId": 21840,
+    "ParentProcessId": 13436,
+    "Name": "chrome-headless-shell.exe",
+    "CommandLine": "\"D:\\Relocated-C-Cache\\ms-playwright\\chromium_headless_shell-1243\\chrome-headless-shell-win64\\chrome-headless-shell.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader-webgl --use-gl=angle --mute-audio --headless=old --field-trial-handle=1120,i,12487164481918016740,17929442148028553010,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BlockOriginHeaderModificationOnRedirect,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1424,i,14719165059298674093,3512867629043117176,4 --trace-process-track-uuid=3190708989122997041 --enable-logging=handle --log-file=1592 --mojo-platform-channel-handle=1588 /prefetch:11"
+  },
+  {
+    "ProcessId": 37612,
+    "ParentProcessId": 43896,
+    "Name": "pwsh.exe",
+    "CommandLine": "\"C:\\Users\\EJN\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\nGet-CimInstance Win32_OperatingSystem | Select-Object FreePhysicalMemory,FreeVirtualMemory | ConvertTo-Json | Set-Content -Encoding utf8 docs/proofs/m7-m8-m9-verification/continuation/runner-repair/crash-p2-selected/memory-midrun.json; Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'test-repairs.*vite|test-repairs.*playwright|chrome-headless-shell' } | Select-Object ProcessId,ParentProcessId,Name,CommandLine | ConvertTo-Json -Depth 4 | Set-Content -Encoding utf8 docs/proofs/m7-m8-m9-verification/continuation/runner-repair/crash-p2-selected/owned-processes-midrun.json; Get-Content docs/proofs/m7-m8-m9-verification/continuation/runner-repair/crash-p2-selected/stdout.txt -Tail 22; Get-Content docs/proofs/m7-m8-m9-verification/continuation/runner-repair/crash-p2-selected/stderr.txt -Tail 8; git diff --numstat -- src tests playwright.config.ts\""
+  }
+]

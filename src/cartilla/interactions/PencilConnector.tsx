@@ -8,7 +8,16 @@ import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { playCorrectChord } from "@/lib/piano-audio";
 import { loadLassoProgress, saveLassoProgress } from "@/lib/activity-canvas-store";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { PencilShape, WorkbookPencilMark, WORKBOOK_MARK_TIMING } from "@/components/cartilla/WorkbookPencilMark";
+import {
+  EraserCrumbs,
+  PencilShape,
+  WorkbookPencilMark,
+  WORKBOOK_MARK_TIMING,
+  useWorkbookPencilTurn,
+} from "@/components/cartilla/WorkbookPencilMark";
+import { OwnerPhotoEraserContent } from "@/components/StudentBook/OwnerPhotoPencilSvg";
+import { PENCIL_TIP_VIEWBOX, toolSize, useCursorMode } from "@/lib/cursor-mode";
+import { holdEraser, PENCIL_CONTRACT } from "@/lib/pencil-contract";
 import type { WorkbookObject } from "@/content/workbook/types";
 import type { InteractionProps } from "./shared";
 import "@/styles/activity-mechanics.css";
@@ -60,6 +69,9 @@ export function DirectPencilConnector({
 
   const reducedMotionHook = useReducedMotion();
   const reducedMotion = reducedMotionProp ?? reducedMotionHook;
+  const contract = useCursorMode() === "contract";
+  const correctStroke = contract ? PENCIL_CONTRACT.correct : "#16a34a";
+  const wrongStroke = contract ? PENCIL_CONTRACT.wrong : "#dc2626";
 
   const stageRef = useRef<HTMLDivElement>(null);
   const centerElRef = useRef<HTMLButtonElement>(null);
@@ -160,7 +172,45 @@ export function DirectPencilConnector({
   const [dragStartId, setDragStartId] = useState<string | null>(null);
   const [dragPt, setDragPt] = useState<Pt | null>(null);
   const [hoverTargetId, setHoverTargetId] = useState<string | null>(null);
-  const [wrongLine, setWrongLine] = useState<{ from: Pt; to: Pt; targetId: string } | null>(null);
+  const retryId = useRef(0);
+  const holdTimersRef = useRef<number[]>([]);
+  useEffect(() => () => { holdTimersRef.current.forEach((id) => window.clearTimeout(id)); }, []);
+  const [holdingLines, setHoldingLines] = useState<{ key: string; from: Pt; to: Pt }[]>([]);
+  const [wrongLines, setWrongLines] = useState<{ from: Pt; to: Pt; targetId: string; retryId: number }[]>([]);
+  const [wrongPhase, setWrongPhase] = useState<"hold" | "red" | "erase">("erase");
+  const wrongLine = wrongLines[0] ?? null;
+  const hasPencilTurn = useWorkbookPencilTurn(isDragging || holdingLines.length > 0 || wrongLine !== null);
+  // Retain attempts made during erasure; only one physical tool acts at once.
+  useEffect(() => {
+    if (!wrongLine || !hasPencilTurn) return;
+    if (reducedMotion) {
+      setWrongPhase("erase");
+      const timer = window.setTimeout(() => setWrongLines((lines) => lines.slice(1)), WORKBOOK_MARK_TIMING.reducedEraseMs);
+      return () => window.clearTimeout(timer);
+    }
+    if (!contract) {
+      setWrongPhase("erase");
+      const timer = window.setTimeout(() => setWrongLines((lines) => lines.slice(1)), WORKBOOK_MARK_TIMING.eraseMs);
+      return () => window.clearTimeout(timer);
+    }
+    setWrongPhase("hold");
+    let releaseEraser: (() => void) | undefined;
+    const tRed = window.setTimeout(() => setWrongPhase("red"), PENCIL_CONTRACT.holdMs);
+    const tErase = window.setTimeout(() => {
+      setWrongPhase("erase");
+      releaseEraser = holdEraser();
+    }, PENCIL_CONTRACT.holdMs + PENCIL_CONTRACT.redShowMs);
+    const tDone = window.setTimeout(() => {
+      releaseEraser?.();
+      setWrongLines((lines) => lines.slice(1));
+    }, PENCIL_CONTRACT.holdMs + PENCIL_CONTRACT.redShowMs + PENCIL_CONTRACT.eraseMs);
+    return () => {
+      window.clearTimeout(tRed);
+      window.clearTimeout(tErase);
+      window.clearTimeout(tDone);
+      releaseEraser?.();
+    };
+  }, [wrongLine, hasPencilTurn, reducedMotion, contract]);
   const [completed, setCompleted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const finishedRef = useRef(false);
@@ -236,17 +286,41 @@ export function DirectPencilConnector({
     }
   }, [learnerMarkedCount, totalNeeded, gretelEvent]);
 
-  // Center / Element Point Helper
-  const getCenterPt = useCallback((el: HTMLElement | null): Pt => {
-    const stage = stageRef.current;
-    if (!stage || !el) return { x: 200, y: 200 };
-    const sr = stage.getBoundingClientRect();
-    const er = el.getBoundingClientRect();
-    return {
-      x: er.left + er.width / 2 - sr.left,
-      y: er.top + er.height / 2 - sr.top,
-    };
+  // Center / Element Point Helper (normalizes CSS zoom `--lc-fit` to unzoomed SVG stage coords)
+  const getStageScale = useCallback((stage: HTMLDivElement, sr: DOMRect) => {
+    const scaleX = sr.width > 0 && stage.clientWidth > 0 ? stage.clientWidth / sr.width : 1;
+    const scaleY = sr.height > 0 && stage.clientHeight > 0 ? stage.clientHeight / sr.height : 1;
+    return { scaleX, scaleY };
   }, []);
+
+  const toStagePt = useCallback(
+    (clientX: number, clientY: number): Pt | null => {
+      const stage = stageRef.current;
+      if (!stage) return null;
+      const sr = stage.getBoundingClientRect();
+      const { scaleX, scaleY } = getStageScale(stage, sr);
+      return {
+        x: (clientX - sr.left) * scaleX,
+        y: (clientY - sr.top) * scaleY,
+      };
+    },
+    [getStageScale],
+  );
+
+  const getCenterPt = useCallback(
+    (el: HTMLElement | null): Pt => {
+      const stage = stageRef.current;
+      if (!stage || !el) return { x: 200, y: 200 };
+      const sr = stage.getBoundingClientRect();
+      const er = el.getBoundingClientRect();
+      const { scaleX, scaleY } = getStageScale(stage, sr);
+      return {
+        x: (er.left + er.width / 2 - sr.left) * scaleX,
+        y: (er.top + er.height / 2 - sr.top) * scaleY,
+      };
+    },
+    [getStageScale],
+  );
 
   const getTargetCenter = useCallback(
     (id: string): Pt => {
@@ -322,11 +396,8 @@ export function DirectPencilConnector({
     }
     setIsDragging(true);
     setDragStartId("center");
-    const stage = stageRef.current;
-    if (stage) {
-      const sr = stage.getBoundingClientRect();
-      setDragPt({ x: e.clientX - sr.left, y: e.clientY - sr.top });
-    }
+    const pt = toStagePt(e.clientX, e.clientY);
+    if (pt) setDragPt(pt);
   };
 
   const handlePointerDownLeft = (e: React.PointerEvent, leftTarget: PencilTarget) => {
@@ -343,11 +414,8 @@ export function DirectPencilConnector({
     }
     setIsDragging(true);
     setDragStartId(leftTarget.id);
-    const stage = stageRef.current;
-    if (stage) {
-      const sr = stage.getBoundingClientRect();
-      setDragPt({ x: e.clientX - sr.left, y: e.clientY - sr.top });
-    }
+    const pt = toStagePt(e.clientX, e.clientY);
+    if (pt) setDragPt(pt);
   };
 
   const handlePointerMoveStage = (e: React.PointerEvent) => {
@@ -356,8 +424,10 @@ export function DirectPencilConnector({
       cancelDragState();
       return;
     }
-    const sr = stageRef.current.getBoundingClientRect();
-    const pt = { x: e.clientX - sr.left, y: e.clientY - sr.top };
+    const stage = stageRef.current;
+    const sr = stage.getBoundingClientRect();
+    const { scaleX, scaleY } = getStageScale(stage, sr);
+    const pt = { x: (e.clientX - sr.left) * scaleX, y: (e.clientY - sr.top) * scaleY };
     setDragPt(pt);
 
     // Find candidate targets
@@ -381,8 +451,8 @@ export function DirectPencilConnector({
         break;
       }
       const tc = {
-        x: er.left + er.width / 2 - sr.left,
-        y: er.top + er.height / 2 - sr.top,
+        x: (er.left + er.width / 2 - sr.left) * scaleX,
+        y: (er.top + er.height / 2 - sr.top) * scaleY,
       };
       const dist = Math.hypot(pt.x - tc.x, pt.y - tc.y);
       if (dist < minDistance) {
@@ -393,68 +463,104 @@ export function DirectPencilConnector({
     setHoverTargetId(nearestId);
   };
 
+  const commitCorrectTarget = useCallback(
+    (targetId: string) => {
+      playCorrectChord();
+      gretelEvent("answer:correct", { itemId: targetId });
+      setMarked((prev) => {
+        if (prev.has(targetId)) return prev;
+        const next = new Set(prev).add(targetId);
+        persist([...next]);
+        const count = [...next].filter((id) => !targets.find((t) => t.id === id)?.example).length;
+        finishIfDone(count);
+        return next;
+      });
+      onResult?.({ objectId: targetId, result: "correct" });
+    },
+    [targets, persist, finishIfDone, onResult, gretelEvent],
+  );
+
   const attemptConnect = useCallback(
     (target: PencilTarget) => {
-      if (marked.has(target.id) || completed) return;
+      if (marked.has(target.id) || holdingLines.some((h) => h.key === target.id) || completed) return;
 
       const isCorrect = Boolean(target.correct);
 
       if (isCorrect) {
-        playCorrectChord();
-        gretelEvent("answer:correct", { itemId: target.id });
-        const next = new Set(marked).add(target.id);
-        setMarked(next);
-        persist([...next]);
-        const count = [...next].filter((id) => !targets.find((t) => t.id === id)?.example).length;
-        finishIfDone(count);
-        onResult?.({ objectId: target.id, result: "correct" });
+        if (contract && !reducedMotion) {
+          const from = centerPt;
+          const to = getTargetCenter(target.id);
+          setHoldingLines((lines) => [...lines, { key: target.id, from, to }]);
+          const tid = window.setTimeout(() => {
+            setHoldingLines((lines) => lines.filter((h) => h.key !== target.id));
+            commitCorrectTarget(target.id);
+          }, PENCIL_CONTRACT.holdMs);
+          holdTimersRef.current.push(tid);
+        } else {
+          commitCorrectTarget(target.id);
+        }
       } else {
         gretelEvent("answer:wrong", { itemId: target.id });
         recordWrong();
         const from = centerPt;
         const to = getTargetCenter(target.id);
-        setWrongLine({ from, to, targetId: target.id });
-        const retryDuration = reducedMotion
-          ? WORKBOOK_MARK_TIMING.reducedEraseMs
-          : WORKBOOK_MARK_TIMING.eraseMs;
-        setTimeout(() => setWrongLine(null), retryDuration);
+        const id = ++retryId.current;
+        setWrongLines((lines) => [...lines, { from, to, targetId: target.id, retryId: id }]);
         onResult?.({ objectId: target.id, result: "wrong" });
       }
     },
-    [marked, completed, targets, centerPt, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [marked, holdingLines, completed, contract, reducedMotion, centerPt, getTargetCenter, commitCorrectTarget, onResult, recordWrong, gretelEvent],
+  );
+
+  const commitCorrectPair = useCallback(
+    (pairKey: string) => {
+      playCorrectChord();
+      gretelEvent("answer:correct", { itemId: pairKey });
+      setMarked((prev) => {
+        if (prev.has(pairKey)) return prev;
+        const next = new Set(prev).add(pairKey);
+        persist([...next]);
+        const count = [...next].filter((id) => !id.includes("example")).length;
+        finishIfDone(count);
+        return next;
+      });
+      setSelectedStartId(null);
+      onResult?.({ objectId: pairKey, result: "correct" });
+    },
+    [persist, finishIfDone, onResult, gretelEvent],
   );
 
   const attemptPairConnect = useCallback(
     (left: PencilTarget, right: PencilTarget) => {
-      if (isLeftConnected(left.id) || isRightConnected(right.id) || completed) return;
+      const pairKey = `${left.id}|${right.id}`;
+      if (isLeftConnected(left.id) || isRightConnected(right.id) || holdingLines.some((h) => h.key === pairKey) || completed) return;
 
       const isCorrect = left.pairId && right.pairId ? left.pairId === right.pairId : false;
-      const pairKey = `${left.id}|${right.id}`;
 
       if (isCorrect) {
-        playCorrectChord();
-        gretelEvent("answer:correct", { itemId: pairKey });
-        const next = new Set(marked).add(pairKey);
-        setMarked(next);
-        persist([...next]);
-        const count = [...next].filter((id) => !id.includes("example")).length;
-        finishIfDone(count);
-        setSelectedStartId(null);
-        onResult?.({ objectId: pairKey, result: "correct" });
+        if (contract && !reducedMotion) {
+          const from = getTargetCenter(left.id);
+          const to = getTargetCenter(right.id);
+          setHoldingLines((lines) => [...lines, { key: pairKey, from, to }]);
+          const tid = window.setTimeout(() => {
+            setHoldingLines((lines) => lines.filter((h) => h.key !== pairKey));
+            commitCorrectPair(pairKey);
+          }, PENCIL_CONTRACT.holdMs);
+          holdTimersRef.current.push(tid);
+        } else {
+          commitCorrectPair(pairKey);
+        }
       } else {
         gretelEvent("answer:wrong", { itemId: right.id });
         recordWrong();
         const from = getTargetCenter(left.id);
         const to = getTargetCenter(right.id);
-        setWrongLine({ from, to, targetId: right.id });
-        const retryDuration = reducedMotion
-          ? WORKBOOK_MARK_TIMING.reducedEraseMs
-          : WORKBOOK_MARK_TIMING.eraseMs;
-        setTimeout(() => setWrongLine(null), retryDuration);
+        const id = ++retryId.current;
+        setWrongLines((lines) => [...lines, { from, to, targetId: right.id, retryId: id }]);
         onResult?.({ objectId: right.id, result: "wrong" });
       }
     },
-    [marked, completed, isLeftConnected, isRightConnected, getTargetCenter, persist, finishIfDone, onResult, recordWrong, gretelEvent, reducedMotion],
+    [completed, holdingLines, isLeftConnected, isRightConnected, contract, reducedMotion, getTargetCenter, commitCorrectPair, onResult, recordWrong, gretelEvent],
   );
 
   const cancelDragState = useCallback(() => {
@@ -499,8 +605,7 @@ export function DirectPencilConnector({
     const candidates = isPairMode ? rightTargets : targets;
     const releasedTarget = candidates.find((target) => {
       const rect = targetEls.current.get(target.id)?.getBoundingClientRect();
-      return rect && e.clientX >= rect.left && e.clientX <= rect.right &&
-        e.clientY >= rect.top && e.clientY <= rect.bottom;
+      return rect && ((rect.width > 0 && e.clientX >= rect.left - 18 && e.clientX <= rect.right + 18 && e.clientY >= rect.top - 18 && e.clientY <= rect.bottom + 18) || (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom));
     });
     cancelDragState();
     if (!releasedTarget) return;
@@ -569,6 +674,7 @@ export function DirectPencilConnector({
     <div
       className={`am-direct-pencil${className ? ` ${className}` : ""}${wideWorkbook ? " am-direct-pencil--wide-workbook" : ""}${isExpanded ? " is-expanded" : ""}`}
       data-complete={String(completed)}
+      data-page-turn-busy={isDragging || holdingLines.length > 0 || wrongLine !== null ? "true" : undefined}
     >
       <div className="am-direct-pencil__toolbar">
         <button
@@ -616,14 +722,14 @@ export function DirectPencilConnector({
                     y1={centerPt.y}
                     x2={targetPt.x}
                     y2={targetPt.y}
-                    stroke="#0d9488"
-                    strokeWidth={isExample ? 3 : 4.5}
+                    stroke={correctStroke}
+                    strokeWidth={isExample ? 3 : 4.8}
                     strokeDasharray={isExample ? "6 4" : undefined}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
                   />
-                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill="#0d9488" />
-                  <circle cx={centerPt.x} cy={centerPt.y} r={4} fill="#0d9488" />
+                  <circle cx={targetPt.x} cy={targetPt.y} r={isExample ? 4 : 5.5} fill={correctStroke} />
+                  <circle cx={centerPt.x} cy={centerPt.y} r={4.5} fill={correctStroke} />
                 </g>
               );
             })}
@@ -644,18 +750,36 @@ export function DirectPencilConnector({
                     y1={ptA.y}
                     x2={ptB.x}
                     y2={ptB.y}
-                    stroke="#0d9488"
-                    strokeWidth={4.5}
+                    stroke={correctStroke}
+                    strokeWidth={4.8}
                     strokeLinecap="round"
                     filter={`url(#${shadowUid})`}
                   />
-                  <circle cx={ptA.x} cy={ptA.y} r={5} fill="#0d9488" />
-                  <circle cx={ptB.x} cy={ptB.y} r={5} fill="#0d9488" />
+                  <circle cx={ptA.x} cy={ptA.y} r={5} fill={correctStroke} />
+                  <circle cx={ptB.x} cy={ptB.y} r={5} fill={correctStroke} />
                 </g>
               );
             })}
 
-          {/* Active Drag Line with Wooden Pencil */}
+          {/* Holding Charcoal Lines (400ms contract hold before outcome colour) */}
+          {holdingLines.map((h) => (
+            <g key={`hold-${h.key}`} className="am-direct-pencil__holding-group" data-mark-status="holding">
+              <line
+                x1={h.from.x}
+                y1={h.from.y}
+                x2={h.to.x}
+                y2={h.to.y}
+                stroke={PENCIL_CONTRACT.charcoal}
+                strokeWidth={4.8}
+                strokeLinecap="round"
+                filter={`url(#${shadowUid})`}
+              />
+              <circle cx={h.from.x} cy={h.from.y} r={4.5} fill={PENCIL_CONTRACT.charcoal} />
+              <circle cx={h.to.x} cy={h.to.y} r={5.5} fill={PENCIL_CONTRACT.charcoal} />
+            </g>
+          ))}
+
+          {/* Active Drag Line with Approved Large Wooden Pencil */}
           {isDragging && dragPt && activeStartPt && (
             <g className="am-direct-pencil__active-line">
               <line
@@ -663,122 +787,134 @@ export function DirectPencilConnector({
                 y1={activeStartPt.y}
                 x2={dragPt.x}
                 y2={dragPt.y}
-                stroke="#0d9488"
+                stroke="#3a3a38"
                 strokeWidth={5}
                 strokeLinecap="round"
                 filter={`url(#${shadowUid})`}
               />
-              <circle cx={dragPt.x} cy={dragPt.y} r={6} fill="#0f766e" />
-              {/* Wooden Pencil at Tip */}
-              {(() => {
-                const angle =
-                  Math.atan2(dragPt.y - activeStartPt.y, dragPt.x - activeStartPt.x) *
-                  (180 / Math.PI);
-                return (
-                  <g
-                    transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(${angle + 30}) scale(0.65)`}
-                    style={{ pointerEvents: "none" }}
-                  >
-                    <PencilShape uid={`${shadowUid}-drag-pencil`} />
-                  </g>
-                );
-              })()}
-            </g>
-          )}
-
-          {/* Wrong Retry Line with Pencil Rotating to Eraser (Shared Kernel Animation) */}
-          {wrongLine && (
-            <g className="am-direct-pencil__retry-group">
-              {reducedMotion ? (
-                <line
-                  className="am-direct-pencil__retry-line"
-                  x1={wrongLine.from.x}
-                  y1={wrongLine.from.y}
-                  x2={wrongLine.to.x}
-                  y2={wrongLine.to.y}
-                  stroke="#0d9488"
-                  strokeWidth={4}
-                  strokeLinecap="round"
-                  opacity="0.6"
-                />
-              ) : (
-                (() => {
-                  const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
-                  const kFlip = (eraseFlipMs / eraseMs).toFixed(4);
-                  const kAppear = (Math.min(220, eraseFlipMs / 4) / eraseMs).toFixed(4);
-                  const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
-                  const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
-                  const scrubPeriod = 190;
-                  const PENCIL_CENTER_Y = -36;
-                  const linePath = `M ${wrongLine.from.x} ${wrongLine.from.y} L ${wrongLine.to.x} ${wrongLine.to.y}`;
-
-                  return (
-                    <>
-                      <path
-                        d={linePath}
-                        stroke="#0d9488"
-                        strokeWidth={4}
-                        strokeLinecap="round"
-                        pathLength={100}
-                        strokeDasharray="100 100"
-                      >
-                        <animate
-                          attributeName="stroke-dashoffset"
-                          dur={`${eraseMs}ms`}
-                          fill="freeze"
-                          values="0;0;100;100"
-                          keyTimes={`0;${kFlip};${kRubbed};1`}
-                        />
-                      </path>
-                      <g opacity="0" filter={`url(#${shadowUid})`}>
-                        <animateMotion
-                          dur={`${eraseMs}ms`}
-                          fill="freeze"
-                          keyTimes={`0;${kFlip};${kRubbed};1`}
-                          keyPoints="1;1;0;0"
-                          calcMode="linear"
-                          path={linePath}
-                        />
-                        <animate
-                          attributeName="opacity"
-                          dur={`${eraseMs}ms`}
-                          fill="freeze"
-                          values="0;1;1;0"
-                          keyTimes={`0;${kAppear};${kRubbed};1`}
-                        />
-                        <g>
-                          <animateTransform
-                            attributeName="transform"
-                            type="translate"
-                            begin={`${eraseFlipMs}ms`}
-                            dur={`${scrubPeriod}ms`}
-                            repeatCount={Math.floor(rubMs / scrubPeriod)}
-                            values="0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"
-                          />
-                          <g transform="rotate(30) scale(1.2)">
-                            <g>
-                              <animateTransform
-                                attributeName="transform"
-                                type="rotate"
-                                dur={`${eraseMs}ms`}
-                                fill="freeze"
-                                values={`0 0 ${PENCIL_CENTER_Y};0 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y};180 0 ${PENCIL_CENTER_Y}`}
-                                keyTimes={`0;${kAppear};${kFlip};1`}
-                                calcMode="spline"
-                                keySplines="0 0 1 1;0.45 0.05 0.55 0.95;0 0 1 1"
-                              />
-                              <PencilShape uid={`${shadowUid}-retry-pencil`} />
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </>
-                  );
-                })()
+              <circle cx={dragPt.x} cy={dragPt.y} r={5} fill="#3a3a38" />
+              {/* Wooden Pencil at Tip (in contract mode, ContractPencilCursor is the single wooden tip) */}
+              {!contract && hasPencilTurn && !wrongLine && !reducedMotion && (
+                <g
+                  transform={`translate(${dragPt.x}, ${dragPt.y}) rotate(55) scale(2.4)`}
+                  style={{ pointerEvents: "none" }}
+                >
+                  <PencilShape uid={`${shadowUid}-drag-pencil`} />
+                </g>
               )}
             </g>
           )}
+
+          {/* Wrong Retry Line (hold / red phases before fresh-timeline erase SVG mounts) */}
+          {wrongLine && hasPencilTurn && (reducedMotion || (contract && wrongPhase !== "erase")) && (
+            <g key={wrongLine.retryId} className="am-direct-pencil__retry-group" data-mark-status={wrongPhase === "hold" ? "holding" : "erasing"}>
+              <line
+                className="am-direct-pencil__retry-line"
+                x1={wrongLine.from.x}
+                y1={wrongLine.from.y}
+                x2={wrongLine.to.x}
+                y2={wrongLine.to.y}
+                stroke={reducedMotion ? wrongStroke : wrongPhase === "hold" ? PENCIL_CONTRACT.charcoal : wrongStroke}
+                strokeWidth={reducedMotion ? 4.5 : 4.8}
+                strokeLinecap="round"
+                opacity={reducedMotion ? "0.75" : undefined}
+                filter={reducedMotion ? undefined : `url(#${shadowUid})`}
+              />
+            </g>
+          )}
         </svg>
+
+        {/* Dedicated SVG for retry erase so SMIL timeline always starts cleanly at t=0s */}
+        {wrongLine && hasPencilTurn && !reducedMotion && (!contract || wrongPhase === "erase") && (
+          <svg
+            key={`retry-svg-${wrongLine.retryId}`}
+            className="am-direct-pencil__svg-layer am-direct-pencil__retry-svg"
+            overflow="visible"
+            aria-hidden="true"
+          >
+            <g className="am-direct-pencil__retry-group" data-mark-status="erasing">
+              {(() => {
+                const eraseMs = contract ? PENCIL_CONTRACT.eraseMs : WORKBOOK_MARK_TIMING.eraseMs;
+                const eraseFlipMs = contract ? PENCIL_CONTRACT.eraseEnterMs : WORKBOOK_MARK_TIMING.eraseFlipMs;
+                const eraseLiftMs = contract ? PENCIL_CONTRACT.eraseLiftMs : WORKBOOK_MARK_TIMING.eraseLiftMs;
+                const kFlip = (eraseFlipMs / eraseMs).toFixed(4);
+                const kAppear = (Math.min(220, eraseFlipMs / 4) / eraseMs).toFixed(4);
+                const kRubbed = ((eraseMs - eraseLiftMs) / eraseMs).toFixed(4);
+                const rubMs = eraseMs - eraseFlipMs - eraseLiftMs;
+                const scrubPeriod = 190;
+                const linePath = `M ${wrongLine.from.x} ${wrongLine.from.y} L ${wrongLine.to.x} ${wrongLine.to.y}`;
+
+                return (
+                  <>
+                    <path
+                      d={linePath}
+                      stroke={wrongStroke}
+                      strokeWidth={4.5}
+                      strokeLinecap="round"
+                      pathLength={100}
+                      strokeDasharray="100 100"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        dur={`${eraseMs}ms`}
+                        fill="freeze"
+                        values="0;0;100;100"
+                        keyTimes={`0;${kFlip};${kRubbed};1`}
+                      />
+                    </path>
+                    <g opacity="0" filter={`url(#${shadowUid})`}>
+                      <animateMotion
+                        dur={`${eraseMs}ms`}
+                        fill="freeze"
+                        keyTimes={`0;${kFlip};${kRubbed};1`}
+                        keyPoints="1;1;0;0"
+                        calcMode="linear"
+                        path={linePath}
+                      />
+                      <animate
+                        attributeName="opacity"
+                        dur={`${eraseMs}ms`}
+                        fill="freeze"
+                        values="0;1;1;0"
+                        keyTimes={`0;${kAppear};${kRubbed};1`}
+                      />
+                      <g>
+                        <animateTransform
+                          attributeName="transform"
+                          type="translate"
+                          begin={`${eraseFlipMs}ms`}
+                          dur={`${scrubPeriod}ms`}
+                          repeatCount={Math.floor(rubMs / scrubPeriod)}
+                          values={contract ? "0 0;9 -3;0 0;-8 2.5;0 0" : "0 0;1.3 -0.7;0 0;-1.3 0.7;0 0"}
+                        />
+                        <g
+                          className="am-direct-pencil__eraser-shape workbook-pencil__shape workbook-pencil__eraser-hd"
+                          transform={`scale(${(toolSize("tip") / PENCIL_TIP_VIEWBOX.width).toFixed(4)})`}
+                        >
+                          <OwnerPhotoEraserContent uid={`${shadowUid}-retry-eraser`} />
+                        </g>
+                      </g>
+                    </g>
+                    {contract && (
+                      <EraserCrumbs
+                        points={[
+                          [wrongLine.from.x, wrongLine.from.y],
+                          [wrongLine.to.x, wrongLine.to.y],
+                        ]}
+                        seed={wrongLine.retryId}
+                        enterMs={eraseFlipMs}
+                        rubMs={rubMs}
+                        totalMs={eraseMs}
+                        count={PENCIL_CONTRACT.crumbCount}
+                        scale={2.4}
+                      />
+                    )}
+                  </>
+                );
+              })()}
+            </g>
+          </svg>
+        )}
 
         {wideWorkbook && !isPairMode && (
           <div className="am-direct-pencil__wide-board">
@@ -906,7 +1042,7 @@ export function DirectPencilConnector({
   );
 
   function renderTargetCell(t: PencilTarget) {
-    const isMarked = marked.has(t.id);
+    const isMarked = marked.has(t.id) || holdingLines.some((h) => h.key === t.id);
     const isApproaching = hoverTargetId === t.id;
     const isWrong = wrongLine?.targetId === t.id;
 

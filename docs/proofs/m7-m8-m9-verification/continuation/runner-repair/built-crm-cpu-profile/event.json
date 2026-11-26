@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "event_id": "built-crm-cpu-parent-fixed",
+  "task_id": "cartilla-pr1247",
+  "attempt_id": "built-crm-cpu-parent-fixed",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:4d2de45c1c725dd7a5c1596dfa658f7792a4a026d7d3b5f19cb67533f8930cd5",
+  "requirements_digest": "sha256:3985b04d471ed5047cc89986234c2c9d17d30757cdcd65d609b1f63a2987d179",
+  "candidate_digest": "sha256:90139465ffc0f5a7b0cfa2ca14782fe98afcdacb684167db68cfad438de7038a",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:5b9d31728d84f20f98fca6f513f57d4936cf962ca48adaf23a6281c16a02c1bb",
+  "environment_digest": "sha256:b0c03bf0b78320128d1cd3d5a6547b9c5bc2d19df4705f02171fbd1d225f5a84",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "invalidation": {
+    "schema_version": "1.0",
+    "invalidates": [
+      "sha256:a5b27cbe074de6b5cfb4308c95e6e2834e4d904e9984efba4d9d0986c9e9a0ec"
+    ],
+    "action_scope_digest": "sha256:4d2de45c1c725dd7a5c1596dfa658f7792a4a026d7d3b5f19cb67533f8930cd5",
+    "reason_code": "evaluator_changed",
+    "changes": [
+      {
+        "field": "evaluator_digest",
+        "before": "sha256:ced6892ed98b6e342500fd2407c28319795c97dc00cf40816f48a5bfbe1236f7",
+        "after": "sha256:5b9d31728d84f20f98fca6f513f57d4936cf962ca48adaf23a6281c16a02c1bb"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "evaluator_digest",
+        "digest": "sha256:5b9d31728d84f20f98fca6f513f57d4936cf962ca48adaf23a6281c16a02c1bb"
+      }
+    ],
+    "invalidation_id": "sha256:a6b88410575e425451a915776ef5e42d16590b454b70721ecfafd83c2bb975a4"
+  }
+}

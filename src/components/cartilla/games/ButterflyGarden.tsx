@@ -1,7 +1,13 @@
 // Butterfly Garden (Jardín de Mariposas) — original-art game for "mariposas-p".
 // Rules: src/lib/games/butterflyGarden.ts. Audio hooks: src/lib/games/butterflyGardenAudio.ts (empty by owner decision).
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
-import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { recordEvent } from "@/lib/student-session";
 import garden from "@/assets/games/butterfly-garden/garden.jpg";
 import grass from "@/assets/games/butterfly-garden/grass.png";
@@ -126,7 +132,6 @@ const ArtButton = ({
   </button>
 );
 
-
 export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {}) {
   const rootRef = useRef<HTMLDivElement>(null);
   const gardenRef = useRef<HTMLDivElement>(null);
@@ -232,7 +237,6 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
       if (flyingId !== b.id) place(i, homes.current[i]!);
     });
     setReady(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layout, flyingId]);
 
   // ---- flight -------------------------------------------------------------
@@ -365,7 +369,7 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
       setShakeSlot(wrong[0] ?? null);
       await wait(800);
       setShakeSlot(null);
-      for (const k of wrong) await retrieve(k);
+      await Promise.all(wrong.map((k) => retrieve(k)));
     }
     busyRef.current = false;
   };
@@ -373,7 +377,11 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
   const net = async () => {
     if (busyRef.current) return;
     busyRef.current = true;
-    for (let k = 0; k < SLOT_COUNT; k++) if (slotsRef.current[k]) await retrieve(k);
+    const promises: Promise<void>[] = [];
+    for (let k = 0; k < SLOT_COUNT; k++) {
+      if (slotsRef.current[k]) promises.push(retrieve(k));
+    }
+    await Promise.all(promises);
     setVerdicts(Array(SLOT_COUNT).fill(null));
     busyRef.current = false;
   };
@@ -399,7 +407,6 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
   const iconBtn = compact || (portrait && gw < 420) ? "h-12 w-12" : "h-14 w-14";
   const signW = Math.min(gw * 0.27, gh * 0.3 * 0.75);
   const sunW = Math.min(gw * 0.26, gh * 0.24);
-
 
   return (
     <div
@@ -628,7 +635,10 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
                   ))}
                 </ol>
                 <DialogClose asChild>
-                  <button type="button" className="bfg-leaf-board mt-4 w-full rounded-xl py-2 text-xl font-bold text-bfg-leaf-foreground">
+                  <button
+                    type="button"
+                    className="bfg-leaf-board mt-4 w-full rounded-xl py-2 text-xl font-bold text-bfg-leaf-foreground"
+                  >
                     ¡A jugar!
                   </button>
                 </DialogClose>
@@ -692,7 +702,6 @@ export function ButterflyGarden({ backSlot }: { backSlot?: React.ReactNode } = {
           </button>
         ))}
       </div>
-
     </div>
   );
 }

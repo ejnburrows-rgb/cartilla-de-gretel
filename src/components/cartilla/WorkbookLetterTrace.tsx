@@ -11,6 +11,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { playNote, playCorrectChord } from "@/lib/piano-audio";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useCursorMode } from "@/lib/cursor-mode";
+import { PENCIL_CONTRACT } from "@/lib/pencil-contract";
 import {
   getLetterTemplate,
   distanceToStroke,
@@ -19,6 +22,7 @@ import {
   type Point,
 } from "./letter-stroke-templates";
 import { useLetterTapTrace, useTraceInputMode } from "./useLetterTraceInput";
+import { PencilShape } from "./WorkbookPencilMark";
 
 const VIEW_W = 100;
 const VIEW_H = 120;
@@ -32,7 +36,7 @@ interface WorkbookLetterTraceProps {
   lessonId?: string;
 }
 
-type Status = "idle" | "tracing" | "done";
+type Status = "idle" | "tracing" | "holding" | "done";
 
 export function WorkbookLetterTrace({
   modelText,
@@ -40,6 +44,17 @@ export function WorkbookLetterTrace({
   lessonId,
 }: WorkbookLetterTraceProps) {
   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();
+  const reducedMotion = useReducedMotion();
+  const cursorMode = useCursorMode();
+  const explicitCursor =
+    typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("cursor") : null;
+  const hasContractHost =
+    typeof document !== "undefined" &&
+    (explicitCursor === "contract" ||
+      document.documentElement.classList.contains("cartilla-cursor-contract") ||
+      !!document.querySelector(".native-lesson-viewer, .contract-pencil-cursor"));
+  const contract = cursorMode === "contract" && hasContractHost;
+  const useCharcoalStroke = cursorMode === "contract";
   const [finishedWork, setFinishedWork] = useActivityState("finishedWork", false);
   useEffect(() => { if (finishedWork) gretelEvent("activity:complete", { restored: true }); }, [finishedWork, gretelEvent]);
   const strokes = useMemo(() => getLetterTemplate(modelText), [modelText]);
@@ -49,13 +64,17 @@ export function WorkbookLetterTrace({
   const [completed, setCompleted] = useActivityState<Point[][]>("traceCompleted", []);
   const [current, setCurrent] = useActivityState<Point[]>("traceCurrent", []);
   const [status, setStatus] = useState<Status>("idle");
+  const [holding, setHolding] = useState(false);
   const [slips, setSlips] = useActivityState("traceSlips", 0);
   const [offFlash, setOffFlash] = useState(false);
+  const [livePoint, setLivePoint] = useState<Point | null>(null);
 
   const slipsRef = useRef(slips);
   const offActiveRef = useRef(false);
   const reportedRef = useRef(false);
   const wrongFiredRef = useRef(false);
+  const holdTimerRef = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(holdTimerRef.current), []);
 
   // Default gesture determined by primary pointer (mouse -> tap/checkpoint, touch -> drag/freehand)
   const defaultMode = useTraceInputMode();
@@ -100,11 +119,22 @@ export function WorkbookLetterTrace({
 
   const onTapComplete = useCallback(
     (fumbles: number) => {
+      if (contract && !reducedMotion) {
+        setHolding(true);
+        window.clearTimeout(holdTimerRef.current);
+        holdTimerRef.current = window.setTimeout(() => {
+          setHolding(false);
+          setStatus("done");
+          playCorrectChord();
+          report(fumbles);
+        }, PENCIL_CONTRACT.holdMs);
+        return;
+      }
       setStatus("done");
       playCorrectChord();
       report(fumbles);
     },
-    [report],
+    [contract, reducedMotion, report],
   );
 
   const tap = useLetterTapTrace({
@@ -123,13 +153,35 @@ export function WorkbookLetterTrace({
 
   function toViewport(e: React.PointerEvent<SVGSVGElement>): Point {
     const rect = e.currentTarget.getBoundingClientRect();
+    const unit = Math.min(rect.width / VIEW_W, rect.height / VIEW_H);
+    if (unit > 0) {
+      const ox = rect.left + (rect.width - VIEW_W * unit) / 2;
+      const oy = rect.top + (rect.height - VIEW_H * unit) / 2;
+      return {
+        x: (e.clientX - ox) / unit,
+        y: (e.clientY - oy) / unit,
+      };
+    }
     return {
-      x: ((e.clientX - rect.left) / rect.width) * VIEW_W,
-      y: ((e.clientY - rect.top) / rect.height) * VIEW_H,
+      x: ((e.clientX - rect.left) / (rect.width || VIEW_W)) * VIEW_W,
+      y: ((e.clientY - rect.top) / (rect.height || VIEW_H)) * VIEW_H,
     };
   }
 
   function finish() {
+    setLivePoint(null);
+    if (contract && !reducedMotion) {
+      setHolding(true);
+      window.clearTimeout(holdTimerRef.current);
+      holdTimerRef.current = window.setTimeout(() => {
+        setHolding(false);
+        setStatus("done");
+        playCorrectChord();
+        // Real score: clean trace = 1.0; each off-path excursion costs 0.25, min 0.
+        report(slipsRef.current);
+      }, PENCIL_CONTRACT.holdMs);
+      return;
+    }
     setStatus("done");
     playCorrectChord();
     // Real score: clean trace = 1.0; each off-path excursion costs 0.25, min 0.
@@ -137,12 +189,13 @@ export function WorkbookLetterTrace({
   }
 
   function handlePointerDown(e: React.PointerEvent<SVGSVGElement>) {
-    if (finishedWork || status === "done" || !nextCheckpoint) return;
+    if (finishedWork || holding || status === "done" || !nextCheckpoint) return;
     const p = toViewport(e);
     if (Math.hypot(p.x - nextCheckpoint.x, p.y - nextCheckpoint.y) <= START_TOL) {
       e.currentTarget.setPointerCapture(e.pointerId);
       offActiveRef.current = false;
       setOffFlash(false);
+      setLivePoint(p);
       // pressing exactly on the active checkpoint counts as reaching it
       setCurrent((prev) => (prev.length === 0 ? [nextCheckpoint] : prev));
       setPointIdx((i) => (i === 0 ? 1 : i));
@@ -177,6 +230,7 @@ export function WorkbookLetterTrace({
       offActiveRef.current = false;
       setOffFlash(false);
     }
+    setLivePoint(p);
 
     const cp = stroke[pointIdx];
     if (cp && Math.hypot(p.x - cp.x, p.y - cp.y) <= CHECKPOINT_TOL) {
@@ -191,6 +245,7 @@ export function WorkbookLetterTrace({
         const nextStrokeIdx = strokeIdx + 1;
         setCompleted((prev) => [...prev, nextCurrent]);
         setCurrent([]);
+        setLivePoint(null);
         if (nextStrokeIdx < strokes.length) {
           setStrokeIdx(nextStrokeIdx);
           setPointIdx(0);
@@ -208,11 +263,14 @@ export function WorkbookLetterTrace({
     if (status === "tracing") {
       // Retain the partial path and resume at its next checkpoint.
       setStatus("idle");
+      setLivePoint(null);
       offActiveRef.current = false;
     }
   }
 
   function reset() {
+    window.clearTimeout(holdTimerRef.current);
+    setHolding(false);
     setFinishedWork(false);
     gretelEvent("activity:retry", { reason: "work-cleared" });
     setStrokeIdx(0);
@@ -222,6 +280,7 @@ export function WorkbookLetterTrace({
     setStatus("idle");
     setSlips(0);
     setOffFlash(false);
+    setLivePoint(null);
     slipsRef.current = 0;
     offActiveRef.current = false;
     reportedRef.current = false;
@@ -235,17 +294,28 @@ export function WorkbookLetterTrace({
   const shownCurrent = finishedWork ? [] : isTap ? tap.currentStrokePoints : current;
   const shownStatus: Status = finishedWork
     ? "done"
-    : isTap
-      ? tap.finished
-        ? "done"
-        : shownCompleted.length || shownCurrent.length
-          ? "tracing"
-          : "idle"
-      : status === "done"
-        ? "done"
-        : status === "tracing" || completed.length > 0 || current.length > 0
-          ? "tracing"
-          : "idle";
+    : holding
+      ? "holding"
+      : isTap
+        ? tap.finished
+          ? "done"
+          : shownCompleted.length || shownCurrent.length
+            ? "tracing"
+            : "idle"
+        : status === "done"
+          ? "done"
+          : status === "tracing" || completed.length > 0 || current.length > 0
+            ? "tracing"
+            : "idle";
+  const activeStrokeColor = useCharcoalStroke ? PENCIL_CONTRACT.charcoal : accent;
+  const completedStrokeColor =
+    shownStatus === "done"
+      ? contract
+        ? PENCIL_CONTRACT.correct
+        : accent
+      : useCharcoalStroke
+        ? PENCIL_CONTRACT.charcoal
+        : accent;
   const shownSlips = isTap ? tap.wrongCheckpoints : slips;
   const shownOff = isTap ? tap.wrongFlash : offFlash;
   const shownDone = shownCompleted.reduce((n, s) => n + s.length, 0) + shownCurrent.length;
@@ -292,7 +362,7 @@ export function WorkbookLetterTrace({
             key={`done-${sIdx}`}
             d={stroke.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
             fill="none"
-            stroke={accent}
+            stroke={completedStrokeColor}
             strokeWidth="9"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -303,9 +373,9 @@ export function WorkbookLetterTrace({
             the correct formation and direction. */}
         {shownCurrent.length > 0 && (
           <path
-            d={shownCurrent.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
+            d={(status === "tracing" && !isTap && livePoint ? [...shownCurrent, livePoint] : shownCurrent).map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
             fill="none"
-            stroke={accent}
+            stroke={activeStrokeColor}
             strokeWidth="9"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -399,6 +469,26 @@ export function WorkbookLetterTrace({
             stroke="#ffffff"
             strokeWidth="1.5"
           />
+        )}
+
+        {/* Approved classic wooden pencil tip following learner's touch/drag path */}
+        {livePoint && shownStatus !== "done" && (
+          <g
+            transform={`translate(${livePoint.x}, ${livePoint.y}) rotate(55) scale(0.38)`}
+            style={{ pointerEvents: "none" }}
+          >
+            <PencilShape uid="letter-trace-live-pencil" />
+          </g>
+        )}
+
+        {/* In tap mode, approved wooden pencil rests gracefully near the active checkpoint */}
+        {isTap && activePoint && shownStatus !== "done" && (
+          <g
+            transform={`translate(${activePoint.x + 3.5}, ${activePoint.y - 2.5}) rotate(55) scale(0.32)`}
+            style={{ pointerEvents: "none", opacity: 0.9 }}
+          >
+            <PencilShape uid="letter-trace-tap-pencil" />
+          </g>
         )}
       </svg>
 

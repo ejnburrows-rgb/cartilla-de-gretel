@@ -1,0 +1,15 @@
+# Workbook artwork — partial coverage, not a visual sign-off
+
+`workbook-configured-artwork.csv` inventories every `illustrationSrc` value in `src/data/page-layouts.json` at this draft: 160 placements referencing 74 distinct local files; all referenced files exist locally. This is a configuration/file-presence check, not proof that all artwork is present in the product, matches the printed book, is correctly cropped, is rendered in every route, or has owner approval. Missing artwork that has no configured reference cannot be detected by this count. Other artwork sources, teacher flip chart, cover, platform and games are outside this inventory. All placements remain visually unverified as a set; no new artwork is approved by this review.
+
+The draft `/revision` board presents 44 placements from printed workbook pages 1, 7 and 8 beside the corresponding repository scans. It shows configured source images; runtime image delivery may choose other resolutions. The 44 files and scans decoded in an emulated Chromium test. The user can explicitly keep an image, request changes, reject it, or save a replacement in this browser and export a JSON backup. Nothing is applied to workbook assets by a decision. Page 9 has writing and drawing regions and no configured picture cells; it is not a missing page. Pages 86–87 remain SOURCE_BLOCKED and are not requested or reconstructed.
+
+The older 2026-10-14 `WB-S007` uses PDF sheet numbering and corresponds to printed page 1, not printed page 7; do not join the old inventory and current scans by the numeric suffix. Complete the missing-asset list by visually comparing each authoritative printed scan to each actual rendered placement, checking omissions and crop quality. Record physical-phone and accessibility evidence separately. The rest of the requested artwork and motion review remains incomplete.
+
+## Confirmed page 7 airplane mismatch
+
+The configured page 7 `avion.webp` is a different plane from the airplane on the printed page 7 scan supplied by the owner. The existing `/cartilla/art/faithful/leccion-1/pez.webp` visually matches the plane in the supplied reference and is already configured on page 8. The review board shows it as a candidate beside the source and current page 7 asset. It has not been substituted or approved for page 7. The source policy requires showing proposed pictures beside the originals for owner acceptance before integration. The remainder is not a completed visual audit.
+
+The printed page 7 also shows two eyes; the configured `approved/lesson-3/ojo.png` and the rendered lesson show one eye. The folder name alone is not evidence of approval for this placement. No eye asset has been changed.
+
+In emulated Chromium at 390×844 and 1366×768, the page 7 second image set rendered the different airplane through `avion-alive.svg` rather than the configured still. The page 7 eye and needle initially appeared blank immediately after switching sets, then loaded within three seconds; this observation is not a timed performance test. No physical phone was used.

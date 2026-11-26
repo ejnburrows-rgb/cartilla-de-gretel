@@ -6,6 +6,26 @@ const layouts = JSON.parse(fs.readFileSync('src/data/page-layouts.json', 'utf8')
 const finalAssets = JSON.parse(fs.readFileSync('src/data/flipchart-native-assets.json', 'utf8'));
 const output = path.resolve('test-results/final-candidate');
 const problems: unknown[] = [];
+const failureEvents = new WeakMap<Page, unknown[]>();
+
+test.beforeEach(async ({ page }) => {
+  const events: unknown[] = [];
+  failureEvents.set(page, events);
+  page.on('pageerror', error => { if (events.length < 100) events.push({ kind: 'pageerror', message: error.message }); });
+  page.on('requestfailed', request => { if (events.length < 100) events.push({ kind: 'requestfailed', url: request.url(), failure: request.failure() }); });
+});
+
+test.afterEach(async ({ page }, testInfo) => {
+  if (testInfo.status === testInfo.expectedStatus) return;
+  const diagnostic = { url: page.url(), events: failureEvents.get(page),
+    stage: await page.getByTestId('flipchart-stage').evaluateAll(stages => stages.map(stage => ({
+      nativeBoards: stage.querySelectorAll('[data-native-flipchart="true"]').length,
+      pageNumbers: [...stage.querySelectorAll('.fc-native-board__pagenum')].map(element => element.textContent),
+      images: [...stage.querySelectorAll('img')].map(image => ({ src: image.src, complete: image.complete, naturalWidth: image.naturalWidth, loading: image.loading })),
+    }))).catch(error => ({ unavailable: String(error) })) };
+  fs.writeFileSync(testInfo.outputPath('failure-diagnostics.json'), JSON.stringify(diagnostic, null, 2));
+  await page.screenshot({ path: testInfo.outputPath('failure.png'), fullPage: true }).catch(() => {});
+});
 
 async function stroke(page: Page, canvas: Locator) {
   await canvas.scrollIntoViewIfNeeded();

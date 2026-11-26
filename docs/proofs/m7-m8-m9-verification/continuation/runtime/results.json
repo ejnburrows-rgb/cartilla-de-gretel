@@ -1,0 +1,275 @@
+{
+  "head": "48dfec7d6a5ec3ac26171d745ea811621ad659db",
+  "url": "http://127.0.0.1:4187",
+  "device": "Chromium touch emulation; no physical device",
+  "physicalPhone": "NOT TESTED",
+  "physicalProjector": "NOT TESTED",
+  "checks": [
+    {
+      "result": "PASS",
+      "message": "Next touch target clear",
+      "clear": true,
+      "box": {
+        "x": 337.640625,
+        "y": 798.015625,
+        "w": 44.375,
+        "h": 39.59375
+      },
+      "top": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "trusted touch forward",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "Previous touch target clear",
+      "clear": true,
+      "box": {
+        "x": 7.984375,
+        "y": 798.015625,
+        "w": 44.375,
+        "h": 39.59375
+      },
+      "top": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "trusted touch backward",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "corner visible",
+      "testid": "flipchart-corner-left",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "touch corner drag forward",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "corner visible",
+      "testid": "flipchart-corner-right",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "touch corner drag backward",
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "browser delivered trusted touch events",
+      "events": [
+        {
+          "pointerType": "touch",
+          "isTrusted": true
+        },
+        {
+          "pointerType": "touch",
+          "isTrusted": true
+        },
+        {
+          "pointerType": "touch",
+          "isTrusted": true
+        },
+        {
+          "pointerType": "touch",
+          "isTrusted": true
+        }
+      ],
+      "reused": true,
+      "evidence": "navigation-results.json"
+    },
+    {
+      "result": "PASS",
+      "message": "restored scene remains static",
+      "pdf": 26,
+      "lesson": 12,
+      "ambient": "none",
+      "natural": "false",
+      "parts": 0,
+      "videos": 0,
+      "animations": 0
+    },
+    {
+      "result": "PASS",
+      "message": "restored scene remains static",
+      "pdf": 29,
+      "lesson": 13,
+      "ambient": "none",
+      "natural": "false",
+      "parts": 0,
+      "videos": 0,
+      "animations": 0
+    },
+    {
+      "result": "PASS",
+      "message": "restored scene remains static",
+      "pdf": 32,
+      "lesson": 14,
+      "ambient": "none",
+      "natural": "false",
+      "parts": 0,
+      "videos": 0,
+      "animations": 0
+    },
+    {
+      "result": "PASS",
+      "message": "restored scene remains static",
+      "pdf": 38,
+      "lesson": 16,
+      "ambient": "none",
+      "natural": "false",
+      "parts": 0,
+      "videos": 0,
+      "animations": 0
+    },
+    {
+      "result": "PASS",
+      "message": "restored scene remains static",
+      "pdf": 62,
+      "lesson": 24,
+      "ambient": "none",
+      "natural": "false",
+      "parts": 0,
+      "videos": 0,
+      "animations": 0
+    },
+    {
+      "result": "PASS",
+      "message": "presentation sheet fits viewport",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fit": {
+        "x": 13.59375,
+        "y": 184.6875,
+        "w": 362.796875,
+        "h": 495.546875,
+        "right": 376.390625,
+        "bottom": 680.234375,
+        "vw": 390,
+        "vh": 844
+      }
+    },
+    {
+      "result": "PASS",
+      "message": "presentation sheet fits viewport",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "fit": {
+        "x": 457.46875,
+        "y": 85.140625,
+        "w": 451.046875,
+        "h": 616.09375,
+        "right": 908.515625,
+        "bottom": 701.234375,
+        "vw": 1366,
+        "vh": 768
+      }
+    },
+    {
+      "result": "PASS",
+      "message": "presentation sheet fits viewport",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fit": {
+        "x": 620.25,
+        "y": 85.140625,
+        "w": 679.46875,
+        "h": 928.09375,
+        "right": 1299.71875,
+        "bottom": 1013.234375,
+        "vw": 1920,
+        "vh": 1080
+      }
+    },
+    {
+      "result": "PASS",
+      "message": "seven Lesson4 replacement images held static",
+      "lesson4": [
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        },
+        {
+          "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+          "ambient": "none",
+          "natural": "false",
+          "animations": 0
+        }
+      ]
+    },
+    {
+      "result": "PASS",
+      "message": "zero console errors",
+      "errors": []
+    }
+  ],
+  "consoleErrors": [],
+  "warnings": [
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.",
+    "[tanstack-router] These exports from \"D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/practica.tsx\" will not be code-split and will increase your bundle size:\n- Practica\nFor the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file."
+  ],
+  "navigationVideo": "page@3e8cf599ac9d7bb2a6b412ae7868c1df.webm",
+  "video": "page@07ba7aaa26df6d9b027e93b0ae92b9ee.webm"
+}

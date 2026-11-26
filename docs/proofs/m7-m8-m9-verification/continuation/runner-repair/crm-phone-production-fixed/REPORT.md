@@ -1,0 +1,11 @@
+# Original full CRM phone journey on production runtime
+
+**PASS**, application/build head bfab98b6a22b691d9d80754285d25d4c1f7167f2. The original tests/e2e/crm-local-demo.spec.ts phone case ran without edited assertions or test limits: 5-second initial heading assertion, 120-second test limit. Actual process exit 0; one expected test, zero unexpected failures/skips/flaky results, total runner duration 76.545 seconds. Full Chromium, one worker, phone viewport390x844.
+
+The test creates a class and two demo students, assigns lesson2, saves/reloads notes, completes student workbook activity, returns to CRM, verifies identity/work isolation, and exports the report. The final assertion requires zero REST/auth requests. All 445 built artifact hashes match before/after. Production manifest0b9229bd2551239ac843108ac102c0246392832fa64d74be679a6a6a882ea91b binds the separately accepted 8-test production-runtime build gate. Original initial heading readiness is1.261s in the saved browser diagnostic. The earlier normal-dev phone failure and historical test-runtime artifact observations are preserved separately and are not relabeled.
+
+The temporary configuration changes only the server to the immutable built preview at5180 and makes its working directory explicit. The original phone test source and browser launch options remain unchanged. REST/auth handlers run before navigation and abort any attempted backend request. Pre-existing CRM images were byte-backed up before execution; immutable copies of the four actual new phone screenshots are in rendered/.
+
+The first preview configuration attempt failed before launching a browser because Playwright resolved webServer.command relative to work/. That failure remains under crm-phone-production. After correcting webServer.cwd, canonical evaluator invalidation authorized the sole actual browser execution. Accepted receipt binds summary.json, which hashes the finished runner completion and records the manifest identity. Nested attributes preserve capture bytes. Archived config/driver use historical paths and identities and must not be replayed as authorization.
+
+This proves the production phone journey in browser emulation. It does not supply physical-device proof, a complete353-case browser result, owner source-placement approval, formal final-head GitHub approval, merge, or deployment.

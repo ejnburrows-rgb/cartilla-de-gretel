@@ -65,8 +65,10 @@ export function AmbientToggle({ color = "#78350f" }: AmbientToggleProps) {
     <div style={flexContainerStyle} className="shadow-sm no-print">
       {/* 1. Mute Toggle */}
       <button
+        type="button"
         onClick={handleToggleMute}
         style={muteBtn}
+        aria-pressed={isMuted}
         aria-label={isMuted ? "Activar audio" : "Silenciar audio"}
         title={isMuted ? "Activar audio" : "Silenciar audio"}
       >
@@ -75,9 +77,11 @@ export function AmbientToggle({ color = "#78350f" }: AmbientToggleProps) {
 
       {/* 2. Ambient Toggle */}
       <button
+        type="button"
         onClick={handleToggleAmbient}
         style={ambientBtn}
         disabled={isMuted}
+        aria-pressed={isAmbient}
         aria-label={isAmbient ? "Pausar sonido ambiental" : "Activar sonido ambiental"}
         title={isAmbient ? "Pausar sonido ambiental" : "Activar sonido ambiental"}
       >

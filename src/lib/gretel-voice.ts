@@ -26,8 +26,8 @@ export const GRETEL_PRIMARY_VOICE = "Leda";
 export const GRETEL_FALLBACK_VOICE = "Sulafat";
 
 const DEFAULT_PROVIDER_CONFIG: GretelVoiceProviderConfig = {
-  type: "browser-tts",
-  name: "Browser Native TTS (Neutral LatAm Spanish)",
+  type: "recorded-audio",
+  name: "Authentic Gretel Audio (Recorded Kid-Voice)",
   primaryVoiceName: GRETEL_PRIMARY_VOICE,
   fallbackVoiceName: GRETEL_FALLBACK_VOICE,
   pitch: 1.1,
@@ -153,33 +153,40 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     return;
   }
 
-  if (activeProviderConfig.type !== "browser-tts" && activeProviderConfig.speakFn) {
-    const token = claimSpeech("gretel");
-    let started = false;
-    let ended = false;
-    const start = () => {
-      if (started || ended || !speechIsCurrent(token)) return;
-      started = true;
-      window.dispatchEvent(new CustomEvent("gretel:speak_start"));
-      handlers.onStart?.();
-    };
-    const finish = () => {
-      if (ended) return;
-      ended = true;
-      if (speechIsCurrent(token)) releaseSpeech(token);
-      if (started) window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
-      handlers.onEnd?.();
-    };
-    registerSpeechCleanup(token, finish);
-    start();
-    try {
-      lastSpokenVoiceName = `${activeProviderConfig.name} (${activeProviderConfig.type})`;
-      await activeProviderConfig.speakFn(text, { onStart: start, onEnd: finish });
-    } catch {
-      /* handled gracefully */
-    } finally {
-      finish();
+  if (activeProviderConfig.type !== "browser-tts") {
+    if (activeProviderConfig.speakFn) {
+      const token = claimSpeech("gretel");
+      let started = false;
+      let ended = false;
+      const start = () => {
+        if (started || ended || !speechIsCurrent(token)) return;
+        started = true;
+        window.dispatchEvent(new CustomEvent("gretel:speak_start"));
+        handlers.onStart?.();
+      };
+      const finish = () => {
+        if (ended) return;
+        ended = true;
+        if (speechIsCurrent(token)) releaseSpeech(token);
+        if (started) window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+        handlers.onEnd?.();
+      };
+      registerSpeechCleanup(token, finish);
+      start();
+      try {
+        lastSpokenVoiceName = `${activeProviderConfig.name} (${activeProviderConfig.type})`;
+        await activeProviderConfig.speakFn(text, { onStart: start, onEnd: finish });
+      } catch {
+        /* handled gracefully */
+      } finally {
+        finish();
+      }
+      return;
     }
+    // Per authentic audio policy: unrecorded audio lines remain completely silent.
+    // When provider is recorded-audio or custom and no recording/speakFn is available,
+    // NEVER fall through to browser-tts or device speech synthesis.
+    handlers.onEnd?.();
     return;
   }
 
@@ -242,6 +249,8 @@ export async function speakAsGretel(text: string, handlers: GretelVoiceHandlers 
     }
   });
 }
+
+export const speak = speakAsGretel;
 
 export const HOME_GREETING = "Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos.";
 export function buildHomeIntroLines(): string[] { return [HOME_GREETING]; }

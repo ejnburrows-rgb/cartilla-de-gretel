@@ -1,0 +1,32 @@
+{
+  "startedUtc": "2026-11-03T20:03:13.981403+00:00",
+  "wrapperPid": 37108,
+  "head": "610727d749f018c49826e2b5f31f7df84953b453",
+  "command": [
+    "pnpm.cmd",
+    "exec",
+    "playwright",
+    "test",
+    "tests/e2e/crm-local-demo.spec.ts",
+    "--grep",
+    "local CRM demo completes student activity, notes, assignment and report at laptop",
+    "--project=chromium",
+    "--workers=1",
+    "--reporter=line,json",
+    "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\crm-layout-replay\\artifacts"
+  ],
+  "status": "finished",
+  "runnerPid": 35148,
+  "exitCode": 0,
+  "jsonPresent": true,
+  "jsonSha256": "ca7766d3ca2ed583090600e40e429116adf590de2f5793ffb839927260c09f8d",
+  "stats": {
+    "startTime": "2026-11-03T20:03:17.462Z",
+    "duration": 97544.178,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "finishedUtc": "2026-11-03T20:04:55.128875+00:00"
+}

@@ -1,0 +1,17 @@
+
+
+
+
+Running 1 test using 1 worker
+
+
+
+[1/1] [chromium] › tests\e2e\activity-completion-foundation.spec.ts:10:1 › p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers
+
+
+
+
+
+
+
+  1 passed (43.1s)

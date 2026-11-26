@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "event_id": "crm-phone-images-ready-4c807085eaa7508d7f326448b65ba4d07d08faa9",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "crm-phone-images-ready",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:65cabae854ab9c312230905619de581acf6af6292176706449d60e98f0d0e451",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:de75b77eb3ee7fbe1edceeefbca581661bdb440f8286ea442513b81504c89909",
+  "dependency_digest": "sha256:9d4581da8918da04474629e51ba1fd1a5c639c35931d1378bca25a232ff436cf",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:cd91537f41dc8280e419aff5505d2373eedb30f89bb8468dde2782446cd4aeb3",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:0e6dd36d47d086693c9adddfa71d733f19dcdd42f62c090a64527bece976e5ee",
+  "invalidation": {
+    "schema_version": "1.0",
+    "invalidates": [
+      "sha256:e767e6f4c911df6e29561eabe87072523258a10bffb10d2218cbc3dc7d08c496"
+    ],
+    "action_scope_digest": "sha256:65cabae854ab9c312230905619de581acf6af6292176706449d60e98f0d0e451",
+    "reason_code": "evaluator_changed",
+    "changes": [
+      {
+        "field": "candidate_digest",
+        "before": "sha256:d5a0a19037aefb40917470f5b484dbeae4cc167def702868383c45f94babc0a9",
+        "after": "sha256:de75b77eb3ee7fbe1edceeefbca581661bdb440f8286ea442513b81504c89909"
+      },
+      {
+        "field": "evaluator_digest",
+        "before": "sha256:0424bb5398fe36e6d5fa7e49e1e3c5e12e0376b1938609f4f4dc80b341f7f5d3",
+        "after": "sha256:cd91537f41dc8280e419aff5505d2373eedb30f89bb8468dde2782446cd4aeb3"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "candidate_digest",
+        "digest": "sha256:de75b77eb3ee7fbe1edceeefbca581661bdb440f8286ea442513b81504c89909"
+      },
+      {
+        "kind": "evaluator_digest",
+        "digest": "sha256:cd91537f41dc8280e419aff5505d2373eedb30f89bb8468dde2782446cd4aeb3"
+      }
+    ],
+    "invalidation_id": "sha256:60f902b994bc0b895470de6624424109ae72394d1a4f63b91d7a359203ba3f8a"
+  }
+}

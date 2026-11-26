@@ -10,14 +10,14 @@ This file defines shared state/interaction behavior across the Student Workbook 
 
 ## 1. Student interaction kernel
 
-One shared interaction kernel owns cross-activity behavior.
+One shared interaction kernel owns cross-activity behavior. The latest pencil and mark contract in `STUDENT_INTERACTION_STANDARD.md` defines the ONE cursor anchored at `(0,0)`, graphite hotspot, charcoal stroke/filter and hover-to-write continuity. Older immediate-color and separate-pencil behavior is superseded; this contract does not certify runtime implementation.
 
 Canonical observable states:
 1. **idle** — learner can act; Gretel quiet.
-2. **marking** — pencil/handwriting action is being rendered.
-3. **neutral-hold** — short internal pause after the mark is drawn, before the result event. Owner 2026-10-06: Real Workbook Mark circles are already green (right) or red (wrong) from the first line; no gray waiting period is shown.
-4. **success** — correct work persists; correct-selection mark may turn green; Gretel receives the approved positive event.
-5. **retry-erase** — wrong work is visibly erased with the physical eraser language; Gretel receives the approved retry event.
+2. **marking** — the shared single pencil cursor draws the velocity-modulated charcoal mark with paper grain.
+3. **neutral-hold** — the completed charcoal mark remains visible for 400ms before the result color, per the November 1 contract.
+4. **success** — the mark transitions to Forest Green (`#258351`) and stays; Gretel receives the approved positive event only where allowed.
+5. **retry-erase** — the mark transitions to Crimson Red (`#c4320a`) and the physical pink school eraser removes it with 12 small animated SVG crumbs; Gretel receives the approved retry event only where allowed.
 6. **complete** — activity/page completion is recorded and navigation eligibility updates.
 
 The kernel owns:
@@ -150,11 +150,13 @@ For the page-turn system, proof must include:
 Final regression remains responsible for end-to-end confirmation across the assembled product.
 
 
-## 9. Issue ownership
+## 9. Historical implementation references
 
-- #445 owns the shared student interaction kernel reference implementation plus p1/p2.
-- #446–#449 own activity-family adapters only.
-- #455 owns Gretel behavior as a consumer of shared kernel events.
-- #470 owns the physical Workbook + Flip Chart page-turn implementation.
-- #450 verifies the assembled Workbook including #470 integration.
-- #457 verifies the assembled teacher/Flip Chart experience including #470 integration.
+The issue roles below record the original implementation split, not current assignments or authority to restart work. Use `AGENTS.md` and [GitHub #877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877) for current verified ownership, remaining work and proof. Reuse still-valid implementation evidence.
+
+- #445 recorded the shared student interaction kernel reference implementation plus p1/p2.
+- #446–#449 recorded activity-family adapters only.
+- #455 recorded Gretel behavior as a consumer of shared kernel events.
+- #470 recorded the physical Workbook + Flip Chart page-turn implementation.
+- #450 recorded assembled Workbook verification including #470 integration.
+- #457 recorded assembled teacher/Flip Chart verification including #470 integration.

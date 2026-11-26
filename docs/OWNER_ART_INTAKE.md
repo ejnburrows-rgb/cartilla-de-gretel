@@ -20,6 +20,10 @@ The intake tooling replaces manual artwork wiring cycles with a deterministic, v
 
 ---
 
+## Approval prerequisite
+
+`--allow-overwrite-verified` and `--force` describe tool capability, not owner permission. Follow [AGENTS.md](../AGENTS.md): obtain explicit approval for the exact affected assets before overwriting verified work. A successful dry run, supplied file or force flag does not establish visual/source approval or permission to replace an asset.
+
 ## Command Line Usage
 
 ### Validate / Dry-Run an Owner Art Package

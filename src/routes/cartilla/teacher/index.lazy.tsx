@@ -9,6 +9,7 @@ import {
   Home,
   ClipboardCheck,
   Music,
+  Sparkles,
 } from "lucide-react";
 
 export const Route = createLazyFileRoute("/cartilla/teacher/")({
@@ -51,6 +52,20 @@ const ENTRY_POINTS: EntryPoint[] = [
     to: "/cartilla/teacher/reportes",
     icon: <FileSpreadsheet className="w-6 h-6" />,
     accent: "#9333ea",
+  },
+  {
+    title: "Asistente Gretel",
+    description: "Orientación pedagógica, dosificación de tiempos, rotafolio y apoyo a rezago.",
+    to: "/cartilla/teacher/gretel",
+    icon: <Sparkles className="w-6 h-6" />,
+    accent: "#ea580c",
+  },
+  {
+    title: "Maestra suplente",
+    description: "Guía preprogramada de las 24 lecciones, práctica local y cuaderno auténtico.",
+    to: "/cartilla/suplente",
+    icon: <Sparkles className="w-6 h-6" />,
+    accent: "#0f766e",
   },
   {
     title: "Ayuda",
@@ -117,7 +132,7 @@ function TeacherHub() {
         </p>
       </header>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {ENTRY_POINTS.map((entry) => (
           <Link
             key={entry.title}

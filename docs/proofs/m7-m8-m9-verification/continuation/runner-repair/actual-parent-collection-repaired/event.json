@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "event_id": "actual-parent-collection-repaired",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "parent-collection-2",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:6b99d491f5c40e31c60f7fa8ba1c0ce765e288b5daadaaa9f04335376461fb42",
+  "requirements_digest": "sha256:550aacb5518c9c4c2ea428cc40c26c0ebae3a40fd1ab1bd8e2417dd3c2d5614c",
+  "candidate_digest": "sha256:b84cad058e27fc5658a644a631fc7e80220b1a8d2aa43ce31ead4aaca9c1f75a",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:c5de21a341a3f78be658ca55e7c034e93800884a9a07d936929136515f6cac82",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:582b97e5ecf3151600e61e7676fb5c9e15590014701c385a5796b7cf5bef75ae",
+  "invalidation": {
+    "schema_version": "1.0",
+    "invalidation_id": "preload-owner-mainthread-repair",
+    "invalidates": [
+      "sha256:b758eabfadc7bc75ff8e0cc9780203f0fed91669e5d3870628286590b44be8c1"
+    ],
+    "action_scope_digest": "sha256:6b99d491f5c40e31c60f7fa8ba1c0ce765e288b5daadaaa9f04335376461fb42",
+    "reason_code": "evaluator_changed",
+    "changes": [
+      {
+        "field": "evaluator_digest",
+        "before": "sha256:2545819fd85644406bd1b30c582531b879b771a3c8fc335902ec2f9f3f485bf2",
+        "after": "sha256:c5de21a341a3f78be658ca55e7c034e93800884a9a07d936929136515f6cac82"
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "evaluator_digest",
+        "digest": "sha256:c5de21a341a3f78be658ca55e7c034e93800884a9a07d936929136515f6cac82"
+      }
+    ]
+  }
+}

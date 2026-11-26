@@ -1,5 +1,43 @@
 import { test, expect, type Page } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
+import { appendFileSync, writeFileSync } from 'node:fs';
+
+const readinessDiagnostic = process.env.PLAYWRIGHT_CRM_DIAGNOSTICS === '1';
+test.beforeEach(async ({ page }, testInfo) => {
+ if(!readinessDiagnostic) return;
+ const destination=testInfo.outputPath('crm-readiness-events.ndjson');
+ const log=(kind:string,detail:unknown)=>appendFileSync(destination,JSON.stringify({utc:new Date().toISOString(),kind,detail})+'\n');
+ const pathname=(url:string)=>{try{return new URL(url).pathname;}catch{return 'unparseable';}};
+ page.on('domcontentloaded',()=>log('domcontentloaded',pathname(page.url())));
+ page.on('load',()=>log('load',pathname(page.url())));
+ page.on('requestfailed',request=>log('requestfailed',{path:pathname(request.url()),failure:request.failure()?.errorText}));
+ page.on('response',response=>{if(response.status()>=400)log('http-error',{path:pathname(response.url()),status:response.status()});});
+ page.on('pageerror',error=>log('pageerror',{name:error.name,message:error.message.slice(0,400)}));
+ await page.exposeFunction('__crmReportReadiness',(state:unknown)=>log('heading-ready',state));
+ await page.addInitScript(()=>{
+  const state=(window as any).__crmReadiness={documentStarted:performance.now(),domReady:null,headingReady:null};
+  document.addEventListener('DOMContentLoaded',()=>{
+   state.domReady=performance.now();
+   const observe=()=>{
+    if(document.querySelector('h1')?.textContent?.trim()!=='Hoy en tu clase')return;
+    state.headingReady=performance.now();observer.disconnect();
+    void (window as any).__crmReportReadiness({...state}).catch(()=>{});
+   };
+   const observer=new MutationObserver(observe);
+   observer.observe(document.documentElement,{subtree:true,childList:true});observe();
+  });
+ });
+});
+test.afterEach(async ({ page },testInfo)=>{
+ if(!readinessDiagnostic)return;
+ const diagnostic=await page.evaluate(()=>({
+  readiness:(window as any).__crmReadiness,
+  navigation:performance.getEntriesByType('navigation').map(entry=>{const value=entry as PerformanceNavigationTiming;return {responseEnd:value.responseEnd,domContentLoadedEventEnd:value.domContentLoadedEventEnd,loadEventEnd:value.loadEventEnd,duration:value.duration};}),
+  resources:performance.getEntriesByType('resource').map(entry=>{const value=entry as PerformanceResourceTiming;return {path:new URL(value.name).pathname,start:value.startTime,responseEnd:value.responseEnd,duration:value.duration,bytes:value.transferSize};}),
+ })).catch(error=>({unavailable:String(error)}));
+ writeFileSync(testInfo.outputPath('crm-readiness.json'),JSON.stringify(diagnostic,null,2));
+ if(testInfo.status!==testInfo.expectedStatus)await page.screenshot({path:testInfo.outputPath('failure.png'),fullPage:true}).catch(()=>{});
+});
 
 async function noOverflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
@@ -10,7 +48,7 @@ async function noOverflow(page: Page) {
   }).map(el=>el.getAttribute('aria-label')||el.textContent))).toEqual([]);
 }
 for (const [name,width,height] of [['laptop',1366,768],['tablet',768,1024],['phone',390,844],['projector',1920,1080]] as const) {
- test(`local CRM demo completes student activity, notes, assignment and report at ${name} size without Supabase`,async({page})=>{
+ test(`local CRM demo completes student activity, notes, assignment and report at ${name} size without Supabase`,async({page},testInfo)=>{
   test.setTimeout(120000);
   await page.setViewportSize({width,height});
   const backendRequests:string[]=[];
@@ -74,6 +112,16 @@ for (const [name,width,height] of [['laptop',1366,768],['tablet',768,1024],['pho
   await expect(viewer).toHaveAttribute('data-page-complete','true',{timeout:15000});
   await page.reload();
   await expect(viewer).toHaveAttribute('data-page-complete','true');
+  const pictures=viewer.locator('.fp-ix-cell img.living-illustration__art');
+  await expect(pictures).toHaveCount(16);
+  const pictureState=()=>pictures.evaluateAll(images=>images.map(node=>{
+   const image=node as HTMLImageElement;
+   return {alt:image.alt,src:new URL(image.currentSrc||image.src).pathname,complete:image.complete,naturalWidth:image.naturalWidth};
+  }));
+  if(readinessDiagnostic)writeFileSync(testInfo.outputPath('student-images-before.json'),JSON.stringify(await pictureState(),null,2));
+  await expect.poll(async()=> (await pictureState()).filter(image=>!image.complete||image.naturalWidth===0),{message:'All sixteen workbook pictures must load before visual proof'}).toEqual([]);
+  await pictures.evaluateAll(images=>Promise.all(images.map(node=>(node as HTMLImageElement).decode())));
+  if(readinessDiagnostic)writeFileSync(testInfo.outputPath('student-images-ready.json'),JSON.stringify(await pictureState(),null,2));
   await page.screenshot({path:`docs/proofs/crm-demo/student-${name}.png`,fullPage:true});
   await page.getByRole('link',{name:'Volver al CRM',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Demo Ana',exact:true,level:1})).toBeVisible();

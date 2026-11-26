@@ -1,0 +1,90 @@
+{
+  "head": "3519b0e273c60935b16b5c9fa4c9e2f1414ead24",
+  "sourcePdfSha256": "d7fb3dff4e63caf3443226e57a9ef700f8974acd4ad8f08f44e2792e13cc4930",
+  "sourceJpegIntermediateSha256": "bc88ef24272c5c7f2a84ee32e64610730c9fc15df8bfebdbef3f40e5cbea792b",
+  "candidatePath": "public/cartilla/art/optimized/flipchart-native/p006-scene.png",
+  "candidateSha256": "91d1f0ac9969191b13db7cc9355b697c4d37375cf7b14939133e60ec5f6eed43",
+  "sceneCropLTRB": [
+    100,
+    100,
+    1050,
+    1350
+  ],
+  "removedSaturatedGroundPixelCount": 0,
+  "removedSaturatedGroundBBoxInclusive": null,
+  "samples": [
+    {
+      "x": 575,
+      "y": 1056,
+      "sourceRgb": [
+        251,
+        252,
+        89
+      ],
+      "candidateRgba": [
+        251,
+        252,
+        89,
+        255
+      ]
+    },
+    {
+      "x": 638,
+      "y": 1074,
+      "sourceRgb": [
+        246,
+        243,
+        66
+      ],
+      "candidateRgba": [
+        246,
+        243,
+        66,
+        255
+      ]
+    },
+    {
+      "x": 221,
+      "y": 1102,
+      "sourceRgb": [
+        240,
+        236,
+        27
+      ],
+      "candidateRgba": [
+        240,
+        236,
+        27,
+        255
+      ]
+    },
+    {
+      "x": 192,
+      "y": 1129,
+      "sourceRgb": [
+        244,
+        244,
+        62
+      ],
+      "candidateRgba": [
+        244,
+        244,
+        62,
+        255
+      ]
+    }
+  ],
+  "bottomBandLTRB": [
+    0,
+    900,
+    950,
+    1250
+  ],
+  "bottomBandAllOpaque": true,
+  "bottomBandRgbMatchesReconstructedSource": true,
+  "measurementLimit": "Colored-pixel predicate is diagnostic, not an alpha restoration mask. Full visual source inspection is required to identify the complete grass region.",
+  "pngPixelsAboveBandExactlyUnchanged": true,
+  "webpBottomBandExactlyMatchesPngRgba": true,
+  "pngSha256": "91d1f0ac9969191b13db7cc9355b697c4d37375cf7b14939133e60ec5f6eed43",
+  "webpSha256": "d2e8ccda3a939a43b6ad6bc0cb538bb8df4444db662f41dcae509dd08af114f2"
+}

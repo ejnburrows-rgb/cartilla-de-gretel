@@ -120,7 +120,7 @@ The Student Workbook and teacher Flip Chart share book-faithful structure/conten
 
 ## Student Workbook archetype + interaction standards
 
-`WORKBOOK_ARCHETYPE_STANDARD.md` is the owner-approved source of truth for repeated Student Workbook visual/source-layout families. `STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/game-like treatments are superseded. `DESIGN.md` and `UX-CONTRACT.md` define the shared visual/system ownership and physical page-turn presentation for Workbook and Flip Chart.
+`WORKBOOK_ARCHETYPE_STANDARD.md` is the owner-approved source of truth for repeated Student Workbook visual/source-layout families. `PENCIL-CURSOR-SPEC.md` is the official source of truth for the `@image1` extended photographic pencil cursor and tip-locked writing mechanics. `STUDENT_INTERACTION_STANDARD.md` is the owner-approved source of truth for student-facing Workbook behavior and motion. It defines Pencil Retry, real Workbook marks, pencil-drawn matching lines, progressive-fade tracing, premium pencil/eraser drawing tools, real pencil syllable circles, pencil-written word completion, and direct sentence handwriting. Older lasso/red-X/cropped-pencil/game-like treatments are superseded. `DESIGN.md` and `UX-CONTRACT.md` define the shared visual/system ownership and physical page-turn presentation for Workbook and Flip Chart.
 
 ## Reference materials
 
@@ -162,7 +162,7 @@ Page transitions must reinforce the physical-book identity without changing page
 
 - **Student Workbook:** advancing turns the current right-hand page from the outer edge across the center spine, right-to-left, with restrained paper curl, underside, and moving shadow. Previous reverses naturally.
 - **Teacher Flip Chart:** advancing lifts the current sheet from the lower edge and turns it upward over the top binding/rings like a classroom flip chart. Previous reverses naturally.
-- Keep the motion elegant and brief: approximately 0.75–0.85 s for Workbook and 0.9–1.05 s for Flip Chart.
+- Use the newer owner-approved timing in `UX-CONTRACT.md`: a 2.0 s Workbook page curl or Flip Chart flip, preceded by an approximately 0.3 s corner zoom for tap/button/keyboard triggers. Interactive drags follow the gesture; reduced-motion behavior remains as defined below.
 - The destination page must already be ready underneath so there is no blank flash.
 - Disable repeated navigation while the turn is active.
 - Respect reduced motion with an immediate or very short non-3D transition.

@@ -4,6 +4,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, fireEvent, cleanup, screen, act } from "@testing-library/react";
 import { DirectPencilConnector } from "../PencilConnector";
+import { isEraserActive, PENCIL_CONTRACT } from "@/lib/pencil-contract";
 
 vi.mock("@/lib/piano-audio", () => ({
   playCorrectChord: vi.fn(),
@@ -106,6 +107,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
     );
 
     fireEvent.click(screen.getByRole("button", { name: "oso" }));
+    expect(container.querySelector(".am-direct-pencil")?.getAttribute("data-page-turn-busy")).toBe("true");
 
     expect(playWrongBuzz).not.toHaveBeenCalled();
     expect(speakGretelPhrase).not.toHaveBeenCalled();
@@ -116,6 +118,7 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     await flushAnim(150);
     expect(screen.getByRole("button", { name: "oso" }).classList.contains("is-retry")).toBe(false);
+    expect(container.querySelector(".am-direct-pencil")?.hasAttribute("data-page-turn-busy")).toBe(false);
   });
 
   it("toggling focus mode expands stage for precision drawing", () => {
@@ -285,4 +288,83 @@ describe("Approved wooden pencil connector — line and pair matching", () => {
 
     expect(centerBtn.classList.contains("is-active")).toBe(true);
   });
+  it("keeps one tool while another line starts during wrong-answer erasure", () => {
+    vi.useFakeTimers();
+    try {
+      const onResult = vi.fn();
+      const { container } = render(<DirectPencilConnector pageKey="single-tool-retry"
+        targets={p17Targets} mode="mark" centerLabel="Uu" reducedMotion={false} onResult={onResult} />);
+      fireEvent.click(screen.getByRole("button", { name: "oso" }));
+      act(() => vi.advanceTimersByTime(1000));
+      const original = container.querySelector(".am-direct-pencil__retry-group");
+      const center = screen.getByRole("button", { name: "Vocal central Uu" });
+      fireEvent.pointerDown(center, { clientX: 100, clientY: 100, pointerId: 1, button: 0 });
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+      // A second wrong attempt is queued, and cannot restart the first eraser.
+      fireEvent.click(screen.getByRole("button", { name: "estrella" }));
+      expect(container.querySelector(".am-direct-pencil__retry-group")).toBe(original);
+      expect(onResult).toHaveBeenCalledTimes(2);
+      act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
+      expect(container.querySelector(".am-direct-pencil__retry-group")).not.toBe(original);
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(0);
+      act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.holdMs + PENCIL_CONTRACT.redShowMs));
+      expect(container.querySelectorAll(".workbook-pencil__shape")).toHaveLength(1);
+      act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
+      expect(container.querySelector(".am-direct-pencil__retry-group")).toBeNull();
+      // The input held during erasure resumes, rather than being discarded.
+      expect(container.querySelector(".am-direct-pencil__active-line")).toBeTruthy();
+      fireEvent.pointerCancel(container.querySelector(".am-direct-pencil__stage")!);
+      expect(document.documentElement.hasAttribute("data-workbook-pencil-active")).toBe(false);
+    } finally {
+      cleanup();
+      vi.useRealTimers();
+    }
+  });
+
+  it("uses Option B contract timing (400ms charcoal hold, #258351 green, #c4320a red, 3.5s holdEraser)", () => {
+    vi.useFakeTimers();
+    try {
+      const { container } = render(
+        <DirectPencilConnector
+          pageKey="contract-timing"
+          targets={p17Targets}
+          mode="mark"
+          centerLabel="Uu"
+          reducedMotion={false}
+        />,
+      );
+
+      // Correct target holds charcoal for 400ms before settling to #258351 green
+      fireEvent.click(screen.getByRole("button", { name: "uniforme" }));
+      expect(container.querySelector(".am-direct-pencil__holding-group line")?.getAttribute("stroke")).toBe(
+        PENCIL_CONTRACT.charcoal,
+      );
+      expect(container.querySelector(".am-direct-pencil__line-group")).toBeNull();
+      act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.holdMs));
+      expect(container.querySelector(".am-direct-pencil__holding-group")).toBeNull();
+      expect(container.querySelector(".am-direct-pencil__line-group line")?.getAttribute("stroke")).toBe(
+        PENCIL_CONTRACT.correct,
+      );
+
+      // Wrong target: 400ms charcoal -> 600ms red (#c4320a) -> 3500ms holdEraser()
+      fireEvent.click(screen.getByRole("button", { name: "oso" }));
+      expect(container.querySelector(".am-direct-pencil__retry-line")?.getAttribute("stroke")).toBe(
+        PENCIL_CONTRACT.charcoal,
+      );
+      expect(isEraserActive()).toBe(false);
+      act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.holdMs));
+      expect(container.querySelector(".am-direct-pencil__retry-line")?.getAttribute("stroke")).toBe(
+        PENCIL_CONTRACT.wrong,
+      );
+      expect(isEraserActive()).toBe(false);
+      act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.redShowMs));
+      expect(isEraserActive()).toBe(true);
+      act(() => vi.advanceTimersByTime(PENCIL_CONTRACT.eraseMs));
+      expect(isEraserActive()).toBe(false);
+    } finally {
+      cleanup();
+      vi.useRealTimers();
+    }
+  });
+
 });

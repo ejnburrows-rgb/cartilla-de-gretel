@@ -1,0 +1,11 @@
+
+ RUN  v4.1.8 D:/Downloads/cartilla-1247-continuation-work/integration
+
+
+ Test Files  no tests
+      Tests  no tests
+     Errors  1 error
+   Start at  15:08:57
+   Duration  60.03s (transform 0ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
+JSON report written to C:/Users/EJN/Documents/Codex/2026-11-03/new-chat-2/work/isolated-default-fork-node24-comparison/results.json

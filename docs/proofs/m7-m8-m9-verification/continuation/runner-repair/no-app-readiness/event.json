@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "no-app-readiness",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "no-app-readiness",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:34b8b0e9b0c82626c29fea624148dd68dc53dcd3641cb783f6692e192bec2e79",
+  "requirements_digest": "sha256:ff3fb75f1ae910c402543893da0292cf2328dfaca53454f238ab26dd32647ee5",
+  "candidate_digest": "sha256:9b601344e22567ad6a5d926c499d77902b442ed4f9777bb697aeb8a0c74bdfe1",
+  "dependency_digest": "sha256:9d4581da8918da04474629e51ba1fd1a5c639c35931d1378bca25a232ff436cf",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:53bc2cdd5a16b26dfbc1b3fe83e1987cfecca5a4f323534f4f4d11380a0bd2b0",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:c019498f66bdd341088f05010f2552adab17a45b2c37ae04eac4b749ca321569"
+}

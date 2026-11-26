@@ -10,6 +10,7 @@ describe('current supplied still wins over stale embedded motion',()=>{
  it('blocks all old picture overrides without altering originals',()=>{
   expect(Object.keys(stale)).toEqual([
    '/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg',
+   '/cartilla/art/optimized/flipchart-native/p006-elefante.png',
    '/cartilla/art/faithful/vocal-a/abeja.webp',
   ]);
   for(const src of Object.keys(stale)){
@@ -18,7 +19,8 @@ describe('current supplied still wins over stale embedded motion',()=>{
   }
  });
  it('uses the replacement canvas bounds so the flipchart does not crop the elephant',()=>{
-  expect(bounds['/cartilla/art/optimized/flipchart-native/p006-elefante.png']).toEqual([320,320,12,24,296,271]);
+  // The full original-PDF elephant replaced the old 320px trimmed canvas.
+  expect(bounds['/cartilla/art/optimized/flipchart-native/p006-elefante.png']).toEqual([570,540,0,0,570,540]);
  });
  it('keeps unaffected verified moving pictures available',()=>{
   expect(getLivingActor('/cartilla/art/faithful/vocal-o/oso.webp')?.aliveSrc).toContain('oso-alive.svg');

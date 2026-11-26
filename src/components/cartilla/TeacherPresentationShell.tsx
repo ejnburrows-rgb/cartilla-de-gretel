@@ -7,6 +7,7 @@ import { useState, useEffect, useRef, type CSSProperties, type MouseEvent, type 
 import { Maximize2, Minimize2, MousePointerClick, X, Focus, Hand } from "lucide-react";
 import { getTeacherHandMode, setTeacherHandMode, type TeacherHandMode } from "@/lib/teacher-hand-mode";
 import { TeacherPresentationContext } from "@/lib/teacher-presentation-context";
+import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 import "@/styles/flipchart-presenter.css";
 
 interface TeacherPresentationShellProps {
@@ -207,6 +208,7 @@ export function TeacherPresentationShell({
       )}
 
       {/* Full-width stage — no max-w postage stamp */}
+      {!bare && <DemoControlCenter floating />}
       <main className="fc-presenter__main" data-testid="teacher-presenter-stage">
         <div className="fc-presenter__stage">{children}</div>
       </main>

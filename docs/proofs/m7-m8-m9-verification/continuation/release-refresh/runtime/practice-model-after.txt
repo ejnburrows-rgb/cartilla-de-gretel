@@ -1,0 +1,16 @@
+### Result
+{"head":"49747c7ef5fdff5926d463f491fad7c186b69d26","url":"http://127.0.0.1:4187/cartilla/practica","viewport":{"width":390,"height":844},"displayedTarget":"va","bounds":{"x":50,"y":410,"width":290,"height":48},"scoreText":"✓ 1 ✗ 0","proof":{"tts":[],"touches":[{"type":"touch","trusted":true},{"type":"touch","trusted":true}]},"scripts":["http://127.0.0.1:4187/assets/index.DBlQcCv-.js","http://127.0.0.1:4187/assets/react-vendor.D492bSYW.js","http://127.0.0.1:4187/assets/tanstack-router.D4LEfMkq.js","http://127.0.0.1:4187/assets/practica.lazy.DoYo0Z69.js","http://127.0.0.1:4187/assets/ActivityCarousel.CWAUX48v.js","http://127.0.0.1:4187/assets/page-layouts.D9ILynTV.js","http://127.0.0.1:4187/assets/workbook-pages.DPahBGZD.js","http://127.0.0.1:4187/assets/flipchart-native.BEAfJwxs.js","http://127.0.0.1:4187/assets/EscucharInstruccionButton.CGKAz89l.js","http://127.0.0.1:4187/assets/activity-events.D0q_xElR.js","http://127.0.0.1:4187/assets/lucide.Co_0L2OT.js","http://127.0.0.1:4187/assets/piano-audio.DNLD5kR_.js","http://127.0.0.1:4187/assets/core.esm.DvbZV938.js","http://127.0.0.1:4187/assets/LivingIllustration.B9nBKjAD.js","http://127.0.0.1:4187/assets/living-motion.C0I7nr5w.js","http://127.0.0.1:4187/assets/proxy.4I27vW6c.js","http://127.0.0.1:4187/assets/index.CXHAiFMv.js","http://127.0.0.1:4187/assets/index.DVtOiEUm.js","http://127.0.0.1:4187/assets/GretelFeedback.Dj-Jj1RA.js","http://127.0.0.1:4187/assets/GretelLiveAvatar.CIYJMOVI.js","http://127.0.0.1:4187/assets/GretelLayerRig.De78Cedr.js","http://127.0.0.1:4187/assets/gretel-master.Cp0_M3In.js","http://127.0.0.1:4187/assets/use-reduced-motion.C_up8z_B.js","http://127.0.0.1:4187/assets/useReducedMotion.BemIq3Iw.js","http://127.0.0.1:4187/assets/activity-routing.DsUJejgo.js","http://127.0.0.1:4187/assets/lesson-progress.CeeWzkUy.js","http://127.0.0.1:4187/assets/student-copy.kLgW176A.js","http://127.0.0.1:4187/assets/GardenBackdrop.DKdjVnZ-.js","http://127.0.0.1:4187/assets/KidButton.D9RkBzni.js"]}
+### Ran Playwright code
+```js
+await (async(page)=>{
+ const model=page.locator('p[aria-live="polite"][aria-atomic="true"]');
+ if(await model.count()!==1)throw new Error('Expected one visible model');
+ const target=(await model.innerText()).trim();if(!target)throw new Error('Model empty');
+ const bounds=await model.boundingBox();if(!bounds||bounds.y<0||bounds.y+bounds.height>844)throw new Error('Model not visible in phone viewport');
+ await page.screenshot({path:'output/playwright/startup-refresh/model-visible-390.png'});
+ await model.locator('..').getByRole('button',{name:target,exact:true}).tap();
+ await page.waitForFunction(()=>/✓\s*1/.test(document.querySelector('main')?.innerText||'')&&/✗\s*0/.test(document.querySelector('main')?.innerText||''));
+ await page.screenshot({path:'output/playwright/startup-refresh/model-correct-answer-390.png'});
+ return {head:'49747c7ef5fdff5926d463f491fad7c186b69d26',url:page.url(),viewport:page.viewportSize(),displayedTarget:target,bounds,scoreText:(await page.locator('main').innerText()).match(/✓\s*\d+\s*✗\s*\d+/)?.[0],proof:await page.evaluate(()=>window.__modelProof),scripts:await page.evaluate(()=>performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')&&r.name.endsWith('.js')).map(r=>r.name))};
+})(page);
+```

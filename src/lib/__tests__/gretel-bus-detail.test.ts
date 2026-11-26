@@ -59,3 +59,16 @@ it("hasGretelDemonstration returns false when localStorage contains corrupted JS
 
   localStorage.clear();
 });
+
+it("readAssistance gracefully recovers when localStorage contains corrupted JSON", async () => {
+  const { isGretelAssistedAttempt } = await import("../gretel-bus");
+  const { learnerStorageKey } = await import("../learner-storage");
+
+  const ASSISTANCE_KEY = "cartilla.gretel-assistance.v1";
+  localStorage.setItem(learnerStorageKey(ASSISTANCE_KEY), "invalid{json");
+
+  expect(() => isGretelAssistedAttempt("some-id")).not.toThrow();
+  expect(isGretelAssistedAttempt("some-id")).toBe(false);
+
+  localStorage.clear();
+});

@@ -1,0 +1,10 @@
+
+
+
+
+Running 1 test using 1 worker
+
+
+
+[1/1] [chromium] › tests\e2e\crm-local-demo.spec.ts:13:2 › local CRM demo completes student activity, notes, assignment and report at laptop size without Supabase
+  1 passed (1.6m)

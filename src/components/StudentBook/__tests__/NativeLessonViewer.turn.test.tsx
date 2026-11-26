@@ -172,6 +172,55 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
     });
 
     expect(current()).toBe(24);
+
+    // Guard check: neither backward nor forward corner drags may start or finish while a mark is active.
+    for (const status of ["drawing", "holding", "erasing", "connector"] as const) {
+      cleanup();
+      const onPageChange = vi.fn();
+      render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} onPageChange={onPageChange} />);
+      completePage(23);
+      const viewer = document.querySelector(".native-lesson-viewer")!;
+      vi.spyOn(viewer, "getBoundingClientRect").mockReturnValue({ width: 600, height: 800, left: 0, top: 0, right: 600, bottom: 800, x: 0, y: 0, toJSON: () => {} });
+      const next = screen.getByTestId("corner-next");
+      const mark = document.createElement("div");
+      mark.className = "workbook-pencil-mark";
+      if (status === "connector") mark.dataset.pageTurnBusy = "true";
+      else mark.dataset.markStatus = status;
+      viewer.appendChild(mark);
+      fireEvent.pointerDown(next, { pointerId: 1, clientX: 500, clientY: 700 });
+      fireEvent.pointerMove(next, { pointerId: 1, clientX: 100, clientY: 700 });
+      fireEvent.pointerUp(next, { pointerId: 1, clientX: 100, clientY: 700 });
+      act(() => vi.advanceTimersByTime(3000));
+      expect(current()).toBe(23);
+      expect(onPageChange).not.toHaveBeenCalled();
+      expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
+      mark.remove();
+      fireEvent.pointerDown(next, { pointerId: 2, clientX: 500, clientY: 700 });
+      fireEvent.pointerMove(next, { pointerId: 2, clientX: 100, clientY: 700 });
+      viewer.appendChild(mark);
+      fireEvent.pointerUp(next, { pointerId: 2, clientX: 100, clientY: 700 });
+      act(() => vi.advanceTimersByTime(3000));
+      expect(current()).toBe(23);
+      expect(onPageChange).not.toHaveBeenCalled();
+      expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
+      mark.remove();
+
+      fireEvent.click(screen.getByTestId("button-next"));
+      finishTurn();
+      expect(current()).toBe(24);
+      onPageChange.mockClear();
+      viewer.appendChild(mark);
+      const prev = screen.getByTestId("corner-prev");
+      fireEvent.pointerDown(prev, { pointerId: 3, clientX: 100, clientY: 700 });
+      fireEvent.pointerMove(prev, { pointerId: 3, clientX: 500, clientY: 700 });
+      fireEvent.pointerUp(prev, { pointerId: 3, clientX: 500, clientY: 700 });
+      fireEvent.click(prev);
+      act(() => vi.advanceTimersByTime(3000));
+      expect(current()).toBe(24);
+      expect(onPageChange).not.toHaveBeenCalled();
+      expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
+      mark.remove();
+    }
   });
 
   it("cancelling a long corner drag never turns the page, even if a click follows", () => {
@@ -308,6 +357,27 @@ describe("NativeLessonViewer real-paper page turn contracts", () => {
       fireEvent.pointerCancel(prev, { pointerId: 1 });
     });
 
+
     expect(viewer.getAttribute("data-turn-phase")).toBe("idle");
+  });
+
+  it("calls onFinish when clicking next on the last completed page and shows 'Terminar lección'", () => {
+    const onFinish = vi.fn();
+    render(<NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} initialPage={2} onFinish={onFinish} />);
+
+    expect(current()).toBe(25);
+
+    const nextBtn = screen.getByTestId("button-next");
+    expect(nextBtn.textContent).toMatch(/Terminar lección/i);
+
+    const isLocked = nextBtn.getAttribute("data-locked");
+    if (isLocked) {
+      fireEvent.click(nextBtn);
+      expect(onFinish).not.toHaveBeenCalled();
+      completePage(25);
+    }
+
+    fireEvent.click(nextBtn);
+    expect(onFinish).toHaveBeenCalledOnce();
   });
 });

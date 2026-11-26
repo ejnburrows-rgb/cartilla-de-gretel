@@ -24,13 +24,29 @@
   --lc-top: 12px;
   --lc-bottom: 12px;
   --ph: calc(100cqh - var(--lc-top) - var(--lc-bottom));
-  --pw: min(100cqw - 280px, var(--ph) * 1.45);
+  --pw: min(100cqw - 156px, var(--ph) * 1.56);
 }
 @media (orientation: portrait) {
   .lc-lesson-shell--fit .lc-lesson-main {
-    --lc-top: 44px;
-    --lc-bottom: 76px;
+    --lc-top: 8px;
+    --lc-bottom: 138px;
     --pw: calc(100cqw - 20px);
+  }
+}
+@media (min-width: 601px) and (orientation: portrait) {
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] {
+    margin-top: 40px;
+    margin-bottom: 8px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1520px) {
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] {
+    max-width: min(640px, calc(100vw - 640px));
+    flex-wrap: nowrap;
+    margin-bottom: 6px;
+  }
+  .lc-lesson-shell--fit .lc-lesson-main > nav[aria-label="Vista de la lección"] button {
+    white-space: nowrap;
   }
 }
 /* Short landscape phones: narrower side margins. */
@@ -42,7 +58,17 @@
 .lc-lesson-shell--fit .lc-lesson-main > .w-full { padding-top: var(--lc-top); }
 
 /* "Mis lecciones" stays as a small corner link. */
-.lc-lesson-shell--fit .lc-lesson-header { position: fixed; top: 4px; left: 8px; z-index: 60; width: auto; margin: 0; padding: 0; }
+.lc-lesson-shell--fit .lc-lesson-header { position: fixed; top: 4px; left: 8px; right: 8px; z-index: 60; width: auto; margin: 0; padding: 0; pointer-events: none; }
+.lc-lesson-shell--fit .lc-lesson-header > * { pointer-events: auto; }
+/* A sample learner has a return-to-CRM banner above the page. Keep its
+ * controls and the lesson selector in separate flow rows; the existing main
+ * container sizes the original page to the remaining space. */
+.lc-lesson-shell--fit > .lc-demo-student-banner + .lc-lesson-header {
+  position: static;
+  flex: none;
+  margin: 0;
+  padding: 4px 8px;
+}
 .lc-lesson-shell--fit .lc-lesson-header__back { font-size: 14px; gap: 6px; }
 .lc-lesson-shell--fit .lc-lesson-header__back svg { width: 18px; height: 18px; }
 
@@ -65,7 +91,7 @@
   display: flex;
   flex-direction: column;
   gap: calc(var(--ph) * .022);
-  padding: calc(var(--ph) * .045) 8% calc(var(--ph) * .06 + 34px) 8%;
+  padding: calc(var(--ph) * .034) 6.5% calc(var(--ph) * .048 + 30px) 6.5%;
   overflow: hidden;
 }
 .lc-lesson-shell--fit .native-lesson-viewer__content .faithful-page--edge-right .faithful-page__body { padding-right: 9.5%; }
@@ -159,7 +185,11 @@
  * until the page is finished. Labels stay for screen readers. */
 .lc-lesson-shell--fit .native-lesson-viewer__footer { position: fixed; right: 14px; bottom: 10px; z-index: 50; margin: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; max-width: min(360px, calc(100vw - 28px)); }
 .lc-lesson-shell--fit .native-lesson-viewer__hint { margin: 0; padding: 8px 12px; border-radius: 12px; background: #fffdf9; box-shadow: 0 4px 14px -6px #0004; font-size: 14px; }
-.lc-lesson-shell--fit .native-lesson-viewer__navigation { gap: 8px; }
+.lc-lesson-shell--fit .native-lesson-viewer__navigation { gap: 8px; margin-top: 0; padding-top: 0; border-top: 0; }
+.lc-lesson-shell--fit .native-lesson-viewer__progress { margin: 2px 0 8px; }
+@media (orientation: landscape) {
+  .lc-lesson-shell--fit .native-lesson-viewer__navigation { flex-direction: column-reverse; }
+}
 .lc-lesson-shell--fit .native-lesson-viewer__navigation > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .lc-lesson-shell--fit .native-lesson-viewer__navigation button { width: 52px; height: 52px; min-height: 0; padding: 0; border-radius: 50%; justify-content: center; box-shadow: 0 4px 12px -4px #0003; }
 .lc-lesson-shell--fit .native-lesson-viewer__navigation button svg { width: 24px; height: 24px; flex: none; }
@@ -281,7 +311,7 @@
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-row,
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells { display: flex; justify-content: center; align-items: center; column-gap: min(3.2cqw, 28px); }
 .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid .fp-ix-cell,
-.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 114cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1; }
+.lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-pick__cells .fp-ix-cell { flex: 0 1 132cqh; width: auto; min-width: 0; height: auto; max-height: 100%; aspect-ratio: 1.06; }
 
 /* ===== Lesson 16 (Vv) wide-screen design — swarm lane, 2026-10-18 =====
  * Owner-approved Lesson 3 design language applied to Lesson 16 pages 55–58:
@@ -460,4 +490,36 @@
 @media (orientation:portrait) {
  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto repeat(4,minmax(0,1fr)); gap:10px; }
  .lc-lesson-shell--fit .native-lesson-viewer__content .fp-ix-grid--paged .fp-ix-cell { width:auto; height:100%; max-width:100%; }
+}
+
+/* Phone lesson header: keep the selector and lesson tabs in separate rows.
+ * A fixed two-line header previously covered the top lesson tabs at 320-390px. */
+@media (max-width: 600px) {
+  .lc-lesson-shell--fit .lc-lesson-header {
+    position: static;
+    flex: none;
+    width: 100%;
+    margin: 0;
+    padding: 4px 8px;
+    flex-wrap: nowrap;
+    pointer-events: auto;
+  }
+  .lc-lesson-shell--fit .lc-lesson-header label {
+    min-width: 0;
+    max-width: calc(100% - 125px);
+    flex: 1;
+  }
+  .lc-lesson-shell--fit .lc-lesson-header label > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .lc-lesson-shell--fit .lc-lesson-header select {
+    min-width: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+  }
 }

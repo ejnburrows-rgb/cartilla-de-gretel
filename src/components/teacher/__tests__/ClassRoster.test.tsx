@@ -3,7 +3,7 @@ import { cleanup, render, screen, fireEvent, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ClassRoster } from "../ClassRoster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { listClasses, getClass } from "@/lib/teacher.functions";
+import { listClasses, getClass, createClass, deleteStudent } from "@/lib/teacher.functions";
 
 vi.mock("@/lib/teacher.functions", () => ({
   listClasses: vi.fn(),
@@ -51,7 +51,50 @@ const renderComponent = () => {
   );
 };
 
+describe("ClassRoster name search", () => {
+  it.each(["i", "İ", "  i  "])("finds İnés with query %s", async (query) => {
+    vi.mocked(listClasses).mockResolvedValueOnce([{
+      id: "synthetic-class", name: "Synthetic class", join_code: "DEMO01",
+      student_count: 2, created_at: "2026-01-01",
+    }]);
+    vi.mocked(getClass).mockResolvedValueOnce({
+      class: { id: "synthetic-class", name: "Synthetic class", join_code: "DEMO01", created_at: "2026-01-01" },
+      students: ["İnés", "Ana"].map((name, index) => ({
+        id: `synthetic-${index}`, display_name: name, student_code: `SYN${index}`,
+        created_at: "2026-01-01", archived_at: null, teacher_notes: null,
+        events: 0, lessons: 0, lastSeen: null, completionPercent: 0,
+      })),
+    });
+    renderComponent();
+    await screen.findByRole("button", { name: "İnés" });
+    fireEvent.change(screen.getByPlaceholderText("Buscar alumno por nombre…"), { target: { value: query } });
+    expect(screen.queryByRole("button", { name: "İnés" })).not.toBeNull();
+    expect(screen.queryByRole("button", { name: "Ana" })).toBeNull();
+  });
+});
+
 describe("ClassRoster error handling", () => {
+  it("displays error message when createClass rejects", async () => {
+    vi.mocked(listClasses).mockResolvedValueOnce([]);
+    vi.mocked(createClass).mockRejectedValueOnce(new Error("Error de prueba al crear clase"));
+
+    renderComponent();
+
+    // Wait for the empty state or form to be available
+    expect(await screen.findByText("Aún no tienes clases creadas")).toBeTruthy();
+
+    // Find the input and button
+    const input = screen.getByLabelText(/Nueva clase/i);
+    const button = screen.getByRole("button", { name: "Crear clase" });
+
+    // Type and submit
+    fireEvent.change(input, { target: { value: "Nueva Clase 123" } });
+    fireEvent.click(button);
+
+    // Verify error message
+    expect(await screen.findByText("Error de prueba al crear clase")).toBeTruthy();
+  });
+
   it("displays error state when listClasses rejects", async () => {
     vi.mocked(listClasses).mockRejectedValueOnce(new Error("Network Error"));
 
@@ -212,5 +255,44 @@ describe("ClassRoster error handling", () => {
     });
     expect(screen.getByText("Miembros de la Clase")).toBeTruthy();
     expect(screen.getByText("Ana")).toBeTruthy();
+  });
+
+  it("displays error state when deleteStudent rejects", async () => {
+    const classData = {
+      class: {
+        id: "class-1",
+        name: "Class 1",
+        join_code: "1234",
+        created_at: "2024-01-01T00:00:00Z"
+      },
+      students: [{
+        id: "s-1",
+        display_name: "Ana",
+        student_code: "A1",
+        created_at: "2024-01-01T00:00:00Z",
+        archived_at: null,
+        teacher_notes: null,
+        events: 0,
+        lessons: 0,
+        lastSeen: null,
+        completionPercent: 0
+      }]
+    };
+    vi.mocked(listClasses).mockResolvedValueOnce([
+      { id: "class-1", name: "Class 1", join_code: "1234", student_count: 1, created_at: "2024-01-01T00:00:00Z" }
+    ]);
+    vi.mocked(getClass).mockResolvedValueOnce(classData);
+    vi.mocked(deleteStudent).mockRejectedValueOnce(new Error("Error sintético al eliminar"));
+    vi.spyOn(window, "confirm").mockImplementation(() => true);
+
+    renderComponent();
+
+    expect(await screen.findByText("Ana")).toBeTruthy();
+
+    const deleteButton = await screen.findByTitle("Eliminar Alumno");
+    fireEvent.click(deleteButton);
+
+    expect(await screen.findByText("Error sintético al eliminar")).toBeTruthy();
+    expect(deleteStudent).toHaveBeenCalledWith({ data: { id: "s-1" } });
   });
 });

@@ -1,0 +1,36 @@
+[
+  {
+    "execPath": "C:/Program Files/nodejs/node.exe",
+    "events": [
+      {
+        "phase": "before-import",
+        "node": "v26.2.0"
+      },
+      {
+        "phase": "after-import"
+      }
+    ],
+    "started": 1793736770684,
+    "pid": 38804,
+    "exitCode": 0,
+    "signal": null,
+    "elapsedMs": 480
+  },
+  {
+    "execPath": "C:/Users/EJN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+    "events": [
+      {
+        "phase": "before-import",
+        "node": "v24.22.1"
+      },
+      {
+        "phase": "after-import"
+      }
+    ],
+    "started": 1793736771164,
+    "pid": 41420,
+    "exitCode": 0,
+    "signal": null,
+    "elapsedMs": 565
+  }
+]

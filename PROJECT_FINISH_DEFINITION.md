@@ -207,8 +207,8 @@ Do not expand the finish definition itself without a new explicit owner product 
 If another active document describes current state, priorities, implementation details, or task order differently, use:
 
 - PROJECT_FINISH_DEFINITION.md for **what must ultimately be true**;
-- PROJECT_SOURCE_OF_TRUTH.md for **current product state and owner-decided scope**;
-- tasks/plan.md and current GitHub reality for **how current gaps are being closed**;
+- PROJECT_SOURCE_OF_TRUTH.md for **approved curriculum, source fidelity and owner-decided product scope**;
+- GitHub issue #877, reconciled with current GitHub and published-app evidence, for **current work and how gaps are being closed**; AGENTS.md governs execution and approvals;
 - specialized canonical directives for **how specific work must be implemented**.
 
 No issue, PR, worker prompt, archived document, or stale status report may lower this finish bar.

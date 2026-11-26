@@ -1,0 +1,10 @@
+test_all_three_clis_reject_wrong_source_in_normal_and_optimized_mode (__main__.SourceBoundaryTests.test_all_three_clis_reject_wrong_source_in_normal_and_optimized_mode) ... ok
+test_directory_is_rejected (__main__.SourceBoundaryTests.test_directory_is_rejected) ... ok
+test_exact_bytes_at_operator_selected_location_without_pdf_suffix (__main__.SourceBoundaryTests.test_exact_bytes_at_operator_selected_location_without_pdf_suffix) ... ok
+test_missing_source_is_rejected (__main__.SourceBoundaryTests.test_missing_source_is_rejected) ... ok
+test_unverified_bytes_are_rejected (__main__.SourceBoundaryTests.test_unverified_bytes_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 10.439s
+
+OK

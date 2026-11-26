@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "vitest-jsdom-bootstrap",
+  "task_id": "1247-test-repairs",
+  "attempt_id": "jsdom-bootstrap-1",
+  "action_kind": "targeted_test",
+  "action_scope_digest": "sha256:2e1578962a678f3e540ce75631a51b8611b74ea2f7a9a74f23fe09251f05705c",
+  "requirements_digest": "sha256:550aacb5518c9c4c2ea428cc40c26c0ebae3a40fd1ab1bd8e2417dd3c2d5614c",
+  "candidate_digest": "sha256:43b88152758e9db66fc3b41e920ad6a5c4d9d1c7601037c0c423ddda8e2efab9",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "evaluator_digest": "sha256:02d463d7a89897974fa56edc7230bd891d29ab73c41bf568d8b50c32593025a4",
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_telemetry": {
+    "state": "missing",
+    "effect": "advisory"
+  },
+  "metrics": [],
+  "environment_digest": "sha256:94e5199f0a99aecb4ae4204c78cc7f7aeb81de7cd4c8a48003dbb8097505a7c4"
+}

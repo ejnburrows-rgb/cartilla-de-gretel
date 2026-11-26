@@ -1,0 +1,30 @@
+{
+  "applicationAndTestFreeze": "48dfec7d6a5ec3ac26171d745ea811621ad659db",
+  "fullSuite": {
+    "passed": 2189,
+    "failed": 4,
+    "skipped": 0,
+    "failedFiles": [
+      {
+        "file": "tests/performance-budget.test.mjs",
+        "failures": [
+          "Local Performance Budget & Teacher Route Chunking passes all budget checks without violations",
+          "Local Performance Budget & Teacher Route Chunking keeps Entry JS within raw and gzipped size budgets",
+          "Local Performance Budget & Teacher Route Chunking keeps Entry CSS within raw and gzipped size budgets",
+          "Local Performance Budget & Teacher Route Chunking keeps total first-paint JS payload within budget"
+        ],
+        "message": ""
+      }
+    ]
+  },
+  "runtime": {
+    "checks": 19,
+    "failed": 0,
+    "consoleErrors": [],
+    "physicalPhone": "NOT TESTED",
+    "physicalProjector": "NOT TESTED"
+  },
+  "mergeAuthorized": true,
+  "soundAccepted": true,
+  "deployAuthorized": false
+}

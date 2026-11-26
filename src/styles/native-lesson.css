@@ -286,6 +286,22 @@
   width: 48px;
   height: 48px;
 }
+/* The reset button only exists while tracing, and on layouts where the trace
+   footer flows inside the page its 48px slot appears exactly when a stroke
+   starts — the archetype layout then squeezes the page and shifts the guide
+   under the child's hand mid-stroke. Float the button above the footer
+   instead so the page never re-flows during a gesture. Lane-b pages already
+   keep their footer out of flow; this anchors the reset to the nearest
+   positioned ancestor (that footer, or the relative .fp-trace). */
+.native-lesson-viewer__content .faithful-page:not(.faithful-page--lane-b) .fp-trace__footer {
+  position: relative;
+}
+.native-lesson-viewer__content .fp-trace__reset {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  margin: 0;
+}
 
 /* Owner direction, 2026-10-07: one workbook surface, no character side column.
    Pages grow with content; the browser owns scrolling instead of nested panes. */

@@ -13,7 +13,7 @@ You are the independent reviewer and cleanup implementer for **La Cartilla de Gr
 
 **For each illustration, ONE authentic latest owner-approved master is authoritative.** Every rendered Workbook or Flip Chart placement uses that master or a traceable, mechanically necessary derivative of it. No extra independent 'masters', wrong grayscale originals, low-quality crops, pixelated previous copies, stale animations or agent-made substitutes. An animated SVG is a derivative, not permission to use an obsolete picture. Never let automatic asset fallback prefer old pixels over updated approved ones.
 
-**Permanently remove proven obsolete image/crop files from the current tracked repository and generated app output** after replacing every reference; remove bad variants from image-selection lists, manifests, aliases, CSS, `srcSet`, caches, build scripts, optimized folders and animation registries so they cannot reappear. Do NOT blindly remove authentic original book PDFs, owner source uploads, approval records, undecided candidates or uniquely needed assets. Before every destructive delete, record the obsolete path, SHA256, exact newer approved replacement and approval evidence, dependent references and completed side-by-side visual validation. Git history remains as history; do not rewrite Git history or pretend worldwide copies are destroyed.
+**Permanently remove proven obsolete image/crop files from the current tracked repository and generated app output** after replacing every reference; remove bad variants from image-selection lists, manifests, aliases, CSS, `srcSet`, caches, build scripts, optimized folders and animation registries so they cannot reappear. Do NOT blindly remove authentic original book PDFs, owner source uploads, approval records, undecided candidates or uniquely needed assets. Deletion is a separate owner-controlled action under [AGENTS.md](AGENTS.md): obtain explicit approval for the exact paths and cleanup package before deleting anything. Evidence of obsolescence or approval of a replacement is not deletion permission. Before every authorized destructive delete, record the obsolete path, SHA256, exact newer approved replacement and approval evidence, dependent references and completed side-by-side visual validation. Git history remains as history; do not rewrite Git history or pretend worldwide copies are destroyed.
 
 ### Verify report facts independently
 
@@ -65,7 +65,11 @@ No new illustrations or replacement services. No new paid API, infrastructure, s
 4. Exact tracked **deletion log** (obsolete path, old SHA256, canonical replacement/approval ref, cleaned references and commit), plus guards against return of old crops.
 5. Evidence showing actual correct pages, animations where applicable, test/negative-test results, and linked code commits/PRs.
 
-Final message format, mandatory:
+Owner-facing final replies follow [AGENTS.md](AGENTS.md) section 12: begin with an actual visual of changes, checks, active state and remaining work, and use **DONE and live / DONE but not live / WAITING / NOT TESTED**. Current assignments and checkpoints belong to [#877](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877). Specialized artwork evidence requirements above remain applicable; they do not create a second operating or reporting contract.
+
+<details><summary>Historical context — not current instructions</summary>
+
+Historical October 22 message format (superseded for owner-facing replies):
 
 **WORKS** — verified behavior and real screenshot/video links.
 
@@ -80,5 +84,7 @@ Final message format, mandatory:
 **PROOF:** direct commit/PR, runtime screenshot/video, exact generated counts, test links.
 
 **WHAT REMAINS:** exact unfinished items or Nothing.
+
+</details>
 
 **Do not claim finished until the wrong crops are absent from current production paths, only updated owner-approved masters are selected, every active placement is accounted for and the automated gate catches regressions. Saving this prompt alone is not implementation.**

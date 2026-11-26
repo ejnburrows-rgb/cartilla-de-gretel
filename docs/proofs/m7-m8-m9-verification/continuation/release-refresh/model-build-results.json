@@ -1,0 +1,16 @@
+{
+  "head": "49747c7ef5fdff5926d463f491fad7c186b69d26",
+  "checks": [
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "seconds": 60.1420548
+    },
+    {
+      "name": "production-vite-build",
+      "exitCode": 0,
+      "seconds": 90.7714996
+    }
+  ],
+  "headAfter": "49747c7ef5fdff5926d463f491fad7c186b69d26"
+}

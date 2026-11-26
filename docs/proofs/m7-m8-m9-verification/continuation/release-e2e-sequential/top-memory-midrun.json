@@ -1,0 +1,86 @@
+[
+  {
+    "ProcessName": "RobloxPlayerBeta",
+    "Id": 20868,
+    "WorkingSet64": 2300399616,
+    "PrivateMemorySize64": 4462628864
+  },
+  {
+    "ProcessName": "codex",
+    "Id": 5728,
+    "WorkingSet64": 564789248,
+    "PrivateMemorySize64": 1932128256
+  },
+  {
+    "ProcessName": "ChatGPT",
+    "Id": 35356,
+    "WorkingSet64": 714600448,
+    "PrivateMemorySize64": 1281331200
+  },
+  {
+    "ProcessName": "explorer",
+    "Id": 12944,
+    "WorkingSet64": 179142656,
+    "PrivateMemorySize64": 1113911296
+  },
+  {
+    "ProcessName": "MsMpEng",
+    "Id": 5760,
+    "WorkingSet64": 310902784,
+    "PrivateMemorySize64": 509394944
+  },
+  {
+    "ProcessName": "dwm",
+    "Id": 12128,
+    "WorkingSet64": 48242688,
+    "PrivateMemorySize64": 444776448
+  },
+  {
+    "ProcessName": "steamwebhelper",
+    "Id": 21124,
+    "WorkingSet64": 37617664,
+    "PrivateMemorySize64": 438431744
+  },
+  {
+    "ProcessName": "ChatGPT",
+    "Id": 27040,
+    "WorkingSet64": 225427456,
+    "PrivateMemorySize64": 418533376
+  },
+  {
+    "ProcessName": "language_server",
+    "Id": 36828,
+    "WorkingSet64": 209448960,
+    "PrivateMemorySize64": 397664256
+  },
+  {
+    "ProcessName": "copilotapp",
+    "Id": 25368,
+    "WorkingSet64": 4968448,
+    "PrivateMemorySize64": 368287744
+  },
+  {
+    "ProcessName": "msedgewebview2",
+    "Id": 34140,
+    "WorkingSet64": 3457024,
+    "PrivateMemorySize64": 353542144
+  },
+  {
+    "ProcessName": "ChatGPT",
+    "Id": 36532,
+    "WorkingSet64": 219824128,
+    "PrivateMemorySize64": 317706240
+  },
+  {
+    "ProcessName": "Perplexity",
+    "Id": 38316,
+    "WorkingSet64": 10608640,
+    "PrivateMemorySize64": 292167680
+  },
+  {
+    "ProcessName": "Antigravity",
+    "Id": 13696,
+    "WorkingSet64": 172900352,
+    "PrivateMemorySize64": 278487040
+  }
+]

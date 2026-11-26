@@ -308,6 +308,51 @@ describe("TeacherPresentationShell — book-warm presenter chrome", () => {
 });
 
 describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () => {
+  it("removes unavailable corners from pointer and keyboard use at either boundary", () => {
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    const left = screen.getByTestId("flipchart-corner-left");
+    const right = screen.getByTestId("flipchart-corner-right");
+    expect(right.getAttribute("aria-disabled")).toBe("true");
+    expect(right.getAttribute("tabindex")).toBe("-1");
+    expect(right.getAttribute("aria-label")).toContain("no disponible");
+    expect(left.getAttribute("aria-disabled")).toBe("false");
+    fireEvent.click(container.querySelectorAll('[role="tab"]')[2]);
+    expect(left.getAttribute("aria-disabled")).toBe("true");
+    expect(right.getAttribute("aria-disabled")).toBe("false");
+  });
+
+  it("has no actionable corner or impossible page count for a single sheet", () => {
+    render(<FlipchartHdPanel lessonNumber={2} />);
+    for (const name of ["flipchart-corner-left", "flipchart-corner-right"]) {
+      const corner = screen.getByTestId(name);
+      expect(corner.getAttribute("aria-disabled")).toBe("true");
+      expect(corner.getAttribute("tabindex")).toBe("-1");
+      expect(corner.getAttribute("aria-label")).toContain("no disponible");
+      expect(corner.getAttribute("aria-label")).not.toContain("2 de 1");
+    }
+  });
+
+  it("moves thumbnail focus and selection with Arrow keys, Home and End", () => {
+    render(<FlipchartHdPanel lessonNumber={7} />);
+    const tabs = screen.getAllByRole("tab");
+    expect(tabs[0].getAttribute("tabindex")).toBe("0");
+    expect(tabs[1].getAttribute("tabindex")).toBe("-1");
+    tabs[0].focus();
+    fireEvent.keyDown(tabs[0], { key: "ArrowRight" });
+    expect(document.activeElement).toBe(tabs[1]);
+    expect(tabs[1].getAttribute("aria-selected")).toBe("true");
+    fireEvent.keyDown(tabs[1], { key: "End" });
+    expect(document.activeElement).toBe(tabs[2]);
+    expect(tabs[2].getAttribute("aria-selected")).toBe("true");
+    fireEvent.keyDown(tabs[2], { key: "ArrowRight" });
+    expect(document.activeElement).toBe(tabs[0]);
+    fireEvent.keyDown(tabs[0], { key: "ArrowLeft" });
+    expect(document.activeElement).toBe(tabs[2]);
+    fireEvent.keyDown(tabs[2], { key: "Home" });
+    expect(document.activeElement).toBe(tabs[0]);
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 3");
+  });
+
   it("renders bottom-left and bottom-right corner hotspots in left-hand mode by default", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
     const leftCorner = container.querySelector('[data-testid="flipchart-corner-left"]');
@@ -405,5 +450,29 @@ describe("FlipchartHdPanel — teacher hand mode and corner flip mechanics", () 
     // Space on right corner (prev in left-hand mode) -> Hoja 1
     fireEvent.keyDown(rightCorner, { key: " " });
     expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 1 de/);
+  });
+
+  it("locks Candidate A (2000ms) as default for Lesson 3 (1 real sheet: Sheet 5) and supports review-only ?flip=b&sheets=4,5,6,7", () => {
+    history.replaceState(null, "", "/cartilla/presentar/3");
+    const { container, rerender } = render(<FlipchartHdPanel lessonNumber={3} />);
+    const panelA = container.querySelector('[data-testid="flipchart-hd-panel"]')!;
+    expect(panelA.getAttribute("data-flip-variant")).toBe("a");
+    expect(panelA.getAttribute("data-page-turn-ms")).toBe(String(FLIPCHART_FLIP_MS));
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 1");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 5 · Lección 3");
+
+    // In-place query param update (same lessonNumber) must refresh sheets and variant.
+    history.replaceState(null, "", "/cartilla/presentar/3?flip=b&sheets=4,5,6,7");
+    rerender(<FlipchartHdPanel lessonNumber={3} />);
+    const panelB = container.querySelector('[data-testid="flipchart-hd-panel"]')!;
+    expect(panelB.getAttribute("data-flip-variant")).toBe("b");
+    expect(panelB.getAttribute("data-page-turn-ms")).toBe("1200");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 1 de 4");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 4 · Lección 2");
+
+    fireEvent.click(screen.getByRole("button", { name: "Lámina siguiente" }));
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Hoja 2 de 4");
+    expect(screen.getByTestId("flipchart-counter").textContent).toContain("Lámina 5 · Lección 3");
+    history.replaceState(null, "", "/");
   });
 });

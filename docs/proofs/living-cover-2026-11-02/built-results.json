@@ -1,0 +1,49 @@
+[
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "dims": {
+      "w": 1366,
+      "sw": 1366,
+      "h": 768,
+      "sh": 768
+    }
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "dims": {
+      "w": 390,
+      "sw": 390,
+      "h": 844,
+      "sh": 844
+    }
+  },
+  {
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "dims": {
+      "w": 320,
+      "sw": 320,
+      "h": 568,
+      "sh": 568
+    }
+  },
+  {
+    "keyboardNavigation": "passed",
+    "audio": [
+      {
+        "src": "/audio/page-turn-soft.mp3",
+        "volume": 0.8,
+        "muted": false,
+        "state": 4
+      }
+    ]
+  }
+]

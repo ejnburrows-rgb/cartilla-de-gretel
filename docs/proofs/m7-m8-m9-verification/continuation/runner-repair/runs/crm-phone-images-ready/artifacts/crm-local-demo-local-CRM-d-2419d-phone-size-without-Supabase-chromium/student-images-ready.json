@@ -1,0 +1,98 @@
+[
+  {
+    "alt": "ola",
+    "src": "/cartilla/art/faithful/vocal-o/ola.webp",
+    "complete": true,
+    "naturalWidth": 853
+  },
+  {
+    "alt": "iglú",
+    "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+    "complete": true,
+    "naturalWidth": 600
+  },
+  {
+    "alt": "oso",
+    "src": "/cartilla/art/faithful/vocal-o/oso-alive.svg",
+    "complete": true,
+    "naturalWidth": 823
+  },
+  {
+    "alt": "maíz",
+    "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+    "complete": true,
+    "naturalWidth": 757
+  },
+  {
+    "alt": "uña",
+    "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+    "complete": true,
+    "naturalWidth": 530
+  },
+  {
+    "alt": "oveja",
+    "src": "/cartilla/art/faithful/vocal-o/oveja-alive.svg",
+    "complete": true,
+    "naturalWidth": 870
+  },
+  {
+    "alt": "alas",
+    "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+    "complete": true,
+    "naturalWidth": 870
+  },
+  {
+    "alt": "oreja",
+    "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+    "complete": true,
+    "naturalWidth": 589
+  },
+  {
+    "alt": "olla",
+    "src": "/cartilla/art/faithful/vocal-o/olla-alive.svg",
+    "complete": true,
+    "naturalWidth": 870
+  },
+  {
+    "alt": "uvas",
+    "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+    "complete": true,
+    "naturalWidth": 870
+  },
+  {
+    "alt": "ocho",
+    "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
+    "complete": true,
+    "naturalWidth": 727
+  },
+  {
+    "alt": "uno",
+    "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+    "complete": true,
+    "naturalWidth": 870
+  },
+  {
+    "alt": "araña",
+    "src": "/cartilla/art/faithful/vocal-a/arana.webp",
+    "complete": true,
+    "naturalWidth": 810
+  },
+  {
+    "alt": "oso",
+    "src": "/cartilla/art/faithful/vocal-o/oso-alive.svg",
+    "complete": true,
+    "naturalWidth": 823
+  },
+  {
+    "alt": "uniforme",
+    "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+    "complete": true,
+    "naturalWidth": 735
+  },
+  {
+    "alt": "ojos",
+    "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
+    "complete": true,
+    "naturalWidth": 1354
+  }
+]

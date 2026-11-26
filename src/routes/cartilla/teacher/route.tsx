@@ -1,7 +1,6 @@
 import { endDemoStudentSession } from "@/lib/demo-student-session";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { getStudentSession } from "@/lib/student-session";
-import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import {
   isSeedSessionActive,
@@ -24,6 +23,7 @@ export const Route = createFileRoute("/cartilla/teacher")({
     if (studentSession) {
       throw redirect({ to: "/cartilla/lecciones" });
     }
+    const { supabase } = await import("@/integrations/supabase/client");
     const { data } = await supabase.auth.getSession();
     if (!data.session) {
       throw redirect({ to: "/login" });

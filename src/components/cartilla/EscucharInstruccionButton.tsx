@@ -1,31 +1,29 @@
-import { AUDIO_POLICY } from "@/content/audio-manifest";
 import { Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
+import { AUDIO_POLICY } from "@/content/audio-manifest";
 
-export function EscucharInstruccionButton({
-  text,
-  className,
-}: {
+interface Props {
   text: string;
+  label?: string;
   className?: string;
-}) {
-  const { play, playingText } = useAudio();
-  if (!AUDIO_POLICY.allowTts) return null;
-  const isPlaying = playingText === text;
+}
 
+/** Student-workbook instruction speaker button. Uses approved recorded audio; hides when unavailable and TTS is disabled. */
+export function EscucharInstruccionButton({ text, label = "Escuchar instrucción", className = "" }: Props) {
+  const { play, playingText, isAvailable } = useAudio();
+  const available = typeof isAvailable === "function" ? isAvailable(text) : false;
+  if (!AUDIO_POLICY.allowTts && !available) return null;
+  const active = playingText === text;
   return (
     <button
       type="button"
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        play(text);
-      }}
-      className={`inline-flex items-center justify-center p-1.5 rounded-full text-amber-600 hover:bg-amber-100 transition shadow-sm bg-amber-50 border border-amber-200 ${isPlaying ? "opacity-50" : ""} ${className || ""}`}
-      aria-label={`Escuchar instrucciones: ${text}`}
-      title="Escuchar instrucciones"
+      onClick={() => play(text)}
+      aria-label={`${label}: ${text}`}
+      aria-pressed={active}
+      className={`fp-escuchar-btn ${className}`.trim()}
     >
-      <Volume2 className="w-4 h-4" />
+      <Volume2 className="w-4 h-4 shrink-0" aria-hidden="true" />
+      <span>{active ? "Escuchando…" : "Escuchar"}</span>
     </button>
   );
 }

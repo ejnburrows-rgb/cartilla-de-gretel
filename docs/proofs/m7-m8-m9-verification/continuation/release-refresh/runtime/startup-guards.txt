@@ -1,0 +1,19 @@
+### Result
+[{"requested":"/cartilla/teacher/admin","url":"http://127.0.0.1:4187/cartilla/teacher/admin","headings":["Panel de Dirección","Leonor Lopetegui","Emilio Novo"],"text":"Saltar al contenido principal\nAcceso abierto · Clase de ejemplo. Los cambios se guardan solo en este navegador.\nG\nLa Cartilla de Gretel\nPANEL DEL DOCENTE\nPanel de Dirección\n\nVISTA GLOBAL DE TODOS LOS MAESTROS (MODO DEMO)\n\nMAESTROS\n2\nCLASES\n2\nALUMNOS\n6\nPRECISIÓN GLOBAL\n75%\nNECESITAN ATENCIÓN\n2\nLeonor Lopetegui\n\n1 clase · 3 alumnos · precisión media 79%\n\n1 alumno necesita atención\nClase\tCódigo\tAlumnos\tLecciones completadas\tPrecisión\t\nTiempo total\tAtención\nClase de Prueba (Demo Local)\tDEMO12\t3\t28\t7","tts":[]},{"requested":"/cartilla/imprimir/7","url":"http://127.0.0.1:4187/cartilla/imprimir/7","headings":["Cuaderno · Lección 7"],"text":"Saltar al contenido principal\nPanel del docente\nCuaderno · Lección 7\nImprimir\nTodas las lecciones\n1 · Las vocales: A E I O U\n2 · La vocal O\n3 · La vocal A\n4 · La vocal E\n5 · La vocal I\n6 · La vocal U\n7 · La consonante Mm\n8 · La consonante Pp\n9 · La consonante Ss\n10 · La consonante Tt\n11 · La consonante Dd\n12 · La consonante Ll\n13 · La consonante Nn\n14 · La consonante Ññ\n15 · La consonante Bb\n16 · La consonante Vv\n17 · La consonante Rr\n18 · La consonante Rr\n19 · La consonante Gg\n20 · La consonant","tts":[]},{"requested":"/cartilla/imprimir/all","url":"http://127.0.0.1:4187/cartilla/imprimir/all","headings":["Cuaderno completo"],"text":"Saltar al contenido principal\nPanel del docente\nCuaderno completo\nImprimir\nTodas las lecciones\n1 · Las vocales: A E I O U\n2 · La vocal O\n3 · La vocal A\n4 · La vocal E\n5 · La vocal I\n6 · La vocal U\n7 · La consonante Mm\n8 · La consonante Pp\n9 · La consonante Ss\n10 · La consonante Tt\n11 · La consonante Dd\n12 · La consonante Ll\n13 · La consonante Nn\n14 · La consonante Ññ\n15 · La consonante Bb\n16 · La consonante Vv\n17 · La consonante Rr\n18 · La consonante Rr\n19 · La consonante Gg\n20 · La consonante F","tts":[]}]
+### Ran Playwright code
+```js
+await (async(page)=>{
+ const results=[];
+ for(const route of ['/cartilla/teacher/admin','/cartilla/imprimir/7','/cartilla/imprimir/all']){
+  await page.goto('http://127.0.0.1:4187'+route);await page.locator('main').first().waitFor();
+  results.push({requested:route,url:page.url(),headings:await page.locator('h1,h2').allTextContents(),text:(await page.locator('body').innerText()).slice(0,500),tts:await page.evaluate(()=>window.__runtimeProof.tts)});
+ }
+ await page.goto('http://127.0.0.1:4187/cartilla/presentar/4');await page.getByTestId('flipchart-replica-sheet').first().waitFor();await page.evaluate(()=>document.fonts.ready);
+ return results;
+})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:4187/cartilla/presentar/4
+- Page Title: La Cartilla de Gretel
+### Events
+- New console entries: .playwright-cli\console-2026-11-03T16-10-50-136Z.log#L2

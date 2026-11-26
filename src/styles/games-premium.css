@@ -1,0 +1,186 @@
+/* games-premium.css — Tactile paper, wood, and chalkboard styling for La Cartilla de Gretel games.
+ * Palette: cream #F5F1E8, ink #25313A, teal #167A72, green #2F7D4A, sun #F2B632 (no navy/purple).
+ * Respects prefers-reduced-motion.
+ */
+
+.game-stage {
+  background-color: #f5f1e8;
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(242, 182, 50, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 84% 86%, rgba(22, 122, 114, 0.12) 0%, transparent 46%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  color: #25313a;
+}
+
+.game-wood-frame {
+  background: linear-gradient(145deg, #c68b4b 0%, #a5692e 52%, #8c5320 100%);
+  border: 3px solid #6e3f14;
+  border-radius: 1.75rem;
+  padding: 0.625rem;
+  box-shadow:
+    0 18px 38px -12px rgba(37, 49, 58, 0.24),
+    0 4px 10px -2px rgba(110, 63, 20, 0.28),
+    inset 0 2px 1px rgba(255, 232, 198, 0.35);
+}
+
+.game-paper-board {
+  background-color: #fffdf8;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(245, 241, 232, 0.45) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23p)' opacity='0.025'/%3E%3C/svg%3E");
+  border: 2px solid #e6dcc8;
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 4px 14px rgba(37, 49, 58, 0.08);
+}
+
+.game-chalkboard {
+  background: radial-gradient(circle at 50% 35%, #24574d 0%, #173c35 100%);
+  border: 6px solid #9d6229;
+  border-radius: 1.35rem;
+  box-shadow:
+    inset 0 4px 18px rgba(0, 0, 0, 0.35),
+    0 10px 24px -8px rgba(37, 49, 58, 0.32);
+  color: #fffdf8;
+}
+
+.game-tactile-tile {
+  background: linear-gradient(180deg, #fff6d6 0%, #fde79c 100%);
+  border: 2.5px solid #d99b1e;
+  color: #25313a;
+  box-shadow:
+    0 4px 0 #b87e14,
+    0 6px 12px -4px rgba(37, 49, 58, 0.18);
+  transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+
+.game-tactile-tile:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 5px 0 #b87e14,
+    0 8px 16px -4px rgba(37, 49, 58, 0.22);
+}
+
+.game-tactile-tile:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #b87e14;
+}
+
+.game-tactile-card {
+  background: linear-gradient(180deg, #ffffff 0%, #faf5ea 100%);
+  border: 2px solid #dfd3bc;
+  box-shadow:
+    0 4px 0 #d4c4a8,
+    0 8px 16px -6px rgba(37, 49, 58, 0.12);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.game-tactile-card:hover:not(:disabled) {
+  border-color: #167a72;
+  transform: translateY(-1px);
+}
+
+.game-slot-well {
+  background: #f2ece0;
+  border: 2.5px dashed #b9ab92;
+  box-shadow: inset 0 3px 6px rgba(37, 49, 58, 0.08);
+}
+
+.game-correct-glow {
+  border-color: #2f7d4a !important;
+  background: linear-gradient(180deg, #ecf9f0 0%, #d8f3e0 100%) !important;
+  box-shadow:
+    0 0 0 4px rgba(47, 125, 74, 0.22),
+    0 8px 20px -6px rgba(47, 125, 74, 0.35) !important;
+  animation: game-pop 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.game-wrong-nudge {
+  border-color: #c2413a !important;
+  background: #fdf0ef !important;
+  animation: game-nudge 320ms ease-in-out;
+}
+
+.game-star-pop {
+  display: inline-flex;
+  animation: game-star-bounce 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes game-pop {
+  0% {
+    transform: scale(0.96);
+  }
+  55% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes game-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes game-star-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-18deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.2) rotate(8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.game-shell-wrap a[aria-label="Volver a práctica"] {
+  min-height: 56px;
+  min-width: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+  border-radius: 9999px;
+  background: #fffdf8;
+  border: 2px solid #d4c4a8;
+  color: #25313a;
+  font-weight: 800;
+  box-shadow: 0 3px 0 #c9b798;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.game-shell-wrap a[aria-label="Volver a práctica"]:hover {
+  border-color: #167a72;
+  color: #167a72;
+}
+
+.game-shell-wrap a[aria-label="Volver a práctica"]:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #c9b798;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-tactile-tile,
+  .game-tactile-card,
+  .game-correct-glow,
+  .game-wrong-nudge,
+  .game-star-pop {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

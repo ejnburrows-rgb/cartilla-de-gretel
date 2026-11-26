@@ -89,7 +89,7 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
 
   it("mounts the recorded-audio provider and restores the previous config on unmount", () => {
     const before = getGretelVoiceProviderConfig();
-    expect(before.type).toBe("browser-tts");
+    expect(before.type).toBe("recorded-audio");
 
     const unmount = mountTutorVoice();
     const mounted = getGretelVoiceProviderConfig();

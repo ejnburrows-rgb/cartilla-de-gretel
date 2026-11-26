@@ -23,11 +23,9 @@ import { usePianoListening } from "@/hooks/usePianoListening";
 import { playNote, playCorrectChord, preloadPianoSound } from "./piano-sound";
 import { advanceSyllables } from "@/lib/piano-word-tracker";
 import type { PianoWord } from "@/lib/piano-words";
-import { approvedPictureRecording } from "@/lib/picture-vocabulary";
-import { stopSpeech } from "@/lib/speech-playback";
-import { speak } from "@/lib/speak";
+import { approvedPictureRecording, pictureNameKey } from "@/lib/picture-vocabulary";
+import { stopRecordedPlayback } from "@/lib/speech-playback";
 import { recordEvent } from "@/lib/student-session";
-import type { GretelLiveAvatarRef } from "@/components/gretel/GretelLiveAvatar";
 import {
   MELODY_STEP_MS,
   PROBLEM_MESSAGE,
@@ -112,19 +110,15 @@ export function usePianoGroups({
   const phaseRef = useRef<Phase>("idle");
   const keysRef = useRef(keys);
   keysRef.current = keys;
-  const feedbackUntilRef = useRef(0);
-  const feedbackRunRef = useRef(0);
   const yellowTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const releaseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const melodyTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const completeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const gretelTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const exampleRunRef = useRef(0);
   const flashCountRef = useRef(0);
   const sparkleCountRef = useRef(0);
   const celebratedRef = useRef<string | null>(null);
   const hasTriggeredCompleteRef = useRef(false);
-  const gretelRef = useRef<GretelLiveAvatarRef>(null);
   const onCompleteRef = useRef(onComplete);
   useEffect(() => {
     onCompleteRef.current = onComplete;
@@ -154,22 +148,8 @@ export function usePianoGroups({
     setPhase("idle");
   }, [setPhase]);
 
-  const speaking = () => Date.now() < feedbackUntilRef.current;
   const listeningClosed = () =>
-    !keysRef.current.length || confirmedRef.current >= keysRef.current.length || speaking();
-
-  /** The piano speaks; the microphone's results are ignored meanwhile. */
-  const sayFeedback = useCallback((text: string) => {
-    const run = ++feedbackRunRef.current;
-    feedbackUntilRef.current = Date.now() + 4000;
-    void Promise.race([
-      speak(text),
-      new Promise<void>((resolve) => setTimeout(resolve, 3000)),
-    ]).then(() => {
-      if (feedbackRunRef.current !== run) return;
-      feedbackUntilRef.current = Date.now() + FEEDBACK_GUARD_MS;
-    });
-  }, []);
+    !keysRef.current.length || confirmedRef.current >= keysRef.current.length;
 
   /** Any sound or voice: first key red now, second key yellow if it lasts. */
   const onVoice = useCallback(() => {
@@ -251,7 +231,6 @@ export function usePianoGroups({
       release();
       if (!correct) {
         setMessage(`Oí «${heard}». ${TRY_AGAIN}: di «${target}».`);
-        sayFeedback(TRY_AGAIN);
         return;
       }
       const next = group + 1;
@@ -262,11 +241,10 @@ export function usePianoGroups({
       setSparkle({ group, n: sparkleCountRef.current });
       if (next < keysRef.current.length) {
         setMessage(`${WELL_DONE} Dijiste «${target}». Ahora di «${keysRef.current[next]}».`);
-        sayFeedback(WELL_DONE);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [playGroup, release, sayFeedback],
+    [playGroup, release],
   );
 
   const listening = usePianoListening({
@@ -300,8 +278,6 @@ export function usePianoGroups({
   const resetRound = useCallback(() => {
     cancelListening();
     exampleRunRef.current += 1;
-    feedbackRunRef.current += 1;
-    feedbackUntilRef.current = 0;
     setExampleActive(false);
     confirmedRef.current = 0;
     setConfirmed(0);
@@ -311,8 +287,6 @@ export function usePianoGroups({
     celebratedRef.current = null;
     melodyTimersRef.current.forEach(clearTimeout);
     melodyTimersRef.current = [];
-    if (gretelTimerRef.current) clearTimeout(gretelTimerRef.current);
-    gretelRef.current?.cancel();
   }, [cancelListening, release]);
 
   useEffect(() => {
@@ -324,7 +298,7 @@ export function usePianoGroups({
     resetRound();
     setMessage("Toca «Escuchar» y luego el micrófono.");
     return () => {
-      stopSpeech();
+      stopRecordedPlayback("reading");
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemsKey, itemIndex]);
@@ -332,7 +306,6 @@ export function usePianoGroups({
   useEffect(
     () => () => {
       clearListenTimers();
-      if (gretelTimerRef.current) clearTimeout(gretelTimerRef.current);
       if (completeTimerRef.current) clearTimeout(completeTimerRef.current);
       melodyTimersRef.current.forEach(clearTimeout);
     },
@@ -366,9 +339,6 @@ export function usePianoGroups({
     setCelebrating(true);
     playCorrectChord();
     setMessage(`${WELL_DONE} Dijiste «${wordMode ? item.word : keys.join(", ")}».`);
-    gretelTimerRef.current = setTimeout(() => {
-      void gretelRef.current?.speakMessage(wordMode ? `${WELL_DONE} ${item.word}.` : WELL_DONE);
-    }, 650);
     if (lessonId) {
       // Only the outcome is recorded — never audio or transcripts.
       recordEvent({
@@ -401,13 +371,13 @@ export function usePianoGroups({
     [itemsKey],
   );
 
-  const runExample = async (text: string, recording?: string) => {
+  const runExample = async (recording: string) => {
     cancelListening();
     const run = ++exampleRunRef.current;
     setExampleActive(true);
     try {
       await Promise.race([
-        playExample(text, recording),
+        playExample(recording),
         new Promise<void>((resolve) => setTimeout(resolve, 6000)),
       ]);
     } finally {
@@ -419,10 +389,10 @@ export function usePianoGroups({
 
   const listenToWord = () => {
     if (!item) return;
-    const recording = wordMode ? approvedPictureRecording(item.word) : undefined;
-    const text = wordMode ? item.word : keys.join(", ");
-    setMessage(`Escucha: «${text}».`);
-    void runExample(text, recording).then(() => {
+    const recording = wordMode ? approvedPictureRecording(pictureNameKey(item.word)) : undefined;
+    if (!recording) return;
+    setMessage(`Escucha: «${item.word}».`);
+    void runExample(recording).then(() => {
       if (confirmedRef.current < keys.length)
         setMessage(`Ahora toca el micrófono. ${promptFor(confirmedRef.current)}`);
     });
@@ -430,7 +400,7 @@ export function usePianoGroups({
 
   const listenToSyllable = (group: number) => {
     const syllable = keys[group];
-    if (syllable) void runExample(syllable);
+    if (syllable) playNote(NINE_WHITE[group * GROUP_SIZE].freq, 0.7);
   };
 
   const toggleMic = () => {
@@ -439,7 +409,7 @@ export function usePianoGroups({
       stopListening();
       return;
     }
-    stopSpeech();
+    stopRecordedPlayback("reading");
     void preloadPianoSound();
     startListening();
   };
@@ -510,7 +480,7 @@ export function usePianoGroups({
     micOpen,
     micDisabled: done || exampleActive || !supported,
     exampleActive,
-    gretelRef,
+    canListenToWord: Boolean(wordMode && item && approvedPictureRecording(pictureNameKey(item.word))),
     listenToWord,
     listenToSyllable,
     toggleMic,

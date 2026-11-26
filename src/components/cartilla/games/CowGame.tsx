@@ -173,10 +173,14 @@ function Cow({
     >
       <span className="cg-bob">
         <span className="cg-sprite" style={{ transform: `scaleX(${flip})` }}>
-          {['leg-a', 'leg-c', 'body', 'leg-b', 'leg-d', 'head', 'tail'].map((p) => (
+          {['leg-a', 'leg-c', 'body', 'leg-b', 'leg-d', 'tail'].map((p) => (
             <img key={p} src={`${ART}open-${p}.png`} alt="" draggable={false} className={`cg-p cg-new cg-${p}`} />
           ))}
-
+          <div className="cg-p cg-new cg-head">
+            <span className="cg-revealed-text" style={{ transform: `translate(-50%, -50%) scaleX(${flip})` }}>{syllable}</span>
+            <img src={`${ART}open-head.png`} alt="" draggable={false} className="cg-p cg-head-bottom" />
+            <img src={`${ART}open-head.png`} alt="" draggable={false} className="cg-p cg-head-top" />
+          </div>
         </span>
       </span>
     </button>
@@ -184,6 +188,7 @@ function Cow({
 }
 
 export function CowGame({ content }: { content: GameContent }) {
+  const [guided] = useState(() => typeof window !== "undefined" && new URLSearchParams(window.location.search).get("cow") === "guided");
   const [placed, setPlaced] = useState<Record<number, Pos>>({});
   const [selCow, setSelCow] = useState<number | null>(null);
   const [selSlot, setSelSlot] = useState<number | null>(null);
@@ -291,6 +296,10 @@ export function CowGame({ content }: { content: GameContent }) {
   }, [finished]);
 
   const reset = () => {
+    // A delivery may still have callbacks scheduled; cancel them before
+    // clearing state so a previous move cannot reappear after a restart.
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current.length = 0;
     setPlaced({});
     setActive(null);
     setOpenGate({});
@@ -298,6 +307,8 @@ export function CowGame({ content }: { content: GameContent }) {
     setTries(0);
     setSelCow(null);
     setSelSlot(null);
+    setMessage("");
+    setCheer(null);
     setFlips(COW_SYLLABLES.map(() => 1));
   };
 
@@ -307,7 +318,7 @@ export function CowGame({ content }: { content: GameContent }) {
     setSelCow((c) => (c === i ? null : i));
   };
   const tapSlot = (s: number) => {
-    if (busy) return;
+    if (busy || (guided && selCow === null)) return;
     if (selCow !== null) return go(selCow, s);
     setSelSlot((c) => (c === s ? null : s));
   };
@@ -315,13 +326,13 @@ export function CowGame({ content }: { content: GameContent }) {
   const spots = L.home;
 
   return (
-    <main className="cg-root" aria-label="Juego de la vaca">
+    <main className={`cg-root ${guided ? "cg-guided" : ""}`} aria-label="Juego de la vaca">
       <div
         className="cg-stage"
         style={{ width: `min(100vw, calc(100vh * ${L.W} / ${L.H}))`, aspectRatio: `${L.W}/${L.H}` }}
       >
         <img
-          className="cg-scene"
+          className="cg-scene cg-side-scene"
           src={`${ART}${L.scene}`}
           alt=""
           draggable={false}
@@ -329,7 +340,7 @@ export function CowGame({ content }: { content: GameContent }) {
         />
         <img className="cg-scene" src={`${ART}${L.scene}`} alt="" draggable={false} />
         <img
-          className="cg-scene"
+          className="cg-scene cg-side-scene"
           src={`${ART}${L.scene}`}
           alt=""
           draggable={false}
@@ -383,6 +394,7 @@ export function CowGame({ content }: { content: GameContent }) {
               <button
                 type="button"
                 aria-label={`Casilla ${COW_SLOTS[s]}`}
+                disabled={guided && selCow === null}
                 className={`cg-slot ${selSlot === s ? "cg-slot-sel" : ""}`}
                 onClick={() => tapSlot(s)}
                 style={{
@@ -392,7 +404,7 @@ export function CowGame({ content }: { content: GameContent }) {
                   height: py(b.h + 12),
                 }}
               >
-                <span className="cg-door" />
+                <span className="cg-door" /><span className="cg-slot-text">{COW_SLOTS[s]}</span>
               </button>
             </div>
           );
@@ -442,7 +454,7 @@ export function CowGame({ content }: { content: GameContent }) {
           return (
             <span
               key={i}
-              className={`cg-card ${moving && (active.phase === "walk" || active.phase === "back") ? "cg-card-walking" : ""}`}
+              className={`cg-card ${moving && (active.phase === "walk" || active.phase === "back") ? "cg-card-walking" : ""} ${moving && active.phase === "lean" ? "cg-card-lean" : ""}`}
               style={{
                 zIndex: isDropped ? 65 : moving ? 9 : 50,
                 left: px(x),
@@ -469,6 +481,11 @@ export function CowGame({ content }: { content: GameContent }) {
           style={{ top: py(L.fenceTop), height: py(L.H - L.fenceTop) }}
         />
 
+        {guided && !finished && (
+          <p className="cg-guide" aria-live="polite">
+            {busy ? "Mira cómo se mueve la vaca" : selCow === null ? "1. Elige una vaca" : "2. Elige una casilla"}
+          </p>
+        )}
         <div className="cg-msg" role="status" aria-live="polite">
           {message}
         </div>
@@ -491,16 +508,19 @@ const CSS = `
 .cg-root{position:fixed;inset:0;overflow:hidden;background:#7ec850;touch-action:manipulation;user-select:none;-webkit-user-select:none}
 .cg-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);container-type:inline-size;overflow:visible;border-radius:0}
 .cg-scene{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.cg-guided .cg-side-scene{display:none}
+.cg-guide{position:absolute;z-index:105;left:50%;bottom:1%;transform:translateX(-50%);margin:0;padding:6px 14px;max-width:92%;border:2px solid #8a4a1c;border-radius:12px;background:#fff4d6;color:#3a1a0e;font:700 clamp(14px,2cqw,20px)/1.3 ui-rounded,system-ui,sans-serif;white-space:nowrap}
+.cg-guided .cg-slot:disabled{cursor:default}
 .cg-scene-top{position:absolute;left:0;top:0;width:100%;display:block;pointer-events:none;z-index:1}
 .cg-scene-fence{position:absolute;left:0;width:100%;display:block;pointer-events:none;z-index:30}
 .cg-fly{position:absolute;z-index:65;pointer-events:none;font:900 6.4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;text-shadow:0 0 1.4cqw #fff4d6,0 .3cqw .6cqw rgba(60,30,10,.35);white-space:nowrap;transform:translate(-50%,-50%);animation:cg-fly ${FLY_MS}ms ease-in both}
 @keyframes cg-fly{0%{transform:translate(calc(-50% + var(--cg-fly-dx)),calc(-50% + var(--cg-fly-dy))) scale(.75);opacity:.85}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
 .cg-title,.cg-btn{position:absolute}
 .cg-title img,.cg-btn img{width:100%;height:100%;display:block;pointer-events:none}
-.cg-btn{padding:0;border:0;background:none;cursor:pointer;display:block}
-.cg-hit{position:absolute;background:transparent;border:0;cursor:pointer}
+.cg-btn{padding:0;border:0;background:none;cursor:pointer;display:block;min-width:56px;min-height:56px}
+.cg-hit{position:absolute;background:transparent;border:0;cursor:pointer;min-width:56px;min-height:56px}
 .cg-menu{position:absolute;right:2%;top:14%;z-index:120;display:flex;flex-direction:column;gap:1.2cqw;background:#fdf3dc;border:.5cqw solid #8a4a1c;border-radius:2cqw;padding:1.6cqw}
-.cg-menu button{font:900 2.4cqw/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#4a2610;background:#fff;border:.3cqw solid #c58b4e;border-radius:1.4cqw;padding:1.2cqw 2cqw;min-height:44px}
+.cg-menu button{font:900 max(14px,2.4cqw)/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#4a2610;background:#fff;border:.3cqw solid #c58b4e;border-radius:1.4cqw;padding:1.2cqw 2cqw;min-height:56px}
 .cg-open{position:absolute;border-radius:1.6cqw;background:linear-gradient(#d3ecb0,#a5d374);opacity:0;transition:opacity .4s;z-index:2;box-shadow:inset 0 0 1.5cqw rgba(40,90,20,.45)}
 .cg-open-on{opacity:1}
 .cg-slot{position:absolute;padding:0;border:0;background:transparent;z-index:60;cursor:pointer;border-radius:2cqw}
@@ -512,8 +532,9 @@ const CSS = `
 .cg-bob,.cg-sprite{position:absolute;inset:0;display:block}
 .cg-sprite{transform-origin:50% 90%}
 .cg-p{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
-.cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top}
-.cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
+.cg-card{position:absolute;z-index:65;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border:.3cqw solid #74401d;border-radius:.8cqw;background:#fff4d6;color:#3a1a0e;font:900 3.1cqw/1 ui-rounded,system-ui,sans-serif;transform:translate(-50%,-10%);pointer-events:none;transition-property:left,top,transform}
+.cg-card-lean{transform:translate(-50%, calc(-10% + 16cqw)) !important; transition:transform 0.5s}
+.cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-bob{transform:translateY(16cqw);transition:transform 0.5s} .cg-lean .cg-head{animation:none;transform:rotate(-5deg);transition:transform .5s}
 .cg-label{position:absolute;left:52%;top:58%;font:900 19cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;padding:4cqw 7cqw;background:radial-gradient(ellipse,rgba(255,244,214,.95) 55%,rgba(255,244,214,0) 72%);pointer-events:none;z-index:5}
 .cg-selected{filter:drop-shadow(0 0 1.6cqw #fff3a0) drop-shadow(0 0 .8cqw #ffd54a)}
 .cg-selected{outline:2px solid #ffe27a}
@@ -542,7 +563,7 @@ const CSS = `
 .cg-walking .cg-tail{animation:cg-tail .5s ease-in-out infinite}
 .cg-walking .cg-tongue{animation:cg-tongue 1.8s ease-in-out infinite}
 
-.cg-slot-text{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:.5cqw;justify-content:center;font:700 4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;letter-spacing:.3cqw;white-space:nowrap;z-index:2;pointer-events:none}
+.cg-slot-text{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:.5cqw;justify-content:center;font:700 4cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#3a1a0e;letter-spacing:.3cqw;white-space:nowrap;z-index:4;pointer-events:none}
 .cg-cheer .cg-bob{animation:cg-cheer-hop .42s ease-in-out 3}
 .cg-cheer .cg-head{animation:cg-cheer-head .3s ease-in-out 5!important}
 .cg-cheer .cg-tongue{animation:cg-tongue-out 1.5s ease-in-out 1!important}
@@ -592,7 +613,13 @@ const CSS = `
 .cg-msg{position:absolute;left:50%;top:90%;transform:translateX(-50%);z-index:110;font:900 3.4cqw/1.1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;text-shadow:0 .3cqw .6cqw rgba(60,30,10,.7),0 0 1cqw rgba(60,30,10,.5);pointer-events:none;white-space:nowrap}
 .cg-done{position:absolute;inset:0;z-index:130;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;background:rgba(255,255,255,.35);backdrop-filter:blur(2px)}
 .cg-done p{font:900 8cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#2c7a1e;text-shadow:0 .4cqw 0 #fff}
-.cg-done button{font:900 3cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;background:#2e9bb0;border:.5cqw solid #fff;border-radius:3cqw;padding:1.6cqw 4cqw;min-height:44px;cursor:pointer}
+.cg-done button{font:900 max(14px,3cqw)/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;background:#167A72;border:.5cqw solid #fff;border-radius:3cqw;padding:1.6cqw 4cqw;min-height:56px;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob{animation-duration:12s!important}}
+@media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob{animation:none!important}}
+
+.cg-head-bottom { clip-path: polygon(0% 40%, 100% 40%, 100% 100%, 0% 100%); }
+.cg-head-top { clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%); transition: transform 0.5s ease-in-out; }
+.cg-revealed-text { position: absolute; left: 50%; top: 30%; transform: translate(-50%, -50%); font: 900 12cqw/1 "Fredoka", ui-rounded, system-ui, sans-serif; color: #4a2610; opacity: 0; transition: opacity 0.5s; z-index: -1; }
+.cg-drop .cg-head-top, .cg-lean .cg-head-top { transform: translateY(-30%); }
+.cg-drop .cg-revealed-text, .cg-lean .cg-revealed-text { opacity: 1; }
 `;

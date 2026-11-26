@@ -16,18 +16,16 @@ export function SyllableTapGame({
   lessonId?: string;
   onComplete?: () => void;
 }) {
-  const sounds = useMemo(
-    () => [...new Set(syllables.filter((s) => s.trim()))],
-    [syllables],
-  );
+  const sounds = useMemo(() => [...new Set(syllables.filter((s) => s.trim()))], [syllables]);
   const [round, setRound] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [heard, setHeard] = useState(false);
   const [wrong, setWrong] = useState<string | null>(null);
   const locked = useRef(false);
   const attempts = useRef(0);
-  const { play } = useAudio();
+  const { play, isAvailable } = useAudio();
   const target = sounds[round];
+  const hasRecordedAudio = sounds.every(isAvailable);
   const finished = answered && round === sounds.length - 1;
   const choices = useMemo(() => {
     const result = [...sounds];
@@ -42,7 +40,7 @@ export function SyllableTapGame({
   if (!target) return null;
 
   function answer(value: string) {
-    if (!heard || locked.current) return;
+    if ((hasRecordedAudio && !heard) || locked.current) return;
     const correct = value === target;
     attempts.current += 1;
     if (lessonId)
@@ -62,7 +60,7 @@ export function SyllableTapGame({
     if (!correct) {
       setWrong(value);
       playWrongBuzz();
-      play(target);
+      if (hasRecordedAudio) play(target);
       return;
     }
     locked.current = true;
@@ -81,7 +79,9 @@ export function SyllableTapGame({
       aria-label="Escucha y elige"
     >
       <div className="mb-4 flex items-center justify-between gap-4">
-        <h3 className="text-lg font-bold">Escucha y elige</h3>
+        <h3 className="text-lg font-bold">
+          {hasRecordedAudio ? "Escucha y elige" : "Lee y elige"}
+        </h3>
         <span role="status" className="text-sm font-bold">
           {round + (answered ? 1 : 0)} de {sounds.length}
         </span>
@@ -92,29 +92,30 @@ export function SyllableTapGame({
             key={sound}
             className="h-2 flex-1 rounded-full"
             style={{
-              background:
-                i < round || (i === round && answered) ? color : "#e7e5e4",
+              background: i < round || (i === round && answered) ? color : "#e7e5e4",
             }}
           />
         ))}
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          setHeard(true);
-          play(target);
-        }}
-        className="mb-5 inline-flex min-h-12 items-center gap-2 rounded-xl px-5 py-3 font-bold text-white"
-        style={{ backgroundColor: color }}
-      >
-        <Volume2 aria-hidden="true" className="h-5 w-5" /> Escuchar
-      </button>
+      {hasRecordedAudio && (
+        <button
+          type="button"
+          onClick={() => {
+            setHeard(true);
+            play(target);
+          }}
+          className="mb-5 inline-flex min-h-12 items-center gap-2 rounded-xl px-5 py-3 font-bold text-white"
+          style={{ backgroundColor: color }}
+        >
+          <Volume2 aria-hidden="true" className="h-5 w-5" /> Escuchar
+        </button>
+      )}
       <div className="flex flex-wrap gap-3">
         {choices.map((sound) => (
           <button
             type="button"
             key={sound}
-            disabled={!heard || answered}
+            disabled={(hasRecordedAudio && !heard) || answered}
             onClick={() => answer(sound)}
             aria-label={sound}
             className="min-h-14 min-w-16 rounded-2xl border-2 px-5 py-3 text-xl font-bold transition active:scale-95 disabled:cursor-default"
@@ -130,10 +131,7 @@ export function SyllableTapGame({
       </div>
       {answered && (
         <div className="mt-5 flex items-center justify-between gap-3">
-          <span
-            className="inline-flex items-center gap-2 font-bold"
-            role="status"
-          >
+          <span className="inline-flex items-center gap-2 font-bold" role="status">
             <Check aria-hidden="true" className="h-5 w-5" />
             {finished ? "Completado" : "Correcto"}
           </span>

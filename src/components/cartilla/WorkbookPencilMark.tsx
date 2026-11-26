@@ -1,7 +1,35 @@
-import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { createPortal } from "react-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useActivityEvents } from "@/lib/activity-events";
+import {
+  getLastPointer,
+  PENCIL_TIP_SRC,
+  PENCIL_TIP_VIEWBOX,
+  toolSize,
+  useCursorMode,
+} from "@/lib/cursor-mode";
+import {
+  contractEase,
+  contractPointAlong,
+  endEraseFlight,
+  endTipFlight,
+  eraseStrokeSchedule,
+  getTipFlight,
+  PENCIL_CONTRACT,
+  startEraseFlight,
+  startTipFlight,
+  velocitySegments,
+  type ContractStroke,
+} from "@/lib/pencil-contract";
 import "@/styles/workbook-pencil.css";
 
 export type WorkbookMarkStatus = "drawing" | "holding" | "correct" | "erasing" | "erased";
@@ -19,6 +47,8 @@ export interface WorkbookPencilMarkProps {
   itemId?: string;
   status?: WorkbookMarkStatus;
   className?: string;
+  /** Keep page scale fixed instead of zooming the worksheet container (e.g. static `/revision` prototypes). */
+  disableCloseUp?: boolean;
   onSuccess?: () => void;
   onRetry?: () => void;
 }
@@ -54,10 +84,21 @@ export const WORKBOOK_MARK_TIMING = {
 
 const EASE = "0.45 0.05 0.55 0.95";
 /** Pencil geometry: tip at (0,0), body along -y. */
-const PENCIL_LENGTH = 79.5;
+export const PENCIL_LENGTH = 79.5;
 const PENCIL_CENTER_Y = -PENCIL_LENGTH / 2;
 /** Close-up pose: body runs up and to the right, about 30° above horizontal. */
 const PENCIL_TILT = 60;
+/**
+ * Shared full-pencil proportions for the unified ContractPencilCursor (back eraser)
+ * and PencilConnector retry eraser. Long enough (1679.5 SVG units = ~3359 px on desktop,
+ * ~2435 px on phone) so the wooden barrel always runs continuously past the edge of the
+ * page and viewport on Desktop (1366×768), Phone (390×844), and Projector (1920×1080)
+ * with zero mid-air cutoff and zero space between the pencil end and the page edge.
+ */
+export const CONTRACT_PENCIL_STRETCH = 1600;
+export const CONTRACT_PENCIL_LENGTH = PENCIL_LENGTH + CONTRACT_PENCIL_STRETCH;
+export const CONTRACT_PENCIL_CENTER_Y = -CONTRACT_PENCIL_LENGTH / 2;
+export const CONTRACT_PENCIL_TILT = PENCIL_TILT;
 /**
  * Big close-up tool (owner reference 2026-10-06): the pencil is about a third of
  * the box high, so it is always much longer than the box and only its front shows.
@@ -87,7 +128,15 @@ const OFFSCREEN_MARGIN = 24;
  * screen — near the picture only its tip (or its eraser end) is seen, nothing is
  * faded or cut off. The eraser and band move back with the end of the body.
  */
-export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: number }) {
+export function PencilShape({
+  uid,
+  stretch = 0,
+  className = "workbook-pencil__shape",
+}: {
+  uid: string;
+  stretch?: number;
+  className?: string;
+}) {
   const back = -stretch;
   const top = f2(-60.2 - stretch);
   const g = (name: string) => `${uid}-${name}`;
@@ -100,7 +149,7 @@ export function PencilShape({ uid, stretch = 0 }: { uid: string; stretch?: numbe
     </linearGradient>
   );
   return (
-    <g className="workbook-pencil__shape">
+    <g className={className}>
       <defs>
         {lin(
           "lacq",
@@ -424,6 +473,10 @@ function smoothPath(points: Pt[]): string {
   return d;
 }
 
+function polylinePath(points: Pt[]): string {
+  return points.map((p, i) => `${i === 0 ? "M" : "L"} ${f2(p[0])} ${f2(p[1])}`).join(" ");
+}
+
 /**
  * A child's single pencil loop around the picture: slightly irregular, with a
  * small overlap where the pencil comes back past its starting point.
@@ -436,15 +489,17 @@ function handDrawnLoop(height: number, seed: number, round = false): Pt[] {
   const ry = round ? r : Math.max(12, height / 2 - 5);
   const p1 = (seed % 628) / 100 || 0.6;
   const p2 = ((seed >>> 10) % 628) / 100 || 1.1;
-  // Starts on the right of the picture, where the pencil first touches down.
+  // Starts on the right of the picture, where the pencil first touches down,
+  // and closes gently without creating a heavy double-width lump.
   const start = (-35 * Math.PI) / 180;
-  const sweep = (382 * Math.PI) / 180;
+  const sweep = (368 * Math.PI) / 180;
   const steps = 20;
   const points: Pt[] = [];
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
     const a = start + sweep * t;
-    const wobble = 1 + 0.02 * Math.sin(2 * a + p1) + 0.012 * Math.sin(3 * a + p2) + 0.035 * t;
+    const wobble =
+      1 + 0.02 * Math.sin(2 * a + p1) + 0.012 * Math.sin(3 * a + p2) + 0.014 * Math.sin(Math.PI * t);
     points.push([cx + rx * wobble * Math.cos(a), cy + ry * wobble * Math.sin(a)]);
   }
   return points;
@@ -472,29 +527,6 @@ function handDrawnCross(height: number, round = false): Pt[][] {
       [l - 1, b - 1],
     ],
   ];
-}
-
-/** Point at fraction `t` (0–1) of a polyline's length. */
-function pointAlong(points: Pt[], t: number): Pt {
-  const seg: number[] = [];
-  let total = 0;
-  for (let i = 1; i < points.length; i++) {
-    const l = Math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]);
-    seg.push(l);
-    total += l;
-  }
-  let target = Math.min(1, Math.max(0, t)) * total;
-  for (let i = 0; i < seg.length; i++) {
-    if (target <= seg[i] || i === seg.length - 1) {
-      const k = seg[i] ? Math.min(1, target / seg[i]) : 0;
-      return [
-        points[i][0] + (points[i + 1][0] - points[i][0]) * k,
-        points[i][1] + (points[i + 1][1] - points[i][1]) * k,
-      ];
-    }
-    target -= seg[i];
-  }
-  return points[points.length - 1];
 }
 
 /** Box aspect in CSS px (aspect drives the mark shape). */
@@ -661,6 +693,15 @@ function offscreenFrom(box: FlightBox, height: number, from: Pt): string {
   return `${f2(dx)} ${f2(-10)}`;
 }
 
+function pointerFrom(box: FlightBox, height: number, from: Pt): string {
+  const pointer = getLastPointer();
+  const unit = Math.min(box.width / 100, box.height / height);
+  if (!pointer || unit <= 0) return offscreenFrom(box, height, from);
+  const x = (pointer.x - box.left - (box.width - 100 * unit) / 2) / unit - from[0];
+  const y = (pointer.y - box.top - (box.height - height * unit) / 2) / unit - from[1];
+  return `${f2(x)} ${f2(y)}`;
+}
+
 /**
  * Draw phase. The big pencil starts completely off the right edge of the screen,
  * travels in over everything on the way and touches down on the starting point
@@ -669,82 +710,99 @@ function offscreenFrom(box: FlightBox, height: number, from: Pt): string {
  * edge of the screen (`lift`). Nothing clips it: it flies in its own layer.
  */
 function DrawingPencil({
-  path,
-  begin = 0,
-  approach,
-  dur,
-  lift,
+  paths,
+  points,
+  strokeDur,
+  hopMs,
   shadow,
   uid,
-  first,
-  last,
   offscreen,
+  exit,
   stretch,
+  tipSize,
 }: {
-  path: string;
-  begin?: number;
-  approach: number;
-  dur: number;
-  lift: number;
+  paths: string[];
+  points: Pt[][];
+  strokeDur: number;
+  hopMs: number;
   shadow: string;
   uid: string;
-  first: boolean;
-  last: boolean;
-  /** Translation that puts the pencil past the right edge of the screen. */
   offscreen: string;
-  /** Extra body length so the pencil runs off the edge of the screen. */
+  exit: string;
   stretch: number;
+  tipSize?: number;
 }) {
-  const travel = approach + dur;
-  const total = travel + lift;
-  const a = (approach / travel).toFixed(4);
-  const kApproach = (approach / total).toFixed(4);
-  const kDone = (travel / total).toFixed(4);
-  // Between the two strokes of an X the pencil only hops a little off the paper.
-  const hop: Pt = [AXIS[0] * 6, AXIS[1] * 6];
-  const enter = first ? offscreen : `${f2(hop[0])} ${f2(hop[1])}`;
-  const leave = last ? offscreen : `${f2(hop[0])} ${f2(hop[1])}`;
+  const { approachMs, drawMs, liftMs } = WORKBOOK_MARK_TIMING;
+  const total = drawMs + liftMs;
+  const kApproach = (approachMs / total).toFixed(6);
+  const kDone = (drawMs / total).toFixed(6);
   return (
     <g className="workbook-pencil" opacity="0" filter={`url(#${shadow})`}>
-      <animateMotion
-        begin={`${begin}ms`}
-        dur={`${travel}ms`}
-        fill="freeze"
-        calcMode="spline"
-        keyTimes={`0;${a};1`}
-        keyPoints="0;0;1"
-        keySplines={`0 0 1 1;${EASE}`}
-        path={path}
-      />
-      <animate attributeName="opacity" begin={`${begin}ms`} dur={`${total}ms`} values="1;1" />
+      {/* One physical shape for the entire mark. Later motion segments replace
+          the frozen previous segment on this SAME group, never another pencil. */}
+      {paths.map((path, i) => {
+        const begin = i === 0 ? 0 : approachMs + i * (strokeDur + hopMs);
+        const travel = i === 0 ? approachMs + strokeDur : strokeDur;
+        return (
+          <animateMotion
+            key={`stroke-${i}`}
+            begin={`${begin}ms`}
+            dur={`${travel}ms`}
+            fill="freeze"
+            calcMode="spline"
+            path={path}
+            keyTimes={i === 0 ? `0;${(approachMs / travel).toFixed(6)};1` : "0;1"}
+            keyPoints={i === 0 ? "0;0;1" : "0;1"}
+            keySplines={i === 0 ? `0 0 1 1;${EASE}` : EASE}
+          />
+        );
+      })}
+      {points.slice(1).map((next, i) => {
+        const from = points[i][points[i].length - 1];
+        const to = next[0];
+        // Lift gently while moving from the end of one diagonal to the start
+        // of the other. The mark paths stay separate, so this leaves no ink.
+        const bridge = `M ${f2(from[0])} ${f2(from[1])} Q ${f2((from[0] + to[0]) / 2 + AXIS[0] * 12)} ${f2((from[1] + to[1]) / 2 + AXIS[1] * 12)} ${f2(to[0])} ${f2(to[1])}`;
+        return (
+          <animateMotion
+            key={`hop-${i}`}
+            begin={`${approachMs + (i + 1) * strokeDur + i * hopMs}ms`}
+            dur={`${hopMs}ms`}
+            fill="freeze"
+            path={bridge}
+            calcMode="spline"
+            keyTimes="0;1"
+            keyPoints="0;1"
+            keySplines={EASE}
+          />
+        );
+      })}
+      <animate attributeName="opacity" dur={`${total}ms`} values="1;1" />
       <g>
         <animateTransform
           attributeName="transform"
           type="translate"
-          begin={`${begin}ms`}
           dur={`${total}ms`}
           fill="freeze"
           calcMode="spline"
-          values={`${enter};0 0;0 0;${leave}`}
+          values={`${offscreen};0 0;0 0;${exit}`}
           keyTimes={`0;${kApproach};${kDone};1`}
-          keySplines={`0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1`}
+          keySplines="0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1"
         />
         <g>
-          {/* The wrist turns a few degrees as the hand goes round. */}
           <animateTransform
             attributeName="transform"
             type="rotate"
-            begin={`${begin}ms`}
             dur={`${total}ms`}
             fill="freeze"
             calcMode="spline"
             values="2;0;-3;2;0;0"
-            keyTimes={`0;${kApproach};${((approach + dur * 0.35) / total).toFixed(4)};${((approach + dur * 0.75) / total).toFixed(4)};${kDone};1`}
+            keyTimes={`0;${kApproach};${((approachMs + (drawMs - approachMs) * 0.35) / total).toFixed(6)};${((approachMs + (drawMs - approachMs) * 0.75) / total).toFixed(6)};${kDone};1`}
             keySplines={`0.3 0 0.4 1;${EASE};${EASE};${EASE};0 0 1 1`}
           />
-          <g transform={PENCIL_POSE}>
+          {tipSize ? <image className="workbook-pencil__photo-tip" href={PENCIL_TIP_SRC} x="0" y="0" width={tipSize} height={tipSize * PENCIL_TIP_VIEWBOX.height / PENCIL_TIP_VIEWBOX.width} /> : <g transform={PENCIL_POSE}>
             <PencilShape uid={uid} stretch={stretch} />
-          </g>
+          </g>}
         </g>
       </g>
     </g>
@@ -795,26 +853,78 @@ function MarkStroke({
   );
 }
 
+/**
+ * Candidate B: one short pencil piece; its width follows the pencil speed (3.3–6.4px).
+ * Never combines `vectorEffect="non-scaling-stroke"` with `pathLength` + `strokeDasharray`
+ * (which causes Chromium/Skia to break strokes into dashed lines on zoomed desktop viewports);
+ * smooth progressive reveal is driven by a per-stroke user-space SVG `<mask>`.
+ */
+function ContractSegment({
+  d,
+  width,
+  animate,
+  segKey,
+}: {
+  d: string;
+  width: number;
+  begin: number;
+  dur?: number;
+  animate: boolean;
+  segKey?: string;
+}) {
+  const style = { strokeWidth: `${width}px` };
+  if (!animate)
+    return (
+      <path
+        className="workbook-pencil-mark__stroke"
+        d={d}
+        style={style}
+        vectorEffect="non-scaling-stroke"
+        data-contract-seg={segKey}
+      />
+    );
+  return (
+    <path
+      className="workbook-pencil-mark__stroke"
+      d={d}
+      style={style}
+      vectorEffect="non-scaling-stroke"
+      opacity="0"
+      data-contract-seg={segKey}
+    />
+  );
+}
+
 const CRUMB_COLORS = ["#f3a9b8", "#ee93a7", "#f8c6d0", "#e59aa6", "#d98593"];
 
 /**
  * Eraser crumbs: rubber flakes that break off where the eraser rubs, tumble and
  * fall a little under gravity, and stay on the paper until the eraser leaves.
  */
-function EraserCrumbs({
+export function EraserCrumbs({
   points,
+  strokes,
   seed,
   enterMs,
   rubMs,
   totalMs,
+  count = 7,
+  scale = 1,
 }: {
   points: Pt[];
+  /** Optional ordered strokes rubbed sequentially; defaults to `[points]`. */
+  strokes?: Pt[][];
   seed: number;
   enterMs: number;
   rubMs: number;
   totalMs: number;
+  /** November 1 contract candidate uses 12 crumbs. */
+  count?: number;
+  scale?: number;
 }) {
   const crumbs = useMemo(() => {
+    const strokeList = strokes && strokes.length > 0 ? strokes : [points];
+    const schedule = eraseStrokeSchedule(strokeList.length, enterMs, rubMs);
     let s = seed || 7;
     const rnd = () => {
       s = Math.imul(s ^ (s >>> 15), 2246822507) >>> 0;
@@ -831,37 +941,44 @@ function EraserCrumbs({
       rot: number;
       spin: number;
       c: string;
-      t: number;
+      appearMs: number;
     }[] = [];
     // Few, small, realistic crumbs — a pink eraser leaves only a handful of
     // tiny flakes behind, not a shower of confetti (F05 conformance).
-    const n = 7;
+    const n = count;
+    const m = strokeList.length;
     for (let i = 0; i < n; i++) {
-      // The eraser runs backwards along the mark, so crumbs break off from t=1 to 0.
-      const t = 1 - (i + rnd() * 0.7) / n;
-      const [px, py] = pointAlong(points, t);
+      const si = Math.min(m - 1, Math.floor((i * m) / n));
+      const strokeStartIdx = Math.ceil((si * n) / m);
+      const strokeEndIdx = Math.ceil(((si + 1) * n) / m);
+      const perStroke = Math.max(1, strokeEndIdx - strokeStartIdx);
+      const li = i - strokeStartIdx;
+      // The eraser runs backwards along each stroke, so crumbs break off from t=1 to 0.
+      const t = 1 - (li + rnd() * 0.7) / perStroke;
+      const [px, py] = contractPointAlong(strokeList[si], t);
+      const win = schedule[si];
       // Small realistic rubber flakes.
-      const r = 1 + rnd() * 1;
+      const r = (1 + rnd() * 1) * scale;
       out.push({
-        x: px + (rnd() - 0.5) * 12,
-        y: py + (rnd() - 0.5) * 9,
-        dx: -4 + rnd() * 10,
-        dy: 8 + rnd() * 14,
+        x: px + (rnd() - 0.5) * 12 * scale,
+        y: py + (rnd() - 0.5) * 9 * scale,
+        dx: (-4 + rnd() * 10) * scale,
+        dy: (8 + rnd() * 14) * scale,
         rx: r * (1 + rnd() * 0.5),
         ry: r * (0.6 + rnd() * 0.3),
         rot: rnd() * 180,
         spin: (rnd() - 0.5) * 240,
         c: CRUMB_COLORS[Math.floor(rnd() * CRUMB_COLORS.length)],
-        t: 1 - t,
+        appearMs: win.begin + (1 - t) * win.dur,
       });
     }
     return out;
-  }, [points, seed]);
+  }, [points, strokes, seed, count, scale, enterMs, rubMs]);
   const kEnd = (enterMs + rubMs) / totalMs;
   return (
     <g className="workbook-pencil__crumbs">
       {crumbs.map((c, i) => {
-        const appear = (enterMs + c.t * rubMs) / totalMs;
+        const appear = c.appearMs / totalMs;
         const kA = appear.toFixed(4);
         const kB = Math.min(appear + 0.015, kEnd - 0.001).toFixed(4);
         const kFall = Math.min(appear + 0.17, 0.995).toFixed(4);
@@ -893,13 +1010,53 @@ function EraserCrumbs({
                 values={`${c.rot.toFixed(0)};${c.rot.toFixed(0)};${(c.rot + c.spin).toFixed(0)};${(c.rot + c.spin).toFixed(0)}`}
                 keyTimes={`0;${kA};${kFall};1`}
               />
-              <ellipse rx={f2(c.rx)} ry={f2(c.ry)} fill={c.c} />
+              <ellipse
+                rx={f2(c.rx)}
+                ry={f2(c.ry)}
+                fill={c.c}
+                stroke="#b85d75"
+                strokeWidth="0.28"
+              />
             </g>
           </g>
         );
       })}
     </g>
   );
+}
+
+// FIFO ownership covers marks in different activity regions and direct lines.
+// Waiting marks retain their input; grading and timers start only on their turn.
+const pencilQueue: symbol[] = [];
+const pencilListeners = new Set<() => void>();
+function publishPencilOwner() {
+  if (typeof document !== "undefined") {
+    document.documentElement.toggleAttribute("data-workbook-pencil-active", pencilQueue.length > 0);
+  }
+  for (const notify of pencilListeners) notify();
+}
+const subscribePencil = (notify: () => void) => {
+  pencilListeners.add(notify);
+  return () => {
+    pencilListeners.delete(notify);
+  };
+};
+const pencilOwner = () => pencilQueue[0];
+export function useWorkbookPencilTurn(requested: boolean): boolean {
+  const token = useRef(Symbol("workbook-pencil"));
+  const owner = useSyncExternalStore(subscribePencil, pencilOwner, () => undefined);
+  useLayoutEffect(() => {
+    if (!requested) return;
+    const me = token.current;
+    pencilQueue.push(me);
+    publishPencilOwner();
+    return () => {
+      const index = pencilQueue.indexOf(me);
+      if (index !== -1) pencilQueue.splice(index, 1);
+      publishPencilOwner();
+    };
+  }, [requested]);
+  return requested && owner === token.current;
 }
 
 /**
@@ -914,23 +1071,44 @@ export function WorkbookPencilMark({
   itemId,
   status: externalStatus,
   className = "",
+  disableCloseUp = false,
   onSuccess,
   onRetry,
 }: WorkbookPencilMarkProps) {
   const reducedMotion = useReducedMotion();
+  const cursorMode = useCursorMode();
+  /** Option B default (`contract`, overridden by `?cursor=normal`): November 1 pencil and mark contract. */
+  const explicitCursor =
+    typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("cursor") : null;
+  const hasContractHost =
+    typeof document !== "undefined" &&
+    (explicitCursor === "contract" ||
+      document.documentElement.classList.contains("cartilla-cursor-contract") ||
+      !!document.querySelector(".native-lesson-viewer, .contract-pencil-cursor"));
+  const contractStyle = cursorMode === "contract" && hasContractHost;
+  const contract = contractStyle && !externalStatus;
+  const [rubbing, setRubbing] = useState(false);
   const { emit } = useActivityEvents();
   const [internalStatus, setInternalStatus] = useState<WorkbookMarkStatus>("drawing");
   const currentStatus = externalStatus ?? internalStatus;
+  const needsTurn = !externalStatus && currentStatus !== "correct" && currentStatus !== "erased";
+  const hasTurn = useWorkbookPencilTurn(needsTurn);
+  const waiting = needsTurn && !hasTurn;
   const onSuccessRef = useRef(onSuccess);
   const onRetryRef = useRef(onRetry);
   const boxRef = useRef<HTMLDivElement>(null);
   const baseId = `wb-pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const shadowId = `${baseId}-shadow`;
   const { aspect } = useCellBox(boxRef);
-  const flying =
+  const markActive =
+    hasTurn &&
     !reducedMotion &&
     !externalStatus &&
     (currentStatus === "drawing" || currentStatus === "holding" || currentStatus === "erasing");
+  // Option B contract mode uses ONE single physical pencil (`ContractPencilCursor`)
+  // for hovering, drawing, and flipping 180° onto its back pink eraser — never
+  // spawning a second separate flight pencil in WorkbookPencilMark.
+  const flying = contract ? false : markActive;
   // Keep the close-up a moment on a right answer's green circle before zooming out.
   const [lingerDone, setLingerDone] = useState(false);
   useEffect(() => {
@@ -939,16 +1117,40 @@ export function WorkbookPencilMark({
     return () => window.clearTimeout(timer);
   }, [currentStatus, externalStatus, reducedMotion]);
   const closeUp =
-    flying || (!reducedMotion && !externalStatus && currentStatus === "correct" && !lingerDone);
+    !disableCloseUp &&
+    (markActive || (!reducedMotion && !externalStatus && currentStatus === "correct" && !lingerDone));
   usePageCloseUp(boxRef, closeUp);
   const flightBox = useFlightBox(boxRef, flying);
   const height = Math.round(100 * aspect * 10) / 10;
   const seed = useMemo(() => hashSeed(itemId ?? "mark"), [itemId]);
   const strokePoints = useMemo(
-    () => (markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round)),
+    () =>
+      markType === "circle" ? [handDrawnLoop(height, seed, round)] : handDrawnCross(height, round),
     [height, markType, seed, round],
   );
   const strokes = useMemo(() => strokePoints.map(smoothPath), [strokePoints]);
+  const contractStrokeMs = markType === "circle" ? PENCIL_CONTRACT.circleMs : PENCIL_CONTRACT.crossStrokeMs;
+  const contractStrokes = useMemo<ContractStroke[]>(
+    () =>
+      strokePoints.map((points, i) => ({
+        points,
+        begin: PENCIL_CONTRACT.approachMs + i * (contractStrokeMs + PENCIL_CONTRACT.hopMs),
+        dur: contractStrokeMs,
+      })),
+    [strokePoints, contractStrokeMs],
+  );
+  const contractDrawMs =
+    PENCIL_CONTRACT.approachMs +
+    strokePoints.length * contractStrokeMs +
+    (strokePoints.length - 1) * PENCIL_CONTRACT.hopMs;
+  const contractSegmentsByStroke = useMemo(
+    () =>
+      contractStrokes.map((stroke, si) =>
+        velocitySegments(stroke).map((seg, k) => ({ ...seg, key: `${si}-${k}`, d: smoothPath(seg.points) })),
+      ),
+    [contractStrokes],
+  );
+  const contractSegments = useMemo(() => contractSegmentsByStroke.flat(), [contractSegmentsByStroke]);
   // Green when right, red when wrong — from the first line the pencil draws.
   const result =
     externalStatus === "correct"
@@ -967,8 +1169,9 @@ export function WorkbookPencilMark({
   }, [onRetry]);
 
   useEffect(() => {
-    if (externalStatus || isCorrect == null) return;
-    const { drawMs, holdMs } = WORKBOOK_MARK_TIMING;
+    if (externalStatus || isCorrect == null || !hasTurn) return;
+    const drawMs = contract ? contractDrawMs : WORKBOOK_MARK_TIMING.drawMs;
+    const holdMs = contract ? PENCIL_CONTRACT.holdMs : WORKBOOK_MARK_TIMING.holdMs;
     const resultDelay = reducedMotion ? holdMs : drawMs + holdMs;
     if (reducedMotion) setInternalStatus("holding");
     const holdTimer = reducedMotion
@@ -991,10 +1194,50 @@ export function WorkbookPencilMark({
       if (holdTimer !== undefined) window.clearTimeout(holdTimer);
       window.clearTimeout(resultTimer);
     };
-  }, [completeOnSuccess, emit, externalStatus, isCorrect, itemId, reducedMotion]);
+  }, [completeOnSuccess, emit, externalStatus, isCorrect, itemId, reducedMotion, hasTurn, contract, contractDrawMs]);
 
   useEffect(() => {
-    if (externalStatus || currentStatus !== "erasing") return;
+    if (externalStatus || currentStatus !== "erasing" || !hasTurn) return;
+    if (contract && !reducedMotion) {
+      // Red is shown first, then the SAME single pencil smoothly flips 180° onto its
+      // back pink eraser dome via `startEraseFlight`, rubs the mark out with 12 crumbs,
+      // and flips back 180° to its graphite tip.
+      let eraseFlightId: symbol | undefined;
+      const rubTimer = window.setTimeout(() => {
+        const el = boxRef.current;
+        const strokesNow = contractFlightRef.current.strokes;
+        const eraseStrokes = [...strokesNow].reverse().map((s) => s.points);
+        const pts = eraseStrokes[0] ?? [];
+        if (el && pts.length > 0) {
+          const totalMs = PENCIL_CONTRACT.eraseMs;
+          const enterMs = PENCIL_CONTRACT.eraseEnterMs;
+          const liftMs = PENCIL_CONTRACT.eraseLiftMs;
+          eraseFlightId = startEraseFlight({
+            el,
+            height: contractFlightRef.current.height,
+            points: pts,
+            strokes: eraseStrokes,
+            enterMs,
+            rubMs: totalMs - enterMs - liftMs,
+            liftMs,
+            totalMs,
+          });
+        }
+        setRubbing(true);
+      }, PENCIL_CONTRACT.redShowMs);
+      const doneTimer = window.setTimeout(() => {
+        if (eraseFlightId) endEraseFlight(eraseFlightId);
+        setRubbing(false);
+        setInternalStatus("erased");
+        onRetryRef.current?.();
+      }, PENCIL_CONTRACT.redShowMs + PENCIL_CONTRACT.eraseMs);
+      return () => {
+        window.clearTimeout(rubTimer);
+        window.clearTimeout(doneTimer);
+        if (eraseFlightId) endEraseFlight(eraseFlightId);
+        setRubbing(false);
+      };
+    }
     const timer = window.setTimeout(
       () => {
         setInternalStatus("erased");
@@ -1003,7 +1246,73 @@ export function WorkbookPencilMark({
       reducedMotion ? WORKBOOK_MARK_TIMING.reducedEraseMs : WORKBOOK_MARK_TIMING.eraseMs,
     );
     return () => window.clearTimeout(timer);
-  }, [currentStatus, externalStatus, reducedMotion]);
+  }, [currentStatus, externalStatus, reducedMotion, hasTurn, contract]);
+
+  // Candidate B: the single tip cursor travels each stroke and stays gently poised
+  // through the 400ms charcoal hold and 600ms red flash so it hands off in 0 frames
+  // directly into the 180° back-eraser flip without vanishing on touch devices.
+  const tipFlightActive =
+    contract &&
+    !reducedMotion &&
+    hasTurn &&
+    (currentStatus === "drawing" ||
+      currentStatus === "holding" ||
+      (currentStatus === "erasing" && !rubbing));
+  const contractFlightRef = useRef<{ height: number; strokes: ContractStroke[] }>({
+    height,
+    strokes: contractStrokes,
+  });
+  contractFlightRef.current = { height, strokes: contractStrokes };
+  useEffect(() => {
+    const el = boxRef.current;
+    if (!tipFlightActive || !el) return;
+    const id = startTipFlight({ el, ...contractFlightRef.current });
+    let raf = 0;
+    const syncReveal = () => {
+      const activeFlight = getTipFlight();
+      if (!activeFlight || activeFlight.id !== id) return;
+      const ms = performance.now() - activeFlight.start;
+      const strokesList = activeFlight.strokes;
+      for (let si = 0; si < strokesList.length; si++) {
+        const s = strokesList[si];
+        const maskPath = el.querySelector<SVGPathElement>(`[data-contract-mask-path="${si}"]`);
+        const maskCap = el.querySelector<SVGCircleElement>(`[data-contract-mask-cap="${si}"]`);
+        if (ms < s.begin) {
+          maskCap?.setAttribute("opacity", "0");
+          if (maskPath) {
+            maskPath.setAttribute("opacity", "0");
+            maskPath.setAttribute("stroke-dashoffset", "100");
+          }
+          for (let k = 0; k < 14; k++) {
+            el.querySelector<SVGPathElement>(`[data-contract-seg="${si}-${k}"]`)?.setAttribute(
+              "opacity",
+              "0",
+            );
+          }
+        } else {
+          const p =
+            ms >= s.begin + s.dur ? 1 : contractEase((ms - s.begin) / Math.max(1, s.dur));
+          maskCap?.setAttribute("opacity", "1");
+          if (maskPath) {
+            maskPath.setAttribute("opacity", "1");
+            maskPath.setAttribute("stroke-dashoffset", ((1 - p) * 100).toFixed(3));
+          }
+          for (let k = 0; k < 14; k++) {
+            el.querySelector<SVGPathElement>(`[data-contract-seg="${si}-${k}"]`)?.setAttribute(
+              "opacity",
+              p >= k / 14 ? "1" : "0",
+            );
+          }
+        }
+      }
+      raf = window.requestAnimationFrame(syncReveal);
+    };
+    syncReveal();
+    return () => {
+      if (raf) window.cancelAnimationFrame(raf);
+      endTipFlight(id);
+    };
+  }, [tipFlightActive]);
 
   if (currentStatus === "erased") return null;
 
@@ -1033,7 +1342,13 @@ export function WorkbookPencilMark({
       </filter>
     </defs>
   );
-  const { eraseMs, eraseFlipMs, eraseLiftMs } = WORKBOOK_MARK_TIMING;
+  const { eraseMs, eraseFlipMs, eraseLiftMs } = contract
+    ? {
+        eraseMs: PENCIL_CONTRACT.eraseMs,
+        eraseFlipMs: PENCIL_CONTRACT.eraseEnterMs,
+        eraseLiftMs: PENCIL_CONTRACT.eraseLiftMs,
+      }
+    : WORKBOOK_MARK_TIMING;
   const enterMs = eraseFlipMs;
   const rubMs = eraseMs - enterMs - eraseLiftMs;
   const kTouch = (enterMs / eraseMs).toFixed(4);
@@ -1048,7 +1363,12 @@ export function WorkbookPencilMark({
    * They fly in a fixed layer above the whole page, kept exactly over this mark box,
    * so the page sheet (which clips its contents) never cuts them off.
    */
-  const stretch = flightBox ? stretchToScreenEdge(flightBox, height) : 0;
+  const stretch = flightBox && !contract ? stretchToScreenEdge(flightBox, height) : 0;
+  const unit = flightBox ? Math.min(flightBox.width / 100, flightBox.height / height) : 0;
+  const tipMode =
+    cursorMode === "tip" &&
+    typeof document !== "undefined" &&
+    !!document.querySelector('.native-lesson-viewer, [data-pencil-cursor-host="true"]');
   const flightLayer =
     flying && flightBox && typeof document !== "undefined"
       ? createPortal(
@@ -1067,26 +1387,26 @@ export function WorkbookPencilMark({
             }}
           >
             {toolDefs}
-            {!erasing &&
-              strokes.map((d, i) => (
-                <DrawingPencil
-                  key={`p${i}`}
-                  path={d}
-                  begin={schedule[i].pencilBegin}
-                  approach={schedule[i].approach}
-                  dur={strokeDur}
-                  lift={i === strokes.length - 1 ? liftMs : hopMs}
-                  shadow={shadowId}
-                  uid={`${baseId}-d${i}`}
-                  first={i === 0}
-                  last={i === strokes.length - 1}
-                  offscreen={offscreenFrom(flightBox, height, strokePoints[i][0])}
-                  stretch={stretch}
-                />
-              ))}
+            {!erasing && (
+              <DrawingPencil
+                paths={strokes}
+                points={strokePoints}
+                strokeDur={strokeDur}
+                hopMs={hopMs}
+                shadow={shadowId}
+                uid={`${baseId}-d`}
+                offscreen={tipMode ? pointerFrom(flightBox, height, strokePoints[0][0]) : offscreenFrom(flightBox, height, strokePoints[0][0])}
+                exit={tipMode ? pointerFrom(flightBox, height, lastPoints[lastPoints.length - 1]) : offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1])}
+                stretch={stretch}
+                tipSize={tipMode && unit > 0 ? toolSize("tip") / unit : undefined}
+              />
+            )}
             {erasing &&
               (() => {
-                const off = offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
+                // Candidate B: the eraser end touches down just beside the mark, close up.
+                const near = "14 -12";
+                const off = contract ? near : tipMode ? pointerFrom(flightBox, height, lastPoints[lastPoints.length - 1]) : offscreenFrom(flightBox, height, lastPoints[lastPoints.length - 1]);
+                const eraserExit = contract ? near : tipMode ? pointerFrom(flightBox, height, strokePoints[0][0]) : off;
                 return (
                   <g
                     className="workbook-pencil workbook-pencil--eraser"
@@ -1109,7 +1429,7 @@ export function WorkbookPencilMark({
                         dur={`${eraseMs}ms`}
                         fill="freeze"
                         calcMode="spline"
-                        values={`${off};0 0;0 0;${off}`}
+                        values={`${off};0 0;0 0;${eraserExit}`}
                         keyTimes={`0;${kTouch};${kRubbed};1`}
                         keySplines={`0.3 0 0.25 1;0 0 1 1;0.55 0 0.7 1`}
                       />
@@ -1125,7 +1445,11 @@ export function WorkbookPencilMark({
                         />
                         <g transform={ERASER_POSE}>
                           <g transform={`rotate(180 0 ${f2(PENCIL_CENTER_Y - stretch / 2)})`}>
-                            <PencilShape uid={`${baseId}-e`} stretch={stretch} />
+                            <PencilShape
+                              uid={`${baseId}-e`}
+                              stretch={stretch}
+                              className="workbook-pencil__shape workbook-pencil__eraser-hd"
+                            />
                           </g>
                         </g>
                       </g>
@@ -1145,8 +1469,138 @@ export function WorkbookPencilMark({
       data-mark-status={currentStatus}
       data-mark-result={result}
       data-mark-type={markType}
+      data-pencil-waiting={waiting || undefined}
+      data-pencil-mode={contractStyle ? "contract" : undefined}
+      data-eraser-rubbing={contract && rubbing ? "true" : undefined}
     >
-      {!erasing && (
+      {contractStyle && !waiting && (!erasing || !rubbing || reducedMotion) && (() => {
+        const animateContract = contract && !reducedMotion && !erasing && currentStatus === "drawing";
+        return (
+          <svg
+            key={erasing ? "contract-red" : "contract-mark"}
+            className="workbook-pencil-mark__svg workbook-pencil-mark__svg--contract"
+            viewBox={viewBox}
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id={`${baseId}-grain`} x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={seed % 97} result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+              {animateContract &&
+                contractStrokes.map((stroke, si) => (
+                  <mask
+                    key={si}
+                    id={`${baseId}-draw-${si}`}
+                    maskUnits="userSpaceOnUse"
+                    maskContentUnits="userSpaceOnUse"
+                    x="-20"
+                    y="-20"
+                    width="140"
+                    height={height + 40}
+                  >
+                    <rect x="-20" y="-20" width="140" height={height + 40} fill="#000" />
+                    <circle
+                      data-contract-mask-cap={si}
+                      cx={f2(stroke.points[0][0])}
+                      cy={f2(stroke.points[0][1])}
+                      r="3.8"
+                      fill="#fff"
+                      opacity="0"
+                    />
+                    <path
+                      data-contract-mask-path={si}
+                      d={polylinePath(stroke.points)}
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="12"
+                      strokeLinecap="butt"
+                      strokeLinejoin="round"
+                      pathLength={100}
+                      strokeDasharray="100 100"
+                      strokeDashoffset="100"
+                      opacity="0"
+                    />
+                  </mask>
+                ))}
+            </defs>
+            <g filter={`url(#${baseId}-grain)`} className="workbook-pencil-mark__contract-strokes">
+              {contractSegmentsByStroke.map((segs, si) => (
+                <g key={si} mask={animateContract ? `url(#${baseId}-draw-${si})` : undefined}>
+                  {segs.map((seg) => (
+                    <ContractSegment
+                      key={seg.key}
+                      segKey={seg.key}
+                      d={seg.d}
+                      width={seg.width}
+                      begin={seg.begin}
+                      dur={seg.dur}
+                      animate={animateContract}
+                    />
+                  ))}
+                </g>
+              ))}
+            </g>
+          </svg>
+        );
+      })()}
+      {contractStyle && erasing && rubbing && !reducedMotion && (() => {
+        const eraseSchedule = eraseStrokeSchedule(strokes.length, enterMs, rubMs);
+        const eraseOrderPoints = [...strokePoints].reverse();
+        return (
+          <svg key="contract-erase" className="workbook-pencil-mark__svg workbook-pencil-mark__svg--contract" viewBox={viewBox} aria-hidden="true">
+            <defs>
+              <mask id={`${baseId}-rub`} maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-20" y="-20" width="140" height={height + 40}>
+                <rect x="-20" y="-20" width="140" height={height + 40} fill="#fff" />
+                {strokes.map((d, i) => {
+                  const eraseIdx = strokes.length - 1 - i;
+                  const win = eraseSchedule[eraseIdx] ?? { begin: enterMs, dur: rubMs };
+                  const kStart = (win.begin / eraseMs).toFixed(4);
+                  const kEnd = ((win.begin + win.dur) / eraseMs).toFixed(4);
+                  return (
+                    <path
+                      key={i}
+                      d={d}
+                      fill="none"
+                      stroke="#000"
+                      strokeWidth="16"
+                      strokeLinecap="round"
+                      pathLength={100}
+                      strokeDasharray="100 100"
+                      strokeDashoffset="-100"
+                      opacity="0"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        dur={`${eraseMs}ms`}
+                        fill="freeze"
+                        values="-100;-100;0;0"
+                        keyTimes={`0;${kStart};${kEnd};1`}
+                      />
+                      <set attributeName="opacity" to="1" begin={`${Math.round(win.begin)}ms`} fill="freeze" />
+                    </path>
+                  );
+                })}
+              </mask>
+            </defs>
+            <g mask={`url(#${baseId}-rub)`}>
+              {contractSegments.map((seg) => (
+                <ContractSegment key={seg.key} d={seg.d} width={seg.width} begin={0} dur={1} animate={false} />
+              ))}
+            </g>
+            <EraserCrumbs
+              points={lastPoints}
+              strokes={eraseOrderPoints}
+              seed={seed}
+              enterMs={enterMs}
+              rubMs={rubMs}
+              totalMs={eraseMs}
+              count={PENCIL_CONTRACT.crumbCount}
+            />
+          </svg>
+        );
+      })()}
+      {!contractStyle && !waiting && !erasing && (
         <svg key="mark" className="workbook-pencil-mark__svg" viewBox={viewBox} aria-hidden="true">
           {strokes.map((d, i) => (
             <MarkStroke
@@ -1159,7 +1613,7 @@ export function WorkbookPencilMark({
           ))}
         </svg>
       )}
-      {erasing && (
+      {!contractStyle && erasing && (
         <svg key="erase" className="workbook-pencil-mark__svg" viewBox={viewBox} aria-hidden="true">
           {!reducedMotion && (
             <>

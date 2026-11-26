@@ -31,8 +31,8 @@ describe("Flip Chart moving pictures keep the sheet drawing", () => {
     });
   }
 
-  it("keeps the differently cropped Lámina 3 olla and imán still", () => {
-    expect(getLivingActor(`${FC}/p003-olla.png`)).toBeNull();
-    expect(getLivingActor(`${FC}/p003-iman.png`)).toBeNull();
+  it("keeps the differently cropped Lámina 3 olla and imán free of mismatched alive SVGs", () => {
+    expect(getLivingActor(`${FC}/p003-olla.png`)?.aliveSrc).toBeUndefined();
+    expect(getLivingActor(`${FC}/p003-iman.png`)?.aliveSrc).toBeUndefined();
   });
 });

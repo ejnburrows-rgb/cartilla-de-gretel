@@ -7,6 +7,7 @@ import {
 } from "@/lib/activity-canvas-store";
 import { useActivityEvents, useActivityState } from "@/lib/activity-events";
 import { useCanvasContinuity } from "@/lib/use-canvas-continuity";
+import { holdManualEraser } from "@/lib/pencil-contract";
 
 export type BrushSize = "fine" | "normal" | "thick";
 export type Tool = "brush" | "eraser";
@@ -117,6 +118,11 @@ export function usePaintCanvas({
     if (done) gretelEvent("activity:complete", { restored: true });
   }, [done, gretelEvent]);
 
+  useEffect(() => {
+    if (tool !== "eraser" || done) return;
+    return holdManualEraser();
+  }, [tool, done]);
+
   const resizeCanvases = useCallback(() => {
     const canvas = paintRef.current;
     const wrap = wrapRef.current;
@@ -223,7 +229,15 @@ export function usePaintCanvas({
   const getPoint = (e: React.PointerEvent) => {
     const canvas = paintRef.current!;
     const rect = canvas.getBoundingClientRect();
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const logicalW = canvas.width / dpr;
+    const logicalH = canvas.height / dpr;
+    const scaleX = rect.width > 0 && logicalW > 0 ? logicalW / rect.width : 1;
+    const scaleY = rect.height > 0 && logicalH > 0 ? logicalH / rect.height : 1;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY,
+    };
   };
 
   const isMaskedOk = (x: number, y: number) => {

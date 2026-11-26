@@ -1,0 +1,284 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\node_modules\\playwright\\cli.js",
+      "test",
+      "tests/e2e/activity-completion-foundation.spec.ts",
+      "tests/e2e/book-pages7-8.spec.ts",
+      "tests/e2e/accessibility-preflight.spec.ts",
+      "--grep",
+      "p2 uses shared pencil|page8 touch release|1. Welcome and primary|5. Flip Chart presenter",
+      "--project=chromium",
+      "--workers=1",
+      "--reporter=line,json",
+      "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\four-affected-open\\artifacts"
+    ],
+    "configFile": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\playwright.config.ts",
+    "rootDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/docs/proofs/m7-m8-m9-verification/continuation/runner-repair/four-affected-open/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+        "testIgnore": [
+          "**/student-assignment-flow.spec.ts",
+          "**/classroom-readiness-gated.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility-preflight.spec.ts",
+      "file": "accessibility-preflight.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded)",
+          "file": "accessibility-preflight.spec.ts",
+          "line": 82,
+          "column": 6,
+          "specs": [
+            {
+              "title": "1. Welcome and primary entry actions accessibility & keyboard reachability",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 16198,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T18:37:59.806Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "bcd9492b435edf8dfaa6-97dec1591844f18f04f9",
+              "file": "accessibility-preflight.spec.ts",
+              "line": 90,
+              "column": 3
+            },
+            {
+              "title": "5. Flip Chart presenter controls accessibility, ARIA labels, and keyboard navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10250,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T18:38:16.498Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "bcd9492b435edf8dfaa6-0407391836796fd36b43",
+              "file": "accessibility-preflight.spec.ts",
+              "line": 275,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "activity-completion-foundation.spec.ts",
+      "file": "activity-completion-foundation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1233,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.native-lesson-viewer')\nExpected: \u001b[32m\"1\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.native-lesson-viewer')\u001b[22m\n\u001b[2m  - Page crashed\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.native-lesson-viewer')\nExpected: \u001b[32m\"1\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.native-lesson-viewer')\u001b[22m\n\u001b[2m  - Page crashed\u001b[22m\n\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts:14:24",
+                    "location": {
+                      "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts",
+                      "column": 24,
+                      "line": 14
+                    },
+                    "snippet": "  12 |   await page.goto('/cartilla/leccion/1');\n  13 |   const viewer = page.locator('.native-lesson-viewer');\n> 14 |   await expect(viewer).toHaveAttribute('data-native-page', '1');\n     |                        ^\n  15 |   await viewer.getByTestId('button-next').click();\n  16 |   await expect(viewer).toHaveAttribute('data-native-page', '2');\n  17 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts",
+                        "column": 24,
+                        "line": 14
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.native-lesson-viewer')\nExpected: \u001b[32m\"1\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.native-lesson-viewer')\u001b[22m\n\u001b[2m  - Page crashed\u001b[22m\n\n\n  12 |   await page.goto('/cartilla/leccion/1');\n  13 |   const viewer = page.locator('.native-lesson-viewer');\n> 14 |   await expect(viewer).toHaveAttribute('data-native-page', '1');\n     |                        ^\n  15 |   await viewer.getByTestId('button-next').click();\n  16 |   await expect(viewer).toHaveAttribute('data-native-page', '2');\n  17 |\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts:14:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T18:38:26.773Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\four-affected-open\\artifacts\\activity-completion-founda-0ba0a--restores-completed-answers-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts",
+                    "column": 24,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b86c04ace0146fa36018-19bbace1b0d246901919",
+          "file": "activity-completion-foundation.spec.ts",
+          "line": 9,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "book-pages7-8.spec.ts",
+      "file": "book-pages7-8.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "page8 touch release reaches original target in phone layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3594,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T18:38:28.704Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "170584313faa0b6a75d8-09e88eff2d24ca2a4749",
+          "file": "book-pages7-8.spec.ts",
+          "line": 44,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T18:37:30.247Z",
+    "duration": 63022.812,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

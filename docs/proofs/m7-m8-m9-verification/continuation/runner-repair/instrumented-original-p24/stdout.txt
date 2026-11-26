@@ -1,0 +1,13 @@
+
+ RUN  v4.1.8 D:/Downloads/cartilla-1247-continuation-work/integration
+
+ ✓ src/lib/__tests__/page-completion-gate.test.tsx (12 tests) 18780ms
+     ✓ an incomplete page cannot advance and shows navigation guidance without counting it as a Gretel hint  333ms
+     ✓ page 24: circling every syllable word with the real component unlocks Siguiente  17997ms
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  15:27:56
+   Duration  27.78s (transform 4.77s, setup 900ms, import 4.25s, tests 18.78s, environment 3.34s)
+
+JSON report written to D:/Downloads/cartilla-1247-continuation-work/test-repairs/docs/proofs/m7-m8-m9-verification/continuation/runner-repair/instrumented-original-p24/results.json

@@ -11,6 +11,7 @@ import {
 } from "@/lib/activity-canvas-store";
 import { useCanvasContinuity } from "@/lib/use-canvas-continuity";
 import { playCorrectChord } from "@/lib/piano-audio";
+import { holdManualEraser } from "@/lib/pencil-contract";
 
 /** Enough writing to count the page's open-ended task as done (no grading). */
 export function isWritingResponseDone(value: string): boolean {
@@ -190,10 +191,24 @@ function LearnerWritingResponse({ pageNumber, interactive, prompt }: WorkbookWri
     return () => window.removeEventListener("resize", resizeCanvas);
   }, [mode, resizeCanvas]);
 
+  useEffect(() => {
+    if (!interactive || mode !== "freehand" || !erasing) return;
+    return holdManualEraser();
+  }, [interactive, mode, erasing]);
+
   // Freehand drawing handlers
   const getPoint = (e: React.PointerEvent<HTMLCanvasElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    const canvas = e.currentTarget;
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const logicalW = canvas.width / dpr;
+    const logicalH = canvas.height / dpr;
+    const scaleX = rect.width > 0 && logicalW > 0 ? logicalW / rect.width : 1;
+    const scaleY = rect.height > 0 && logicalH > 0 ? logicalH / rect.height : 1;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY,
+    };
   };
 
   const persistCanvas = () => {

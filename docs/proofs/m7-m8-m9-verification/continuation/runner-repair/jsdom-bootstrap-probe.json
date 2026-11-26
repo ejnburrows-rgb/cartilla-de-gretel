@@ -1,0 +1,65 @@
+{
+  "startedUtc": "2026-11-03T20:14:54.976Z",
+  "scope": "installed Vitest jsdom.setup(globalThis,{}) in fork; no app/setup imports",
+  "runs": [
+    {
+      "execPath": "C:/Program Files/nodejs/node.exe",
+      "events": [
+        {
+          "stage": "child-started",
+          "ms": 0.04420000000000357,
+          "node": "v26.2.0"
+        },
+        {
+          "stage": "vitest-environments-imported",
+          "ms": 6.4039
+        },
+        {
+          "stage": "jsdom-global-setup-completed",
+          "ms": 4628.4599,
+          "ready": true,
+          "html": "<html><head></head><body></body></html>"
+        },
+        {
+          "stage": "jsdom-teardown-completed",
+          "ms": 4632.8726
+        }
+      ],
+      "stdout": "",
+      "stderr": "",
+      "code": 0,
+      "signal": null,
+      "ms": 4817.7434
+    },
+    {
+      "execPath": "C:/Users/EJN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+      "events": [
+        {
+          "stage": "child-started",
+          "ms": 0.03900000000000148,
+          "node": "v24.22.1"
+        },
+        {
+          "stage": "vitest-environments-imported",
+          "ms": 5.679699999999997
+        },
+        {
+          "stage": "jsdom-global-setup-completed",
+          "ms": 6867.4235,
+          "ready": true,
+          "html": "<html><head></head><body></body></html>"
+        },
+        {
+          "stage": "jsdom-teardown-completed",
+          "ms": 6870.5755
+        }
+      ],
+      "stdout": "",
+      "stderr": "",
+      "code": 0,
+      "signal": null,
+      "ms": 7023.406099999999
+    }
+  ],
+  "finishedUtc": "2026-11-03T20:15:06.821Z"
+}

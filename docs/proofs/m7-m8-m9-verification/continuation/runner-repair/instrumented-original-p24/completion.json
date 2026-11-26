@@ -1,0 +1,32 @@
+{
+  "head": "e65f401b294f76f9a8e926821876a177ff1bb621",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--require",
+    "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\work\\audit-vitest-fork.cjs",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "src/lib/__tests__/page-completion-gate.test.tsx",
+    "--pool",
+    "forks",
+    "--maxWorkers",
+    "1",
+    "--reporter=default",
+    "--reporter=json",
+    "--outputFile",
+    "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\instrumented-original-p24\\results.json"
+  ],
+  "startedUtc": "2026-11-03T20:27:53.422164+00:00",
+  "status": "finished",
+  "scope": "instrumented original p24; no limits/assertions/pool changes",
+  "pid": 31268,
+  "exitCode": 0,
+  "tests": {
+    "numTotalTests": 12,
+    "numPassedTests": 12,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": true
+  },
+  "finishedUtc": "2026-11-03T20:28:25.083387+00:00"
+}

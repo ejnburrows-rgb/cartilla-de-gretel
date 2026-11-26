@@ -95,7 +95,7 @@ test.describe("Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded)",
     await expect(splash).toBeVisible();
 
     // Verify main title heading
-    const heading = page.locator("h1#lc-welcome-title");
+    const heading = page.getByRole("heading", { level: 1, name: "La Cartilla de Gretel", exact: true });
     await expect(heading).toContainText("La Cartilla de Gretel");
 
     // Verify primary buttons and semantics
@@ -323,13 +323,19 @@ test.describe("Non-Workbook Accessibility & Keyboard Preflight (#561 Excluded)",
     const tabCount = await tabs.count();
     expect(tabCount).toBe(3);
 
-    for (let i = 0; i < tabCount; i++) {
-      const tab = tabs.nth(i);
-      if (await tab.isEnabled()) {
-        await verifyVisibleFocus(page, tab);
-      }
+    // The tablist has one Tab stop; arrows reach and activate every thumbnail.
+    await verifyVisibleFocus(page, tabs.nth(0));
+    for (let i = 1; i < tabCount; i++) {
+      await page.keyboard.press("ArrowRight");
+      await expect(tabs.nth(i)).toBeFocused();
+      await expect(tabs.nth(i)).toHaveAttribute("aria-selected", "true");
+      await expect(counter).toContainText(`Hoja ${i + 1} de 3`);
     }
-
+    await page.keyboard.press("Home");
+    await expect(tabs.nth(0)).toBeFocused();
+    await expect(counter).toContainText("Hoja 1 de 3");
+    // Page-level shortcuts deliberately leave focused native controls alone.
+    await stage.focus();
     // Keyboard Arrow navigation check
     await page.keyboard.press("ArrowRight");
     await page.waitForTimeout(500);

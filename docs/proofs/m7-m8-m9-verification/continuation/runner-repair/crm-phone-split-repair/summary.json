@@ -1,0 +1,16 @@
+{
+  "head": "ca5d14f9ba18cac4a06ce2726a68f661e877bf9d",
+  "passed": false,
+  "wrapperExitCode": 1,
+  "runCompletion": "docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\crm-phone-split-repair\\completion.json",
+  "runCompletionSha256": "c8c5ccc5ff3b964a6448c8a8e5f5a61725850d231f6a29b9e921339a88e614ba",
+  "originalTimeoutsPreserved": true,
+  "stats": {
+    "startTime": "2026-11-03T21:50:32.166Z",
+    "duration": 178519.96300000002,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

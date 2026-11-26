@@ -1,0 +1,10 @@
+PASS Next touch target clear
+PASS trusted touch forward
+PASS Previous touch target clear
+PASS trusted touch backward
+PASS corner visible
+PASS touch corner drag forward
+PASS corner visible
+PASS touch corner drag backward
+PASS browser delivered trusted touch events
+{"head":"48dfec7d6a5ec3ac26171d745ea811621ad659db","checks":[{"result":"PASS","message":"Next touch target clear"},{"result":"PASS","message":"trusted touch forward"},{"result":"PASS","message":"Previous touch target clear"},{"result":"PASS","message":"trusted touch backward"},{"result":"PASS","message":"corner visible"},{"result":"PASS","message":"touch corner drag forward"},{"result":"PASS","message":"corner visible"},{"result":"PASS","message":"touch corner drag backward"},{"result":"PASS","message":"browser delivered trusted touch events"}],"failure":"TimeoutError: locator.tap: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('tab', { name: 'Ir a hoja 3', exact: true })\u001b[22m\n"}

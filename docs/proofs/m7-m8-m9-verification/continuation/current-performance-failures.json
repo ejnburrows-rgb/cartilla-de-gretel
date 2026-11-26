@@ -1,0 +1,139 @@
+{
+  "head": "48dfec7d6a5ec3ac26171d745ea811621ad659db",
+  "builtArtifactReuse": true,
+  "result": {
+    "timestamp": "2026-11-03T14:02:07.346Z",
+    "entryJs": {
+      "file": "index.BI2ginb6.js",
+      "sizes": {
+        "raw": 1262650,
+        "gzip": 275899,
+        "brotli": 224289
+      },
+      "budget": {
+        "rawMax": 512000,
+        "gzipMax": 128000
+      }
+    },
+    "entryCss": {
+      "file": "index.BWwnsN-7.css",
+      "sizes": {
+        "raw": 318586,
+        "gzip": 52513,
+        "brotli": 41812
+      },
+      "budget": {
+        "rawMax": 307200,
+        "gzipMax": 51200
+      }
+    },
+    "preloadedVendors": {
+      "react-vendor.B68mAgyd.js": {
+        "raw": 395438,
+        "gzip": 118591,
+        "brotli": 96431
+      },
+      "tanstack-router.tiHaf-V4.js": {
+        "raw": 96611,
+        "gzip": 31066,
+        "brotli": 27709
+      },
+      "lucide.BgWP-KFW.js": {
+        "raw": 27267,
+        "gzip": 9207,
+        "brotli": 7712
+      }
+    },
+    "totalFirstPaintJs": {
+      "raw": 1781966,
+      "gzip": 434763,
+      "budget": {
+        "rawMax": 1003520,
+        "gzipMax": 276480
+      }
+    },
+    "teacherChunks": {
+      "flipchart.lazy": {
+        "fileName": "flipchart.lazy.Dl3XA0tF.js",
+        "sizes": {
+          "raw": 4972,
+          "gzip": 1246,
+          "brotli": 1076
+        }
+      },
+      "admin.lazy": {
+        "fileName": "admin.lazy.B-0VrcmT.js",
+        "sizes": {
+          "raw": 22013,
+          "gzip": 3665,
+          "brotli": 3222
+        }
+      },
+      "reportes.lazy": {
+        "fileName": "reportes.lazy.DdUk4H9S.js",
+        "sizes": {
+          "raw": 35458,
+          "gzip": 5180,
+          "brotli": 4447
+        }
+      },
+      "roster.lazy": {
+        "fileName": "roster.lazy.CCowV8gr.js",
+        "sizes": {
+          "raw": 37604,
+          "gzip": 6296,
+          "brotli": 5336
+        }
+      },
+      "crm.artwork.lazy": {
+        "fileName": "crm.artwork.lazy.DyACa79i.js",
+        "sizes": {
+          "raw": 458644,
+          "gzip": 131752,
+          "brotli": 109932
+        }
+      },
+      "crm.index.lazy": {
+        "fileName": "crm.index.lazy.DyitdNef.js",
+        "sizes": {
+          "raw": 37149,
+          "gzip": 7177,
+          "brotli": 6237
+        }
+      },
+      "route.lazy": {
+        "fileName": "route.lazy.DP88lSrH.js",
+        "sizes": {
+          "raw": 9950,
+          "gzip": 1918,
+          "brotli": 1663
+        }
+      },
+      "guia._n.lazy": {
+        "fileName": "guia._n.lazy.CCtbX8Us.js",
+        "sizes": {
+          "raw": 236537,
+          "gzip": 16810,
+          "brotli": 11799
+        }
+      }
+    },
+    "isolation": {
+      "forbiddenIndexPreloadsChecked": [
+        "crm.artwork.lazy",
+        "flipchart-native",
+        "pdf.worker"
+      ],
+      "violations": []
+    },
+    "passed": false,
+    "violations": [
+      "Entry JS raw size (1233.1 KB) exceeds budget (500.0 KB)",
+      "Entry JS gzip size (269.4 KB) exceeds budget (125.0 KB)",
+      "Entry CSS raw size (311.1 KB) exceeds budget (300.0 KB)",
+      "Entry CSS gzip size (51.3 KB) exceeds budget (50.0 KB)",
+      "Total First-Paint JS raw size (1740.2 KB) exceeds budget (980.0 KB)",
+      "Total First-Paint JS gzip size (424.6 KB) exceeds budget (270.0 KB)"
+    ]
+  }
+}

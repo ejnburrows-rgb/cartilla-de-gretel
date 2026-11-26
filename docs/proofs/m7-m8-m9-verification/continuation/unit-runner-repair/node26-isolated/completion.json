@@ -1,0 +1,29 @@
+{
+  "head": "d695dacad17c5e42a84c88aa336142bfed893472",
+  "command": [
+    "node",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "src/lib/__tests__/page-completion-gate.test.tsx",
+    "--pool",
+    "forks",
+    "--maxWorkers",
+    "1",
+    "--reporter=default",
+    "--reporter=json",
+    "--outputFile",
+    "C:\\Users\\EJN\\Documents\\Codex\\2026-11-03\\new-chat-2\\work\\isolated-default-fork\\results.json"
+  ],
+  "startedUtc": "2026-11-03T19:50:51.590962+00:00",
+  "status": "finished",
+  "pid": 39928,
+  "exitCode": 1,
+  "finishedUtc": "2026-11-03T19:53:51.603070+00:00",
+  "tests": {
+    "numTotalTests": 0,
+    "numPassedTests": 0,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": false
+  }
+}

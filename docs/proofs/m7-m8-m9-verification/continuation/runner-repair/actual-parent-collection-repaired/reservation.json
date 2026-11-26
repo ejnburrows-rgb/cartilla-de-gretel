@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "sha256:39ba1c45dcf935106dbd94bb31aa79147bbfb52c835b049a7aa68313467da54a",
+  "event_id": "sha256:65f99fddfffa8f6ce1568de2776ad45f90dbc6f3768cc06ea77ee9ef0e1f3093",
+  "event_fingerprint": "sha256:07258658b19a7a1d8faf5ec196a3d4bdad84f1d5527678e5655ffb8d437945cc",
+  "task_id": "sha256:fd40bc055213924c6c9e9da321f8b86fd4dd32b734317d0bc0f882d66bb55cf5",
+  "attempt_id": "sha256:51dd0f957b204fca5a8ecb8da38d8a72d13a2b4be179ed103686b9e9c31ce028",
+  "model_ref": null,
+  "action_kind": "targeted_test",
+  "policy_digest": "sha256:fe1fd764135a92b738e8d2049f8726ed7eeda032fadacf2f1b79c8814c3933f7",
+  "requirements_digest": "sha256:550aacb5518c9c4c2ea428cc40c26c0ebae3a40fd1ab1bd8e2417dd3c2d5614c",
+  "candidate_digest": "sha256:b84cad058e27fc5658a644a631fc7e80220b1a8d2aa43ce31ead4aaca9c1f75a",
+  "dependency_digest": "sha256:2e4e1c26b2f344386fb17eac4d93ccac1e570c20f4a10ef03695b83e4ae5144e",
+  "evaluator_digest": "sha256:c5de21a341a3f78be658ca55e7c034e93800884a9a07d936929136515f6cac82",
+  "environment_digest": "sha256:582b97e5ecf3151600e61e7676fb5c9e15590014701c385a5796b7cf5bef75ae",
+  "environment_independent": null,
+  "action_key": "sha256:c278fd26df5890e5c7e05cbbd5762f65592b5939e5046c045262b174ba43440a",
+  "action_key_scope_digest": "sha256:6b99d491f5c40e31c60f7fa8ba1c0ce765e288b5daadaaa9f04335376461fb42",
+  "work_key": "sha256:b4b17b9a858e47abfcb3fa844e515851e8fdca3b9fa847e6372b758647d4bd79",
+  "intervention_level": "enforce",
+  "decision": "block_this_local_action",
+  "reason_code": "invalidation_id does not match canonical fingerprint",
+  "outcome": "blocked",
+  "evidence_digest": null,
+  "reservation_receipt_id": null,
+  "invalidation_id": null,
+  "invalidation_reason_code": null,
+  "invalidation_target_receipt_id": null,
+  "invalidation_transition_id": null,
+  "consumed_invalidation_ids": [],
+  "evidence_accepted": false,
+  "fanout": null,
+  "material_progress": {
+    "status": "unknown",
+    "evidence_digest": null
+  },
+  "rate_advisories": [
+    {
+      "state": "missing",
+      "effect": "advisory"
+    }
+  ],
+  "metrics": [],
+  "validator_version": "0.1.0",
+  "fixture_corpus_version": "1"
+}

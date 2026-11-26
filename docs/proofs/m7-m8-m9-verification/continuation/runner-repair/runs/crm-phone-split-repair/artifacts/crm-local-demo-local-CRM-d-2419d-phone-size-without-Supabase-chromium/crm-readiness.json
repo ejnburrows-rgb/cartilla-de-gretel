@@ -1,0 +1,892 @@
+{
+  "readiness": {
+    "documentStarted": 1291.1000000238419,
+    "domReady": 12752.700000047684,
+    "headingReady": null
+  },
+  "navigation": [
+    {
+      "responseEnd": 273.10000002384186,
+      "domContentLoadedEventEnd": 12752.900000035763,
+      "loadEventEnd": 13061.400000035763,
+      "duration": 13061.400000035763
+    }
+  ],
+  "resources": [
+    {
+      "path": "/@vite/client",
+      "start": 1288.300000011921,
+      "responseEnd": 9032.5,
+      "duration": 7744.199999988079,
+      "bytes": 179835
+    },
+    {
+      "path": "/src/main.tsx",
+      "start": 1288.6000000238419,
+      "responseEnd": 6387.5,
+      "duration": 5098.899999976158,
+      "bytes": 4627
+    },
+    {
+      "path": "/cartilla/art/manifest.json",
+      "start": 1422.9000000357628,
+      "responseEnd": 9031.900000035763,
+      "duration": 7609,
+      "bytes": 116109
+    },
+    {
+      "path": "/@react-refresh",
+      "start": 1423.7000000476837,
+      "responseEnd": 6385.900000035763,
+      "duration": 4962.199999988079,
+      "bytes": 112194
+    },
+    {
+      "path": "/node_modules/.vite/deps/react_jsx-dev-runtime.js",
+      "start": 6389.700000047684,
+      "responseEnd": 6575,
+      "duration": 185.29999995231628,
+      "bytes": 12915
+    },
+    {
+      "path": "/node_modules/.vite/deps/react.js",
+      "start": 6389.900000035763,
+      "responseEnd": 6576.300000011921,
+      "duration": 186.39999997615814,
+      "bytes": 1324
+    },
+    {
+      "path": "/node_modules/.vite/deps/react-dom_client.js",
+      "start": 6390.100000023842,
+      "responseEnd": 6587,
+      "duration": 196.89999997615814,
+      "bytes": 1006143
+    },
+    {
+      "path": "/node_modules/.vite/deps/@tanstack_react-router.js",
+      "start": 6390.200000047684,
+      "responseEnd": 6590.700000047684,
+      "duration": 200.5,
+      "bytes": 295531
+    },
+    {
+      "path": "/src/router.tsx",
+      "start": 6390.300000011921,
+      "responseEnd": 6593.100000023842,
+      "duration": 202.80000001192093,
+      "bytes": 2161
+    },
+    {
+      "path": "/src/lib/art-blend.ts",
+      "start": 6390.400000035763,
+      "responseEnd": 6593.400000035763,
+      "duration": 203,
+      "bytes": 9306
+    },
+    {
+      "path": "/src/lib/living-art-runtime.ts",
+      "start": 6390.800000011921,
+      "responseEnd": 6595.300000011921,
+      "duration": 204.5,
+      "bytes": 18660
+    },
+    {
+      "path": "/src/styles.css",
+      "start": 6391.300000011921,
+      "responseEnd": 7499,
+      "duration": 1107.699999988079,
+      "bytes": 310023
+    },
+    {
+      "path": "/src/styles/living-art.css",
+      "start": 6391.400000035763,
+      "responseEnd": 8990.700000047684,
+      "duration": 2599.300000011921,
+      "bytes": 21090
+    },
+    {
+      "path": "/src/styles/gretel-presence.css",
+      "start": 6391.5,
+      "responseEnd": 8992.200000047684,
+      "duration": 2600.7000000476837,
+      "bytes": 6483
+    },
+    {
+      "path": "/src/styles/art-blend.css",
+      "start": 6391.800000011921,
+      "responseEnd": 8993.300000011921,
+      "duration": 2601.5,
+      "bytes": 1374
+    },
+    {
+      "path": "/node_modules/.vite/deps/chunk-NWGNIMWU.js",
+      "start": 6577.300000011921,
+      "responseEnd": 8999.800000011921,
+      "duration": 2422.5,
+      "bytes": 46104
+    },
+    {
+      "path": "/node_modules/.vite/deps/chunk-G3PMV62Z.js",
+      "start": 6577.5,
+      "responseEnd": 9034.600000023842,
+      "duration": 2457.100000023842,
+      "bytes": 8268
+    },
+    {
+      "path": "/node_modules/.vite/deps/@tanstack_react-query.js",
+      "start": 6597.300000011921,
+      "responseEnd": 9035.900000035763,
+      "duration": 2438.600000023842,
+      "bytes": 118927
+    },
+    {
+      "path": "/src/routeTree.gen.ts",
+      "start": 6597.400000035763,
+      "responseEnd": 9037.300000011921,
+      "duration": 2439.899999976158,
+      "bytes": 99978
+    },
+    {
+      "path": "/src/lib/living-blink-map.ts",
+      "start": 6598.300000011921,
+      "responseEnd": 9038.5,
+      "duration": 2440.199999988079,
+      "bytes": 1554
+    },
+    {
+      "path": "/node_modules/.vite/deps/chunk-6WDELUAO.js",
+      "start": 6608.5,
+      "responseEnd": 9269.200000047684,
+      "duration": 2660.7000000476837,
+      "bytes": 13271
+    },
+    {
+      "path": "/node_modules/.vite/deps/chunk-ANKVHZ4D.js",
+      "start": 6608.700000047684,
+      "responseEnd": 9270.5,
+      "duration": 2661.7999999523163,
+      "bytes": 16822
+    },
+    {
+      "path": "/@fs/D:/Downloads/La%20Cartilla%20de%20Gretel/node_modules/.pnpm/vite@7.3.3_@types+node@22.1_ddc2d9c3127b38ccbab91683f02d47ae/node_modules/vite/dist/client/env.mjs",
+      "start": 9038.100000023842,
+      "responseEnd": 9356.900000035763,
+      "duration": 318.80000001192093,
+      "bytes": 3971
+    },
+    {
+      "path": "/src/routes/__root.tsx",
+      "start": 9043.700000047684,
+      "responseEnd": 9271.900000035763,
+      "duration": 228.19999998807907,
+      "bytes": 35739
+    },
+    {
+      "path": "/src/routes/login.tsx",
+      "start": 9043.900000035763,
+      "responseEnd": 9272.800000011921,
+      "duration": 228.89999997615814,
+      "bytes": 15334
+    },
+    {
+      "path": "/src/routes/intro.tsx",
+      "start": 9044,
+      "responseEnd": 9274.600000023842,
+      "duration": 230.60000002384186,
+      "bytes": 16175
+    },
+    {
+      "path": "/src/routes/entrar.tsx",
+      "start": 9044.100000023842,
+      "responseEnd": 9276.400000035763,
+      "duration": 232.30000001192093,
+      "bytes": 15793
+    },
+    {
+      "path": "/src/routes/dev-living-workbook.tsx",
+      "start": 9044.300000011921,
+      "responseEnd": 9278,
+      "duration": 233.69999998807907,
+      "bytes": 14144
+    },
+    {
+      "path": "/src/routes/dev-gretel.tsx",
+      "start": 9044.400000035763,
+      "responseEnd": 9279.5,
+      "duration": 235.0999999642372,
+      "bytes": 19776
+    },
+    {
+      "path": "/src/routes/credits.tsx",
+      "start": 9044.600000023842,
+      "responseEnd": 9282.5,
+      "duration": 237.89999997615814,
+      "bytes": 18626
+    },
+    {
+      "path": "/src/routes/classroom.tsx",
+      "start": 9044.700000047684,
+      "responseEnd": 9283.5,
+      "duration": 238.79999995231628,
+      "bytes": 16839
+    },
+    {
+      "path": "/src/routes/book.tsx",
+      "start": 9044.800000011921,
+      "responseEnd": 9342.900000035763,
+      "duration": 298.10000002384186,
+      "bytes": 16366
+    },
+    {
+      "path": "/src/routes/index.tsx",
+      "start": 9045,
+      "responseEnd": 9345.100000023842,
+      "duration": 300.10000002384186,
+      "bytes": 15767
+    },
+    {
+      "path": "/src/routes/cartilla/index.tsx",
+      "start": 9045.100000023842,
+      "responseEnd": 9345.900000035763,
+      "duration": 300.80000001192093,
+      "bytes": 15490
+    },
+    {
+      "path": "/src/routes/prototype.lesson-3-a.tsx",
+      "start": 9045.200000047684,
+      "responseEnd": 9350.600000023842,
+      "duration": 305.39999997615814,
+      "bytes": 15863
+    },
+    {
+      "path": "/src/routes/cartilla/voces.tsx",
+      "start": 9045.300000011921,
+      "responseEnd": 9352,
+      "duration": 306.69999998807907,
+      "bytes": 28767
+    },
+    {
+      "path": "/src/routes/cartilla/unirse.tsx",
+      "start": 9045.400000035763,
+      "responseEnd": 9354.900000035763,
+      "duration": 309.5,
+      "bytes": 26374
+    },
+    {
+      "path": "/src/routes/cartilla/student-login.tsx",
+      "start": 9045.400000035763,
+      "responseEnd": 9358.900000035763,
+      "duration": 313.5,
+      "bytes": 14960
+    },
+    {
+      "path": "/src/routes/cartilla/repaso.tsx",
+      "start": 9045.5,
+      "responseEnd": 9360.600000023842,
+      "duration": 315.10000002384186,
+      "bytes": 23260
+    },
+    {
+      "path": "/src/routes/cartilla/practica.tsx",
+      "start": 9045.600000023842,
+      "responseEnd": 9362.300000011921,
+      "duration": 316.69999998807907,
+      "bytes": 14925
+    },
+    {
+      "path": "/src/routes/cartilla/mi-progreso.tsx",
+      "start": 9045.700000047684,
+      "responseEnd": 9366.100000023842,
+      "duration": 320.39999997615814,
+      "bytes": 43664
+    },
+    {
+      "path": "/src/routes/cartilla/letras.tsx",
+      "start": 9045.800000011921,
+      "responseEnd": 9366.700000047684,
+      "duration": 320.9000000357628,
+      "bytes": 17556
+    },
+    {
+      "path": "/src/routes/cartilla/lecciones.tsx",
+      "start": 9045.900000035763,
+      "responseEnd": 9367.700000047684,
+      "duration": 321.80000001192093,
+      "bytes": 26450
+    },
+    {
+      "path": "/src/routes/cartilla/cuaderno.tsx",
+      "start": 9046,
+      "responseEnd": 9368.300000011921,
+      "duration": 322.30000001192093,
+      "bytes": 20122
+    },
+    {
+      "path": "/src/routes/cartilla/ayuda.tsx",
+      "start": 9046.5,
+      "responseEnd": 9370.300000011921,
+      "duration": 323.80000001192093,
+      "bytes": 25920
+    },
+    {
+      "path": "/src/routes/cartilla/autora.tsx",
+      "start": 9046.600000023842,
+      "responseEnd": 9370.400000035763,
+      "duration": 323.80000001192093,
+      "bytes": 24501
+    },
+    {
+      "path": "/src/routes/cartilla/animales.tsx",
+      "start": 9046.900000035763,
+      "responseEnd": 9372.300000011921,
+      "duration": 325.39999997615814,
+      "bytes": 20677
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/route.tsx",
+      "start": 9047,
+      "responseEnd": 9374.100000023842,
+      "duration": 327.10000002384186,
+      "bytes": 19409
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/index.tsx",
+      "start": 9047.200000047684,
+      "responseEnd": 9375.100000023842,
+      "duration": 327.89999997615814,
+      "bytes": 14513
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/roster.tsx",
+      "start": 9047.300000011921,
+      "responseEnd": 9376.700000047684,
+      "duration": 329.4000000357628,
+      "bytes": 14870
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/reportes.tsx",
+      "start": 9047.400000035763,
+      "responseEnd": 9379.200000047684,
+      "duration": 331.80000001192093,
+      "bytes": 15030
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/progreso.tsx",
+      "start": 9047.600000023842,
+      "responseEnd": 9380.600000023842,
+      "duration": 333,
+      "bytes": 14567
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/lecciones.tsx",
+      "start": 9047.700000047684,
+      "responseEnd": 9382.5,
+      "duration": 334.7999999523163,
+      "bytes": 14612
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/guide.tsx",
+      "start": 9047.900000035763,
+      "responseEnd": 9383.700000047684,
+      "duration": 335.80000001192093,
+      "bytes": 14547
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/flipchart.tsx",
+      "start": 9048.100000023842,
+      "responseEnd": 9397.200000047684,
+      "duration": 349.10000002384186,
+      "bytes": 14599
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.tsx",
+      "start": 9048.200000047684,
+      "responseEnd": 9398.5,
+      "duration": 350.2999999523163,
+      "bytes": 15172
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/ayuda.tsx",
+      "start": 9048.300000011921,
+      "responseEnd": 9399.200000047684,
+      "duration": 350.9000000357628,
+      "bytes": 15115
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/admin.tsx",
+      "start": 9048.5,
+      "responseEnd": 9400.300000011921,
+      "duration": 351.80000001192093,
+      "bytes": 16192
+    },
+    {
+      "path": "/src/routes/cartilla/presentar.$n.tsx",
+      "start": 9048.5,
+      "responseEnd": 9401,
+      "duration": 352.5,
+      "bytes": 23094
+    },
+    {
+      "path": "/src/routes/cartilla/pilot-faithful.$n.tsx",
+      "start": 9048.600000023842,
+      "responseEnd": 9401.700000047684,
+      "duration": 353.10000002384186,
+      "bytes": 22559
+    },
+    {
+      "path": "/src/routes/cartilla/leccion.$n.tsx",
+      "start": 9048.700000047684,
+      "responseEnd": 9422.600000023842,
+      "duration": 373.89999997615814,
+      "bytes": 16130
+    },
+    {
+      "path": "/src/routes/cartilla/juego.$gameId.tsx",
+      "start": 9048.800000011921,
+      "responseEnd": 9424.700000047684,
+      "duration": 375.9000000357628,
+      "bytes": 21173
+    },
+    {
+      "path": "/src/routes/cartilla/imprimir.all.tsx",
+      "start": 9048.900000035763,
+      "responseEnd": 9425.800000011921,
+      "duration": 376.89999997615814,
+      "bytes": 18738
+    },
+    {
+      "path": "/src/routes/cartilla/imprimir.$n.tsx",
+      "start": 9049,
+      "responseEnd": 9427.5,
+      "duration": 378.5,
+      "bytes": 20101
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/guia.index.tsx",
+      "start": 9049.200000047684,
+      "responseEnd": 9428.900000035763,
+      "duration": 379.69999998807907,
+      "bytes": 15367
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.index.tsx",
+      "start": 9049.300000011921,
+      "responseEnd": 9430.300000011921,
+      "duration": 381,
+      "bytes": 14567
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/recursos/$recursoId.tsx",
+      "start": 9049.300000011921,
+      "responseEnd": 9431.5,
+      "duration": 382.19999998807907,
+      "bytes": 14700
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/paginas.$n.tsx",
+      "start": 9049.5,
+      "responseEnd": 9432.700000047684,
+      "duration": 383.2000000476837,
+      "bytes": 15312
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/guia.$n.tsx",
+      "start": 9049.600000023842,
+      "responseEnd": 9434.200000047684,
+      "duration": 384.60000002384186,
+      "bytes": 16545
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.artwork.tsx",
+      "start": 9049.700000047684,
+      "responseEnd": 9434.300000011921,
+      "duration": 384.5999999642372,
+      "bytes": 14219
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.$classId.tsx",
+      "start": 9049.900000035763,
+      "responseEnd": 9435.900000035763,
+      "duration": 386,
+      "bytes": 15280
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.$classId.index.tsx",
+      "start": 9050,
+      "responseEnd": 9446.300000011921,
+      "duration": 396.30000001192093,
+      "bytes": 14636
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.tsx",
+      "start": 9050,
+      "responseEnd": 9447.5,
+      "duration": 397.5,
+      "bytes": 15412
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.index.tsx",
+      "start": 9050.200000047684,
+      "responseEnd": 9449.400000035763,
+      "duration": 399.19999998807907,
+      "bytes": 14758
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.reporte.tsx",
+      "start": 9050.300000011921,
+      "responseEnd": 9461.5,
+      "duration": 411.19999998807907,
+      "bytes": 14825
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.$classId.$studentId.$lessonId.tsx",
+      "start": 9050.300000011921,
+      "responseEnd": 9462.800000011921,
+      "duration": 412.5,
+      "bytes": 14826
+    },
+    {
+      "path": "/src/components/audio/PictureAudioLifecycle.tsx",
+      "start": 9278.100000023842,
+      "responseEnd": 9464,
+      "duration": 185.89999997615814,
+      "bytes": 7130
+    },
+    {
+      "path": "/src/components/ServiceWorkerRegister.tsx",
+      "start": 9278.200000047684,
+      "responseEnd": 9465.900000035763,
+      "duration": 187.69999998807907,
+      "bytes": 6310
+    },
+    {
+      "path": "/src/context/LanguageContext.tsx",
+      "start": 9278.400000035763,
+      "responseEnd": 9468.700000047684,
+      "duration": 190.30000001192093,
+      "bytes": 7778
+    },
+    {
+      "path": "/src/components/a11y/SkipLink.tsx",
+      "start": 9278.5,
+      "responseEnd": 9468.400000035763,
+      "duration": 189.9000000357628,
+      "bytes": 3512
+    },
+    {
+      "path": "/src/components/StudentCursor.tsx",
+      "start": 9278.5,
+      "responseEnd": 9480.5,
+      "duration": 202,
+      "bytes": 4918
+    },
+    {
+      "path": "/src/styles/interactive-exercises.css",
+      "start": 9357.5,
+      "responseEnd": 9482.200000047684,
+      "duration": 124.70000004768372,
+      "bytes": 19079
+    },
+    {
+      "path": "/src/lib/student-session.ts",
+      "start": 9379.600000023842,
+      "responseEnd": 9489.300000011921,
+      "duration": 109.69999998807907,
+      "bytes": 21469
+    },
+    {
+      "path": "/src/styles/lesson-fit.css",
+      "start": 9381,
+      "responseEnd": 9490.900000035763,
+      "duration": 109.90000003576279,
+      "bytes": 36238
+    },
+    {
+      "path": "/src/styles/animal-gallery.css",
+      "start": 9386.700000047684,
+      "responseEnd": 9491.100000023842,
+      "duration": 104.39999997615814,
+      "bytes": 4967
+    },
+    {
+      "path": "/src/lib/demo-student-session.ts",
+      "start": 9388,
+      "responseEnd": 9493.200000047684,
+      "duration": 105.20000004768372,
+      "bytes": 7571
+    },
+    {
+      "path": "/src/lib/auth-role.ts",
+      "start": 9388.200000047684,
+      "responseEnd": 9504.600000023842,
+      "duration": 116.39999997615814,
+      "bytes": 2317
+    },
+    {
+      "path": "/src/lib/seed-data.ts",
+      "start": 9388.300000011921,
+      "responseEnd": 9514.600000023842,
+      "duration": 126.30000001192093,
+      "bytes": 99510
+    },
+    {
+      "path": "/src/lib/demo-roster.ts",
+      "start": 9388.400000035763,
+      "responseEnd": 9516,
+      "duration": 127.59999996423721,
+      "bytes": 5117
+    },
+    {
+      "path": "/src/lib/lesson-catalog.ts",
+      "start": 9405.200000047684,
+      "responseEnd": 9518,
+      "duration": 112.79999995231628,
+      "bytes": 11206
+    },
+    {
+      "path": "/src/routes/cartilla/pilot-faithful.$n.tsx",
+      "start": 9405.5,
+      "responseEnd": 9519.700000047684,
+      "duration": 114.20000004768372,
+      "bytes": 7384
+    },
+    {
+      "path": "/src/content/games/payaso-chano-ss.ts",
+      "start": 9483.5,
+      "responseEnd": 9521.200000047684,
+      "duration": 37.700000047683716,
+      "bytes": 5237
+    },
+    {
+      "path": "/src/content/games/syllable-builder-pilot.ts",
+      "start": 9483.800000011921,
+      "responseEnd": 9536.100000023842,
+      "duration": 52.30000001192093,
+      "bytes": 9564
+    },
+    {
+      "path": "/src/content/games/cow-game.ts",
+      "start": 9483.900000035763,
+      "responseEnd": 9539,
+      "duration": 55.09999996423721,
+      "bytes": 2680
+    },
+    {
+      "path": "/src/content/games/core-games.ts",
+      "start": 9483.900000035763,
+      "responseEnd": 9537.900000035763,
+      "duration": 54,
+      "bytes": 13800
+    },
+    {
+      "path": "/src/content/games/completar-palabras.ts",
+      "start": 9484.300000011921,
+      "responseEnd": 9540.800000011921,
+      "duration": 56.5,
+      "bytes": 12317
+    },
+    {
+      "path": "/src/styles/student-print.css",
+      "start": 9484.800000011921,
+      "responseEnd": 9542,
+      "duration": 57.19999998807907,
+      "bytes": 1986
+    },
+    {
+      "path": "/src/styles/cartilla-student.css",
+      "start": 9484.900000035763,
+      "responseEnd": 9543.5,
+      "duration": 58.59999996423721,
+      "bytes": 14451
+    },
+    {
+      "path": "/node_modules/.vite/deps/zod.js",
+      "start": 9485.100000023842,
+      "responseEnd": 9559.200000047684,
+      "duration": 74.10000002384186,
+      "bytes": 124105
+    },
+    {
+      "path": "/src/lib/picture-audio.ts",
+      "start": 9485.400000035763,
+      "responseEnd": 9563,
+      "duration": 77.59999996423721,
+      "bytes": 20271
+    },
+    {
+      "path": "/src/styles/a11y.css",
+      "start": 9486.100000023842,
+      "responseEnd": 9565.700000047684,
+      "duration": 79.60000002384186,
+      "bytes": 3438
+    },
+    {
+      "path": "/src/lib/student-cursor.ts",
+      "start": 9486.700000047684,
+      "responseEnd": 9566,
+      "duration": 79.29999995231628,
+      "bytes": 4276
+    },
+    {
+      "path": "/src/lib/progress-semantics.ts",
+      "start": 9547,
+      "responseEnd": 9566.800000011921,
+      "duration": 19.80000001192093,
+      "bytes": 4482
+    },
+    {
+      "path": "/src/lib/gretel-bus.ts",
+      "start": 9547.200000047684,
+      "responseEnd": 9568.400000035763,
+      "duration": 21.19999998807907,
+      "bytes": 13387
+    },
+    {
+      "path": "/src/lib/student.functions.ts",
+      "start": 9547.200000047684,
+      "responseEnd": 9569.700000047684,
+      "duration": 22.5,
+      "bytes": 19123
+    },
+    {
+      "path": "/src/lib/exercise-stats.ts",
+      "start": 9547.400000035763,
+      "responseEnd": 9571.900000035763,
+      "duration": 24.5,
+      "bytes": 10888
+    },
+    {
+      "path": "/src/lib/progress-calculation.ts",
+      "start": 9548.700000047684,
+      "responseEnd": 9573.400000035763,
+      "duration": 24.69999998807907,
+      "bytes": 19179
+    },
+    {
+      "path": "/src/lib/cartilla-content.ts",
+      "start": 9613.900000035763,
+      "responseEnd": 9623.300000011921,
+      "duration": 9.399999976158142,
+      "bytes": 5375
+    },
+    {
+      "path": "/src/content/consonants.json",
+      "start": 9614,
+      "responseEnd": 9628.900000035763,
+      "duration": 14.900000035762787,
+      "bytes": 45723
+    },
+    {
+      "path": "/src/lib/lesson-accents.ts",
+      "start": 9614.100000023842,
+      "responseEnd": 9630.800000011921,
+      "duration": 16.69999998807907,
+      "bytes": 2874
+    },
+    {
+      "path": "/src/lib/gretel-voice.ts",
+      "start": 9614.5,
+      "responseEnd": 9631.200000047684,
+      "duration": 16.700000047683716,
+      "bytes": 29884
+    },
+    {
+      "path": "/src/content/audio-manifest.ts",
+      "start": 9614.600000023842,
+      "responseEnd": 9631.400000035763,
+      "duration": 16.80000001192093,
+      "bytes": 6102
+    },
+    {
+      "path": "/src/lib/picture-vocabulary.ts",
+      "start": 9614.700000047684,
+      "responseEnd": 9632.700000047684,
+      "duration": 18,
+      "bytes": 6209
+    },
+    {
+      "path": "/src/lib/audio-engine.ts",
+      "start": 9614.700000047684,
+      "responseEnd": 9634,
+      "duration": 19.299999952316284,
+      "bytes": 10134
+    },
+    {
+      "path": "/src/lib/speak.ts",
+      "start": 9614.800000011921,
+      "responseEnd": 9636.5,
+      "duration": 21.69999998807907,
+      "bytes": 22566
+    },
+    {
+      "path": "/src/lib/speech-playback.ts",
+      "start": 9614.900000035763,
+      "responseEnd": 9637.900000035763,
+      "duration": 23,
+      "bytes": 4816
+    },
+    {
+      "path": "/src/lib/learner-storage.ts",
+      "start": 9615.300000011921,
+      "responseEnd": 9638.100000023842,
+      "duration": 22.80000001192093,
+      "bytes": 5475
+    },
+    {
+      "path": "/src/content/lessons.json",
+      "start": 9717,
+      "responseEnd": 9724.800000011921,
+      "duration": 7.800000011920929,
+      "bytes": 7720
+    },
+    {
+      "path": "/src/content/miami-dade.json",
+      "start": 9717.100000023842,
+      "responseEnd": 9725.5,
+      "duration": 8.399999976158142,
+      "bytes": 1175
+    },
+    {
+      "path": "/src/content/picture-vocabulary.json",
+      "start": 9717.300000011921,
+      "responseEnd": 9728.200000047684,
+      "duration": 10.900000035762787,
+      "bytes": 40068
+    },
+    {
+      "path": "/src/content/picture-name-recordings.json",
+      "start": 9717.5,
+      "responseEnd": 9728.400000035763,
+      "duration": 10.900000035762787,
+      "bytes": 33961
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/route.lazy.tsx",
+      "start": 14276.200000047684,
+      "responseEnd": 17055.200000047684,
+      "duration": 2779,
+      "bytes": 34678
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.tsx",
+      "start": 14276.800000011921,
+      "responseEnd": 15555.700000047684,
+      "duration": 1278.9000000357628,
+      "bytes": 3223
+    },
+    {
+      "path": "/src/routes/cartilla/teacher/crm.index.lazy.tsx",
+      "start": 14277.100000023842,
+      "responseEnd": 15555.800000011921,
+      "duration": 1278.699999988079,
+      "bytes": 1518
+    },
+    {
+      "path": "/favicon.svg",
+      "start": 15437.900000035763,
+      "responseEnd": 15555.200000047684,
+      "duration": 117.30000001192093,
+      "bytes": 593
+    }
+  ]
+}

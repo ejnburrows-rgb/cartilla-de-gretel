@@ -81,6 +81,8 @@ A failing authenticity requirement cannot be bypassed by adding exceptions that 
 
 ### Phase 6 — Reporting
 
+The inventory states below are machine-record fields, not owner-facing completion labels. Every owner-facing final reply follows `AGENTS.md` section 12: actual visual first, then **DONE and live / DONE but not live / WAITING / NOT TESTED**. Current task assignments and proof live only in #877.
+
 Generate one report directly from the authoritative record.
 
 The report must distinguish:

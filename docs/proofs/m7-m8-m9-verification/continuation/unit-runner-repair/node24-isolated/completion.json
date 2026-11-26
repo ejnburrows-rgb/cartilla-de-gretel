@@ -1,0 +1,30 @@
+{
+  "head": "47d8ff3cb83e9dc9fb5604ee89f77e7c32d13bc0",
+  "command": [
+    "C:/Users/EJN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "src/lib/__tests__/page-completion-gate.test.tsx",
+    "--pool",
+    "forks",
+    "--maxWorkers",
+    "1",
+    "--reporter=default",
+    "--reporter=json",
+    "--outputFile",
+    "C:\\Users\\EJN\\Documents\\Codex\\2026-11-03\\new-chat-2\\work\\isolated-default-fork-node24-comparison\\results.json"
+  ],
+  "nodeVersion": "v24.22.1",
+  "startedUtc": "2026-11-03T20:08:33.572991+00:00",
+  "status": "finished",
+  "pid": 33004,
+  "exitCode": 1,
+  "finishedUtc": "2026-11-03T20:09:57.320790+00:00",
+  "tests": {
+    "numTotalTests": 0,
+    "numPassedTests": 0,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": false
+  }
+}

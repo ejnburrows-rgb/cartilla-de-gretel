@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import fs from 'node:fs';
 import layouts from '../../src/data/page-layouts.json' with { type: "json" };
 
 function finishedPage(page: number) {
@@ -6,7 +7,19 @@ function finishedPage(page: number) {
   return data[String(page)]!.regions.map(region => `page-${page}-${region.id}`);
 }
 
-test('p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers', async ({ page }) => {
+test('p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers', async ({ page }, testInfo) => {
+  if (process.env.PLAYWRIGHT_CRASH_DIAGNOSTICS === '1') {
+    const destination = testInfo.outputPath('browser-events.ndjson');
+    let count = 0;
+    const log = (kind: string, detail: unknown) => {
+      if (count++ < 1000) fs.appendFileSync(destination, JSON.stringify({ utc: new Date().toISOString(), kind, detail }) + '\n');
+    };
+    page.on('crash', () => log('page-crash', page.url()));
+    page.on('pageerror', error => log('page-error', error.stack || error.message));
+    page.on('console', message => { if (message.type() === 'error') log('console-error', message.text()); });
+    page.on('requestfailed', request => log('request-failed', { url: request.url(), failure: request.failure() }));
+    page.on('response', response => { if (response.status() >= 400) log('http-error', { url: response.url(), status: response.status() }); });
+  }
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.addInitScript(done => localStorage.setItem('cartilla.page-completion.v1', JSON.stringify({ '1': done })), finishedPage(1));
   await page.goto('/cartilla/leccion/1');

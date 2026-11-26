@@ -1,0 +1,32 @@
+{
+  "startedUtc": "2026-11-03T22:11:25.256247+00:00",
+  "wrapperPid": 26772,
+  "head": "4c807085eaa7508d7f326448b65ba4d07d08faa9",
+  "command": [
+    "pnpm.cmd",
+    "exec",
+    "playwright",
+    "test",
+    "--config=work/playwright.crm-production.config.ts",
+    "tests/e2e/crm-local-demo.spec.ts",
+    "--project=chromium",
+    "--grep=at phone size",
+    "--workers=1",
+    "--reporter=line,json",
+    "--output=D:\\Downloads\\cartilla-1247-continuation-work\\integration\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\runs\\crm-phone-images-ready\\artifacts"
+  ],
+  "status": "finished",
+  "runnerPid": 7776,
+  "exitCode": 0,
+  "jsonPresent": true,
+  "jsonSha256": "3eb533d9a6c56fea974d4b82ae3d2abb64ac395c45cb4a1e2ecf90b5aea154ad",
+  "stats": {
+    "startTime": "2026-11-03T22:11:28.829Z",
+    "duration": 36529.999,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "finishedUtc": "2026-11-03T22:12:05.473206+00:00"
+}

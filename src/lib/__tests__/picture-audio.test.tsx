@@ -6,7 +6,12 @@ import vocabulary from '@/content/picture-vocabulary.json';
 import { AUDIO_POLICY } from '@/content/audio-manifest';
 import { installPictureAudio, playPictureName, stopPicturePlayback } from '../picture-audio';
 import { claimSpeech, stopSpeech } from '../speech-playback';
-import { speakAsGretel, setGretelVoiceMuted } from '../gretel-voice';
+import {
+  speakAsGretel,
+  setGretelVoiceMuted,
+  setGretelVoiceProviderConfig,
+  resetGretelVoiceProviderConfig,
+} from '../gretel-voice';
 import { audioEngine } from '../audio-engine';
 import { LivingIllustration } from '@/components/living/LivingIllustration';
 import { TapToHear } from '@/cartilla/interactions/TapToHear';
@@ -37,7 +42,7 @@ beforeEach(() => {
   (AUDIO_POLICY as { allowTts: boolean }).allowTts = false;
   vi.mocked(approvedPictureRecording).mockReturnValue(undefined);
 });
-afterEach(() => { uninstall?.(); uninstall = undefined; stopSpeech(); setGretelVoiceMuted(false); cleanup(); vi.unstubAllGlobals(); });
+afterEach(() => { uninstall?.(); uninstall = undefined; stopSpeech(); resetGretelVoiceProviderConfig(); setGretelVoiceMuted(false); cleanup(); vi.unstubAllGlobals(); });
 
 it('uses authored content names and refuses filename guesses or arbitrary names', () => {
   expect(resolvePictureName(oso.images[0]!, 'oso')?.name.toLowerCase()).toBe('oso');
@@ -67,6 +72,10 @@ it('supports missing-recording TTS only when the audio policy explicitly permits
   expect(speech.speak.mock.calls.map(([utterance]) => utterance.text.toLowerCase())).toEqual(['oso', 'olla']);
 });
 it('Gretel interrupts a recording and a picture invalidates delayed Gretel speech', async () => {
+  setGretelVoiceProviderConfig({
+    type: 'browser-tts',
+    name: 'Test Browser TTS',
+  });
   vi.mocked(approvedPictureRecording).mockReturnValue('/test-approved/oso.mp3');
   playPictureName(oso);
   const recording = FakeAudio.instances[0]!;

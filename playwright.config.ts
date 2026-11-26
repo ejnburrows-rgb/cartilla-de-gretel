@@ -17,6 +17,9 @@ const envCommand = (env: Record<string, string>, command: string) => {
 // CI runners instead use Playwright's installed browser, so executablePath is
 // optional rather than hard-coded to one machine image.
 const CHROMIUM = process.env.PLAYWRIGHT_CHROMIUM_PATH;
+// A bounded open-access check needs neither the gated project nor its Vite
+// process. The default release gate still collects and serves both lanes.
+const OPEN_ACCESS_ONLY = process.env.PLAYWRIGHT_OPEN_ACCESS_ONLY === "1";
 
 // Specs that need open access switched OFF (real login-gated screens).
 const GATED_SPECS = ["**/student-assignment-flow.spec.ts", "**/classroom-readiness-gated.spec.ts"];
@@ -49,12 +52,15 @@ export default defineConfig({
         baseURL: "http://127.0.0.1:5173",
         viewport: { width: 1280, height: 900 },
         launchOptions: {
-          ...(CHROMIUM ? { executablePath: CHROMIUM } : {}),
+          // The separate headless shell exposes on-device speech discovery
+          // but kills its renderer for the missing Mojo binder. Use the full
+          // installed Chromium in new headless mode; keep the app probe intact.
+          ...(CHROMIUM ? { executablePath: CHROMIUM } : { channel: "chromium" }),
           args: ["--no-sandbox"],
         },
       },
     },
-    {
+    ...(OPEN_ACCESS_ONLY ? [] : [{
       // Login-gated lane: VITE_CRM_REVIEW off. /cartilla/unirse redirects to
       // /cartilla/lecciones whenever open access is on, so the join-by-code
       // screens can only be exercised against a build with the flag cleared.
@@ -67,12 +73,12 @@ export default defineConfig({
         baseURL: "http://127.0.0.1:5174",
         viewport: { width: 1280, height: 900 },
         launchOptions: {
-          ...(CHROMIUM ? { executablePath: CHROMIUM } : {}),
+          ...(CHROMIUM ? { executablePath: CHROMIUM } : { channel: "chromium" }),
           args: ["--no-sandbox"],
         },
       },
-    },
-    {
+    }]),
+    ...(OPEN_ACCESS_ONLY ? [] : [{
       // Tutor lane: same app, but booted with VITE_TUTOR_EARS=stub so the
       // session runtime uses the scriptable StubEars. The specs inject
       // transcripts through the localStorage script key and never touch a
@@ -88,7 +94,7 @@ export default defineConfig({
           args: ["--no-sandbox"],
         },
       },
-    },
+    }]),
   ],
   webServer: [
     {
@@ -119,7 +125,7 @@ export default defineConfig({
       // verification prepares production assets separately before Playwright.
       timeout: 300_000,
     },
-    {
+    ...(OPEN_ACCESS_ONLY ? [] : [{
       // Second, login-gated server for the chromium-login-gated project. It
       // uses the same non-generating worker mode as the open-access server so
       // targeted browser verification cannot rewrite tracked route output.
@@ -135,8 +141,8 @@ export default defineConfig({
       url: "http://127.0.0.1:5174",
       reuseExistingServer: false,
       timeout: 300_000,
-    },
-    {
+    }]),
+    ...(OPEN_ACCESS_ONLY ? [] : [{
       // Third server for the tutor lane: identical safe pins (dead local
       // Supabase, non-generating worker mode) plus VITE_TUTOR_EARS=stub, so
       // createTutorEars() returns StubEars and the scripted specs never
@@ -153,6 +159,6 @@ export default defineConfig({
       url: "http://127.0.0.1:5175",
       reuseExistingServer: false,
       timeout: 300_000,
-    },
+    }]),
   ],
 });

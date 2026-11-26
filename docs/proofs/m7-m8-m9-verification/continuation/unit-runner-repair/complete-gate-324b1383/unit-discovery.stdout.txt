@@ -1,0 +1,671 @@
+[
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/adversarial-living-motion.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/adversarial-workbook-pencil.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/empirical-pencil-flight-stress.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/owner-art-intake.test.mjs"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/performance-budget.test.mjs"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/practica.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/prebuild-fetch-pdfs.test.mjs"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/verify-readiness-runner.test.mjs"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/scripts/__tests__/ardilla-tamper-resistance.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/scripts/__tests__/art-visual-evidence.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/scripts/__tests__/recovery-quality-gates.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/scripts/__tests__/verify-owner-art-drop.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/scripts/__tests__/verify-production-assets.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/test/setup-helpers.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/test/ui-features.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/tests/lib/random-with-seed.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/__tests__/Downloads.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/__tests__/animal-gallery.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/__tests__/art-color-completeness.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/__tests__/art-slots-integrity.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/__tests__/consonants-vocab-integrity.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/__tests__/gretel-cinematics.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/__tests__/parent-letter-templates.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/hooks/__tests__/useAudio.policy.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/hooks/__tests__/useIdleCallback.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/hooks/__tests__/useInstallPrompt.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/hooks/__tests__/usePianoListening.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/hooks/__tests__/usePrefersReducedData.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/hooks/__tests__/useSpeechRecognition.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/data/__tests__/workbook-archetypes.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/__tests__/-entrar.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/__tests__/-index.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/__tests__/student-routing.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/activity-canvas-store.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/activity-completion-foundation.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/activity-events.isolated.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/activity-mechanics.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/activity-routing.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/adaptive.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/admin-teacher.functions.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/art-delivery.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/assets.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/assignments.functions.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/audio-engine.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/auth-role.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/badges.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/book-faithful.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/book-fidelity-lessons-01-07.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/book-fidelity-lessons-08-24.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/bookImages.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/branding.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/cartilla-art-factory.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/cartilla-crm-theme.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/cartilla-routes.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/csv-export.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/csv.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/current-art-precedence.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/date-helpers.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/demo-student-session.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/digital-pilot.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/error-page.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/exercise-stats.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/feedback-progress-semantics.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/final-backgrounds.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/flipchart-715-source-order.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/flipchart-alive-fidelity.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/flipchart-hd.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/flipchart-native-coverage.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/flipchart-plate-fidelity.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/flipchart-replica-order.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/folder-assignments-cache.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/folder-assignments.functions.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/gretel-bus-detail.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/gretel-voice-readiness.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/gretel-voice.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/haptic-patterns.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/learner-activity-storage.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/learner-storage.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/lesson-catalog.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/lesson-grading.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/lesson-progress.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/lesson-verification.functions.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/lesson4-source-motion-hold.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/literacy-insights-timezone.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/literacy-insights.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/live-admin-attention.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/living-alive-freshness.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/living-art-policy.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/living-art-runtime.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/living-motion.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/living-page-by-page-coverage.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/local-monitor.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/native-workbook-coverage.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/nina-distraida.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/page-completion-gate.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/page-curl-geometry.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/page-progress.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/password-strength.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/phoneme-matcher.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/piano-word-tracker.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/piano-words.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/picture-audio.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/picture-name-recordings.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/picture-vocabulary.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/pointer-policy.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/production-art-audit.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/profile.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/progress-calculation.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/progress-events.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/random-with-seed.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/release-integration.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/seed-admin-overview.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/spanish-syllables.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/speak.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/student-cursor.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/student-event-sync.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/student-session.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/student.functions.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/teacher-hand-mode.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/teacher-review.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/teacher.functions.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/url-share.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/utils.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/__tests__/workbook-vowel-alive-fidelity.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/utils/__tests__/buildPageArray.render.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/colorization-pass.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/DibujaHost.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/faithful-mechanic-routing.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/listbox-keyboard-navigation.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/PaintCanvas.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/PencilConnector.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/PencilConnectorProgress.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/SyllableWordCircle.rollout.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/SyllableWordCircle.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/cartilla/interactions/__tests__/TapSelect.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/piano/piano-sound.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/piano/PianoMicrophoneOnly.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/ActivityCarousel.state.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/DragBuildWord.completion.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/DragBuildWord.occupied.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/DragBuildWord.reset.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/DragMatchPairs.stable-content.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/DrawBoxCanvas.preview.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/DrawBoxCanvas.resize.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/DrawBoxCanvas.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/FaithfulPageRenderer.mechanics.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/FlipchartHdPanel.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/InteractiveMiniGames.games.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/InteractivePageExercises.dragmatch.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/InteractivePageExercises.fillblank-praise.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/InteractivePageExercises.paging.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/LessonTimer.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/letter-stroke-templates.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/letter-trace-tap-mode.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/LetterPickerHub.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/PianoPronunciation.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/secure-shuffle.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/SoundSearch.reset.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/SyllableTapGame.audio-policy.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WordMatch.duplicates.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WordMatch.no-emoji.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/workbook-recovery.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WorkbookArchetypeSurface.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WorkbookHandwriting.source.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WorkbookLetterTrace.interaction.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WorkbookPencilMark.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WorkbookVowels.rollout.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WorkbookWritingAndFillInBlank.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/__tests__/WorkbookWritingResponse.persistence.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/gretel-pose-library.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/GretelActivity.policy.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/gretelLearning.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/GretelLiveAvatar.interaction.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/gretelMachine.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/GretelMascot.live.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/GretelSceneMedia.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/gretel/__tests__/lessons-audit.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/intro/__tests__/BookHeroGretel.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/intro/__tests__/WelcomeSplash.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/rewards/__tests__/KeyboardRewards.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/living/__tests__/ardilla-empirical-challenge.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/living/__tests__/LivingIllustration.clip.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/living/__tests__/LivingIllustration.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/StudentBook/__tests__/CurlPageViewer.contract.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/StudentBook/__tests__/CurlPageViewer.resume.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/StudentBook/__tests__/CurlPageViewer.storage.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/StudentBook/__tests__/NativeLessonViewer.autoturn.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/StudentBook/__tests__/NativeLessonViewer.turn.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/teacher/__tests__/AssignActivityModal.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/teacher/__tests__/ClassRoster.rename.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/teacher/__tests__/ClassRoster.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/teacher/__tests__/StudentPicker.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/teacher/__tests__/StudentTable.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/teacher/__tests__/TeacherNoteField.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/games/__tests__/completar-palabras.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/games/__tests__/complete-game-set.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/games/__tests__/taught-order.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/content/guia/__tests__/loader.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/features/teacher-crm/__tests__/TeacherCrmShell.notes.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/features/teacher-crm/__tests__/TeacherDailyHome.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/__tests__/cuaderno-native-book.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/__tests__/mi-progreso-bug.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/__tests__/mi-progreso-race.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/__tests__/practica-games.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/games/__tests__/butterflyGarden.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/lib/games/__tests__/syllable-builder.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/games/__tests__/ButterflyGarden.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/games/__tests__/PayasoChano.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/games/__tests__/SyllableBuilder.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/components/cartilla/games/__tests__/WordsPerMinuteGame.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/features/teacher-crm/components/__tests__/LessonCatalog.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/features/teacher-crm/components/__tests__/LessonTileGrid.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/features/teacher-crm/components/__tests__/TaskList.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/-admin.auth.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/-route.auth.test.ts"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/ayuda.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/crm-lesson-detail.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/crm.$classId.error.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/crm.student.error.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/guia-folders.test.tsx"
+  },
+  {
+    "file": "D:/Downloads/cartilla-1247-continuation-work/integration/src/routes/cartilla/teacher/__tests__/progreso.test.tsx"
+  }
+]

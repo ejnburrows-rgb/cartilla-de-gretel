@@ -38,6 +38,9 @@ export function PageCurl({
   /** Corner lift before the curl (the "zoom" phase). */
   liftMs: number;
 }) {
+  const curlParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("curl") : null;
+  const style = curlParam === "edge" ? "edge" : "corner";
+  const curlVariant = curlParam === "b" ? "b" : "a";
   const svgRef = useRef<SVGSVGElement>(null);
   const progressRef = useRef(0);
   const animRef = useRef<{ from: number; start: number; dur: number } | null>(null);
@@ -88,7 +91,7 @@ export function PageCurl({
       // rolls back in from the left and lies down flat.
       const shown = direction === "prev" ? 1 - p : p;
       if (svg && w > 0 && h > 0) {
-        const g = curlGeometry(w, h, shown);
+        const g = curlGeometry(w, h, shown, style);
         leaf.style.clipPath = frontClipPath(g.front);
         svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
         svg.setAttribute("width", String(w));
@@ -125,11 +128,11 @@ export function PageCurl({
       window.cancelAnimationFrame(frame);
       leaf.style.removeProperty("clip-path");
     };
-  }, [active, phase, direction, leafRef, dragProgressRef]);
+  }, [active, phase, direction, leafRef, dragProgressRef, style]);
 
   if (!active) return null;
   return (
-    <svg ref={svgRef} className="native-page-curl" aria-hidden="true" focusable="false">
+    <svg ref={svgRef} className="native-page-curl" data-curl-style={style} data-curl-variant={curlVariant} aria-hidden="true" focusable="false">
       <defs>
         <linearGradient data-band="back" id="native-page-curl-back" gradientUnits="userSpaceOnUse">
           {PAPER_BACK.map((c, i) => (
@@ -138,6 +141,7 @@ export function PageCurl({
         </linearGradient>
         <linearGradient data-band="roll" id="native-page-curl-roll" gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="#fbf7ef" />
+          {curlVariant === "b" && <stop offset="0.28" stopColor="#fffdf8" />}
           <stop offset="0.6" stopColor="#efe6d6" />
           <stop offset="1" stopColor="#cfc1a8" />
         </linearGradient>

@@ -1,0 +1,88 @@
+
+
+
+
+Running 4 tests using 1 worker
+
+
+
+[1/4] [chromium] › tests\e2e\audio-preflight.spec.ts:75:3 › Audio Preflight Verification › speech ownership prevents overlapping speech between Gretel and picture audio
+[2/4] [chromium] › tests\e2e\crm-local-demo.spec.ts:13:2 › local CRM demo completes student activity, notes, assignment and report at laptop size without Supabase
+  1) [chromium] › tests\e2e\crm-local-demo.spec.ts:13:2 › local CRM demo completes student activity, notes, assignment and report at laptop size without Supabase 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: 'Volver al CRM', exact: true })
+        - locator resolved to <a class="rounded-xl bg-white px-4 py-3 font-bold border border-amber-200" href="/cartilla/teacher/crm/seed-class-4bf890e8-5807-431a-8f2a-be98151bf36f/seed-student-b8a1a6ea-36cb-444e-b89d-fd7d5ecb131c">Volver al CRM</a>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <select aria-label="Cambiar de lección" class="rounded-xl border border-stone-300 bg-white px-2.5 py-1.5 text-xs font-bold text-stone-900 shadow-2xs">…</select> from <header class="lc-lesson-header flex flex-wrap items-center justify-between gap-3">…</header> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <select aria-label="Cambiar de lección" class="rounded-xl border border-stone-300 bg-white px-2.5 py-1.5 text-xs font-bold text-stone-900 shadow-2xs">…</select> from <header class="lc-lesson-header flex flex-wrap items-center justify-between gap-3">…</header> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        121 × waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <select aria-label="Cambiar de lección" class="rounded-xl border border-stone-300 bg-white px-2.5 py-1.5 text-xs font-bold text-stone-900 shadow-2xs">…</select> from <header class="lc-lesson-header flex flex-wrap items-center justify-between gap-3">…</header> subtree intercepts pointer events
+          - retrying click action
+            - waiting 500ms
+
+
+      76 |   await expect(viewer).toHaveAttribute('data-page-complete','true');
+      77 |   await page.screenshot({path:`docs/proofs/crm-demo/student-${name}.png`,fullPage:true});
+    > 78 |   await page.getByRole('link',{name:'Volver al CRM',exact:true}).click();
+         |                                                                  ^
+      79 |   await expect(page.getByRole('heading',{name:'Demo Ana',exact:true,level:1})).toBeVisible();
+      80 |   const evidence=await page.evaluate(({ana,beto})=>{
+      81 |    const data=JSON.parse(localStorage.getItem('cartilla.seed.state.v1')!);
+        at D:\Downloads\cartilla-1247-continuation-work\test-repairs\tests\e2e\crm-local-demo.spec.ts:78:66
+
+    Error Context: docs\proofs\m7-m8-m9-verification\continuation\runner-repair\runs\teacher-images-crm-followup\artifacts\crm-local-demo-local-CRM-d-ae071-aptop-size-without-Supabase-chromium\error-context.md
+
+
+
+
+[3/4] [chromium] › tests\e2e\final-candidate.spec.ts:155:4 › all teacher plates, final artwork and geometry — laptop
+[4/4] [chromium] › tests\e2e\final-candidate.spec.ts:155:4 › all teacher plates, final artwork and geometry — tablet
+  2) [chromium] › tests\e2e\final-candidate.spec.ts:155:4 › all teacher plates, final artwork and geometry — tablet 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('flipchart-stage').locator('[data-native-flipchart="true"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('flipchart-stage').locator('[data-native-flipchart="true"]') with timeout 5000ms
+      - waiting for getByTestId('flipchart-stage').locator('[data-native-flipchart="true"]')
+
+
+      166 |     for (let i = 0; i < pages.length; i++) {
+      167 |       const stage = page.getByTestId('flipchart-stage');
+    > 168 |       await expect(stage.locator('[data-native-flipchart="true"]')).toBeVisible();
+          |                                                                     ^
+      169 |       await expect(stage.locator('.fc-native-board__pagenum')).toHaveText(String(pages[i].flipchartPage));
+      170 |       await expect.poll(() => stage.locator('img').evaluateAll(images => images.every(i => (i as HTMLImageElement).complete && (i as HTMLImageElement).naturalWidth > 0))).toBe(true);
+      171 |       for (const asset of finalAssets[String(pages[i].flipchartPage)] ?? []) {
+        at D:\Downloads\cartilla-1247-continuation-work\test-repairs\tests\e2e\final-candidate.spec.ts:168:69
+
+    Error Context: docs\proofs\m7-m8-m9-verification\continuation\runner-repair\runs\teacher-images-crm-followup\artifacts\final-candidate-all-teache-a39c1-twork-and-geometry-—-tablet-chromium\error-context.md
+
+
+  2 failed
+    [chromium] › tests\e2e\crm-local-demo.spec.ts:13:2 › local CRM demo completes student activity, notes, assignment and report at laptop size without Supabase 
+    [chromium] › tests\e2e\final-candidate.spec.ts:155:4 › all teacher plates, final artwork and geometry — tablet 
+  2 passed (3.9m)

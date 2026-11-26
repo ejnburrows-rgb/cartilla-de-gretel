@@ -1,0 +1,52 @@
+[
+  {
+    "ProcessName": "RobloxPlayerBeta",
+    "Id": 20868,
+    "WorkingSet64": 1604841472
+  },
+  {
+    "ProcessName": "ChatGPT",
+    "Id": 35356,
+    "WorkingSet64": 849633280
+  },
+  {
+    "ProcessName": "Memory Compression",
+    "Id": 3272,
+    "WorkingSet64": 849502208
+  },
+  {
+    "ProcessName": "codex",
+    "Id": 5728,
+    "WorkingSet64": 778129408
+  },
+  {
+    "ProcessName": "MsMpEng",
+    "Id": 5760,
+    "WorkingSet64": 415358976
+  },
+  {
+    "ProcessName": "ChatGPT",
+    "Id": 36532,
+    "WorkingSet64": 239714304
+  },
+  {
+    "ProcessName": "ChatGPT",
+    "Id": 27040,
+    "WorkingSet64": 225083392
+  },
+  {
+    "ProcessName": "explorer",
+    "Id": 12944,
+    "WorkingSet64": 214925312
+  },
+  {
+    "ProcessName": "language_server",
+    "Id": 36828,
+    "WorkingSet64": 194981888
+  },
+  {
+    "ProcessName": "ChatGPT",
+    "Id": 29420,
+    "WorkingSet64": 188186624
+  }
+]

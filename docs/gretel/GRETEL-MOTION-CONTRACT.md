@@ -14,7 +14,9 @@ create a third character style. The machine-readable source identity is recorded
 in `src/data/gretel-approved-master.json`. Selection does not certify existing
 poses as matching or imply that any clip has been produced.
 
-## What exists today (20 files)
+## Historical candidate inventory — September 30, 2026 (20 files)
+
+This is the recorded candidate snapshot, not a current file census, live status or approval of alternate masters. Recheck current files and #877 before acting; the locked identity above remains authoritative.
 
 | File | Size | Background | Style | Viable as master? |
 |---|---|---|---|---|
@@ -51,7 +53,9 @@ not create a requirement to produce lesson, milestone or completion videos.
 - Reduced-motion or data-saving preference, slow loading and errors show the
   approved still, while keeping Comenzar available.
 
-## Integration status and remaining work
+## Historical integration checkpoint — reverify current state
+
+The figures and player behavior below are earlier recorded evidence, not a current production verification. Use #877 and the actual deployed revision for today’s remaining work; do not recreate the player from this snapshot.
 
 Approved master: complete. Produced welcome clip: **0/1**.
 The existing media player now supports the silent welcome loop, static fallback, reduced-motion/data-saving behavior and bounded load/stall failures. Comenzar enters the lesson path immediately in one step. The approved still is installed unchanged. The future approved MP4 can be registered without another player implementation.

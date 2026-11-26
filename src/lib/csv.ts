@@ -12,7 +12,13 @@ export function toCSV(rows: Array<Record<string, unknown>>, columns?: string[]):
   if (rows.length === 0) return "";
   const cols = columns ?? Object.keys(rows[0]);
   const head = cols.map(escape).join(",");
-  const body = rows.map((r) => cols.map((c) => escape(r[c])).join(",")).join("\n");
+  const body = rows.map((r) => {
+    const cells = cols.map((c) => escape(r[c]));
+    // A single blank field needs quotes so parsers keep it as a data row,
+    // rather than treating the header's trailing newline as the entire export.
+    if (cells.length === 1 && cells[0] === "") return '""';
+    return cells.join(",");
+  }).join("\n");
   return `${head}\n${body}`;
 }
 

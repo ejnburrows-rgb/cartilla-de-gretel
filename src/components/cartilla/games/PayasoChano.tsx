@@ -14,7 +14,7 @@ import {
   useSensors,
   type DragEndEvent,
 } from "@dnd-kit/core";
-import { RotateCcw, Volume2, Umbrella } from "lucide-react";
+import { RotateCcw, Star, Umbrella, Volume2 } from "lucide-react";
 import { recordEvent } from "@/lib/student-session";
 import { playWord } from "@/lib/games/wordAudio";
 import { useGameReactions } from "./useGameReactions";
@@ -44,6 +44,8 @@ interface PayasoState {
 
 type Action =
   | { type: "PLACE"; slotIdx: number; trayIdx: number }
+  | { type: "TAP_PLACE"; trayIdx: number }
+  | { type: "RETURN_SLOT"; slotIdx: number }
   | { type: "CHECK" }
   | { type: "CLEAR_CHECK" }
   | { type: "RESET_TILES" }
@@ -71,6 +73,27 @@ function reducer(state: PayasoState, action: Action): PayasoState {
       newSlots[slotIdx] = state.tray[trayIdx];
       const newUsed = new Set(state.usedTrayIdx);
       newUsed.add(trayIdx);
+      return { ...state, slots: newSlots, usedTrayIdx: newUsed, checkResult: null };
+    }
+    case "TAP_PLACE": {
+      const { trayIdx } = action;
+      const emptyIdx = state.slots.indexOf(null);
+      if (state.completed || emptyIdx === -1 || state.usedTrayIdx.has(trayIdx)) return state;
+      const newSlots = [...state.slots];
+      newSlots[emptyIdx] = state.tray[trayIdx];
+      const newUsed = new Set(state.usedTrayIdx);
+      newUsed.add(trayIdx);
+      return { ...state, slots: newSlots, usedTrayIdx: newUsed, checkResult: null };
+    }
+    case "RETURN_SLOT": {
+      const { slotIdx } = action;
+      if (state.completed || state.slots[slotIdx] === null) return state;
+      const syllable = state.slots[slotIdx];
+      const trayIdx = state.tray.findIndex((t, i) => t === syllable && state.usedTrayIdx.has(i));
+      const newSlots = [...state.slots];
+      newSlots[slotIdx] = null;
+      const newUsed = new Set(state.usedTrayIdx);
+      if (trayIdx !== -1) newUsed.delete(trayIdx);
       return { ...state, slots: newSlots, usedTrayIdx: newUsed, checkResult: null };
     }
     case "CHECK": {
@@ -227,105 +250,131 @@ export function PayasoChano({ content, lessonId, onComplete }: PayasoChanoProps)
   const allFilled = state.slots.every((s) => s !== null);
 
   return (
-    <div className="w-full max-w-xl mx-auto p-5 bg-white/60 backdrop-blur-md border border-stone-200/50 rounded-2xl shadow-sm space-y-6">
-      <div className="flex items-center justify-between pb-3 border-b border-stone-200/40">
-        <div>
-          <h3 className="text-lg font-black text-stone-800">Juego Payaso Chano</h3>
-          <p className="text-xs font-bold text-stone-500">
-            Palabra {wordIdx + 1} de {content.words.length}
+    <div className="game-wood-frame">
+      <div className="game-paper-board w-full p-5 sm:p-8 space-y-5">
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#E6DCC8]">
+          <div>
+            <h3 className="text-xl sm:text-2xl font-black text-[#25313A]">Juego Payaso Chano</h3>
+            <p className="text-sm font-bold text-[#25313A]/75">
+              Palabra {wordIdx + 1} de {content.words.length}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <a
+              href="/games/payaso-chano.html"
+              className="lesson-focus-ring inline-flex min-h-14 items-center justify-center rounded-2xl border-2 border-[#D99B1E] bg-[#FFF6D6] px-4 py-2 text-sm font-black text-[#25313A] shadow-[0_3px_0_#B87E14] hover:bg-[#FDE79C] active:translate-y-[2px] active:shadow-none"
+            >
+              Chano animado
+            </a>
+            <button
+              type="button"
+              onClick={() => playWord(word.audioUrl)}
+              aria-label={`Escuchar la palabra "${word.word}"`}
+              className="lesson-focus-ring inline-flex min-h-14 min-w-14 items-center justify-center bg-[#167A72] hover:brightness-105 text-white rounded-2xl shadow-[0_3px_0_#0F544E] active:translate-y-[2px] active:shadow-none transition-all"
+            >
+              <Volume2 className="w-5 h-5" aria-hidden />
+            </button>
+          </div>
+        </div>
+
+        <DndContext sensors={sensors} onDragEnd={onDragEnd}>
+          {/* Pizarra de Chano */}
+          <div
+            className="game-chalkboard flex flex-wrap gap-3 items-center justify-center p-5 sm:p-7 min-h-[120px]"
+            role="group"
+            aria-label="Pizarra de Chano: casillas de la palabra"
+          >
+            {state.slots.map((filled, slotIdx) => (
+              <DroppableSlot
+                key={slotIdx}
+                slotIdx={slotIdx}
+                filled={filled}
+                checkResult={state.checkResult}
+                selectedTray={selectedTray}
+                onSlotKeyDown={onSlotKeyDown}
+                onSlotClick={(idx) => dispatch({ type: "RETURN_SLOT", slotIdx: idx })}
+              />
+            ))}
+          </div>
+
+          {/* Tray */}
+          <div
+            className="mt-4 flex flex-wrap gap-3 items-center justify-center p-4 bg-[#F5F1E8] border border-[#E6DCC8] rounded-2xl min-h-[84px]"
+            role="group"
+            aria-label="Sílabas disponibles"
+          >
+            {state.tray.map((syllable, trayIdx) => (
+              <DraggableSyllable
+                key={trayIdx}
+                syllable={syllable}
+                trayIdx={trayIdx}
+                used={state.usedTrayIdx.has(trayIdx)}
+                selectedTray={selectedTray}
+                onTrayKeyDown={onTrayKeyDown}
+                onTrayClick={(idx) => dispatch({ type: "TAP_PLACE", trayIdx: idx })}
+              />
+            ))}
+          </div>
+        </DndContext>
+
+        {selectedTray !== null && (
+          <p className="text-sm font-bold text-[#167A72] text-center" aria-live="polite">
+            Sílaba «{state.tray[selectedTray]}» seleccionada — pulsa Enter/Espacio en una casilla
           </p>
+        )}
+
+        {state.checkResult === "ok" && (
+          <div
+            role="status"
+            className="game-correct-glow flex items-center justify-center gap-2 rounded-2xl border-2 border-[#2F7D4A] bg-[#ECF9F0] px-5 py-3 text-lg font-black text-[#1D5631]"
+          >
+            <span className="game-star-pop">
+              <Star className="h-5 w-5 fill-[#F2B632] text-[#D99B1E]" aria-hidden />
+            </span>
+            ¡Excelente! Palabra «{word.word}» completa.
+          </div>
+        )}
+
+        {state.checkResult === "wrong" && (
+          <div
+            role="status"
+            className="game-wrong-nudge flex items-center justify-center rounded-2xl border-2 border-[#C2413A] bg-[#FDF0EF] px-5 py-3 text-base font-black text-[#8E2620]"
+          >
+            Casi — intenta ordenar las sílabas de nuevo.
+          </div>
+        )}
+
+        {/* Props: sombrilla / resorte / Chano */}
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+          <button
+            type="button"
+            onClick={check}
+            disabled={!allFilled || state.completed || state.checkResult !== null}
+            aria-label="Sombrilla: comprobar la palabra"
+            className="flex min-h-14 items-center gap-2 px-6 py-3 rounded-2xl text-base font-black text-white shadow-[0_4px_0_#0F544E] transition-all hover:brightness-105 active:translate-y-[2px] active:shadow-none disabled:opacity-40 disabled:shadow-none bg-[#167A72]"
+          >
+            <Umbrella className="w-5 h-5" aria-hidden /> Comprobar
+          </button>
+          <button
+            type="button"
+            onClick={resetTiles}
+            aria-label="Resorte: colocar las sílabas en su lugar otra vez"
+            className="flex min-h-14 items-center gap-2 px-5 py-3 rounded-2xl text-base font-black text-[#25313A] bg-[#F5F1E8] border-2 border-[#D4C4A8] hover:border-[#167A72] shadow-[0_3px_0_#C9B798] transition-all active:translate-y-[2px] active:shadow-none"
+          >
+            <RotateCcw className="w-5 h-5" aria-hidden /> Reiniciar
+          </button>
+          <button
+            type="button"
+            onClick={nextWord}
+            aria-label="Chano: escuchar la próxima palabra"
+            className="flex min-h-14 items-center gap-2 px-6 py-3 rounded-2xl text-base font-black text-[#25313A] bg-[#F2B632] border-2 border-[#D99B1E] hover:brightness-105 shadow-[0_4px_0_#B87E14] transition-all active:translate-y-[2px] active:shadow-none"
+          >
+            Siguiente con Chano
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => playWord(word.audioUrl)}
-          aria-label={`Escuchar la palabra "${word.word}"`}
-          className="lesson-focus-ring p-2 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-xl transition-all shadow-sm"
-        >
-          <Volume2 className="w-4 h-4" />
-        </button>
+
+        <GretelFeedback state={reactions.feedback} onRetry={reactions.clear} />
       </div>
-
-      <a
-        href="/games/payaso-chano.html"
-        className="lesson-focus-ring flex min-h-14 w-full items-center justify-center rounded-xl bg-amber-500 px-5 py-3 text-center text-lg font-black text-stone-950 shadow-md transition-colors hover:bg-amber-400"
-      >
-        Jugar con Chano animado
-      </a>
-
-      <DndContext sensors={sensors} onDragEnd={onDragEnd}>
-        {/* Pizarra de Chano */}
-        <div
-          className="flex gap-3 items-center justify-center p-4 bg-stone-50/70 border border-stone-200/40 rounded-2xl min-h-[88px]"
-          role="group"
-          aria-label="Pizarra de Chano: casillas de la palabra"
-        >
-          {state.slots.map((filled, slotIdx) => (
-            <DroppableSlot
-              key={slotIdx}
-              slotIdx={slotIdx}
-              filled={filled}
-              checkResult={state.checkResult}
-              selectedTray={selectedTray}
-              onSlotKeyDown={onSlotKeyDown}
-            />
-          ))}
-        </div>
-
-        {/* Tray */}
-        <div
-          className="mt-4 flex gap-3 items-center justify-center p-4 bg-white/70 border border-stone-200/40 rounded-2xl min-h-[72px]"
-          role="group"
-          aria-label="Sílabas disponibles"
-        >
-          {state.tray.map((syllable, trayIdx) => (
-            <DraggableSyllable
-              key={trayIdx}
-              syllable={syllable}
-              trayIdx={trayIdx}
-              used={state.usedTrayIdx.has(trayIdx)}
-              selectedTray={selectedTray}
-              onTrayKeyDown={onTrayKeyDown}
-            />
-          ))}
-        </div>
-      </DndContext>
-
-      {selectedTray !== null && (
-        <p className="text-xs text-stone-500" aria-live="polite">
-          Sílaba «{state.tray[selectedTray]}» seleccionada — pulsa Enter/Espacio en una casilla
-        </p>
-      )}
-
-      {/* Props: sombrilla / resorte / Chano */}
-      <div className="flex items-center justify-center gap-3 pt-2">
-        <button
-          type="button"
-          onClick={check}
-          disabled={!allFilled || state.completed || state.checkResult !== null}
-          aria-label="Sombrilla: comprobar la palabra"
-          className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-black text-white shadow-md transition-all hover:brightness-105 active:scale-95 disabled:opacity-40 bg-sky-500"
-        >
-          <Umbrella className="w-4 h-4" /> Comprobar
-        </button>
-        <button
-          type="button"
-          onClick={resetTiles}
-          aria-label="Resorte: colocar las sílabas en su lugar otra vez"
-          className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-black text-stone-700 bg-stone-100 hover:bg-stone-200 shadow-sm transition-all active:scale-95"
-        >
-          <RotateCcw className="w-4 h-4" /> Reiniciar
-        </button>
-        <button
-          type="button"
-          onClick={nextWord}
-          aria-label="Chano: escuchar la próxima palabra"
-          className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-black text-white bg-orange-500 hover:brightness-105 shadow-md transition-all active:scale-95"
-        >
-          Siguiente con Chano
-        </button>
-      </div>
-
-      <GretelFeedback state={reactions.feedback} onRetry={reactions.clear} />
     </div>
   );
 }
@@ -336,12 +385,14 @@ function DraggableSyllable({
   used,
   selectedTray,
   onTrayKeyDown,
+  onTrayClick,
 }: {
   syllable: string;
   trayIdx: number;
   used: boolean;
   selectedTray: number | null;
   onTrayKeyDown: (e: React.KeyboardEvent, trayIdx: number) => void;
+  onTrayClick: (trayIdx: number) => void;
 }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `tray-${trayIdx}`,
@@ -369,8 +420,9 @@ function DraggableSyllable({
       aria-label={`Sílaba ${syllable}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
       aria-pressed={selectedTray === trayIdx}
       aria-disabled={used}
+      onClick={() => !used && onTrayClick(trayIdx)}
       onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
-      className="lesson-focus-ring px-5 py-3 rounded-xl border-2 text-xl font-black select-none cursor-grab active:cursor-grabbing text-stone-800 bg-white border-stone-200 hover:border-stone-400 transition-all"
+      className="lesson-focus-ring game-tactile-tile min-h-14 min-w-16 flex items-center justify-center px-5 py-3 rounded-2xl text-xl font-black select-none cursor-grab active:cursor-grabbing"
     >
       {syllable}
     </div>
@@ -383,12 +435,14 @@ function DroppableSlot({
   checkResult,
   selectedTray,
   onSlotKeyDown,
+  onSlotClick,
 }: {
   slotIdx: number;
   filled: SlotState;
   checkResult: "ok" | "wrong" | null;
   selectedTray: number | null;
   onSlotKeyDown: (e: React.KeyboardEvent, slotIdx: number) => void;
+  onSlotClick: (slotIdx: number) => void;
 }) {
   const { isOver, setNodeRef } = useDroppable({
     id: `slot-${slotIdx}`,
@@ -399,18 +453,19 @@ function DroppableSlot({
     <div
       ref={setNodeRef}
       tabIndex={selectedTray !== null && filled === null ? 0 : -1}
+      onClick={() => filled !== null && onSlotClick(slotIdx)}
       onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
       aria-label={filled ? `Casilla ${slotIdx + 1}: ${filled}` : `Casilla ${slotIdx + 1}: vacía`}
-      className={`lesson-focus-ring w-16 h-16 flex items-center justify-center rounded-xl border-2 text-xl font-black transition-all ${
+      className={`lesson-focus-ring min-w-18 min-h-18 w-18 h-18 flex items-center justify-center rounded-2xl border-2 text-2xl font-black transition-all ${
         checkResult === "ok"
-          ? "bg-emerald-500 border-emerald-600 text-white"
+          ? "game-correct-glow border-[#2F7D4A] text-[#1D5631]"
           : checkResult === "wrong"
-            ? "bg-rose-100 border-rose-400 text-rose-700"
+            ? "game-wrong-nudge border-[#C2413A] text-[#8E2620]"
             : isOver
-              ? "border-dashed border-stone-400 bg-stone-100"
+              ? "border-dashed border-[#F2B632] bg-[#FFF6D6]/20 text-white"
               : filled
-                ? "bg-white border-stone-300 text-stone-800"
-                : "border-dashed border-stone-300 text-stone-300"
+                ? "bg-[#FFFDF8] border-[#D99B1E] text-[#25313A] cursor-pointer shadow-md"
+                : "border-dashed border-white/45 bg-white/10 text-white/45"
       }`}
     >
       {filled ?? "_"}

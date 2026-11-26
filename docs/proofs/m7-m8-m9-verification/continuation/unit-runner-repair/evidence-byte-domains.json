@@ -1,0 +1,60 @@
+{
+  "description": "Receipt evidence digests bind original capture bytes. Git text normalization can change line-ending bytes without changing recorded content. These mappings preserve both domains; no raw evidence was edited.",
+  "records": [
+    {
+      "path": "unit-runner-repair/node26-isolated/completion.json",
+      "receipt": "unit-runner-repair/node26-isolated/accepted.json",
+      "acceptedCaptureSha256": "sha256:6c98b2a0ab18a37f2fa0d3d1e90395b92377fc24c3e2544fdef605c6aedbd05d",
+      "currentCheckoutSha256": "sha256:6c98b2a0ab18a37f2fa0d3d1e90395b92377fc24c3e2544fdef605c6aedbd05d",
+      "gitBlobSha256": "sha256:3a99b5950dbd6e529db68a83cdd615f1d6d15b4fab19f028f6d8474f307a9099",
+      "checkoutEqualsGitBlob": false,
+      "differenceOnlyCrLfNormalization": true,
+      "gitBlobRestoredToCaptureNewlinesSha256": "sha256:6c98b2a0ab18a37f2fa0d3d1e90395b92377fc24c3e2544fdef605c6aedbd05d",
+      "restoredMatchesReceipt": true
+    },
+    {
+      "path": "unit-runner-repair/node24-isolated/completion.json",
+      "receipt": "unit-runner-repair/node24-isolated/accepted.json",
+      "acceptedCaptureSha256": "sha256:bfbb9cf19715bad7e4c6baf8a3b74c3ab39e98f2621eaf47df3e960eae999559",
+      "currentCheckoutSha256": "sha256:bfbb9cf19715bad7e4c6baf8a3b74c3ab39e98f2621eaf47df3e960eae999559",
+      "gitBlobSha256": "sha256:2274ce25fef3483aafee977f1983b28324abe1e365ca47b11b3d8827a4598009",
+      "checkoutEqualsGitBlob": false,
+      "differenceOnlyCrLfNormalization": true,
+      "gitBlobRestoredToCaptureNewlinesSha256": "sha256:bfbb9cf19715bad7e4c6baf8a3b74c3ab39e98f2621eaf47df3e960eae999559",
+      "restoredMatchesReceipt": true
+    },
+    {
+      "path": "runner-repair/runs/crm-layout-replay/completion.json",
+      "receipt": "runner-repair/crm-layout-replay/accepted.json",
+      "acceptedCaptureSha256": "sha256:c53a67f11fba5570e43079f5023c1d0d1be43a64a20ff2fa97f0c5c15020f352",
+      "currentCheckoutSha256": "sha256:c53a67f11fba5570e43079f5023c1d0d1be43a64a20ff2fa97f0c5c15020f352",
+      "gitBlobSha256": "sha256:8e326a08cc235177efb542d240c58176e91a25ba3667a7d3800698eb5ef50407",
+      "checkoutEqualsGitBlob": false,
+      "differenceOnlyCrLfNormalization": true,
+      "gitBlobRestoredToCaptureNewlinesSha256": "sha256:c53a67f11fba5570e43079f5023c1d0d1be43a64a20ff2fa97f0c5c15020f352",
+      "restoredMatchesReceipt": true
+    },
+    {
+      "path": "runner-repair/runs/tablet-isolated/completion.json",
+      "receipt": "runner-repair/tablet-isolated/accepted.json",
+      "acceptedCaptureSha256": "sha256:7a2af3b7f01c0fca27f502c91d74e109e43242712b672393a12e1c6cd02792d8",
+      "currentCheckoutSha256": "sha256:7a2af3b7f01c0fca27f502c91d74e109e43242712b672393a12e1c6cd02792d8",
+      "gitBlobSha256": "sha256:caf9302fe91cc5f091c3d6f6fbe8f9498c62830416197d22912a981bb08e11c7",
+      "checkoutEqualsGitBlob": false,
+      "differenceOnlyCrLfNormalization": true,
+      "gitBlobRestoredToCaptureNewlinesSha256": "sha256:7a2af3b7f01c0fca27f502c91d74e109e43242712b672393a12e1c6cd02792d8",
+      "restoredMatchesReceipt": true
+    },
+    {
+      "path": "source-snapshot-tests.txt",
+      "receipt": "source-snapshot-accepted.json",
+      "acceptedCaptureSha256": "sha256:1485b1d7ef82c63a66c4afa992f0b842e3f24597c6bb303258f8af380a95619c",
+      "currentCheckoutSha256": "sha256:1485b1d7ef82c63a66c4afa992f0b842e3f24597c6bb303258f8af380a95619c",
+      "gitBlobSha256": "sha256:1c2d788801b6f4bfb0193a282f7335d4a20c396a5202753e4813780773ce6480",
+      "checkoutEqualsGitBlob": false,
+      "differenceOnlyCrLfNormalization": true,
+      "gitBlobRestoredToCaptureNewlinesSha256": "sha256:1485b1d7ef82c63a66c4afa992f0b842e3f24597c6bb303258f8af380a95619c",
+      "restoredMatchesReceipt": true
+    }
+  ]
+}

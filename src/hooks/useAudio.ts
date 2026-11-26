@@ -1,21 +1,15 @@
-﻿import { useState, useCallback } from "react";
-import { speak, speakVowel } from "@/lib/speak";
+import { useCallback } from "react";
+import { playPictureName } from "@/lib/picture-audio";
+import { resolveRecordedPictureName } from "@/lib/picture-vocabulary";
 
+/** Recorded vocabulary playback only. Missing clips stay silent; TTS is never a fallback. */
 export function useAudio() {
-  const [playingText, setPlayingText] = useState<string | null>(null);
-
-  const play = useCallback(async (text: string, isVowel = false) => {
-    setPlayingText(text);
-    try {
-      if (isVowel) {
-        await speakVowel(text);
-      } else {
-        await speak(text);
-      }
-    } finally {
-      setPlayingText(null);
-    }
+  const isAvailable = useCallback((text: string) => !!resolveRecordedPictureName(text), []);
+  const play = useCallback((text: string) => {
+    const entry = resolveRecordedPictureName(text);
+    if (!entry) return;
+    playPictureName(entry);
   }, []);
 
-  return { play, playingText };
+  return { play, playingText: null, isAvailable };
 }

@@ -1,0 +1,192 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\node_modules\\playwright\\cli.js",
+      "test",
+      "tests/e2e/activity-completion-foundation.spec.ts",
+      "--grep",
+      "p2 uses shared pencil",
+      "--project=chromium",
+      "--workers=1",
+      "--reporter=line,json",
+      "--output=D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\p2-browser-diagnostics\\artifacts"
+    ],
+    "configFile": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\playwright.config.ts",
+    "rootDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/docs/proofs/m7-m8-m9-verification/continuation/runner-repair/p2-browser-diagnostics/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Downloads/cartilla-1247-continuation-work/test-repairs/tests/e2e",
+        "testIgnore": [
+          "**/student-assignment-flow.spec.ts",
+          "**/classroom-readiness-gated.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "activity-completion-foundation.spec.ts",
+      "file": "activity-completion-foundation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "p2 uses shared pencil feedback, stays keyboard accessible, and restores completed answers",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10352,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.native-lesson-viewer')\nExpected: \u001b[32m\"1\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.native-lesson-viewer')\u001b[22m\n\u001b[2m  - Page crashed\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.native-lesson-viewer')\nExpected: \u001b[32m\"1\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.native-lesson-viewer')\u001b[22m\n\u001b[2m  - Page crashed\u001b[22m\n\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts:27:24",
+                    "location": {
+                      "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts",
+                      "column": 24,
+                      "line": 27
+                    },
+                    "snippet": "  25 |   await page.goto('/cartilla/leccion/1');\n  26 |   const viewer = page.locator('.native-lesson-viewer');\n> 27 |   await expect(viewer).toHaveAttribute('data-native-page', '1');\n     |                        ^\n  28 |   await viewer.getByTestId('button-next').click();\n  29 |   await expect(viewer).toHaveAttribute('data-native-page', '2');\n  30 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts",
+                        "column": 24,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.native-lesson-viewer')\nExpected: \u001b[32m\"1\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.native-lesson-viewer') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.native-lesson-viewer')\u001b[22m\n\u001b[2m  - Page crashed\u001b[22m\n\n\n  25 |   await page.goto('/cartilla/leccion/1');\n  26 |   const viewer = page.locator('.native-lesson-viewer');\n> 27 |   await expect(viewer).toHaveAttribute('data-native-page', '1');\n     |                        ^\n  28 |   await viewer.getByTestId('button-next').click();\n  29 |   await expect(viewer).toHaveAttribute('data-native-page', '2');\n  30 |\n    at D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts:27:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launching> D:\\Relocated-C-Cache\\ms-playwright\\chromium_headless_shell-1243\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=D:\\UserTemp-EJN\\playwright_chromiumdev_profile-3V2kM8 --remote-debugging-pipe --no-startup-window \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launched> pid=42804 \u001b[30m+17ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804][err] [1103/134208.274:INFO:CONSOLE:733] \"[vite] connecting...\", source: http://127.0.0.1:5173/@vite/client (733) \u001b[30m+5s\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804][err] [1103/134208.297:INFO:CONSOLE:827] \"[vite] connected.\", source: http://127.0.0.1:5173/@vite/client (827) \u001b[30m+22ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804][err] [1103/134212.860:INFO:CONSOLE:20103] \"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold\", source: http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=e78b6063 (20103)\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804][err] [1103/134213.451:ERROR:content\\browser\\renderer_host\\render_process_host_impl.cc:6330] Terminating render process for bad Mojo message: Received bad user message: No binder found for interface media.mojom.OnDeviceSpeechRecognition for the frame/document scope \u001b[30m+591ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804][err] [1103/134213.451:ERROR:content\\browser\\bad_message.cc:29] Terminating renderer for bad IPC message, reason 123 \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804] <gracefully close start> \u001b[30m+37ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804] <process did exit: exitCode=0, signal=null> \u001b[30m+85ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804] starting temporary directories cleanup \u001b[30m+1ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804] finished temporary directories cleanup \u001b[30m+10ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=42804] <gracefully close end> \u001b[30m+0ms\u001b[0m\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-03T18:42:02.964Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\docs\\proofs\\m7-m8-m9-verification\\continuation\\runner-repair\\p2-browser-diagnostics\\artifacts\\activity-completion-founda-0ba0a--restores-completed-answers-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Downloads\\cartilla-1247-continuation-work\\test-repairs\\tests\\e2e\\activity-completion-foundation.spec.ts",
+                    "column": 24,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b86c04ace0146fa36018-19bbace1b0d246901919",
+          "file": "activity-completion-foundation.spec.ts",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T18:41:57.037Z",
+    "duration": 17183.314000000002,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

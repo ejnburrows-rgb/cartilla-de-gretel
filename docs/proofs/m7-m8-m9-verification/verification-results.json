@@ -1,0 +1,45 @@
+{
+  "applicationHead": "fc3ca94e5344dd4588b22ec3a35da257b0b7c732",
+  "viewports": [
+    [
+      1366,
+      768
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "sourcePageSweep": {
+    "lessonPages": 60,
+    "frontmatterNotRouteTested": 2
+  },
+  "restoredScenePages": [
+    26,
+    29,
+    32,
+    38,
+    62
+  ],
+  "correctedPlacementPages": [
+    3,
+    4
+  ],
+  "unobscuredSourceStillNeeded": [
+    35,
+    41,
+    47,
+    53
+  ],
+  "typecheckExitCode": 0,
+  "focusedTestsPassed": 59,
+  "browserConsoleErrors": 0,
+  "mergeAuthorized": false,
+  "deployAuthorized": false,
+  "fullSuite": {
+    "passed": 2154,
+    "failed": 30,
+    "skipped": 7,
+    "failedResultFiles": 11
+  }
+}

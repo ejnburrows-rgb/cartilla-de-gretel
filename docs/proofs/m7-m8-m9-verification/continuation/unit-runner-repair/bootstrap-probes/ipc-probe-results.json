@@ -1,0 +1,40 @@
+[
+  {
+    "node": "C:/Program Files/nodejs/node.exe",
+    "events": [
+      {
+        "type": "ready",
+        "node": "v26.2.0"
+      },
+      {
+        "type": "echo",
+        "nonce": "bounded-ipc-check"
+      }
+    ],
+    "started": 1793736694611,
+    "pid": 17012,
+    "echo": true,
+    "exitCode": 0,
+    "signal": null,
+    "elapsedMs": 112
+  },
+  {
+    "node": "C:/Users/EJN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+    "events": [
+      {
+        "type": "ready",
+        "node": "v24.22.1"
+      },
+      {
+        "type": "echo",
+        "nonce": "bounded-ipc-check"
+      }
+    ],
+    "started": 1793736694724,
+    "pid": 31148,
+    "echo": true,
+    "exitCode": 0,
+    "signal": null,
+    "elapsedMs": 107
+  }
+]

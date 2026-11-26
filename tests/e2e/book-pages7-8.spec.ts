@@ -4,16 +4,14 @@ async function openBook(page: import('@playwright/test').Page,n:number){
  await page.goto('/cartilla/cuaderno');
  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-native-page',String(n));
 }
-test('page7 splits8plus8 and keeps validated original cell when changing screens',async({page})=>{
+test('page7 renders the full 16-picture page together without splitting into two sections',async({page})=>{
  await openBook(page,7);
- await expect(page.locator('.fp-ix-cell')).toHaveCount(8);
- await page.getByRole('button',{name:'abanico',exact:true}).click();
- await expect(page.getByRole('button',{name:'abanico',exact:true})).toHaveAttribute('aria-pressed','true');
- const next=page.getByRole('button',{name:'Dibujos 9-16'});
- await expect(next).toBeEnabled({timeout:15000});await next.click();
- await expect(page.locator('.fp-ix-cell')).toHaveCount(8);
+ await expect(page.locator('.fp-ix-cell')).toHaveCount(16);
+ await expect(page.getByRole('button',{name:'Dibujos 1-8'})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Dibujos 9-16'})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'abanico',exact:true})).toBeVisible();
  await expect(page.getByRole('button',{name:'uno',exact:true})).toBeVisible();
- await page.getByRole('button',{name:'Dibujos 1-8'}).click();
+ await page.getByRole('button',{name:'abanico',exact:true}).click();
  await expect(page.getByRole('button',{name:'abanico',exact:true})).toHaveAttribute('aria-pressed','true');
  await expect(page.locator('.native-lesson-viewer')).toHaveAttribute('data-native-page','7');
 });
@@ -41,10 +39,12 @@ test('page8 release outside cancels, hovering cannot restart, keyboard remains u
  await center.focus();await page.keyboard.press('Enter');await target.focus();await page.keyboard.press('Enter');
  await expect(stage.locator('.am-direct-pencil__line-group')).toHaveCount(2);
 });
-test('page8 touch release reaches original target in phone layout',async({browser})=>{
- const context=await browser.newContext({viewport:{width:390,height:900},hasTouch:true,isMobile:true});const page=await context.newPage();
- await page.goto('http://127.0.0.1:8790');await page.evaluate(()=>localStorage.setItem('cartilla.workbook-reader-page.v1','8'));await page.goto('http://127.0.0.1:8790/cartilla/cuaderno');
+test('page8 touch release reaches original target in phone layout',async({browser,baseURL})=>{
+ const context=await browser.newContext({baseURL,viewport:{width:390,height:900},hasTouch:true,isMobile:true});const page=await context.newPage();
+ try {
+ await openBook(page,8);
  const stage=page.locator('.am-direct-pencil__stage');const a=await stage.locator('.am-direct-pencil__center').boundingBox(),b=await stage.getByRole('button',{name:'alas',exact:true}).boundingBox();if(!a||!b)throw Error('Phone targets missing');
  const cdp=await context.newCDPSession(page);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:a.x+a.width/2,y:a.y+a.height/2}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:b.x+b.width/2,y:b.y+b.height/2}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
- await expect(stage.locator('.am-direct-pencil__line-group')).toHaveCount(2);await context.close();
+ await expect(stage.locator('.am-direct-pencil__line-group')).toHaveCount(2);
+ } finally { await context.close(); }
 });

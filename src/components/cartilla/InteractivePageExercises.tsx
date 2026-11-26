@@ -101,7 +101,20 @@ export function InteractivePictureGrid({
     ? cells.filter((cell) => cell.correct === true).length : cells.length;
 
   const handlePencilTap = (i: number) => {
-    if (solved || validated.has(i) || markingCells.size > 0) return;
+    if (solved || validated.has(i) || markingCells.has(i)) return;
+    if (markingCells.size > 0) {
+      for (const [prevIdx, wasCorrect] of markingCells) {
+        const itemId = `${region.id}-${prevIdx}`;
+        if (wasCorrect) {
+          const complete = new Set(validated).add(prevIdx).size === totalCorrectRequired;
+          gretelEvent(complete ? "activity:complete" : "answer:correct", { itemId });
+          handleCellCorrect(prevIdx);
+        } else {
+          gretelEvent("answer:wrong", { itemId });
+          handleCellRetry();
+        }
+      }
+    }
     const cell = cells[i];
     if (!cell || (hasAnswerKey && cell.correct === undefined)) return;
     setMarkingCells(new Map([[i, !hasAnswerKey || cell.correct === true]]));
@@ -191,7 +204,7 @@ export function InteractivePictureGrid({
                   className={`fp-ix-cell relative ${isVal ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(i) }}
                   onClick={() => handlePencilTap(i)}
-                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || (markingCells.size > 0 && !isMarking)}
+                  disabled={solved || (hasAnswerKey && cell.correct === undefined) || isVal || isMarking}
                   aria-label={cell.caption ?? "dibujo"}
                   data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
                   aria-pressed={isVal || isMarking}
@@ -323,7 +336,21 @@ export function InteractiveVowelPickOne({
   }, [correctRows, rows.length, completed, lessonId, region.id, incorrectAttempts, gretelEvent, recordEvent]);
 
   const attempt = (rowIdx: number, cellIdx: number) => {
-    if (correctRows.has(rowIdx) || markingCells.size > 0) return;
+    if (correctRows.has(rowIdx) || markingCells.has(`${rowIdx}-${cellIdx}`)) return;
+    if (markingCells.size > 0) {
+      for (const [prevKey, wasCorrect] of markingCells) {
+        const prevRow = Number(prevKey.split("-")[0]);
+        const itemId = `${region.id}-${prevKey}`;
+        if (wasCorrect) {
+          const complete = new Set(correctRows).add(prevRow).size === rows.length;
+          gretelEvent(complete ? "activity:complete" : "answer:correct", { itemId });
+          handleCellCorrect(prevRow);
+        } else {
+          gretelEvent("answer:wrong", { itemId });
+          handleCellRetry();
+        }
+      }
+    }
     const cell = rows[rowIdx]?.cells[cellIdx];
     if (!cell || cell.correct === undefined) return;
     setMarkingCells(new Map([[`${rowIdx}-${cellIdx}`, cell.correct === true]]));
@@ -383,7 +410,7 @@ export function InteractiveVowelPickOne({
                   type="button"
                   className={`fp-ix-cell relative ${isThisCorrect ? "graded-correct" : ""}`}
                   style={{ ["--ix-float-delay" as string]: floatDelay(r * 3 + cellIdx) }}
-                  disabled={cell.correct === undefined || isRowCorrect || (markingCells.size > 0 && !isMarking)}
+                  disabled={cell.correct === undefined || isRowCorrect || isMarking}
                   onClick={() => attempt(r, cellIdx)}
                   aria-label={cell.caption ?? "dibujo"}
                 >
