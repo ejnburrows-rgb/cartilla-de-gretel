@@ -1,13 +1,13 @@
 """Flag faithful files that are left-right mirrored relative to the HD source drawing.
 Compares each current file with its recrop candidate (candidates.json) as-is and flipped.
-usage: python3 scripts/image-inspection/check-mirroring.py CANDIDATE_DIR"""
+usage: python3 scripts/image-inspection/check-mirroring.py"""
 import json, os, sys
 import numpy as np
 from PIL import Image, ImageOps
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-from _paths import safe_dir, arg
-D = safe_dir(arg(1))
+from _paths import PROOF
+D = os.path.join(PROOF, "recrop-candidates")
 
 def prep(im):
     im = im.convert("RGBA")

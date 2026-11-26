@@ -2,7 +2,7 @@
 Workbook pictures whose current crop cuts the drawing off at an edge.
 
 Nothing in public/ is modified: candidates and before/after comparisons go to OUT.
-usage: python3 scripts/image-inspection/build-recrop-candidates.py OUT_DIR
+usage: python3 scripts/image-inspection/build-recrop-candidates.py  (writes PROOF/recrop-candidates)
 """
 import json, os, sys
 from collections import deque
@@ -10,8 +10,8 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageOps
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-from _paths import safe_dir, arg
-OUT = safe_dir(arg(1), os.path.join(ROOT, "docs/proofs/image-inspection/recrop-candidates"))
+from _paths import PROOF
+OUT = os.path.join(PROOF, "recrop-candidates")
 os.makedirs(OUT, exist_ok=True)
 
 # current faithful file -> Flip Chart native entry that records the same drawing on an HD sheet

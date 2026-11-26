@@ -1,22 +1,13 @@
-"""Command-line path guard shared by the image-inspection scripts."""
+"""Fixed locations used by the image-inspection scripts.
+
+Paths are constants (never taken from the command line) so the scripts can only
+read and write inside this repository.
+"""
 import os
-import sys
-import tempfile
 
 ROOT = os.path.realpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
-_ALLOWED = (ROOT + os.sep, os.path.realpath(tempfile.gettempdir()) + os.sep)
-
-
-def safe_dir(arg, default=None):
-    """Resolve a directory argument, refusing anything outside the repository or temp dir."""
-    raw = arg if arg is not None else default
-    if raw is None:
-        sys.exit("missing directory argument")
-    resolved = os.path.realpath(raw)
-    if not (resolved + os.sep).startswith(_ALLOWED):
-        sys.exit(f"refusing path outside the repository or temp dir: {raw}")
-    return resolved
-
-
-def arg(i):
-    return sys.argv[i] if len(sys.argv) > i else None
+PROOF = os.path.join(ROOT, "docs", "proofs", "image-inspection-2026-11-26")
+# Raw browser results written by inspect-rendered-images.mjs (git-ignored).
+RESULTS = os.path.join(ROOT, "test-results", "image-inspection")
+# Per-sheet provenance contact sheets (git-ignored); the proof keeps needs-review.jpg.
+PROVENANCE_SCRATCH = os.path.join(ROOT, "test-results", "image-inspection-provenance")
