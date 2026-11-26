@@ -35,7 +35,7 @@ src/data/flipchart-native-assets.json
   (line 255 on main 5e1c8378): delete the line  "motionDisabled": true
 ```
 
-- Keep `motionDisabled: true` on the other six sheet-6 entries (scene, espejo, Ema, estrella, erizo, escalera) until their motion is rebuilt.
+- Keep `motionDisabled: true` on the other six sheet-6 entries (scene, espejo, Ema, estrella, erizo, escalera). They are **not part of this handoff**: any future change to them needs its own coordinator assignment and a motion check like this one.
 - The Images lane hands over this one line so the file has a single writer, and will not edit it on `work/images`.
 - **Check after the change:** Flip Chart Lesson 4, sheet 6. The elephant moves its trunk and ears only, and stays still with reduced motion. Take phone and projector screenshots.
 
@@ -44,9 +44,9 @@ src/data/flipchart-native-assets.json
 - **Cow game (`CowGame.tsx`):** each 453×518 cow part is drawn in a 174×170 box (91×87 on phone) with `.cg-p{object-fit:fill}`, so the cows are stretched 17–20% wider. A fix should keep the 453:518 shape: size the box from that shape, or use `object-fit:contain` with a matching box. The side copies of `scene.webp` on desktop and projector show seams and a duplicated fence sign at both edges. Evidence: `screens/cow-game-*`.
 - **Mariposas / Butterfly Garden:** reported only, because the files are protected. The watering-can button picture is about 22% cut off on desktop and projector.
 
-## 4. If the owner approves any of the 13 Workbook replacements
+## 4. If the owner approves any of the 13 Workbook replacements (dependency record only)
 
-The Images lane swaps the still under the same filename and regenerates the 384/768 delivery copies. In the same change, Assets/Motion must add a hold to `src/data/stale-motion-art.json` for every swapped file whose motion is tied to the old pixels, and later rebuild that motion. Rigs in `src/lib/living-actor-registry.ts` at `main` `5e1c8378`:
+The Images lane swaps the still under the same filename and regenerates the 384/768 delivery copies. Each swapped file whose motion is tied to the old pixels then needs a hold in `src/data/stale-motion-art.json`, and later a motion rebuild. **This section is a dependency record, not an assignment.** Per the coordinator ruling, this handoff gives Assets/Motion only the elephant `motionDisabled` switch and its rebuilt output (section 2). Who edits the registry or the hold list for any approved swap is sequenced by the coordinator at that time. Rigs in `src/lib/living-actor-registry.ts` at `main` `5e1c8378`:
 
 | File (`faithful/…`) | Motion rig tied to old pixels |
 |---|---|

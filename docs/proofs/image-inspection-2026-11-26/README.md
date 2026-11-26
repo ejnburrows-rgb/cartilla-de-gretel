@@ -21,7 +21,10 @@ Not covered:
 
 Lesson 24 (printed pages 88, 89, 90) is now fully covered. The first sweep did not reach pages 89–90: for Lesson 24 the app moves old bookmarks that have no printed page number back one page, so the seeded positions landed one page early. The inspection now corrects the bookmark and retries once. Printed pages 88–90 are text and writing exercises with no pictures, so they correctly show 0 pictures at every screen size.
 
-**Scope of this evidence.** These are rendered picture checks plus sampled screenshots. They show whether pictures load, fit and stay sharp. They do **not** establish that the full curriculum or the games are accepted: gameplay, completion gates and real-device behaviour are verified separately (demo-control verification is with Devin; Instinct does visual QA).
+**Scope of this evidence.** These are rendered picture checks plus sampled screenshots. They show whether pictures load, fit and stay sharp. They do **not** establish that the full curriculum or the games are accepted:
+- The sweep reaches each page by seeding and retrying the local bookmark, not by using the real page controls. It does not replace Devin's real-controls demo navigation check.
+- The zero-picture records for pages 88–90 say only that those pages have no pictures. They are not whole-page curriculum or interaction acceptance.
+- Gameplay, completion gates and real-device behaviour are verified separately (Devin; Instinct does visual QA).
 
 ## 2. Results
 
@@ -73,12 +76,20 @@ What the audit found:
 - **Transparency:** viewed on blue, all 12 candidates keep their eyes, dots, highlights and thin lines. The only areas made transparent are white zones open to the outside paper, such as the gaps between the unicorn's legs. They look identical on the Workbook's white cards.
 - **No pixel change:** adding the audit did not change any candidate (the candidate files are byte-identical).
 
-### 3b. The seven "no HD source" pictures against the owner's 69 intake originals
+### 3b. Where else could the seven "no HD source" pictures come from? (bounded search)
 
-`owner-intake-reconciliation/` holds numbered contact sheets of all 69 originals listed in `public/cartilla/art/owner-intake/2026-10-14/manifest.json` (`intake-1-36.jpg`, `intake-37-69.jpg`). `result.json` records the visual match and the closest intake items:
-- **None of the seven is in the intake.** niño (#10 and #43 are different boys), pájaro (#39 is a chick), pera (#12 is an apple), taza, ola (#25 and #60 are a wind cloud), águila and ardilla are **truly missing** and need owner originals.
+**Owner intake 2026-10-14.** `owner-intake-reconciliation/` holds numbered contact sheets of all 69 originals listed in `public/cartilla/art/owner-intake/2026-10-14/manifest.json` (`intake-1-36.jpg`, `intake-37-69.jpg`). `result.json` records the visual comparison:
+- **None of the seven is in this intake folder.** niño (#10 and #43 are different boys), pájaro (#39 is a chick), pera (#12 is an apple), taza, ola (#25 and #60 are a wind cloud), águila and ardilla.
 - **igual is in the intake** as #1, an owner-supplied equals sign at 1254×1254. It is option B above.
-- Reproduce with `scripts/image-inspection/reconcile-owner-intake.py`.
+
+**Historical-content search.** This covered the other two intake folders (2026-10-20-recovered and 2026-10-22, 4 originals each), main's full history back to the 2026-09-19 rewrite, and the trees of all 271 remote branches. Raw results are in `history-search.json` and `history-*.jpg`; the reviewed result is in `history-review.json`.
+- **niño:** main's own history (`2c4b22f`, before the 2026-09-25 commit `e9e248f` "repair authentic niño and zorro cutouts") holds a **complete 634×870 version** of the same drawing, with both shoes and the right side intact. It is listed for coordinator and owner review only. Why `e9e248f` replaced it isn't recorded, so it is not proposed as a swap.
+- **pájaro, pera:** only the grey printed-page crop (about 200 px, uncut) and older versions that are also cut.
+- **taza, ola, águila, ardilla:** grey printed-page crops exist for taza, ola and ardilla. Each of these four also has a 1254–1536 px colour version on another branch (`feat/games-realism-overhaul`, `jules-lane-1-lesson-3-combine`), but those are **redrawn styles with no recorded source** (águila is a different character). They cannot be used under ASSET_FIDELITY_POLICY unless the owner confirms they are his.
+
+**What was not searched.** The Drive/ZIP archives and chat uploads that `ARTWORK_AUDIT_2026-10-16.md` lists as unenumerated: the multipart 509 MB ZIP, the 39-image transfer folder, `558357.jpg`, and other chat histories. "Not found" therefore means not found **in the searched sources**, not that no original exists. **No new request for originals is made here;** the coordinator decides whether to escalate.
+
+Reproduce with `reconcile-owner-intake.py`, `search-history.py` (after `git fetch --filter=blob:none origin '+refs/heads/*:refs/remotes/allbr/*'`) and `extract-history-versions.py`.
 
 ## 4. Page 7 (`owner-decisions/p007-ojo-approved-avion-comparison.jpg`)
 
@@ -107,8 +118,9 @@ What the audit found:
 - **Motion that needs a hold** if any of the 13 replacements is approved.
 
 Who owns what (coordinator ruling on #1327):
-- **Images (this lane):** the Chano artwork review and the elephant-switch review, both done above.
-- **Assets/Motion:** the cow picture ratio and scene seams, plus the living-motion registry and motion outputs.
+- **Images (this lane):** source and provenance, per-candidate fidelity review, the Chano artwork review and the elephant-switch review.
+- **Assets/Motion:** only the elephant entry's `motionDisabled` switch and its rebuilt motion output (`p006-elefante-alive.svg`), plus the cow picture ratio and scene seams in its own game code. This does **not** hand over other living-motion registry edits, and it does not cover the other six held sheet-6 entries.
+- **Motion consequences of a future approved swap:** recorded as dependencies in the handoff. The coordinator sequences who makes those edits at that time.
 - **Performance:** the #1171 delivery-size assessment.
 - **Instinct:** reproducing the blank p.7 eye on a real device and the watering-can clipping. Butterfly Garden is protected, and no garden rebuild is authorized.
 

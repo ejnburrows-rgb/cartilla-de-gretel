@@ -72,7 +72,8 @@
    ]
   }
  },
- "trulyMissing": [
+ "scope": "Only the 2026-10-14 intake folder (69 originals) is compared here. Absence here is not repository-wide absence; see history-search.json for the wider search.",
+ "notFoundIn20261014Intake": [
   "leccion-14-n/nino.webp",
   "leccion-1/pajaro.webp",
   "leccion-1/pera.webp",

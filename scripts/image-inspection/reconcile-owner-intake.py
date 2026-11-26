@@ -57,6 +57,7 @@ sheet.save(os.path.join(OUT, "igual-options.jpg"), quality=88)
 result = {"intakeManifest": "public/cartilla/art/owner-intake/2026-10-14/manifest.json", "intakeCount": len(files),
           "method": "visual comparison against numbered contact sheets intake-1-36.jpg / intake-37-69.jpg",
           "pictures": {k: {**v, "closestPaths": [files[i - 1]["path"] for i in v["closest"]]} for k, v in REVIEW.items()},
-          "trulyMissing": [k for k, v in REVIEW.items() if v["match"] is None]}
+          "scope": "Only the 2026-10-14 intake folder (69 originals) is compared here. Absence here is not repository-wide absence; see history-search.json for the wider search.",
+          "notFoundIn20261014Intake": [k for k, v in REVIEW.items() if v["match"] is None]}
 json.dump(result, open(os.path.join(OUT, "result.json"), "w"), indent=1, ensure_ascii=False)
-print(len(result["trulyMissing"]), "truly missing:", ", ".join(result["trulyMissing"]))
+print(len(result["notFoundIn20261014Intake"]), "not found in the 2026-10-14 intake:", ", ".join(result["notFoundIn20261014Intake"]))

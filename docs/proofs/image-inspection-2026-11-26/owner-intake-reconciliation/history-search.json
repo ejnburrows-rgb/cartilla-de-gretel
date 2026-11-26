@@ -1,0 +1,909 @@
+{
+ "branchesScanned": 271,
+ "mainBlob": {
+  "nino": "d36c8994905caa3fc71c8ebaf74dbd2b629f1c47",
+  "pajaro": "9263d8d76c0575ab3077fdf7dcc0b42e9a15a814",
+  "pera": "2e56424e090527386bd347b80431b9d7f7f75844",
+  "taza": "c21d46201dbed39a0eadd3417d4a5a45f9c40be8",
+  "ola": "db93867a2c1f0b8a8bdd342e5b46d23977feb541",
+  "aguila": "d10503be5471a9353504791e5eaed8fa4b3caeb9",
+  "ardilla": "ecbaaee02a7e9fc81a5e9d46d5c8d249873e5675"
+ },
+ "otherVersions": {
+  "nino": [
+   {
+    "blob": "7e33eee4bd9887e6cbee226b56adb1543883a30f",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-14-n/nino.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "eff684affa5ad2a84732d886f1bc37599f36da9e",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-14-n/nino.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "2a17aa3b673946e393f09de1ec0123f280235766",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-14-n/nino.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "5883e2cde3cff0eca05a624b692ebc07eadb57d3",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-14-n/nino.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "a95ca04d3397522373d791813822d1df82ad24b9",
+    "paths": [
+     "public/cartilla/art/faithful/leccion-14-n/nino.webp"
+    ],
+    "where": [
+     "main@2c4b22ff"
+    ],
+    "refCount": 1,
+    "size": [
+     634,
+     870
+    ]
+   }
+  ],
+  "pajaro": [
+   {
+    "blob": "86279ca7b41f995ac9ab113780de3f6598702832",
+    "paths": [
+     "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ10-PAJARO.png"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 253,
+    "size": [
+     190,
+     200
+    ]
+   },
+   {
+    "blob": "e60fd84ebac3ad4f8fbb43ecc5efed8b4d2a0b40",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/pajaro.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 161
+   },
+   {
+    "blob": "0da63da64347d745c4c5208486d555aac21c6c47",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/pajaro.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 161
+   },
+   {
+    "blob": "60516fea5571a4bcb21e9b61deb91791af18ba66",
+    "paths": [
+     "public/cartilla/art/faithful/leccion-1/pajaro.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 162,
+    "size": [
+     870,
+     557
+    ]
+   },
+   {
+    "blob": "e6c801f791cab22045b5531c2217e73726bf9ca8",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/pajaro.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "cae0465b076cf045fa930d0e66d4ffef8bdf7b48",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/pajaro.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "d828e1421a0b619054d7c4a2baf442ba69c530fa",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/pajaro.webp"
+    ],
+    "where": [
+     "allbr/art-inventory-live",
+     "allbr/art-inventory-page"
+    ],
+    "refCount": 2
+   },
+   {
+    "blob": "efef936e42249576aa6d6bde948e3b2c674a7e62",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/pajaro.webp"
+    ],
+    "where": [
+     "allbr/art-inventory-live",
+     "allbr/art-inventory-page"
+    ],
+    "refCount": 2
+   },
+   {
+    "blob": "33209b90a429051669fa90e4d994d0a6c883ce56",
+    "paths": [
+     "public/cartilla/art/physical-page-proofs/WB-S008-OBJ10-PAJARO.jpg"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     918,
+     1188
+    ]
+   },
+   {
+    "blob": "96ebf2bd24f00eb8028f9cb4dff8d296c344101d",
+    "paths": [
+     "public/cartilla/art/faithful/leccion-1/pajaro-DRAW-WB-43-1.webp"
+    ],
+    "where": [
+     "allbr/lane-9-7984685098851494986"
+    ],
+    "refCount": 1,
+    "size": [
+     190,
+     200
+    ]
+   }
+  ],
+  "pera": [
+   {
+    "blob": "ecfffc31a2d3a8b087211e6b593d1227c2a02bcd",
+    "paths": [
+     "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ09-PERA.png"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 253,
+    "size": [
+     209,
+     202
+    ]
+   },
+   {
+    "blob": "00492ca80b10a6f6f264458288fd6e199d1be99e",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/pera.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "472d2c87447e844ec49c9a152b8af698cc1c7b8c",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/pera.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "920283312c598a43bc61b509486f0f855c4ff854",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/pera.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "1d7696ca17a79436f29aaf37bb6444576d87c437",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/pera.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "4f5a71ab5a4e23930352e48af109c97e18966063",
+    "paths": [
+     "public/cartilla/art/physical-page-proofs/WB-S008-OBJ09-PERA.jpg"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     918,
+     1188
+    ]
+   },
+   {
+    "blob": "4af80b0575b3307bbf60274ddb9ade2bd58daf26",
+    "paths": [
+     "public/cartilla/art/faithful/leccion-1/pera-DRAW-WB-44-1.webp"
+    ],
+    "where": [
+     "allbr/lane-9-7984685098851494986"
+    ],
+    "refCount": 1,
+    "size": [
+     209,
+     202
+    ]
+   }
+  ],
+  "taza": [
+   {
+    "blob": "b8d8d55c8b2c266147a578e822a483ace7b9635e",
+    "paths": [
+     "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S008-OBJ07-TAZA.png"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 253,
+    "size": [
+     124,
+     95
+    ]
+   },
+   {
+    "blob": "823d3894bb0a523c0b2185b0e306096f40bd82f9",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/taza.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "9e15b1cf6f0bd737dbd0683b0e3b657364b56ef0",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/taza.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "c76fe9b24c67a3bd58e4d6f00ef3e2eda1956195",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/taza.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "3c1d37a8fab5b1c3d73bac79762dd38c185729cc",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/taza.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "c47212b599712ff6f91fe6bde1810684c754dda8",
+    "paths": [
+     "public/cartilla/art/faithful/leccion-1/taza.webp"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     1536,
+     1024
+    ]
+   },
+   {
+    "blob": "e5e389b35917601a21c530a83447d103917e82cb",
+    "paths": [
+     "public/cartilla/art/physical-page-proofs/WB-S008-OBJ07-TAZA.jpg"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     918,
+     1188
+    ]
+   },
+   {
+    "blob": "f58d29b5bdc1e31cf313bbe9c8e9406b23da6cd5",
+    "paths": [
+     "public/cartilla/art/faithful/leccion-1/taza-DRAW-WB-46-1.webp"
+    ],
+    "where": [
+     "allbr/lane-9-7984685098851494986"
+    ],
+    "refCount": 1,
+    "size": [
+     124,
+     95
+    ]
+   }
+  ],
+  "ola": [
+   {
+    "blob": "7e0a1ab4b8e2d5b593ada35d07382c57272ff0d1",
+    "paths": [
+     "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S010-OBJ01-OLA.png"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 253,
+    "size": [
+     208,
+     222
+    ]
+   },
+   {
+    "blob": "a99eddac83ed8c39a5f2b1c5a74b820b1bf14f9f",
+    "paths": [
+     "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S011-OBJ06-OLA.png"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 253,
+    "size": [
+     204,
+     207
+    ]
+   },
+   {
+    "blob": "8e2cae234cb135f6c205bf04998a7f5f22d4d388",
+    "paths": [
+     "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S019-OBJ09-OLA.png"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 253,
+    "size": [
+     213,
+     223
+    ]
+   },
+   {
+    "blob": "ef7527fb3cc0023daefb71a5aad1e6f78e14c384",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/vocal-o/ola.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "dc29b38ad5ea553fe1f40e08d2a3eee7e0d552ea",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/vocal-o/ola.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 163
+   },
+   {
+    "blob": "e18cba0431dda221c5daa4116d188afc1a7d650e",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/vocal-o/ola.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "4ea93506fbed2cd589dc1f0fb8165408dfd267a0",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/vocal-o/ola.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "b14fb84a8fc2c9af93bb1f6490f47bc726956460",
+    "paths": [
+     "public/cartilla/art/faithful/vocal-o/ola.webp"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     1254,
+     1254
+    ]
+   },
+   {
+    "blob": "5d32bdaf3b3a0371b1424d631e6498fa4f865782",
+    "paths": [
+     "public/cartilla/art/physical-page-proofs/WB-S010-OBJ01-OLA.jpg"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     918,
+     1188
+    ]
+   },
+   {
+    "blob": "9f5113c9d376775c43697a4a4b19cf75900777d6",
+    "paths": [
+     "public/cartilla/art/physical-page-proofs/WB-S011-OBJ06-OLA.jpg"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     918,
+     1188
+    ]
+   },
+   {
+    "blob": "3464a9c1a9ad6382911cfbd161a823e921e8bbfe",
+    "paths": [
+     "public/cartilla/art/physical-page-proofs/WB-S019-OBJ09-OLA.jpg"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     918,
+     1188
+    ]
+   },
+   {
+    "blob": "0b0571052e7351eb193e1b5e4fbabe5a7fdc8ed0",
+    "paths": [
+     "public/cartilla/art/faithful/vocal-o/ola-DRAW-WB-37-1.webp"
+    ],
+    "where": [
+     "allbr/lane-9-7984685098851494986"
+    ],
+    "refCount": 1,
+    "size": [
+     208,
+     222
+    ]
+   }
+  ],
+  "aguila": [
+   {
+    "blob": "3064104aa5ab6014d8be74f5e18ea4cc4f595e61",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/aguila.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 162
+   },
+   {
+    "blob": "48894c2aefc05fc3b6521372d95deed43cd00d65",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/aguila.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 162
+   },
+   {
+    "blob": "6cfa4a11f1b1d58edfb8f14c661b2ed1f5cd2e5f",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/leccion-1/aguila.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "bb57dc002d41adeb69286e6c089a5f1d5310099a",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/leccion-1/aguila.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "33e5a8d10cab9732224108b88e2c90c95ca93328",
+    "paths": [
+     "public/cartilla/art/faithful/leccion-1/aguila.webp"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     1254,
+     1254
+    ]
+   }
+  ],
+  "ardilla": [
+   {
+    "blob": "ac8a3fcd7528071bcf5271096213674239ee3cb7",
+    "paths": [
+     "docs/proofs/artwork-coverage-2026-10-14/crops/WB-S013-OBJ12-ARDILLA.png"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 253,
+    "size": [
+     238,
+     210
+    ]
+   },
+   {
+    "blob": "0d8884d26d0fa2fef5481d09a0f719c8e6f18993",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/vocal-a/ardilla.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 162
+   },
+   {
+    "blob": "47e8338b85928608a913e9832972a3ce9e4e11c8",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/vocal-a/ardilla.webp"
+    ],
+    "where": [
+     "allbr/activity/chano-rebuild-20261019",
+     "allbr/activity/completar-palabras",
+     "allbr/activity/cow-game",
+     "allbr/activity/cow-game-18247010529815853258",
+     "allbr/activity/cow-wip-20261019",
+     "allbr/activity/lectura-de-palabras"
+    ],
+    "refCount": 162
+   },
+   {
+    "blob": "8ffce38574a2d7851f2dc24a0db637cf41c70472",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/vocal-a/ardilla.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "f4cafb26f816eacc58c9f8bf51a41d2719d43ca2",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/vocal-a/ardilla.webp"
+    ],
+    "where": [
+     "allbr/approval-pack-issue-1047-9061935140164812217",
+     "allbr/art-board-repair-4",
+     "allbr/asignado-error-20261025",
+     "allbr/backup/local-main-workbook-polish-20261126",
+     "allbr/bolt-memoize-cartilla-drawings-1554907485128515753",
+     "allbr/bolt-memoize-cartilla-svgs-12548474222664525219"
+    ],
+    "refCount": 108
+   },
+   {
+    "blob": "c81795e2b7ab0a71d9abd0f7cf9a315fca1905fc",
+    "paths": [
+     "public/cartilla/art/physical-page-proofs/WB-S013-OBJ12-ARDILLA.jpg"
+    ],
+    "where": [
+     "allbr/feat/games-realism-overhaul"
+    ],
+    "refCount": 1,
+    "size": [
+     918,
+     1188
+    ]
+   },
+   {
+    "blob": "f3a97757218432275976c11984009f25e410502d",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/384/vocal-a/ardilla.webp"
+    ],
+    "where": [
+     "allbr/jules-lane-1-lesson-3-combine-222380543456646405"
+    ],
+    "refCount": 1
+   },
+   {
+    "blob": "db013087ad49cb117f5b38055a3156ca2bb2cdc9",
+    "paths": [
+     "public/cartilla/art/delivery/faithful/768/vocal-a/ardilla.webp"
+    ],
+    "where": [
+     "allbr/jules-lane-1-lesson-3-combine-222380543456646405"
+    ],
+    "refCount": 1
+   },
+   {
+    "blob": "3196622229d781b8b7eea68eb94b879b61ccf69e",
+    "paths": [
+     "public/cartilla/art/faithful/vocal-a/ardilla.webp"
+    ],
+    "where": [
+     "allbr/jules-lane-1-lesson-3-combine-222380543456646405"
+    ],
+    "refCount": 1,
+    "size": [
+     1254,
+     1254
+    ]
+   },
+   {
+    "blob": "b8146b0de648fabb3362e2481b722aeb18e2c0a1",
+    "paths": [
+     "public/cartilla/art/faithful/vocal-a/ardilla-DRAW-WB-08-1.webp"
+    ],
+    "where": [
+     "allbr/lane-9-7984685098851494986"
+    ],
+    "refCount": 1,
+    "size": [
+     238,
+     210
+    ]
+   },
+   {
+    "blob": "5bbd0daca65f8893ded68599e6112d244305f3c6",
+    "paths": [
+     "public/cartilla/art/faithful/vocal-a/ardilla-alive.svg"
+    ],
+    "where": [
+     "allbr/lane/j6-lesson3-archetype-20261023-16670984364862698664",
+     "allbr/motion/d-estrella-unicornio",
+     "allbr/motion/l1-lane",
+     "allbr/motion/l12-lane",
+     "allbr/motion/l3-lane-rest",
+     "allbr/motion/l4-lane"
+    ],
+    "refCount": 9,
+    "size": null,
+    "error": "cannot identify image file <_io.BytesIO object at 0x7fb9977abe20>"
+   },
+   {
+    "blob": "fd62629e65f2b2542ef6d262ffa3ff8856e14bf1",
+    "paths": [
+     "public/cartilla/art/faithful/vocal-a/ardilla-alive.svg"
+    ],
+    "where": [
+     "allbr/motion/rigid-originals-review"
+    ],
+    "refCount": 1,
+    "size": null,
+    "error": "cannot identify image file <_io.BytesIO object at 0x7fb996fbf9c0>"
+   }
+  ]
+ }
+}
