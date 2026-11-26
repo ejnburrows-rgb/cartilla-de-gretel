@@ -1,6 +1,6 @@
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib import *
-from wb_vowels import Fit, ring_color
+from wb_vowels import Fit, ring_color, ABEJA_FRONT_WING, ABEJA_FRONT_HINGE, ABEJA_BACK_WING, ABEJA_BACK_HINGE
 OUT = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1].startswith('/') else '/data/proto/alive/out'
 ARGS = [a for a in sys.argv[1:] if not a.startswith('/')]
 os.environ['LIVING_OUT'] = OUT
@@ -199,14 +199,14 @@ def olla():
                         f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></g></g>')
     return svg.render(f'{OUT}/olla-alive.svg')
 
-# ---------- ABEJA: wings flutter (current Page 1 drawing) ----------
+# ---------- ABEJA: wings flutter (current colour Page 1 drawing, 316x322) ----------
 def abeja():
     base = load('abeja'); size = base.size; svg = Svg(base)
-    wr = soft_mask(size, [('poly', [(97, 0), (152, 0), (152, 42), (132, 64), (104, 72), (94, 64)])], 1.6)
-    wl = soft_mask(size, [('poly', [(50, 4), (94, 2), (96, 58), (90, 62), (84, 40), (62, 34), (50, 30)])], 1.6)
-    vxr, vyr = field_rotate(size, wr, (97, 68))
-    vxl, vyl = field_rotate(size, wl, (92, 62))
-    svg.warp(vxr - vxl, vyr - vyl, [0, 0.07, 0, -0.03, 0], '0.26s', splines=False)
+    wf = soft_mask(size, [('poly', ABEJA_FRONT_WING)], 3.2)
+    wb = soft_mask(size, [('poly', ABEJA_BACK_WING)], 3.2)
+    vxf, vyf = field_rotate(size, wf, ABEJA_FRONT_HINGE)
+    vxb, vyb = field_rotate(size, wb, ABEJA_BACK_HINGE)
+    svg.warp(vxf - vxb, vyf - vyb, [0, 0.07, 0, -0.03, 0], '0.26s', splines=False)
     return svg.render(f'{OUT}/abeja-alive.svg')
 
 # ---------- P009-SCENE (Lesson 7 mono scene): gentle head nod & breathing ----------

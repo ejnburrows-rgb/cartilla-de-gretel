@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
+import { ChanoScene } from "@/components/cartilla/games/chano/ChanoScene";
 import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { CoreGame } from "@/components/cartilla/games/CoreGames";
 import { CowGame } from "@/components/cartilla/games/CowGame";
@@ -69,6 +70,9 @@ function Juego() {
   }
 
   if (content.type === "cow-game") return <CowGame content={content} />;
+
+  // Payaso Chano is one full-screen illustrated scene (no shell, no mascot).
+  if (content.type === "payaso-chano") return <ChanoScene content={content} />;
 
   // Original-art Butterfly Garden for mariposas-p. Other "mariposas" content keeps CoreGame.
   if (content.id === "mariposas-p") {

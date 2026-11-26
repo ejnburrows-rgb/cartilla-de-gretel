@@ -121,6 +121,12 @@ function fieldSpot(slot: number, cow: number): Box {
   return { x, y: L.fieldFloor - h.h, w: h.w, h: h.h };
 }
 
+// Paint order: resting cows by depth (each card just above its cow), then the
+// moving cow and its card, then the fence (z 30), then dropped cards (z 65).
+const restZ = (cow: number) =>
+  10 + 2 * L.home.filter((b, j) => b.y < L.home[cow].y || (b.y === L.home[cow].y && j < cow)).length;
+const MOVING_COW_Z = 24;
+
 // Walk time through the field (out to the fence and back home).
 const WALK_MS = 1600;
 // Time the physical card takes to fall from the mouth into the slot.
@@ -421,8 +427,9 @@ export function CowGame({ content }: { content: GameContent }) {
           }
           if (isActive && active.phase === "back") slow = true;
           const walking = isActive && (active.phase === "walk" || active.phase === "back");
-          // Moving cows stay behind all resting cows, never painted over them.
-          const z = isActive ? 8 : 10 + Math.round(spots[i].y / 40);
+          // The moving cow is painted over resting cows (it used to vanish behind
+          // them while its card flew ahead) but stays behind the fence overlay.
+          const z = isActive ? MOVING_COW_Z : restZ(i);
           return (
             <Cow
               key={i}
@@ -454,9 +461,9 @@ export function CowGame({ content }: { content: GameContent }) {
           return (
             <span
               key={i}
-              className={`cg-card ${moving && (active.phase === "walk" || active.phase === "back") ? "cg-card-walking" : ""} ${moving && active.phase === "lean" ? "cg-card-lean" : ""}`}
+              className={`cg-card ${moving && (active.phase === "walk" || active.phase === "back") ? "cg-card-walking" : ""} ${moving && active.phase === "lean" ? "cg-card-lean" : ""} ${moving && active.phase === "wrong" ? "cg-card-hop" : ""}`}
               style={{
-                zIndex: isDropped ? 65 : moving ? 9 : 50,
+                zIndex: isDropped ? 65 : moving ? MOVING_COW_Z + 1 : restZ(i) + 1,
                 left: px(x),
                 top: py(y),
                 width: px(76),
@@ -572,6 +579,8 @@ const CSS = `
 @keyframes cg-blink{0%,90%,100%{opacity:0}92%,96%{opacity:1}}
 @keyframes cg-bob{0%,50%,100%{transform:translateY(0)}25%,75%{transform:translateY(-1.8%)}}
 .cg-card-walking{animation:cg-card-stride .68s ease-in-out infinite}
+.cg-card-hop{animation:cg-card-shake .22s linear 3}
+@keyframes cg-card-shake{0%,100%{translate:0 0}25%{translate:-.6cqw 0}75%{translate:.6cqw 0}}
 @keyframes cg-card-stride{0%,50%,100%{translate:0 0;rotate:0deg}25%{translate:0 -.28cqw;rotate:-1deg}75%{translate:0 -.28cqw;rotate:1deg}}
 .cg-walking .cg-whole{animation:cg-roll .68s ease-in-out infinite}
 .cg-idle .cg-whole{animation:cg-breathe 3.4s ease-in-out infinite}
@@ -615,7 +624,7 @@ const CSS = `
 .cg-done p{font:900 8cqw/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#2c7a1e;text-shadow:0 .4cqw 0 #fff}
 .cg-done button{font:900 max(14px,3cqw)/1 "Fredoka",ui-rounded,system-ui,sans-serif;color:#fff;background:#167A72;border:.5cqw solid #fff;border-radius:3cqw;padding:1.6cqw 4cqw;min-height:56px;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.cg-idle *,.cg-selected .cg-bob,.cg-card-walking,.cg-card-hop{animation:none!important}}
 
 .cg-head-bottom { clip-path: polygon(0% 40%, 100% 40%, 100% 100%, 0% 100%); }
 .cg-head-top { clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%); transition: transform 0.5s ease-in-out; }
