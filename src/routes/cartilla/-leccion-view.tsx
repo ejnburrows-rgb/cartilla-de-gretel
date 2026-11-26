@@ -10,6 +10,8 @@ import { ArrowLeft } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isDemoNavigationEnabled, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
+import { pageCompletionState } from "@/lib/page-completion";
+import { computeLessonStatus, type LessonProgressRow } from "@/lib/progress-calculation";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
@@ -204,18 +206,29 @@ export function Leccion() {
     });
   };
 
-  const unlocked = typeof window === "undefined" || isLessonUnlocked(n);
+  // A signed-in student may have finished the previous lesson on another device.
+  const accountCompletedPrevious = useMemo(() => {
+    const data = progressData as {
+      events?: Array<{ event_kind: string; lesson_id: string }>;
+      lessonProgress?: LessonProgressRow[];
+    } | null;
+    if (!data || n <= 1) return false;
+    const previous = String(n - 1);
+    return (
+      (data.events ?? []).some((e) => e.event_kind === "lesson_completed" && e.lesson_id === previous) ||
+      (data.lessonProgress ?? []).some(
+        (row) => row.lesson_id === previous && computeLessonStatus(row) === "completed",
+      )
+    );
+  }, [progressData, n]);
+  const accessDecided = !session || isFetched || isError;
+  const unlocked = typeof window === "undefined" || isLessonUnlocked(n) || accountCompletedPrevious;
   const demoNavigation = typeof window !== "undefined" && isDemoNavigationEnabled();
-  // A demonstration turn past an unfinished page must never record the lesson as completed.
-  const demoSkippedRef = useRef(false);
-  useEffect(() => {
-    demoSkippedRef.current = false;
-  }, [n, scope]);
   const startedAt = useRef<number>(Date.now());
 
   useEffect(() => {
-    if (entry && !unlocked) navigate({ to: "/cartilla/lecciones" });
-  }, [entry, navigate, unlocked]);
+    if (entry && accessDecided && !unlocked) navigate({ to: "/cartilla/lecciones" });
+  }, [entry, navigate, unlocked, accessDecided]);
 
 
   useEffect(() => {
@@ -250,7 +263,13 @@ export function Leccion() {
       setLessonTab("review");
       return;
     }
-    if (demoSkippedRef.current) {
+    // Demonstration browsing never records a lesson whose required page work is unfinished.
+    if (
+      demoNavigation &&
+      !pages.every(
+        (page) => typeof page.pageNumber !== "number" || pageCompletionState(page.pageNumber, n).complete,
+      )
+    ) {
       advanceAfterCompletion();
       return;
     }
@@ -367,9 +386,6 @@ export function Leccion() {
                 onFinish={goNext}
                 lessonNumber={n}
                 demoUnlocked={demoNavigation}
-                onDemoSkip={() => {
-                  demoSkippedRef.current = true;
-                }}
                 autoTurn
                 swipe
               />

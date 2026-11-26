@@ -3,6 +3,7 @@ import { Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
 import { AUDIO_POLICY } from "@/content/audio-manifest";
 import {
+  INSTRUCTION_RECORDINGS_APPROVED,
   instructionAudioMuted,
   instructionRecordings,
   playInstruction,
@@ -26,7 +27,7 @@ export function EscucharInstruccionButton({
   const { play, playingText, isAvailable } = useAudio();
   const [instructionPlaying, setInstructionPlaying] = useState(false);
   const active = useRef(false);
-  const hasInstruction = instructionRecordings(text).length > 0;
+  const hasInstruction = INSTRUCTION_RECORDINGS_APPROVED && instructionRecordings(text).length > 0;
 
   useEffect(() => {
     if (!hasInstruction) return;

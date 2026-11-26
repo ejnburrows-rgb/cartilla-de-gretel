@@ -16,6 +16,11 @@ export function normalizeInstruction(text: string): string {
     .replace(/\s+/g, " ")
     .trim();
 }
+/** AGENTS.md permits only `Gretel_558674_Original.m4a` for newly wired audio.
+ * These owner instruction cuts come from a different master, so the Workbook
+ * button stays silent for them until the owner approves that source. */
+export const INSTRUCTION_RECORDINGS_APPROVED = false;
+
 /** Only explicit printed-text mappings. No fuzzy text or filename inference. */
 export function instructionRecordings(text: string): string[] {
   const entry = manifest.mappings.find(

@@ -50,7 +50,6 @@ export function NativeLessonViewer({
   swipe = false,
   gated = true,
   demoUnlocked = false,
-  onDemoSkip,
   bookCompanion,
 }: {
   pages: WorkbookPageEntry[];
@@ -68,8 +67,6 @@ export function NativeLessonViewer({
   gated?: boolean;
   /** Demonstration mode: forward turns are allowed on an unfinished page without marking it complete. */
   demoUnlocked?: boolean;
-  /** Called when a demonstration forward turn leaves an unfinished page. */
-  onDemoSkip?: () => void;
   /** Gretel or other companion positioned in the book anchor */
   bookCompanion?: React.ReactNode;
 }) {
@@ -163,7 +160,6 @@ export function NativeLessonViewer({
         showRemaining();
         return;
       }
-      if (direction === "next" && !completion.complete) onDemoSkip?.();
 
       setHint("");
       gretelEvent("page-turn:start");
@@ -219,7 +215,7 @@ export function NativeLessonViewer({
         }, LESSON_PAGE_TURN_MS);
       }, LESSON_PAGE_LIFT_MS);
     },
-    [turning, pages, index, completion.complete, canTurnForward, onDemoSkip, showRemaining, onPageChange],
+    [turning, pages, index, canTurnForward, showRemaining, onPageChange],
   );
 
   const forward = useCallback(() => {
@@ -228,10 +224,9 @@ export function NativeLessonViewer({
       return;
     }
     if (isLast) {
-      if (!completion.complete) onDemoSkip?.();
-      onFinish?.();
+      if (!markInProgress(containerRef.current)) onFinish?.();
     } else executeTurn(index + 1, "next");
-  }, [canTurnForward, completion.complete, onDemoSkip, isLast, onFinish, executeTurn, index, showRemaining]);
+  }, [canTurnForward, isLast, onFinish, executeTurn, index, showRemaining]);
 
   const turnPrev = useCallback(() => {
     executeTurn(index - 1, "prev");
@@ -518,7 +513,6 @@ export function NativeLessonViewer({
           return;
         }
         // Complete the turn
-        if (direction === "next" && !completion.complete) onDemoSkip?.();
         audioEngine.playPageTurn(true);
         gretelEvent("page-turn:start");
         setTurnPhase("curling");

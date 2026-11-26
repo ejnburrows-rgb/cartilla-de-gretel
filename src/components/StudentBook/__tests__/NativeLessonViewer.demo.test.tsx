@@ -30,15 +30,8 @@ afterEach(() => {
 
 describe("NativeLessonViewer demonstration mode", () => {
   it("turns forward and backward over unfinished pages without marking them complete", () => {
-    const onDemoSkip = vi.fn();
     render(
-      <NativeLessonViewer
-        pages={PAGES}
-        chapterLabel="Lección 8"
-        lessonNumber={8}
-        demoUnlocked
-        onDemoSkip={onDemoSkip}
-      />,
+      <NativeLessonViewer pages={PAGES} chapterLabel="Lección 8" lessonNumber={8} demoUnlocked />,
     );
     const viewer = document.querySelector(".native-lesson-viewer")!;
     expect(viewer.getAttribute("data-page-complete")).toBe("false");
@@ -48,20 +41,17 @@ describe("NativeLessonViewer demonstration mode", () => {
     fireEvent.click(screen.getByTestId("button-next"));
     finishTurn();
     expect(current()).toBe(24);
-    expect(onDemoSkip).toHaveBeenCalledTimes(1);
     expect(getCompletedPageActivities(23)).toEqual([]);
-    expect(
-      document.querySelector(".native-lesson-viewer")!.getAttribute("data-page-complete"),
-    ).toBe("false");
 
     fireEvent.click(screen.getByTestId("button-prev"));
     finishTurn();
     expect(current()).toBe(23);
-    expect(onDemoSkip).toHaveBeenCalledTimes(1);
+    expect(
+      document.querySelector(".native-lesson-viewer")!.getAttribute("data-page-complete"),
+    ).toBe("false");
   });
 
-  it("reports a demonstration skip when finishing from an unfinished last page", () => {
-    const onDemoSkip = vi.fn();
+  it("finishes from an unfinished last page without marking it complete", () => {
     const onFinish = vi.fn();
     render(
       <NativeLessonViewer
@@ -69,29 +59,28 @@ describe("NativeLessonViewer demonstration mode", () => {
         chapterLabel="Lección 8"
         lessonNumber={8}
         demoUnlocked
-        onDemoSkip={onDemoSkip}
         onFinish={onFinish}
       />,
     );
     fireEvent.click(screen.getByTestId("button-next"));
-    expect(onDemoSkip).toHaveBeenCalledTimes(1);
     expect(onFinish).toHaveBeenCalledTimes(1);
+    expect(getCompletedPageActivities(23)).toEqual([]);
   });
 
   it("keeps normal gating when demonstration mode is off", () => {
-    const onDemoSkip = vi.fn();
+    const onFinish = vi.fn();
     render(
       <NativeLessonViewer
         pages={PAGES}
         chapterLabel="Lección 8"
         lessonNumber={8}
-        onDemoSkip={onDemoSkip}
+        onFinish={onFinish}
       />,
     );
     expect(screen.getByTestId("corner-next").getAttribute("data-locked")).toBe("true");
     fireEvent.click(screen.getByTestId("button-next"));
     finishTurn();
     expect(current()).toBe(23);
-    expect(onDemoSkip).not.toHaveBeenCalled();
+    expect(onFinish).not.toHaveBeenCalled();
   });
 });
