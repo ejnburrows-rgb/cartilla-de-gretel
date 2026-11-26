@@ -1,0 +1,173 @@
+{
+ "drawingRatio": 0.875,
+ "ratio": {
+  "branch": {
+   "phone": {
+    "cows": 5,
+    "ratios": [
+     0.868,
+     0.868,
+     0.868,
+     0.87,
+     0.868
+    ],
+    "stretchPct": -0.5
+   },
+   "phone-land": {
+    "cows": 5,
+    "ratios": [
+     0.868,
+     0.868,
+     0.868,
+     0.87,
+     0.868
+    ],
+    "stretchPct": -0.5
+   },
+   "tablet": {
+    "cows": 5,
+    "ratios": [
+     0.868,
+     0.868,
+     0.868,
+     0.87,
+     0.868
+    ],
+    "stretchPct": -0.5
+   },
+   "tablet-portrait": {
+    "cows": 5,
+    "ratios": [
+     0.868,
+     0.868,
+     0.868,
+     0.87,
+     0.868
+    ],
+    "stretchPct": -0.5
+   },
+   "desktop": {
+    "cows": 5,
+    "ratios": [
+     0.868,
+     0.868,
+     0.868,
+     0.87,
+     0.868
+    ],
+    "stretchPct": -0.5
+   },
+   "projector": {
+    "cows": 5,
+    "ratios": [
+     0.868,
+     0.868,
+     0.868,
+     0.87,
+     0.868
+    ],
+    "stretchPct": -0.5
+   },
+   "ultrawide": {
+    "cows": 5,
+    "ratios": [
+     0.868,
+     0.868,
+     0.868,
+     0.87,
+     0.868
+    ],
+    "stretchPct": -0.5
+   }
+  },
+  "production": {
+   "phone": {
+    "cows": 5,
+    "ratios": [
+     1.047,
+     1.045,
+     1.044,
+     1.046,
+     1.047
+    ],
+    "stretchPct": 19.7
+   },
+   "phone-land": {
+    "cows": 5,
+    "ratios": [
+     1.019,
+     1.017,
+     1.016,
+     1.017,
+     1.019
+    ],
+    "stretchPct": 16.5
+   },
+   "tablet": {
+    "cows": 5,
+    "ratios": [
+     1.018,
+     1.017,
+     1.016,
+     1.017,
+     1.018
+    ],
+    "stretchPct": 16.4
+   },
+   "tablet-portrait": {
+    "cows": 5,
+    "ratios": [
+     1.046,
+     1.045,
+     1.044,
+     1.046,
+     1.046
+    ],
+    "stretchPct": 19.6
+   },
+   "desktop": {
+    "cows": 5,
+    "ratios": [
+     1.018,
+     1.017,
+     1.016,
+     1.018,
+     1.018
+    ],
+    "stretchPct": 16.4
+   },
+   "projector": {
+    "cows": 5,
+    "ratios": [
+     1.018,
+     1.017,
+     1.016,
+     1.018,
+     1.018
+    ],
+    "stretchPct": 16.4
+   },
+   "ultrawide": {
+    "cows": 5,
+    "ratios": [
+     1.018,
+     1.017,
+     1.016,
+     1.018,
+     1.018
+    ],
+    "stretchPct": 16.4
+   }
+  }
+ },
+ "lockMs": {
+  "branch": {
+   "wrongMove": 2532,
+   "correctMove": 3148
+  },
+  "production": {
+   "wrongMove": 4159,
+   "correctMove": 4736
+  }
+ }
+}

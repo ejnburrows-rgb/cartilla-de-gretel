@@ -1,0 +1,637 @@
+[
+ {
+  "head": "64c3c3122ed7c8a9ed635da41f1ed4a8ad731905",
+  "run": "phone",
+  "touch": true,
+  "reducedMotion": false,
+  "ok": true,
+  "failure": null,
+  "errors": [],
+  "log": [
+   {
+    "juggleMoving": true
+   },
+   {
+    "afterDrag": [
+     "Casilla 1: mi. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mima",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "word": "mamá-wrong",
+    "check": "Intenta otra vez.",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "afterWrongClear": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mamá",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterBorrar": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "Meme",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "mumiSlots": [
+     "Casilla 1: mu. Toca para quitar.",
+     "Casilla 2: mi. Toca para quitar."
+    ]
+   },
+   {
+    "word": "Mumi",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "on-board",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterSlotTapRemove": [
+     "Casilla 1: ma. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mami",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "end": "¡Terminaste!",
+    "endHint": "5 de 5 aciertos. Presiona Siguiente para jugar otra vez."
+   },
+   {
+    "restart": "Palabra 1 de 5",
+    "slots": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   }
+  ]
+ },
+ {
+  "head": "64c3c3122ed7c8a9ed635da41f1ed4a8ad731905",
+  "run": "phone-land",
+  "touch": true,
+  "reducedMotion": false,
+  "ok": true,
+  "failure": null,
+  "errors": [],
+  "log": [
+   {
+    "juggleMoving": true
+   },
+   {
+    "afterDrag": [
+     "Casilla 1: mi. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mima",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "word": "mamá-wrong",
+    "check": "Intenta otra vez.",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "afterWrongClear": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mamá",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterBorrar": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "Meme",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "mumiSlots": [
+     "Casilla 1: mu. Toca para quitar.",
+     "Casilla 2: mi. Toca para quitar."
+    ]
+   },
+   {
+    "word": "Mumi",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "on-board",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterSlotTapRemove": [
+     "Casilla 1: ma. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mami",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "end": "¡Terminaste!",
+    "endHint": "5 de 5 aciertos. Presiona Siguiente para jugar otra vez."
+   },
+   {
+    "restart": "Palabra 1 de 5",
+    "slots": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   }
+  ]
+ },
+ {
+  "head": "64c3c3122ed7c8a9ed635da41f1ed4a8ad731905",
+  "run": "desktop",
+  "touch": false,
+  "reducedMotion": false,
+  "ok": true,
+  "failure": null,
+  "errors": [],
+  "log": [
+   {
+    "juggleMoving": true
+   },
+   {
+    "afterDrag": [
+     "Casilla 1: mi. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mima",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "word": "mamá-wrong",
+    "check": "Intenta otra vez.",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "afterWrongClear": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mamá",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterBorrar": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "Meme",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "mumiSlots": [
+     "Casilla 1: mu. Toca para quitar.",
+     "Casilla 2: mi. Toca para quitar."
+    ]
+   },
+   {
+    "word": "Mumi",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "on-board",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterSlotTapRemove": [
+     "Casilla 1: ma. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mami",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "end": "¡Terminaste!",
+    "endHint": "5 de 5 aciertos. Presiona Siguiente para jugar otra vez."
+   },
+   {
+    "restart": "Palabra 1 de 5",
+    "slots": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   }
+  ]
+ },
+ {
+  "head": "64c3c3122ed7c8a9ed635da41f1ed4a8ad731905",
+  "run": "phone-reduced",
+  "touch": true,
+  "reducedMotion": true,
+  "ok": true,
+  "failure": null,
+  "errors": [],
+  "log": [
+   {
+    "juggleMoving": false
+   },
+   {
+    "afterDrag": [
+     "Casilla 1: mi. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mima",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "word": "mamá-wrong",
+    "check": "Intenta otra vez.",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "afterWrongClear": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mamá",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterBorrar": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "Meme",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "mumiSlots": [
+     "Casilla 1: mu. Toca para quitar.",
+     "Casilla 2: mi. Toca para quitar."
+    ]
+   },
+   {
+    "word": "Mumi",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "on-board",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterSlotTapRemove": [
+     "Casilla 1: ma. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mami",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "end": "¡Terminaste!",
+    "endHint": "5 de 5 aciertos. Presiona Siguiente para jugar otra vez."
+   },
+   {
+    "restart": "Palabra 1 de 5",
+    "slots": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   }
+  ]
+ },
+ {
+  "head": "64c3c3122ed7c8a9ed635da41f1ed4a8ad731905",
+  "run": "desktop-reduced",
+  "touch": false,
+  "reducedMotion": true,
+  "ok": true,
+  "failure": null,
+  "errors": [],
+  "log": [
+   {
+    "juggleMoving": false
+   },
+   {
+    "afterDrag": [
+     "Casilla 1: mi. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mima",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "word": "mamá-wrong",
+    "check": "Intenta otra vez.",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "afterWrongClear": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mamá",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterBorrar": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "Meme",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "juggling",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "on-board"
+    }
+   },
+   {
+    "mumiSlots": [
+     "Casilla 1: mu. Toca para quitar.",
+     "Casilla 2: mi. Toca para quitar."
+    ]
+   },
+   {
+    "word": "Mumi",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "juggling",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "on-board",
+     "me": "juggling"
+    }
+   },
+   {
+    "afterSlotTapRemove": [
+     "Casilla 1: ma. Toca para quitar.",
+     "Casilla 2 vacía"
+    ]
+   },
+   {
+    "word": "mami",
+    "check": "¡Muy bien!",
+    "balls": 5,
+    "states": {
+     "ma": "on-board",
+     "mi": "on-board",
+     "mo": "juggling",
+     "mu": "juggling",
+     "me": "juggling"
+    }
+   },
+   {
+    "end": "¡Terminaste!",
+    "endHint": "5 de 5 aciertos. Presiona Siguiente para jugar otra vez."
+   },
+   {
+    "restart": "Palabra 1 de 5",
+    "slots": [
+     "Casilla 1 vacía",
+     "Casilla 2 vacía"
+    ]
+   }
+  ]
+ }
+]
