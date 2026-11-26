@@ -29,3 +29,11 @@ Legacy remaster review finding was investigated against remaster-inventory.json:
 ## Identifier-integrity correction
 
 Review caught two saved identifiers accidentally altered by an overly broad test-count text substitution: a branch short head and PR953 full head. Both were reverified against live GitHub refs and restored (controller branch: 1627114b84b6f2f47dae26537c074384b3355aa9; PR953: f6c08f35894fd37ac4617d1cd1553411491128be). An independent workspace checker reproduced exactly those two mismatches before correction, then passed all271 mirrored branch heads and all25 curriculum candidate PR heads against captured CSV metadata. Source CSVs were never changed. No application code, asset, branch head or release was changed by the correction. Policy:95 pass; documentation check:0 errors. Avoid global numeric replacements in evidence documents.
+
+### CodeRabbit mode-distinction regression proof: 2026-11-26
+
+Review6078849732 correctly identified that enhanced/projection used the same fixture path. Added distinct remasteredPathV2 metadata and independent literal expectations for source/enhanced/projection, plus the returned V2-field assertion. No artwork file or runtime resolver change.
+
+Mutation proof: temporarily forced projection through enhanced mode. Old fixture passed (exit0); strengthened fixture failed on the wrong image path (exit1); restored the exact resolver and the strengthened fixture passed (exit0). The deliberate mutation is not committed.
+
+Current checks: focused file10 pass; full244 files,2326 pass plus2 expected failures; typecheck, scoped ESLint, policy95 and snapshot-integrity271 branch heads/25 curriculum PR heads pass. Full lint remains8117 findings (8058 errors/59 warnings), identical to the prior run. No unrelated cleanup applied. Independent newest-head review remains pending. No merge or deployment.

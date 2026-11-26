@@ -87,7 +87,7 @@ flowchart TD
   F --> S["Canonical scan and excluded-page guard repaired"]
   S --> T["Focused/full unit checks, typecheck, policy and worker checks passed"]
   T --> L["Full-repository lint: WAITING; thousands of unrelated-file findings"]
-  T --> P["Saved on work/curriculum / PR1324 / shared report"]
+  T --> P["PR1324: distinct projector fixture catches wrong-mode mutation; full2326 pass"]
   P --> Q["Independent review; motion candidate c303ead3 needs provenance and recordings"]
   Q --> D["No merge / deployment / deletion without scoped approval"]
 ```
@@ -459,3 +459,11 @@ Coordinator compared main 5e1c8378 to work/assets-motion c303ead3: two commits, 
 - Lane reports 24 identical browser failures on baseline and candidate, including three Piano microphone tests. Requested exact test names/output and audio-lane coordination; not independently rerun. Keep other failures explicitly unresolved, not assumed obsolete tests.
 - Lane reports board game missing. The universal claim across every branch is not coordinator-verified; Gitar's actual-content inventory must locate any historical candidate. No new educational game invented.
 - Existing owner decisions for Rima, Palabras, other game candidates and source audio remain gates. All historical refs are retained. No merge, deployment, paid service, new voice or destructive cleanup authorized.
+
+### CodeRabbit mode-distinction regression proof: 2026-11-26
+
+Review6078849732 correctly identified that enhanced/projection used the same fixture path. Added distinct remasteredPathV2 metadata and independent literal expectations for source/enhanced/projection, plus the returned V2-field assertion. No artwork file or runtime resolver change.
+
+Mutation proof: temporarily forced projection through enhanced mode. Old fixture passed (exit0); strengthened fixture failed on the wrong image path (exit1); restored the exact resolver and the strengthened fixture passed (exit0). The deliberate mutation is not committed.
+
+Current checks: focused file10 pass; full244 files,2326 pass plus2 expected failures; typecheck, scoped ESLint, policy95 and snapshot-integrity271 branch heads/25 curriculum PR heads pass. Full lint remains8117 findings (8058 errors/59 warnings), identical to the prior run. No unrelated cleanup applied. Independent newest-head review remains pending. No merge or deployment.
