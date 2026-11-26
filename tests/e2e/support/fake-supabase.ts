@@ -110,30 +110,38 @@ export async function installFakeSupabase(
       String(given ?? "").toUpperCase() === setup.joinCode.toUpperCase();
 
     switch (fn) {
-      // Step 1 of join: join code alone returns the "tap your name" roster.
-      case "list_class_students": {
-        if (!codeMatches(body.p_join_code)) return json(route, []);
-        return json(
-          route,
-          setup.students.map((s) => ({ student_id: s.id, display_name: s.name })),
-        );
-      }
-
-      // Step 2 of join: the child taps their name and enters the class.
+      // Current secure enrollment: class code AND personal student code in one
+      // call. The roster is never exposed from the join code alone.
       // Called through .single(), so PostgREST returns a bare object.
-      case "enter_class_as_student": {
-        const student = setup.students.find((s) => s.id === body.p_student_id);
-        if (!codeMatches(body.p_join_code) || !student) {
+      case "join_class": {
+        const member = setup.students.find(
+          (s) => s.code.toUpperCase() === String(body.p_student_code ?? "").toUpperCase(),
+        );
+        if (!codeMatches(body.p_join_code) || !member) {
           return json(route, { message: "Código de clase o estudiante inválido." }, 400);
         }
         return json(route, {
-          student_id: student.id,
-          student_name: student.name,
-          student_code: student.code,
+          student_id: member.id,
+          student_name: member.name,
+          student_code: member.code,
           class_id: setup.classId,
           class_name: setup.className,
         });
       }
+
+      // Retired join-code-only roster flow. The secure two-code enrollment must
+      // never expose the class roster from the join code alone, so these legacy
+      // RPCs fail loudly here: if the app ever calls them again, the spec fails
+      // instead of silently re-admitting the revoked flow.
+      case "list_class_students":
+      case "enter_class_as_student": {
+        return json(
+          route,
+          { message: `Retired enrollment RPC called: ${fn}. Use join_class (two-code).` },
+          410,
+        );
+      }
+
 
       // What the teacher assigned — drives the "Tarea asignada" banner.
       case "get_student_assignments": {
