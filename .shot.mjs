@@ -1,0 +1,11 @@
+import { chromium } from "playwright";
+const [, , url, out, w = "1366", h = "768", sel] = process.argv;
+const b = await chromium.launch({ channel: "chromium", args: ["--disable-dev-shm-usage"] });
+const p = await b.newPage({ viewport: { width: +w, height: +h } });
+await p.goto(url, { waitUntil: "networkidle" });
+const s = p.getByRole("button", { name: "Comenzar" });
+if (await s.isVisible().catch(() => false)) await s.click();
+await p.waitForTimeout(1500);
+if (sel) await p.locator(sel).first().screenshot({ path: out });
+else await p.screenshot({ path: out });
+await b.close();
