@@ -3675,7 +3675,7 @@
     },
     {
       "id": "v2-l07-40-game-correct",
-      "text": "Esa vaquita encontró su cerca exacta. Leíste la sílaba de eme sin dudar.",
+      "text": "Esa vaquita encontró su cerca exacta. Elegiste la sílaba de eme correcta.",
       "batch": "B013",
       "seq": 40,
       "file": "B013-040.mp3",
@@ -3750,7 +3750,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esa vaquita encontró su cerca exacta leíste la sílaba de eme sin dudar",
+      "normalizedText": "esa vaquita encontró su cerca exacta elegiste la sílaba de eme correcta",
       "sourcePr": "PR#1073"
     },
     {
@@ -3987,7 +3987,7 @@
     },
     {
       "id": "v2-l07-43-page-complete",
-      "text": "Terminaste todas las actividades y juegos de la letra eme con gran dedicación.",
+      "text": "Terminaste todas las actividades y juegos de la letra eme. ¡Buen trabajo!",
       "batch": "B013",
       "seq": 43,
       "file": "B013-043.mp3",
@@ -4062,7 +4062,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades y juegos de la letra eme con gran dedicación",
+      "normalizedText": "terminaste todas las actividades y juegos de la letra eme buen trabajo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

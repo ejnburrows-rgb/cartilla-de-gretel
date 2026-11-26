@@ -3792,7 +3792,7 @@
     },
     {
       "id": "v2-l11-40-game-correct",
-      "text": "Exacto. Completaste la palabra con la sílaba correcta y la leíste con mucha claridad.",
+      "text": "¡Exacto! Completaste la palabra con la sílaba correcta de la letra de.",
       "batch": "B017",
       "seq": 40,
       "file": "B017-040.mp3",
@@ -3870,7 +3870,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "exacto completaste la palabra con la sílaba correcta y la leíste con mucha claridad",
+      "normalizedText": "exacto completaste la palabra con la sílaba correcta de la letra de",
       "sourcePr": "PR#1073"
     },
     {
@@ -4113,7 +4113,7 @@
     },
     {
       "id": "v2-l11-43-page-complete",
-      "text": "Terminaste todas las actividades de la letra de con mucha atención y buena entonación.",
+      "text": "Terminaste todas las actividades de la letra de. ¡Excelente avance!",
       "batch": "B017",
       "seq": 43,
       "file": "B017-043.mp3",
@@ -4191,7 +4191,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la letra de con mucha atención y buena entonación",
+      "normalizedText": "terminaste todas las actividades de la letra de excelente avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4211,7 +4211,7 @@
     },
     {
       "id": "v2-l11-44-closing",
-      "text": "Ya sabes leer preguntas y respuestas completas con la letra de. Qué bien avanzas.",
+      "text": "Recorrimos preguntas y respuestas completas con la letra de. ¡Seguimos avanzando!",
       "batch": "B017",
       "seq": 44,
       "file": "B017-044.mp3",
@@ -4289,7 +4289,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya sabes leer preguntas y respuestas completas con la letra de qué bien avanzas",
+      "normalizedText": "recorrimos preguntas y respuestas completas con la letra de seguimos avanzando",
       "sourcePr": "PR#1073"
     },
     {

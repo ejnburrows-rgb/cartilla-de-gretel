@@ -3710,7 +3710,7 @@
     },
     {
       "id": "v2-l17-40-game-correct",
-      "text": "Excelente vibración. Elegiste la sílaba inicial exacta y leíste con mucha claridad.",
+      "text": "¡Exacto! Elegiste la sílaba inicial correcta de la erre.",
       "batch": "B023",
       "seq": 40,
       "file": "B023-040.mp3",
@@ -3786,7 +3786,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "excelente vibración elegiste la sílaba inicial exacta y leíste con mucha claridad",
+      "normalizedText": "exacto elegiste la sílaba inicial correcta de la erre",
       "sourcePr": "PR#1073"
     },
     {
@@ -4121,7 +4121,7 @@
     },
     {
       "id": "v2-l17-44-closing",
-      "text": "Qué bien leíste toda la historia de Roberto, Rolo y Rita. Tu voz suena cada vez más segura.",
+      "text": "Terminamos toda la historia de Roberto, Rolo y Rita. ¡Qué buen recorrido hiciste!",
       "batch": "B023",
       "seq": 44,
       "file": "B023-044.mp3",
@@ -4197,7 +4197,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bien leíste toda la historia de roberto rolo y rita tu voz suena cada vez más segura",
+      "normalizedText": "terminamos toda la historia de roberto rolo y rita qué buen recorrido hiciste",
       "sourcePr": "PR#1073"
     },
     {

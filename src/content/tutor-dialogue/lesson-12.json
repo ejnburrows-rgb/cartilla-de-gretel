@@ -3710,7 +3710,7 @@
     },
     {
       "id": "v2-l12-40-game-correct",
-      "text": "Muy bien leída esa palabra. La ele sonó clarita en el lugar exacto.",
+      "text": "¡Acertaste esa palabra! Elegiste la sílaba de la ele en el lugar exacto.",
       "batch": "B018",
       "seq": 40,
       "file": "B018-040.mp3",
@@ -3786,7 +3786,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien leída esa palabra la ele sonó clarita en el lugar exacto",
+      "normalizedText": "acertaste esa palabra elegiste la sílaba de la ele en el lugar exacto",
       "sourcePr": "PR#1073"
     },
     {
@@ -4025,7 +4025,7 @@
     },
     {
       "id": "v2-l12-43-page-complete",
-      "text": "Completaste todas las actividades de la letra ele con mucha soltura y claridad.",
+      "text": "Completaste todas las actividades de la letra ele. ¡Muy bien!",
       "batch": "B018",
       "seq": 43,
       "file": "B018-043.mp3",
@@ -4101,7 +4101,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades de la letra ele con mucha soltura y claridad",
+      "normalizedText": "completaste todas las actividades de la letra ele muy bien",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4121,7 +4121,7 @@
     },
     {
       "id": "v2-l12-44-closing",
-      "text": "Qué suave y limpia sonó tu lectura con la letra ele. Cada día lees historias más largas.",
+      "text": "Llegamos al final de la lección de la letra ele. Cada vez exploramos historias más largas.",
       "batch": "B018",
       "seq": 44,
       "file": "B018-044.mp3",
@@ -4197,7 +4197,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué suave y limpia sonó tu lectura con la letra ele cada día lees historias más largas",
+      "normalizedText": "llegamos al final de la lección de la letra ele cada vez exploramos historias más largas",
       "sourcePr": "PR#1073"
     },
     {

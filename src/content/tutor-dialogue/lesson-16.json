@@ -3947,7 +3947,7 @@
     },
     {
       "id": "v2-l16-43-page-complete",
-      "text": "Completaste todas las actividades de la letra uve con mucha calma y claridad.",
+      "text": "Completaste todas las actividades de la letra uve. ¡Excelente paso!",
       "batch": "B022",
       "seq": 43,
       "file": "B022-043.mp3",
@@ -4021,7 +4021,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades de la letra uve con mucha calma y claridad",
+      "normalizedText": "completaste todas las actividades de la letra uve excelente paso",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

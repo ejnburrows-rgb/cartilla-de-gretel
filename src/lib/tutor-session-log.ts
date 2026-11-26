@@ -1057,11 +1057,9 @@ export function generateTeacherSessionReport(session: TutorSessionLog): TeacherS
   if (session.sheets.length > 0) {
     const pagesText = session.sheets
       .map((s) => {
-        if (s.source === "flipchart" && typeof s.flipchartSheet === "number") {
-          return `Rotafolio · lámina ${s.flipchartSheet}`;
-        }
-        if (s.source === "flipchart" && typeof s.printedPage === "number") {
-          return `Rotafolio · lámina ${s.printedPage}`;
+        if (s.source === "flipchart") {
+          const flipchartNum = s.flipchartSheet ?? s.pdfSheet ?? s.printedPage;
+          return typeof flipchartNum === "number" ? `Rotafolio · lámina ${flipchartNum}` : "";
         }
         if (typeof s.printedPage === "number") {
           const prefix = s.source === "workbook" ? "Cuaderno · " : "";

@@ -3945,7 +3945,7 @@
     },
     {
       "id": "v2-l08-43-page-complete",
-      "text": "Terminaste todas las actividades y juegos de la letra pe con excelente atención.",
+      "text": "Terminaste todas las actividades y juegos de la letra pe. ¡Qué buen avance!",
       "batch": "B014",
       "seq": 43,
       "file": "B014-043.mp3",
@@ -4019,7 +4019,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades y juegos de la letra pe con excelente atención",
+      "normalizedText": "terminaste todas las actividades y juegos de la letra pe qué buen avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

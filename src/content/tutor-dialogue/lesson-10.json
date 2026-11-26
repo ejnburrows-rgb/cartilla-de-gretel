@@ -4271,7 +4271,7 @@
     },
     {
       "id": "v2-l10-43-page-complete",
-      "text": "Completaste todas las actividades de la letra te con orden y excelente lectura.",
+      "text": "Completaste todas las actividades de la letra te. ¡Muy buen paso!",
       "batch": "B016",
       "seq": 43,
       "file": "B016-043.mp3",
@@ -4352,7 +4352,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades de la letra te con orden y excelente lectura",
+      "normalizedText": "completaste todas las actividades de la letra te muy buen paso",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4372,7 +4372,7 @@
     },
     {
       "id": "v2-l10-44-closing",
-      "text": "Qué bien leíste toda la lección de la te y la historia de la sopa en el patio.",
+      "text": "Llegamos al final de la lección de la te y de la historia de la sopa en el patio.",
       "batch": "B016",
       "seq": 44,
       "file": "B016-044.mp3",
@@ -4453,7 +4453,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bien leíste toda la lección de la te y la historia de la sopa en el patio",
+      "normalizedText": "llegamos al final de la lección de la te y de la historia de la sopa en el patio",
       "sourcePr": "PR#1073"
     },
     {

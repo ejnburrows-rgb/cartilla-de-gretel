@@ -15,11 +15,14 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import {
+  APPROVED_ORIGINAL_MASTER_SHA256,
   alignBatchSegments,
+  alignVoskWordsToLines,
   applyAuthorizedManifestUpdates,
   buildApprovedSpeechHashIndex,
   checkRejectedSource,
   computeTranscriptSimilarity,
+  createPrivateReviewPassDir,
   deriveSpeechSegmentsFromSilences,
   enforcePrivatePermissions,
   ingestPrivateOriginal,
@@ -31,6 +34,7 @@ import {
   resolveMediaTools,
   runClipQc,
   runTutorIntake,
+  runVoskWordAlignment,
   snapSegmentsToSilences,
   syncVisemesForAudio,
   validateIntakeRepositoryGuard,
@@ -762,5 +766,190 @@ describe("PR #1323 security hardening and S4036 fixed binary resolution", () => 
     expect(matches.length).toBeGreaterThanOrEqual(1);
     expect(matches[0].lineId).toBe("l1-model-oso");
     expect(matches[0].src).toBe("/audio/voz/vocabulario/oso.mp3");
+  });
+
+  it("rejects --private-dir inside ANY git repository (not just repoRoot)", () => {
+    const unrelatedRepo = makeTempDir("gretel-other-git-repo-");
+    mkdirSync(join(unrelatedRepo, ".git"), { recursive: true });
+    const nestedVault = join(unrelatedRepo, "nested", "vault");
+    expect(() => assertPrivateDirOutsideRepo(nestedVault, REPO_ROOT)).toThrow(
+      /must be outside every git repository/i,
+    );
+
+    const worktreeRepo = makeTempDir("gretel-worktree-git-repo-");
+    writeFileSync(join(worktreeRepo, ".git"), "gitdir: /tmp/fake-gitdir\n");
+    const nestedWorktreeVault = join(worktreeRepo, "sub", "private");
+    expect(() => assertPrivateDirOutsideRepo(nestedWorktreeVault, REPO_ROOT)).toThrow(
+      /must be outside every git repository/i,
+    );
+  });
+
+  it("creates unique per-pass review directories (<sha12>-<timestamp>-<rand>) preserving prior evidence", async () => {
+    const privateDir = makeTempDir("gretel-priv-passes-");
+    const srcDir = makeTempDir("gretel-src-passes-");
+    const sr = 16000;
+    const pad = new Int16Array(Math.round(0.25 * sr));
+    const wavFile = join(srcDir, "pass-test.wav");
+    writeFileSync(wavFile, encodeWavPcm16(concatSamples([pad, buildSpeechSamples(0.8, sr), pad]), sr));
+
+    const first = await runTutorIntake({
+      repoRoot: REPO_ROOT,
+      inputFiles: [wavFile],
+      batchId: "pass-1",
+      date: "2026-11-26",
+      privateDir,
+      expectedLines: [{ id: "u-01", seq: 1, lesson: 0, text: "Hola" }],
+      heardSegments: [{ startSec: 0.2, endSec: 1.1, text: "hola" }],
+      authorized: false,
+      dryRun: false,
+      writeReport: false,
+      manifestWrite: false,
+      tools: { ffmpeg: null, ffprobe: null, rhubarb: null },
+    });
+
+    const second = await runTutorIntake({
+      repoRoot: REPO_ROOT,
+      inputFiles: [wavFile],
+      batchId: "pass-2",
+      date: "2026-11-26",
+      privateDir,
+      expectedLines: [{ id: "u-01", seq: 1, lesson: 0, text: "Hola" }],
+      heardSegments: [{ startSec: 0.2, endSec: 1.1, text: "hola" }],
+      authorized: false,
+      dryRun: false,
+      writeReport: false,
+      manifestWrite: false,
+      tools: { ffmpeg: null, ffprobe: null, rhubarb: null },
+    });
+
+    expect(first.privateReviewDir).not.toBe(second.privateReviewDir);
+    expect(existsSync(first.privateReviewReportPath)).toBe(true);
+    expect(existsSync(second.privateReviewReportPath)).toBe(true);
+
+    const passPattern = /^[0-9a-f]{12}-\d{8}-\d{6}-[0-9a-f]{8}$/;
+    expect(first.privateReviewDir.split("/").pop()).toMatch(passPattern);
+    expect(second.privateReviewDir.split("/").pop()).toMatch(passPattern);
+
+    if (process.platform !== "win32") {
+      expect(statSync(first.privateReviewDir).mode & 0o777).toBe(0o700);
+      expect(statSync(first.privateReviewReportPath).mode & 0o777).toBe(0o600);
+      expect(statSync(second.privateReviewDir).mode & 0o777).toBe(0o700);
+      expect(statSync(second.privateReviewReportPath).mode & 0o777).toBe(0o600);
+    }
+
+    const standalone = createPrivateReviewPassDir({
+      privateDir,
+      repoRoot: REPO_ROOT,
+      sha256: APPROVED_ORIGINAL_MASTER_SHA256,
+      dryRun: true,
+    });
+    expect(standalone.passName.startsWith(APPROVED_ORIGINAL_MASTER_SHA256.slice(0, 12))).toBe(true);
+    expect(standalone.created).toBe(false);
+  });
+
+  it("records approvedOriginalMaster, fullScaleSamples, and rmsDbfs in QC and intake output", () => {
+    expect(APPROVED_ORIGINAL_MASTER_SHA256).toBe(
+      "239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d",
+    );
+
+    const sr = 16000;
+    const pad = new Int16Array(Math.round(0.15 * sr));
+    const samples = concatSamples([pad, buildSpeechSamples(0.8, sr, 9000), pad]);
+    // Inject 5 positive full-scale (+32767), 3 negative full-scale (-32768), and 2 non-full-scale (32766)
+    samples[3000] = 32767;
+    samples[3010] = 32767;
+    samples[3020] = 32767;
+    samples[3030] = 32767;
+    samples[3040] = 32767;
+    samples[3050] = -32768;
+    samples[3060] = -32768;
+    samples[3070] = -32768;
+    samples[3080] = 32766;
+    samples[3090] = -32767;
+
+    const qc = runClipQc({ samples, sampleRate: sr });
+    expect(qc.metrics.fullScaleSamples).toBe(8);
+    expect(typeof qc.metrics.rmsDbfs).toBe("number");
+    expect(qc.metrics.rmsDbfs).toBeLessThan(0);
+    expect(qc.metrics.rmsDbfs).toBeGreaterThan(-40);
+  });
+
+  it("supports optional --vosk-model offline word alignment with clean unavailable fallback", async () => {
+    const privateDir = makeTempDir("gretel-priv-vosk-");
+    const srcDir = makeTempDir("gretel-src-vosk-");
+    const fakeModelDir = makeTempDir("gretel-vosk-model-");
+    const sr = 16000;
+    const gap = new Int16Array(Math.round(0.4 * sr));
+    const wavFile = join(srcDir, "vosk-test.wav");
+    writeFileSync(
+      wavFile,
+      encodeWavPcm16(
+        concatSamples([gap, buildSpeechSamples(0.8, sr), gap, buildSpeechSamples(0.8, sr), gap]),
+        sr,
+      ),
+    );
+
+    // 1. Missing model path cleanly reports "local alignment model unavailable"
+    const missingModel = runVoskWordAlignment({
+      wavPath: wavFile,
+      modelPath: join(srcDir, "does-not-exist-vosk-model"),
+      repoRoot: REPO_ROOT,
+    });
+    expect(missingModel.available).toBe(false);
+    expect(missingModel.status).toBe("local alignment model unavailable");
+
+    // 2. Deterministic Vosk runner aligns words using PR #1323 gap (>=0.25s) & conf (>=0.85) rules
+    const expectedLines = [
+      { id: "u-01", seq: 1, lesson: 0, text: "Hola vamos" },
+      { id: "u-02", seq: 2, lesson: 0, text: "Muy bien" },
+    ];
+    const mockWords = [
+      { word: "hola", start: 0.42, end: 0.72, conf: 0.96 },
+      { word: "vamos", start: 0.75, end: 1.15, conf: 0.94 },
+      { word: "muy", start: 1.62, end: 1.92, conf: 0.95 },
+      { word: "bien", start: 1.95, end: 2.35, conf: 0.97 },
+    ];
+    const aligned = alignVoskWordsToLines(mockWords, expectedLines, 2.8);
+    expect(aligned.findings).toHaveLength(2);
+    expect(aligned.findings.every((f) => f.status === "candidate")).toBe(true);
+
+    const intakeRes = await runTutorIntake({
+      repoRoot: REPO_ROOT,
+      inputFiles: [wavFile],
+      batchId: "vosk-hook-test",
+      date: "2026-11-26",
+      privateDir,
+      expectedLines,
+      voskModelPath: fakeModelDir,
+      voskRunner: () => ({ available: true, words: mockWords }),
+      authorized: false,
+      dryRun: true,
+      writeReport: false,
+      tools: { ffmpeg: null, ffprobe: null, rhubarb: null },
+    });
+    expect(intakeRes.approvedOriginalMaster).toBe(false);
+    expect(intakeRes.voskAlignment).toHaveLength(1);
+    expect(intakeRes.voskAlignment[0].available).toBe(true);
+    expect(intakeRes.voskAlignment[0].status).toBe("aligned");
+    expect(intakeRes.alignment.summary.matchedCount).toBe(2);
+    expect(intakeRes.items.every((it) => it.qc.passed && it.boundaryValid)).toBe(true);
+
+    // 3. Unavailable vosk package inside runTutorIntake does not crash and reports cleanly
+    const unavailRes = await runTutorIntake({
+      repoRoot: REPO_ROOT,
+      inputFiles: [wavFile],
+      batchId: "vosk-unavail-test",
+      date: "2026-11-26",
+      privateDir,
+      expectedLines,
+      voskModelPath: fakeModelDir,
+      voskRunner: () => ({ available: false, reason: "python vosk package not installed" }),
+      authorized: false,
+      dryRun: true,
+      writeReport: false,
+      tools: { ffmpeg: null, ffprobe: null, rhubarb: null },
+    });
+    expect(unavailRes.voskAlignment[0].available).toBe(false);
+    expect(unavailRes.voskAlignment[0].status).toBe("local alignment model unavailable");
   });
 });

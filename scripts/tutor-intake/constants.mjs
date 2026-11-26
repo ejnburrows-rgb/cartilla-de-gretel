@@ -19,6 +19,12 @@ export const DEFAULT_PRIVATE_VOICE_DIR =
   process.env.GRETEL_VOICE_PRIVATE_DIR || join(homedir(), "GretelVoicePrivate");
 
 /**
+ * Owner-approved original master recording SHA-256 (adopted from PR #1323).
+ */
+export const APPROVED_ORIGINAL_MASTER_SHA256 =
+  "239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d";
+
+/**
  * Permanently rejected SHA-256 digests (owner governance):
  * - nina-sordita.mp3 (retired 2026-10-22; replaced by "niña distraída")
  */

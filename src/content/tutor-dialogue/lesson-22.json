@@ -3901,7 +3901,7 @@
     },
     {
       "id": "v2-l22-43-page-complete",
-      "text": "Terminaste todas las actividades de la letra ce con mucha soltura y buena lectura.",
+      "text": "Terminaste todas las actividades de la letra ce. ¡Muy buen trabajo!",
       "batch": "B028",
       "seq": 43,
       "file": "B028-043.mp3",
@@ -3975,7 +3975,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la letra ce con mucha soltura y buena lectura",
+      "normalizedText": "terminaste todas las actividades de la letra ce muy buen trabajo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3995,7 +3995,7 @@
     },
     {
       "id": "v2-l22-44-closing",
-      "text": "Qué bien dominas las sílabas ca, co y cu. Solo nos quedan dos letras para terminar el libro.",
+      "text": "Terminamos las sílabas ca, co y cu. Solo nos quedan dos letras para completar el libro.",
       "batch": "B028",
       "seq": 44,
       "file": "B028-044.mp3",
@@ -4069,7 +4069,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bien dominas las sílabas ca co y cu solo nos quedan dos letras para terminar el libro",
+      "normalizedText": "terminamos las sílabas ca co y cu solo nos quedan dos letras para completar el libro",
       "sourcePr": "PR#1073"
     },
     {

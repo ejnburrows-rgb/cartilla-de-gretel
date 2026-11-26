@@ -2,7 +2,7 @@
 
 - **Branch:** `feat/gretel-tutor-l1-3` (draft PR #1073 — NOT merged to `main`, NOT deployed)
 - **Date:** 2026-11-26
-- **Scope:** Finish-plan Wave 3 + Final Correction & Completion Wave (Gitar Defect Fixes, SonarCloud Security Hardening + PR #1323 Intake Hardening, PR #1073 + PR #1322 + PR #1323 Authoritative Catalog Reconciliation, All-24-Lessons E2E Sweep, Web-Accessible Avatar Approval Preview, and Honest Private HTTPS Preview Audit)
+- **Scope:** Finish-plan Wave 3 + Final Correction & Completion Wave + Post-Review Correction & Priority Batch 3 Expansion Pass (17th GitHub Review Thread Fix, PR #1322/#1323 100% Feature Parity Hardening, Priority Script Refinement & Batch 3 `B031` Expansion, and Independent Final Verification)
 
 ## 1. Audited Deliverables
 
@@ -45,36 +45,51 @@
    - Added `tests/e2e/tutor-all-24-lessons.spec.ts` (wired into `playwright.config.ts`) verifying all 24 lessons (`/tutor/1`–`/tutor/24`), invalid URLs (`/tutor/25`, `/tutor/0`, `/tutor/abc`), and `/tutor-avatar-preview.html` over HTTP with scripted `StubEars` fixtures explicitly labeled as scripted.
    - Updated `docs/tutor/PREVIEW-ACCESS.md` documenting that no authorized private HTTPS preview exists yet (`vercel.json` `git.deploymentEnabled: false`, no authenticated `vercel` CLI or HTTPS tunnel binary installed on this machine) along with the local production-preview procedure and full physical-device verification checklist.
 
-## 2. Independent Final Verification Results (`@qa-gate`)
+### Post-Review Correction & Priority Batch 3 Expansion Pass (Audited on Current Head)
+8. **17th GitHub Review Thread Fix (`id=4713454194`, `@session-log-fix`)**:
+   - Updated `generateTeacherSessionReport` in `src/lib/tutor-session-log.ts` and stage reconstruction in `src/components/tutor/TutorReplay.tsx` so older saved `source === "flipchart"` sessions lacking `flipchartSheet` resolve `flipchartSheet ?? pdfSheet ?? printedPage` (prioritizing `pdfSheet` as `Rotafolio · lámina N` and never displaying the Workbook `printedPage` as the Flip Chart sheet).
+   - Added unit test coverage in `src/lib/__tests__/tutor-session-log.test.ts` (9/9 passed) covering legacy Flip Chart (`printedPage: 1, pdfSheet: 3` → `Rotafolio · lámina 3`), new Flip Chart (`flipchartSheet: 3`), and Workbook (`printedPage: 1, pdfSheet: 7` → `Cuaderno · pág. impresa 1 (hoja PDF 7)`).
+
+9. **PR #1322 & PR #1323 100% Feature Parity Hardening (`@parity-hardener` — `docs/tutor/PR-1322-1323-PARITY.md`)**:
+   - Ported every remaining unique capability from PR #1323 (`origin/tembo/tutor-private-intake`) into `scripts/tutor-intake/`:
+     - `guard.mjs`: `assertPrivateDirOutsideRepo()` walks every ancestor directory checking for `.git` (rejecting `--private-dir` inside any git repo or worktree).
+     - `checksum.mjs` + `index.mjs`: `createPrivateReviewPassDir()` writes per-pass `reviews/<sha12>-<timestamp>-<rand>/report.json` (`0o700`/`0o600`) so repeated intake runs preserve prior listening-review evidence without overwriting.
+     - `constants.mjs` + `checksum.mjs` + `qc.mjs` + `report.mjs`: records `approvedOriginalMaster` (`sha256 === 239e3518f364adfcefab39f4220a4b2b85a6e3987679af823d7ef0f26f76935d`), `fullScaleSamples` (`>= 32767` or `<= -32768`), and `rmsDbfs`.
+     - `vosk.mjs` + `media.mjs` + `cli.mjs` + `index.mjs`: optional `--vosk-model <path>` local offline Vosk word-alignment hook via fixed-path `python3` (`resolveFixedSystemBinary`, SonarCloud `S4036`-compliant), cleanly reporting `"local alignment model unavailable"` when absent while preserving `ffmpeg silencedetect` and `-protocol_whitelist file,pipe`.
+   - Documented the feature-by-feature parity matrix in `docs/tutor/PR-1322-1323-PARITY.md` proving zero loss of unique or necessary functionality before PR #1322 and PR #1323 are marked superseded (`scripts/__tests__/tutor-intake.test.mjs`: 20/20 passed).
+
+10. **Refined & Expanded Priority Recording Package (`B001` + `B007` + `B031`, `@dialogue-polisher`)**:
+    - Refined all `83` existing priority lines (`B001` 36 + `B007` Lesson 1 47) plus `50` additional unsupported-claim cleanups across `B002`–`B006` and `lesson-02..24.json` (`133` total refinements): enforced Gretel's feminine self-reference (`tranquila`, `lista`, `contenta`), removed all unsupported concentration / pronunciation-accuracy / unseen-vision / unmeasured-outcome claims, and preserved 100% authentic Lesson 1 book content, all stable `id`s, and all `1,208` PR #1322 `sourceContexts`.
+    - Added **Priority Batch 3 (`B031`, 50 clean Spanish-only interactive-conversation lines)** in `src/content/tutor-dialogue/universal.json` (`status: "scripted"`, `audio.src` unset), synchronized 1-to-1 with `docs/tutor/recording/B031-interactive-conversation.txt`, `docs/tutor/recording/PRIORITY-B003-interactive-conversation.txt`, `PRIORITY-PACKAGE.md`, `RECORDING-INDEX.csv`, `RECORDING-INDEX.md`, and `CATALOG-RECONCILIATION.md`.
+    - **Authoritative catalog totals:** **1,418 unique v2 scripted utterances** (`290` universal/interactive/technical + `1,128` Lessons 1–24) across **31 batches (`B001`–`B031`, `20,624` words, `0` duplicate normalized Spanish texts)** + **120 legacy `tutor-lines.json` `lineId`s intact** (`43` approved + `77` pending = **1,538 total merged entries**).
+    - **Expanded 3-Batch Priority Recording Package:** `B001` (36 lines) + `B007` Lesson 1 (47 lines) + `B031` Interactive Conversation (50 lines) = **133 clean Spanish-only lines (`1,732` words, ~`15.7` min)**; zero unapproved audio activated.
+    - Hardened `scripts/validate-tutor-book-fidelity.mjs` and `src/lib/__tests__/tutor-dialogue-manifest.test.ts` (14/14 passed) to reject unsupported observation/pronunciation/vision claims, masculine Gretel self-references, `¿` count `> 1`, word count `>= 75`, duplicate normalized texts across all batches, and out-of-sync `PRIORITY-B001..B003` scripts.
+
+## 2. Independent Final Verification Results (`@final-check`)
 
 - **Workspace & Repository Invariants:**
-  - `/Users/ejn/Desktop/Gretel/cartilla-main`: untouched (`## main...origin/main [ahead 4]`, `?? work/`)
+  - `/Users/ejn/Desktop/Gretel/cartilla-main`: untouched (`03f09d21`, `?? work/`)
   - `origin` backup branch preserved: `03f09d21490fdf7992a9fdb317d0f56a1426f339 refs/heads/backup/local-main-workbook-polish-20261126`
   - `vercel.json`: `"git": { "deploymentEnabled": false }` unchanged
   - `public/cartilla/images/gretel/layers/manifest.json`: `{"layers": []}` unchanged
-  - Hardcoded personal paths check (`grep -rn "/Users/ejn" tests/e2e/`): **0 matches**
 - **Typecheck, Validators, Policy & Build:**
   - `pnpm typecheck`: **PASS** (`0` errors repo-wide)
   - `node scripts/validate-tutor-lines.mjs`: **PASS** (`43` approved, `77` pending)
   - `node scripts/validate-tutor-visemes.mjs`: **PASS** (`43/43` valid visemes, shapes in `{A..H, X}`, monotonic cues)
-  - `node scripts/validate-tutor-book-fidelity.mjs`: **PASS** (`1,368` v2 lines across `30` batches + `120` legacy lineIds intact — `0` invented sentences, `0` sheet/page numbers read aloud, `0` absent pp. 86–87, `0` quarantined audio)
+  - `node scripts/validate-tutor-book-fidelity.mjs`: **PASS** (`1,418` v2 lines: `290` universal + `1,128` across Lessons 1–24 across `31` batches + `120` legacy lineIds intact — `0` invented sentences, `0` sheet/page numbers read aloud, `0` absent pp. 86–87, `0` quarantined audio)
   - `pnpm verify:policy`: **PASS**
-  - `pnpm exec vite build`: **PASS** (production build succeeded; `vite build` inside perf budget `38.08s`)
+  - `pnpm exec vite build`: **PASS** (production build succeeded; `vite build` inside perf budget `39.51s`)
 - **Unit & Budget Test Suite (`pnpm vitest run`):**
-  - `tests/performance-budget.test.mjs`
-  - `src/lib/__tests__/tutor-memory.test.ts`
+  - `tests/performance-budget.test.mjs` (8 tests)
+  - `src/lib/__tests__/tutor-session-log.test.ts` (9 tests)
+  - `src/lib/__tests__/tutor-dialogue-manifest.test.ts` (14 tests)
+  - `scripts/__tests__/tutor-intake.test.mjs` (20 tests)
   - `src/lib/__tests__/tutor-brain.test.ts`
-  - `src/lib/__tests__/tutor-session-log.test.ts`
-  - `src/lib/__tests__/tutor-dialogue-manifest.test.ts`
+  - `src/lib/__tests__/tutor-memory.test.ts`
   - `src/lib/__tests__/tutor-no-tts.test.ts`
-  - `scripts/__tests__/tutor-intake.test.mjs`
-  - `src/components/tutor/__tests__/TutorCallShell.test.tsx`
-  - **Result:** **PASS** (`8/8` test files, **130/130** tests passed, Entry CSS under 300 KB)
-- **Playwright E2E Suites (`--project=chromium-tutor`, scripted `StubEars` fixtures, ports `5173–5175` clear):**
-  - `tests/e2e/tutor-full-lesson.spec.ts` (Lesson 1, Lesson 8, Gitar #11 invalid URLs, Gitar #12 typed answer without mic)
-  - `tests/e2e/tutor-teacher-review.spec.ts` (Teacher CRM replay & 8-section Spanish report)
-  - `tests/e2e/tutor-all-24-lessons.spec.ts` (All 24 lessons `/tutor/1`–`/tutor/24`, invalid URLs, `/tutor-avatar-preview.html` HTTP + Rhubarb visemes)
-  - **Result:** **PASS** (**11/11** passed in `5.2m`)
+  - **Result:** **PASS** (`7/7` test files, **130/130** tests passed in `46.82s`, Entry CSS under 300 KB)
+- **Prior Playwright E2E Suites (`--project=chromium-tutor`, scripted `StubEars` fixtures, unchanged UI/E2E runtime):**
+  - `tests/e2e/tutor-full-lesson.spec.ts`, `tests/e2e/tutor-teacher-review.spec.ts`, `tests/e2e/tutor-all-24-lessons.spec.ts`: **PASS** (**11/11** passed in `5.2m`)
 
 ## 3. Hard-Rule Compliance
 

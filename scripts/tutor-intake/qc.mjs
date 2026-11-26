@@ -193,13 +193,18 @@ export function runClipQc({
   let peakAbs = 0;
   let totalSumSq = 0;
   let clippedSamples = 0;
+  let fullScaleSamples = 0;
   let consecutiveClipped = 0;
   let maxConsecutiveClipped = 0;
 
   for (let i = 0; i < samples.length; i++) {
-    const abs = Math.abs(samples[i]);
+    const sample = samples[i];
+    const abs = Math.abs(sample);
     if (abs > peakAbs) peakAbs = abs;
-    totalSumSq += samples[i] * samples[i];
+    totalSumSq += sample * sample;
+    if (sample >= 32767 || sample <= -32768) {
+      fullScaleSamples += 1;
+    }
     if (abs >= cfg.clipSampleThreshold) {
       clippedSamples += 1;
       consecutiveClipped += 1;
@@ -213,6 +218,12 @@ export function runClipQc({
 
   const peakDb = amplitudeToDb(peakAbs);
   const overallRmsDb = amplitudeToDb(Math.sqrt(totalSumSq / Math.max(1, samples.length)));
+  const rmsDbfs = Number(
+    (
+      10 *
+      Math.log10(Math.max(totalSumSq / Math.max(1, samples.length), 1) / (32768 * 32768))
+    ).toFixed(1),
+  );
   const clippingDetected =
     clippedSamples > cfg.maxClippedSamples || maxConsecutiveClipped >= cfg.maxConsecutiveClipped;
   if (clippingDetected) {
@@ -357,6 +368,7 @@ export function runClipQc({
       durationSec: Number(durationSec.toFixed(4)),
       peakDb: Number(peakDb.toFixed(2)),
       overallRmsDb: Number(overallRmsDb.toFixed(2)),
+      rmsDbfs,
       speechRmsDb: Number(speechRmsDb.toFixed(2)),
       noiseFloorDb: Number(noiseFloorDb.toFixed(2)),
       snrDb: Number(snrDb.toFixed(2)),
@@ -365,6 +377,7 @@ export function runClipQc({
       spectralFlatness: flatnessStats.meanSpectralFlatness,
       quietSpectralFlatness: flatnessStats.quietSpectralFlatness,
       clippedSamples,
+      fullScaleSamples,
       maxConsecutiveClipped,
       musicSuspected,
       stutterDetected: transcriptStutter.detected || acousticStutter,

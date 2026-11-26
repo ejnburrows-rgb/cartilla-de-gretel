@@ -36,6 +36,7 @@ const FIXED_SYSTEM_PATHS = {
   tar: ["/usr/bin/tar", "/bin/tar", "/opt/homebrew/bin/tar", "/usr/local/bin/tar"],
   unzip: ["/usr/bin/unzip", "/bin/unzip", "/opt/homebrew/bin/unzip", "/usr/local/bin/unzip"],
   git: ["/usr/bin/git", "/opt/homebrew/bin/git", "/usr/local/bin/git", "/bin/git"],
+  python3: ["/usr/bin/python3", "/opt/homebrew/bin/python3", "/usr/local/bin/python3", "/bin/python3"],
 };
 
 function isExecutableFile(filePath) {

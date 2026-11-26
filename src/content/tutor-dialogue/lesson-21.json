@@ -3710,7 +3710,7 @@
     },
     {
       "id": "v2-l21-40-game-correct",
-      "text": "Muy bien completado. Leíste la sílaba de la jota con mucha claridad.",
+      "text": "¡Muy bien completado! Elegiste la sílaba correcta de la letra jota.",
       "batch": "B027",
       "seq": 40,
       "file": "B027-040.mp3",
@@ -3786,7 +3786,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien completado leíste la sílaba de la jota con mucha claridad",
+      "normalizedText": "muy bien completado elegiste la sílaba correcta de la letra jota",
       "sourcePr": "PR#1073"
     },
     {
@@ -4025,7 +4025,7 @@
     },
     {
       "id": "v2-l21-43-page-complete",
-      "text": "Terminaste todas las actividades de la letra jota con alegría y excelente entonación.",
+      "text": "Terminaste todas las actividades de la letra jota. ¡Qué buen avance!",
       "batch": "B027",
       "seq": 43,
       "file": "B027-043.mp3",
@@ -4101,7 +4101,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la letra jota con alegría y excelente entonación",
+      "normalizedText": "terminaste todas las actividades de la letra jota qué buen avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4121,7 +4121,7 @@
     },
     {
       "id": "v2-l21-44-closing",
-      "text": "Leíste toda la aventura de la jicotea Jabela con gran soltura. Qué bien suenas leyendo.",
+      "text": "Recorrimos toda la aventura de la jicotea Jabela. ¡Ya falta muy poco para terminar!",
       "batch": "B027",
       "seq": 44,
       "file": "B027-044.mp3",
@@ -4197,7 +4197,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leíste toda la aventura de la jicotea jabela con gran soltura qué bien suenas leyendo",
+      "normalizedText": "recorrimos toda la aventura de la jicotea jabela ya falta muy poco para terminar",
       "sourcePr": "PR#1073"
     },
     {

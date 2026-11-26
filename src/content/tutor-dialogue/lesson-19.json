@@ -3871,7 +3871,7 @@
     },
     {
       "id": "v2-l19-43-page-complete",
-      "text": "Terminaste todas las actividades de la letra ge con excelente lectura y mucha paciencia.",
+      "text": "Terminaste todas las actividades de la letra ge. ¡Excelente avance!",
       "batch": "B025",
       "seq": 43,
       "file": "B025-043.mp3",
@@ -3944,7 +3944,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la letra ge con excelente lectura y mucha paciencia",
+      "normalizedText": "terminaste todas las actividades de la letra ge excelente avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3964,7 +3964,7 @@
     },
     {
       "id": "v2-l19-44-closing",
-      "text": "Leíste toda la historia del gato Goloso y Musulunga con mucha soltura y alegría.",
+      "text": "Terminamos toda la historia del gato Goloso y Musulunga. ¡Qué divertida lectura!",
       "batch": "B025",
       "seq": 44,
       "file": "B025-044.mp3",
@@ -4037,7 +4037,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leíste toda la historia del gato goloso y musulunga con mucha soltura y alegría",
+      "normalizedText": "terminamos toda la historia del gato goloso y musulunga qué divertida lectura",
       "sourcePr": "PR#1073"
     },
     {

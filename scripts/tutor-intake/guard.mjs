@@ -74,7 +74,8 @@ function safeRealpath(targetPath) {
 
 /**
  * Ensure the private originals directory lives strictly outside the repository
- * so raw recordings can never be committed.
+ * AND outside every git repository (walking all ancestor directories for `.git`,
+ * adopted from PR #1323) so raw recordings can never be committed.
  */
 export function assertPrivateDirOutsideRepo(privateDir, repoRoot) {
   const resolvedPrivate = safeRealpath(privateDir);
@@ -91,6 +92,20 @@ export function assertPrivateDirOutsideRepo(privateDir, repoRoot) {
       `Private voice directory "${resolvedPrivate}" must be outside repository "${resolvedRepo}" (use ~/GretelVoicePrivate/)`,
     );
   }
+
+  // Walk every ancestor of resolvedPrivate checking for any `.git` directory or file
+  let cur = resolvedPrivate;
+  while (true) {
+    if (existsSync(join(cur, ".git"))) {
+      throw new Error(
+        `Private voice directory "${resolvedPrivate}" must be outside every git repository (found .git in "${cur}"; use ~/GretelVoicePrivate/)`,
+      );
+    }
+    const parent = dirname(cur);
+    if (parent === cur) break;
+    cur = parent;
+  }
+
   return resolvedPrivate;
 }
 

@@ -35,7 +35,7 @@ describe("tutor-dialogue-manifest v2 schema & loader", () => {
     expect(report.counts.legacyApproved).toBe(43);
     expect(report.counts.legacyPending).toBe(77);
     expect(report.counts.v2Entries).toBeGreaterThanOrEqual(1100);
-    expect(report.counts.v2Entries).toBeLessThanOrEqual(1400);
+    expect(report.counts.v2Entries).toBeLessThanOrEqual(1500);
     expect(report.counts.totalMerged).toBe(120 + report.counts.v2Entries);
   });
 
@@ -142,11 +142,26 @@ describe("writing & pedagogical quality gates across all v2 scripts", () => {
 
       const qc = countQuestions(entry.text);
       expect(qc, `${entry.id} question count`).toBeLessThanOrEqual(1);
+      const openQ = (entry.text.match(/¿/g) ?? []).length;
+      expect(openQ, `${entry.id} inverted ¿ count`).toBeLessThanOrEqual(1);
 
       expect(entry.text).not.toMatch(/\[DRAFT|\(reuse:|^\d+[.)\s]|\[pausa\]|\(sonrisa\)/i);
       // No robotic syllable splicing like "m + a" or "ma - má"
       expect(entry.text).not.toMatch(/\b[a-zñ]+\s*\+\s*[a-zñ]+\b/i);
       expect(entry.text).not.toMatch(/\b[a-zñ]{1,3}\s+-\s+[a-zñ]{1,3}\b/i);
+      // No unsupported concentration, pronunciation-accuracy, unseen-vision, or masculine self-reference claims
+      expect(entry.text, `${entry.id} unsupported concentration`).not.toMatch(
+        /\b(?:tan\s+concentrad[oa]|muy\s+concentrad[oa]|con\s+gran\s+concentraci[oó]n|con\s+(?:mucha|gran|excelente)\s+atenci[oó]n|tus\s+o[ií]dos\s+est[aá]n\s+muy\s+atentos)\b/i,
+      );
+      expect(entry.text, `${entry.id} unsupported pronunciation`).not.toMatch(
+        /\b(?:tu\s+voz\s+(?:son[oó]|suena)|son[oó]\s+(?:muy\s+|bien\s+|tan\s+)?(?:clar|limpia|suave|bien)|sali[oó]\s+(?:muy\s+)?clara|te\s+sale\s+clarit[oa]|lo\s+dijiste\s+clarit[oa]|la\s+dijiste\s+clarit[oa]|con\s+mucha\s+claridad|distinguiste\s+con\s+claridad|buena\s+entonaci[oó]n|excelente\s+entonaci[oó]n|qu[eé]\s+bien\s+suenas|excelente\s+vibraci[oó]n|qu[eé]\s+buena\s+vibraci[oó]n|hace\s+tu\s+voz\s+m[aá]s\s+segura)\b/i,
+      );
+      expect(entry.text, `${entry.id} unsupported visual observation`).not.toMatch(
+        /\b(?:se\s+nota\s+que\s+miraste|se\s+nota\s+cu[aá]nto|ver\s+c[oó]mo\s+lees|miraste\s+el\s+dibujo|veo\s+clarit[oa]|te\s+veo\s+(?:sonre[ií]r|concentrad|mirando)|ya\s+dominas|qu[eé]\s+bien\s+dominas|y\s+buena\s+letra)\b/i,
+      );
+      expect(entry.text, `${entry.id} masculine self-reference`).not.toMatch(
+        /\b(?:esper[aá]ndote\s+tranquilo|estoy\s+(?:muy\s+)?(?:tranquilo|listo|contento|orgulloso|seguro))\b/i,
+      );
     }
   });
 
@@ -288,15 +303,17 @@ describe("recording scripts and index synchronization", () => {
     expect(commonErrorCount).toBe(204);
   });
 
-  it("includes a synchronized Priority Recording Package (universal + complete Lesson 1)", () => {
+  it("includes a synchronized 3-batch Priority Recording Package (universal + Lesson 1 + interactive conversation)", () => {
     const guidePath = join(RECORDING_DIR, "PRIORITY-PACKAGE.md");
     const prioUniversalPath = join(RECORDING_DIR, "PRIORITY-B001-universal.txt");
     const prioLesson1Path = join(RECORDING_DIR, "PRIORITY-B002-lesson-01.txt");
+    const prioInteractivePath = join(RECORDING_DIR, "PRIORITY-B003-interactive-conversation.txt");
     const reconDocPath = join(REPO_ROOT, "docs/tutor/CATALOG-RECONCILIATION.md");
 
     expect(existsSync(guidePath)).toBe(true);
     expect(existsSync(prioUniversalPath)).toBe(true);
     expect(existsSync(prioLesson1Path)).toBe(true);
+    expect(existsSync(prioInteractivePath)).toBe(true);
     expect(existsSync(reconDocPath)).toBe(true);
 
     const prioUniversalLines = readFileSync(prioUniversalPath, "utf8").trimEnd().split("\n");
@@ -313,7 +330,15 @@ describe("recording scripts and index synchronization", () => {
       .map((e) => e.text);
     expect(prioLesson1Lines).toEqual(b007Lines);
 
-    for (const line of [...prioUniversalLines, ...prioLesson1Lines]) {
+    const prioInteractiveLines = readFileSync(prioInteractivePath, "utf8").trimEnd().split("\n");
+    const b031Lines = getEntriesByBatch("B031")
+      .slice()
+      .sort((a, b) => a.seq - b.seq)
+      .map((e) => e.text);
+    expect(b031Lines.length).toBe(50);
+    expect(prioInteractiveLines).toEqual(b031Lines);
+
+    for (const line of [...prioUniversalLines, ...prioLesson1Lines, ...prioInteractiveLines]) {
       expect(line.trim()).toBe(line);
       expect(line).not.toMatch(/^(B\d+|v2-|\d+[.)\s]|#|-|\*)/);
       expect(countSpanishWords(line)).toBeGreaterThanOrEqual(5);

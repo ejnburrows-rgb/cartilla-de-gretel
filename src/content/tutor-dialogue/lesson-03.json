@@ -3074,7 +3074,7 @@
     },
     {
       "id": "v2-l03-43-page-complete",
-      "text": "Completaste todas las actividades y juegos de la vocal a con mucha claridad.",
+      "text": "Completaste todas las actividades y juegos de la vocal a. ¡Excelente trabajo!",
       "batch": "B009",
       "seq": 43,
       "file": "B009-043.mp3",
@@ -3135,7 +3135,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades y juegos de la vocal a con mucha claridad",
+      "normalizedText": "completaste todas las actividades y juegos de la vocal a excelente trabajo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

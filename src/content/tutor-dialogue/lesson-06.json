@@ -2838,7 +2838,7 @@
     },
     {
       "id": "v2-l06-43-page-complete",
-      "text": "Completaste las actividades de la vocal u y ya dominas las cinco hermanitas vocales.",
+      "text": "Completaste las actividades de la vocal u y recorriste las cinco hermanitas vocales.",
       "batch": "B012",
       "seq": 43,
       "file": "B012-043.mp3",
@@ -2894,7 +2894,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste las actividades de la vocal u y ya dominas las cinco hermanitas vocales",
+      "normalizedText": "completaste las actividades de la vocal u y recorriste las cinco hermanitas vocales",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

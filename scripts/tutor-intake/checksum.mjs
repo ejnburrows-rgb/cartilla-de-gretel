@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import {
   copyFileSync,
   existsSync,
@@ -8,6 +8,7 @@ import {
   writeFileSync,
 } from "node:fs";
 import { basename, extname, join, resolve } from "node:path";
+import { APPROVED_ORIGINAL_MASTER_SHA256 } from "./constants.mjs";
 import {
   assertPrivateDirOutsideRepo,
   checkRejectedSource,
@@ -74,6 +75,7 @@ export function ingestPrivateOriginal({
       reasons: preCheck.reasons,
       sourcePath: absSource,
       sha256: null,
+      approvedOriginalMaster: false,
       bytes: statSync(absSource).size,
       privateOriginalPath: null,
       dedupStatus: "rejected",
@@ -90,6 +92,7 @@ export function ingestPrivateOriginal({
       ],
       sourcePath: absSource,
       sha256: null,
+      approvedOriginalMaster: false,
       bytes: statSync(absSource).size,
       privateOriginalPath: null,
       dedupStatus: "rejected",
@@ -97,6 +100,7 @@ export function ingestPrivateOriginal({
   }
 
   const sha256 = sha256File(absSource);
+  const approvedOriginalMaster = sha256 === APPROVED_ORIGINAL_MASTER_SHA256;
   const bytes = statSync(absSource).size;
 
   const hashCheck = checkRejectedSource({
@@ -111,6 +115,7 @@ export function ingestPrivateOriginal({
       reasons: hashCheck.reasons,
       sourcePath: absSource,
       sha256,
+      approvedOriginalMaster,
       bytes,
       privateOriginalPath: null,
       dedupStatus: "rejected",
@@ -126,6 +131,7 @@ export function ingestPrivateOriginal({
       reasons: [],
       sourcePath: absSource,
       sha256,
+      approvedOriginalMaster,
       bytes,
       privateOriginalPath: existing.privateOriginalPath,
       dedupStatus: "duplicate",
@@ -140,10 +146,11 @@ export function ingestPrivateOriginal({
   );
 
   if (!dryRun) {
-    mkdirSync(targetDir, { recursive: true });
+    mkdirSync(targetDir, { recursive: true, mode: 0o700 });
     copyFileSync(absSource, targetPath);
     index.bySha256[sha256] = {
       sha256,
+      approvedOriginalMaster,
       bytes,
       batchId,
       originalFilename: basename(absSource),
@@ -159,8 +166,41 @@ export function ingestPrivateOriginal({
     reasons: [],
     sourcePath: absSource,
     sha256,
+    approvedOriginalMaster,
     bytes,
     privateOriginalPath: targetPath,
     dedupStatus: "new",
+  };
+}
+
+/**
+ * Create a unique per-pass review directory inside the private vault
+ * (`<sha12>-<timestamp>-<rand>`) so repeated intake runs preserve prior
+ * listening-review evidence without overwriting (adopted from PR #1323).
+ */
+export function createPrivateReviewPassDir({
+  privateDir,
+  repoRoot,
+  sha256 = null,
+  dryRun = false,
+} = {}) {
+  const safePrivateDir = assertPrivateDirOutsideRepo(privateDir, repoRoot);
+  const sha12 =
+    typeof sha256 === "string" && sha256.length >= 12
+      ? sha256.slice(0, 12).toLowerCase()
+      : "000000000000";
+  const iso = new Date().toISOString();
+  const timestamp = `${iso.slice(0, 4)}${iso.slice(5, 7)}${iso.slice(8, 10)}-${iso.slice(11, 13)}${iso.slice(14, 16)}${iso.slice(17, 19)}`;
+  const rand = randomBytes(4).toString("hex");
+  const passName = `${sha12}-${timestamp}-${rand}`;
+  const reviewDir = join(safePrivateDir, "reviews", passName);
+
+  if (!dryRun) {
+    mkdirSync(reviewDir, { recursive: true, mode: 0o700 });
+  }
+  return {
+    reviewDir,
+    passName,
+    created: !dryRun,
   };
 }

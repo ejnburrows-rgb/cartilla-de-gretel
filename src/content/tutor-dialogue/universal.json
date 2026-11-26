@@ -8,12 +8,13 @@
     "B003",
     "B004",
     "B005",
-    "B006"
+    "B006",
+    "B031"
   ],
   "entries": [
     {
       "id": "v2-b001-greet-first-01",
-      "text": "¡Hola! Soy Gretel y hoy vamos a descubrir sonidos y palabras juntos.",
+      "text": "¡Hola! Soy Gretel. Qué gusto conocerte, hoy vamos a descubrir sonidos y palabras juntos.",
       "batch": "B001",
       "seq": 1,
       "file": "B001-001.mp3",
@@ -44,7 +45,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hola soy gretel y hoy vamos a descubrir sonidos y palabras juntos",
+      "normalizedText": "hola soy gretel qué gusto conocerte hoy vamos a descubrir sonidos y palabras juntos",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -57,7 +58,7 @@
     },
     {
       "id": "v2-b001-greet-first-02",
-      "text": "Qué alegría tenerte aquí. Abramos la cartilla para empezar nuestra lectura de hoy.",
+      "text": "¡Qué alegría que estés aquí! Abramos la cartilla para empezar a leer hoy.",
       "batch": "B001",
       "seq": 2,
       "file": "B001-002.mp3",
@@ -88,12 +89,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué alegría tenerte aquí abramos la cartilla para empezar nuestra lectura de hoy",
+      "normalizedText": "qué alegría que estés aquí abramos la cartilla para empezar a leer hoy",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-03",
-      "text": "Bienvenido a tu espacio de lectura. Iremos paso a paso y sin prisa.",
+      "text": "¡Qué bueno tenerte por aquí! Vamos paso a paso, a tu ritmo y sin prisa.",
       "batch": "B001",
       "seq": 3,
       "file": "B001-003.mp3",
@@ -124,12 +125,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenido a tu espacio de lectura iremos paso a paso y sin prisa",
+      "normalizedText": "qué bueno tenerte por aquí vamos paso a paso a tu ritmo y sin prisa",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-04",
-      "text": "Hola, qué bueno que viniste. Prepara tus ojos y tus oídos para leer.",
+      "text": "¡Hola! Me da mucho gusto verte hoy. ¿Listo para empezar con la lectura?",
       "batch": "B001",
       "seq": 4,
       "file": "B001-004.mp3",
@@ -160,12 +161,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hola qué bueno que viniste prepara tus ojos y tus oídos para leer",
+      "normalizedText": "hola me da mucho gusto verte hoy listo para empezar con la lectura",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-05",
-      "text": "Empecemos una nueva lección. Yo te acompaño en cada dibujo y en cada palabra.",
+      "text": "¡Arranquemos una nueva lección! Voy contigo en cada dibujo y en cada palabra.",
       "batch": "B001",
       "seq": 5,
       "file": "B001-005.mp3",
@@ -196,12 +197,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "empecemos una nueva lección yo te acompaño en cada dibujo y en cada palabra",
+      "normalizedText": "arranquemos una nueva lección voy contigo en cada dibujo y en cada palabra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-06",
-      "text": "Hoy aprenderemos letras nuevas con calma y alegría. ¿Empezamos cuando estés listo?",
+      "text": "Hoy vamos a explorar letras nuevas con calma y buena onda. ¿Empezamos ahora?",
       "batch": "B001",
       "seq": 6,
       "file": "B001-006.mp3",
@@ -232,12 +233,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprenderemos letras nuevas con calma y alegría empezamos cuando estés listo",
+      "normalizedText": "hoy vamos a explorar letras nuevas con calma y buena onda empezamos ahora",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-01",
-      "text": "¡Eso es! Escuchaste con atención y dijiste la palabra completa.",
+      "text": "¡Sí, esa es! Encontraste justo la palabra que estábamos buscando.",
       "batch": "B001",
       "seq": 7,
       "file": "B001-007.mp3",
@@ -268,7 +269,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "eso es escuchaste con atención y dijiste la palabra completa",
+      "normalizedText": "sí esa es encontraste justo la palabra que estábamos buscando",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -281,7 +282,7 @@
     },
     {
       "id": "v2-b001-praise-02",
-      "text": "Lo lograste a la primera, y tu voz sonó muy clara.",
+      "text": "¡A la primera! Le diste directo a la respuesta correcta.",
       "batch": "B001",
       "seq": 8,
       "file": "B001-008.mp3",
@@ -312,12 +313,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lo lograste a la primera y tu voz sonó muy clara",
+      "normalizedText": "a la primera le diste directo a la respuesta correcta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-03",
-      "text": "Qué bien leíste ese sonido. Cada día avanzas con más seguridad.",
+      "text": "¡Bingo! Ese era exactamente el sonido que tocaba aquí.",
       "batch": "B001",
       "seq": 9,
       "file": "B001-009.mp3",
@@ -348,12 +349,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bien leíste ese sonido cada día avanzas con más seguridad",
+      "normalizedText": "bingo ese era exactamente el sonido que tocaba aquí",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-04",
-      "text": "Justo esa era la respuesta. Se nota que miraste bien el dibujo.",
+      "text": "¡Exacto! Esa respuesta coincide perfecto con este dibujo.",
       "batch": "B001",
       "seq": 10,
       "file": "B001-010.mp3",
@@ -384,12 +385,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "justo esa era la respuesta se nota que miraste bien el dibujo",
+      "normalizedText": "exacto esa respuesta coincide perfecto con este dibujo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-05",
-      "text": "Buen trabajo en esta palabra. Seguimos adelante con la que viene.",
+      "text": "¡Buenísimo! Ya tenemos esta palabra lista, pasemos a la que sigue.",
       "batch": "B001",
       "seq": 11,
       "file": "B001-011.mp3",
@@ -420,12 +421,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "buen trabajo en esta palabra seguimos adelante con la que viene",
+      "normalizedText": "buenísimo ya tenemos esta palabra lista pasemos a la que sigue",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-06",
-      "text": "Acertaste enseguida. Me encanta cómo reconoces cada sonido de la página.",
+      "text": "¡Acertaste enseguida! Me encanta cuando damos con la respuesta así.",
       "batch": "B001",
       "seq": 12,
       "file": "B001-012.mp3",
@@ -456,12 +457,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "acertaste enseguida me encanta cómo reconoces cada sonido de la página",
+      "normalizedText": "acertaste enseguida me encanta cuando damos con la respuesta así",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-07",
-      "text": "Sí, esa es exactamente. Qué alegría ver cómo lees tan concentrado.",
+      "text": "¡Sí, justo esa! Me pone muy contenta cuando avanzamos así.",
       "batch": "B001",
       "seq": 13,
       "file": "B001-013.mp3",
@@ -492,12 +493,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sí esa es exactamente qué alegría ver cómo lees tan concentrado",
+      "normalizedText": "sí justo esa me pone muy contenta cuando avanzamos así",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-08",
-      "text": "Lo dijiste clarito y sin apuro. Vamos por buen camino.",
+      "text": "¡Muy bien! Esa era la opción correcta, vamos por súper buen camino.",
       "batch": "B001",
       "seq": 14,
       "file": "B001-014.mp3",
@@ -528,12 +529,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lo dijiste clarito y sin apuro vamos por buen camino",
+      "normalizedText": "muy bien esa era la opción correcta vamos por súper buen camino",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-01",
-      "text": "No pasa nada si no salió todavía. Respira tranquilo e inténtalo otra vez.",
+      "text": "No pasa nada si todavía no salió. Respira hondo y lo intentamos otra vez.",
       "batch": "B001",
       "seq": 15,
       "file": "B001-015.mp3",
@@ -564,7 +565,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no pasa nada si no salió todavía respira tranquilo e inténtalo otra vez",
+      "normalizedText": "no pasa nada si todavía no salió respira hondo y lo intentamos otra vez",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -577,7 +578,7 @@
     },
     {
       "id": "v2-b001-try-again-02",
-      "text": "Con calma lo hacemos mejor. Escucha el modelo y vuelve a decirlo conmigo.",
+      "text": "Con calma siempre sale mejor. Escucha el ejemplo y lo decimos juntos.",
       "batch": "B001",
       "seq": 16,
       "file": "B001-016.mp3",
@@ -608,12 +609,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "con calma lo hacemos mejor escucha el modelo y vuelve a decirlo conmigo",
+      "normalizedText": "con calma siempre sale mejor escucha el ejemplo y lo decimos juntos",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-03",
-      "text": "Equivocarse también ayuda a aprender. Mira el dibujo y prueba de nuevo.",
+      "text": "Equivocarse es parte de aprender. Miremos el dibujo y probemos una vez más.",
       "batch": "B001",
       "seq": 17,
       "file": "B001-017.mp3",
@@ -644,12 +645,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "equivocarse también ayuda a aprender mira el dibujo y prueba de nuevo",
+      "normalizedText": "equivocarse es parte de aprender miremos el dibujo y probemos una vez más",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-04",
-      "text": "Vamos sin prisa. Tómate un momento para oír bien antes de responder.",
+      "text": "Sin apuro ninguno. Escuchemos de nuevo y luego pruebas otra vez.",
       "batch": "B001",
       "seq": 18,
       "file": "B001-018.mp3",
@@ -680,12 +681,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "vamos sin prisa tómate un momento para oír bien antes de responder",
+      "normalizedText": "sin apuro ninguno escuchemos de nuevo y luego pruebas otra vez",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-05",
-      "text": "Tú puedes lograrlo. Toca el micrófono cuando te sientas listo para probar.",
+      "text": "¡Tú puedes! Toca el micrófono cuando quieras hacer otro intento.",
       "batch": "B001",
       "seq": 19,
       "file": "B001-019.mp3",
@@ -716,12 +717,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "tú puedes lograrlo toca el micrófono cuando te sientas listo para probar",
+      "normalizedText": "tú puedes toca el micrófono cuando quieras hacer otro intento",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-06",
-      "text": "Casi lo tienes en tus manos. Hagamos un intento más bien despacito.",
+      "text": "Ya casi la tienes. Hagamos un intento más, bien despacito.",
       "batch": "B001",
       "seq": 20,
       "file": "B001-020.mp3",
@@ -752,12 +753,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "casi lo tienes en tus manos hagamos un intento más bien despacito",
+      "normalizedText": "ya casi la tienes hagamos un intento más bien despacito",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-01",
-      "text": "Estuviste tan cerquita. Escucha el final de la palabra y dilo otra vez.",
+      "text": "¡Uy, estuviste súper cerca! Fíjate en el final de la palabra y probemos de nuevo.",
       "batch": "B001",
       "seq": 21,
       "file": "B001-021.mp3",
@@ -788,7 +789,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "estuviste tan cerquita escucha el final de la palabra y dilo otra vez",
+      "normalizedText": "uy estuviste súper cerca fíjate en el final de la palabra y probemos de nuevo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -801,7 +802,7 @@
     },
     {
       "id": "v2-b001-close-miss-02",
-      "text": "Ya casi suena igualito. Abre un poquito más la boca y prueba de nuevo.",
+      "text": "¡Por poquito! Probemos una vez más abriendo un poco más la boca al decirla.",
       "batch": "B001",
       "seq": 22,
       "file": "B001-022.mp3",
@@ -832,12 +833,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya casi suena igualito abre un poquito más la boca y prueba de nuevo",
+      "normalizedText": "por poquito probemos una vez más abriendo un poco más la boca al decirla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-03",
-      "text": "Por poquito aciertas. Fíjate en cómo empieza el sonido y repítelo despacio.",
+      "text": "Casi aciertas. Escucha cómo empieza el sonido y repítelo despacio conmigo.",
       "batch": "B001",
       "seq": 23,
       "file": "B001-023.mp3",
@@ -868,12 +869,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "por poquito aciertas fíjate en cómo empieza el sonido y repítelo despacio",
+      "normalizedText": "casi aciertas escucha cómo empieza el sonido y repítelo despacio conmigo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-04",
-      "text": "Te faltó apenas un detalle. Vamos a escuchar el modelo una vez más.",
+      "text": "Te faltó apenas un detallito. Escuchemos el modelo una vez más.",
       "batch": "B001",
       "seq": 24,
       "file": "B001-024.mp3",
@@ -904,12 +905,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "te faltó apenas un detalle vamos a escuchar el modelo una vez más",
+      "normalizedText": "te faltó apenas un detallito escuchemos el modelo una vez más",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-05",
-      "text": "Vas muy cerca de la palabra exacta. Dímela un poco más claro.",
+      "text": "Estuviste muy cerca de la palabra exacta. Intentémoslo una vez más.",
       "batch": "B001",
       "seq": 25,
       "file": "B001-025.mp3",
@@ -940,12 +941,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "vas muy cerca de la palabra exacta dímela un poco más claro",
+      "normalizedText": "estuviste muy cerca de la palabra exacta intentémoslo una vez más",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-01",
-      "text": "No alcancé a escucharte bien. Acércate un poquito y dime la respuesta.",
+      "text": "No alcancé a escucharte bien. Acércate un poquito al micrófono y prueba de nuevo.",
       "batch": "B001",
       "seq": 26,
       "file": "B001-026.mp3",
@@ -976,7 +977,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no alcancé a escucharte bien acércate un poquito y dime la respuesta",
+      "normalizedText": "no alcancé a escucharte bien acércate un poquito al micrófono y prueba de nuevo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1001,7 +1002,7 @@
     },
     {
       "id": "v2-b001-silence-02",
-      "text": "El micrófono quedó en silencio. Habla con voz clara cuando quieras intentar.",
+      "text": "El micrófono se quedó en silencio. Cuando quieras intentar, te escucho.",
       "batch": "B001",
       "seq": 27,
       "file": "B001-027.mp3",
@@ -1032,12 +1033,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "el micrófono quedó en silencio habla con voz clara cuando quieras intentar",
+      "normalizedText": "el micrófono se quedó en silencio cuando quieras intentar te escucho",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-03",
-      "text": "Aquí estoy esperándote tranquilo. ¿Quieres repetir la palabra un poco más fuerte?",
+      "text": "Aquí sigo contigo, tranquila y sin prisa. ¿Quieres intentarlo un poquito más cerca?",
       "batch": "B001",
       "seq": 28,
       "file": "B001-028.mp3",
@@ -1068,12 +1069,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "aquí estoy esperándote tranquilo quieres repetir la palabra un poco más fuerte",
+      "normalizedText": "aquí sigo contigo tranquila y sin prisa quieres intentarlo un poquito más cerca",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-04",
-      "text": "Parece que todavía no hablaste. Toca el botón y comparte tu respuesta.",
+      "text": "Creo que todavía no llegó tu respuesta. Toca el botón y probamos juntos.",
       "batch": "B001",
       "seq": 29,
       "file": "B001-029.mp3",
@@ -1104,12 +1105,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "parece que todavía no hablaste toca el botón y comparte tu respuesta",
+      "normalizedText": "creo que todavía no llegó tu respuesta toca el botón y probamos juntos",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-05",
-      "text": "No te preocupes si estabas pensando. Cuando estés listo, te escucho con gusto.",
+      "text": "Tómate todo el tiempo que necesites. Cuando quieras, aquí estoy lista para escucharte.",
       "batch": "B001",
       "seq": 30,
       "file": "B001-030.mp3",
@@ -1140,12 +1141,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no te preocupes si estabas pensando cuando estés listo te escucho con gusto",
+      "normalizedText": "tómate todo el tiempo que necesites cuando quieras aquí estoy lista para escucharte",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-01",
-      "text": "Terminaste toda la práctica de hoy. Estoy muy orgullosa de tu esfuerzo.",
+      "text": "¡Terminamos toda la práctica de hoy! Estoy muy contenta con todo lo que completaste.",
       "batch": "B001",
       "seq": 31,
       "file": "B001-031.mp3",
@@ -1176,7 +1177,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste toda la práctica de hoy estoy muy orgullosa de tu esfuerzo",
+      "normalizedText": "terminamos toda la práctica de hoy estoy muy contenta con todo lo que completaste",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1195,7 +1196,7 @@
     },
     {
       "id": "v2-b001-closing-02",
-      "text": "Qué bonita sesión tuvimos juntos. Nos vemos muy pronto en la próxima lección.",
+      "text": "Qué buena sesión tuvimos hoy. Nos vemos muy pronto en la próxima lección.",
       "batch": "B001",
       "seq": 32,
       "file": "B001-032.mp3",
@@ -1226,12 +1227,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bonita sesión tuvimos juntos nos vemos muy pronto en la próxima lección",
+      "normalizedText": "qué buena sesión tuvimos hoy nos vemos muy pronto en la próxima lección",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-03",
-      "text": "Completaste cada palabra de la página. Descansa un rato y sigue leyendo.",
+      "text": "Completaste todas las palabras de esta práctica. Descansa un rato y seguimos luego.",
       "batch": "B001",
       "seq": 33,
       "file": "B001-033.mp3",
@@ -1262,12 +1263,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste cada palabra de la página descansa un rato y sigue leyendo",
+      "normalizedText": "completaste todas las palabras de esta práctica descansa un rato y seguimos luego",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-04",
-      "text": "Hoy aprendiste cosas nuevas con mucha paciencia. Hasta la próxima aventura.",
+      "text": "Hoy avanzamos un montón paso a paso. ¡Nos vemos en la próxima sesión!",
       "batch": "B001",
       "seq": 34,
       "file": "B001-034.mp3",
@@ -1298,12 +1299,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprendiste cosas nuevas con mucha paciencia hasta la próxima aventura",
+      "normalizedText": "hoy avanzamos un montón paso a paso nos vemos en la próxima sesión",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-05",
-      "text": "Llegamos al final de esta lección. Puedes sentirte feliz con lo que lograste.",
+      "text": "Llegamos al final de esta lección. ¡Qué buen trabajo hiciste hoy!",
       "batch": "B001",
       "seq": 35,
       "file": "B001-035.mp3",
@@ -1334,12 +1335,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "llegamos al final de esta lección puedes sentirte feliz con lo que lograste",
+      "normalizedText": "llegamos al final de esta lección qué buen trabajo hiciste hoy",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-06",
-      "text": "Gracias por leer conmigo hoy. Guardamos la cartilla y nos vemos luego.",
+      "text": "Gracias por leer conmigo hoy. Cerramos la cartilla y nos vemos pronto.",
       "batch": "B001",
       "seq": 36,
       "file": "B001-036.mp3",
@@ -1370,7 +1371,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "gracias por leer conmigo hoy guardamos la cartilla y nos vemos luego",
+      "normalizedText": "gracias por leer conmigo hoy cerramos la cartilla y nos vemos pronto",
       "sourcePr": "PR#1073"
     },
     {
@@ -1617,7 +1618,7 @@
     },
     {
       "id": "v2-b002-streak-01",
-      "text": "Llevas varias seguidas sin fallar. Estás escuchando cada sonido de maravilla.",
+      "text": "Llevas varias seguidas sin fallar. ¡Qué buena racha estamos armando!",
       "batch": "B002",
       "seq": 7,
       "file": "B002-007.mp3",
@@ -1650,12 +1651,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "llevas varias seguidas sin fallar estás escuchando cada sonido de maravilla",
+      "normalizedText": "llevas varias seguidas sin fallar qué buena racha estamos armando",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-02",
-      "text": "Qué buena racha llevas hoy. Una palabra tras otra te sale clarita.",
+      "text": "Qué buena racha llevas hoy. ¡Una respuesta correcta tras otra!",
       "batch": "B002",
       "seq": 8,
       "file": "B002-008.mp3",
@@ -1688,12 +1689,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué buena racha llevas hoy una palabra tras otra te sale clarita",
+      "normalizedText": "qué buena racha llevas hoy una respuesta correcta tras otra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-03",
-      "text": "Sigues acertando sin detenerte. Tus oídos están muy atentos hoy.",
+      "text": "Sigues acertando sin detenerte. ¡Cada respuesta coincide a la primera!",
       "batch": "B002",
       "seq": 9,
       "file": "B002-009.mp3",
@@ -1726,12 +1727,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sigues acertando sin detenerte tus oídos están muy atentos hoy",
+      "normalizedText": "sigues acertando sin detenerte cada respuesta coincide a la primera",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-04",
-      "text": "Vas volando por esta página. Se nota cuánto has practicado estas letras.",
+      "text": "Vas volando por esta página. ¡Qué seguidilla tan buena llevas hoy!",
       "batch": "B002",
       "seq": 10,
       "file": "B002-010.mp3",
@@ -1764,12 +1765,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "vas volando por esta página se nota cuánto has practicado estas letras",
+      "normalizedText": "vas volando por esta página qué seguidilla tan buena llevas hoy",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-05",
-      "text": "Otra respuesta correcta seguida. Mantienes ese ritmo tranquilo y seguro.",
+      "text": "Otra respuesta correcta seguida. Mantienes un ritmo súper constante.",
       "batch": "B002",
       "seq": 11,
       "file": "B002-011.mp3",
@@ -1802,7 +1803,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "otra respuesta correcta seguida mantienes ese ritmo tranquilo y seguro",
+      "normalizedText": "otra respuesta correcta seguida mantienes un ritmo súper constante",
       "sourcePr": "PR#1073"
     },
     {
@@ -1891,7 +1892,7 @@
     },
     {
       "id": "v2-b002-retry-praise-02",
-      "text": "No te rendiste cuando costó un poquito, y ahora lo dijiste perfecto.",
+      "text": "No te rendiste cuando costó un poquito, y ahora sí acertaste.",
       "batch": "B002",
       "seq": 14,
       "file": "B002-014.mp3",
@@ -1924,7 +1925,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no te rendiste cuando costó un poquito y ahora lo dijiste perfecto",
+      "normalizedText": "no te rendiste cuando costó un poquito y ahora sí acertaste",
       "sourcePr": "PR#1073"
     },
     {
@@ -2005,7 +2006,7 @@
     },
     {
       "id": "v2-b002-retry-praise-05",
-      "text": "Cada intento te acercó un poco más hasta que la dijiste clarita.",
+      "text": "Cada intento te acercó un poco más hasta que diste con la respuesta.",
       "batch": "B002",
       "seq": 17,
       "file": "B002-017.mp3",
@@ -2038,7 +2039,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cada intento te acercó un poco más hasta que la dijiste clarita",
+      "normalizedText": "cada intento te acercó un poco más hasta que diste con la respuesta",
       "sourcePr": "PR#1073"
     },
     {
@@ -2125,7 +2126,7 @@
     },
     {
       "id": "v2-b002-wrong-word-02",
-      "text": "Uy, miraste el dibujo vecino. Señalemos el que está encendido y probemos otra vez.",
+      "text": "Uy, elegiste el dibujo vecino. Señalemos el que está encendido y probemos otra vez.",
       "batch": "B002",
       "seq": 20,
       "file": "B002-020.mp3",
@@ -2156,7 +2157,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "uy miraste el dibujo vecino señalemos el que está encendido y probemos otra vez",
+      "normalizedText": "uy elegiste el dibujo vecino señalemos el que está encendido y probemos otra vez",
       "sourcePr": "PR#1073"
     },
     {
@@ -2633,7 +2634,7 @@
     },
     {
       "id": "v2-b002-dont-know-03",
-      "text": "Tranquilo, para eso estoy aquí contigo. Escúchala primero y luego la repetimos.",
+      "text": "No pasa nada, para eso estoy aquí contigo. Escúchala primero y luego la repetimos.",
       "batch": "B002",
       "seq": 33,
       "file": "B002-033.mp3",
@@ -2664,7 +2665,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "tranquilo para eso estoy aquí contigo escúchala primero y luego la repetimos",
+      "normalizedText": "no pasa nada para eso estoy aquí contigo escúchala primero y luego la repetimos",
       "sourcePr": "PR#1073"
     },
     {
@@ -6607,7 +6608,7 @@
     },
     {
       "id": "v2-b005-cam-07",
-      "text": "Ahora sí veo clarita tu página de trabajo. Sigamos con el ejercicio.",
+      "text": "¡Perfecto! La vista previa de tu página ya se ve enfocada. Sigamos con el ejercicio.",
       "batch": "B005",
       "seq": 12,
       "file": "B005-012.mp3",
@@ -6640,7 +6641,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora sí veo clarita tu página de trabajo sigamos con el ejercicio",
+      "normalizedText": "perfecto la vista previa de tu página ya se ve enfocada sigamos con el ejercicio",
       "sourcePr": "PR#1073"
     },
     {
@@ -8729,7 +8730,7 @@
     },
     {
       "id": "v2-b006-game-fluency-02",
-      "text": "Terminaste tu ronda de lectura. Cada práctica hace tu voz más segura.",
+      "text": "Terminaste tu ronda de lectura. Cada ronda completada suma un paso más.",
       "batch": "B006",
       "seq": 25,
       "file": "B006-025.mp3",
@@ -8760,7 +8761,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste tu ronda de lectura cada práctica hace tu voz más segura",
+      "normalizedText": "terminaste tu ronda de lectura cada ronda completada suma un paso más",
       "sourcePr": "PR#1073"
     },
     {
@@ -9294,6 +9295,1812 @@
           "role": "conversation"
         }
       ]
+    },
+    {
+      "id": "v2-b031-ack-01",
+      "text": "Ajá, te escucho perfecto. Cuéntame un poquito más sobre eso.",
+      "normalizedText": "ajá te escucho perfecto cuéntame un poquito más sobre eso",
+      "batch": "B031",
+      "seq": 1,
+      "file": "B031-001.mp3",
+      "intent": "conversational-acknowledgment",
+      "role": "conv-ack",
+      "variationGroup": "b031-conv-ack",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-ack-02",
+      "text": "Entendido, ya sé exactamente a qué parte te refieres.",
+      "normalizedText": "entendido ya sé exactamente a qué parte te refieres",
+      "batch": "B031",
+      "seq": 2,
+      "file": "B031-002.mp3",
+      "intent": "conversational-acknowledgment",
+      "role": "conv-ack",
+      "variationGroup": "b031-conv-ack",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "idle",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-ack-03",
+      "text": "¡Qué buena idea tuviste! Me parece súper bien probarlo así.",
+      "normalizedText": "qué buena idea tuviste me parece súper bien probarlo así",
+      "batch": "B031",
+      "seq": 3,
+      "file": "B031-003.mp3",
+      "intent": "conversational-acknowledgment",
+      "role": "conv-ack",
+      "variationGroup": "b031-conv-ack",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "idle",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-ack-04",
+      "text": "Claro que sí, tomo nota y seguimos desde donde tú prefieras.",
+      "normalizedText": "claro que sí tomo nota y seguimos desde donde tú prefieras",
+      "batch": "B031",
+      "seq": 4,
+      "file": "B031-004.mp3",
+      "intent": "conversational-acknowledgment",
+      "role": "conv-ack",
+      "variationGroup": "b031-conv-ack",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-curiosity-01",
+      "text": "¡Oh, mira qué interesante! Esa palabra tiene un sonido muy divertido.",
+      "normalizedText": "oh mira qué interesante esa palabra tiene un sonido muy divertido",
+      "batch": "B031",
+      "seq": 5,
+      "file": "B031-005.mp3",
+      "intent": "curiosity-spontaneous",
+      "role": "conv-curiosity",
+      "variationGroup": "b031-conv-curiosity",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "idle",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-curiosity-02",
+      "text": "¡Oye, qué buena pregunta hiciste! Me encanta cuando exploramos así.",
+      "normalizedText": "oye qué buena pregunta hiciste me encanta cuando exploramos así",
+      "batch": "B031",
+      "seq": 6,
+      "file": "B031-006.mp3",
+      "intent": "curiosity-spontaneous",
+      "role": "conv-curiosity",
+      "variationGroup": "b031-conv-curiosity",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-curiosity-03",
+      "text": "¿Sabes qué me gusta de esta página? Que los dibujos cuentan una historia.",
+      "normalizedText": "sabes qué me gusta de esta página que los dibujos cuentan una historia",
+      "batch": "B031",
+      "seq": 7,
+      "file": "B031-007.mp3",
+      "intent": "curiosity-spontaneous",
+      "role": "conv-curiosity",
+      "variationGroup": "b031-conv-curiosity",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-curiosity-04",
+      "text": "¡Qué buen hallazgo! A veces las pistas están escondidas justo en el dibujo.",
+      "normalizedText": "qué buen hallazgo a veces las pistas están escondidas justo en el dibujo",
+      "batch": "B031",
+      "seq": 8,
+      "file": "B031-008.mp3",
+      "intent": "curiosity-spontaneous",
+      "role": "conv-curiosity",
+      "variationGroup": "b031-conv-curiosity",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "idle",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-followup-01",
+      "text": "¿Cuál de los dibujos de esta actividad te llamó más la atención?",
+      "normalizedText": "cuál de los dibujos de esta actividad te llamó más la atención",
+      "batch": "B031",
+      "seq": 9,
+      "file": "B031-009.mp3",
+      "intent": "follow-up-question",
+      "role": "conv-followup",
+      "variationGroup": "b031-conv-followup",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-followup-02",
+      "text": "¿Quieres que practiquemos un ejemplo más antes de pasar al siguiente?",
+      "normalizedText": "quieres que practiquemos un ejemplo más antes de pasar al siguiente",
+      "batch": "B031",
+      "seq": 10,
+      "file": "B031-010.mp3",
+      "intent": "follow-up-question",
+      "role": "conv-followup",
+      "variationGroup": "b031-conv-followup",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-followup-03",
+      "text": "Si tuvieras que elegir tu palabra favorita de hoy, ¿cuál sería?",
+      "normalizedText": "si tuvieras que elegir tu palabra favorita de hoy cuál sería",
+      "batch": "B031",
+      "seq": 11,
+      "file": "B031-011.mp3",
+      "intent": "follow-up-question",
+      "role": "conv-followup",
+      "variationGroup": "b031-conv-followup",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-followup-04",
+      "text": "¿Te parece que seguimos con este ritmo o preferirías ir un poco más despacio?",
+      "normalizedText": "te parece que seguimos con este ritmo o preferirías ir un poco más despacio",
+      "batch": "B031",
+      "seq": 12,
+      "file": "B031-012.mp3",
+      "intent": "follow-up-question",
+      "role": "conv-followup",
+      "variationGroup": "b031-conv-followup",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-alt-01",
+      "text": "Déjame explicártelo de otra manera más sencilla para que se sienta más fácil.",
+      "normalizedText": "déjame explicártelo de otra manera más sencilla para que se sienta más fácil",
+      "batch": "B031",
+      "seq": 13,
+      "file": "B031-013.mp3",
+      "intent": "alternative-explanation",
+      "role": "conv-alt-explain",
+      "variationGroup": "b031-conv-alt-explain",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "patient",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-alt-02",
+      "text": "Probemos otro camino: primero escuchamos el inicio y luego armamos el resto.",
+      "normalizedText": "probemos otro camino primero escuchamos el inicio y luego armamos el resto",
+      "batch": "B031",
+      "seq": 14,
+      "file": "B031-014.mp3",
+      "intent": "alternative-explanation",
+      "role": "conv-alt-explain",
+      "variationGroup": "b031-conv-alt-explain",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-alt-03",
+      "text": "Imagina que la palabra es un tren y el primer sonido es la locomotora.",
+      "normalizedText": "imagina que la palabra es un tren y el primer sonido es la locomotora",
+      "batch": "B031",
+      "seq": 15,
+      "file": "B031-015.mp3",
+      "intent": "alternative-explanation",
+      "role": "conv-alt-explain",
+      "variationGroup": "b031-conv-alt-explain",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-alt-04",
+      "text": "Si esa pista no ayudó mucho, cambiemos de truco y comparemos dos dibujos juntos.",
+      "normalizedText": "si esa pista no ayudó mucho cambiemos de truco y comparemos dos dibujos juntos",
+      "batch": "B031",
+      "seq": 16,
+      "file": "B031-016.mp3",
+      "intent": "alternative-explanation",
+      "role": "conv-alt-explain",
+      "variationGroup": "b031-conv-alt-explain",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "patient",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-clarify-01",
+      "text": "Para asegurarme de que estamos en la misma parte, ¿hablas del dibujo de arriba?",
+      "normalizedText": "para asegurarme de que estamos en la misma parte hablas del dibujo de arriba",
+      "batch": "B031",
+      "seq": 17,
+      "file": "B031-017.mp3",
+      "intent": "contextual-clarification",
+      "role": "conv-clarify",
+      "variationGroup": "b031-conv-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-clarify-02",
+      "text": "Creo que me perdí un pedacito. ¿Me repites cuál palabra querías revisar?",
+      "normalizedText": "creo que me perdí un pedacito me repites cuál palabra querías revisar",
+      "batch": "B031",
+      "seq": 18,
+      "file": "B031-018.mp3",
+      "intent": "contextual-clarification",
+      "role": "conv-clarify",
+      "variationGroup": "b031-conv-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "gentle",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-clarify-03",
+      "text": "¿Quieres que revisemos el sonido de la letra o el nombre del dibujo?",
+      "normalizedText": "quieres que revisemos el sonido de la letra o el nombre del dibujo",
+      "batch": "B031",
+      "seq": 19,
+      "file": "B031-019.mp3",
+      "intent": "contextual-clarification",
+      "role": "conv-clarify",
+      "variationGroup": "b031-conv-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-clarify-04",
+      "text": "Solo para confirmar, ¿te refieres al ejercicio que está abierto en pantalla ahora?",
+      "normalizedText": "solo para confirmar te refieres al ejercicio que está abierto en pantalla ahora",
+      "batch": "B031",
+      "seq": 20,
+      "file": "B031-020.mp3",
+      "intent": "contextual-clarification",
+      "role": "conv-clarify",
+      "variationGroup": "b031-conv-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "patient",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-interrupt-01",
+      "text": "¡Espera, te escucho! Dime qué querías comentar antes de que sigamos.",
+      "normalizedText": "espera te escucho dime qué querías comentar antes de que sigamos",
+      "batch": "B031",
+      "seq": 21,
+      "file": "B031-021.mp3",
+      "intent": "student-interruption",
+      "role": "conv-interrupt",
+      "variationGroup": "b031-conv-interrupt",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-interrupt-02",
+      "text": "Claro, hacemos una pausa aquí mismo. Cuéntame qué necesitas.",
+      "normalizedText": "claro hacemos una pausa aquí mismo cuéntame qué necesitas",
+      "batch": "B031",
+      "seq": 22,
+      "file": "B031-022.mp3",
+      "intent": "student-interruption",
+      "role": "conv-interrupt",
+      "variationGroup": "b031-conv-interrupt",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "gentle",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-interrupt-03",
+      "text": "Perfecto, paramos un segundo. ¿Prefieres preguntar algo o repetir esta parte?",
+      "normalizedText": "perfecto paramos un segundo prefieres preguntar algo o repetir esta parte",
+      "batch": "B031",
+      "seq": 23,
+      "file": "B031-023.mp3",
+      "intent": "student-interruption",
+      "role": "conv-interrupt",
+      "variationGroup": "b031-conv-interrupt",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "idle",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-interrupt-04",
+      "text": "Hiciste muy bien en avisarme. Me detengo y lo revisamos juntos.",
+      "normalizedText": "hiciste muy bien en avisarme me detengo y lo revisamos juntos",
+      "batch": "B031",
+      "seq": 24,
+      "file": "B031-024.mp3",
+      "intent": "student-interruption",
+      "role": "conv-interrupt",
+      "variationGroup": "b031-conv-interrupt",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-help-01",
+      "text": "¡Aquí estoy para ayudarte! Vamos a resolverlo paso a paso entre los dos.",
+      "normalizedText": "aquí estoy para ayudarte vamos a resolverlo paso a paso entre los dos",
+      "batch": "B031",
+      "seq": 25,
+      "file": "B031-025.mp3",
+      "intent": "help-request",
+      "role": "conv-help-request",
+      "variationGroup": "b031-conv-help-request",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-help-02",
+      "text": "Qué bueno que pediste ayuda. Te doy una pista cortita para arrancar.",
+      "normalizedText": "qué bueno que pediste ayuda te doy una pista cortita para arrancar",
+      "batch": "B031",
+      "seq": 26,
+      "file": "B031-026.mp3",
+      "intent": "help-request",
+      "role": "conv-help-request",
+      "variationGroup": "b031-conv-help-request",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-help-03",
+      "text": "No tienes que hacerlo solo. Yo empiezo la primera parte y tú sigues conmigo.",
+      "normalizedText": "no tienes que hacerlo solo yo empiezo la primera parte y tú sigues conmigo",
+      "batch": "B031",
+      "seq": 27,
+      "file": "B031-027.mp3",
+      "intent": "help-request",
+      "role": "conv-help-request",
+      "variationGroup": "b031-conv-help-request",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-help-04",
+      "text": "Si esta parte se siente difícil, ¿quieres que la hagamos primero con un ejemplo?",
+      "normalizedText": "si esta parte se siente difícil quieres que la hagamos primero con un ejemplo",
+      "batch": "B031",
+      "seq": 28,
+      "file": "B031-028.mp3",
+      "intent": "help-request",
+      "role": "conv-help-request",
+      "variationGroup": "b031-conv-help-request",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "patient",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-transition-01",
+      "text": "Me encantó charlar un poquito contigo. Ahora sí, volvamos a nuestra actividad.",
+      "normalizedText": "me encantó charlar un poquito contigo ahora sí volvamos a nuestra actividad",
+      "batch": "B031",
+      "seq": 29,
+      "file": "B031-029.mp3",
+      "intent": "conversation-to-teaching",
+      "role": "conv-transition",
+      "variationGroup": "b031-conv-transition",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-transition-02",
+      "text": "Qué buena charla. Ahora usemos esa misma energía en la siguiente palabra.",
+      "normalizedText": "qué buena charla ahora usemos esa misma energía en la siguiente palabra",
+      "batch": "B031",
+      "seq": 30,
+      "file": "B031-030.mp3",
+      "intent": "conversation-to-teaching",
+      "role": "conv-transition",
+      "variationGroup": "b031-conv-transition",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-transition-03",
+      "text": "Ya que resolvimos esa duda, ¿regresamos al ejercicio donde nos quedamos?",
+      "normalizedText": "ya que resolvimos esa duda regresamos al ejercicio donde nos quedamos",
+      "batch": "B031",
+      "seq": 31,
+      "file": "B031-031.mp3",
+      "intent": "conversation-to-teaching",
+      "role": "conv-transition",
+      "variationGroup": "b031-conv-transition",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-transition-04",
+      "text": "¡Listo el descanso corto! Sigamos con el próximo reto de la lección.",
+      "normalizedText": "listo el descanso corto sigamos con el próximo reto de la lección",
+      "batch": "B031",
+      "seq": 32,
+      "file": "B031-032.mp3",
+      "intent": "conversation-to-teaching",
+      "role": "conv-transition",
+      "variationGroup": "b031-conv-transition",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-flipchart-01",
+      "text": "Te voy a abrir el rotafolio grande para que veamos juntos la lámina ilustrada.",
+      "normalizedText": "te voy a abrir el rotafolio grande para que veamos juntos la lámina ilustrada",
+      "batch": "B031",
+      "seq": 33,
+      "file": "B031-033.mp3",
+      "intent": "flipchart-presentation",
+      "role": "conv-flipchart",
+      "variationGroup": "b031-conv-flipchart",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-flipchart-02",
+      "text": "Mira aquí en el rotafolio: vamos a recorrer los dibujos de arriba hacia abajo.",
+      "normalizedText": "mira aquí en el rotafolio vamos a recorrer los dibujos de arriba hacia abajo",
+      "batch": "B031",
+      "seq": 34,
+      "file": "B031-034.mp3",
+      "intent": "flipchart-presentation",
+      "role": "conv-flipchart",
+      "variationGroup": "b031-conv-flipchart",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-flipchart-03",
+      "text": "En esta lámina del rotafolio hay una pista escondida. ¿La ubicaste ya?",
+      "normalizedText": "en esta lámina del rotafolio hay una pista escondida la ubicaste ya",
+      "batch": "B031",
+      "seq": 35,
+      "file": "B031-035.mp3",
+      "intent": "flipchart-presentation",
+      "role": "conv-flipchart",
+      "variationGroup": "b031-conv-flipchart",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "point-page",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-flipchart-04",
+      "text": "Ya que miramos bien el rotafolio, pasemos a practicar con esas mismas palabras.",
+      "normalizedText": "ya que miramos bien el rotafolio pasemos a practicar con esas mismas palabras",
+      "batch": "B031",
+      "seq": 36,
+      "file": "B031-036.mp3",
+      "intent": "flipchart-presentation",
+      "role": "conv-flipchart",
+      "variationGroup": "b031-conv-flipchart",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-layout-01",
+      "text": "Voy a compartir la pantalla contigo para que veas el material y a mí al lado.",
+      "normalizedText": "voy a compartir la pantalla contigo para que veas el material y a mí al lado",
+      "batch": "B031",
+      "seq": 37,
+      "file": "B031-037.mp3",
+      "intent": "layout-split-screen",
+      "role": "conv-layout",
+      "variationGroup": "b031-conv-layout",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-layout-02",
+      "text": "Me paso a una ventanita pequeña en la esquina para dejarte todo el espacio libre.",
+      "normalizedText": "me paso a una ventanita pequeña en la esquina para dejarte todo el espacio libre",
+      "batch": "B031",
+      "seq": 38,
+      "file": "B031-038.mp3",
+      "intent": "layout-pip",
+      "role": "conv-layout",
+      "variationGroup": "b031-conv-layout",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-layout-03",
+      "text": "Regreso en pantalla completa para que platiquemos frente a frente un momento.",
+      "normalizedText": "regreso en pantalla completa para que platiquemos frente a frente un momento",
+      "batch": "B031",
+      "seq": 39,
+      "file": "B031-039.mp3",
+      "intent": "layout-full-avatar",
+      "role": "conv-layout",
+      "variationGroup": "b031-conv-layout",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-layout-04",
+      "text": "Agrando la hoja para que cada letra y dibujo se vea mucho más cómodo.",
+      "normalizedText": "agrando la hoja para que cada letra y dibujo se vea mucho más cómodo",
+      "batch": "B031",
+      "seq": 40,
+      "file": "B031-040.mp3",
+      "intent": "layout-focus-toggle",
+      "role": "conv-layout",
+      "variationGroup": "b031-conv-layout",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-workbook-01",
+      "text": "Abramos el cuaderno en la actividad que toca y revisemos juntos el primer ejemplo.",
+      "normalizedText": "abramos el cuaderno en la actividad que toca y revisemos juntos el primer ejemplo",
+      "batch": "B031",
+      "seq": 41,
+      "file": "B031-041.mp3",
+      "intent": "workbook-guidance",
+      "role": "conv-workbook",
+      "variationGroup": "b031-conv-workbook",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-workbook-02",
+      "text": "En tu cuaderno busca la fila iluminada y marca la opción que corresponde.",
+      "normalizedText": "en tu cuaderno busca la fila iluminada y marca la opción que corresponde",
+      "batch": "B031",
+      "seq": 42,
+      "file": "B031-042.mp3",
+      "intent": "workbook-guidance",
+      "role": "conv-workbook",
+      "variationGroup": "b031-conv-workbook",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-workbook-03",
+      "text": "Cuando termines de marcar tu cuaderno, avísame para revisar el siguiente punto.",
+      "normalizedText": "cuando termines de marcar tu cuaderno avísame para revisar el siguiente punto",
+      "batch": "B031",
+      "seq": 43,
+      "file": "B031-043.mp3",
+      "intent": "workbook-guidance",
+      "role": "conv-workbook",
+      "variationGroup": "b031-conv-workbook",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-camera-01",
+      "text": "Si quieres mostrarme tu hoja, toma una foto cuando la vista previa esté centrada.",
+      "normalizedText": "si quieres mostrarme tu hoja toma una foto cuando la vista previa esté centrada",
+      "batch": "B031",
+      "seq": 44,
+      "file": "B031-044.mp3",
+      "intent": "camera-snapshot-invite",
+      "role": "conv-camera",
+      "variationGroup": "b031-conv-camera",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-camera-02",
+      "text": "¡Recibí la foto de tu cuaderno! Déjame revisar la captura antes de seguir.",
+      "normalizedText": "recibí la foto de tu cuaderno déjame revisar la captura antes de seguir",
+      "batch": "B031",
+      "seq": 45,
+      "file": "B031-045.mp3",
+      "intent": "camera-snapshot-received",
+      "role": "conv-camera",
+      "variationGroup": "b031-conv-camera",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-camera-03",
+      "text": "La foto salió un poco movida y no alcanzo a distinguirla. ¿Tomamos otra con más luz?",
+      "normalizedText": "la foto salió un poco movida y no alcanzo a distinguirla tomamos otra con más luz",
+      "batch": "B031",
+      "seq": 46,
+      "file": "B031-046.mp3",
+      "intent": "camera-snapshot-retake",
+      "role": "conv-camera",
+      "variationGroup": "b031-conv-camera",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "patient",
+      "gesture": "help",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-camera-04",
+      "text": "Sin foto no puedo ver tu papel, pero podemos seguir igualito aquí en pantalla.",
+      "normalizedText": "sin foto no puedo ver tu papel pero podemos seguir igualito aquí en pantalla",
+      "batch": "B031",
+      "seq": 47,
+      "file": "B031-047.mp3",
+      "intent": "camera-honest-fallback",
+      "role": "conv-camera",
+      "variationGroup": "b031-conv-camera",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "idle",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-coaching-01",
+      "text": "Como esta palabra nos costó un poquito antes, ¿la repasamos una vez más juntos?",
+      "normalizedText": "como esta palabra nos costó un poquito antes la repasamos una vez más juntos",
+      "batch": "B031",
+      "seq": 48,
+      "file": "B031-048.mp3",
+      "intent": "personalized-coaching",
+      "role": "conv-coaching",
+      "variationGroup": "b031-conv-coaching",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-coaching-02",
+      "text": "Cada quien aprende a su propio paso, y lo importante es que seguimos avanzando juntos.",
+      "normalizedText": "cada quien aprende a su propio paso y lo importante es que seguimos avanzando juntos",
+      "batch": "B031",
+      "seq": 49,
+      "file": "B031-049.mp3",
+      "intent": "personalized-coaching",
+      "role": "conv-coaching",
+      "variationGroup": "b031-conv-coaching",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
+    },
+    {
+      "id": "v2-b031-coaching-03",
+      "text": "Ya completaste varias seguidas sin problema. ¿Probamos ahora un reto un poquito mayor?",
+      "normalizedText": "ya completaste varias seguidas sin problema probamos ahora un reto un poquito mayor",
+      "batch": "B031",
+      "seq": 50,
+      "file": "B031-050.mp3",
+      "intent": "personalized-coaching",
+      "role": "conv-coaching",
+      "variationGroup": "b031-conv-coaching",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 85,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "reconciled"
     }
   ]
 }

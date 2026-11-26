@@ -4121,7 +4121,7 @@
     },
     {
       "id": "v2-l14-44-closing",
-      "text": "Qué bien sonó la eñe en cada palabra y oración. Ya pasas de la mitad de toda la cartilla.",
+      "text": "Terminamos todas las palabras y oraciones de la eñe. Ya pasas de la mitad de toda la cartilla.",
       "batch": "B020",
       "seq": 44,
       "file": "B020-044.mp3",
@@ -4197,7 +4197,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bien sonó la eñe en cada palabra y oración ya pasas de la mitad de toda la cartilla",
+      "normalizedText": "terminamos todas las palabras y oraciones de la eñe ya pasas de la mitad de toda la cartilla",
       "sourcePr": "PR#1073"
     },
     {

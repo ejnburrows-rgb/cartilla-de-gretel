@@ -3792,7 +3792,7 @@
     },
     {
       "id": "v2-l15-40-game-correct",
-      "text": "Muy bien bateado. Completaste la palabra de la letra be sin dudar.",
+      "text": "¡Muy bien bateado! Completaste la palabra de la letra be.",
       "batch": "B021",
       "seq": 40,
       "file": "B021-040.mp3",
@@ -3870,7 +3870,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien bateado completaste la palabra de la letra be sin dudar",
+      "normalizedText": "muy bien bateado completaste la palabra de la letra be",
       "sourcePr": "PR#1073"
     },
     {
@@ -4114,7 +4114,7 @@
     },
     {
       "id": "v2-l15-43-page-complete",
-      "text": "Terminaste todas las actividades de la letra be con gran energía y buena letra.",
+      "text": "Terminaste todas las actividades de la letra be. ¡Buen trabajo!",
       "batch": "B021",
       "seq": 43,
       "file": "B021-043.mp3",
@@ -4192,7 +4192,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la letra be con gran energía y buena letra",
+      "normalizedText": "terminaste todas las actividades de la letra be buen trabajo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

@@ -8,7 +8,18 @@ export function formatIntakeReportMarkdown(report) {
   lines.push(`- **Mode:** \`${report.dryRun ? "dry-run" : "apply"}\``);
   lines.push(`- **Authorization:** \`${report.authorized ? "authorized" : "unapproved-hold"}\``);
   lines.push(`- **Private Originals Directory:** \`${report.privateDir}\``);
+  if (report.privateReviewDir) {
+    lines.push(`- **Private Review Pass Directory:** \`${report.privateReviewDir}\``);
+  }
+  lines.push(`- **Approved Original Master Match:** \`${Boolean(report.approvedOriginalMaster)}\``);
   lines.push(`- **Repository Guard:** \`${report.guard?.ok ? "PASS" : "FAIL"}\``);
+  if (report.voskAlignment?.length) {
+    for (const va of report.voskAlignment) {
+      lines.push(
+        `- **Offline Vosk Alignment (\`${va.sourceName}\`):** status=\`${va.status}\`${va.reason ? ` (${va.reason})` : `, words=${va.wordCount}`}`,
+      );
+    }
+  }
   if (report.tools) {
     lines.push(
       `- **Discovered Binaries:** ffmpeg=\`${report.tools.ffmpeg ?? "none"}\`, ffprobe=\`${report.tools.ffprobe ?? "none"}\`, rhubarb=\`${report.tools.rhubarb ?? "none"}\``,
@@ -89,9 +100,9 @@ export function formatIntakeReportMarkdown(report) {
   lines.push("## 3. Cut Points, QC, Visemes & Manifest Gate");
   lines.push("");
   lines.push(
-    "| Line ID | Cut Window | QC | Peak (dBFS) | Noise (dBFS) | SNR (dB) | Flatness | Visemes | Manifest |",
+    "| Line ID | Cut Window | QC | Peak (dBFS) | RMS (dBFS) | Full-Scale | Noise (dBFS) | SNR (dB) | Flatness | Visemes | Manifest |",
   );
-  lines.push("| :--- | :--- | :--- | ---: | ---: | ---: | ---: | :--- | :--- |");
+  lines.push("| :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | :--- | :--- |");
   for (const item of report.items ?? []) {
     const win =
       item.cutStartSec != null && item.cutEndSec != null
@@ -104,7 +115,7 @@ export function formatIntakeReportMarkdown(report) {
         ? `${item.visemesStatus} (${item.visemesCueCount} cues)`
         : (item.visemesStatus ?? "—");
     lines.push(
-      `| \`${item.lineId ?? "(unmapped)"}\` | ${win} | ${qcText} | ${m.peakDb ?? "—"} | ${m.noiseFloorDb ?? "—"} | ${m.snrDb ?? "—"} | ${m.spectralFlatness ?? "—"} | ${visText} | ${item.manifestStatus ?? "—"} |`,
+      `| \`${item.lineId ?? "(unmapped)"}\` | ${win} | ${qcText} | ${m.peakDb ?? "—"} | ${m.rmsDbfs ?? "—"} | ${m.fullScaleSamples ?? "—"} | ${m.noiseFloorDb ?? "—"} | ${m.snrDb ?? "—"} | ${m.spectralFlatness ?? "—"} | ${visText} | ${item.manifestStatus ?? "—"} |`,
     );
   }
   lines.push("");

@@ -2893,7 +2893,7 @@
     },
     {
       "id": "v2-l05-43-page-complete",
-      "text": "Completaste todas las actividades de la vocal i con gran concentración y cuidado.",
+      "text": "Completaste todas las actividades de la vocal i. ¡Muy buen trabajo!",
       "batch": "B011",
       "seq": 43,
       "file": "B011-043.mp3",
@@ -2950,7 +2950,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades de la vocal i con gran concentración y cuidado",
+      "normalizedText": "completaste todas las actividades de la vocal i muy buen trabajo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2970,7 +2970,7 @@
     },
     {
       "id": "v2-l05-44-closing",
-      "text": "Ya dominas las palabras con la vocal i. Qué poquito nos falta para completar todas las vocales.",
+      "text": "Terminamos las palabras con la vocal i. Qué poquito nos falta para completar todas las vocales.",
       "batch": "B011",
       "seq": 44,
       "file": "B011-044.mp3",
@@ -3027,7 +3027,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya dominas las palabras con la vocal i qué poquito nos falta para completar todas las vocales",
+      "normalizedText": "terminamos las palabras con la vocal i qué poquito nos falta para completar todas las vocales",
       "sourcePr": "PR#1073"
     },
     {

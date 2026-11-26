@@ -4113,7 +4113,7 @@
     },
     {
       "id": "v2-l13-43-page-complete",
-      "text": "Terminaste todas las actividades de la letra ene con excelente cuidado y buena lectura.",
+      "text": "Terminaste todas las actividades de la letra ene. ¡Qué buen avance!",
       "batch": "B019",
       "seq": 43,
       "file": "B019-043.mp3",
@@ -4191,7 +4191,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la letra ene con excelente cuidado y buena lectura",
+      "normalizedText": "terminaste todas las actividades de la letra ene qué buen avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4211,7 +4211,7 @@
     },
     {
       "id": "v2-l13-44-closing",
-      "text": "Completaste toda la lección de la ene con gran atención. Cada palabra salió muy clara.",
+      "text": "Completaste toda la lección de la letra ene. ¡Lista para el próximo paso!",
       "batch": "B019",
       "seq": 44,
       "file": "B019-044.mp3",
@@ -4289,7 +4289,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste toda la lección de la ene con gran atención cada palabra salió muy clara",
+      "normalizedText": "completaste toda la lección de la letra ene lista para el próximo paso",
       "sourcePr": "PR#1073"
     },
     {

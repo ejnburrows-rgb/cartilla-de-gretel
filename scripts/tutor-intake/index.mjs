@@ -1,20 +1,22 @@
-import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { basename, extname, join, resolve } from "node:path";
+import { basename, join, resolve } from "node:path";
 import {
   alignBatchSegments,
   computeTranscriptSimilarity,
   matchBatchByTranscriptSimilarity,
 } from "./alignment.mjs";
-import { ingestPrivateOriginal, sha256File } from "./checksum.mjs";
+import { createPrivateReviewPassDir, ingestPrivateOriginal, sha256File } from "./checksum.mjs";
 import {
   ANALYSIS_WAV_SAMPLE_RATE,
+  APPROVED_ORIGINAL_MASTER_SHA256,
   DEFAULT_PRIVATE_VOICE_DIR,
   RHUBARB_EXTENDED_SHAPES,
   RHUBARB_RECOGNIZER,
   RHUBARB_VERSION,
 } from "./constants.mjs";
 import {
+  assertPrivateDirOutsideRepo,
   checkRejectedSource,
   enforcePrivatePermissions,
   validateIntakeRepositoryGuard,
@@ -36,12 +38,17 @@ import {
   snapSegmentsToSilences,
 } from "./silence.mjs";
 import { mouthCuesAreValid, syncVisemesForAudio } from "./visemes.mjs";
+import { alignVoskWordsToLines, runVoskWordAlignment } from "./vosk.mjs";
 
 export {
+  APPROVED_ORIGINAL_MASTER_SHA256,
   alignBatchSegments,
+  alignVoskWordsToLines,
   applyAuthorizedManifestUpdates,
+  assertPrivateDirOutsideRepo,
   checkRejectedSource,
   computeTranscriptSimilarity,
+  createPrivateReviewPassDir,
   deriveSpeechSegmentsFromSilences,
   detectSilenceWithFfmpeg,
   enforcePrivatePermissions,
@@ -53,6 +60,7 @@ export {
   probeMedia,
   resolveMediaTools,
   runClipQc,
+  runVoskWordAlignment,
   snapSegmentsToSilences,
   syncVisemesForAudio,
   validateIntakeRepositoryGuard,
@@ -127,16 +135,19 @@ export async function runTutorIntake({
   silenceThresholdDb = -40,
   tools = null,
   rhubarbRunner = null,
+  voskModelPath = null,
+  voskRunner = null,
 } = {}) {
   if (!repoRoot) throw new Error("repoRoot is required");
   const absRepoRoot = resolve(repoRoot);
   const resolvedTools = tools ?? resolveMediaTools({ repoRoot: absRepoRoot });
 
-  // Step 1: Repository & .gitignore guard
+  // Step 1: Repository, .gitignore, and private-dir-outside-every-git-repo guard
   const guard = validateIntakeRepositoryGuard(absRepoRoot);
   if (!guard.ok) {
     throw new Error(`Repository guard failed: ${guard.errors.join("; ")}`);
   }
+  assertPrivateDirOutsideRepo(privateDir, absRepoRoot);
 
   // Step 2: Checksum, permanent rejection, dedup, private original storage,
   // owner-only permissions (0o700 dirs / 0o600 files), and installed approved content-hash matching
@@ -237,8 +248,41 @@ export async function runTutorIntake({
       });
     }
 
-    // Build candidate segments (either explicit timestamped segments, transcript-only
-    // segments paired with measured-silence utterance windows, or auto-segmented windows)
+    // Optional offline Vosk word-alignment hook (adopted from PR #1323)
+    const voskAlignment = [];
+    const voskSegments = [];
+    if (voskModelPath || typeof voskRunner === "function") {
+      const voskExpected = Array.isArray(expectedLines) ? expectedLines : [];
+      for (let idx = 0; idx < analyzedFiles.length; idx++) {
+        const af = analyzedFiles[idx];
+        const voskRes = runVoskWordAlignment({
+          wavPath: af.wavPath,
+          modelPath: voskModelPath,
+          expectedLines: voskExpected,
+          durationSec: af.wavData.durationSec,
+          repoRoot: absRepoRoot,
+          voskRunner,
+        });
+        voskAlignment.push({
+          sourceName: af.source.sourceName,
+          sourceIndex: idx,
+          available: voskRes.available,
+          status: voskRes.status,
+          reason: voskRes.reason,
+          wordCount: voskRes.words.length,
+          findings: voskRes.findings,
+        });
+        if (voskRes.available && voskRes.segments.length > 0) {
+          for (const seg of voskRes.segments) {
+            voskSegments.push({ ...seg, sourceIndex: idx });
+          }
+        }
+      }
+    }
+
+    // Build candidate segments (either explicit timestamped segments, Vosk word-aligned
+    // segments, transcript-only segments paired with measured-silence utterance windows,
+    // or auto-segmented windows)
     let rawSegments = [];
     if (Array.isArray(heardSegments) && heardSegments.length > 0) {
       const hasTimestamps = heardSegments.every(
@@ -270,6 +314,8 @@ export async function runTutorIntake({
           };
         });
       }
+    } else if (voskSegments.length > 0) {
+      rawSegments = voskSegments;
     } else {
       for (let idx = 0; idx < analyzedFiles.length; idx++) {
         const af = analyzedFiles[idx];
@@ -475,6 +521,19 @@ export async function runTutorIntake({
       dryRun: dryRun || !manifestWrite,
     });
 
+    // Unique per-pass review directory inside private vault (<sha12>-<timestamp>-<rand>)
+    // so repeated intake runs preserve prior listening-review evidence without overwriting
+    const primarySha256 =
+      acceptedSources[0]?.sha256 ?? sources.find((s) => typeof s.sha256 === "string")?.sha256 ?? null;
+    const reviewPass = createPrivateReviewPassDir({
+      privateDir,
+      repoRoot: absRepoRoot,
+      sha256: primarySha256,
+      dryRun,
+    });
+    const privateReviewDir = reviewPass.reviewDir;
+    const approvedOriginalMaster = sources.some((s) => s.approvedOriginalMaster === true);
+
     const report = {
       batchId,
       date,
@@ -483,7 +542,10 @@ export async function runTutorIntake({
       manifestWrite,
       exportDir: exportDir ? resolve(exportDir) : null,
       privateDir,
+      privateReviewDir,
+      approvedOriginalMaster,
       tools: resolvedTools,
+      voskAlignment,
       silenceSummary: analyzedFiles.map((af) => ({
         sourceName: af.source.sourceName,
         engine: af.silenceScan.engine,
@@ -500,6 +562,15 @@ export async function runTutorIntake({
       manifestResult,
     };
 
+    let privateReviewReportPath = null;
+    if (!dryRun) {
+      privateReviewReportPath = join(privateReviewDir, "report.json");
+      writeFileSync(privateReviewReportPath, JSON.stringify(report, null, 2) + "\n", {
+        mode: 0o600,
+      });
+      enforcePrivatePermissions(privateDir, [privateReviewReportPath]);
+    }
+
     // Step 11: Write intake markdown report
     let reportPath = null;
     if (writeReport) {
@@ -513,6 +584,7 @@ export async function runTutorIntake({
 
     return {
       ...report,
+      privateReviewReportPath,
       reportPath,
     };
   } finally {

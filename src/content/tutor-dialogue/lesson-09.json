@@ -4319,7 +4319,7 @@
     },
     {
       "id": "v2-l09-43-page-complete",
-      "text": "Completaste todas las actividades y el juego de la letra ese con mucha seguridad.",
+      "text": "Completaste todas las actividades y el juego de la letra ese. ¡Excelente!",
       "batch": "B015",
       "seq": 43,
       "file": "B015-043.mp3",
@@ -4402,7 +4402,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades y el juego de la letra ese con mucha seguridad",
+      "normalizedText": "completaste todas las actividades y el juego de la letra ese excelente",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

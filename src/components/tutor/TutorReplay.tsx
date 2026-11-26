@@ -174,11 +174,14 @@ export function TutorReplay({
 
     for (let i = 0; i <= currentIndex && i < events.length; i += 1) {
       const evt = events[i];
-      if (typeof evt.flipchartSheet === "number") {
-        currentFlipchartSheet = evt.flipchartSheet;
-        currentPrintedPage = null;
-        currentPdfSheet = null;
-        currentSheetSource = "flipchart";
+      if (evt.sheetSource === "flipchart" || typeof evt.flipchartSheet === "number") {
+        const flipchartNum = evt.flipchartSheet ?? evt.pdfSheet ?? evt.printedPage;
+        if (typeof flipchartNum === "number") {
+          currentFlipchartSheet = flipchartNum;
+          currentPrintedPage = null;
+          currentPdfSheet = null;
+          currentSheetSource = "flipchart";
+        }
       } else if (typeof evt.printedPage === "number") {
         currentPrintedPage = evt.printedPage;
         currentPdfSheet = evt.pdfSheet ?? null;

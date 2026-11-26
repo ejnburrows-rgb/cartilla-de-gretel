@@ -3711,7 +3711,7 @@
     },
     {
       "id": "v2-l23-43-page-complete",
-      "text": "Terminaste todas las actividades disponibles de la letra ye con mucha seguridad.",
+      "text": "Terminaste todas las actividades disponibles de la letra ye. ¡Excelente!",
       "batch": "B029",
       "seq": 43,
       "file": "B029-043.mp3",
@@ -3785,7 +3785,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades disponibles de la letra ye con mucha seguridad",
+      "normalizedText": "terminaste todas las actividades disponibles de la letra ye excelente",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

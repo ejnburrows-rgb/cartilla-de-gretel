@@ -3634,7 +3634,7 @@
     },
     {
       "id": "v2-l18-40-game-correct",
-      "text": "Qué buena vibración. Elegiste la sílaba exacta de doble erre para completar esa palabra.",
+      "text": "¡Acertaste! Elegiste la sílaba exacta de doble erre para completar esa palabra.",
       "batch": "B024",
       "seq": 40,
       "file": "B024-040.mp3",
@@ -3708,7 +3708,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué buena vibración elegiste la sílaba exacta de doble erre para completar esa palabra",
+      "normalizedText": "acertaste elegiste la sílaba exacta de doble erre para completar esa palabra",
       "sourcePr": "PR#1073"
     },
     {
@@ -3944,7 +3944,7 @@
     },
     {
       "id": "v2-l18-43-page-complete",
-      "text": "Completaste todas las actividades de la doble erre con mucha energía y buena lectura.",
+      "text": "Completaste todas las actividades de la doble erre. ¡Muy bien!",
       "batch": "B024",
       "seq": 43,
       "file": "B024-043.mp3",
@@ -4018,7 +4018,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades de la doble erre con mucha energía y buena lectura",
+      "normalizedText": "completaste todas las actividades de la doble erre muy bien",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

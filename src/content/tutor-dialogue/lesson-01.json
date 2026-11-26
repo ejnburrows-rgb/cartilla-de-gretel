@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l01-01-greeting-first",
-      "text": "Hoy abrimos nuestra cartilla para conocer juntos a las cinco hermanitas vocales.",
+      "text": "¡Qué emoción! Hoy abrimos la cartilla para conocer a las cinco hermanitas vocales.",
       "batch": "B007",
       "seq": 1,
       "file": "B007-001.mp3",
@@ -80,12 +80,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy abrimos nuestra cartilla para conocer juntos a las cinco hermanitas vocales",
+      "normalizedText": "qué emoción hoy abrimos la cartilla para conocer a las cinco hermanitas vocales",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-02-greeting-return",
-      "text": "Qué alegría verte otra vez para seguir descubriendo las cinco hermanitas vocales.",
+      "text": "¡Qué alegría verte de nuevo! Sigamos explorando a las cinco hermanitas vocales.",
       "batch": "B007",
       "seq": 2,
       "file": "B007-002.mp3",
@@ -158,12 +158,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué alegría verte otra vez para seguir descubriendo las cinco hermanitas vocales",
+      "normalizedText": "qué alegría verte de nuevo sigamos explorando a las cinco hermanitas vocales",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-03-review-intro",
-      "text": "Antes de empezar a formar palabras largas, vamos a escuchar los sonidos con los que comienzan los dibujos.",
+      "text": "Antes de armar palabras largas, vamos a escuchar con qué sonido empieza cada dibujo.",
       "batch": "B007",
       "seq": 3,
       "file": "B007-003.mp3",
@@ -235,12 +235,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "antes de empezar a formar palabras largas vamos a escuchar los sonidos con los que comienzan los dibujos",
+      "normalizedText": "antes de armar palabras largas vamos a escuchar con qué sonido empieza cada dibujo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-04-review-check",
-      "text": "¿Puedes nombrar alguno de los dibujos que ves aquí arriba en tu cuaderno?",
+      "text": "¿Reconoces alguno de los dibujos que aparecen arriba en tu cuaderno?",
       "batch": "B007",
       "seq": 4,
       "file": "B007-004.mp3",
@@ -312,12 +312,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "puedes nombrar alguno de los dibujos que ves aquí arriba en tu cuaderno",
+      "normalizedText": "reconoces alguno de los dibujos que aparecen arriba en tu cuaderno",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-05-lesson-objective",
-      "text": "Hoy aprenderemos a reconocer los cinco sonidos vocales y a encontrarlos al inicio de cada palabra.",
+      "text": "Hoy vamos a reconocer los cinco sonidos vocales y encontrarlos al inicio de cada palabra.",
       "batch": "B007",
       "seq": 5,
       "file": "B007-005.mp3",
@@ -389,7 +389,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprenderemos a reconocer los cinco sonidos vocales y a encontrarlos al inicio de cada palabra",
+      "normalizedText": "hoy vamos a reconocer los cinco sonidos vocales y encontrarlos al inicio de cada palabra",
       "sourcePr": "PR#1073"
     },
     {
@@ -471,7 +471,7 @@
     },
     {
       "id": "v2-l01-07-phonetic-sound",
-      "text": "Cuando suenan solitas salen limpias y abiertas, como en olla, avión, escoba, imán y uña.",
+      "text": "Cuando suenan solitas salen bien abiertas, como en olla, avión, escoba, imán y uña.",
       "batch": "B007",
       "seq": 7,
       "file": "B007-007.mp3",
@@ -543,12 +543,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando suenan solitas salen limpias y abiertas como en olla avión escoba imán y uña",
+      "normalizedText": "cuando suenan solitas salen bien abiertas como en olla avión escoba imán y uña",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-08-lesson-focus",
-      "text": "Las vocales son cinco amigas inseparables que cantan con claridad dentro de todas las palabras.",
+      "text": "Las vocales son cinco amigas inseparables que aparecen en todas las palabras que decimos.",
       "batch": "B007",
       "seq": 8,
       "file": "B007-008.mp3",
@@ -620,12 +620,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "las vocales son cinco amigas inseparables que cantan con claridad dentro de todas las palabras",
+      "normalizedText": "las vocales son cinco amigas inseparables que aparecen en todas las palabras que decimos",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-09-sound-contrast",
-      "text": "Cada vocal abre o redondea los labios de un modo distinto para que nunca se confundan.",
+      "text": "Cada vocal abre o redondea los labios de una forma distinta para que puedas diferenciarlas.",
       "batch": "B007",
       "seq": 9,
       "file": "B007-009.mp3",
@@ -697,12 +697,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cada vocal abre o redondea los labios de un modo distinto para que nunca se confundan",
+      "normalizedText": "cada vocal abre o redondea los labios de una forma distinta para que puedas diferenciarlas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-10-explanation-primary",
-      "text": "Si escuchas con calma el primer sonido de cada dibujo, sabrás enseguida qué vocal lo acompaña.",
+      "text": "Si escuchas con calma el primer sonido de un dibujo, descubres enseguida cuál vocal le toca.",
       "batch": "B007",
       "seq": 10,
       "file": "B007-010.mp3",
@@ -774,12 +774,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "si escuchas con calma el primer sonido de cada dibujo sabrás enseguida qué vocal lo acompaña",
+      "normalizedText": "si escuchas con calma el primer sonido de un dibujo descubres enseguida cuál vocal le toca",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-11-explanation-simple",
-      "text": "Fíjate primero en cómo pones la boca al empezar a decir la palabra, y así descubres la vocal.",
+      "text": "Truco rápido: fíjate en cómo pones la boca al empezar la palabra y ahí aparece la vocal.",
       "batch": "B007",
       "seq": 11,
       "file": "B007-011.mp3",
@@ -851,12 +851,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate primero en cómo pones la boca al empezar a decir la palabra y así descubres la vocal",
+      "normalizedText": "truco rápido fíjate en cómo pones la boca al empezar la palabra y ahí aparece la vocal",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para mirar la lámina ilustrada y leer la rima Cinco hermanitas.",
+      "text": "Vamos al rotafolio para ver la lámina ilustrada y leer la rima Cinco hermanitas.",
       "batch": "B007",
       "seq": 12,
       "file": "B007-012.mp3",
@@ -928,7 +928,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para mirar la lámina ilustrada y leer la rima cinco hermanitas",
+      "normalizedText": "vamos al rotafolio para ver la lámina ilustrada y leer la rima cinco hermanitas",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -943,7 +943,7 @@
     },
     {
       "id": "v2-l01-13-flipchart-illustration-1",
-      "text": "En los dibujos del rotafolio aparecen un avión, una escoba, un imán, una olla y una uña.",
+      "text": "Mira los dibujos del rotafolio: tenemos un avión, una escoba, un imán, una olla y una uña.",
       "batch": "B007",
       "seq": 13,
       "file": "B007-013.mp3",
@@ -1015,12 +1015,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en los dibujos del rotafolio aparecen un avión una escoba un imán una olla y una uña",
+      "normalizedText": "mira los dibujos del rotafolio tenemos un avión una escoba un imán una olla y una uña",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-14-flipchart-illustration-2",
-      "text": "Mira también a las cinco hermanitas juntas jugando y cantando debajo del título en color rojo.",
+      "text": "Y debajo del título rojo están las cinco hermanitas juntas, jugando y cantando.",
       "batch": "B007",
       "seq": 14,
       "file": "B007-014.mp3",
@@ -1092,12 +1092,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira también a las cinco hermanitas juntas jugando y cantando debajo del título en color rojo",
+      "normalizedText": "y debajo del título rojo están las cinco hermanitas juntas jugando y cantando",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-15-reading-order",
-      "text": "Leemos siempre de izquierda a derecha y de arriba hacia abajo, pasando por cada dibujo en orden.",
+      "text": "Recuerda que leemos de izquierda a derecha y de arriba hacia abajo, siguiendo cada dibujo en orden.",
       "batch": "B007",
       "seq": 15,
       "file": "B007-015.mp3",
@@ -1169,12 +1169,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos siempre de izquierda a derecha y de arriba hacia abajo pasando por cada dibujo en orden",
+      "normalizedText": "recuerda que leemos de izquierda a derecha y de arriba hacia abajo siguiendo cada dibujo en orden",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-16-flipchart-model",
-      "text": "Escucha y repite conmigo los nombres ilustrados del rotafolio: avión, escoba, imán, olla y uña.",
+      "text": "Escucha y dilo conmigo mirando el rotafolio: avión, escoba, imán, olla y uña.",
       "batch": "B007",
       "seq": 16,
       "file": "B007-016.mp3",
@@ -1246,12 +1246,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha y repite conmigo los nombres ilustrados del rotafolio avión escoba imán olla y uña",
+      "normalizedText": "escucha y dilo conmigo mirando el rotafolio avión escoba imán olla y uña",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-17-flipchart-vocab",
-      "text": "Ahora pronuncia cada vocal junto a su dibujo de ejemplo para recordar su sonido desde el inicio.",
+      "text": "Ahora digamos cada vocal junto a su dibujo para recordar cómo empieza cada una.",
       "batch": "B007",
       "seq": 17,
       "file": "B007-017.mp3",
@@ -1323,12 +1323,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora pronuncia cada vocal junto a su dibujo de ejemplo para recordar su sonido desde el inicio",
+      "normalizedText": "ahora digamos cada vocal junto a su dibujo para recordar cómo empieza cada una",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-18-flipchart-rhyme-1",
-      "text": "Leemos juntos el comienzo de nuestra rima: Cinco hermanitas todas aplicadas.",
+      "text": "Leamos juntos la primera parte de la rima: Cinco hermanitas todas aplicadas.",
       "batch": "B007",
       "seq": 18,
       "file": "B007-018.mp3",
@@ -1400,12 +1400,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos el comienzo de nuestra rima cinco hermanitas todas aplicadas",
+      "normalizedText": "leamos juntos la primera parte de la rima cinco hermanitas todas aplicadas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-19-flipchart-rhyme-2",
-      "text": "Seguimos con el verso final de la rima: las cinco bonitas nunca están calladas.",
+      "text": "Y ahora viene el cierre de la rima: las cinco bonitas nunca están calladas.",
       "batch": "B007",
       "seq": 19,
       "file": "B007-019.mp3",
@@ -1477,12 +1477,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "seguimos con el verso final de la rima las cinco bonitas nunca están calladas",
+      "normalizedText": "y ahora viene el cierre de la rima las cinco bonitas nunca están calladas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-20-comprehension-1",
-      "text": "Según la rima del rotafolio, ¿cómo están siempre las cinco hermanitas vocales?",
+      "text": "Según la rima que leímos en el rotafolio, ¿cómo están siempre las cinco hermanitas vocales?",
       "batch": "B007",
       "seq": 20,
       "file": "B007-020.mp3",
@@ -1554,12 +1554,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "según la rima del rotafolio cómo están siempre las cinco hermanitas vocales",
+      "normalizedText": "según la rima que leímos en el rotafolio cómo están siempre las cinco hermanitas vocales",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-21-comprehension-2",
-      "text": "¿Con qué vocal comienza la palabra imán que ves dibujada en el rotafolio?",
+      "text": "Mira el dibujo del imán en el rotafolio: ¿con qué vocal empieza la palabra imán?",
       "batch": "B007",
       "seq": 21,
       "file": "B007-021.mp3",
@@ -1631,12 +1631,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "con qué vocal comienza la palabra imán que ves dibujada en el rotafolio",
+      "normalizedText": "mira el dibujo del imán en el rotafolio con qué vocal empieza la palabra imán",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-22-comprehension-3",
-      "text": "¿Cuál dibujo del rotafolio comienza igual que la palabra avión?",
+      "text": "¿Qué dibujo del rotafolio empieza con el mismo sonido que la palabra avión?",
       "batch": "B007",
       "seq": 22,
       "file": "B007-022.mp3",
@@ -1708,12 +1708,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuál dibujo del rotafolio comienza igual que la palabra avión",
+      "normalizedText": "qué dibujo del rotafolio empieza con el mismo sonido que la palabra avión",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-23-common-mistake-1",
-      "text": "Si dudas entre dos sonidos, di el nombre del dibujo despacio y alarga solo el primer sonido.",
+      "text": "Si dudas entre dos sonidos, di el nombre del dibujo despacio y alarga solo el comienzo.",
       "batch": "B007",
       "seq": 23,
       "file": "B007-023.mp3",
@@ -1785,12 +1785,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "si dudas entre dos sonidos di el nombre del dibujo despacio y alarga solo el primer sonido",
+      "normalizedText": "si dudas entre dos sonidos di el nombre del dibujo despacio y alarga solo el comienzo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-24-common-mistake-2",
-      "text": "Ten cuidado de no mezclar la o redonda con la u cerrada; mira tus labios frente a ti.",
+      "text": "Ojo con no mezclar la o redondita con la u cerrada; fíjate en la forma de tus labios.",
       "batch": "B007",
       "seq": 24,
       "file": "B007-024.mp3",
@@ -1862,12 +1862,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ten cuidado de no mezclar la o redonda con la u cerrada mira tus labios frente a ti",
+      "normalizedText": "ojo con no mezclar la o redondita con la u cerrada fíjate en la forma de tus labios",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-25-common-mistake-3",
-      "text": "No digas la palabra de prisa; escúchala completa antes de elegir su dibujo compañero.",
+      "text": "No hace falta apurarse; di la palabra completa antes de elegir su dibujo compañero.",
       "batch": "B007",
       "seq": 25,
       "file": "B007-025.mp3",
@@ -1939,12 +1939,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no digas la palabra de prisa escúchala completa antes de elegir su dibujo compañero",
+      "normalizedText": "no hace falta apurarse di la palabra completa antes de elegir su dibujo compañero",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-26-hint-1",
-      "text": "Mira el dibujo con calma y piensa en su nombre en voz baja antes de responder.",
+      "text": "Tómate un segundo para mirar el dibujo y pensar en su nombre antes de responder.",
       "batch": "B007",
       "seq": 26,
       "file": "B007-026.mp3",
@@ -2016,7 +2016,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira el dibujo con calma y piensa en su nombre en voz baja antes de responder",
+      "normalizedText": "tómate un segundo para mirar el dibujo y pensar en su nombre antes de responder",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2031,7 +2031,7 @@
     },
     {
       "id": "v2-l01-27-hint-2",
-      "text": "Di el primer sonido bien largo y compáralo con a, e, i, o, u.",
+      "text": "Prueba alargar el primer sonido y compáralo con a, e, i, o, u.",
       "batch": "B007",
       "seq": 27,
       "file": "B007-027.mp3",
@@ -2103,12 +2103,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "di el primer sonido bien largo y compáralo con a e i o u",
+      "normalizedText": "prueba alargar el primer sonido y compáralo con a e i o u",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-28-hint-3",
-      "text": "Escucha y repite conmigo el ejemplo completo: avión empieza con a, y olla empieza con o.",
+      "text": "Te doy una pista con ejemplo: avión empieza con a, y olla empieza con o.",
       "batch": "B007",
       "seq": 28,
       "file": "B007-028.mp3",
@@ -2180,12 +2180,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha y repite conmigo el ejemplo completo avión empieza con a y olla empieza con o",
+      "normalizedText": "te doy una pista con ejemplo avión empieza con a y olla empieza con o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-29-workbook-transition",
-      "text": "Ahora pasamos a tu cuaderno de trabajo para practicar con los dibujos y las cinco vocales.",
+      "text": "Ahora pasemos a tu cuaderno de trabajo para jugar con los dibujos y las cinco vocales.",
       "batch": "B007",
       "seq": 29,
       "file": "B007-029.mp3",
@@ -2257,12 +2257,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para practicar con los dibujos y las cinco vocales",
+      "normalizedText": "ahora pasemos a tu cuaderno de trabajo para jugar con los dibujos y las cinco vocales",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-30-page-instruction-1",
-      "text": "En cada fila horizontal observa los cuatro dibujos y circula los que comienzan con el mismo sonido.",
+      "text": "En cada fila mira los cuatro dibujos y encierra en un círculo los que empiezan igual.",
       "batch": "B007",
       "seq": 30,
       "file": "B007-030.mp3",
@@ -2332,7 +2332,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en cada fila horizontal observa los cuatro dibujos y circula los que comienzan con el mismo sonido",
+      "normalizedText": "en cada fila mira los cuatro dibujos y encierra en un círculo los que empiezan igual",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2422,7 +2422,7 @@
     },
     {
       "id": "v2-l01-31-page-instruction-2",
-      "text": "Después mira la vocal de cada recuadro y encierra en un círculo el dibujo que empieza igual.",
+      "text": "Después revisa la vocal de cada recuadro y rodea el dibujo que comienza con ese sonido.",
       "batch": "B007",
       "seq": 31,
       "file": "B007-031.mp3",
@@ -2492,7 +2492,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después mira la vocal de cada recuadro y encierra en un círculo el dibujo que empieza igual",
+      "normalizedText": "después revisa la vocal de cada recuadro y rodea el dibujo que comienza con ese sonido",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2511,7 +2511,7 @@
     },
     {
       "id": "v2-l01-32-syllable-practice",
-      "text": "Compara los cinco sonidos iniciales en orden: o en ojos, a en abrigo, e en escalera, i en isla y u en uña.",
+      "text": "Comparemos los cinco inicios en orden: o en ojos, a en abrigo, e en escalera, i en isla y u en uña.",
       "batch": "B007",
       "seq": 32,
       "file": "B007-032.mp3",
@@ -2581,7 +2581,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "compara los cinco sonidos iniciales en orden o en ojos a en abrigo e en escalera i en isla y u en uña",
+      "normalizedText": "comparemos los cinco inicios en orden o en ojos a en abrigo e en escalera i en isla y u en uña",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2777,7 +2777,7 @@
     },
     {
       "id": "v2-l01-33-word-practice-1",
-      "text": "Escucha y repite estas palabras de tu cuaderno: abrigo, abanico, isla, imán, escalera y escuela.",
+      "text": "Repite conmigo estas palabras del cuaderno: abrigo, abanico, isla, imán, escalera y escuela.",
       "batch": "B007",
       "seq": 33,
       "file": "B007-033.mp3",
@@ -2847,7 +2847,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha y repite estas palabras de tu cuaderno abrigo abanico isla imán escalera y escuela",
+      "normalizedText": "repite conmigo estas palabras del cuaderno abrigo abanico isla imán escalera y escuela",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2921,7 +2921,7 @@
     },
     {
       "id": "v2-l01-34-word-practice-2",
-      "text": "Sigamos con este grupo de palabras: uniforme, uña, ojos, olla, anillo, estrella, indio y oso.",
+      "text": "Ahora vamos con este grupo: uniforme, uña, ojos, olla, anillo, estrella, indio y oso.",
       "batch": "B007",
       "seq": 34,
       "file": "B007-034.mp3",
@@ -2991,12 +2991,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sigamos con este grupo de palabras uniforme uña ojos olla anillo estrella indio y oso",
+      "normalizedText": "ahora vamos con este grupo uniforme uña ojos olla anillo estrella indio y oso",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-35-sight-or-vocab",
-      "text": "En la última actividad une cada vocal con su compañero: ocho, araña, iglesia, escoba y uno.",
+      "text": "En la última actividad une cada vocal con su dibujo: ocho, araña, iglesia, escoba y uno.",
       "batch": "B007",
       "seq": 35,
       "file": "B007-035.mp3",
@@ -3066,12 +3066,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la última actividad une cada vocal con su compañero ocho araña iglesia escoba y uno",
+      "normalizedText": "en la última actividad une cada vocal con su dibujo ocho araña iglesia escoba y uno",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-36-sentence-or-pair",
-      "text": "Compara despacio estos pares de igual inicio: abrigo con abanico, e isla con imán.",
+      "text": "Fíjate en estos pares que empiezan igual: abrigo con abanico, e isla con imán.",
       "batch": "B007",
       "seq": 36,
       "file": "B007-036.mp3",
@@ -3141,12 +3141,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "compara despacio estos pares de igual inicio abrigo con abanico e isla con imán",
+      "normalizedText": "fíjate en estos pares que empiezan igual abrigo con abanico e isla con imán",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-37-page-instruction-final",
-      "text": "Traza con tu lápiz una línea limpia desde cada vocal hasta el dibujo que le corresponde.",
+      "text": "Traza una línea desde cada vocal hasta el dibujo que le corresponde.",
       "batch": "B007",
       "seq": 37,
       "file": "B007-037.mp3",
@@ -3216,7 +3216,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "traza con tu lápiz una línea limpia desde cada vocal hasta el dibujo que le corresponde",
+      "normalizedText": "traza una línea desde cada vocal hasta el dibujo que le corresponde",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3235,7 +3235,7 @@
     },
     {
       "id": "v2-l01-38-game-intro",
-      "text": "Hagamos ahora un juego rápido de oídos atentos para encontrar sonidos iniciales en la pantalla.",
+      "text": "¿Hacemos un juego rápido en la pantalla para atrapar sonidos iniciales?",
       "batch": "B007",
       "seq": 38,
       "file": "B007-038.mp3",
@@ -3307,12 +3307,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos ahora un juego rápido de oídos atentos para encontrar sonidos iniciales en la pantalla",
+      "normalizedText": "hacemos un juego rápido en la pantalla para atrapar sonidos iniciales",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-39-game-step",
-      "text": "Escucha la palabra que te digo, mira los dibujos disponibles y elige el que empieza igual.",
+      "text": "Escucha la palabra que te digo, mira los dibujos y toca el que empieza igual.",
       "batch": "B007",
       "seq": 39,
       "file": "B007-039.mp3",
@@ -3384,12 +3384,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha la palabra que te digo mira los dibujos disponibles y elige el que empieza igual",
+      "normalizedText": "escucha la palabra que te digo mira los dibujos y toca el que empieza igual",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-40-game-correct",
-      "text": "Acertaste con mucha atención. Reconociste enseguida con qué vocal empieza ese dibujo.",
+      "text": "¡Acertaste! Encontraste justo la vocal con la que empieza ese dibujo.",
       "batch": "B007",
       "seq": 40,
       "file": "B007-040.mp3",
@@ -3461,12 +3461,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "acertaste con mucha atención reconociste enseguida con qué vocal empieza ese dibujo",
+      "normalizedText": "acertaste encontraste justo la vocal con la que empieza ese dibujo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-41-game-retry",
-      "text": "Escucha otra vez el comienzo de la palabra y fíjate cuál vocal suena primero.",
+      "text": "Casi, probemos otra vez: escucha el comienzo de la palabra y busca qué vocal suena primero.",
       "batch": "B007",
       "seq": 41,
       "file": "B007-041.mp3",
@@ -3538,12 +3538,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha otra vez el comienzo de la palabra y fíjate cuál vocal suena primero",
+      "normalizedText": "casi probemos otra vez escucha el comienzo de la palabra y busca qué vocal suena primero",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-42-assessment",
-      "text": "Para cerrar tu práctica, dime qué vocal escuchas al principio de la palabra estrella.",
+      "text": "Para cerrar esta práctica, dime qué vocal escuchas al principio de la palabra estrella.",
       "batch": "B007",
       "seq": 42,
       "file": "B007-042.mp3",
@@ -3615,12 +3615,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para cerrar tu práctica dime qué vocal escuchas al principio de la palabra estrella",
+      "normalizedText": "para cerrar esta práctica dime qué vocal escuchas al principio de la palabra estrella",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-43-page-complete",
-      "text": "Completaste todos los ejercicios de las cinco hermanitas vocales con mucha paciencia.",
+      "text": "¡Listo! Completaste todos los ejercicios de las cinco hermanitas vocales.",
       "batch": "B007",
       "seq": 43,
       "file": "B007-043.mp3",
@@ -3692,12 +3692,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todos los ejercicios de las cinco hermanitas vocales con mucha paciencia",
+      "normalizedText": "listo completaste todos los ejercicios de las cinco hermanitas vocales",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-44-closing",
-      "text": "Ya conoces a las cinco hermanitas vocales. Qué hermoso comienzo diste hoy en tu cartilla.",
+      "text": "Ya recorrimos toda la lección de las cinco hermanitas vocales. ¡Qué gran comienzo en tu cartilla!",
       "batch": "B007",
       "seq": 44,
       "file": "B007-044.mp3",
@@ -3769,12 +3769,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya conoces a las cinco hermanitas vocales qué hermoso comienzo diste hoy en tu cartilla",
+      "normalizedText": "ya recorrimos toda la lección de las cinco hermanitas vocales qué gran comienzo en tu cartilla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-45-next-step",
-      "text": "En nuestra próxima sesión conoceremos a fondo la vocal o con su rima del caballito.",
+      "text": "En la próxima sesión vamos a conocer a fondo la vocal o con su rima del caballito.",
       "batch": "B007",
       "seq": 45,
       "file": "B007-045.mp3",
@@ -3846,13 +3846,13 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en nuestra próxima sesión conoceremos a fondo la vocal o con su rima del caballito",
+      "normalizedText": "en la próxima sesión vamos a conocer a fondo la vocal o con su rima del caballito",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-46-atlas-flipchart",
-      "text": "¿Cuántas hermanitas hay en el poema?",
-      "normalizedText": "cuántas hermanitas hay en el poema",
+      "text": "¿Cuántas hermanitas aparecen en el poema?",
+      "normalizedText": "cuántas hermanitas aparecen en el poema",
       "batch": "B007",
       "seq": 46,
       "file": "B007-046.mp3",
@@ -3905,8 +3905,8 @@
     },
     {
       "id": "v2-l01-47-atlas-workbook",
-      "text": "Di «abrigo» muy despacio. ¿Con qué vocal empieza?",
-      "normalizedText": "di abrigo muy despacio con qué vocal empieza",
+      "text": "Di «abrigo» bien despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "di abrigo bien despacio con qué vocal empieza",
       "batch": "B007",
       "seq": 47,
       "file": "B007-047.mp3",

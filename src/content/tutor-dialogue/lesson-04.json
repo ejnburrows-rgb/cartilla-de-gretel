@@ -2640,7 +2640,7 @@
     },
     {
       "id": "v2-l04-40-game-correct",
-      "text": "Muy bien respondido. Distinguiste con claridad el sonido parejo de la vocal e.",
+      "text": "¡Muy bien respondido! Elegiste justo el sonido de la vocal e.",
       "batch": "B010",
       "seq": 40,
       "file": "B010-040.mp3",
@@ -2696,7 +2696,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien respondido distinguiste con claridad el sonido parejo de la vocal e",
+      "normalizedText": "muy bien respondido elegiste justo el sonido de la vocal e",
       "sourcePr": "PR#1073"
     },
     {
@@ -2823,7 +2823,7 @@
     },
     {
       "id": "v2-l04-43-page-complete",
-      "text": "Terminaste todos tus ejercicios de la vocal e con mucha paciencia y orden.",
+      "text": "Terminaste todos tus ejercicios de la vocal e. ¡Vamos avanzando genial!",
       "batch": "B010",
       "seq": 43,
       "file": "B010-043.mp3",
@@ -2879,7 +2879,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todos tus ejercicios de la vocal e con mucha paciencia y orden",
+      "normalizedText": "terminaste todos tus ejercicios de la vocal e vamos avanzando genial",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

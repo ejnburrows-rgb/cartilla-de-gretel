@@ -3544,7 +3544,7 @@
     },
     {
       "id": "v2-l24-40-game-correct",
-      "text": "Excelente cierre. Completaste esa palabra con zeta y leíste con total seguridad.",
+      "text": "¡Excelente cierre! Completaste esa palabra con la sílaba correcta de zeta.",
       "batch": "B030",
       "seq": 40,
       "file": "B030-040.mp3",
@@ -3616,7 +3616,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "excelente cierre completaste esa palabra con zeta y leíste con total seguridad",
+      "normalizedText": "excelente cierre completaste esa palabra con la sílaba correcta de zeta",
       "sourcePr": "PR#1073"
     },
     {

@@ -327,6 +327,98 @@ describe("authorized local JSON export/import and 8-section Spanish teacher repo
     rerender(createElement(TutorReplay, { session, initialIndex: 2 }));
     expect(screen.getByText("Cuaderno · pág. impresa 3 (hoja PDF 5)")).toBeTruthy();
   });
+
+  it("formats legacy saved Flip Chart sessions using pdfSheet before printedPage, plus new Flip Chart and Workbook sessions", () => {
+    const baseSession = createSessionLog({
+      sessionId: "sess-legacy-flipchart",
+      learnerId: "learner-slot-3",
+      lesson: 1,
+      startedAt: "2026-11-26T15:00:00.000Z",
+    });
+
+    // 1. Historical saved session: { source: "flipchart", printedPage: 1, pdfSheet: 3 } without flipchartSheet
+    const historicalSession: TutorSessionLog = {
+      ...baseSession,
+      sheets: [{ source: "flipchart", printedPage: 1, pdfSheet: 3 }],
+      events: [
+        ...baseSession.events,
+        {
+          id: "evt-legacy-fc",
+          at: "2026-11-26T15:00:05.000Z",
+          offsetMs: 5000,
+          kind: "sheet_opened",
+          summary: "Rotafolio · lámina 3 abierta",
+          sheetSource: "flipchart",
+          printedPage: 1,
+          pdfSheet: 3,
+        },
+      ],
+    };
+
+    const historicalReport = generateTeacherSessionReport(historicalSession);
+    const historicalContent = historicalReport.sections.find((s) => s.title === "Contenido trabajado");
+    expect(historicalContent?.lines[0]).toBe("Páginas trabajadas: Rotafolio · lámina 3.");
+    expect(historicalContent?.lines[0]).not.toContain("lámina 1");
+    expect(historicalContent?.lines[0]).not.toContain("pág. impresa 1");
+
+    const { rerender } = render(
+      createElement(TutorReplay, { session: historicalSession, initialIndex: 1 }),
+    );
+    expect(screen.getByText("Rotafolio · lámina 3")).toBeTruthy();
+    expect(screen.queryByText(/lámina 1/i)).toBeNull();
+    expect(screen.queryByText(/pág\. impresa 1/i)).toBeNull();
+
+    // 2. Newly recorded session: { source: "flipchart", flipchartSheet: 3 }
+    const newFlipchartSession: TutorSessionLog = {
+      ...baseSession,
+      sessionId: "sess-new-flipchart",
+      sheets: [{ source: "flipchart", flipchartSheet: 3 }],
+      events: [
+        ...baseSession.events,
+        {
+          id: "evt-new-fc",
+          at: "2026-11-26T15:00:05.000Z",
+          offsetMs: 5000,
+          kind: "sheet_opened",
+          summary: "Rotafolio · lámina 3 abierta",
+          sheetSource: "flipchart",
+          flipchartSheet: 3,
+        },
+      ],
+    };
+    const newFcReport = generateTeacherSessionReport(newFlipchartSession);
+    const newFcContent = newFcReport.sections.find((s) => s.title === "Contenido trabajado");
+    expect(newFcContent?.lines[0]).toBe("Páginas trabajadas: Rotafolio · lámina 3.");
+
+    rerender(createElement(TutorReplay, { session: newFlipchartSession, initialIndex: 1 }));
+    expect(screen.getByText("Rotafolio · lámina 3")).toBeTruthy();
+
+    // 3. Workbook session: { source: "workbook", printedPage: 1, pdfSheet: 7 }
+    const workbookSession: TutorSessionLog = {
+      ...baseSession,
+      sessionId: "sess-workbook-page",
+      sheets: [{ source: "workbook", printedPage: 1, pdfSheet: 7 }],
+      events: [
+        ...baseSession.events,
+        {
+          id: "evt-wb",
+          at: "2026-11-26T15:00:05.000Z",
+          offsetMs: 5000,
+          kind: "sheet_opened",
+          summary: "Cuaderno · página impresa 1 abierta",
+          sheetSource: "workbook",
+          printedPage: 1,
+          pdfSheet: 7,
+        },
+      ],
+    };
+    const wbReport = generateTeacherSessionReport(workbookSession);
+    const wbContent = wbReport.sections.find((s) => s.title === "Contenido trabajado");
+    expect(wbContent?.lines[0]).toBe("Páginas trabajadas: Cuaderno · pág. impresa 1 (hoja PDF 7).");
+
+    rerender(createElement(TutorReplay, { session: workbookSession, initialIndex: 1 }));
+    expect(screen.getByText("Cuaderno · pág. impresa 1 (hoja PDF 7)")).toBeTruthy();
+  });
 });
 
 describe("TutorReplay & TutorConsentControls UI invariants", () => {

@@ -2907,7 +2907,7 @@
     },
     {
       "id": "v2-l02-43-page-complete",
-      "text": "Terminaste todas las actividades de la vocal o con mucha atención y buena letra.",
+      "text": "Terminaste todas las actividades de la vocal o. ¡Qué buen avance!",
       "batch": "B008",
       "seq": 43,
       "file": "B008-043.mp3",
@@ -2964,7 +2964,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la vocal o con mucha atención y buena letra",
+      "normalizedText": "terminaste todas las actividades de la vocal o qué buen avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

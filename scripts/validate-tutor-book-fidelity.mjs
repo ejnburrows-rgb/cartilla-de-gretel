@@ -39,9 +39,21 @@ function countSpanishWords(text) {
 }
 
 function countQuestions(text) {
-  const matches = text.match(/\?/g);
-  return matches ? matches.length : 0;
+  const closeMatches = text.match(/\?/g);
+  const openMatches = text.match(/¿/g);
+  return Math.max(closeMatches ? closeMatches.length : 0, openMatches ? openMatches.length : 0);
 }
+
+// Rejects unsupported observation, concentration, pronunciation-accuracy, unseen-vision,
+// and masculine self-reference claims for Gretel (female tutor).
+export const UNSUPPORTED_CONCENTRATION_RE =
+  /\b(?:tan\s+concentrad[oa]|muy\s+concentrad[oa]|con\s+gran\s+concentraci[oó]n|con\s+(?:mucha|gran|excelente)\s+atenci[oó]n|tus\s+o[ií]dos\s+est[aá]n\s+muy\s+atentos)\b/i;
+export const UNSUPPORTED_PRONUNCIATION_RE =
+  /\b(?:tu\s+voz\s+(?:son[oó]|suena)|son[oó]\s+(?:muy\s+|bien\s+|tan\s+)?(?:clar|limpia|suave|bien)|sali[oó]\s+(?:muy\s+)?clara|te\s+sale\s+clarit[oa]|lo\s+dijiste\s+clarit[oa]|la\s+dijiste\s+clarit[oa]|con\s+mucha\s+claridad|distinguiste\s+con\s+claridad|buena\s+entonaci[oó]n|excelente\s+entonaci[oó]n|qu[eé]\s+bien\s+suenas|excelente\s+vibraci[oó]n|qu[eé]\s+buena\s+vibraci[oó]n|hace\s+tu\s+voz\s+m[aá]s\s+segura)\b/i;
+export const UNSUPPORTED_VISUAL_OBS_RE =
+  /\b(?:se\s+nota\s+que\s+miraste|se\s+nota\s+cu[aá]nto|ver\s+c[oó]mo\s+lees|miraste\s+el\s+dibujo|veo\s+clarit[oa]|te\s+veo\s+(?:sonre[ií]r|concentrad|mirando)|ya\s+dominas|qu[eé]\s+bien\s+dominas|y\s+buena\s+letra)\b/i;
+export const GRETEL_MASCULINE_SELF_RE =
+  /\b(?:esper[aá]ndote\s+tranquilo|estoy\s+(?:muy\s+)?(?:tranquilo|listo|contento|orgulloso|seguro))\b/i;
 
 const REJECTED_AUDIO_RE =
   /(rec_gretel_|gretel_67|67_audio|audio_lecciones_listo|nina-sordita|sordita|tinywow|67-clip)/i;
@@ -264,6 +276,7 @@ export function validateTutorBookFidelity() {
 
   const allEntries = [];
   const seenIds = new Set();
+  const seenNormalizedTexts = new Map();
   const batches = new Map();
 
   for (const manifest of manifests) {
@@ -306,8 +319,8 @@ export function validateTutorBookFidelity() {
 
       // Clean Spanish & word/question count gates
       const wc = countSpanishWords(entry.text);
-      if (wc < 5 || wc > 40) {
-        errors.push(`${entry.id}: word count ${wc} outside [5, 40] ("${entry.text}")`);
+      if (wc < 5 || wc > 40 || wc >= 75) {
+        errors.push(`${entry.id}: word count ${wc} outside [5, 40] / <75 ("${entry.text}")`);
       }
       if (countQuestions(entry.text) > 1) {
         errors.push(`${entry.id}: has more than 1 question ("${entry.text}")`);
@@ -317,6 +330,30 @@ export function validateTutorBookFidelity() {
       }
       if (/\b[a-zñ]+\s*\+\s*[a-zñ]+\b/i.test(entry.text) || /\b[a-zñ]{1,3}\s+-\s+[a-zñ]{1,3}\b/i.test(entry.text)) {
         errors.push(`${entry.id}: contains robotic syllable splicing ("${entry.text}")`);
+      }
+
+      // Unsupported observation, pronunciation-clarity, unseen-vision, and feminine gender-agreement gates
+      if (UNSUPPORTED_CONCENTRATION_RE.test(entry.text)) {
+        errors.push(`${entry.id}: contains unsupported concentration/attention claim ("${entry.text}")`);
+      }
+      if (UNSUPPORTED_PRONUNCIATION_RE.test(entry.text)) {
+        errors.push(`${entry.id}: contains unsupported pronunciation/clarity claim ("${entry.text}")`);
+      }
+      if (UNSUPPORTED_VISUAL_OBS_RE.test(entry.text)) {
+        errors.push(`${entry.id}: contains unsupported unseen-visual-observation/outcome claim ("${entry.text}")`);
+      }
+      if (GRETEL_MASCULINE_SELF_RE.test(entry.text)) {
+        errors.push(`${entry.id}: uses masculine self-reference for Gretel ("${entry.text}")`);
+      }
+
+      // Deduplication across all batches by normalized Spanish text
+      const normKey = normalizeText(entry.text);
+      if (seenNormalizedTexts.has(normKey)) {
+        errors.push(
+          `${entry.id}: duplicate normalized Spanish text (matches ${seenNormalizedTexts.get(normKey)}): "${normKey}"`,
+        );
+      } else {
+        seenNormalizedTexts.set(normKey, entry.id);
       }
 
       // Mechanical sheet/page number checks
@@ -459,8 +496,8 @@ export function validateTutorBookFidelity() {
     }
   }
 
-  if (allEntries.length < 1100 || allEntries.length > 1400) {
-    errors.push(`Total v2 lines ${allEntries.length} outside target range [1100, 1400]`);
+  if (allEntries.length < 1100 || allEntries.length > 1500) {
+    errors.push(`Total v2 lines ${allEntries.length} outside target range [1100, 1500]`);
   }
 
   // 3. Synchronize recording .txt batches (25-50 lines each) + CSV + MD
@@ -505,6 +542,25 @@ export function validateTutorBookFidelity() {
         if (MECHANICAL_SHEET_RE.test(l) || MECHANICAL_PAGE_RE.test(l) || ABSENT_PAGE_TEXT_RE.test(l)) {
           errors.push(`${txtFile}: contains forbidden page/sheet number ("${l}")`);
         }
+      }
+    }
+
+    // Ensure Priority Recording Package scripts match B001, B007, and B031 1-to-1
+    const priorityMap = [
+      ["PRIORITY-B001-universal.txt", "B001"],
+      ["PRIORITY-B002-lesson-01.txt", "B007"],
+      ["PRIORITY-B003-interactive-conversation.txt", "B031"],
+    ];
+    for (const [prioFile, batchId] of priorityMap) {
+      const prioPath = join(recordingDir, prioFile);
+      if (!existsSync(prioPath)) {
+        errors.push(`Missing priority recording script: docs/tutor/recording/${prioFile}`);
+        continue;
+      }
+      const prioLines = readFileSync(prioPath, "utf8").trimEnd().split("\n");
+      const batchLines = (batches.get(batchId) ?? []).map((e) => e.text);
+      if (prioLines.length !== batchLines.length || prioLines.some((l, i) => l !== batchLines[i])) {
+        errors.push(`Priority script ${prioFile} is out of sync with batch ${batchId}`);
       }
     }
 

@@ -37,6 +37,7 @@ function parseArgs(argv) {
     manifestWrite: true,
     minSilenceDurationSec: 0.35,
     silenceThresholdDb: -40,
+    voskModelPath: null,
   };
 
   for (let i = 0; i < rest.length; i++) {
@@ -55,6 +56,8 @@ function parseArgs(argv) {
       opts.expectedPath = resolve(process.cwd(), rest[++i]);
     } else if (arg === "--export-dir" && rest[i + 1]) {
       opts.exportDir = resolve(process.cwd(), rest[++i]);
+    } else if (arg === "--vosk-model" && rest[i + 1]) {
+      opts.voskModelPath = resolve(process.cwd(), rest[++i]);
     } else if (arg === "--min-silence" && rest[i + 1]) {
       opts.minSilenceDurationSec = Number(rest[++i]);
     } else if (arg === "--silence-db" && rest[i + 1]) {
@@ -147,6 +150,7 @@ async function main() {
       manifestWrite: opts.manifestWrite,
       minSilenceDurationSec: opts.minSilenceDurationSec,
       silenceThresholdDb: opts.silenceThresholdDb,
+      voskModelPath: opts.voskModelPath,
     });
     console.log(
       `✓ Intake ${opts.dryRun ? "(dry-run)" : "(applied)"} for batch ${opts.batchId}: ` +
@@ -161,7 +165,7 @@ async function main() {
     "Usage:\n" +
       "  node scripts/tutor-intake/cli.mjs check-guard\n" +
       "  node scripts/tutor-intake/cli.mjs prove-approved [--no-report]\n" +
-      '  node scripts/tutor-intake/cli.mjs ingest --batch <id> [--apply] [--authorized --approval "<ref>"] <files...>',
+      '  node scripts/tutor-intake/cli.mjs ingest --batch <id> [--vosk-model <path>] [--apply] [--authorized --approval "<ref>"] <files...>',
   );
 }
 

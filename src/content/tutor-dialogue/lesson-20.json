@@ -4164,7 +4164,7 @@
     },
     {
       "id": "v2-l20-44-closing",
-      "text": "Qué bien leíste toda la visita a la finca de Felo. Solo nos quedan cuatro consonantes más.",
+      "text": "Terminamos toda la visita a la finca de Felo. Solo nos quedan cuatro consonantes más.",
       "batch": "B026",
       "seq": 44,
       "file": "B026-044.mp3",
@@ -4241,7 +4241,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bien leíste toda la visita a la finca de felo solo nos quedan cuatro consonantes más",
+      "normalizedText": "terminamos toda la visita a la finca de felo solo nos quedan cuatro consonantes más",
       "sourcePr": "PR#1073"
     },
     {
