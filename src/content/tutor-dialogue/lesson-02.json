@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l02-01-greeting-first",
-      "text": "Bienvenidos a la lección dos para jugar y leer con la vocal o.",
+      "text": "Bienvenidos a esta lección nueva para jugar, escuchar y leer con la vocal o.",
       "batch": "B008",
       "seq": 1,
       "file": "B008-001.mp3",
@@ -29,14 +29,16 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -65,14 +67,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l02-02-lesson-focus",
-      "text": "Mira qué redonda es esta letra y pon tu boca en círculo al decirla.",
+      "id": "v2-l02-02-greeting-return",
+      "text": "Qué gusto verte de nuevo para seguir practicando juntos nuestra redonda vocal o.",
       "batch": "B008",
       "seq": 2,
       "file": "B008-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-02-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-02-greeting-return",
       "curriculumRefs": {
         "lesson": 2,
         "printedPages": [
@@ -87,14 +89,317 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-03-review-intro",
+      "text": "Recordemos las cinco hermanitas vocales que conocimos antes, y hoy saludamos primero a la vocal o.",
+      "batch": "B008",
+      "seq": 3,
+      "file": "B008-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-02-review-intro",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-04-review-check",
+      "text": "¿Recuerdas cómo pones los labios cuando pronuncias la vocal o?",
+      "batch": "B008",
+      "seq": 4,
+      "file": "B008-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-02-review-check",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-05-lesson-objective",
+      "text": "Hoy aprenderemos a identificar, escuchar, trazar y leer palabras que comienzan con la vocal o.",
+      "batch": "B008",
+      "seq": 5,
+      "file": "B008-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-02-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-06-letter-name",
+      "text": "Esta letra se llama o, y tanto la mayúscula como la minúscula tienen forma redondita.",
+      "batch": "B008",
+      "seq": 6,
+      "file": "B008-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-02-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-07-phonetic-sound",
+      "text": "Al pronunciarla, redondeamos los labios como un aro y dejamos salir el sonido limpio: ooo.",
+      "batch": "B008",
+      "seq": 7,
+      "file": "B008-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-02-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -123,11 +428,251 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l02-03-flipchart-intro",
-      "text": "En la lámina cuatro del rotafolio nos espera la rima Arre caballito.",
+      "id": "v2-l02-08-lesson-focus",
+      "text": "Mira qué redonda es esta vocal y pon tu boca en círculo cada vez que la digas.",
       "batch": "B008",
-      "seq": 3,
-      "file": "B008-003.mp3",
+      "seq": 8,
+      "file": "B008-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-02-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-09-sound-contrast",
+      "text": "A diferencia de la a bien abierta, la o mantiene los labios suaves y en forma de rueda.",
+      "batch": "B008",
+      "seq": 9,
+      "file": "B008-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-02-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-10-explanation-primary",
+      "text": "Cuando una palabra empieza con ese sonido redondo y firme, sabemos que comienza con la vocal o.",
+      "batch": "B008",
+      "seq": 10,
+      "file": "B008-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-02-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-11-explanation-simple",
+      "text": "Imagina que tu boca dibuja una pequeña rueda en el aire; ese sonido redondo es la o.",
+      "batch": "B008",
+      "seq": 11,
+      "file": "B008-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-02-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para disfrutar juntos la rima alegre llamada Arre caballito.",
+      "batch": "B008",
+      "seq": 12,
+      "file": "B008-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-02-flipchart-intro",
@@ -145,14 +690,16 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -181,12 +728,312 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l02-04-flipchart-rhyme",
-      "text": "Arre caballito, llévame a pasear, yo soy redondita y puedo rodar.",
+      "id": "v2-l02-13-flipchart-illustration-1",
+      "text": "En la ilustración principal vemos un caballito de madera junto a una olla, una oveja y un oso.",
       "batch": "B008",
-      "seq": 4,
-      "file": "B008-004.mp3",
+      "seq": 13,
+      "file": "B008-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-02-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-14-flipchart-illustration-2",
+      "text": "También aparecen en el rotafolio el niño Oto, una oreja y el número ocho bien dibujados.",
+      "batch": "B008",
+      "seq": 14,
+      "file": "B008-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-02-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-15-reading-order",
+      "text": "Recorre con la vista cada verso del poema desde arriba hacia abajo y luego las palabras de izquierda a derecha.",
+      "batch": "B008",
+      "seq": 15,
+      "file": "B008-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-02-reading-order",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-16-flipchart-model",
+      "text": "Fíjate en la palabra clave olla mientras miras el dibujo y escuchas el sonido inicial redondo.",
+      "batch": "B008",
+      "seq": 16,
+      "file": "B008-016.mp3",
       "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-02-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-17-flipchart-vocab",
+      "text": "Leemos en voz clara las palabras del rotafolio: olla, Oto, oveja, oso, oreja y ocho.",
+      "batch": "B008",
+      "seq": 17,
+      "file": "B008-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-02-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-18-flipchart-rhyme-1",
+      "text": "Leemos juntos el comienzo del poema: Arre caballito, llévame a pasear, yo soy redondita y puedo rodar.",
+      "batch": "B008",
+      "seq": 18,
+      "file": "B008-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-02-flipchart-rhyme",
       "curriculumRefs": {
@@ -203,14 +1050,16 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -239,14 +1088,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l02-05-flipchart-model",
-      "text": "Fíjate en la palabra clave olla en la lámina cuatro mientras escuchas la vocal.",
+      "id": "v2-l02-19-flipchart-rhyme-2",
+      "text": "Seguimos con la segunda parte del poema: ¡Oh, oh caballito yo quiero parar! ¡Oh, oh caballito ya no ruedes más!",
       "batch": "B008",
-      "seq": 5,
-      "file": "B008-005.mp3",
-      "intent": "flipchart-sheet",
-      "role": "flipchart-model",
-      "variationGroup": "lesson-02-flipchart-model",
+      "seq": 19,
+      "file": "B008-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-02-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 2,
         "printedPages": [
@@ -261,14 +1110,16 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -279,14 +1130,14 @@
       },
       "hintLevel": 0,
       "expression": "warm",
-      "gesture": "point",
+      "gesture": "teach",
       "presentationAction": "show-flipchart",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
-      "expectedResponse": "read-word",
+      "expectedResponse": "repeat",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -297,241 +1148,19 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l02-06-page-instruction",
-      "text": "En la página cuatro marca los dibujos cuyo nombre comienza con el sonido o.",
+      "id": "v2-l02-20-comprehension-1",
+      "text": "En el poema Arre caballito, ¿qué puede hacer la vocal o por ser tan redondita?",
       "batch": "B008",
-      "seq": 6,
-      "file": "B008-006.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-02-page-instruction",
+      "seq": 20,
+      "file": "B008-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-02-comprehension-question",
       "curriculumRefs": {
         "lesson": 2,
         "printedPages": [
-          4
-        ],
-        "flipchartSheets": [
-          4
-        ],
-        "letters": [
-          "o"
-        ],
-        "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
-          "olla",
-          "ocho",
-          "ojos"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          2
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "point-workbook",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "tap-item",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l02-07-word-practice",
-      "text": "Dime cuál de estos dibujos empieza con o: ola, oso, oveja u oreja.",
-      "batch": "B008",
-      "seq": 7,
-      "file": "B008-007.mp3",
-      "intent": "workbook-practice",
-      "role": "word-practice",
-      "variationGroup": "lesson-02-word-practice",
-      "curriculumRefs": {
-        "lesson": 2,
-        "printedPages": [
-          4
-        ],
-        "flipchartSheets": [
-          4
-        ],
-        "letters": [
-          "o"
-        ],
-        "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
-          "olla",
-          "ocho",
-          "ojos"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          2
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "teach",
-      "presentationAction": "show-word",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-word",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l02-08-word-practice",
-      "text": "También comienzan con o estas tres palabras: olla, ocho y ojos.",
-      "batch": "B008",
-      "seq": 8,
-      "file": "B008-008.mp3",
-      "intent": "workbook-practice",
-      "role": "word-practice",
-      "variationGroup": "lesson-02-word-practice",
-      "curriculumRefs": {
-        "lesson": 2,
-        "printedPages": [
-          4
-        ],
-        "flipchartSheets": [
-          4
-        ],
-        "letters": [
-          "o"
-        ],
-        "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
-          "olla",
-          "ocho",
-          "ojos"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          2
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "encouraging",
-      "gesture": "teach",
-      "presentationAction": "show-word",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-word",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l02-09-page-instruction",
-      "text": "En la página cinco une la vocal redonda con las palabras que la llevan al inicio.",
-      "batch": "B008",
-      "seq": 9,
-      "file": "B008-009.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-02-page-instruction",
-      "curriculumRefs": {
-        "lesson": 2,
-        "printedPages": [
-          5
-        ],
-        "flipchartSheets": [
-          4
-        ],
-        "letters": [
-          "o"
-        ],
-        "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
-          "olla",
-          "ocho",
-          "ojos"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          2
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "point-workbook",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "tap-item",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l02-10-page-instruction",
-      "text": "En la página seis traza la letra redondita y dibuja una palabra con o.",
-      "batch": "B008",
-      "seq": 10,
-      "file": "B008-010.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-02-page-instruction",
-      "curriculumRefs": {
-        "lesson": 2,
-        "printedPages": [
+          4,
+          5,
           6
         ],
         "flipchartSheets": [
@@ -541,14 +1170,16 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -558,8 +1189,548 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-21-comprehension-2",
+      "text": "¿Quién aparece montado o jugando junto al caballito en nuestra escena del rotafolio?",
+      "batch": "B008",
+      "seq": 21,
+      "file": "B008-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-02-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-22-comprehension-3",
+      "text": "¿Comienza la palabra oveja con el mismo sonido redondo que la palabra oso?",
+      "batch": "B008",
+      "seq": 22,
+      "file": "B008-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-02-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-23-common-mistake-1",
+      "text": "Si confundes la o con la u, abre un poquito más el círculo de tus labios al hablar.",
+      "batch": "B008",
+      "seq": 23,
+      "file": "B008-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-02-common-mistake",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-24-common-mistake-2",
+      "text": "Ten cuidado de no marcar iglú, maíz, uña, alas, uvas ni uno, porque no empiezan con o.",
+      "batch": "B008",
+      "seq": 24,
+      "file": "B008-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-02-common-mistake",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-25-common-mistake-3",
+      "text": "Cuando traces la letra o, cierra bien el círculo para que no parezca abierta por arriba.",
+      "batch": "B008",
+      "seq": 25,
+      "file": "B008-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-02-common-mistake",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-26-hint-1",
+      "text": "Observa el dibujo y pronuncia su nombre despacio para oír cómo empieza.",
+      "batch": "B008",
+      "seq": 26,
+      "file": "B008-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-02-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-27-hint-2",
+      "text": "Pon tu boca bien redondita y comprueba si el primer sonido suena igual que en oso.",
+      "batch": "B008",
+      "seq": 27,
+      "file": "B008-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-02-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-28-hint-3",
+      "text": "Repite conmigo estas palabras seguras que empiezan con o: ola, oso y oveja.",
+      "batch": "B008",
+      "seq": 28,
+      "file": "B008-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-02-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-29-workbook-transition",
+      "text": "Ahora pasamos a tu cuaderno de trabajo para buscar dibujos y practicar el trazo de la o.",
+      "batch": "B008",
+      "seq": 29,
+      "file": "B008-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-02-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -577,19 +1748,18 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l02-11-adaptive-coaching",
-      "text": "Si confundes la o con la u, abre un poquito más el círculo labial.",
+      "id": "v2-l02-30-page-instruction-1",
+      "text": "En la cuadrícula de dibujos marca con una equis solamente los que comienzan con el sonido o.",
       "batch": "B008",
-      "seq": 11,
-      "file": "B008-011.mp3",
-      "intent": "lesson-coaching",
-      "role": "adaptive-coaching",
-      "variationGroup": "lesson-02-adaptive-coaching",
+      "seq": 30,
+      "file": "B008-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-02-page-instruction",
       "curriculumRefs": {
         "lesson": 2,
         "printedPages": [
-          4,
-          5
+          4
         ],
         "flipchartSheets": [
           4
@@ -598,14 +1768,16 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -614,16 +1786,16 @@
           2
         ]
       },
-      "hintLevel": 2,
-      "expression": "gentle",
-      "gesture": "help",
-      "presentationAction": "show-letter",
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "sound-out",
+      "expectedResponse": "none",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -634,11 +1806,777 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l02-12-closing",
-      "text": "Terminaste la lección de la vocal o con mucha atención. Ahora sigue la vocal a.",
+      "id": "v2-l02-31-page-instruction-2",
+      "text": "Después traza una línea desde la vocal o hasta cada dibujo cuyo nombre comienza con ella.",
       "batch": "B008",
-      "seq": 12,
-      "file": "B008-012.mp3",
+      "seq": 31,
+      "file": "B008-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-02-page-instruction",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          5
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-32-syllable-practice",
+      "text": "Escucha el inicio redondo en cada palabra del ejercicio: ola, oso, oveja, oreja, olla, ocho y ojos.",
+      "batch": "B008",
+      "seq": 32,
+      "file": "B008-032.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-02-word-practice",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          5
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-33-word-practice-1",
+      "text": "Repite conmigo las palabras del primer grupo: ola, oso, oveja y oreja.",
+      "batch": "B008",
+      "seq": 33,
+      "file": "B008-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-02-word-practice",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-34-word-practice-2",
+      "text": "Ahora practica las demás palabras que comienzan con o: olla, ocho y ojos.",
+      "batch": "B008",
+      "seq": 34,
+      "file": "B008-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-02-word-practice",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-35-sight-or-vocab",
+      "text": "Fíjate también en Oto, que lleva la o mayúscula por ser el nombre propio de un niño.",
+      "batch": "B008",
+      "seq": 35,
+      "file": "B008-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-02-word-practice",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-36-sentence-or-pair",
+      "text": "Compara ahora estos pares para distinguir el inicio: oso empieza con o, pero alas empieza con a.",
+      "batch": "B008",
+      "seq": 36,
+      "file": "B008-036.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-02-word-practice",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-37-page-instruction-final",
+      "text": "Al final escribe con tu mejor letra la vocal o mayúscula y minúscula sobre los renglones.",
+      "batch": "B008",
+      "seq": 37,
+      "file": "B008-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-02-page-instruction",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-38-game-intro",
+      "text": "Abrimos el juego de dibujos con la vocal o para que señales cada imagen que corresponde.",
+      "batch": "B008",
+      "seq": 38,
+      "file": "B008-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-02-game-intro",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-39-game-step",
+      "text": "Lee o escucha la palabra que aparece y toca el dibujo exacto entre oso, ola y oveja.",
+      "batch": "B008",
+      "seq": 39,
+      "file": "B008-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-02-game-step",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-40-game-correct",
+      "text": "Muy bien tocado. Escuchaste el sonido o al inicio y elegiste el dibujo exacto.",
+      "batch": "B008",
+      "seq": 40,
+      "file": "B008-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-02-game-correct",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-41-game-retry",
+      "text": "Ese dibujo tiene otro nombre; escucha de nuevo la palabra y vuelve a tocar la imagen correcta.",
+      "batch": "B008",
+      "seq": 41,
+      "file": "B008-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-02-game-retry",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, dime dos palabras de tu cuaderno que comiencen con o.",
+      "batch": "B008",
+      "seq": 42,
+      "file": "B008-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-02-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-43-page-complete",
+      "text": "Terminaste todas las actividades de la vocal o con mucha atención y buena letra.",
+      "batch": "B008",
+      "seq": 43,
+      "file": "B008-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-02-page-complete",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-44-closing",
+      "text": "Qué gran trabajo hiciste con la redonda vocal o. Cantaste, leíste y trazaste muy bien.",
+      "batch": "B008",
+      "seq": 44,
+      "file": "B008-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-02-closing",
@@ -656,14 +2594,16 @@
           "o"
         ],
         "words": [
-          "ola",
-          "oso",
-          "oveja",
-          "oreja",
           "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
           "ocho",
+          "ola",
           "ojos"
         ],
+        "gameId": "dibujos-o",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -676,6 +2616,66 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l02-45-next-step",
+      "text": "En la siguiente lección te espera nuestra segunda hermanita, la alegre vocal a.",
+      "batch": "B008",
+      "seq": 45,
+      "file": "B008-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-02-next-step",
+      "curriculumRefs": {
+        "lesson": 2,
+        "printedPages": [
+          4,
+          5,
+          6
+        ],
+        "flipchartSheets": [
+          4
+        ],
+        "letters": [
+          "o"
+        ],
+        "words": [
+          "olla",
+          "Oto",
+          "oveja",
+          "oso",
+          "oreja",
+          "ocho",
+          "ola",
+          "ojos"
+        ],
+        "gameId": "dibujos-o",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

@@ -9,23 +9,34 @@
  */
 
 const DRAFT_PREFIX_RE = /^\[DRAFT\s+—\s+owner to approve\]\s*/i;
-const REUSE_SUFFIX_RE = /\s*\(reuse:\s*[A-Za-zÀ-ÿ0-9_ -]+\)$/i;
+
+/** Strip `[DRAFT — owner to approve]` prefix and trailing `(reuse: ...)` note linearly without regex backtracking. */
+export function stripScriptAnnotations(text) {
+  let clean = String(text ?? "")
+    .replace(DRAFT_PREFIX_RE, "")
+    .trimEnd();
+  if (clean.endsWith(")")) {
+    const reuseIdx = clean.toLowerCase().lastIndexOf("(reuse:");
+    if (reuseIdx !== -1) {
+      const inner = clean.slice(reuseIdx + 7, -1);
+      if (/^[A-Za-zÀ-ÿ0-9_ -]+$/.test(inner)) {
+        clean = clean.slice(0, reuseIdx);
+      }
+    }
+  }
+  return clean.trim();
+}
 
 /** Normalize Spanish text for deterministic comparison and matching. */
 export function normalizeSpanishText(text, { foldAccents = true } = {}) {
-  let clean = String(text ?? "")
-    .replace(DRAFT_PREFIX_RE, "")
-    .replace(REUSE_SUFFIX_RE, "")
-    .toLocaleLowerCase("es")
-    .trim();
+  let clean = stripScriptAnnotations(text).toLocaleLowerCase("es");
 
   if (foldAccents) {
-    // Preserve ñ while folding vowel diacritics, or fold all combining marks cleanly
+    // Preserve ñ while folding vowel diacritics without control-char placeholders
     clean = clean
-      .replace(/ñ/g, "\u0000")
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/\u0000/g, "ñ");
+      .split("ñ")
+      .map((part) => part.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
+      .join("ñ");
   }
 
   return clean

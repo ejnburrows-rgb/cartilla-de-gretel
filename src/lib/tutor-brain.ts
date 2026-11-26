@@ -17,7 +17,7 @@
  * - `buildListenGrammar(lesson)` works across all 24 lessons (vowels,
  *   syllables, words, sight-words, and sentence words).
  */
-import { itemsForLesson, tutorItems, type TutorItem } from "./tutor-content";
+import { itemsForLesson, lessonGraphFor, tutorItems, type TutorItem } from "./tutor-content";
 import {
   classifyBroadCommand,
   classifyIntent,
@@ -28,11 +28,13 @@ import {
 } from "./tutor-intent";
 import {
   TEXT_ONLY_FALLBACK_LABEL,
+  buildProgressiveHint,
   confusionLineIdFor,
   createLinePickerState,
   modelDeliveryForItem,
   modelLineIdForItem,
   pickContextualChain,
+  pickLessonStageLine,
   pickLine,
   type LinePickerState,
   type TutorLineRole,
@@ -48,12 +50,38 @@ import {
 
 export type Phase = "GREET" | "MODEL" | "LISTEN" | "MATCH" | "RESPOND" | "CELEBRATE" | "ENDED";
 
+export type PedagogicalStage =
+  | "WELCOME"
+  | "OBJECTIVE"
+  | "FLIPCHART"
+  | "MODEL"
+  | "QUESTION"
+  | "ASSESS"
+  | "HINT_ESCALATION"
+  | "WORKBOOK_PRACTICE"
+  | "GAME_PRACTICE"
+  | "REVIEW"
+  | "CELEBRATE"
+  | "ENDED";
+
+export interface BrainHint {
+  readonly level: 1 | 2 | 3;
+  readonly itemId: string;
+  readonly hintText: string;
+  readonly visualCue: string;
+  readonly explanationText: string;
+}
+
 export type BrainEvent =
   | { type: "START" }
   | { type: "LINE_DONE" }
   | { type: "MIC_TAP" }
   | { type: "MIC_CANCEL" }
   | { type: "INTERRUPT" }
+  | { type: "OPEN_WORKBOOK"; printedPage?: number }
+  | { type: "COMPLETE_WORKBOOK" }
+  | { type: "LAUNCH_GAME"; gameId?: string }
+  | { type: "COMPLETE_GAME" }
   | {
       type: "HEARD";
       transcript: string;
@@ -85,6 +113,38 @@ export type Effect =
   | { type: "showTextFallback"; lineId: string | null; text: string; label: string }
   | { type: "presentChain"; steps: readonly UtteranceChainStep[] }
   | { type: "highlight"; itemId: string }
+  | { type: "openFlipchart"; sheetNumber: number; layout: "split" | "flipchart-pip" }
+  | { type: "setLayout"; layout: "call" | "split" | "flipchart-pip" | "practice" }
+  | { type: "openWorkbook"; printedPage: number }
+  | { type: "launchGame"; gameId: string }
+  | {
+      type: "showHint";
+      level: 1 | 2 | 3;
+      itemId: string;
+      hintText: string;
+      visualCue: string;
+      explanationText: string;
+    }
+  | {
+      type: "recordSessionEvent";
+      kind:
+        | "objective"
+        | "flipchart"
+        | "question"
+        | "hint"
+        | "correction"
+        | "workbook"
+        | "game"
+        | "review"
+        | "complete";
+      summary: string;
+      itemId?: string;
+      itemText?: string;
+      printedPage?: number;
+      sheetNumber?: number;
+      gameId?: string;
+      hintLevel?: 1 | 2 | 3;
+    }
   | { type: "markCorrect" }
   | { type: "markWrongErase" }
   | { type: "logProgress"; evt: ProgressEvent }
@@ -129,6 +189,19 @@ export interface BrainState {
   endedReason: "idle" | "exit" | "complete" | null;
   /** Line picker state (no-repeat window + cooldowns + play counts) travels with the brain. */
   lines: LinePickerState;
+  /** Full autonomous pedagogical sequence enabled (objective -> flipchart -> items -> practice -> review -> celebrate). */
+  pedagogicalFlow: boolean;
+  /** Whether Workbook + Reinforcement Game stages run autonomously before review/celebrate. */
+  includePracticeStages: boolean;
+  stage: PedagogicalStage;
+  hintLevel: 0 | 1 | 2 | 3;
+  activeHint: BrainHint | null;
+  priorCompletedCount: number;
+  activeFlipchartSheet: number | null;
+  activeWorkbookPage: number | null;
+  activeGameId: string | null;
+  workbookCompleted: boolean;
+  gameCompleted: boolean;
 }
 
 /** 15 minutes without a tap ends the session (spec §5 IDLE_TIMEOUT row). */
@@ -144,9 +217,14 @@ export interface CreateBrainStateOptions {
   /** From tutor-memory's reviewRoundSet — one more try before celebrate. */
   reviewItemIds?: readonly string[];
   lines?: LinePickerState;
+  pedagogicalFlow?: boolean;
+  includePracticeStages?: boolean;
+  priorCompletedCount?: number;
 }
 
 export function createBrainState(opts: CreateBrainStateOptions): BrainState {
+  const graph = lessonGraphFor(opts.lesson);
+  const pedagogicalFlow = opts.pedagogicalFlow ?? false;
   return {
     phase: "GREET",
     started: false,
@@ -168,6 +246,17 @@ export function createBrainState(opts: CreateBrainStateOptions): BrainState {
     reviewIndex: 0,
     endedReason: null,
     lines: opts.lines ?? createLinePickerState(),
+    pedagogicalFlow,
+    includePracticeStages: opts.includePracticeStages ?? false,
+    stage: "WELCOME",
+    hintLevel: 0,
+    activeHint: null,
+    priorCompletedCount: opts.priorCompletedCount ?? 0,
+    activeFlipchartSheet: graph?.flipchartPages[0] ?? null,
+    activeWorkbookPage: graph?.printedWorkbookPages.start ?? null,
+    activeGameId: graph?.games[0]?.id ?? null,
+    workbookCompleted: false,
+    gameCompleted: false,
   };
 }
 
@@ -273,6 +362,23 @@ export function buildCoachingResponse(
   };
 }
 
+function deliveryEffect(delivery: {
+  lineId: string | null;
+  text: string;
+  deliveryMode: "approved-audio" | "text-only-fallback";
+  fallbackLabel: string | null;
+}): Effect {
+  if (delivery.lineId) {
+    return { type: "playLine", lineId: delivery.lineId };
+  }
+  return {
+    type: "showTextFallback",
+    lineId: null,
+    text: delivery.text,
+    label: delivery.fallbackLabel ?? TEXT_ONLY_FALLBACK_LABEL,
+  };
+}
+
 /** START → GREET: greeting rotates 1 of 3 (greeting-return for a returning child). */
 function onStart(state: BrainState, rng: () => number): { state: BrainState; effects: Effect[] } {
   const role: TutorLineRole = state.returning ? "greeting-return" : "greeting-first";
@@ -284,7 +390,15 @@ function onStart(state: BrainState, rng: () => number): { state: BrainState; eff
     lines = picked.state;
   }
   return {
-    state: { ...state, phase: "GREET", started: true, lines },
+    state: {
+      ...state,
+      phase: "GREET",
+      stage: "WELCOME",
+      started: true,
+      hintLevel: 0,
+      activeHint: null,
+      lines,
+    },
     effects,
   };
 }
@@ -296,7 +410,132 @@ function reviewItem(state: BrainState, index: number): TutorItem | null {
 
 /** The item the child is answering right now (main queue or review round). */
 function activeItem(state: BrainState): TutorItem | null {
-  return state.inReview ? reviewItem(state, state.reviewIndex) : currentTargetItem(state) ?? null;
+  return state.inReview ? reviewItem(state, state.reviewIndex) : (currentTargetItem(state) ?? null);
+}
+
+/** Enter Mode D Workbook practice for the current lesson. */
+function enterWorkbookPractice(
+  state: BrainState,
+  rng: () => number,
+  effects: Effect[],
+): { state: BrainState; effects: Effect[] } {
+  const graph = lessonGraphFor(state.lesson);
+  const printedPage =
+    graph?.printedWorkbookPages.pages.find((p) => p !== 86 && p !== 87) ??
+    graph?.printedWorkbookPages.start ??
+    1;
+  const stagePick = pickLessonStageLine(
+    state.lines,
+    {
+      role: "page-instruction",
+      lesson: state.lesson,
+      fallbackText: `Abre tu cuaderno en la página ${printedPage} para practicar la Lección ${state.lesson}.`,
+    },
+    rng,
+  );
+  effects.push({ type: "openWorkbook", printedPage });
+  effects.push({ type: "setLayout", layout: "practice" });
+  effects.push(deliveryEffect(stagePick.delivery));
+  effects.push({
+    type: "recordSessionEvent",
+    kind: "workbook",
+    summary: `Práctica guiada en cuaderno (página impresa ${printedPage})`,
+    printedPage,
+  });
+  return {
+    state: {
+      ...state,
+      lines: stagePick.state,
+      phase: "MODEL",
+      stage: "WORKBOOK_PRACTICE",
+      activeWorkbookPage: printedPage,
+      capturing: false,
+      hintLevel: 0,
+      activeHint: null,
+    },
+    effects,
+  };
+}
+
+/** Enter Mode D Reinforcement Game for the current lesson. */
+function enterGamePractice(
+  state: BrainState,
+  rng: () => number,
+  effects: Effect[],
+  requestedGameId?: string,
+): { state: BrainState; effects: Effect[] } {
+  const graph = lessonGraphFor(state.lesson);
+  const gameId = requestedGameId ?? graph?.games[0]?.id ?? "vocal-a";
+  const stagePick = pickLessonStageLine(
+    state.lines,
+    {
+      role: "game-intro",
+      lesson: state.lesson,
+      fallbackText: `¡Hora de reforzar con un juego interactivo de la Lección ${state.lesson}!`,
+    },
+    rng,
+  );
+  effects.push({ type: "launchGame", gameId });
+  effects.push({ type: "setLayout", layout: "practice" });
+  effects.push(deliveryEffect(stagePick.delivery));
+  effects.push({
+    type: "recordSessionEvent",
+    kind: "game",
+    summary: `Juego de refuerzo iniciado (${gameId})`,
+    gameId,
+  });
+  return {
+    state: {
+      ...state,
+      lines: stagePick.state,
+      phase: "MODEL",
+      stage: "GAME_PRACTICE",
+      activeGameId: gameId,
+      capturing: false,
+      hintLevel: 0,
+      activeHint: null,
+    },
+    effects,
+  };
+}
+
+function enterReviewOrCelebrate(
+  state: BrainState,
+  rng: () => number,
+  effects: Effect[],
+): { state: BrainState; effects: Effect[] } {
+  if (state.reviewItemIds.length > 0 && !state.inReview) {
+    const first = reviewItem(state, 0);
+    if (!first) return celebrate(state, rng, effects);
+    const intro = pickedLine(state, "review-intro", rng);
+    const withIntro = intro ? intro.state : state;
+    if (intro) effects.push(intro.effect);
+    effects.push({ type: "highlight", itemId: first.id });
+    const model = playModel(first);
+    if (model) effects.push(model);
+    if (state.pedagogicalFlow) {
+      effects.push({
+        type: "recordSessionEvent",
+        kind: "review",
+        summary: `Ronda de repaso con ${state.reviewItemIds.length} elemento(s)`,
+        itemId: first.id,
+        itemText: first.text,
+      });
+    }
+    return {
+      state: {
+        ...withIntro,
+        phase: "MODEL",
+        stage: "REVIEW",
+        inReview: true,
+        reviewIndex: 0,
+        hintLevel: 0,
+        activeHint: null,
+      },
+      effects,
+    };
+  }
+  return celebrate(state, rng, effects);
 }
 
 /** RESPOND LINE_DONE after correct/missed: log the final result, then advance. */
@@ -321,11 +560,13 @@ function onRespondDone(
     attempts: 0,
     itemLogged: false,
     respondKind: null,
+    hintLevel: 0,
+    activeHint: null,
   };
   return advance(reset, rng, effects);
 }
 
-/** Move to the next item, the review round, or celebrate. */
+/** Move to the next item, workbook/game practice, the review round, or celebrate. */
 function advance(
   state: BrainState,
   rng: () => number,
@@ -338,24 +579,18 @@ function advance(
       effects.push({ type: "highlight", itemId: item.id });
       const model = playModel(item);
       if (model) effects.push(model);
-      return { state: { ...state, phase: "MODEL", itemIndex: nextMain }, effects };
-    }
-    if (state.reviewItemIds.length > 0) {
-      // Review round (§18.4): one more try for missed items before celebrate.
-      const first = reviewItem(state, 0);
-      if (!first) return celebrate(state, rng, effects);
-      const intro = pickedLine(state, "review-intro", rng);
-      const withIntro = intro ? intro.state : state;
-      if (intro) effects.push(intro.effect);
-      effects.push({ type: "highlight", itemId: first.id });
-      const model = playModel(first);
-      if (model) effects.push(model);
       return {
-        state: { ...withIntro, phase: "MODEL", inReview: true, reviewIndex: 0 },
+        state: { ...state, phase: "MODEL", stage: "MODEL", itemIndex: nextMain },
         effects,
       };
     }
-    return celebrate(state, rng, effects);
+    if (state.pedagogicalFlow && state.includePracticeStages && !state.workbookCompleted) {
+      return enterWorkbookPractice(state, rng, effects);
+    }
+    if (state.pedagogicalFlow && state.includePracticeStages && !state.gameCompleted) {
+      return enterGamePractice(state, rng, effects);
+    }
+    return enterReviewOrCelebrate(state, rng, effects);
   }
 
   const nextReview = state.reviewIndex + 1;
@@ -364,7 +599,10 @@ function advance(
   effects.push({ type: "highlight", itemId: item.id });
   const model = playModel(item);
   if (model) effects.push(model);
-  return { state: { ...state, phase: "MODEL", reviewIndex: nextReview }, effects };
+  return {
+    state: { ...state, phase: "MODEL", stage: "REVIEW", reviewIndex: nextReview },
+    effects,
+  };
 }
 
 function celebrate(
@@ -372,39 +610,184 @@ function celebrate(
   rng: () => number,
   effects: Effect[],
 ): { state: BrainState; effects: Effect[] } {
+  if (state.pedagogicalFlow) {
+    const stagePick = pickLessonStageLine(
+      state.lines,
+      {
+        role: "closing",
+        lesson: state.lesson,
+        fallbackText: `¡Muy bien! Completaste la Lección ${state.lesson}.`,
+      },
+      rng,
+    );
+    effects.push(deliveryEffect(stagePick.delivery));
+    effects.push({
+      type: "recordSessionEvent",
+      kind: "complete",
+      summary: `Cierre y guardado de progreso de la Lección ${state.lesson}`,
+    });
+    return {
+      state: {
+        ...state,
+        lines: stagePick.state,
+        phase: "CELEBRATE",
+        stage: "CELEBRATE",
+        hintLevel: 0,
+        activeHint: null,
+      },
+      effects,
+    };
+  }
   const picked = pickedLine(state, "closing", rng);
   const next = picked ? picked.state : state;
   if (picked) effects.push(picked.effect);
-  return { state: { ...next, phase: "CELEBRATE" }, effects };
+  return { state: { ...next, phase: "CELEBRATE", stage: "CELEBRATE" }, effects };
 }
 
-/** LINE_DONE dispatch by phase. */
+function startFirstItemModel(
+  state: BrainState,
+  rng: () => number,
+  effects: Effect[] = [],
+): { state: BrainState; effects: Effect[] } {
+  const item = currentTargetItem(state);
+  if (!item) {
+    if (state.pedagogicalFlow && state.includePracticeStages && !state.workbookCompleted) {
+      return enterWorkbookPractice(state, rng, effects);
+    }
+    return celebrate(state, rng, effects);
+  }
+  effects.push({ type: "highlight", itemId: item.id });
+  const model = playModel(item);
+  if (model) effects.push(model);
+  return {
+    state: { ...state, phase: "MODEL", stage: "MODEL", hintLevel: 0, activeHint: null },
+    effects,
+  };
+}
+
+/** LINE_DONE dispatch by phase and pedagogical stage. */
 function onLineDone(
   state: BrainState,
   rng: () => number,
 ): { state: BrainState; effects: Effect[] } {
   switch (state.phase) {
     case "GREET": {
+      if (state.pedagogicalFlow && state.stage === "WELCOME") {
+        // WELCOME → OBJECTIVE
+        const graph = lessonGraphFor(state.lesson);
+        const stagePick = pickLessonStageLine(
+          state.lines,
+          {
+            role: "lesson-objective",
+            lesson: state.lesson,
+            fallbackText: graph
+              ? `Objetivo de hoy: ${graph.title} (${graph.focus}).`
+              : `Objetivo de la Lección ${state.lesson}.`,
+          },
+          rng,
+        );
+        const effects: Effect[] = [
+          deliveryEffect(stagePick.delivery),
+          {
+            type: "recordSessionEvent",
+            kind: "objective",
+            summary: stagePick.delivery.text,
+          },
+        ];
+        return {
+          state: { ...state, lines: stagePick.state, phase: "GREET", stage: "OBJECTIVE" },
+          effects,
+        };
+      }
+      if (state.pedagogicalFlow && state.stage === "OBJECTIVE") {
+        // OBJECTIVE → FLIPCHART (present Flip Chart sheet & highlight illustration in Split)
+        const graph = lessonGraphFor(state.lesson);
+        const firstSheet = graph?.flipchartPages[0] ?? null;
+        if (firstSheet !== null) {
+          const stagePick = pickLessonStageLine(
+            state.lines,
+            {
+              role: "flipchart-intro",
+              lesson: state.lesson,
+              fallbackText: `Observemos juntos la lámina ${firstSheet} del rotafolio.`,
+            },
+            rng,
+          );
+          const effects: Effect[] = [
+            { type: "openFlipchart", sheetNumber: firstSheet, layout: "split" },
+            deliveryEffect(stagePick.delivery),
+            {
+              type: "recordSessionEvent",
+              kind: "flipchart",
+              summary: stagePick.delivery.text,
+              sheetNumber: firstSheet,
+            },
+          ];
+          return {
+            state: {
+              ...state,
+              lines: stagePick.state,
+              phase: "MODEL",
+              stage: "FLIPCHART",
+              activeFlipchartSheet: firstSheet,
+            },
+            effects,
+          };
+        }
+      }
       // GREET → MODEL: highlight the item, play its model line.
-      const item = currentTargetItem(state);
-      if (!item) return celebrate(state, rng, []);
-      const effects: Effect[] = [{ type: "highlight", itemId: item.id }];
-      const model = playModel(item);
-      if (model) effects.push(model);
-      return { state: { ...state, phase: "MODEL" }, effects };
+      return startFirstItemModel(state, rng);
     }
-    case "MODEL":
+    case "MODEL": {
+      if (state.pedagogicalFlow && state.stage === "FLIPCHART") {
+        // FLIPCHART → MODEL item 0 (return to Call mode so word card & pencil mark show cleanly)
+        return startFirstItemModel(state, rng, [{ type: "setLayout", layout: "call" }]);
+      }
+      if (
+        state.pedagogicalFlow &&
+        (state.stage === "WORKBOOK_PRACTICE" || state.stage === "GAME_PRACTICE")
+      ) {
+        // Practice intro line finished → wait in LISTEN for practice completion or voice command.
+        return {
+          state: { ...state, phase: "LISTEN", capturing: false, silenceNudges: 0 },
+          effects: [],
+        };
+      }
       // MODEL → LISTEN: mic stays off; the child taps to open it.
+      const item = activeItem(state);
+      const effects: Effect[] = [];
+      if (state.pedagogicalFlow && item) {
+        effects.push({
+          type: "recordSessionEvent",
+          kind: "question",
+          summary: `Pregunta para el estudiante: ¿puedes decir "${item.text}"?`,
+          itemId: item.id,
+          itemText: item.text,
+        });
+      }
       return {
-        state: { ...state, phase: "LISTEN", capturing: false, silenceNudges: 0 },
-        effects: [],
+        state: {
+          ...state,
+          phase: "LISTEN",
+          stage: state.inReview ? "REVIEW" : "QUESTION",
+          capturing: false,
+          silenceNudges: 0,
+        },
+        effects,
       };
+    }
     case "RESPOND":
       if (state.respondKind === "retry") {
         // After a retry response (response line + slow-model hint) the child
         // listens again for the same item — the attempt counter stays.
         return {
-          state: { ...state, phase: "LISTEN", capturing: false, respondKind: null },
+          state: {
+            ...state,
+            phase: "LISTEN",
+            stage: state.hintLevel > 0 ? "HINT_ESCALATION" : "QUESTION",
+            capturing: false,
+            respondKind: null,
+          },
           effects: [],
         };
       }
@@ -412,7 +795,13 @@ function onLineDone(
     case "CELEBRATE":
       // Closing line finished: the session is complete.
       return {
-        state: { ...state, phase: "ENDED", endedReason: "complete", capturing: false },
+        state: {
+          ...state,
+          phase: "ENDED",
+          stage: "ENDED",
+          endedReason: "complete",
+          capturing: false,
+        },
         effects: [],
       };
     default:
@@ -428,6 +817,42 @@ function isUnreliableHeard(ev: Extract<BrainEvent, { type: "HEARD" }>): boolean 
   return false;
 }
 
+function completeCurrentPractice(
+  state: BrainState,
+  rng: () => number,
+): { state: BrainState; effects: Effect[] } {
+  if (state.stage === "WORKBOOK_PRACTICE") {
+    const effects: Effect[] = [
+      {
+        type: "recordSessionEvent",
+        kind: "workbook",
+        summary: `Práctica de cuaderno completada (pág. ${state.activeWorkbookPage ?? ""})`,
+        printedPage: state.activeWorkbookPage ?? undefined,
+      },
+    ];
+    const nextBase: BrainState = { ...state, workbookCompleted: true, capturing: false };
+    if (nextBase.includePracticeStages && !nextBase.gameCompleted) {
+      return enterGamePractice(nextBase, rng, effects);
+    }
+    effects.push({ type: "setLayout", layout: "call" });
+    return enterReviewOrCelebrate(nextBase, rng, effects);
+  }
+  if (state.stage === "GAME_PRACTICE") {
+    const effects: Effect[] = [
+      {
+        type: "recordSessionEvent",
+        kind: "game",
+        summary: `Juego de refuerzo completado (${state.activeGameId ?? ""})`,
+        gameId: state.activeGameId ?? undefined,
+      },
+      { type: "setLayout", layout: "call" },
+    ];
+    const nextBase: BrainState = { ...state, gameCompleted: true, capturing: false };
+    return enterReviewOrCelebrate(nextBase, rng, effects);
+  }
+  return noChange(state);
+}
+
 /**
  * LISTEN + HEARD → MATCH, then the §5 "(auto)" rows resolve immediately in
  * the same reduce call: pass → RESPOND(correct); fail attempts<3 →
@@ -438,6 +863,23 @@ function onHeard(
   ev: Extract<BrainEvent, { type: "HEARD" }>,
   rng: () => number,
 ): { state: BrainState; effects: Effect[] } {
+  if (
+    state.pedagogicalFlow &&
+    (state.stage === "WORKBOOK_PRACTICE" || state.stage === "GAME_PRACTICE")
+  ) {
+    const norm = normalize(ev.transcript);
+    const broad = classifyBroadCommand(ev.transcript);
+    if (
+      broad === "NEXT" ||
+      norm === "listo" ||
+      norm === "termine" ||
+      norm === "ya termine" ||
+      norm === "continuar"
+    ) {
+      return completeCurrentPractice(state, rng);
+    }
+  }
+
   const item = activeItem(state);
   if (!item) return noChange(state);
 
@@ -471,7 +913,7 @@ function onHeard(
       return { state: { ...match, phase: "LISTEN" }, effects };
     }
     if (broad === "QUESTION") {
-      let match: BrainState = { ...state, phase: "MATCH", capturing: false };
+      const match: BrainState = { ...state, phase: "MATCH", capturing: false };
       const { state: nextState, effects } = buildCoachingResponse(match, "help", rng);
       return { state: { ...nextState, phase: "LISTEN" }, effects };
     }
@@ -485,7 +927,8 @@ function onHeard(
   const pass = !commandish && intent !== "OFF_SCRIPT" && (intent === "TARGET" || fused.pass);
 
   // Transient §5 "MATCH" phase — resolved below within this same event.
-  let match: BrainState = { ...state, phase: "MATCH", capturing: false };
+  const matchBase: BrainState = { ...state, phase: "MATCH", capturing: false };
+  let match = matchBase;
 
   if (pass) {
     const attempts = state.attempts + 1; // the successful attempt counts too
@@ -497,15 +940,28 @@ function onHeard(
     const praise = pickedLine(match, role, rng);
     match = praise ? praise.state : match;
     if (praise) effects.push(praise.effect);
+    if (state.pedagogicalFlow && attempts > 1) {
+      effects.push({
+        type: "recordSessionEvent",
+        kind: "correction",
+        summary: `Corrección lograda en "${item.text}" tras ${attempts} intentos`,
+        itemId: item.id,
+        itemText: item.text,
+        hintLevel: state.hintLevel === 0 ? undefined : state.hintLevel,
+      });
+    }
     return {
       state: {
         ...match,
         phase: "RESPOND",
+        stage: "ASSESS",
         respondKind: "correct",
         attempts,
         streak,
         missesInARow: 0,
         silenceNudges: 0,
+        hintLevel: 0,
+        activeHint: null,
       },
       effects,
     };
@@ -515,16 +971,54 @@ function onHeard(
     case "REPEAT":
     case "DONT_KNOW":
     case "HELP": {
-      // Not an attempt: acknowledge, then re-play the model.
+      // Not an attempt: acknowledge, escalate hint on HELP/DONT_KNOW, then re-play the model.
       const role: TutorLineRole =
         intent === "REPEAT" ? "repeat-ack" : intent === "DONT_KNOW" ? "dont-know" : "help";
       const effects: Effect[] = [];
       const ack = pickedLine(match, role, rng);
       match = ack ? ack.state : match;
       if (ack) effects.push(ack.effect);
+      let nextHintLevel = state.hintLevel;
+      let nextHint = state.activeHint;
+      if (intent === "HELP" || intent === "DONT_KNOW") {
+        const level = Math.min(3, Math.max(1, state.hintLevel + 1)) as 1 | 2 | 3;
+        const built = buildProgressiveHint(item, level, match.lines, rng);
+        match = { ...match, lines: built.state };
+        nextHintLevel = level;
+        nextHint = {
+          level: built.hint.level,
+          itemId: built.hint.itemId,
+          hintText: built.hint.hintText,
+          visualCue: built.hint.visualCue,
+          explanationText: built.hint.explanationText,
+        };
+        if (state.pedagogicalFlow) {
+          effects.push({
+            type: "showHint",
+            ...nextHint,
+          });
+          effects.push({
+            type: "recordSessionEvent",
+            kind: "hint",
+            summary: `Pista nivel ${level}: ${nextHint.hintText}`,
+            itemId: item.id,
+            itemText: item.text,
+            hintLevel: level,
+          });
+        }
+      }
       const model = playModel(item);
       if (model) effects.push(model);
-      return { state: { ...match, phase: "LISTEN" }, effects };
+      return {
+        state: {
+          ...match,
+          phase: "LISTEN",
+          stage: nextHintLevel > 0 ? "HINT_ESCALATION" : state.stage,
+          hintLevel: nextHintLevel,
+          activeHint: nextHint,
+        },
+        effects,
+      };
     }
     case "SILENCE": {
       // Silence nudge. The mic keeps listening; after 2 nudges it auto-offs
@@ -565,9 +1059,33 @@ function onHeard(
     default: {
       // CLOSE / OTHER_VOWEL / OTHER_WORD (or a fallback fail): counted.
       const attempts = state.attempts + 1;
+      const level = Math.min(3, Math.max(1, attempts)) as 1 | 2 | 3;
+      const builtHint = buildProgressiveHint(item, level, match.lines, rng);
+      const nextHint: BrainHint = {
+        level: builtHint.hint.level,
+        itemId: builtHint.hint.itemId,
+        hintText: builtHint.hint.hintText,
+        visualCue: builtHint.hint.visualCue,
+        explanationText: builtHint.hint.explanationText,
+      };
+      if (state.pedagogicalFlow) {
+        match = { ...match, lines: builtHint.state };
+      }
+
       if (attempts >= 3) {
         // fail attempts=3 → RESPOND(missed): model once more, log missed, advance.
         const effects: Effect[] = [];
+        if (state.pedagogicalFlow) {
+          effects.push({ type: "showHint", ...nextHint });
+          effects.push({
+            type: "recordSessionEvent",
+            kind: "hint",
+            summary: `Pista nivel 3 (modelado directo): ${nextHint.hintText}`,
+            itemId: item.id,
+            itemText: item.text,
+            hintLevel: 3,
+          });
+        }
         const model = playModel(item);
         if (model) effects.push(model);
         effects.push(progressEvent(state, item, "missed", 3));
@@ -575,18 +1093,21 @@ function onHeard(
           state: {
             ...match,
             phase: "RESPOND",
+            stage: "HINT_ESCALATION",
             respondKind: "missed",
             attempts: 3,
             itemLogged: true,
             streak: 0,
             missesInARow: state.missesInARow + 1,
             missedItemIds: [...state.missedItemIds, item.id],
+            hintLevel: 3,
+            activeHint: nextHint,
           },
           effects,
         };
       }
       // fail attempts<3 → RESPOND(retry): erase the wrong mark, intent-aware
-      // response line, then the slow-model replay hint (400 ms pause).
+      // response line, escalating 3-level hint, then the slow-model replay hint.
       const effects: Effect[] = [{ type: "markWrongErase" }];
       if (intent === "OTHER_VOWEL") {
         // "Esa es la …" for the vowel actually heard, then the target model.
@@ -600,16 +1121,30 @@ function onHeard(
         match = response ? response.state : match;
         if (response) effects.push(response.effect);
       }
+      if (state.pedagogicalFlow) {
+        effects.push({ type: "showHint", ...nextHint });
+        effects.push({
+          type: "recordSessionEvent",
+          kind: "hint",
+          summary: `Pista nivel ${level}: ${nextHint.hintText}`,
+          itemId: item.id,
+          itemText: item.text,
+          hintLevel: level,
+        });
+      }
       const model = playModel(item);
       if (model) effects.push(model);
       return {
         state: {
           ...match,
           phase: "RESPOND",
+          stage: "HINT_ESCALATION",
           respondKind: "retry",
           attempts,
           streak: 0,
           missesInARow: state.missesInARow + 1,
+          hintLevel: level,
+          activeHint: nextHint,
         },
         effects,
       };
@@ -637,7 +1172,7 @@ export function reduce(
     case "EXIT":
       // any | EXIT → ENDED: cancelGretelSpeech + stopMic.
       return {
-        state: { ...state, phase: "ENDED", endedReason: "exit", capturing: false },
+        state: { ...state, phase: "ENDED", stage: "ENDED", endedReason: "exit", capturing: false },
         effects: [{ type: "cancelSpeech" }, { type: "stopMic" }],
       };
     case "INTERRUPT":
@@ -649,7 +1184,7 @@ export function reduce(
     case "IDLE_TIMEOUT":
       // any | IDLE_TIMEOUT (15 min no tap) → ENDED: cancelSpeech + stopMic + flush log.
       return {
-        state: { ...state, phase: "ENDED", endedReason: "idle", capturing: false },
+        state: { ...state, phase: "ENDED", stage: "ENDED", endedReason: "idle", capturing: false },
         effects: [{ type: "cancelSpeech" }, { type: "stopMic" }, { type: "flushLog" }],
       };
     case "EARS_PROBLEM":
@@ -660,6 +1195,25 @@ export function reduce(
       };
     case "LINE_DONE":
       return onLineDone(state, rng);
+    case "OPEN_WORKBOOK": {
+      const effects: Effect[] = [];
+      const next = enterWorkbookPractice(state, rng, effects);
+      if (ev.printedPage !== undefined) {
+        return {
+          state: { ...next.state, activeWorkbookPage: ev.printedPage },
+          effects: next.effects.map((eff) =>
+            eff.type === "openWorkbook" ? { ...eff, printedPage: ev.printedPage! } : eff,
+          ),
+        };
+      }
+      return next;
+    }
+    case "COMPLETE_WORKBOOK":
+      return completeCurrentPractice({ ...state, stage: "WORKBOOK_PRACTICE" }, rng);
+    case "LAUNCH_GAME":
+      return enterGamePractice(state, rng, [], ev.gameId);
+    case "COMPLETE_GAME":
+      return completeCurrentPractice({ ...state, stage: "GAME_PRACTICE" }, rng);
     case "MIC_CANCEL":
       return { state: { ...state, capturing: false }, effects: [{ type: "stopMic" }] };
     case "MIC_TAP":
@@ -734,5 +1288,5 @@ export function buildListenGrammar(lesson: number): string[] {
   // Always present: off-grammar speech degrades to [unk] (tutor-ears-vosk).
   words.add("[unk]");
 
-  return [...words].sort();
+  return [...words].sort((a, b) => a.localeCompare(b));
 }

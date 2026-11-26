@@ -49,7 +49,14 @@ export const tutorLines = tutorLinesJson as TutorLinesManifest;
 export const TUTOR_VOICE_PROVIDER_NAME = "Tutor line bank";
 
 /** Trailing reuse note used on pending lines whose wording is copied verbatim from the repo. */
-const REUSE_NOTE = /\s*\(reuse: [A-Za-zÀ-ÿ_ -]+\)$/;
+const REUSE_NOTE_SUFFIX = /^\(reuse: [A-Za-zÀ-ÿ_ -]+\)$/;
+
+function stripReuseNote(text: string): string | null {
+  const idx = text.lastIndexOf("(reuse:");
+  if (idx === -1) return null;
+  if (!REUSE_NOTE_SUFFIX.test(text.slice(idx))) return null;
+  return text.slice(0, idx).trimEnd();
+}
 
 const lineByText = new Map<string, TutorLineEntry>();
 function registerText(text: string, entry: TutorLineEntry): void {
@@ -60,7 +67,8 @@ for (const entry of [...tutorLines.approved, ...tutorLines.pending]) {
   registerText(entry.text, entry);
   // Also resolve the clean spoken wording of reused-but-unrecorded lines so
   // callers can pass the plain repo wording (pending → silence either way).
-  if (REUSE_NOTE.test(entry.text)) registerText(entry.text.replace(REUSE_NOTE, ""), entry);
+  const stripped = stripReuseNote(entry.text);
+  if (stripped) registerText(stripped, entry);
 }
 
 /** Resolve a line by the exact text a caller would speak. */

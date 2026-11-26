@@ -7,6 +7,7 @@
  *   node scripts/tutor-intake/cli.mjs prove-approved [--no-report]
  *   node scripts/tutor-intake/cli.mjs ingest --batch <id> [--apply] [--authorized --approval "<ref>"] <files...>
  */
+import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DEFAULT_PRIVATE_VOICE_DIR } from "./constants.mjs";
@@ -30,6 +31,12 @@ function parseArgs(argv) {
     authorized: false,
     approval: "",
     writeReport: true,
+    segmentsPath: null,
+    expectedPath: null,
+    exportDir: null,
+    manifestWrite: true,
+    minSilenceDurationSec: 0.35,
+    silenceThresholdDb: -40,
   };
 
   for (let i = 0; i < rest.length; i++) {
@@ -42,6 +49,18 @@ function parseArgs(argv) {
       opts.privateDir = rest[++i];
     } else if (arg === "--approval" && rest[i + 1]) {
       opts.approval = rest[++i];
+    } else if (arg === "--segments" && rest[i + 1]) {
+      opts.segmentsPath = resolve(process.cwd(), rest[++i]);
+    } else if (arg === "--expected" && rest[i + 1]) {
+      opts.expectedPath = resolve(process.cwd(), rest[++i]);
+    } else if (arg === "--export-dir" && rest[i + 1]) {
+      opts.exportDir = resolve(process.cwd(), rest[++i]);
+    } else if (arg === "--min-silence" && rest[i + 1]) {
+      opts.minSilenceDurationSec = Number(rest[++i]);
+    } else if (arg === "--silence-db" && rest[i + 1]) {
+      opts.silenceThresholdDb = Number(rest[++i]);
+    } else if (arg === "--no-manifest-write") {
+      opts.manifestWrite = false;
     } else if (arg === "--apply") {
       opts.dryRun = false;
     } else if (arg === "--dry-run") {
@@ -95,16 +114,39 @@ async function main() {
       console.error("✗ ingest requires at least one media file (MP3, WAV, M4A, or video).");
       process.exit(1);
     }
+    let heardSegments = null;
+    let expectedLines = null;
+    if (opts.segmentsPath) {
+      const parsed = JSON.parse(readFileSync(opts.segmentsPath, "utf8"));
+      if (Array.isArray(parsed)) {
+        heardSegments = parsed;
+      } else {
+        heardSegments = parsed.heardSegments ?? null;
+        expectedLines = parsed.expectedLines ?? null;
+      }
+    }
+    if (opts.expectedPath) {
+      const parsed = JSON.parse(readFileSync(opts.expectedPath, "utf8"));
+      expectedLines = Array.isArray(parsed)
+        ? parsed
+        : (parsed.expectedLines ?? parsed.lines ?? null);
+    }
     const res = await runTutorIntake({
       repoRoot,
       inputFiles: opts.files,
       batchId: opts.batchId,
       date: opts.date,
       privateDir: opts.privateDir,
+      expectedLines,
+      heardSegments,
       dryRun: opts.dryRun,
       authorized: opts.authorized,
       approval: opts.approval,
       writeReport: opts.writeReport,
+      exportDir: opts.exportDir,
+      manifestWrite: opts.manifestWrite,
+      minSilenceDurationSec: opts.minSilenceDurationSec,
+      silenceThresholdDb: opts.silenceThresholdDb,
     });
     console.log(
       `✓ Intake ${opts.dryRun ? "(dry-run)" : "(applied)"} for batch ${opts.batchId}: ` +

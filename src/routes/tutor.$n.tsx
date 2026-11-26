@@ -26,14 +26,10 @@ import {
 } from "@/components/tutor/TutorFlipchartPresenter";
 import { TutorGretelPuppet } from "@/components/tutor/TutorGretelPuppet";
 import { TutorMicButton } from "@/components/tutor/TutorMicButton";
-import {
-  TutorPracticeHost,
-  type TutorPracticeTarget,
-} from "@/components/tutor/TutorPracticeHost";
+import { TutorPracticeHost, type TutorPracticeTarget } from "@/components/tutor/TutorPracticeHost";
 import { TutorReplay } from "@/components/tutor/TutorReplay";
 import { TutorTargetWord } from "@/components/tutor/TutorTargetWord";
 import { TutorUnavailable } from "@/components/tutor/TutorUnavailable";
-import { createSessionLog, type TutorSessionLog } from "@/lib/tutor-session-log";
 import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
 import { useGretelAnimation } from "@/components/gretel/useGretelAnimation";
 import { CATALOG } from "@/lib/lesson-catalog";
@@ -42,6 +38,7 @@ import {
   createBrainState,
   currentTargetItem,
   IDLE_TIMEOUT_MS,
+  recommendedEarsMode,
   reduce,
   type BrainEvent,
   type BrainState,
@@ -51,13 +48,47 @@ import {
 import { ChromeLocalEars } from "@/lib/tutor-ears-chrome-local";
 import { createTutorEars, type EarsLang, type EarsProblem, type TutorEars } from "@/lib/tutor-ears";
 import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted } from "@/lib/gretel-voice";
-import { modelLineIdForItem, SEQUENCE_PAUSE_MS, TUTOR_LINES } from "@/lib/tutor-line-picker";
-import { beginSession, noteMissedItem, recordStreak, reviewRoundSet } from "@/lib/tutor-memory";
-import { appendTutorProgress, flushTutorProgress, makeSessionId } from "@/lib/tutor-progress";
-import { ALL_CURRICULUM_LESSONS, lessonGraphFor } from "@/lib/tutor-content";
+import {
+  ALL_TUTOR_LINES,
+  TEXT_ONLY_FALLBACK_LABEL,
+  modelDeliveryForItem,
+  resolveLineDelivery,
+  SEQUENCE_PAUSE_MS,
+  type UtteranceChainStep,
+} from "@/lib/tutor-line-picker";
+import {
+  beginSession,
+  noteMissedItem,
+  recordConversationTurn,
+  recordStreak,
+  reviewRoundSet,
+} from "@/lib/tutor-memory";
+import {
+  appendTutorProgress,
+  flushTutorProgress,
+  makeSessionId,
+  readTutorProgressForLearner,
+} from "@/lib/tutor-progress";
+import { ALL_CURRICULUM_LESSONS, lessonGraphFor, type TutorItem } from "@/lib/tutor-content";
+import {
+  createSessionLog,
+  appendSessionEvent,
+  finalizeSessionLog,
+  generateTeacherSessionReport,
+  saveSessionLog,
+  type NewSessionEventInput,
+  type TutorSessionLog,
+} from "@/lib/tutor-session-log";
+import {
+  findVerifiedFlipchartRegion,
+  getTutorGamesForLesson,
+  resolveVerifiedFlipchartRegions,
+  type FlipchartChoreographyCue,
+} from "@/lib/tutor-tools";
 import {
   deriveSessionState,
   TutorSessionController,
+  type TutorLayoutMode,
 } from "@/lib/tutor-session";
 import {
   mountTutorVoice,
@@ -109,10 +140,21 @@ const EARS_LANG: EarsLang = "es-MX";
  */
 const SILENT_LINE_HOLD_MS = 1200;
 
-/** lineId → exact manifest text (tutor-voice speaks text, not ids). */
+/** lineId → exact manifest text across legacy + v2 24-lesson banks. */
 const lineTextById = new Map<string, string>(
-  TUTOR_LINES.map((entry) => [entry.lineId, entry.text]),
+  ALL_TUTOR_LINES.map((entry) => [entry.lineId, entry.text]),
 );
+
+function cleanDisplayCaption(text: string): string {
+  const withoutDraft = text.startsWith("[DRAFT")
+    ? text.replace(/^\[DRAFT[^\]]{0,120}\]\s*/, "")
+    : text;
+  const reuseIdx = withoutDraft.lastIndexOf("(reuse:");
+  if (reuseIdx >= 0 && withoutDraft.endsWith(")")) {
+    return withoutDraft.slice(0, reuseIdx).trimEnd();
+  }
+  return withoutDraft;
+}
 
 function sleep(ms: number, onRegisterCancel?: (cancel: () => void) => void): Promise<void> {
   return new Promise((resolve) => {
@@ -139,10 +181,7 @@ function TutorSessionScreen() {
   lessonRef.current = lesson;
 
   const lessonGraph = useMemo(() => lessonGraphFor(lesson), [lesson]);
-  const catalogEntry = useMemo(
-    () => CATALOG.find((candidate) => candidate.n === lesson),
-    [lesson],
-  );
+  const catalogEntry = useMemo(() => CATALOG.find((candidate) => candidate.n === lesson), [lesson]);
   const defaultFlipchartPage = lessonGraph?.flipchartPages[0] ?? 1;
   const defaultWorkbookPage = lessonGraph?.printedWorkbookPages.start ?? 1;
 
@@ -179,11 +218,14 @@ function TutorSessionScreen() {
   const [linePlaying, setLinePlaying] = useState(false);
   const [effectsRunning, setEffectsRunning] = useState(false);
   const [analyzing, setAnalyzing] = useState(false);
+  const [processingTurn, setProcessingTurn] = useState(false);
   const [playbackPosition, setPlaybackPosition] = useState<TutorPlaybackPosition | null>(null);
   const effectsInFlightRef = useRef(0);
   const silentHoldCancelRef = useRef<(() => void) | null>(null);
   const [silentLine, setSilentLine] = useState(false);
   const [viseme, setViseme] = useState("X");
+  const [highlightedRegionId, setHighlightedRegionId] = useState<string | null>(null);
+  const [flipchartCues, setFlipchartCues] = useState<FlipchartChoreographyCue[]>([]);
   const [mark, setMark] = useState<{ isCorrect: boolean; key: number; itemId: string } | null>(
     null,
   );
@@ -193,16 +235,26 @@ function TutorSessionScreen() {
     lesson,
   });
   const [consent, setConsent] = useState<TutorConsentState>(DEFAULT_TUTOR_CONSENT);
-  const sessionLog = useMemo<TutorSessionLog>(
+  const initialLog = useMemo<TutorSessionLog>(
     () =>
       createSessionLog({
         sessionId: `${search.code}-${search.slot}-l${lesson}`,
         learnerId: `${search.code}:${search.slot}`,
         lesson,
+        objective: lessonGraph?.focus ?? catalogEntry?.subtitle ?? `Lección ${lesson}`,
         curriculumVersion: lessonGraph?.schemaVersion ?? "cartilla-24-v1",
       }),
-    [search.code, search.slot, lesson, lessonGraph?.schemaVersion],
+    [
+      search.code,
+      search.slot,
+      lesson,
+      lessonGraph?.schemaVersion,
+      lessonGraph?.focus,
+      catalogEntry?.subtitle,
+    ],
   );
+  const [sessionLog, setSessionLog] = useState<TutorSessionLog>(initialLog);
+  const sessionLogRef = useRef<TutorSessionLog>(initialLog);
 
   const markDoneRef = useRef<(() => void) | null>(null);
   const earsRef = useRef<TutorEars | null>(null);
@@ -215,11 +267,120 @@ function TutorSessionScreen() {
   const visemeTimelinesRef = useRef(new Map<string, TutorViseme[]>());
   const visemeTimerRef = useRef<number | null>(null);
   const dispatchRef = useRef<(ev: BrainEvent) => void>(() => {});
+  const autoLayoutSwitchCountRef = useRef(0);
+  const userOverrodeLayoutRef = useRef(false);
 
   const puppet = useGretelAnimation();
   const micButtonRef = useRef<HTMLButtonElement>(null);
 
   const item = brain ? activeItemOf(brain) : null;
+
+  useEffect(() => {
+    sessionLogRef.current = initialLog;
+    setSessionLog(initialLog);
+  }, [initialLog]);
+
+  function appendLogEvent(rawInput: NewSessionEventInput, persist = true): void {
+    const next = appendSessionEvent(sessionLogRef.current, rawInput);
+    sessionLogRef.current = next;
+    setSessionLog(next);
+    if (persist) {
+      try {
+        saveSessionLog(next);
+      } catch {
+        /* localStorage best-effort */
+      }
+    }
+  }
+
+  function finalizeAndSaveLog(): TutorSessionLog {
+    const current = sessionLogRef.current;
+    if (current.endedAt) {
+      try {
+        saveSessionLog(current);
+      } catch {
+        /* localStorage best-effort */
+      }
+      return current;
+    }
+    const finalized = finalizeSessionLog(current);
+    sessionLogRef.current = finalized;
+    setSessionLog(finalized);
+    try {
+      saveSessionLog(finalized);
+    } catch {
+      /* localStorage best-effort */
+    }
+    return finalized;
+  }
+
+  function applyAutoLayout(mode: TutorLayoutMode, force = false): void {
+    const snap = controller.getSnapshot();
+    if (!force && userOverrodeLayoutRef.current) return;
+    if (snap.layoutMode === mode) return;
+    autoLayoutSwitchCountRef.current = snap.layoutSwitchCount + 1;
+    controller.setLayoutMode(mode);
+  }
+
+  useEffect(() => {
+    if (shellSnapshot.layoutSwitchCount > autoLayoutSwitchCountRef.current) {
+      userOverrodeLayoutRef.current = true;
+    }
+  }, [shellSnapshot.layoutSwitchCount]);
+
+  function syncFlipchartHighlight(preferredSheet: number, targetItem?: TutorItem | null): void {
+    const candidateSheets = [
+      preferredSheet,
+      ...(lessonGraph?.flipchartPages.filter((p) => p !== preferredSheet) ?? []),
+    ];
+    for (const sheetNum of candidateSheets) {
+      const region = targetItem
+        ? findVerifiedFlipchartRegion(sheetNum, {
+            word: targetItem.text,
+            letter: targetItem.kind === "vowel" ? targetItem.text : lessonGraph?.focus,
+          })
+        : (findVerifiedFlipchartRegion(sheetNum, { letter: lessonGraph?.focus }) ??
+          resolveVerifiedFlipchartRegions(sheetNum).find(
+            (r) => r.kind === "art" || r.kind === "scene" || r.kind === "letter",
+          ) ??
+          null);
+      if (region) {
+        controller.setFlipchartPage(region.sheetNumber);
+        setHighlightedRegionId(region.regionId);
+        setFlipchartCues([
+          {
+            cueId: `${region.regionId}@before`,
+            sheetNumber: region.sheetNumber,
+            regionId: region.regionId,
+            cueTiming: "before",
+            label: region.label,
+          },
+        ]);
+        return;
+      }
+    }
+    const fallbackRegion =
+      resolveVerifiedFlipchartRegions(preferredSheet).find(
+        (r) => r.kind === "art" || r.kind === "scene" || r.kind === "letter",
+      ) ?? null;
+    if (fallbackRegion) {
+      controller.setFlipchartPage(preferredSheet);
+      setHighlightedRegionId(fallbackRegion.regionId);
+      setFlipchartCues([
+        {
+          cueId: `${fallbackRegion.regionId}@before`,
+          sheetNumber: preferredSheet,
+          regionId: fallbackRegion.regionId,
+          cueTiming: "before",
+          label: fallbackRegion.label,
+        },
+      ]);
+    } else {
+      controller.setFlipchartPage(preferredSheet);
+      setHighlightedRegionId(null);
+      setFlipchartCues([]);
+    }
+  }
 
   // Keep practice target aligned when lesson changes
   useEffect(() => {
@@ -260,20 +421,46 @@ function TutorSessionScreen() {
     controller.endSpeaking();
   }
 
+  async function playTextFallback(
+    text: string,
+    lineId: string | null = null,
+    _label: string = TEXT_ONLY_FALLBACK_LABEL,
+  ): Promise<void> {
+    const cleanedCaption = cleanDisplayCaption(text);
+    setSpokenText(cleanedCaption);
+    setSilentLine(true);
+    controller.beginSpeaking(lineId ?? "text-fallback", cleanedCaption, true);
+    if (!isGretelVoiceMuted()) {
+      await sleep(SILENT_LINE_HOLD_MS, (cancel) => {
+        silentHoldCancelRef.current = cancel;
+      });
+      silentHoldCancelRef.current = null;
+    }
+    stopVisemePlayer();
+  }
+
   async function playLine(lineId: string): Promise<void> {
-    const text = lineTextById.get(lineId);
-    if (!text) {
+    const delivery = resolveLineDelivery(lineId);
+    const rawText = delivery?.text ?? lineTextById.get(lineId);
+    if (!rawText) {
       setSilentLine(true);
       return;
     }
+    const cleanedCaption = cleanDisplayCaption(rawText);
+    if (delivery && !delivery.isSpeech) {
+      await playTextFallback(
+        cleanedCaption,
+        lineId,
+        delivery.fallbackLabel ?? TEXT_ONLY_FALLBACK_LABEL,
+      );
+      return;
+    }
+
     setSilentLine(false);
-    const cleanedCaption = text
-      .replace(/\[DRAFT[^\]]*\]\s*/g, "")
-      .replace(/\s*\(reuse:.*\)$/, "");
     setSpokenText(cleanedCaption);
     controller.beginSpeaking(lineId, cleanedCaption, false);
 
-    const result = await speakTutorLine(text, {
+    const result = await speakTutorLine(rawText, {
       onStart: () => {
         setLinePlaying(true);
       },
@@ -291,6 +478,18 @@ function TutorSessionScreen() {
     }
   }
 
+  async function playChain(steps: readonly UtteranceChainStep[]): Promise<void> {
+    for (let i = 0; i < steps.length; i += 1) {
+      if (i > 0) await sleep(SEQUENCE_PAUSE_MS);
+      const step = steps[i];
+      if (step.lineId) {
+        await playLine(step.lineId);
+      } else {
+        await playTextFallback(step.text, null, step.fallbackLabel ?? TEXT_ONLY_FALLBACK_LABEL);
+      }
+    }
+  }
+
   // ---------------------------------------------------------------------
   // Progress + memory (on-device only)
   // ---------------------------------------------------------------------
@@ -305,6 +504,27 @@ function TutorSessionScreen() {
         result: evt.result,
         attempts: evt.attempts,
         created_at: new Date().toISOString(),
+      });
+      const target = brainRef.current?.items.find((it) => it.id === evt.itemId);
+      recordConversationTurn(undefined, evt.sessionId, {
+        lesson: Number(evt.lessonId) || lessonRef.current,
+        itemId: evt.itemId,
+        outcome: evt.result,
+        hintUsed: (brainRef.current?.hintLevel ?? 0) > 0,
+        attempts: evt.attempts,
+      });
+      appendLogEvent({
+        kind: "outcome",
+        summary:
+          evt.result === "correct"
+            ? `Logró "${target?.text ?? evt.itemId}" en el primer intento`
+            : evt.result === "correct_after_retry"
+              ? `Logró "${target?.text ?? evt.itemId}" tras reintento (${evt.attempts} intentos)`
+              : `Requiere refuerzo en "${target?.text ?? evt.itemId}" (${evt.attempts} intentos)`,
+        itemId: evt.itemId,
+        itemText: target?.text,
+        outcome: evt.result,
+        attemptNumber: evt.attempts,
       });
     } catch {
       /* logging never breaks the session */
@@ -358,7 +578,12 @@ function TutorSessionScreen() {
   async function handleEffects(state: BrainState, effects: Effect[], epoch: number): Promise<void> {
     const alive = () => epoch === epochRef.current;
     const hasBlockingEffects = effects.some(
-      (e) => e.type === "playLine" || e.type === "markCorrect" || e.type === "markWrongErase",
+      (e) =>
+        e.type === "playLine" ||
+        e.type === "showTextFallback" ||
+        e.type === "presentChain" ||
+        e.type === "markCorrect" ||
+        e.type === "markWrongErase",
     );
     if (hasBlockingEffects) {
       effectsInFlightRef.current += 1;
@@ -380,10 +605,193 @@ function TutorSessionScreen() {
             linePlaybacks.push(playback);
             break;
           }
-          case "highlight":
+          case "showTextFallback": {
+            const playback =
+              linePlaybacks.length > 0
+                ? linePlaybacks[linePlaybacks.length - 1]
+                    .then(() => sleep(SEQUENCE_PAUSE_MS))
+                    .then(() =>
+                      alive()
+                        ? playTextFallback(effect.text, effect.lineId, effect.label)
+                        : undefined,
+                    )
+                : playTextFallback(effect.text, effect.lineId, effect.label);
+            linePlaybacks.push(playback);
             break;
+          }
+          case "presentChain": {
+            const playback =
+              linePlaybacks.length > 0
+                ? linePlaybacks[linePlaybacks.length - 1]
+                    .then(() => sleep(SEQUENCE_PAUSE_MS))
+                    .then(() => (alive() ? playChain(effect.steps) : undefined))
+                : playChain(effect.steps);
+            linePlaybacks.push(playback);
+            break;
+          }
+          case "highlight": {
+            const targetItem = state.items.find((it) => it.id === effect.itemId) ?? null;
+            const sheet =
+              state.activeFlipchartSheet ??
+              controller.getSnapshot().activeFlipchartPage ??
+              defaultFlipchartPage;
+            syncFlipchartHighlight(sheet, targetItem);
+            break;
+          }
+          case "openFlipchart": {
+            syncFlipchartHighlight(effect.sheetNumber, activeItemOf(state));
+            applyAutoLayout(effect.layout);
+            const pageNode = lessonGraph?.pages.find((p) => p.pdfSheet !== null) ?? null;
+            appendLogEvent({
+              kind: "sheet_opened",
+              summary: `Rotafolio · Lámina ${effect.sheetNumber} abierta`,
+              printedPage: pageNode?.printedPage ?? defaultWorkbookPage,
+              pdfSheet: effect.sheetNumber,
+              sheetSource: "flipchart",
+            });
+            break;
+          }
+          case "setLayout":
+            applyAutoLayout(effect.layout, state.stage === "CELEBRATE" || state.stage === "REVIEW");
+            break;
+          case "openWorkbook": {
+            controller.setWorkbookPage(effect.printedPage);
+            setPracticeTarget({ kind: "workbook", printedPage: effect.printedPage, lesson });
+            applyAutoLayout("practice", true);
+            const pageNode = lessonGraph?.pages.find((p) => p.printedPage === effect.printedPage);
+            appendLogEvent({
+              kind: "sheet_opened",
+              summary: `Cuaderno · Página impresa ${effect.printedPage} abierta`,
+              printedPage: effect.printedPage,
+              pdfSheet: pageNode?.pdfSheet ?? null,
+              sheetSource: "workbook",
+              activityId: `workbook-p${effect.printedPage}`,
+            });
+            appendLogEvent({
+              kind: "activity_started",
+              summary: `Actividad de cuaderno (pág. ${effect.printedPage})`,
+              activityId: `workbook-p${effect.printedPage}`,
+              printedPage: effect.printedPage,
+              sheetSource: "workbook",
+            });
+            break;
+          }
+          case "launchGame": {
+            const available = getTutorGamesForLesson(lesson);
+            const resolvedGameId =
+              available.find((g) => g.id === effect.gameId)?.id ??
+              effect.gameId ??
+              available[0]?.id ??
+              "vocal-a";
+            controller.setGameId(resolvedGameId);
+            setPracticeTarget({ kind: "game", gameId: resolvedGameId, lesson });
+            applyAutoLayout("practice", true);
+            appendLogEvent({
+              kind: "activity_started",
+              summary: `Juego de refuerzo iniciado: ${resolvedGameId}`,
+              activityId: resolvedGameId,
+            });
+            break;
+          }
+          case "showHint": {
+            const targetItem = state.items.find((it) => it.id === effect.itemId);
+            if (sessionIdRef.current) {
+              recordConversationTurn(undefined, sessionIdRef.current, {
+                lesson: state.lesson,
+                itemId: effect.itemId,
+                outcome: "hint_given",
+                hintUsed: true,
+                attempts: state.attempts,
+              });
+            }
+            appendLogEvent({
+              kind: "hint",
+              summary: `Pista nivel ${effect.level}: ${effect.hintText}`,
+              itemId: effect.itemId,
+              itemText: targetItem?.text,
+              hintKind: `level-${effect.level}`,
+              keyMomentTag: "hint",
+            });
+            break;
+          }
+          case "recordSessionEvent": {
+            if (effect.kind === "objective") {
+              appendLogEvent({
+                kind: "presentation_action",
+                summary: `Objetivo: ${effect.summary}`,
+                presentationAction: "state_objective",
+              });
+            } else if (effect.kind === "flipchart") {
+              appendLogEvent({
+                kind: "presentation_action",
+                summary: effect.summary,
+                presentationAction: "present_flipchart",
+                pdfSheet: effect.sheetNumber ?? null,
+                sheetSource: "flipchart",
+              });
+            } else if (effect.kind === "question") {
+              appendLogEvent({
+                kind: "presentation_action",
+                summary: effect.summary,
+                presentationAction: "ask_question",
+                itemId: effect.itemId,
+                itemText: effect.itemText,
+              });
+            } else if (effect.kind === "correction") {
+              appendLogEvent({
+                kind: "correction",
+                summary: effect.summary,
+                itemId: effect.itemId,
+                itemText: effect.itemText,
+                correctionDetail: effect.summary,
+                keyMomentTag: "correction",
+              });
+            } else if (effect.kind === "workbook" && effect.summary.includes("completada")) {
+              appendLogEvent({
+                kind: "activity_completed",
+                summary: effect.summary,
+                activityId: effect.printedPage ? `workbook-p${effect.printedPage}` : "workbook",
+                printedPage: effect.printedPage,
+                sheetSource: "workbook",
+              });
+            } else if (effect.kind === "game" && effect.summary.includes("completado")) {
+              appendLogEvent({
+                kind: "activity_completed",
+                summary: effect.summary,
+                activityId: effect.gameId ?? "game",
+              });
+            } else if (effect.kind === "review") {
+              appendLogEvent({
+                kind: "key_moment",
+                summary: effect.summary,
+                itemId: effect.itemId,
+                itemText: effect.itemText,
+                keyMomentTag: "milestone",
+              });
+            } else if (effect.kind === "complete") {
+              appendLogEvent({
+                kind: "progress_change",
+                summary: effect.summary,
+                progressFrom: "in_progress",
+                progressTo: "completed",
+              });
+            }
+            break;
+          }
           case "markCorrect":
           case "markWrongErase":
+            if (effect.type === "markWrongErase") {
+              const answered = activeItemOf(state);
+              appendLogEvent({
+                kind: "attempt",
+                summary: `Intento ${state.attempts} en "${answered?.text ?? ""}" con error`,
+                itemId: answered?.id,
+                itemText: answered?.text,
+                attemptNumber: state.attempts,
+                outcome: "missed",
+                keyMomentTag: "mistake",
+              });
+            }
             markWaiters.push(runMark(effect.type === "markCorrect", state));
             break;
           case "logProgress":
@@ -401,10 +809,12 @@ function TutorSessionScreen() {
             break;
           case "flushLog":
             flushTutorProgress();
+            finalizeAndSaveLog();
             break;
         }
       }
 
+      setProcessingTurn(false);
       await Promise.all([...linePlaybacks, ...markWaiters]);
       if (!alive()) return;
 
@@ -415,6 +825,7 @@ function TutorSessionScreen() {
         if (after.endedReason === "complete" || after.endedReason === "idle") {
           writeMemory(after);
           flushTutorProgress();
+          finalizeAndSaveLog();
         }
         return;
       }
@@ -431,6 +842,7 @@ function TutorSessionScreen() {
 
       maybeListen();
     } finally {
+      setProcessingTurn(false);
       if (hasBlockingEffects) {
         effectsInFlightRef.current = Math.max(0, effectsInFlightRef.current - 1);
         if (epoch === epochRef.current && effectsInFlightRef.current === 0) {
@@ -502,15 +914,24 @@ function TutorSessionScreen() {
         if (outcome.transcript.trim()) {
           controller.appendTranscript({ speaker: "student", text: outcome.transcript.trim() });
         }
-        dispatch({ type: "HEARD", transcript: outcome.transcript, alternatives });
+        setAnalyzing(false);
+        setProcessingTurn(true);
+        dispatch({
+          type: "HEARD",
+          transcript: outcome.transcript,
+          alternatives,
+          mode: recommendedEarsMode(state),
+        });
       } else if (outcome.problem === "no-speech") {
+        setAnalyzing(false);
         dispatch({ type: "HEARD", transcript: "", alternatives: [] });
       } else {
+        setAnalyzing(false);
         dispatch({ type: "EARS_PROBLEM", problem: outcome.problem });
       }
-      setAnalyzing(false);
     } catch {
       setAnalyzing(false);
+      setProcessingTurn(false);
       if (epoch === epochRef.current) dispatch({ type: "EARS_PROBLEM", problem: "failed" });
     } finally {
       if (epoch === epochRef.current) {
@@ -551,6 +972,7 @@ function TutorSessionScreen() {
     clearIdleTimer();
     flushTutorProgress();
     writeMemory(brainRef.current);
+    finalizeAndSaveLog();
   }
 
   // Register controller callbacks so shell mute/interrupt/end drive real runtime
@@ -658,12 +1080,36 @@ function TutorSessionScreen() {
 
       const memory = beginSession(undefined, sessionId, lessonRef.current);
       prevMissedRef.current = memory.previousMissedItemIds;
+      const priorEvents = readTutorProgressForLearner(sessionId).filter(
+        (ev) => ev.lesson_id === String(lessonRef.current),
+      );
+
+      const startedLog = createSessionLog({
+        sessionId: `${sessionId}-l${lessonRef.current}-${Date.now().toString(36)}`,
+        learnerId: `${search.code}:${search.slot}`,
+        lesson: lessonRef.current,
+        objective: lessonGraph?.focus ?? catalogEntry?.subtitle ?? `Lección ${lessonRef.current}`,
+        curriculumVersion: lessonGraph?.schemaVersion ?? "cartilla-24-v1",
+      });
+      sessionLogRef.current = startedLog;
+      setSessionLog(startedLog);
+      if (memory.returning || priorEvents.length > 0) {
+        appendLogEvent({
+          kind: "progress_change",
+          summary: `Progreso cargado: ${priorEvents.length} evento(s) previos${memory.returning ? " (estudiante recurrente)" : ""}`,
+          progressFrom: "previous_session",
+          progressTo: "resumed",
+        });
+      }
 
       const initial = createBrainState({
         lesson: lessonRef.current,
         sessionId,
         returning: memory.returning,
         reviewItemIds: memory.previousMissedItemIds,
+        priorCompletedCount: priorEvents.length,
+        pedagogicalFlow: true,
+        includePracticeStages: true,
       });
       brainRef.current = initial;
       setBrain(initial);
@@ -710,6 +1156,8 @@ function TutorSessionScreen() {
   const simulated = !import.meta.env.PROD && import.meta.env.VITE_TUTOR_EARS === "stub";
   const capturing = simulated ? Boolean(brain?.capturing) : actuallyCapturing;
 
+  const teacherReport = useMemo(() => generateTeacherSessionReport(sessionLog), [sessionLog]);
+
   useEffect(() => {
     const presenting =
       shellSnapshot.layoutMode === "split" || shellSnapshot.layoutMode === "flipchart-pip";
@@ -718,8 +1166,9 @@ function TutorSessionScreen() {
       brainPhase: brain?.phase ?? null,
       micCapturing: capturing,
       linePlaying,
-      presenting: presenting && (linePlaying || brain?.phase === "MODEL"),
-      thinking: effectsRunning && !linePlaying && !analyzing,
+      presenting:
+        presenting && (linePlaying || brain?.phase === "MODEL" || brain?.stage === "FLIPCHART"),
+      thinking: processingTurn,
       analyzing,
       recovering: unavailableProblem !== null,
       ended: brain?.phase === "ENDED",
@@ -730,7 +1179,7 @@ function TutorSessionScreen() {
     brain,
     capturing,
     linePlaying,
-    effectsRunning,
+    processingTurn,
     analyzing,
     unavailableProblem,
     shellSnapshot.layoutMode,
@@ -765,6 +1214,7 @@ function TutorSessionScreen() {
         data-tutor-ended=""
         data-ended-reason={brain.endedReason ?? undefined}
         className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#f6efe2] px-6 text-center text-[#2a211b]"
+        style={{ paddingTop: "2rem", paddingBottom: "2rem" }}
       >
         <Star className="h-16 w-16 text-[#b88228]" aria-hidden="true" />
         {brain.endedReason === "idle" ? (
@@ -772,13 +1222,96 @@ function TutorSessionScreen() {
         ) : (
           <h1 className="text-4xl font-black">¡Muy bien!</h1>
         )}
+        <p className="text-sm font-bold" style={{ color: "#635145" }}>
+          Lección {lesson} · {sessionLog.events.length} eventos registrados localmente ·{" "}
+          {sessionLog.activities.length} actividad(es)
+        </p>
+
         <Link
           to="/tutor"
-          className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[#5c3d28]/20 bg-[#fffaf0] px-6 py-3 text-lg font-black text-[#2a211b] shadow-[0_6px_18px_rgba(42,33,27,0.1)]"
+          className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[#5c3d28]/20 bg-[#fffaf0] px-6 py-3 text-lg font-black text-[#2a211b]"
+          style={{ boxShadow: "0 6px 18px rgba(42, 33, 27, 0.1)" }}
         >
           <ArrowLeft className="h-5 w-5" aria-hidden="true" />
           Volver a las lecciones
         </Link>
+
+        <section
+          className="mt-4 w-full text-left"
+          style={{ maxWidth: "56rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}
+          aria-label="Resumen estructurado y reporte docente"
+        >
+          <TutorReplay session={sessionLog} />
+
+          <div
+            data-tutor-teacher-report-ready=""
+            className="bg-white p-6"
+            style={{
+              borderRadius: "1.5rem",
+              border: "2px solid #e8dcc0",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+            }}
+          >
+            <div
+              className="flex flex-wrap items-center justify-between gap-2 pb-3"
+              style={{ borderBottom: "1px solid #e7e5e4" }}
+            >
+              <div>
+                <h2 className="text-lg font-black" style={{ color: "#292524" }}>
+                  Reporte docente preparado (8 secciones)
+                </h2>
+                <p className="text-xs font-semibold" style={{ color: "#78716c" }}>
+                  {teacherReport.deviceNotice}
+                </p>
+              </div>
+              <span
+                className="rounded-full px-3 py-1 text-xs font-black"
+                style={{ backgroundColor: "#d1fae5", color: "#065f46" }}
+              >
+                Listo en dispositivo
+              </span>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gap: "0.75rem",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+              }}
+            >
+              {teacherReport.sections.map((section) => (
+                <article
+                  key={section.title}
+                  data-report-section={section.title}
+                  data-report-category={section.category}
+                  className="rounded-2xl p-4"
+                  style={{ border: "1px solid #e7e5e4", backgroundColor: "#fffaf1" }}
+                >
+                  <h3 className="text-sm font-black" style={{ color: "#292524" }}>
+                    {section.title}
+                  </h3>
+                  <ul
+                    className="text-xs font-medium"
+                    style={{
+                      marginTop: "0.375rem",
+                      paddingLeft: "1rem",
+                      listStyleType: "disc",
+                      color: "#44403c",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "0.25rem",
+                    }}
+                  >
+                    {section.lines.map((line, idx) => (
+                      <li key={idx}>{line}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
     );
   }
@@ -791,20 +1324,23 @@ function TutorSessionScreen() {
     effectsRunning;
 
   const replayDisabled =
-    !item ||
-    brain?.phase !== "LISTEN" ||
-    capturing ||
-    replaying ||
-    linePlaying ||
-    effectsRunning;
+    !item || brain?.phase !== "LISTEN" || capturing || replaying || linePlaying || effectsRunning;
 
   const handleReplayLast = async () => {
     if (!item) return;
     resetIdleTimer();
     const epoch = epochRef.current;
     setReplaying(true);
-    const lineId = modelLineIdForItem(item);
-    if (lineId) await playLine(lineId);
+    const delivery = modelDeliveryForItem(item);
+    if (delivery.lineId) {
+      await playLine(delivery.lineId);
+    } else {
+      await playTextFallback(
+        delivery.text,
+        null,
+        delivery.fallbackLabel ?? TEXT_ONLY_FALLBACK_LABEL,
+      );
+    }
     if (epoch === epochRef.current) setReplaying(false);
   };
 
@@ -838,6 +1374,7 @@ function TutorSessionScreen() {
       card={
         <div
           data-tutor-word-card=""
+          data-pedagogical-stage={brain?.stage ?? "WELCOME"}
           className="tutor-word-card w-full max-w-md"
         >
           <div className="flex flex-col items-center gap-4">
@@ -859,7 +1396,7 @@ function TutorSessionScreen() {
                 aria-label="Sin audio en esta línea"
               >
                 <VolumeX className="h-5 w-5" aria-hidden="true" />
-                <span>Audio pendiente</span>
+                <span>{TEXT_ONLY_FALLBACK_LABEL}</span>
               </p>
             ) : null}
 
@@ -867,9 +1404,46 @@ function TutorSessionScreen() {
               {spokenText}
             </p>
 
+            {brain?.phase === "LISTEN" &&
+            item &&
+            (brain.stage === "QUESTION" || brain.stage === "REVIEW") ? (
+              <p
+                data-tutor-question-prompt=""
+                className="text-xs font-bold"
+                style={{ color: "#1e4b82" }}
+              >
+                {item.kind === "sentence"
+                  ? "¿Puedes leer esta oración en voz alta?"
+                  : `¿Puedes decir «${item.text}»?`}
+              </p>
+            ) : null}
+
+            {brain?.activeHint ? (
+              <div
+                data-tutor-hint-card=""
+                data-tutor-hint-level={brain.activeHint.level}
+                className="w-full rounded-2xl px-4 py-2 text-left text-xs"
+                style={{
+                  border: "1px solid rgba(184, 130, 40, 0.35)",
+                  backgroundColor: "#fffaf0",
+                  color: "#2a211b",
+                }}
+                role="note"
+              >
+                <strong className="block font-extrabold" style={{ color: "#9a3412" }}>
+                  Pista nivel {brain.activeHint.level} · {brain.activeHint.visualCue}
+                </strong>
+                <p className="mt-1 m-0 font-semibold">{brain.activeHint.hintText}</p>
+                <p className="mt-1 m-0" style={{ color: "#635145" }}>
+                  {brain.activeHint.explanationText}
+                </p>
+              </div>
+            ) : null}
+
             <button
               type="button"
-              className="tutor-replay border border-[#5c3d28]/20 bg-[#f6efe2] text-[#2a211b] hover:bg-[#efe5d3] disabled:opacity-45"
+              className="tutor-replay border border-[#5c3d28]/20 bg-[#f6efe2] text-[#2a211b] hover:bg-[#efe5d3]"
+              style={{ opacity: replayDisabled ? 0.45 : 1 }}
               disabled={replayDisabled}
               onClick={() => void handleReplayLast()}
             >
@@ -916,25 +1490,101 @@ function TutorSessionScreen() {
         <TutorFlipchartPresenter
           sheetNumber={activeSheet}
           lesson={lesson}
+          cues={flipchartCues}
+          highlightedRegionId={highlightedRegionId}
           playbackPosition={playbackPosition}
           isSpeaking={linePlaying}
-          onSheetChange={(sheet) => controller.setFlipchartPage(sheet)}
+          onSheetChange={(sheet) => {
+            controller.setFlipchartPage(sheet);
+            syncFlipchartHighlight(sheet, item);
+          }}
         />
       }
       practiceSlot={
-        <TutorPracticeHost
-          target={practiceTarget}
-          onWorkbookPageChange={(printedPage) => {
-            controller.setWorkbookPage(printedPage);
-            setPracticeTarget({ kind: "workbook", printedPage, lesson });
-          }}
-          onGameChange={(gameId) => {
-            controller.setGameId(gameId);
-            setPracticeTarget({ kind: "game", gameId, lesson });
-          }}
-          onRequestHint={() => void handleReplayLast()}
-          onExitPractice={() => controller.setLayoutMode("call")}
-        />
+        <div className="flex h-full min-h-0 flex-col gap-3">
+          {brain?.stage === "WORKBOOK_PRACTICE" || brain?.stage === "GAME_PRACTICE" ? (
+            <div
+              data-tutor-practice-banner=""
+              data-pedagogical-stage={brain.stage}
+              className="flex flex-wrap items-center justify-between gap-2 rounded-2xl px-4 py-2 text-sm"
+              style={{
+                border: "1px solid rgba(184, 130, 40, 0.3)",
+                backgroundColor: "#fffaf0",
+                color: "#2a211b",
+              }}
+            >
+              <div className="min-w-0">
+                <strong className="font-extrabold">
+                  {brain.stage === "WORKBOOK_PRACTICE"
+                    ? "Práctica en el cuaderno"
+                    : "Juego de refuerzo"}
+                </strong>
+                {spokenText ? (
+                  <p className="m-0 text-xs font-semibold" style={{ color: "#635145" }}>
+                    {spokenText}
+                  </p>
+                ) : null}
+              </div>
+              <div className="flex items-center gap-2">
+                {brain.stage === "WORKBOOK_PRACTICE" ? (
+                  <button
+                    type="button"
+                    data-tutor-complete-workbook=""
+                    onClick={() => {
+                      resetIdleTimer();
+                      dispatch({ type: "COMPLETE_WORKBOOK" });
+                    }}
+                    className="rounded-xl px-4 py-2 text-xs font-extrabold text-white"
+                    style={{ backgroundColor: "#1e4b82" }}
+                  >
+                    Continuar al juego
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    data-tutor-complete-game=""
+                    onClick={() => {
+                      resetIdleTimer();
+                      dispatch({ type: "COMPLETE_GAME" });
+                    }}
+                    className="rounded-xl px-4 py-2 text-xs font-extrabold text-white"
+                    style={{ backgroundColor: "#0f766e" }}
+                  >
+                    Terminar práctica y revisar
+                  </button>
+                )}
+              </div>
+            </div>
+          ) : null}
+          <div className="min-h-0 flex-1">
+            <TutorPracticeHost
+              target={practiceTarget}
+              onWorkbookPageChange={(printedPage) => {
+                controller.setWorkbookPage(printedPage);
+                setPracticeTarget({ kind: "workbook", printedPage, lesson });
+                const pageNode = lessonGraph?.pages.find((p) => p.printedPage === printedPage);
+                appendLogEvent({
+                  kind: "sheet_opened",
+                  summary: `Cuaderno · Página impresa ${printedPage}`,
+                  printedPage,
+                  pdfSheet: pageNode?.pdfSheet ?? null,
+                  sheetSource: "workbook",
+                });
+              }}
+              onGameChange={(gameId) => {
+                controller.setGameId(gameId);
+                setPracticeTarget({ kind: "game", gameId, lesson });
+                appendLogEvent({
+                  kind: "activity_started",
+                  summary: `Juego de refuerzo: ${gameId}`,
+                  activityId: gameId,
+                });
+              }}
+              onRequestHint={() => void handleReplayLast()}
+              onExitPractice={() => controller.setLayoutMode("call")}
+            />
+          </div>
+        </div>
       }
       cameraSlot={
         <TutorCameraPanel
@@ -966,7 +1616,13 @@ function TutorSessionScreen() {
       onTextSubmit={(text) => {
         resetIdleTimer();
         if (brainRef.current?.phase === "LISTEN") {
-          dispatch({ type: "HEARD", transcript: text, alternatives: [] });
+          setProcessingTurn(true);
+          dispatch({
+            type: "HEARD",
+            transcript: text,
+            alternatives: [],
+            mode: recommendedEarsMode(brainRef.current),
+          });
         }
       }}
       onEndCall={() => {

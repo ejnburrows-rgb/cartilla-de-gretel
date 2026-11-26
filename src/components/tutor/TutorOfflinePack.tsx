@@ -56,7 +56,7 @@ export function TutorOfflinePack() {
 
   useEffect(() => {
     let alive = true;
-    Promise.all([
+    void Promise.all([
       getTutorPackStatus().catch(() => ({ state: "idle" as const })),
       listTutorPackSlots().catch(() => []),
       getTutorStorageSummary().catch(() => null),

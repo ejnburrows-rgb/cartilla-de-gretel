@@ -220,7 +220,7 @@ export function tutorPackFileList(): string[] {
     if (entry.src) files.add(entry.src);
     if (entry.visemes) files.add(entry.visemes);
   }
-  return [...files].sort();
+  return [...files].sort((a, b) => a.localeCompare(b));
 }
 
 export function lessonPackFileList(lesson: number): string[] {
@@ -234,7 +234,7 @@ export function lessonPackFileList(lesson: number): string[] {
     if (entry.src && !isQuarantinedUrl(entry.src)) files.add(entry.src);
     if (entry.visemes && !isQuarantinedUrl(entry.visemes)) files.add(entry.visemes);
   }
-  return [...files].sort();
+  return [...files].sort((a, b) => a.localeCompare(b));
 }
 
 function localPath(value: string): boolean {
@@ -402,7 +402,7 @@ async function stageVerifiedAssets(
   const cache = await caches.open(cacheName);
   const resources: TutorPackAsset[] = [];
   let receivedBytes = 0;
-  const sorted = [...new Set(urls)].sort();
+  const sorted = [...new Set(urls)].sort((a, b) => a.localeCompare(b));
   try {
     for (const url of sorted) {
       if (isQuarantinedUrl(url)) {

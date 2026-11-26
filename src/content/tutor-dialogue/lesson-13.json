@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l13-01-greeting-first",
-      "text": "Hoy abrimos la lección trece para descubrir el sonido nasal de la ene.",
+      "text": "Hoy abrimos juntos una nueva lección para descubrir el sonido nasal de la letra ene.",
       "batch": "B019",
       "seq": 1,
       "file": "B019-001.mp3",
@@ -31,15 +31,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -69,14 +88,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-02-lesson-focus",
-      "text": "Siente cómo vibra suavecito tu nariz al decir nido, mano y luna.",
+      "id": "v2-l13-02-greeting-return",
+      "text": "Qué alegría verte otra vez para seguir leyendo las aventuras con la letra ene.",
       "batch": "B019",
       "seq": 2,
       "file": "B019-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-13-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-13-greeting-return",
       "curriculumRefs": {
         "lesson": 13,
         "printedPages": [
@@ -93,15 +112,440 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-03-review-intro",
+      "text": "Ya conocemos la ele de luna y maleta; hoy llega la ene de nido, mono y tina.",
+      "batch": "B019",
+      "seq": 3,
+      "file": "B019-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-13-review-intro",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-04-review-check",
+      "text": "¿Recuerdas cómo suena tu boca cuando cambias de la ele en luna a la ene en nido?",
+      "batch": "B019",
+      "seq": 4,
+      "file": "B019-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-13-review-check",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido nasal de la ene, sus sílabas na, ne, ni, no, nu y las palabras esa y a.",
+      "batch": "B019",
+      "seq": 5,
+      "file": "B019-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-13-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-06-letter-name",
+      "text": "Esta consonante se llama ene, y en minúscula tiene una sola montañita redonda.",
+      "batch": "B019",
+      "seq": 6,
+      "file": "B019-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-13-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-07-phonetic-sound",
+      "text": "Al pronunciarla apoyamos la lengua detrás de los dientes y sentimos vibrar suave la nariz: nnn.",
+      "batch": "B019",
+      "seq": 7,
+      "file": "B019-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-13-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -131,11 +575,335 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-03-flipchart-intro",
-      "text": "En las láminas veintisiete y veintiocho practicamos na, ne, ni, no, nu junto a nido.",
+      "id": "v2-l13-08-lesson-focus",
+      "text": "Siente cómo vibra suavecito tu nariz cuando dices despacio nido, mano y luna.",
       "batch": "B019",
-      "seq": 3,
-      "file": "B019-003.mp3",
+      "seq": 8,
+      "file": "B019-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-13-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-09-sound-contrast",
+      "text": "A diferencia de la eme que cierra los labios, la ene deja los labios entreabiertos con la lengua arriba.",
+      "batch": "B019",
+      "seq": 9,
+      "file": "B019-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-13-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-10-explanation-primary",
+      "text": "Cuando unimos ese sonido suave de la nariz con las vocales formamos na, ne, ni, no, nu.",
+      "batch": "B019",
+      "seq": 10,
+      "file": "B019-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-13-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-11-explanation-simple",
+      "text": "Toca con un dedito el lado de tu nariz y di nnn; sentirás un cosquilleo suave en nido y mano.",
+      "batch": "B019",
+      "seq": 11,
+      "file": "B019-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-13-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para saludar las palabras nuevas y el poema ¡Nino nada!",
+      "batch": "B019",
+      "seq": 12,
+      "file": "B019-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-13-flipchart-intro",
@@ -148,21 +916,39 @@
           46
         ],
         "flipchartSheets": [
-          27,
-          28
+          27
         ],
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -181,6 +967,324 @@
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen un nido, un nudo, un mono, el perrito Napi y un tenedor.",
+      "batch": "B019",
+      "seq": 13,
+      "file": "B019-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-13-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-14-flipchart-illustration-2",
+      "text": "También observamos al patito nadador Nino chapoteando feliz dentro de su tina.",
+      "batch": "B019",
+      "seq": 14,
+      "file": "B019-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-13-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-15-reading-order",
+      "text": "Lee primero las sílabas de izquierda a derecha, luego el cuadro de palabras y después el poema.",
+      "batch": "B019",
+      "seq": 15,
+      "file": "B019-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-13-reading-order",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-16-flipchart-model",
+      "text": "Leemos juntos en voz clara las sílabas de la ene: na, ne, ni, no, nu.",
+      "batch": "B019",
+      "seq": 16,
+      "file": "B019-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-13-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
       "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
@@ -192,12 +1296,91 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-04-flipchart-rhyme",
-      "text": "En la lámina veintinueve saludamos al patito nadador: Nino nada, nada Nino.",
+      "id": "v2-l13-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: nido, nudo, mono, Napi y tenedor.",
       "batch": "B019",
-      "seq": 4,
-      "file": "B019-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B019-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-13-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-18-flipchart-rhyme-1",
+      "text": "Leemos juntos el comienzo del poema ¡Nino nada!: Esta es la tina de Nino, mi patito nadador.",
+      "batch": "B019",
+      "seq": 18,
+      "file": "B019-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-13-flipchart-rhyme",
       "curriculumRefs": {
@@ -214,15 +1397,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -252,18 +1454,100 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-05-page-instruction",
-      "text": "En la página cuarenta y tres escribe la ene cuidando su única montañita.",
+      "id": "v2-l13-19-flipchart-rhyme-2",
+      "text": "Seguimos con el resto del poema: Nino nada, nada Nino, pide Nené con amor.",
       "batch": "B019",
-      "seq": 5,
-      "file": "B019-005.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-13-page-instruction",
+      "seq": 19,
+      "file": "B019-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-13-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 13,
         "printedPages": [
-          43
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-20-comprehension-1",
+      "text": "En el poema del rotafolio, ¿quién es el patito nadador que está en la tina?",
+      "batch": "B019",
+      "seq": 20,
+      "file": "B019-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-13-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
         ],
         "flipchartSheets": [
           27,
@@ -273,15 +1557,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -292,8 +1595,737 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-21-comprehension-2",
+      "text": "¿De quién es la tina que aparece en las oraciones de la lectura?",
+      "batch": "B019",
+      "seq": 21,
+      "file": "B019-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-13-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra nido?",
+      "batch": "B019",
+      "seq": 22,
+      "file": "B019-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-13-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-23-common-mistake-1",
+      "text": "No confundas la ene con la eme; la eme tiene dos montañitas y la ene tiene una sola.",
+      "batch": "B019",
+      "seq": 23,
+      "file": "B019-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-13-common-mistake",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-24-common-mistake-2",
+      "text": "Ten cuidado al leer nené y Tomás para respetar sus tildes con naturalidad.",
+      "batch": "B019",
+      "seq": 24,
+      "file": "B019-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-13-common-mistake",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-25-common-mistake-3",
+      "text": "Cuando la ene va en medio como en mano o luna, pronúnciala sin cerrar los labios.",
+      "batch": "B019",
+      "seq": 25,
+      "file": "B019-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-13-common-mistake",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-26-hint-1",
+      "text": "Mira si la letra tiene una sola montañita y deja la boca entreabierta al decirla.",
+      "batch": "B019",
+      "seq": 26,
+      "file": "B019-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-13-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-27-hint-2",
+      "text": "Compara el comienzo con nido o con mano para recordar la sílaba exacta.",
+      "batch": "B019",
+      "seq": 27,
+      "file": "B019-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-13-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: nido.",
+      "batch": "B019",
+      "seq": 28,
+      "file": "B019-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-13-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la ene y leer sobre Tono, Alina y Napi.",
+      "batch": "B019",
+      "seq": 29,
+      "file": "B019-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-13-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -311,11 +2343,89 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-06-page-instruction",
-      "text": "En la página cuarenta y cuatro encierra las sílabas correctas en nariz, nido y mono.",
+      "id": "v2-l13-30-page-instruction-1",
+      "text": "Escribe la ene mayúscula y minúscula cuidando su única montañita y haz un dibujo con ene.",
       "batch": "B019",
-      "seq": 6,
-      "file": "B019-006.mp3",
+      "seq": 30,
+      "file": "B019-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-13-page-instruction",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-31-page-instruction-2",
+      "text": "Después encierra en un círculo las sílabas correctas en palabras como nariz, nido, tina y mono.",
+      "batch": "B019",
+      "seq": 31,
+      "file": "B019-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-13-page-instruction",
@@ -332,15 +2442,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -370,11 +2499,89 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-07-word-practice",
-      "text": "Leemos palabras de la página cuarenta y cinco: tina, nada, nené, mano, luna y poni.",
+      "id": "v2-l13-32-syllable-practice",
+      "text": "Encierra con atención cada sílaba: na en nata, ne en Nena, ni en nido, no en mono y nu en nudo.",
       "batch": "B019",
-      "seq": 7,
-      "file": "B019-007.mp3",
+      "seq": 32,
+      "file": "B019-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-13-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          44
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: nido, tina, nada, nené, mano, nulo, Nono y Tono.",
+      "batch": "B019",
+      "seq": 33,
+      "file": "B019-033.mp3",
       "intent": "workbook-practice",
       "role": "word-practice",
       "variationGroup": "lesson-13-word-practice",
@@ -391,15 +2598,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -429,11 +2655,167 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-08-sentence-practice",
-      "text": "Lee con claridad esta oración de la página: Tono y Alina aman a Napi.",
+      "id": "v2-l13-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo de palabras: Alina, poni, Nena, nata, mono, luna y Neli.",
       "batch": "B019",
-      "seq": 8,
-      "file": "B019-008.mp3",
+      "seq": 34,
+      "file": "B019-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-13-word-practice",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          45
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-35-sight-or-vocab",
+      "text": "Hoy practicamos dos palabritas cortas que señalan y unen ideas: esa y a.",
+      "batch": "B019",
+      "seq": 35,
+      "file": "B019-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-13-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          45
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-36-sentence-or-pair",
+      "text": "Lee con claridad esta oración del libro: Tono le pone la tina a Napi en el piso.",
+      "batch": "B019",
+      "seq": 36,
+      "file": "B019-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-13-sentence-practice",
@@ -450,15 +2832,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -488,70 +2889,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-09-sentence-practice",
-      "text": "Ahora probamos la oración siguiente: Tono le pone la tina a Napi en el piso.",
+      "id": "v2-l13-37-page-instruction-final",
+      "text": "Al final completa las palabras usando na, ne, ni, no, nu, como en nido, tina, suena y mono.",
       "batch": "B019",
-      "seq": 9,
-      "file": "B019-009.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-13-sentence-practice",
-      "curriculumRefs": {
-        "lesson": 13,
-        "printedPages": [
-          45
-        ],
-        "flipchartSheets": [
-          27,
-          28,
-          29
-        ],
-        "letters": [
-          "n"
-        ],
-        "words": [
-          "nido",
-          "tina",
-          "mano",
-          "luna",
-          "mono",
-          "Napi",
-          "Nino",
-          "Tono"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          13
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-sentence",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-sentence",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l13-10-page-instruction",
-      "text": "En la página cuarenta y seis completa las palabras usando na, ne, ni, no, nu.",
-      "batch": "B019",
-      "seq": 10,
-      "file": "B019-010.mp3",
+      "seq": 37,
+      "file": "B019-037.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-13-page-instruction",
@@ -568,15 +2910,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -606,19 +2967,21 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-11-adaptive-coaching",
-      "text": "No la confundas con la eme; para la ene la boca queda entreabierta.",
+      "id": "v2-l13-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva formando palabras del libro con las sílabas de la ene.",
       "batch": "B019",
-      "seq": 11,
-      "file": "B019-011.mp3",
-      "intent": "lesson-coaching",
-      "role": "adaptive-coaching",
-      "variationGroup": "lesson-13-adaptive-coaching",
+      "seq": 38,
+      "file": "B019-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-13-game-intro",
       "curriculumRefs": {
         "lesson": 13,
         "printedPages": [
+          43,
           44,
-          45
+          45,
+          46
         ],
         "flipchartSheets": [
           27,
@@ -628,34 +2991,53 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
-      "scope": "lesson",
+      "scope": "game",
       "eligibility": {
         "lessons": [
           13
         ]
       },
-      "hintLevel": 2,
-      "expression": "gentle",
-      "gesture": "help",
-      "presentationAction": "show-letter",
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "sound-out",
+      "expectedResponse": "none",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -666,11 +3048,416 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l13-12-closing",
-      "text": "Completaste toda la lección de la ene. En la próxima conocerás a su hermana.",
+      "id": "v2-l13-39-game-step",
+      "text": "Observa los dibujos y palabras incompletas y elige la sílaba exacta entre na, ne, ni, no, nu.",
       "batch": "B019",
-      "seq": 12,
-      "file": "B019-012.mp3",
+      "seq": 39,
+      "file": "B019-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-13-game-step",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-40-game-correct",
+      "text": "Muy bien elegido. Completaste la palabra de ene con mucha seguridad.",
+      "batch": "B019",
+      "seq": 40,
+      "file": "B019-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-13-game-correct",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-41-game-retry",
+      "text": "Lee la palabra en voz alta y fíjate cuál sílaba de la ene suena mejor en el espacio.",
+      "batch": "B019",
+      "seq": 41,
+      "file": "B019-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-13-game-retry",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Esa tina no tiene nada.",
+      "batch": "B019",
+      "seq": 42,
+      "file": "B019-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-13-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-43-page-complete",
+      "text": "Terminaste todas las actividades de la letra ene con excelente cuidado y buena lectura.",
+      "batch": "B019",
+      "seq": 43,
+      "file": "B019-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-13-page-complete",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-44-closing",
+      "text": "Completaste toda la lección de la ene con gran atención. Cada palabra salió muy clara.",
+      "batch": "B019",
+      "seq": 44,
+      "file": "B019-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-13-closing",
@@ -690,15 +3477,34 @@
         "letters": [
           "n"
         ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
         "words": [
           "nido",
-          "tina",
-          "mano",
-          "luna",
+          "nudo",
           "mono",
           "Napi",
-          "Nino",
-          "Tono"
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
         ],
         "sourceStatus": "verified"
       },
@@ -712,6 +3518,87 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l13-45-next-step",
+      "text": "En la próxima lección conocerás a su hermana especial con una olita arriba: la letra eñe.",
+      "batch": "B019",
+      "seq": 45,
+      "file": "B019-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-13-next-step",
+      "curriculumRefs": {
+        "lesson": 13,
+        "printedPages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "flipchartSheets": [
+          27,
+          28,
+          29
+        ],
+        "letters": [
+          "n"
+        ],
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu"
+        ],
+        "words": [
+          "nido",
+          "nudo",
+          "mono",
+          "Napi",
+          "tenedor",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "luna",
+          "Neli",
+          "esa",
+          "a"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

@@ -21,7 +21,7 @@
  * - Zero bouncing, zero mouth-scaling, zero exaggerated gestures.
  * - Strict `prefers-reduced-motion: reduce` gating.
  */
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -159,10 +159,11 @@ export function TutorGretelPuppet({
   // Resolve master vs approved layered pack once per mount. Failures → master, never broken.
   useEffect(() => {
     let alive = true;
-    loadPuppetLayers().then(async (resolution) => {
-      if (!alive) return;
-      if (resolution.mode === "layered") {
-        try {
+    const resolveLayers = async () => {
+      try {
+        const resolution = await loadPuppetLayers();
+        if (!alive) return;
+        if (resolution.mode === "layered") {
           await Promise.all(
             resolution.layers.map(
               (layer) =>
@@ -178,21 +179,21 @@ export function TutorGretelPuppet({
                 }),
             ),
           );
-        } catch {
-          if (alive) {
-            setMode("master");
-            onErrorRef.current?.();
-          }
-          return;
+          if (!alive) return;
+          setLayers(resolution.layers);
+          setComposition(resolution.composition);
+          setMode("layered");
+        } else {
+          setMode("master");
         }
-        if (!alive) return;
-        setLayers(resolution.layers);
-        setComposition(resolution.composition);
-        setMode("layered");
-      } else {
-        setMode("master");
+      } catch {
+        if (alive) {
+          setMode("master");
+          onErrorRef.current?.();
+        }
       }
-    });
+    };
+    void resolveLayers();
     return () => {
       alive = false;
     };
@@ -212,7 +213,8 @@ export function TutorGretelPuppet({
       const active = hasSource && !audioElement.paused && !audioElement.ended;
       const muted = audioElement.muted || audioElement.volume === 0;
       setMediaClock({
-        currentTime: hasSource && Number.isFinite(audioElement.currentTime) ? audioElement.currentTime : null,
+        currentTime:
+          hasSource && Number.isFinite(audioElement.currentTime) ? audioElement.currentTime : null,
         playing: active,
         paused: audioElement.paused || audioElement.ended || !hasSource,
         muted,
@@ -352,6 +354,7 @@ export function TutorGretelPuppet({
     mode === "loading" ||
     (mode === "layered" && layerFailed);
 
+  const clipId = `gretel-framing-clip-${useId().replaceAll(":", "")}`;
   const viewBox = getPuppetViewBox(framing);
   const viewBoxAttr = `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`;
 
@@ -373,17 +376,21 @@ export function TutorGretelPuppet({
       style={{ originX: 0.5, originY: 0.78 }}
       animate={
         reducedMotion
-          ? undefined
+          ? { rotate: 0, x: 0, y: 0 }
           : {
               rotate: channels.headTiltDeg,
               x: channels.headShiftX + channels.gazeOffsetX * 0.45,
               y: yAnimation,
             }
       }
-      transition={{
-        duration: channels.transitionDurationSec,
-        ease: channels.transitionEase,
-      }}
+      transition={
+        reducedMotion
+          ? { duration: 0 }
+          : {
+              duration: channels.transitionDurationSec,
+              ease: channels.transitionEase,
+            }
+      }
     >
       {/* Independent breathing channel: calm 4.0 s subtle chest lift (never bounces). */}
       <motion.div
@@ -391,79 +398,83 @@ export function TutorGretelPuppet({
         style={{ originX: 0.5, originY: 0.92 }}
         animate={
           reducedMotion || !channels.breathingEnabled
-            ? undefined
+            ? { scaleY: 1 }
             : { scaleY: [1, channels.breathingScaleY, 1] }
         }
-        transition={{
-          duration: channels.breathingDurationSec,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={
+          reducedMotion || !channels.breathingEnabled
+            ? { duration: 0 }
+            : {
+                duration: channels.breathingDurationSec,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }
+        }
       >
         <svg
           viewBox={viewBoxAttr}
           role="img"
           aria-label="Gretel"
-          preserveAspectRatio="xMidYMin meet"
-          className="absolute inset-0 h-full w-full overflow-hidden drop-shadow-[0_10px_8px_rgba(45,32,20,0.18)]"
+          preserveAspectRatio="xMidYMid meet"
+          className="tutor-puppet-svg absolute inset-0 h-full w-full overflow-hidden"
         >
           <defs>
-            <clipPath id="gretel-framing-clip">
+            <clipPath id={clipId}>
               <rect x={viewBox.x} y={viewBox.y} width={viewBox.width} height={viewBox.height} />
             </clipPath>
           </defs>
-          <g clipPath="url(#gretel-framing-clip)">
-          {showMaster ? (
-            <image
-              data-puppet-part="approved-master"
-              href={GRETEL_APPROVED_MASTER_SRC}
-              x="0"
-              y="0"
-              width={MASTER_CANVAS.width}
-              height={MASTER_CANVAS.height}
-              preserveAspectRatio="xMidYMid meet"
-              onError={() => onErrorRef.current?.()}
-            />
-          ) : null}
-          {mode === "layered" &&
-            !layerFailed &&
-            layers.map((layer) => {
-              const visible = layerVisible(layer, {
-                state,
-                viseme: lipSync.shape,
-                isBlinking: isAutoBlinking,
-                smileActive: channels.smileActive,
-                pointingActive: channels.pointingActive,
-                farewellActive: channels.farewellActive,
-                browLiftPx: channels.browLiftPx,
-              });
-              const browTransform =
-                layer.role === "brows" && !reducedMotion && channels.browLiftPx !== 0
-                  ? `translate(0, ${channels.browLiftPx})`
-                  : undefined;
-              return (
-                <image
-                  key={layer.id}
-                  data-puppet-layer={layer.id}
-                  data-puppet-role={layer.role}
-                  href={layer.src}
-                  x="0"
-                  y="0"
-                  width={MASTER_CANVAS.width}
-                  height={MASTER_CANVAS.height}
-                  preserveAspectRatio="xMidYMid meet"
-                  transform={browTransform}
-                  style={{
-                    visibility: visible ? "visible" : "hidden",
-                  }}
-                  onError={() => {
-                    // Any layer that fails to load: back to the intact master.
-                    setLayerFailed(true);
-                    onErrorRef.current?.();
-                  }}
-                />
-              );
-            })}
+          <g clipPath={`url(#${clipId})`}>
+            {showMaster ? (
+              <image
+                data-puppet-part="approved-master"
+                href={GRETEL_APPROVED_MASTER_SRC}
+                x="0"
+                y="0"
+                width={MASTER_CANVAS.width}
+                height={MASTER_CANVAS.height}
+                preserveAspectRatio="xMidYMid meet"
+                onError={() => onErrorRef.current?.()}
+              />
+            ) : null}
+            {mode === "layered" &&
+              !layerFailed &&
+              layers.map((layer) => {
+                const visible = layerVisible(layer, {
+                  state,
+                  viseme: lipSync.shape,
+                  isBlinking: isAutoBlinking,
+                  smileActive: channels.smileActive,
+                  pointingActive: channels.pointingActive,
+                  farewellActive: channels.farewellActive,
+                  browLiftPx: channels.browLiftPx,
+                });
+                const browTransform =
+                  layer.role === "brows" && !reducedMotion && channels.browLiftPx !== 0
+                    ? `translate(0, ${channels.browLiftPx})`
+                    : undefined;
+                return (
+                  <image
+                    key={layer.id}
+                    data-puppet-layer={layer.id}
+                    data-puppet-role={layer.role}
+                    href={layer.src}
+                    x="0"
+                    y="0"
+                    width={MASTER_CANVAS.width}
+                    height={MASTER_CANVAS.height}
+                    preserveAspectRatio="xMidYMid meet"
+                    transform={browTransform}
+                    style={{
+                      visibility: visible ? "visible" : "hidden",
+                    }}
+                    onError={() => {
+                      // Any layer that fails to load: back to the intact master.
+                      setLayerFailed(true);
+                      onErrorRef.current?.();
+                    }}
+                  />
+                );
+              })}
           </g>
         </svg>
       </motion.div>

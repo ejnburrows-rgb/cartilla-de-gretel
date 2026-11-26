@@ -270,7 +270,7 @@ export interface FlipchartPlaybackBoundary {
 }
 
 function slugToken(value: string): string {
-  return normalize(value).replace(/[^a-zñ0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  return normalize(value).replace(/[^a-zñ0-9]+/g, "-").replace(/^-+/, "").replace(/-+$/, "");
 }
 
 function clampPct(value: number): number {
@@ -575,14 +575,21 @@ const CANONICAL_LETTER_LESSON: Readonly<Record<string, number>> = {
 // ---------------------------------------------------------------------------
 
 const UNSAFE_STRING_PATTERN =
-  /(?:https?:\/\/|javascript:|data:|vbscript:|file:\/\/|\/\/|\.\.[\\/]|<script|\beval\s*\(|\bFunction\s*\(|\bselect\s+.+\s+from\b|\bdrop\s+table\b|\bdelete\s+from\b|\binsert\s+into\b|\bupdate\s+\w+\s+set\b|;\s*--)/i;
+  /(?:https?:\/\/|javascript:|data:|vbscript:|file:\/\/|\/\/|\.\.[\\/]|<script|\beval\s*\(|\bFunction\s*\(|\bdrop\s+table\b|\bdelete\s+from\b|\binsert\s+into\b|\bupdate\s+\w+\s+set\b|;\s*--)/i;
 
 const FORBIDDEN_KEYS = new Set(["__proto__", "constructor", "prototype"]);
+
+function hasSqlSelectFrom(value: string): boolean {
+  const selectMatch = /\bselect\s/i.exec(value);
+  if (!selectMatch) return false;
+  const tail = value.slice(selectMatch.index + selectMatch[0].length);
+  return /\sfrom\b/i.test(tail);
+}
 
 function containsUnsafeInput(value: unknown, depth = 0): boolean {
   if (depth > 6) return true;
   if (typeof value === "string") {
-    return UNSAFE_STRING_PATTERN.test(value);
+    return UNSAFE_STRING_PATTERN.test(value) || hasSqlSelectFrom(value);
   }
   if (Array.isArray(value)) {
     return value.some((item) => containsUnsafeInput(item, depth + 1));

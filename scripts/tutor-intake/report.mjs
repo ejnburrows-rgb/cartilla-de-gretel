@@ -9,6 +9,23 @@ export function formatIntakeReportMarkdown(report) {
   lines.push(`- **Authorization:** \`${report.authorized ? "authorized" : "unapproved-hold"}\``);
   lines.push(`- **Private Originals Directory:** \`${report.privateDir}\``);
   lines.push(`- **Repository Guard:** \`${report.guard?.ok ? "PASS" : "FAIL"}\``);
+  if (report.tools) {
+    lines.push(
+      `- **Discovered Binaries:** ffmpeg=\`${report.tools.ffmpeg ?? "none"}\`, ffprobe=\`${report.tools.ffprobe ?? "none"}\`, rhubarb=\`${report.tools.rhubarb ?? "none"}\``,
+    );
+  }
+  if (report.exportDir) {
+    lines.push(
+      `- **Staging Export Directory:** \`${report.exportDir}\` (manifestWrite=${String(report.manifestWrite !== false)})`,
+    );
+  }
+  if (report.silenceSummary?.length) {
+    for (const ss of report.silenceSummary) {
+      lines.push(
+        `- **Silence Segmentation (\`${ss.sourceName}\`):** engine=\`${ss.engine}\`, intervals=${ss.silencesDetected}, duration=${ss.durationSec}s`,
+      );
+    }
+  }
   if (report.matchedBatch) {
     lines.push(
       `- **Matched Batch:** \`${report.matchedBatch.batchId}\` (score=${report.matchedBatch.score}, coverage=${report.matchedBatch.matchedLinesCount}/${report.matchedBatch.totalLinesCount})`,
@@ -72,9 +89,9 @@ export function formatIntakeReportMarkdown(report) {
   lines.push("## 3. Cut Points, QC, Visemes & Manifest Gate");
   lines.push("");
   lines.push(
-    "| Line ID | Cut Window | QC | Peak (dBFS) | Noise (dBFS) | SNR (dB) | Visemes | Manifest |",
+    "| Line ID | Cut Window | QC | Peak (dBFS) | Noise (dBFS) | SNR (dB) | Flatness | Visemes | Manifest |",
   );
-  lines.push("| :--- | :--- | :--- | ---: | ---: | ---: | :--- | :--- |");
+  lines.push("| :--- | :--- | :--- | ---: | ---: | ---: | ---: | :--- | :--- |");
   for (const item of report.items ?? []) {
     const win =
       item.cutStartSec != null && item.cutEndSec != null
@@ -82,8 +99,12 @@ export function formatIntakeReportMarkdown(report) {
         : "—";
     const qcText = item.qc?.passed ? "PASS" : `FAIL (${(item.qc?.failures ?? []).join(", ")})`;
     const m = item.qc?.metrics ?? {};
+    const visText =
+      item.visemesCueCount > 0 && !String(item.visemesStatus ?? "").includes("cues")
+        ? `${item.visemesStatus} (${item.visemesCueCount} cues)`
+        : (item.visemesStatus ?? "—");
     lines.push(
-      `| \`${item.lineId ?? "(unmapped)"}\` | ${win} | ${qcText} | ${m.peakDb ?? "—"} | ${m.noiseFloorDb ?? "—"} | ${m.snrDb ?? "—"} | ${item.visemesStatus ?? "—"} | ${item.manifestStatus ?? "—"} |`,
+      `| \`${item.lineId ?? "(unmapped)"}\` | ${win} | ${qcText} | ${m.peakDb ?? "—"} | ${m.noiseFloorDb ?? "—"} | ${m.snrDb ?? "—"} | ${m.spectralFlatness ?? "—"} | ${visText} | ${item.manifestStatus ?? "—"} |`,
     );
   }
   lines.push("");
@@ -91,7 +112,12 @@ export function formatIntakeReportMarkdown(report) {
   if (report.manifestResult) {
     lines.push("## 4. Manifest Update Summary");
     lines.push("");
-    lines.push(`- Applied updates: **${report.manifestResult.applied.length}**`);
+    const modifiedCount = report.manifestResult.filesModified?.length ?? 0;
+    const modeNote =
+      modifiedCount === 0 && report.manifestResult.applied.length > 0
+        ? " (staging/dry-run — 0 repository manifest files modified)"
+        : ` (${modifiedCount} manifest file(s) modified)`;
+    lines.push(`- Applied updates: **${report.manifestResult.applied.length}**${modeNote}`);
     lines.push(`- Skipped / gated updates: **${report.manifestResult.skipped.length}**`);
     if (report.manifestResult.skipped.length > 0) {
       lines.push("");

@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l20-01-greeting-first",
-      "text": "Bienvenidos a la lección veinte para practicar el soplido suave de la efe.",
+      "text": "Bienvenidos hoy a una nueva lección para practicar el soplido suave de la letra efe.",
       "batch": "B026",
       "seq": 1,
       "file": "B026-001.mp3",
@@ -31,15 +31,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -69,14 +87,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-02-lesson-focus",
-      "text": "Apoya suavemente los dientes de arriba en el labio inferior como soplando velitas.",
+      "id": "v2-l20-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir leyendo la historia familiar de la letra efe.",
       "batch": "B026",
       "seq": 2,
       "file": "B026-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-20-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-20-greeting-return",
       "curriculumRefs": {
         "lesson": 20,
         "printedPages": [
@@ -93,15 +111,434 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-03-review-intro",
+      "text": "Ya conocemos la ge suave de gato y mago; hoy nos visita el aire tibio de la letra efe.",
+      "batch": "B026",
+      "seq": 3,
+      "file": "B026-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-20-review-intro",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-04-review-check",
+      "text": "¿Recuerdas cómo soplamos suavemente una velita de fiesta antes de probar la letra efe?",
+      "batch": "B026",
+      "seq": 4,
+      "file": "B026-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-20-review-check",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido de la efe, las sílabas fa, fe, fi, fo, fu y la palabra hay.",
+      "batch": "B026",
+      "seq": 5,
+      "file": "B026-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-20-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-06-letter-name",
+      "text": "Esta consonante se llama efe, y la minúscula sube formando un bastoncito curvo con su rayita.",
+      "batch": "B026",
+      "seq": 6,
+      "file": "B026-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-20-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-07-phonetic-sound",
+      "text": "Al pronunciarla apoyamos los dientes de arriba en el labio inferior y soplamos suave: fff.",
+      "batch": "B026",
+      "seq": 7,
+      "file": "B026-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-20-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -131,11 +568,331 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-03-flipchart-intro",
-      "text": "En las láminas cuarenta y ocho y cuarenta y nueve practicamos fa, fe, fi, fo, fu.",
+      "id": "v2-l20-08-lesson-focus",
+      "text": "Sopla suavecito apoyando los dientes de arriba sobre el labio inferior como en foto y familia.",
       "batch": "B026",
-      "seq": 3,
-      "file": "B026-003.mp3",
+      "seq": 8,
+      "file": "B026-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-20-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-09-sound-contrast",
+      "text": "Mientras la ge nace atrás en la garganta, la efe sale adelante entre los dientes y el labio.",
+      "batch": "B026",
+      "seq": 9,
+      "file": "B026-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-20-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-10-explanation-primary",
+      "text": "Cuando unimos ese soplido suave con las vocales formamos fa, fe, fi, fo, fu.",
+      "batch": "B026",
+      "seq": 10,
+      "file": "B026-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-20-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-11-explanation-simple",
+      "text": "Imagina que apagas las velitas del pastel de Fefita soplando despacito: así sale la efe.",
+      "batch": "B026",
+      "seq": 11,
+      "file": "B026-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-20-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer los dibujos nuevos y cantar la rima A la fiesta.",
+      "batch": "B026",
+      "seq": 12,
+      "file": "B026-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-20-flipchart-intro",
@@ -148,21 +905,38 @@
           74
         ],
         "flipchartSheets": [
-          48,
-          49
+          48
         ],
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -181,6 +955,320 @@
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen una foto, unos fideos, una familia, Felo y una funda.",
+      "batch": "B026",
+      "seq": 13,
+      "file": "B026-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-20-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-14-flipchart-illustration-2",
+      "text": "También observamos a tía Fela y a Fefita apagando las velitas de un pastel en la fiesta familiar.",
+      "batch": "B026",
+      "seq": 14,
+      "file": "B026-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-20-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-15-reading-order",
+      "text": "Lee las sílabas en orden, pasa por el vocabulario y sigue la historia de Ofelia y Felo.",
+      "batch": "B026",
+      "seq": 15,
+      "file": "B026-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-20-reading-order",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-16-flipchart-model",
+      "text": "Leemos juntos en voz clara las sílabas de la efe: fa, fe, fi, fo, fu.",
+      "batch": "B026",
+      "seq": 16,
+      "file": "B026-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-20-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
       "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
@@ -192,12 +1280,90 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-04-flipchart-rhyme",
-      "text": "En la lámina cincuenta celebramos la rima A la fiesta de familia con Fefita.",
+      "id": "v2-l20-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: foto, fideos, familia, Felo y funda.",
       "batch": "B026",
-      "seq": 4,
-      "file": "B026-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B026-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-20-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-18-flipchart-rhyme-1",
+      "text": "Leemos el comienzo de A la fiesta: A la fiesta de familia tía Fela va a invitar, las velitas del pastel Fefita va a apagar.",
+      "batch": "B026",
+      "seq": 18,
+      "file": "B026-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-20-flipchart-rhyme",
       "curriculumRefs": {
@@ -214,15 +1380,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -252,18 +1436,99 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-05-page-instruction",
-      "text": "En la página setenta y uno escribe la efe alta con sus dos rayitas limpias.",
+      "id": "v2-l20-19-flipchart-rhyme-2",
+      "text": "Seguimos con el juego final de las velitas: Fu, fu… apaga la vela, fa, fa… la vela no es mía.",
       "batch": "B026",
-      "seq": 5,
-      "file": "B026-005.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-20-page-instruction",
+      "seq": 19,
+      "file": "B026-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-20-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 20,
         "printedPages": [
-          71
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-20-comprehension-1",
+      "text": "Según el poema A la fiesta, ¿qué va a apagar Fefita en la fiesta de familia?",
+      "batch": "B026",
+      "seq": 20,
+      "file": "B026-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-20-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
         ],
         "flipchartSheets": [
           48,
@@ -273,15 +1538,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -292,8 +1575,728 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-21-comprehension-2",
+      "text": "¿A dónde va la familia de Ofelia en la lectura de hoy?",
+      "batch": "B026",
+      "seq": 21,
+      "file": "B026-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-20-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra foto?",
+      "batch": "B026",
+      "seq": 22,
+      "file": "B026-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-20-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-23-common-mistake-1",
+      "text": "No olvides la rayita horizontal de la efe para distinguirla bien de la te.",
+      "batch": "B026",
+      "seq": 23,
+      "file": "B026-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-20-common-mistake",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-24-common-mistake-2",
+      "text": "Fíjate en la tilde de Fígaro y teléfono para acentuar la sílaba correcta.",
+      "batch": "B026",
+      "seq": 24,
+      "file": "B026-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-20-common-mistake",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-25-common-mistake-3",
+      "text": "Recuerda que en la palabra hay la primera letra es muda y suena igual que ai.",
+      "batch": "B026",
+      "seq": 25,
+      "file": "B026-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-20-common-mistake",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-26-hint-1",
+      "text": "Apoya los dientes de arriba en el labio inferior y escucha qué vocal sigue al soplido.",
+      "batch": "B026",
+      "seq": 26,
+      "file": "B026-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-20-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-27-hint-2",
+      "text": "Compara el inicio de la palabra con foto o con familia para elegir la sílaba.",
+      "batch": "B026",
+      "seq": 27,
+      "file": "B026-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-20-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: familia.",
+      "batch": "B026",
+      "seq": 28,
+      "file": "B026-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-20-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la efe y visitar la finca de Felo.",
+      "batch": "B026",
+      "seq": 29,
+      "file": "B026-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-20-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -311,11 +2314,88 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-06-page-instruction",
-      "text": "En la página setenta y dos rodea fa, fe, fi, fo, fu en familia, Felo, fila y foto.",
+      "id": "v2-l20-30-page-instruction-1",
+      "text": "Escribe la efe mayúscula y minúscula con trazos limpios y haz un dibujo con efe.",
       "batch": "B026",
-      "seq": 6,
-      "file": "B026-006.mp3",
+      "seq": 30,
+      "file": "B026-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-20-page-instruction",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-31-page-instruction-2",
+      "text": "Después rodea fa, fe, fi, fo, fu dentro de palabras como familia, Felo, fila, foto y funda.",
+      "batch": "B026",
+      "seq": 31,
+      "file": "B026-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-20-page-instruction",
@@ -332,15 +2412,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -370,18 +2468,18 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-07-sight-word-intro",
-      "text": "En la página setenta y tres aprendemos la palabrita nueva hay con hache muda.",
+      "id": "v2-l20-32-syllable-practice",
+      "text": "Encierra con calma cada sílaba: fa en familia, fe en Felo, fi en fila, fo en foto y fu en funda.",
       "batch": "B026",
-      "seq": 7,
-      "file": "B026-007.mp3",
-      "intent": "workbook-page",
-      "role": "sight-word-intro",
-      "variationGroup": "lesson-20-sight-word-intro",
+      "seq": 32,
+      "file": "B026-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-20-syllable-practice",
       "curriculumRefs": {
         "lesson": 20,
         "printedPages": [
-          73
+          72
         ],
         "flipchartSheets": [
           48,
@@ -391,15 +2489,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -412,13 +2528,13 @@
       "hintLevel": 0,
       "expression": "warm",
       "gesture": "teach",
-      "presentationAction": "show-word",
+      "presentationAction": "show-syllable",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "read-word",
+      "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -429,11 +2545,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-08-word-practice",
-      "text": "Leemos palabras conocidas de la lección: familia, faro, fino, fusta, teléfono y foca.",
+      "id": "v2-l20-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: familia, fino, fila, Fígaro, fusta, falso, fama y fumiga.",
       "batch": "B026",
-      "seq": 8,
-      "file": "B026-008.mp3",
+      "seq": 33,
+      "file": "B026-033.mp3",
       "intent": "workbook-practice",
       "role": "word-practice",
       "variationGroup": "lesson-20-word-practice",
@@ -450,15 +2566,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -488,11 +2622,165 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-09-sentence-practice",
-      "text": "Lee con calma la oración inicial: La familia de Ofelia va a la finca de Felo.",
+      "id": "v2-l20-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: fortuna, famoso, teléfono, Ofelia, foto, feo y foca.",
       "batch": "B026",
-      "seq": 9,
-      "file": "B026-009.mp3",
+      "seq": 34,
+      "file": "B026-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-20-word-practice",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          73
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-35-sight-or-vocab",
+      "text": "Hoy aprendemos la palabra hay, que nos sirve para contar qué cosas existen en un lugar.",
+      "batch": "B026",
+      "seq": 35,
+      "file": "B026-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-20-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          73
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-36-sentence-or-pair",
+      "text": "Lee con calma esta oración del libro: La familia de Ofelia va a la finca de Felo.",
+      "batch": "B026",
+      "seq": 36,
+      "file": "B026-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-20-sentence-practice",
@@ -509,15 +2797,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -547,70 +2853,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-10-sentence-practice",
-      "text": "Ahora sigue leyendo: En la finca de Felo hay aves y ganado en fila.",
+      "id": "v2-l20-37-page-instruction-final",
+      "text": "Al final completa cada palabra con su sílaba, como en fama, fila, teléfono, foca, fecha y foto.",
       "batch": "B026",
-      "seq": 10,
-      "file": "B026-010.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-20-sentence-practice",
-      "curriculumRefs": {
-        "lesson": 20,
-        "printedPages": [
-          73
-        ],
-        "flipchartSheets": [
-          48,
-          49,
-          50
-        ],
-        "letters": [
-          "f"
-        ],
-        "words": [
-          "familia",
-          "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
-          "Felo",
-          "Ofelia"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          20
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-sentence",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-sentence",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l20-11-page-instruction",
-      "text": "En la página setenta y cuatro completa las palabras con las sílabas de la efe.",
-      "batch": "B026",
-      "seq": 11,
-      "file": "B026-011.mp3",
+      "seq": 37,
+      "file": "B026-037.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-20-page-instruction",
@@ -627,15 +2874,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -665,11 +2930,491 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l20-12-closing",
-      "text": "Completaste las veinte primeras lecciones de la cartilla. Nos esperan cuatro letras más.",
+      "id": "v2-l20-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva completando palabras de la efe para afirmar tu lectura.",
       "batch": "B026",
-      "seq": 12,
-      "file": "B026-012.mp3",
+      "seq": 38,
+      "file": "B026-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-20-game-intro",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-39-game-step",
+      "text": "Observa la palabra incompleta y elige la sílaba exacta entre fa, fe, fi, fo, fu.",
+      "batch": "B026",
+      "seq": 39,
+      "file": "B026-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-20-game-step",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-40-game-correct",
+      "text": "Muy bien apagada esa vela. Elegiste la sílaba exacta de la efe.",
+      "batch": "B026",
+      "seq": 40,
+      "file": "B026-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-20-game-correct",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-41-game-retry",
+      "text": "Lee el resto de la palabra y prueba cuál sílaba entre fa, fe, fi, fo, fu la forma bien.",
+      "batch": "B026",
+      "seq": 41,
+      "file": "B026-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-20-game-retry",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: En la finca de Felo hay aves y ganado.",
+      "batch": "B026",
+      "seq": 42,
+      "file": "B026-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-20-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-43-page-complete",
+      "text": "Completaste las actividades de la letra efe y ya superaste las veinte primeras lecciones.",
+      "batch": "B026",
+      "seq": 43,
+      "file": "B026-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-20-page-complete",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-44-closing",
+      "text": "Qué bien leíste toda la visita a la finca de Felo. Solo nos quedan cuatro consonantes más.",
+      "batch": "B026",
+      "seq": 44,
+      "file": "B026-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-20-closing",
@@ -689,15 +3434,33 @@
         "letters": [
           "f"
         ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
         "words": [
-          "familia",
           "foto",
-          "faro",
-          "fila",
-          "foca",
-          "teléfono",
+          "fideos",
+          "familia",
           "Felo",
-          "Ofelia"
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
         ],
         "sourceStatus": "verified"
       },
@@ -711,6 +3474,86 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-45-next-step",
+      "text": "En la próxima lección conoceremos a la jicotea Jabela y el sonido alegre de la letra jota.",
+      "batch": "B026",
+      "seq": 45,
+      "file": "B026-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-20-next-step",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu"
+        ],
+        "words": [
+          "foto",
+          "fideos",
+          "familia",
+          "Felo",
+          "funda",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "feo",
+          "foca",
+          "hay"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

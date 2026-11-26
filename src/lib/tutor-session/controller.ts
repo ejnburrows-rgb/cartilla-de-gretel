@@ -24,12 +24,12 @@ export const SPLIT_RATIO_DEFAULT = 0.38;
 
 export const TUTOR_STATE_LABELS: Record<TutorSessionState, string> = {
   preparing: "Preparando sesión…",
-  ready: "Lista para comenzar",
+  ready: "Lista",
   listening: "Escuchando…",
   thinking: "Pensando…",
   speaking: "Hablando",
   presenting: "Mostrando lámina",
-  waiting: "Tu turno",
+  waiting: "Esperando respuesta",
   analyzing: "Revisando respuesta…",
   recovering: "Reconectando…",
   ended: "Sesión terminada",
@@ -96,7 +96,10 @@ export function deriveSessionState(input: DeriveSessionStateInput): TutorSession
   if (!input.hasBrain) return "preparing";
   if (input.micCapturing) return "listening";
   if (input.analyzing) return "analyzing";
-  if (input.thinking) return "thinking";
+  // "Pensando…" may appear ONLY during genuine turn processing / intent matching,
+  // never while idle/ready at the start of a lesson or waiting at rest.
+  const canThink = input.brainPhase === "MATCH" || input.brainPhase === "RESPOND";
+  if (input.thinking && canThink) return "thinking";
   if (input.presenting && input.linePlaying) return "presenting";
   if (input.linePlaying) return "speaking";
   if (input.presenting) return "presenting";
@@ -200,7 +203,11 @@ export class TutorSessionController {
   }
 
   setSplitRatio(ratio: number): void {
-    const next = clamp(Number.isFinite(ratio) ? ratio : SPLIT_RATIO_DEFAULT, SPLIT_RATIO_MIN, SPLIT_RATIO_MAX);
+    const next = clamp(
+      Number.isFinite(ratio) ? ratio : SPLIT_RATIO_DEFAULT,
+      SPLIT_RATIO_MIN,
+      SPLIT_RATIO_MAX,
+    );
     if (Math.abs(next - this.snapshot.splitRatio) < 0.001) return;
     this.commit({ splitRatio: next });
   }

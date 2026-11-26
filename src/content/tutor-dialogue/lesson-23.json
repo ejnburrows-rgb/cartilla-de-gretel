@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l23-01-greeting-first",
-      "text": "Llegamos a la lección veintitrés para navegar leyendo con la letra ye.",
+      "text": "Llegamos hoy a una lección muy viajera para navegar leyendo con la letra ye.",
       "batch": "B029",
       "seq": 1,
       "file": "B029-001.mp3",
@@ -30,15 +30,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -68,14 +84,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-02-lesson-focus",
-      "text": "La letra ye extiende dos bracitos hacia arriba y suena suave como en yoyo.",
+      "id": "v2-l23-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir leyendo el viaje del yate de Yayo.",
       "batch": "B029",
       "seq": 2,
       "file": "B029-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-23-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-23-greeting-return",
       "curriculumRefs": {
         "lesson": 23,
         "printedPages": [
@@ -91,15 +107,417 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-03-review-intro",
+      "text": "Ya practicamos ca, co, cu con la letra ce; hoy conocemos la letra ye de yate y yoyo.",
+      "batch": "B029",
+      "seq": 3,
+      "file": "B029-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-23-review-intro",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-04-review-check",
+      "text": "¿Recuerdas cuándo usabas la palabrita y solita para unir dos nombres como mamá y papá?",
+      "batch": "B029",
+      "seq": 4,
+      "file": "B029-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-23-review-check",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-05-lesson-objective",
+      "text": "Hoy aprenderemos cómo suena la ye junto a las vocales en ya, ye, yi, yo, yu y la historia de Yayo.",
+      "batch": "B029",
+      "seq": 5,
+      "file": "B029-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-23-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-06-letter-name",
+      "text": "Esta consonante se llama ye, también conocida como i griega, con dos bracitos abiertos arriba.",
+      "batch": "B029",
+      "seq": 6,
+      "file": "B029-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-23-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-07-phonetic-sound",
+      "text": "Cuando acompaña a las vocales resbala suave sobre el paladar como en yate, yema y yoyo.",
+      "batch": "B029",
+      "seq": 7,
+      "file": "B029-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-23-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -129,11 +547,319 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-03-flipchart-intro",
-      "text": "En las láminas cincuenta y siete y cincuenta y ocho leemos ya, ye, yi, yo, yu.",
+      "id": "v2-l23-08-lesson-focus",
+      "text": "La letra ye abre dos bracitos hacia arriba y suena suave en ya, ye, yi, yo, yu.",
       "batch": "B029",
-      "seq": 3,
-      "file": "B029-003.mp3",
+      "seq": 8,
+      "file": "B029-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-23-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-09-sound-contrast",
+      "text": "Cuando va solita suena igual que la vocal i, pero pegada a vocales suena suave como en yoyo.",
+      "batch": "B029",
+      "seq": 9,
+      "file": "B029-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-23-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-10-explanation-primary",
+      "text": "Cuando unimos la ye con las vocales formamos las cinco sílabas ya, ye, yi, yo, yu.",
+      "batch": "B029",
+      "seq": 10,
+      "file": "B029-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-23-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-11-explanation-simple",
+      "text": "Apoya suavemente el centro de la lengua arriba mientras sale la voz y di yate, yema y yoyo.",
+      "batch": "B029",
+      "seq": 11,
+      "file": "B029-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-23-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer los dibujos nuevos y navegar en El yate de Yayo.",
+      "batch": "B029",
+      "seq": 12,
+      "file": "B029-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-23-flipchart-intro",
@@ -145,21 +871,36 @@
           85
         ],
         "flipchartSheets": [
-          57,
-          58
+          57
         ],
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -178,6 +919,308 @@
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen un yate, una yema, la niña Yayita, una letra mayúscula y un yoyo.",
+      "batch": "B029",
+      "seq": 13,
+      "file": "B029-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-23-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-14-flipchart-illustration-2",
+      "text": "También observamos el yate Cayo Largo amarrado con una soga de yute navegando hacia Yucatán.",
+      "batch": "B029",
+      "seq": 14,
+      "file": "B029-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-23-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-15-reading-order",
+      "text": "Lee las sílabas en orden, luego pasa por el vocabulario y lee el viaje de Yayo oración por oración.",
+      "batch": "B029",
+      "seq": 15,
+      "file": "B029-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-23-reading-order",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-16-flipchart-model",
+      "text": "Leemos juntos en voz clara las sílabas de la ye: ya, ye, yi, yo, yu.",
+      "batch": "B029",
+      "seq": 16,
+      "file": "B029-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-23-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
       "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
@@ -189,12 +1232,87 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-04-flipchart-rhyme",
-      "text": "En la lámina cincuenta y nueve viajamos en El yate de Yayo desde Yateras.",
+      "id": "v2-l23-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: yate, yema, Yayita, mayúscula y yoyo.",
       "batch": "B029",
-      "seq": 4,
-      "file": "B029-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B029-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-23-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-18-flipchart-rhyme-1",
+      "text": "Leemos el comienzo de El yate de Yayo: De Yateras a Cayo Hueso, de Cayo Hueso a Yateras, Yayo va con sus amigas, sus amigas yucatecas.",
+      "batch": "B029",
+      "seq": 18,
+      "file": "B029-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-23-flipchart-rhyme",
       "curriculumRefs": {
@@ -210,15 +1328,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -248,18 +1382,95 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-05-page-instruction",
-      "text": "En la página ochenta y tres practica el trazo de la ye y dibuja un yoyo.",
+      "id": "v2-l23-19-flipchart-rhyme-2",
+      "text": "Seguimos con el final del poema: En su yate Cayo Largo ayer vino a Yucatán, con una soga de yute Yayo lo pudo amarrar.",
       "batch": "B029",
-      "seq": 5,
-      "file": "B029-005.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-23-page-instruction",
+      "seq": 19,
+      "file": "B029-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-23-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 23,
         "printedPages": [
-          83
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-20-comprehension-1",
+      "text": "Según el poema El yate de Yayo, ¿con qué pudo amarrar Yayo su yate?",
+      "batch": "B029",
+      "seq": 20,
+      "file": "B029-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-23-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
         ],
         "flipchartSheets": [
           57,
@@ -269,15 +1480,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -288,8 +1515,701 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-21-comprehension-2",
+      "text": "¿Con quiénes fue Yayo a pescar a los cayos en la lectura de hoy?",
+      "batch": "B029",
+      "seq": 21,
+      "file": "B029-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-23-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra yate?",
+      "batch": "B029",
+      "seq": 22,
+      "file": "B029-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-23-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-23-common-mistake-1",
+      "text": "Fíjate en la diferencia de sonido cuando la ye está solita en medio de palabras o al inicio de yoyo.",
+      "batch": "B029",
+      "seq": 23,
+      "file": "B029-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-23-common-mistake",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-24-common-mistake-2",
+      "text": "Respeta la tilde en la palabra Yucatán para acentuar el final con claridad.",
+      "batch": "B029",
+      "seq": 24,
+      "file": "B029-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-23-common-mistake",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-25-common-mistake-3",
+      "text": "Traza el palito de la ye minúscula bajando inclinado debajo del renglón.",
+      "batch": "B029",
+      "seq": 25,
+      "file": "B029-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-23-common-mistake",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-26-hint-1",
+      "text": "Mira si la ye va acompañada de una vocal para leer ya, ye, yi, yo o yu.",
+      "batch": "B029",
+      "seq": 26,
+      "file": "B029-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-23-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-27-hint-2",
+      "text": "Compara el sonido con yate, yema o yoyo para recordar la sílaba exacta.",
+      "batch": "B029",
+      "seq": 27,
+      "file": "B029-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-23-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: yate.",
+      "batch": "B029",
+      "seq": 28,
+      "file": "B029-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-23-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la ye, rodear sílabas y leer la historia.",
+      "batch": "B029",
+      "seq": 29,
+      "file": "B029-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-23-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -307,11 +2227,86 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-06-page-instruction",
-      "text": "En la página ochenta y cuatro rodea ya, ye, yi, yo, yu en yate, yema y yoyo.",
+      "id": "v2-l23-30-page-instruction-1",
+      "text": "Practica el trazo de la ye mayúscula y minúscula y haz un dibujo cuyo nombre empiece con ye.",
       "batch": "B029",
-      "seq": 6,
-      "file": "B029-006.mp3",
+      "seq": 30,
+      "file": "B029-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-23-page-instruction",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-31-page-instruction-2",
+      "text": "Después rodea en un círculo ya, ye, yi, yo, yu en palabras como yate, yema, Mayito, yoyo y yuca.",
+      "batch": "B029",
+      "seq": 31,
+      "file": "B029-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-23-page-instruction",
@@ -328,15 +2323,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -366,11 +2377,86 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-07-word-practice",
-      "text": "Repite conmigo palabras verificadas de la lección: yuca, ayer, cayo, payaso, joya y yegua.",
+      "id": "v2-l23-32-syllable-practice",
+      "text": "Encierra con calma cada sílaba: ya en yate, ye en yema, yi en Yayita, yo en yoyo y yu en yuca.",
       "batch": "B029",
-      "seq": 7,
-      "file": "B029-007.mp3",
+      "seq": 32,
+      "file": "B029-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-23-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          84
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: yuca, ayer, cayo, yema, payaso, Mayito, yate y yute.",
+      "batch": "B029",
+      "seq": 33,
+      "file": "B029-033.mp3",
       "intent": "workbook-practice",
       "role": "word-practice",
       "variationGroup": "lesson-23-word-practice",
@@ -387,15 +2473,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -425,11 +2527,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-08-word-practice",
-      "text": "También leemos en la página ochenta y cinco estas palabras: yute, yeso y Yayita.",
+      "id": "v2-l23-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: joya, yegua, yoyo, yucateco, yagua, Yucatán y yeso.",
       "batch": "B029",
-      "seq": 8,
-      "file": "B029-008.mp3",
+      "seq": 34,
+      "file": "B029-034.mp3",
       "intent": "workbook-practice",
       "role": "word-practice",
       "variationGroup": "lesson-23-word-practice",
@@ -446,15 +2548,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -484,11 +2602,86 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-09-sentence-practice",
-      "text": "Leamos la historia de la página ochenta y cinco: El yate de Yayo está en Yateras.",
+      "id": "v2-l23-35-sight-or-vocab",
+      "text": "Fíjate también en los nombres propios del ejercicio como Yayita, Yayo y Yateras.",
       "batch": "B029",
-      "seq": 9,
-      "file": "B029-009.mp3",
+      "seq": 35,
+      "file": "B029-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-23-word-practice",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-36-sentence-or-pair",
+      "text": "Lee con claridad esta oración del libro: El yate de Yayo está en Yateras.",
+      "batch": "B029",
+      "seq": 36,
+      "file": "B029-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-23-sentence-practice",
@@ -505,15 +2698,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -543,14 +2752,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-10-sentence-practice",
-      "text": "Seguimos con la lectura del viaje: Yayo comió yuca, guacamole y arroz con yemas ayer.",
+      "id": "v2-l23-37-page-instruction-final",
+      "text": "Para terminar el cuaderno leemos el cierre del viaje: Yayo comió yuca y guacamole.",
       "batch": "B029",
-      "seq": 10,
-      "file": "B029-010.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-23-sentence-practice",
+      "seq": 37,
+      "file": "B029-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-23-page-instruction",
       "curriculumRefs": {
         "lesson": 23,
         "printedPages": [
@@ -564,15 +2773,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -585,6 +2810,391 @@
       "hintLevel": 0,
       "expression": "warm",
       "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva con las palabras de la ye para afirmar la lectura.",
+      "batch": "B029",
+      "seq": 38,
+      "file": "B029-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-23-game-intro",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-39-game-step",
+      "text": "Escucha cada palabra de la lección y señala cuál sílaba entre ya, ye, yi, yo, yu aparece en ella.",
+      "batch": "B029",
+      "seq": 39,
+      "file": "B029-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-23-game-step",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-40-game-correct",
+      "text": "Muy bien amarrado ese yate. Identificaste con exactitud la sílaba de la ye.",
+      "batch": "B029",
+      "seq": 40,
+      "file": "B029-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-23-game-correct",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-41-game-retry",
+      "text": "Repite la palabra en voz alta y escucha si suena ya, ye, yi, yo o yu.",
+      "batch": "B029",
+      "seq": 41,
+      "file": "B029-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-23-game-retry",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Yayo tiene una soga de yute para amarrar su yate.",
+      "batch": "B029",
+      "seq": 42,
+      "file": "B029-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-23-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
       "presentationAction": "show-sentence",
       "cueTiming": {
         "leadInMs": 150,
@@ -602,17 +3212,18 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-11-adaptive-coaching",
-      "text": "Recuerda que cuando la y está solita suena i, pero con vocales suena ya, ye, yi, yo, yu.",
+      "id": "v2-l23-43-page-complete",
+      "text": "Terminaste todas las actividades disponibles de la letra ye con mucha seguridad.",
       "batch": "B029",
-      "seq": 11,
-      "file": "B029-011.mp3",
-      "intent": "lesson-coaching",
-      "role": "adaptive-coaching",
-      "variationGroup": "lesson-23-adaptive-coaching",
+      "seq": 43,
+      "file": "B029-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-23-page-complete",
       "curriculumRefs": {
         "lesson": 23,
         "printedPages": [
+          83,
           84,
           85
         ],
@@ -624,15 +3235,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -642,16 +3269,16 @@
           23
         ]
       },
-      "hintLevel": 2,
-      "expression": "gentle",
-      "gesture": "help",
-      "presentationAction": "show-letter",
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "sound-out",
+      "expectedResponse": "none",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -662,11 +3289,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l23-12-closing",
-      "text": "Amarraste el yate de Yayo con éxito. Ya nos espera la última lección.",
+      "id": "v2-l23-44-closing",
+      "text": "Amarraste el yate de Yayo con éxito. Ya nos espera la última lección de toda la cartilla.",
       "batch": "B029",
-      "seq": 12,
-      "file": "B029-012.mp3",
+      "seq": 44,
+      "file": "B029-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-23-closing",
@@ -685,15 +3312,31 @@
         "letters": [
           "y"
         ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
         "words": [
           "yate",
-          "yoyo",
           "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
           "yuca",
+          "ayer",
+          "cayo",
           "payaso",
+          "Mayito",
+          "yute",
+          "joya",
           "yegua",
-          "Yayo",
-          "ayer"
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
         ],
         "sourceStatus": "verified"
       },
@@ -707,6 +3350,83 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-45-next-step",
+      "text": "En nuestra última lección conoceremos la letra zeta y el carro-calabaza de Zulema.",
+      "batch": "B029",
+      "seq": 45,
+      "file": "B029-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-23-next-step",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu"
+        ],
+        "words": [
+          "yate",
+          "yema",
+          "Yayita",
+          "mayúscula",
+          "yoyo",
+          "yuca",
+          "ayer",
+          "cayo",
+          "payaso",
+          "Mayito",
+          "yute",
+          "joya",
+          "yegua",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

@@ -86,7 +86,8 @@ function idSlug(text) {
     .replace(/\p{M}/gu, (mark) => (mark === "\u0303" ? mark : ""))
     .normalize("NFC")
     .replace(/[^a-zñ0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
 }
 
 function bareLetters(text) {
@@ -263,7 +264,7 @@ function walkFiles(relDir) {
     if (ent.isDirectory()) results.push(...walkFiles(relative(REPO_ROOT, abs)));
     else results.push(relative(REPO_ROOT, abs));
   }
-  return results.sort();
+  return results.sort((a, b) => a.localeCompare(b));
 }
 
 /** Inspect every file under public/audio/** and public/cartilla/audio/**. */
@@ -912,7 +913,12 @@ function buildCoverageMatrix() {
   // Shared universal tutor lines (lesson 0)
   const sharedTutorLines = [...tutorLines.approved, ...tutorLines.pending].filter((e) => e.lesson === 0);
   const sharedEstSec = sharedTutorLines.reduce((sum, e) => {
-    const clean = e.text.replace(/\[DRAFT[^\]]*\]\s*/g, "").replace(/\s*\(reuse:.*\)$/, "");
+    const cleanText = e.text.replace(/\[DRAFT[^\]]*\]\s*/g, "");
+    const reuseIdx = cleanText.lastIndexOf("(reuse:");
+    const clean =
+      reuseIdx !== -1 && cleanText.endsWith(")")
+        ? cleanText.slice(0, reuseIdx).trimEnd()
+        : cleanText;
     const wc = clean.split(/\s+/).filter(Boolean).length;
     return sum + Math.max(1.5, wc / 2.2 + 0.5);
   }, 0);

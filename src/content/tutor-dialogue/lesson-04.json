@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l04-01-greeting-first",
-      "text": "Llegamos a la lección cuatro para conocer mejor a la vocal e.",
+      "text": "Llegamos hoy a nuestra siguiente aventura para conocer mejor a la vocal e.",
       "batch": "B010",
       "seq": 1,
       "file": "B010-001.mp3",
@@ -30,12 +30,13 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -65,11 +66,366 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l04-02-lesson-focus",
-      "text": "La vocal e suena parejita con los labios en una sonrisa tranquila.",
+      "id": "v2-l04-02-greeting-return",
+      "text": "Qué bueno verte de nuevo por aquí para repasar nuestra sonriente vocal e.",
       "batch": "B010",
       "seq": 2,
       "file": "B010-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-04-greeting-return",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-03-review-intro",
+      "text": "Ya practicamos las hermanitas o y a; ahora le damos la bienvenida a la tercera vocal.",
+      "batch": "B010",
+      "seq": 3,
+      "file": "B010-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-04-review-intro",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-04-review-check",
+      "text": "¿Puedes recordar cómo suena la vocal a antes de pasar a la vocal e?",
+      "batch": "B010",
+      "seq": 4,
+      "file": "B010-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-04-review-check",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido claro de la vocal e y encontraremos dibujos y palabras que empiezan con ella.",
+      "batch": "B010",
+      "seq": 5,
+      "file": "B010-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-04-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-06-letter-name",
+      "text": "Esta letra se llama e, con tres bracitos en la mayúscula y una curvita cerrada en la minúscula.",
+      "batch": "B010",
+      "seq": 6,
+      "file": "B010-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-04-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-07-phonetic-sound",
+      "text": "Al pronunciarla dibujamos una sonrisa suave y dejamos salir un sonido parejo: eee.",
+      "batch": "B010",
+      "seq": 7,
+      "file": "B010-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-04-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-08-lesson-focus",
+      "text": "La vocal e suena siempre limpia y pareja cuando mantenemos la boca ligeramente entreabierta.",
+      "batch": "B010",
+      "seq": 8,
+      "file": "B010-008.mp3",
       "intent": "lesson-intro",
       "role": "lesson-focus",
       "variationGroup": "lesson-04-lesson-focus",
@@ -88,12 +444,13 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -112,7 +469,7 @@
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "sound-out",
+      "expectedResponse": "repeat",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -123,11 +480,188 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l04-03-flipchart-intro",
-      "text": "En la lámina seis del rotafolio conocemos la rima de La niña distraída.",
+      "id": "v2-l04-09-sound-contrast",
+      "text": "A diferencia de la a bien abierta y la i muy finita, la e vive justo en una sonrisa media.",
       "batch": "B010",
-      "seq": 3,
-      "file": "B010-003.mp3",
+      "seq": 9,
+      "file": "B010-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-04-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-10-explanation-primary",
+      "text": "Cuando escuchas ese sonido parejo al comienzo de una palabra, estás frente a la vocal e.",
+      "batch": "B010",
+      "seq": 10,
+      "file": "B010-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-04-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-11-explanation-simple",
+      "text": "Sonríe poquito sin cerrar los dientes y di eee como llamando a Ema desde lejos.",
+      "batch": "B010",
+      "seq": 11,
+      "file": "B010-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-04-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-12-flipchart-intro",
+      "text": "Miremos juntos en el rotafolio la divertida rima titulada La niña distraída.",
+      "batch": "B010",
+      "seq": 12,
+      "file": "B010-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-04-flipchart-intro",
@@ -146,12 +680,13 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -181,14 +716,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l04-04-flipchart-rhyme",
-      "text": "Distraída es la e, entiende al revés; su mamá la llama una y otra vez.",
+      "id": "v2-l04-13-flipchart-illustration-1",
+      "text": "En las ilustraciones del rotafolio vemos un gran elefante, a Ema, un espejo y una estrella.",
       "batch": "B010",
-      "seq": 4,
-      "file": "B010-004.mp3",
-      "intent": "flipchart-sheet",
-      "role": "flipchart-rhyme",
-      "variationGroup": "lesson-04-flipchart-rhyme",
+      "seq": 13,
+      "file": "B010-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-04-flipchart-illustration",
       "curriculumRefs": {
         "lesson": 4,
         "printedPages": [
@@ -204,12 +739,13 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -220,15 +756,15 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "curious",
-      "gesture": "teach",
-      "presentationAction": "show-flipchart",
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
-        "syncWith": "on-sheet"
+        "syncWith": "on-highlight"
       },
-      "expectedResponse": "repeat",
+      "expectedResponse": "none",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -239,11 +775,129 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l04-05-flipchart-model",
-      "text": "Mira al gran elefante de la lámina seis para recordar siempre este sonido.",
+      "id": "v2-l04-14-flipchart-illustration-2",
+      "text": "También aparecen una escalera y un erizo simpático acompañando a la distraída vocal e.",
       "batch": "B010",
-      "seq": 5,
-      "file": "B010-005.mp3",
+      "seq": 14,
+      "file": "B010-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-04-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-15-reading-order",
+      "text": "Sigue los versos del poema de arriba hacia abajo y lee luego cada dibujo de izquierda a derecha.",
+      "batch": "B010",
+      "seq": 15,
+      "file": "B010-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-04-reading-order",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-16-flipchart-model",
+      "text": "Mira el dibujo del elefante mientras dices su nombre alargando el sonido inicial con calma.",
+      "batch": "B010",
+      "seq": 16,
+      "file": "B010-016.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-model",
       "variationGroup": "lesson-04-flipchart-model",
@@ -262,12 +916,13 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -279,14 +934,14 @@
       },
       "hintLevel": 0,
       "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-flipchart",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
-      "expectedResponse": "read-word",
+      "expectedResponse": "repeat",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -297,241 +952,19 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l04-06-page-instruction",
-      "text": "En la página diez busca y marca las palabras que comienzan con e.",
+      "id": "v2-l04-17-flipchart-vocab",
+      "text": "Leemos en voz clara las palabras del rotafolio: elefante, Ema, espejo, estrella, escalera y erizo.",
       "batch": "B010",
-      "seq": 6,
-      "file": "B010-006.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-04-page-instruction",
+      "seq": 17,
+      "file": "B010-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-04-flipchart-vocab",
       "curriculumRefs": {
         "lesson": 4,
         "printedPages": [
-          10
-        ],
-        "flipchartSheets": [
-          6
-        ],
-        "letters": [
-          "e"
-        ],
-        "words": [
-          "elefante",
-          "escalera",
-          "erizo",
-          "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          4
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "point-workbook",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "tap-item",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l04-07-word-practice",
-      "text": "Repite despacio cada palabra nueva: elefante, escalera, erizo y escoba.",
-      "batch": "B010",
-      "seq": 7,
-      "file": "B010-007.mp3",
-      "intent": "workbook-practice",
-      "role": "word-practice",
-      "variationGroup": "lesson-04-word-practice",
-      "curriculumRefs": {
-        "lesson": 4,
-        "printedPages": [
-          10
-        ],
-        "flipchartSheets": [
-          6
-        ],
-        "letters": [
-          "e"
-        ],
-        "words": [
-          "elefante",
-          "escalera",
-          "erizo",
-          "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          4
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "teach",
-      "presentationAction": "show-word",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-word",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l04-08-word-practice",
-      "text": "También empiezan con el mismo sonido estas palabras: estrella, escuela y espejo.",
-      "batch": "B010",
-      "seq": 8,
-      "file": "B010-008.mp3",
-      "intent": "workbook-practice",
-      "role": "word-practice",
-      "variationGroup": "lesson-04-word-practice",
-      "curriculumRefs": {
-        "lesson": 4,
-        "printedPages": [
-          10
-        ],
-        "flipchartSheets": [
-          6
-        ],
-        "letters": [
-          "e"
-        ],
-        "words": [
-          "elefante",
-          "escalera",
-          "erizo",
-          "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          4
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "encouraging",
-      "gesture": "teach",
-      "presentationAction": "show-word",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-word",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l04-09-page-instruction",
-      "text": "En la página once une la vocal con elefante, erizo, escalera y estrella.",
-      "batch": "B010",
-      "seq": 9,
-      "file": "B010-009.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-04-page-instruction",
-      "curriculumRefs": {
-        "lesson": 4,
-        "printedPages": [
-          11
-        ],
-        "flipchartSheets": [
-          6
-        ],
-        "letters": [
-          "e"
-        ],
-        "words": [
-          "elefante",
-          "escalera",
-          "erizo",
-          "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          4
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "point-workbook",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "tap-item",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l04-10-page-instruction",
-      "text": "En la página doce practica la escritura limpia y haz un dibujo con e.",
-      "batch": "B010",
-      "seq": 10,
-      "file": "B010-010.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-04-page-instruction",
-      "curriculumRefs": {
-        "lesson": 4,
-        "printedPages": [
+          10,
+          11,
           12
         ],
         "flipchartSheets": [
@@ -542,12 +975,190 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-18-flipchart-rhyme-1",
+      "text": "Leemos juntos los primeros versos: Distraída es la Ee, entiende al revés, su mamá la llama una y otra vez.",
+      "batch": "B010",
+      "seq": 18,
+      "file": "B010-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-04-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
           "estrella",
-          "escuela",
-          "espejo"
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-19-flipchart-rhyme-2",
+      "text": "Seguimos leyendo el diálogo del poema: Te oigo muy bajito, llámame otra vez.",
+      "batch": "B010",
+      "seq": 19,
+      "file": "B010-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-04-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-20-comprehension-1",
+      "text": "En el poema La niña distraída, ¿quién llama una y otra vez a la vocal e?",
+      "batch": "B010",
+      "seq": 20,
+      "file": "B010-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-04-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -558,8 +1169,539 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-21-comprehension-2",
+      "text": "¿Por qué pide la niña distraída que la llamen otra vez?",
+      "batch": "B010",
+      "seq": 21,
+      "file": "B010-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-04-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-22-comprehension-3",
+      "text": "¿Comienza la palabra estrella con el mismo sonido inicial que la palabra escalera?",
+      "batch": "B010",
+      "seq": 22,
+      "file": "B010-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-04-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-23-common-mistake-1",
+      "text": "No confundas la e con la i; mantén la boca un poco más abierta y relajada.",
+      "batch": "B010",
+      "seq": 23,
+      "file": "B010-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-04-common-mistake",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-24-common-mistake-2",
+      "text": "Evita marcar iglú, maíz, indio, abeja, aguja, unicornio, águila ni uno en tu ejercicio.",
+      "batch": "B010",
+      "seq": 24,
+      "file": "B010-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-04-common-mistake",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-25-common-mistake-3",
+      "text": "Cuando escribas la e minúscula, empieza desde el centro hacia afuera y sube formando su cabecita.",
+      "batch": "B010",
+      "seq": 25,
+      "file": "B010-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-04-common-mistake",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-26-hint-1",
+      "text": "Escucha el nombre del dibujo despacio y nota si tu boca hace una sonrisa media.",
+      "batch": "B010",
+      "seq": 26,
+      "file": "B010-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-04-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-27-hint-2",
+      "text": "Compara el inicio del dibujo con elefante y estrella para ver si suenan igual.",
+      "batch": "B010",
+      "seq": 27,
+      "file": "B010-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-04-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-28-hint-3",
+      "text": "Repite conmigo estas palabras verificadas con e: elefante, escalera, erizo y escoba.",
+      "batch": "B010",
+      "seq": 28,
+      "file": "B010-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-04-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-29-workbook-transition",
+      "text": "Ahora pasamos a tu cuaderno de trabajo para buscar los dibujos de la vocal e.",
+      "batch": "B010",
+      "seq": 29,
+      "file": "B010-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-04-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -577,19 +1719,18 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l04-11-adaptive-coaching",
-      "text": "No confundas la e con la i; mantén la boca un poco más abierta.",
+      "id": "v2-l04-30-page-instruction-1",
+      "text": "Marca con una equis solamente los dibujos de las palabras que comienzan con la vocal e.",
       "batch": "B010",
-      "seq": 11,
-      "file": "B010-011.mp3",
-      "intent": "lesson-coaching",
-      "role": "adaptive-coaching",
-      "variationGroup": "lesson-04-adaptive-coaching",
+      "seq": 30,
+      "file": "B010-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-04-page-instruction",
       "curriculumRefs": {
         "lesson": 4,
         "printedPages": [
-          10,
-          11
+          10
         ],
         "flipchartSheets": [
           6
@@ -599,12 +1740,13 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -614,16 +1756,16 @@
           4
         ]
       },
-      "hintLevel": 2,
-      "expression": "gentle",
-      "gesture": "help",
-      "presentationAction": "show-letter",
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "sound-out",
+      "expectedResponse": "none",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -634,11 +1776,764 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l04-12-closing",
-      "text": "Qué bien trabajaste la vocal e en toda esta lección. Vamos por la i.",
+      "id": "v2-l04-31-page-instruction-2",
+      "text": "Después traza una línea desde la vocal e hasta cada dibujo que empieza con su mismo sonido.",
       "batch": "B010",
-      "seq": 12,
-      "file": "B010-012.mp3",
+      "seq": 31,
+      "file": "B010-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-04-page-instruction",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          11
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-32-syllable-practice",
+      "text": "Pronuncia con atención el comienzo de cada palabra: elefante, escalera, erizo, escoba, estrella, escuela y espejo.",
+      "batch": "B010",
+      "seq": 32,
+      "file": "B010-032.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-04-word-practice",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          11
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-33-word-practice-1",
+      "text": "Repite despacio estas cuatro palabras del cuaderno: elefante, escalera, erizo y escoba.",
+      "batch": "B010",
+      "seq": 33,
+      "file": "B010-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-04-word-practice",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-34-word-practice-2",
+      "text": "Sigamos con estas palabras también de la lección: estrella, escuela, espejo y Ema.",
+      "batch": "B010",
+      "seq": 34,
+      "file": "B010-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-04-word-practice",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-35-sight-or-vocab",
+      "text": "Recuerda que Ema se escribe con e mayúscula porque es el nombre propio de una persona.",
+      "batch": "B010",
+      "seq": 35,
+      "file": "B010-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-04-word-practice",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-36-sentence-or-pair",
+      "text": "Compara este par de dibujos: espejo empieza con e, mientras que abrigo comienza con a.",
+      "batch": "B010",
+      "seq": 36,
+      "file": "B010-036.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-04-word-practice",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-37-page-instruction-final",
+      "text": "Al final practica la escritura de la vocal e con tu mejor letra en los renglones.",
+      "batch": "B010",
+      "seq": 37,
+      "file": "B010-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-04-page-instruction",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-38-game-intro",
+      "text": "Hagamos ahora un reto interactivo de escucha para distinguir las palabras que empiezan con e.",
+      "batch": "B010",
+      "seq": 38,
+      "file": "B010-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-04-game-intro",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-39-game-step",
+      "text": "Escucha cada palabra que te presento y dime si su dibujo comienza con e o con otra vocal.",
+      "batch": "B010",
+      "seq": 39,
+      "file": "B010-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-04-game-step",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-40-game-correct",
+      "text": "Muy bien respondido. Distinguiste con claridad el sonido parejo de la vocal e.",
+      "batch": "B010",
+      "seq": 40,
+      "file": "B010-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-04-game-correct",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-41-game-retry",
+      "text": "Vuelve a decir la palabra en voz baja y comprueba si empieza igual que elefante.",
+      "batch": "B010",
+      "seq": 41,
+      "file": "B010-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-04-game-retry",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-42-assessment",
+      "text": "Para cerrar hoy, dime qué dibujo de tu cuaderno comienza con e además de elefante.",
+      "batch": "B010",
+      "seq": 42,
+      "file": "B010-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-04-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-43-page-complete",
+      "text": "Terminaste todos tus ejercicios de la vocal e con mucha paciencia y orden.",
+      "batch": "B010",
+      "seq": 43,
+      "file": "B010-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-04-page-complete",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-44-closing",
+      "text": "Qué bien trabajaste hoy la vocal e. Cada vez tienes el oído más atento para leer.",
+      "batch": "B010",
+      "seq": 44,
+      "file": "B010-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-04-closing",
@@ -657,12 +2552,13 @@
         ],
         "words": [
           "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
           "escalera",
           "erizo",
           "escoba",
-          "estrella",
-          "escuela",
-          "espejo"
+          "escuela"
         ],
         "sourceStatus": "verified"
       },
@@ -676,6 +2572,65 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l04-45-next-step",
+      "text": "En la próxima lección conoceremos la delgadita vocal i y su divertida rima.",
+      "batch": "B010",
+      "seq": 45,
+      "file": "B010-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-04-next-step",
+      "curriculumRefs": {
+        "lesson": 4,
+        "printedPages": [
+          10,
+          11,
+          12
+        ],
+        "flipchartSheets": [
+          6
+        ],
+        "letters": [
+          "e"
+        ],
+        "words": [
+          "elefante",
+          "Ema",
+          "espejo",
+          "estrella",
+          "escalera",
+          "erizo",
+          "escoba",
+          "escuela"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

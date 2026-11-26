@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l08-01-greeting-first",
-      "text": "Hoy llegamos a la lección ocho para conocer la letra pe y sus sílabas.",
+      "text": "Hoy llegamos a una nueva lección para conocer la letra pe y todas sus sílabas.",
       "batch": "B014",
       "seq": 1,
       "file": "B014-001.mp3",
@@ -31,16 +31,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -69,14 +84,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-02-lesson-focus",
-      "text": "Junta los labios y suelta un golpecito limpio de aire como en papá.",
+      "id": "v2-l08-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir leyendo palabras y juegos con la letra pe.",
       "batch": "B014",
       "seq": 2,
       "file": "B014-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-08-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-08-greeting-return",
       "curriculumRefs": {
         "lesson": 8,
         "printedPages": [
@@ -93,16 +108,417 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-03-review-intro",
+      "text": "Ya sabemos leer con eme palabras como mamá y amo; hoy sumamos la pe para formar más historias.",
+      "batch": "B014",
+      "seq": 3,
+      "file": "B014-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-08-review-intro",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-04-review-check",
+      "text": "¿Recuerdas cómo juntabas los labios para la eme antes de pasar a la letra pe?",
+      "batch": "B014",
+      "seq": 4,
+      "file": "B014-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-08-review-check",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido explosivo de la pe, leeremos pa, pe, pi, po, pu y la palabra yo.",
+      "batch": "B014",
+      "seq": 5,
+      "file": "B014-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-08-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-06-letter-name",
+      "text": "Esta consonante se llama pe, y tiene una pancita arriba en mayúscula y patita hacia abajo en minúscula.",
+      "batch": "B014",
+      "seq": 6,
+      "file": "B014-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-08-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-07-phonetic-sound",
+      "text": "Para hacer su sonido apretamos un instante los labios y soltamos un golpecito limpio de aire.",
+      "batch": "B014",
+      "seq": 7,
+      "file": "B014-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-08-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -131,11 +547,319 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-03-flipchart-intro",
-      "text": "En la lámina doce del rotafolio leemos en voz clara pa, pe, pi, po, pu.",
+      "id": "v2-l08-08-lesson-focus",
+      "text": "Junta los labios con firmeza y suelta un pequeño estallido suave de aire como en papá.",
       "batch": "B014",
-      "seq": 3,
-      "file": "B014-003.mp3",
+      "seq": 8,
+      "file": "B014-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-08-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-09-sound-contrast",
+      "text": "A diferencia de la eme que vibra largo, la pe sale cortita y limpia como una burbuja.",
+      "batch": "B014",
+      "seq": 9,
+      "file": "B014-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-08-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-10-explanation-primary",
+      "text": "Al unir el golpecito de la pe con las cinco vocales formamos las sílabas pa, pe, pi, po, pu.",
+      "batch": "B014",
+      "seq": 10,
+      "file": "B014-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-08-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-11-explanation-simple",
+      "text": "Imagina que explota una burbujita suave entre tus labios: así suenan papá, Pepe y puma.",
+      "batch": "B014",
+      "seq": 11,
+      "file": "B014-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-08-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer las sílabas, los dibujos y el poema Mi papá.",
+      "batch": "B014",
+      "seq": 12,
+      "file": "B014-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-08-flipchart-intro",
@@ -153,16 +877,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -175,6 +914,308 @@
       "expression": "warm",
       "gesture": "point",
       "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-13-flipchart-illustration-1",
+      "text": "En las ilustraciones del rotafolio vemos a papá, un pie, a Pepe, un puma y un pomo.",
+      "batch": "B014",
+      "seq": 13,
+      "file": "B014-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-08-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-14-flipchart-illustration-2",
+      "text": "También observamos las sílabas ordenadas arriba y luego al revés para leerlas en ambos sentidos.",
+      "batch": "B014",
+      "seq": 14,
+      "file": "B014-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-08-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-15-reading-order",
+      "text": "Lee las sílabas de izquierda a derecha y luego recorre cada fila de palabras en el mismo orden.",
+      "batch": "B014",
+      "seq": 15,
+      "file": "B014-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-08-reading-order",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-16-flipchart-model",
+      "text": "Leemos juntos en voz clara las cinco sílabas: pa, pe, pi, po, pu.",
+      "batch": "B014",
+      "seq": 16,
+      "file": "B014-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-08-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
@@ -191,12 +1232,12 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-04-flipchart-vocab",
-      "text": "La lámina trece reúne palabras conocidas como papá, papi, puma, pie, mapa y pomo.",
+      "id": "v2-l08-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: papá, pie, Pepe, puma y pomo.",
       "batch": "B014",
-      "seq": 4,
-      "file": "B014-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B014-017.mp3",
+      "intent": "flipchart-vocab",
       "role": "flipchart-vocab",
       "variationGroup": "lesson-08-flipchart-vocab",
       "curriculumRefs": {
@@ -208,21 +1249,36 @@
           26
         ],
         "flipchartSheets": [
-          13
+          12
         ],
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -233,12 +1289,12 @@
       },
       "hintLevel": 0,
       "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-flipchart",
+      "gesture": "teach",
+      "presentationAction": "show-word",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
-        "syncWith": "on-sheet"
+        "syncWith": "on-highlight"
       },
       "expectedResponse": "read-word",
       "cooldownTurns": 2,
@@ -251,12 +1307,12 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-05-flipchart-rhyme",
-      "text": "En la lámina catorce leemos juntos Mi papá: Yo amo a Pupi, yo amo a papá.",
+      "id": "v2-l08-18-flipchart-rhyme-1",
+      "text": "Leemos juntos el comienzo del poema Mi papá: Yo amo a Pupi, yo amo a papá.",
       "batch": "B014",
-      "seq": 5,
-      "file": "B014-005.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 18,
+      "file": "B014-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-08-flipchart-rhyme",
       "curriculumRefs": {
@@ -273,16 +1329,106 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-19-flipchart-rhyme-2",
+      "text": "Seguimos con el segundo verso del poema: Pipo me ama a mí y a mamá.",
+      "batch": "B014",
+      "seq": 19,
+      "file": "B014-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-08-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -300,7 +1446,7 @@
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
-      "expectedResponse": "read-sentence",
+      "expectedResponse": "repeat",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -311,18 +1457,21 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-06-page-instruction",
-      "text": "En la página veintitrés practica la escritura de la pe y haz tu dibujo.",
+      "id": "v2-l08-20-comprehension-1",
+      "text": "En el poema Mi papá, ¿a quiénes ama el niño o la niña que habla?",
       "batch": "B014",
-      "seq": 6,
-      "file": "B014-006.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-08-page-instruction",
+      "seq": 20,
+      "file": "B014-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-08-comprehension-question",
       "curriculumRefs": {
         "lesson": 8,
         "printedPages": [
-          23
+          23,
+          24,
+          25,
+          26
         ],
         "flipchartSheets": [
           12,
@@ -332,16 +1481,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -351,8 +1515,701 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-21-comprehension-2",
+      "text": "¿Con qué sílaba comienza la palabra pomo que aparece en el rotafolio?",
+      "batch": "B014",
+      "seq": 21,
+      "file": "B014-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-08-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-22-comprehension-3",
+      "text": "¿Cuál animal salvaje aparece dibujado en el rotafolio de la letra pe?",
+      "batch": "B014",
+      "seq": 22,
+      "file": "B014-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-08-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-23-common-mistake-1",
+      "text": "Cuida que la patita de la pe minúscula baje por debajo de la línea y la bolita quede arriba.",
+      "batch": "B014",
+      "seq": 23,
+      "file": "B014-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-08-common-mistake",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-24-common-mistake-2",
+      "text": "Fíjate bien en la tilde de papá, púa y pío para leerlas con la fuerza en su sílaba exacta.",
+      "batch": "B014",
+      "seq": 24,
+      "file": "B014-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-08-common-mistake",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-25-common-mistake-3",
+      "text": "No agregues una vocal antes de la pe; suéltala directo junto a la vocal que sigue.",
+      "batch": "B014",
+      "seq": 25,
+      "file": "B014-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-08-common-mistake",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-26-hint-1",
+      "text": "Mira la vocal que acompaña a la pe y recuerda el golpecito suave de los labios.",
+      "batch": "B014",
+      "seq": 26,
+      "file": "B014-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-08-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-27-hint-2",
+      "text": "Si empieza con p y u, junta ambas en un solo sonido como en puma.",
+      "batch": "B014",
+      "seq": 27,
+      "file": "B014-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-08-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: papá.",
+      "batch": "B014",
+      "seq": 28,
+      "file": "B014-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-08-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la pe, leer oraciones y completar palabras.",
+      "batch": "B014",
+      "seq": 29,
+      "file": "B014-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-08-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -370,11 +2227,85 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-07-page-instruction",
-      "text": "En la página veinticuatro encierra la sílaba correcta en papá, Pepe, pipo, pomo y puma.",
+      "id": "v2-l08-30-page-instruction-1",
+      "text": "Escribe la pe mayúscula y minúscula con buena letra y dibuja algo cuyo nombre empiece con pe.",
       "batch": "B014",
-      "seq": 7,
-      "file": "B014-007.mp3",
+      "seq": 30,
+      "file": "B014-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-08-page-instruction",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-31-page-instruction-2",
+      "text": "Después encierra la sílaba correspondiente en palabras como papá, Pepe, pipo, pomo y puma.",
+      "batch": "B014",
+      "seq": 31,
+      "file": "B014-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-08-page-instruction",
@@ -391,16 +2322,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -429,14 +2375,88 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-08-sight-word-intro",
-      "text": "En la página veinticinco aprendemos la palabra nueva yo para hablar de nosotros.",
+      "id": "v2-l08-32-syllable-practice",
+      "text": "Leemos y buscamos en el ejercicio las sílabas pa, pe, pi, po, pu en papá, pelo, pipo, pomo y puma.",
       "batch": "B014",
-      "seq": 8,
-      "file": "B014-008.mp3",
-      "intent": "workbook-page",
-      "role": "sight-word-intro",
-      "variationGroup": "lesson-08-sight-word-intro",
+      "seq": 32,
+      "file": "B014-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-08-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          24
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-33-word-practice-1",
+      "text": "Lee despacio el primer grupo de palabras del cuadro: papá, mapo, Mapi, papi y puma.",
+      "batch": "B014",
+      "seq": 33,
+      "file": "B014-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-08-word-practice",
       "curriculumRefs": {
         "lesson": 8,
         "printedPages": [
@@ -450,16 +2470,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -488,11 +2523,159 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-09-sentence-practice",
-      "text": "Lee siguiendo con tu dedo la oración: Papá y Pepe aman a mamá.",
+      "id": "v2-l08-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: pie, Pepe, Mupi, púa, mapa, pomo, Pupi y Pepo.",
       "batch": "B014",
-      "seq": 9,
-      "file": "B014-009.mp3",
+      "seq": 34,
+      "file": "B014-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-08-word-practice",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          25
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-35-sight-or-vocab",
+      "text": "Hoy aprendemos una palabra nueva cortita y especial: yo, para hablar de nosotros mismos.",
+      "batch": "B014",
+      "seq": 35,
+      "file": "B014-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-08-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          25
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-36-sentence-or-pair",
+      "text": "Lee con tu dedito esta oración del libro: Yo amo a mamá y a papá.",
+      "batch": "B014",
+      "seq": 36,
+      "file": "B014-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-08-sentence-practice",
@@ -509,16 +2692,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -547,70 +2745,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-10-sentence-practice",
-      "text": "Ahora prueba leer esta otra de la misma página: Yo amo a mamá y a papá.",
+      "id": "v2-l08-37-page-instruction-final",
+      "text": "Al final completa las palabras con pa, pe, pi, po, pu, como en papá, mapa, puma y Pepe.",
       "batch": "B014",
-      "seq": 10,
-      "file": "B014-010.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-08-sentence-practice",
-      "curriculumRefs": {
-        "lesson": 8,
-        "printedPages": [
-          25
-        ],
-        "flipchartSheets": [
-          12,
-          13,
-          14
-        ],
-        "letters": [
-          "p"
-        ],
-        "words": [
-          "papá",
-          "papi",
-          "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
-          "puma",
-          "yo"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          8
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-sentence",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-sentence",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l08-11-page-instruction",
-      "text": "En la página veintiséis completa las palabras con las sílabas de la pe.",
-      "batch": "B014",
-      "seq": 11,
-      "file": "B014-011.mp3",
+      "seq": 37,
+      "file": "B014-037.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-08-page-instruction",
@@ -627,16 +2766,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -665,11 +2819,473 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l08-12-closing",
-      "text": "Ya lees oraciones combinando eme y pe. Seguimos creciendo en la lectura.",
+      "id": "v2-l08-38-game-intro",
+      "text": "Tenemos varios juegos con la letra pe, como ayudar a las mariposas a regresar al jardín.",
       "batch": "B014",
-      "seq": 12,
-      "file": "B014-012.mp3",
+      "seq": 38,
+      "file": "B014-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-08-game-intro",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-39-game-step",
+      "text": "Escucha la palabra y toca las sílabas en orden para formar papá, papi o pomo.",
+      "batch": "B014",
+      "seq": 39,
+      "file": "B014-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-08-game-step",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-40-game-correct",
+      "text": "Mira cómo regresan contentas las mariposas. Formaste la palabra de pe con exactitud.",
+      "batch": "B014",
+      "seq": 40,
+      "file": "B014-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-08-game-correct",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-41-game-retry",
+      "text": "Escucha otra vez cuál sílaba suena primero y vuelve a ordenar las tarjetas con calma.",
+      "batch": "B014",
+      "seq": 41,
+      "file": "B014-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-08-game-retry",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee en voz clara la oración: Papá y Pepe aman a mamá.",
+      "batch": "B014",
+      "seq": 42,
+      "file": "B014-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-08-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-43-page-complete",
+      "text": "Terminaste todas las actividades y juegos de la letra pe con excelente atención.",
+      "batch": "B014",
+      "seq": 43,
+      "file": "B014-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-08-page-complete",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-44-closing",
+      "text": "Ya lees oraciones completas combinando eme y pe. Cada día tu lectura suena más segura.",
+      "batch": "B014",
+      "seq": 44,
+      "file": "B014-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-08-closing",
@@ -689,16 +3305,31 @@
         "letters": [
           "p"
         ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
         "words": [
           "papá",
-          "papi",
+          "pie",
           "Pepe",
-          "Pupi",
-          "mapa",
-          "pomo",
           "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
           "yo"
         ],
+        "gameId": "mariposas-p",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -711,6 +3342,83 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-45-next-step",
+      "text": "En la siguiente lección escucharemos el silbido suave de la letra ese.",
+      "batch": "B014",
+      "seq": 45,
+      "file": "B014-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-08-next-step",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu"
+        ],
+        "words": [
+          "papá",
+          "pie",
+          "Pepe",
+          "puma",
+          "pomo",
+          "papi",
+          "mapo",
+          "Mapi",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "Pupi",
+          "Pepo",
+          "yo"
+        ],
+        "gameId": "mariposas-p",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

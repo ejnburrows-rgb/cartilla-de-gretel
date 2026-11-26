@@ -195,7 +195,7 @@ function TeacherSesionesReview() {
   const studentDisplayName = progress?.student.display_name ?? `Estudiante ${studentId}`;
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-6 pb-10">
+    <div className="w-full min-w-0 max-w-5xl mx-auto space-y-6 pb-10">
       {/* Top navigation & export/import toolbar */}
       <div className="no-print flex flex-wrap items-center justify-between gap-3">
         <Link
@@ -258,8 +258,9 @@ function TeacherSesionesReview() {
           className={`rounded-xl border px-4 py-2.5 text-sm font-bold ${
             importFeedback.ok
               ? "border-emerald-200 bg-emerald-50 text-emerald-900"
-              : "border-rose-200 bg-rose-50 text-rose-900"
+              : "border-rose-200 bg-rose-50"
           }`}
+          style={importFeedback.ok ? undefined : { color: "#881337" }}
         >
           {importFeedback.text}
         </p>
@@ -312,9 +313,10 @@ function TeacherSesionesReview() {
                   onClick={() => setSelectedSessionId(session.sessionId)}
                   className={`rounded-2xl border px-4 py-2.5 text-left transition ${
                     isSelected
-                      ? "border-indigo-500 bg-indigo-50 text-indigo-950"
+                      ? "bg-indigo-50"
                       : "border-stone-200 bg-stone-50 text-stone-700 hover:bg-stone-100"
                   }`}
+                  style={isSelected ? { borderColor: "#6366f1", color: "#1e1b4b" } : undefined}
                 >
                   <div className="text-xs font-black">
                     Lección {session.lesson} · {formatDurationEs(session.durationMs)}
@@ -364,7 +366,8 @@ function TeacherSesionesReview() {
                 <button
                   type="submit"
                   disabled={!noteDraft.trim()}
-                  className="min-h-10 rounded-xl bg-indigo-700 px-4 text-xs font-black text-white disabled:opacity-40"
+                  className="min-h-10 rounded-xl px-4 text-xs font-black text-white disabled:opacity-40"
+                  style={{ backgroundColor: "#4338ca" }}
                 >
                   Guardar nota local
                 </button>
@@ -465,7 +468,8 @@ function TeacherSesionesReview() {
                   {activeSession.teacherOverrides.map((ovr) => (
                     <li
                       key={ovr.id}
-                      className="flex items-start justify-between gap-3 rounded-xl border border-amber-200 bg-amber-50/70 p-3"
+                      className="flex items-start justify-between gap-3 rounded-xl border border-amber-200 p-3"
+                      style={{ backgroundColor: "rgba(255, 251, 235, 0.7)" }}
                     >
                       <div className="space-y-0.5 text-xs">
                         <p className="font-black text-stone-800">
@@ -497,17 +501,22 @@ function TeacherSesionesReview() {
             className="print-page rounded-3xl border-2 border-[#e8dcc0] bg-white p-6 sm:p-8 space-y-6"
           >
             <header className="flex flex-wrap items-start justify-between gap-4 border-b-2 border-[#e8dcc0] pb-5">
-              <div>
+              <div className="min-w-0">
                 <div className="text-xs font-black uppercase tracking-[0.2em] text-indigo-700">
                   La Cartilla de Gretel · {STRUCTURED_REPLAY_LABEL}
                 </div>
                 <h2 className="mt-1 text-2xl font-black text-stone-800">
                   Reporte docente — Lección {activeSession.lesson}
                 </h2>
-                <p className="mt-1 text-xs font-bold text-stone-500">
+                <p className="mt-1 break-words text-xs font-bold text-stone-500">
                   {studentDisplayName} · Sesión {activeSession.sessionId} · Versión curricular{" "}
                   {activeSession.curriculumVersion}
                 </p>
+                {activeSession.isDemo && (
+                  <p className="mt-2 inline-flex rounded-full border border-amber-300 bg-amber-50 px-2.5 py-0.5 text-[11px] font-black text-amber-900">
+                    Datos sintéticos de demostración (no corresponden a un estudiante real)
+                  </p>
+                )}
               </div>
               <div className="no-print flex flex-wrap gap-2">
                 <button
@@ -532,7 +541,7 @@ function TeacherSesionesReview() {
             )}
 
             {/* Block A: Observed facts (Sections 1–7) */}
-            <div className="space-y-4">
+            <div data-report-block="observations" className="space-y-4">
               <div className="text-xs font-black uppercase tracking-wider text-stone-500">
                 Observaciones registradas en la sesión
               </div>
@@ -540,10 +549,11 @@ function TeacherSesionesReview() {
                 {report.observations.map((section) => (
                   <section
                     key={section.title}
-                    className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4 space-y-2"
+                    data-report-section={section.title}
+                    className="min-w-0 rounded-2xl border border-stone-200 bg-stone-50/70 p-4 space-y-2"
                   >
                     <h3 className="text-sm font-black text-stone-800">{section.title}</h3>
-                    <ul className="list-disc pl-4 space-y-1 text-xs font-semibold leading-relaxed text-stone-700">
+                    <ul className="list-disc pl-4 space-y-1 text-xs font-semibold leading-relaxed text-stone-700 break-words">
                       {section.lines.map((line, idx) => (
                         <li key={idx}>{line}</li>
                       ))}
@@ -554,12 +564,17 @@ function TeacherSesionesReview() {
             </div>
 
             {/* Block B: Pedagogical Recommendations (Section 8 — strictly separated) */}
-            <section className="rounded-2xl border-2 border-blue-200 bg-blue-50/70 p-5 space-y-2">
+            <section
+              data-report-block="recommendations"
+              data-report-section={report.recommendations.title}
+              className="rounded-2xl border-2 border-blue-200 p-5 space-y-2"
+              style={{ backgroundColor: "rgba(239, 246, 255, 0.7)" }}
+            >
               <div className="text-[11px] font-black uppercase tracking-wider text-blue-700">
                 Sugerencias pedagógicas (separadas de las observaciones)
               </div>
               <h3 className="text-base font-black text-blue-950">{report.recommendations.title}</h3>
-              <ul className="list-disc pl-5 space-y-1.5 text-sm font-semibold leading-relaxed text-blue-950">
+              <ul className="list-disc pl-5 space-y-1.5 text-sm font-semibold leading-relaxed text-blue-950 break-words">
                 {report.recommendations.lines.map((line, idx) => (
                   <li key={idx}>{line}</li>
                 ))}

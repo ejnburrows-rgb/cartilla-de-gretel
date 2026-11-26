@@ -17,6 +17,7 @@ import {
 import { checkRejectedSource, validateIntakeRepositoryGuard } from "./guard.mjs";
 import { applyAuthorizedManifestUpdates, loadManifestCatalog } from "./manifest.mjs";
 import {
+  detectSilenceWithFfmpeg,
   exportRuntimeMp3,
   extractAndResampleWav,
   parseWavBuffer,
@@ -25,7 +26,11 @@ import {
 } from "./media.mjs";
 import { runClipQc } from "./qc.mjs";
 import { writeIntakeReport } from "./report.mjs";
-import { measureSilenceIntervals, snapSegmentsToSilences } from "./silence.mjs";
+import {
+  deriveSpeechSegmentsFromSilences,
+  measureSilenceIntervals,
+  snapSegmentsToSilences,
+} from "./silence.mjs";
 import { mouthCuesAreValid, syncVisemesForAudio } from "./visemes.mjs";
 
 export {
@@ -33,6 +38,8 @@ export {
   applyAuthorizedManifestUpdates,
   checkRejectedSource,
   computeTranscriptSimilarity,
+  deriveSpeechSegmentsFromSilences,
+  detectSilenceWithFfmpeg,
   ingestPrivateOriginal,
   loadManifestCatalog,
   matchBatchByTranscriptSimilarity,
@@ -47,10 +54,14 @@ export {
 };
 
 function sanitizeSlug(value) {
-  return String(value ?? "clip")
+  const replaced = String(value ?? "clip")
     .normalize("NFC")
-    .replace(/[^A-Za-z0-9À-ÿ._-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^A-Za-z0-9À-ÿ._-]+/g, "-");
+  let start = 0;
+  let end = replaced.length;
+  while (start < end && replaced[start] === "-") start += 1;
+  while (end > start && replaced[end - 1] === "-") end -= 1;
+  return replaced.slice(start, end);
 }
 
 /**
@@ -69,6 +80,10 @@ export async function runTutorIntake({
   approval = "",
   dryRun = true,
   writeReport = true,
+  exportDir = null,
+  manifestWrite = true,
+  minSilenceDurationSec = 0.35,
+  silenceThresholdDb = -40,
   tools = null,
   rhubarbRunner = null,
 } = {}) {
@@ -104,6 +119,7 @@ export async function runTutorIntake({
     if (ingested.accepted) {
       acceptedSources.push({
         ...ingested,
+        sourceName: basename(filePath),
         fileSpec: typeof fileSpec === "string" ? { path: filePath } : fileSpec,
       });
     }
@@ -130,7 +146,27 @@ export async function runTutorIntake({
         tools: resolvedTools,
       });
       const wavData = parseWavBuffer(readFileSync(wavPath));
-      const silenceScan = measureSilenceIntervals(wavData.samples, wavData.sampleRate);
+      const jsSilenceScan = measureSilenceIntervals(wavData.samples, wavData.sampleRate, {
+        silenceThresholdDb,
+        minSilenceDurationMs: Math.round(minSilenceDurationSec * 1000),
+      });
+      let ffmpegSilenceScan = null;
+      if (resolvedTools.ffmpeg) {
+        ffmpegSilenceScan = detectSilenceWithFfmpeg({
+          inputPath: mediaPath,
+          tools: resolvedTools,
+          noiseThresholdDb: silenceThresholdDb,
+          minSilenceDurationSec,
+          totalDurationSec: wavData.durationSec,
+        });
+      }
+      const useFfmpegSilences = Boolean(ffmpegSilenceScan && ffmpegSilenceScan.silences.length > 0);
+      const silenceScan = {
+        ...jsSilenceScan,
+        silences: useFfmpegSilences ? ffmpegSilenceScan.silences : jsSilenceScan.silences,
+        engine: useFfmpegSilences ? "ffmpeg-silencedetect" : "js-rms",
+        ffmpegSilencesCount: ffmpegSilenceScan?.silences.length ?? 0,
+      };
       analyzedFiles.push({
         source: src,
         mediaPath,
@@ -140,32 +176,74 @@ export async function runTutorIntake({
       });
     }
 
-    // Build candidate segments (either explicit transcript segments for continuous batch,
-    // or one segment per individual input clip)
+    // Build candidate segments (either explicit timestamped segments, transcript-only
+    // segments paired with measured-silence utterance windows, or auto-segmented windows)
     let rawSegments = [];
     if (Array.isArray(heardSegments) && heardSegments.length > 0) {
-      rawSegments = heardSegments.map((seg) => ({
-        ...seg,
-        sourceIndex: seg.sourceIndex ?? 0,
-      }));
+      const hasTimestamps = heardSegments.every(
+        (seg) => typeof seg.startSec === "number" && typeof seg.endSec === "number",
+      );
+      if (hasTimestamps) {
+        rawSegments = heardSegments.map((seg) => ({
+          ...seg,
+          sourceIndex: seg.sourceIndex ?? 0,
+        }));
+      } else {
+        const derivedBySource = analyzedFiles.map((af) =>
+          deriveSpeechSegmentsFromSilences({
+            silences: af.silenceScan.silences,
+            totalDurationSec: af.wavData.durationSec,
+          }),
+        );
+        const perSourceIdx = new Map();
+        rawSegments = heardSegments.map((seg) => {
+          const srcIdx = seg.sourceIndex ?? 0;
+          const pos = perSourceIdx.get(srcIdx) ?? 0;
+          perSourceIdx.set(srcIdx, pos + 1);
+          const derived = derivedBySource[srcIdx]?.[pos];
+          return {
+            ...seg,
+            sourceIndex: srcIdx,
+            startSec: typeof seg.startSec === "number" ? seg.startSec : (derived?.startSec ?? null),
+            endSec: typeof seg.endSec === "number" ? seg.endSec : (derived?.endSec ?? null),
+          };
+        });
+      }
     } else {
-      rawSegments = analyzedFiles.map((af, idx) => {
+      for (let idx = 0; idx < analyzedFiles.length; idx++) {
+        const af = analyzedFiles[idx];
         const dur = af.wavData.durationSec;
         const spec = af.source.fileSpec ?? {};
-        return {
-          sourceIndex: idx,
-          startSec: spec.startSec ?? 0,
-          endSec: spec.endSec ?? dur,
-          text: spec.transcript ?? spec.text ?? "",
-          lineIdHint: spec.lineId ?? null,
-        };
-      });
+        const derived = deriveSpeechSegmentsFromSilences({
+          silences: af.silenceScan.silences,
+          totalDurationSec: dur,
+        });
+        if (analyzedFiles.length === 1 && derived.length > 1 && spec.startSec == null) {
+          for (const win of derived) {
+            rawSegments.push({
+              sourceIndex: idx,
+              startSec: win.startSec,
+              endSec: win.endSec,
+              text: spec.transcript ?? spec.text ?? "",
+              lineIdHint: spec.lineId ?? null,
+            });
+          }
+        } else {
+          rawSegments.push({
+            sourceIndex: idx,
+            startSec: spec.startSec ?? 0,
+            endSec: spec.endSec ?? dur,
+            text: spec.transcript ?? spec.text ?? "",
+            lineIdHint: spec.lineId ?? null,
+          });
+        }
+      }
     }
 
     // Step 4: Match batch via transcript similarity (never assume nth sentence = nth line)
     let matchedBatch = null;
-    let targetExpectedLines = expectedLines;
-    if (!targetExpectedLines && catalog.batches.length > 0 && rawSegments.length > 0) {
+    let targetExpectedLines = Array.isArray(expectedLines) ? expectedLines : [];
+    if (targetExpectedLines.length === 0 && catalog.batches.length > 0 && rawSegments.length > 0) {
       const batchMatch = matchBatchByTranscriptSimilarity(rawSegments, catalog.batches);
       matchedBatch = batchMatch.bestBatch;
       if (matchedBatch) {
@@ -173,7 +251,6 @@ export async function runTutorIntake({
           catalog.batches.find((b) => b.batchId === matchedBatch.batchId)?.lines ?? [];
       }
     }
-    targetExpectedLines = targetExpectedLines ?? [];
 
     // Step 5: Needleman-Wunsch DP alignment across batch lines
     const alignment = alignBatchSegments({
@@ -254,10 +331,17 @@ export async function runTutorIntake({
       const slugId = sanitizeSlug(segAlign.matchedLineId ?? `seg-${segAlign.segmentIndex + 1}`);
       const publicSrc = `/audio/voz/tutor/leccion-${lesson}/${slugId}.mp3`;
       const publicVisemes = `/audio/voz/tutor/leccion-${lesson}/${slugId}.visemes.json`;
-      const diskMp3Path = join(absRepoRoot, "public", publicSrc);
-      const diskVisemesPath = join(absRepoRoot, "public", publicVisemes);
+      const exportRoot = exportDir ? resolve(exportDir) : join(absRepoRoot, "public");
+      const diskMp3Path = exportDir
+        ? join(exportRoot, `leccion-${lesson}`, `${slugId}.mp3`)
+        : join(exportRoot, publicSrc);
+      const diskVisemesPath = exportDir
+        ? join(exportRoot, `leccion-${lesson}`, `${slugId}.visemes.json`)
+        : join(exportRoot, publicVisemes);
 
       let visemesStatus = "skipped";
+      let visemesCueCount = 0;
+      let visemesDurationSec = null;
       let exportedSha256 = null;
       const fullyEligible =
         mapped && qc.passed && authorized && !isRejectedTranscriptOrPath(segAlign, publicSrc);
@@ -281,6 +365,8 @@ export async function runTutorIntake({
           ...(rhubarbRunner ? { rhubarbRunner } : {}),
         });
         visemesStatus = visRes.status;
+        visemesCueCount = visRes.cueCount ?? 0;
+        visemesDurationSec = visRes.durationSec ?? null;
       } else if (dryRun && mapped && qc.passed) {
         visemesStatus = "dry-run-ready";
       }
@@ -310,10 +396,12 @@ export async function runTutorIntake({
         boundaryValid,
         qc,
         visemesStatus,
+        visemesCueCount,
+        visemesDurationSec,
         manifestStatus:
           mapped && qc.passed && authorized
-            ? dryRun
-              ? "dry-run-eligible"
+            ? dryRun || !manifestWrite
+              ? "staged-approved-gate"
               : "approved"
             : "gated-hold",
       });
@@ -323,7 +411,7 @@ export async function runTutorIntake({
     const manifestResult = applyAuthorizedManifestUpdates({
       repoRoot: absRepoRoot,
       updates: pendingUpdates,
-      dryRun,
+      dryRun: dryRun || !manifestWrite,
     });
 
     const report = {
@@ -331,7 +419,17 @@ export async function runTutorIntake({
       date,
       dryRun,
       authorized,
+      manifestWrite,
+      exportDir: exportDir ? resolve(exportDir) : null,
       privateDir,
+      tools: resolvedTools,
+      silenceSummary: analyzedFiles.map((af) => ({
+        sourceName: af.source.sourceName,
+        engine: af.silenceScan.engine,
+        silencesDetected: af.silenceScan.silences.length,
+        ffmpegSilencesCount: af.silenceScan.ffmpegSilencesCount,
+        durationSec: Number(af.wavData.durationSec.toFixed(3)),
+      })),
       guard,
       matchedBatch,
       sources,

@@ -160,7 +160,7 @@ export function ingestPrivateOriginal({
     sourcePath: absSource,
     sha256,
     bytes,
-    privateOriginalPath: dryRun ? targetPath : targetPath,
+    privateOriginalPath: targetPath,
     dedupStatus: "new",
   };
 }

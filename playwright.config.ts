@@ -29,7 +29,13 @@ const GATED_SPECS = ["**/student-assignment-flow.spec.ts", "**/classroom-readine
 // and no e2e run ever touches a real microphone or the Vosk WASM engine.
 // Everything in these files is driven by the localStorage script key
 // cartilla.tutor.test-ears.v1 (see tests/e2e/support/tutor-helpers.ts).
-const TUTOR_SPECS = ["**/tutor.spec.ts", "**/tutor-offline-pack.spec.ts"];
+const TUTOR_SPECS = [
+  "**/tutor.spec.ts",
+  "**/tutor-offline-pack.spec.ts",
+  "**/tutor-native-acceptance.spec.ts",
+  "**/tutor-full-lesson.spec.ts",
+  "**/tutor-teacher-review.spec.ts",
+];
 
 export default defineConfig({
   testDir: "./tests/e2e",
@@ -84,7 +90,12 @@ export default defineConfig({
       // transcripts through the localStorage script key and never touch a
       // microphone, the Vosk WASM engine, or any cloud speech service.
       name: "chromium-tutor",
-      testMatch: ["**/tutor.spec.ts"],
+      testMatch: [
+        "**/tutor.spec.ts",
+        "**/tutor-native-acceptance.spec.ts",
+        "**/tutor-full-lesson.spec.ts",
+        "**/tutor-teacher-review.spec.ts",
+      ],
       use: {
         browserName: "chromium",
         baseURL: "http://127.0.0.1:5175",

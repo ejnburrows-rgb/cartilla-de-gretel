@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l15-01-greeting-first",
-      "text": "Llegamos a la lección quince para leer y jugar con la letra be.",
+      "text": "Llegamos hoy a una nueva lección para leer y jugar pelota con la letra be.",
       "batch": "B021",
       "seq": 1,
       "file": "B021-001.mp3",
@@ -31,15 +31,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -69,14 +88,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-02-lesson-focus",
-      "text": "Junta los labios con voz suave para decir bebé, bola, bota y nube.",
+      "id": "v2-l15-02-greeting-return",
+      "text": "Qué alegría verte otra vez para seguir leyendo las aventuras de Bebo con la letra be.",
       "batch": "B021",
       "seq": 2,
       "file": "B021-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-15-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-15-greeting-return",
       "curriculumRefs": {
         "lesson": 15,
         "printedPages": [
@@ -93,15 +112,440 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-03-review-intro",
+      "text": "Ya conocemos la eñe de piñata y moño; hoy saludamos la letra be de bebé y bola.",
+      "batch": "B021",
+      "seq": 3,
+      "file": "B021-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-15-review-intro",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-04-review-check",
+      "text": "¿Recuerdas cómo juntabas los labios para la eme antes de probar la voz suave de la be?",
+      "batch": "B021",
+      "seq": 4,
+      "file": "B021-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-15-review-check",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido labial de la be, sus sílabas ba, be, bi, bo, bu y tres palabras nuevas.",
+      "batch": "B021",
+      "seq": 5,
+      "file": "B021-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-15-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-06-letter-name",
+      "text": "Esta consonante se llama be, y la minúscula tiene su palito alto arriba y su pancita abajo.",
+      "batch": "B021",
+      "seq": 6,
+      "file": "B021-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-15-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-07-phonetic-sound",
+      "text": "Al pronunciarla juntamos suavemente ambos labios dejando vibrar la voz como en bebé y bota.",
+      "batch": "B021",
+      "seq": 7,
+      "file": "B021-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-15-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -131,11 +575,335 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-03-flipchart-intro",
-      "text": "En las láminas treinta y tres y treinta y cuatro leemos ba, be, bi, bo, bu con Beba.",
+      "id": "v2-l15-08-lesson-focus",
+      "text": "Junta los labios con voz suave y cálida para decir bebé, bola, bota y nube.",
       "batch": "B021",
-      "seq": 3,
-      "file": "B021-003.mp3",
+      "seq": 8,
+      "file": "B021-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-15-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-09-sound-contrast",
+      "text": "A diferencia de la pe que suelta aire seco, la be vibra suave entre ambos labios.",
+      "batch": "B021",
+      "seq": 9,
+      "file": "B021-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-15-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-10-explanation-primary",
+      "text": "Cuando unimos ese sonido suave de los labios con las vocales formamos ba, be, bi, bo, bu.",
+      "batch": "B021",
+      "seq": 10,
+      "file": "B021-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-15-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-11-explanation-simple",
+      "text": "Junta los dos labios sin apretar y suelta el sonido tibio en baño, bota y lobo.",
+      "batch": "B021",
+      "seq": 11,
+      "file": "B021-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-15-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer las palabras nuevas y animar a Bebo en Sube la bola.",
+      "batch": "B021",
+      "seq": 12,
+      "file": "B021-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-15-flipchart-intro",
@@ -148,21 +916,39 @@
           54
         ],
         "flipchartSheets": [
-          33,
-          34
+          33
         ],
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -181,6 +967,324 @@
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen Beba, el perrito Bubi, un bate, una bota y una bebita.",
+      "batch": "B021",
+      "seq": 13,
+      "file": "B021-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-15-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-14-flipchart-illustration-2",
+      "text": "También vemos a Bebo bateando la pelota tan alto que sube cerca de una nube bonita.",
+      "batch": "B021",
+      "seq": 14,
+      "file": "B021-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-15-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-15-reading-order",
+      "text": "Lee las sílabas en orden de izquierda a derecha y luego recorre el vocabulario y cada verso del poema.",
+      "batch": "B021",
+      "seq": 15,
+      "file": "B021-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-15-reading-order",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-16-flipchart-model",
+      "text": "Leemos juntos en voz clara las sílabas de la be: ba, be, bi, bo, bu.",
+      "batch": "B021",
+      "seq": 16,
+      "file": "B021-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-15-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
       "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
@@ -192,12 +1296,91 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-04-flipchart-rhyme",
-      "text": "En la lámina treinta y cinco seguimos Sube la bola mientras Bebo batea alto.",
+      "id": "v2-l15-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: Beba, Bubi, bate, bota y bebita.",
       "batch": "B021",
-      "seq": 4,
-      "file": "B021-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B021-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-15-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-18-flipchart-rhyme-1",
+      "text": "Leemos juntos el comienzo de Sube la bola: Bebo batea la bola, la bola a la nube dio.",
+      "batch": "B021",
+      "seq": 18,
+      "file": "B021-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-15-flipchart-rhyme",
       "curriculumRefs": {
@@ -214,15 +1397,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -252,18 +1454,100 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-05-page-instruction",
-      "text": "En la página cincuenta y uno practica la be cuidando sus barriguita redondas.",
+      "id": "v2-l15-19-flipchart-rhyme-2",
+      "text": "Seguimos con la segunda parte del poema: La bola sube y sube, la bola a la nube le dio.",
       "batch": "B021",
-      "seq": 5,
-      "file": "B021-005.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-15-page-instruction",
+      "seq": 19,
+      "file": "B021-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-15-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 15,
         "printedPages": [
-          51
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-20-comprehension-1",
+      "text": "En el poema Sube la bola, ¿hasta dónde sube la bola cuando Bebo la batea?",
+      "batch": "B021",
+      "seq": 20,
+      "file": "B021-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-15-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
         ],
         "flipchartSheets": [
           33,
@@ -273,15 +1557,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -292,8 +1595,737 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-21-comprehension-2",
+      "text": "¿Con qué objeto batea Pepito la bola en la lectura de hoy?",
+      "batch": "B021",
+      "seq": 21,
+      "file": "B021-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-15-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra bota?",
+      "batch": "B021",
+      "seq": 22,
+      "file": "B021-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-15-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-23-common-mistake-1",
+      "text": "No confundas la be minúscula con la de; la pancita de la be mira hacia la derecha.",
+      "batch": "B021",
+      "seq": 23,
+      "file": "B021-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-15-common-mistake",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-24-common-mistake-2",
+      "text": "Mira bien las sílabas en palabras largas como bicicleta, abanico, abeja y aburrido.",
+      "batch": "B021",
+      "seq": 24,
+      "file": "B021-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-15-common-mistake",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-25-common-mistake-3",
+      "text": "Cuida la tilde en la palabra bebé para dar la fuerza en la última sílaba.",
+      "batch": "B021",
+      "seq": 25,
+      "file": "B021-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-15-common-mistake",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-26-hint-1",
+      "text": "Junta ambos labios con suavidad y fíjate qué vocal acompaña a la be.",
+      "batch": "B021",
+      "seq": 26,
+      "file": "B021-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-15-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-27-hint-2",
+      "text": "Compara la palabra con bebé o con bota para identificar la sílaba correcta.",
+      "batch": "B021",
+      "seq": 27,
+      "file": "B021-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-15-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: bota.",
+      "batch": "B021",
+      "seq": 28,
+      "file": "B021-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-15-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la be y leer la historia de Bebo y Pepito.",
+      "batch": "B021",
+      "seq": 29,
+      "file": "B021-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-15-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -311,11 +2343,89 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-06-page-instruction",
-      "text": "En la página cincuenta y dos encierra ba, be, bi, bo, bu en abanico, nube y lobo.",
+      "id": "v2-l15-30-page-instruction-1",
+      "text": "Practica la be mayúscula y minúscula cuidando sus curvas redondas y haz un dibujo con be.",
       "batch": "B021",
-      "seq": 6,
-      "file": "B021-006.mp3",
+      "seq": 30,
+      "file": "B021-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-15-page-instruction",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-31-page-instruction-2",
+      "text": "Después encierra en un círculo ba, be, bi, bo, bu dentro de palabras como baño, sube, cubito y lobo.",
+      "batch": "B021",
+      "seq": 31,
+      "file": "B021-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-15-page-instruction",
@@ -332,15 +2442,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -370,18 +2499,18 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-07-sight-word-intro",
-      "text": "En la página cincuenta y tres practicamos tres palabras nuevas: alto, con y bueno.",
+      "id": "v2-l15-32-syllable-practice",
+      "text": "Rodea cada sílaba con cuidado: ba en baño y abanico, be en bebé y nube, bi en cubito, bo en lobo y bu en burro.",
       "batch": "B021",
-      "seq": 7,
-      "file": "B021-007.mp3",
-      "intent": "workbook-page",
-      "role": "sight-word-intro",
-      "variationGroup": "lesson-15-sight-word-intro",
+      "seq": 32,
+      "file": "B021-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-15-syllable-practice",
       "curriculumRefs": {
         "lesson": 15,
         "printedPages": [
-          53
+          52
         ],
         "flipchartSheets": [
           33,
@@ -391,15 +2520,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -412,13 +2560,13 @@
       "hintLevel": 0,
       "expression": "warm",
       "gesture": "teach",
-      "presentationAction": "show-word",
+      "presentationAction": "show-syllable",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "read-word",
+      "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -429,11 +2577,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-08-word-practice",
-      "text": "Lee conmigo palabras de esta lección: baño, bota, bolo, bonito, bote y cubito.",
+      "id": "v2-l15-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: baño, bota, bolo, bebé, Bebo, bonito, bueno y lobo.",
       "batch": "B021",
-      "seq": 8,
-      "file": "B021-008.mp3",
+      "seq": 33,
+      "file": "B021-033.mp3",
       "intent": "workbook-practice",
       "role": "word-practice",
       "variationGroup": "lesson-15-word-practice",
@@ -450,15 +2598,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -488,11 +2655,167 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-09-sentence-practice",
-      "text": "Sigue esta oración con tu dedo: La nube sube y sube, es una nube bonita.",
+      "id": "v2-l15-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: bate, bonita, sube, batea, cubito, bote y nube.",
       "batch": "B021",
-      "seq": 9,
-      "file": "B021-009.mp3",
+      "seq": 34,
+      "file": "B021-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-15-word-practice",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          53
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-35-sight-or-vocab",
+      "text": "Hoy aprendemos tres palabras nuevas muy útiles en nuestras oraciones: alto, con y bueno.",
+      "batch": "B021",
+      "seq": 35,
+      "file": "B021-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-15-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          53
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-36-sentence-or-pair",
+      "text": "Lee siguiendo con tu dedito esta oración del libro: La nube sube y sube. Es una nube bonita.",
+      "batch": "B021",
+      "seq": 36,
+      "file": "B021-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-15-sentence-practice",
@@ -509,15 +2832,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -547,70 +2889,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-10-sentence-practice",
-      "text": "Ahora lee esta historia de pelota: Pepito batea la bola con el bate.",
+      "id": "v2-l15-37-page-instruction-final",
+      "text": "Al final completa cada palabra con su sílaba, como en cubo, bolo, cubito, batido, burro y nube.",
       "batch": "B021",
-      "seq": 10,
-      "file": "B021-010.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-15-sentence-practice",
-      "curriculumRefs": {
-        "lesson": 15,
-        "printedPages": [
-          53
-        ],
-        "flipchartSheets": [
-          33,
-          34,
-          35
-        ],
-        "letters": [
-          "b"
-        ],
-        "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
-          "bate",
-          "lobo",
-          "Bebo",
-          "alto"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          15
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-sentence",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-sentence",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l15-11-page-instruction",
-      "text": "En la página cincuenta y cuatro completa las palabras con las sílabas de la be.",
-      "batch": "B021",
-      "seq": 11,
-      "file": "B021-011.mp3",
+      "seq": 37,
+      "file": "B021-037.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-15-page-instruction",
@@ -627,15 +2910,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -665,11 +2967,497 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l15-12-closing",
-      "text": "Bateaste todas las palabras de la be hasta las nubes. Seguimos con la uve.",
+      "id": "v2-l15-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva con las palabras de la be para asegurar cada sílaba.",
       "batch": "B021",
-      "seq": 12,
-      "file": "B021-012.mp3",
+      "seq": 38,
+      "file": "B021-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-15-game-intro",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-39-game-step",
+      "text": "Observa la palabra incompleta y elige entre ba, be, bi, bo, bu la sílaba que la completa bien.",
+      "batch": "B021",
+      "seq": 39,
+      "file": "B021-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-15-game-step",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-40-game-correct",
+      "text": "Muy bien bateado. Completaste la palabra de la letra be sin dudar.",
+      "batch": "B021",
+      "seq": 40,
+      "file": "B021-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-15-game-correct",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-41-game-retry",
+      "text": "Vuelve a leer los sonidos que ya están en la palabra y prueba cuál sílaba de la be encaja.",
+      "batch": "B021",
+      "seq": 41,
+      "file": "B021-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-15-game-retry",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Pepito batea la bola con el bate.",
+      "batch": "B021",
+      "seq": 42,
+      "file": "B021-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-15-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-43-page-complete",
+      "text": "Terminaste todas las actividades de la letra be con gran energía y buena letra.",
+      "batch": "B021",
+      "seq": 43,
+      "file": "B021-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-15-page-complete",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-44-closing",
+      "text": "Bateaste todas las palabras de la be hasta las nubes. Qué alegre lectura tuvimos hoy.",
+      "batch": "B021",
+      "seq": 44,
+      "file": "B021-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-15-closing",
@@ -689,15 +3477,34 @@
         "letters": [
           "b"
         ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
         "words": [
-          "bebé",
-          "bota",
-          "bola",
-          "nube",
+          "Beba",
+          "Bubi",
           "bate",
-          "lobo",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
           "Bebo",
-          "alto"
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
         ],
         "sourceStatus": "verified"
       },
@@ -711,6 +3518,87 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-45-next-step",
+      "text": "En la próxima lección conoceremos la letra uve, que suena igual de suave que la be.",
+      "batch": "B021",
+      "seq": 45,
+      "file": "B021-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-15-next-step",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu"
+        ],
+        "words": [
+          "Beba",
+          "Bubi",
+          "bate",
+          "bota",
+          "bebita",
+          "baño",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube",
+          "alto",
+          "con"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

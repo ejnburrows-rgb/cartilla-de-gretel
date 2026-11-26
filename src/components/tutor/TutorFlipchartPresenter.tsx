@@ -91,8 +91,10 @@ function regionOverlayStyle(region: FlipchartHighlightRegion): CSSProperties {
 
 function sheetAspectStyle(width: number, height: number): CSSProperties {
   return {
+    "--fc-aspect-w": String(width),
+    "--fc-aspect-h": String(height),
     aspectRatio: `${width} / ${height}`,
-  };
+  } as CSSProperties;
 }
 
 export function TutorFlipchartPresenter({
@@ -160,7 +162,7 @@ export function TutorFlipchartPresenter({
   if (!page) {
     return (
       <section
-        className={`flex h-full w-full items-center justify-center rounded-3xl border border-stone-200/80 bg-[#fcfaf5] p-6 text-center text-stone-600 ${className}`}
+        className={`tutor-flipchart-unavailable flex h-full w-full items-center justify-center rounded-3xl p-6 text-center ${className}`}
         data-testid="tutor-flipchart-unavailable"
         aria-label="Rotafolio no disponible"
       >
@@ -180,42 +182,46 @@ export function TutorFlipchartPresenter({
 
   return (
     <section
-      className={`flex h-full min-h-0 w-full flex-col rounded-3xl border border-[#e5d8c5] bg-[#faf6ee] shadow-sm ${className}`}
+      className={`tutor-flipchart-presenter flex h-full min-h-0 w-full flex-col ${className}`}
       data-testid="tutor-flipchart-presenter"
       data-sheet-number={sheetNumber}
       data-active-cue-count={activeRegions.length}
       aria-label={`Rotafolio — Lámina ${sheetNumber}`}
     >
       {!compact && (
-        <header className="flex shrink-0 items-center justify-between gap-2 border-b border-[#e8dcc8] bg-white/75 px-4 py-2.5 rounded-t-3xl">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="rounded-full bg-[#bb0733]/10 px-2.5 py-0.5 text-xs font-extrabold text-[#bb0733]">
+        <header className="tutor-flipchart-header flex shrink-0 items-center justify-between gap-2 px-3 py-1.5">
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="tutor-flipchart-pill rounded-full px-2.5 py-0.5 text-xs font-extrabold">
               Rotafolio · Lámina {sheetNumber}
             </span>
-            <span className="truncate text-xs font-semibold text-stone-600">
+            <span className="tutor-flipchart-lesson truncate text-xs font-semibold">
               Lección {page.lesson}
             </span>
           </div>
 
           {onSheetChange && lessonSheets.length > 1 && (
-            <div className="flex items-center gap-1" role="group" aria-label="Navegación del rotafolio">
+            <div
+              className="flex shrink-0 items-center gap-1"
+              role="group"
+              aria-label="Navegación del rotafolio"
+            >
               <button
                 type="button"
                 disabled={prevSheet === null}
                 onClick={() => prevSheet !== null && onSheetChange(prevSheet)}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 transition-colors hover:bg-stone-50 disabled:opacity-40"
+                className="tutor-fc-nav-btn inline-flex h-8 w-8 items-center justify-center rounded-full"
                 aria-label="Lámina anterior"
               >
                 <ChevronLeft className="h-4 w-4" aria-hidden="true" />
               </button>
-              <span className="px-2 text-xs font-bold text-stone-600">
+              <span className="tutor-fc-counter px-1.5 text-xs font-bold tabular-nums">
                 {sheetIdx + 1} / {lessonSheets.length}
               </span>
               <button
                 type="button"
                 disabled={nextSheet === null}
                 onClick={() => nextSheet !== null && onSheetChange(nextSheet)}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 transition-colors hover:bg-stone-50 disabled:opacity-40"
+                className="tutor-fc-nav-btn inline-flex h-8 w-8 items-center justify-center rounded-full"
                 aria-label="Lámina siguiente"
               >
                 <ChevronRight className="h-4 w-4" aria-hidden="true" />
@@ -226,12 +232,12 @@ export function TutorFlipchartPresenter({
       )}
 
       {/* Aspect-ratio preserving stage hosting the real Flip Chart renderer */}
-      <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden p-2 sm:p-3">
+      <div className="tutor-flipchart-stage">
         <div
-          className="relative max-h-full max-w-full w-auto h-full overflow-hidden rounded-2xl bg-white shadow-md"
+          className={`tutor-flipchart-sheet-box ${replica ? "bg-transparent" : "overflow-hidden rounded-2xl bg-white shadow-md"}`}
           style={sheetAspectStyle(aspectWidth, aspectHeight)}
         >
-          <div className="absolute inset-0 h-full w-full [&>.fc-native-board]:h-full [&>.fc-native-board]:w-full">
+          <div className="tutor-flipchart-board-wrap">
             <FlipchartNativeBoard page={page} />
           </div>
 
@@ -241,32 +247,40 @@ export function TutorFlipchartPresenter({
             data-testid="tutor-flipchart-highlights"
             aria-live="polite"
           >
-            {activeRegions.map(({ region, cueTiming }) => (
-              <button
-                key={region.regionId}
-                type="button"
-                onClick={onRegionSelect ? () => onRegionSelect(region) : undefined}
-                tabIndex={onRegionSelect ? 0 : -1}
-                style={regionOverlayStyle(region)}
-                data-testid="tutor-flipchart-highlight"
-                data-region-id={region.regionId}
-                data-cue-timing={cueTiming ?? "before"}
-                data-bounds-verified={region.contentBoundsVerified ? "true" : "false"}
-                className={`absolute rounded-2xl border-[3px] border-[#d97706] bg-[#fef3c7]/25 shadow-[0_0_0_4px_rgba(217,119,6,0.22)] ${
-                  onRegionSelect ? "pointer-events-auto cursor-pointer" : "pointer-events-none"
-                } ${reducedMotion ? "" : "transition-all duration-200 ease-out"}`}
-                aria-label={`Región destacada: ${region.label}`}
-              >
-                <span className="sr-only">{region.label}</span>
-                <span
-                  aria-hidden="true"
-                  className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-[#b45309] px-2 py-0.5 text-[11px] font-extrabold text-white shadow-sm"
+            {activeRegions.map(({ region, cueTiming }) => {
+              const badgeBelow = region.yPct < 9;
+              return (
+                <button
+                  key={region.regionId}
+                  type="button"
+                  onClick={onRegionSelect ? () => onRegionSelect(region) : undefined}
+                  tabIndex={onRegionSelect ? 0 : -1}
+                  style={regionOverlayStyle(region)}
+                  data-testid="tutor-flipchart-highlight"
+                  data-region-id={region.regionId}
+                  data-cue-timing={cueTiming ?? "before"}
+                  data-bounds-verified={region.contentBoundsVerified ? "true" : "false"}
+                  data-reduced-motion={reducedMotion ? "true" : "false"}
+                  className={`tutor-flipchart-highlight-ring absolute rounded-2xl ${
+                    onRegionSelect ? "pointer-events-auto cursor-pointer" : "pointer-events-none"
+                  }`}
+                  aria-label={`Región destacada: ${region.label}`}
                 >
-                  <Sparkles className="h-3 w-3" />
-                  {region.label}
-                </span>
-              </button>
-            ))}
+                  <span className="sr-only">{region.label}</span>
+                  <span
+                    aria-hidden="true"
+                    className={`tutor-flipchart-highlight-badge ${
+                      badgeBelow
+                        ? "tutor-flipchart-highlight-badge--below"
+                        : "tutor-flipchart-highlight-badge--above"
+                    }`}
+                  >
+                    <Sparkles className="h-3 w-3" />
+                    {region.label}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

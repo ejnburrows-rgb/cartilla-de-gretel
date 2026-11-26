@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l21-01-greeting-first",
-      "text": "Hoy entramos a la lección veintiuno con el sonido alegre de la letra jota.",
+      "text": "Hoy entramos juntos a una nueva lección con el sonido alegre de la letra jota.",
       "batch": "B027",
       "seq": 1,
       "file": "B027-001.mp3",
@@ -31,15 +31,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -69,14 +86,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-02-lesson-focus",
-      "text": "La jota lleva un puntito arriba y suena con aire tibio desde la garganta.",
+      "id": "v2-l21-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir leyendo las aventuras de Jabela con la letra jota.",
       "batch": "B027",
       "seq": 2,
       "file": "B027-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-21-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-21-greeting-return",
       "curriculumRefs": {
         "lesson": 21,
         "printedPages": [
@@ -93,15 +110,428 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-03-review-intro",
+      "text": "Ya practicamos el soplido suave de la efe; hoy conocemos la letra jota con puntito arriba.",
+      "batch": "B027",
+      "seq": 3,
+      "file": "B027-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-21-review-intro",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-04-review-check",
+      "text": "¿Recuerdas cómo suena tu garganta suavecita cuando dices jugo o jabón?",
+      "batch": "B027",
+      "seq": 4,
+      "file": "B027-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-21-review-check",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido tibio de la jota y leeremos ja, je, ji, jo, ju y el cuento de Jabela.",
+      "batch": "B027",
+      "seq": 5,
+      "file": "B027-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-21-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-06-letter-name",
+      "text": "Esta consonante se llama jota, y la minúscula baja como un bastoncito curvo con su puntito arriba.",
+      "batch": "B027",
+      "seq": 6,
+      "file": "B027-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-21-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-07-phonetic-sound",
+      "text": "Al pronunciarla soltamos aire tibio desde el fondo de la garganta, como una risa suave.",
+      "batch": "B027",
+      "seq": 7,
+      "file": "B027-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-21-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -131,11 +561,327 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-03-flipchart-intro",
-      "text": "En las láminas cincuenta y uno y cincuenta y dos leemos ja, je, ji, jo, ju.",
+      "id": "v2-l21-08-lesson-focus",
+      "text": "La jota lleva siempre un puntito arriba y suena desde la garganta en jugo, jabón y jicotea.",
       "batch": "B027",
-      "seq": 3,
-      "file": "B027-003.mp3",
+      "seq": 8,
+      "file": "B027-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-21-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-09-sound-contrast",
+      "text": "Mientras la ge con a, o, u vibra suave, la jota deja salir aire más fuerte con todas las vocales.",
+      "batch": "B027",
+      "seq": 9,
+      "file": "B027-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-21-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-10-explanation-primary",
+      "text": "Cuando unimos ese sonido tibio de la jota con las vocales leemos ja, je, ji, jo, ju.",
+      "batch": "B027",
+      "seq": 10,
+      "file": "B027-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-21-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-11-explanation-simple",
+      "text": "Suelta un aire tibio como riendo despacito ja, je, ji, jo, ju y léelo en jicotea y jugo.",
+      "batch": "B027",
+      "seq": 11,
+      "file": "B027-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-21-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer los dibujos nuevos y la historia de La jicotea Jabela.",
+      "batch": "B027",
+      "seq": 12,
+      "file": "B027-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-21-flipchart-intro",
@@ -148,21 +894,37 @@
           78
         ],
         "flipchartSheets": [
-          51,
-          52
+          51
         ],
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -181,6 +943,316 @@
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen una jicotea, un vaso de jugo, el niño Jesús, un ajo y una jarra.",
+      "batch": "B027",
+      "seq": 13,
+      "file": "B027-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-21-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-14-flipchart-illustration-2",
+      "text": "También observamos a la traviesa jicotea Jabela jugando en el agua sin querer acercarse al jabón.",
+      "batch": "B027",
+      "seq": 14,
+      "file": "B027-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-21-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-15-reading-order",
+      "text": "Lee las sílabas de izquierda a derecha, pasa por el vocabulario y luego lee la historia de José y Julia.",
+      "batch": "B027",
+      "seq": 15,
+      "file": "B027-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-21-reading-order",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-16-flipchart-model",
+      "text": "Leemos juntos en voz clara las sílabas de la jota: ja, je, ji, jo, ju.",
+      "batch": "B027",
+      "seq": 16,
+      "file": "B027-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-21-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
       "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
@@ -192,12 +1264,89 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-04-flipchart-rhyme",
-      "text": "En la lámina cincuenta y tres conocemos a La jicotea Jabela que huye del jabón.",
+      "id": "v2-l21-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: jicotea, jugo, Jesús, ajo y jarra.",
       "batch": "B027",
-      "seq": 4,
-      "file": "B027-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B027-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-21-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-18-flipchart-rhyme-1",
+      "text": "Leemos el comienzo de La jicotea Jabela: Mi jicotea Jabela juega y juega sin parar, con espuma de jabón jamás la puedo bañar.",
+      "batch": "B027",
+      "seq": 18,
+      "file": "B027-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-21-flipchart-rhyme",
       "curriculumRefs": {
@@ -214,15 +1363,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -252,18 +1418,98 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-05-page-instruction",
-      "text": "En la página setenta y cinco escribe la jota bajando su bastoncito debajo de la línea.",
+      "id": "v2-l21-19-flipchart-rhyme-2",
+      "text": "Seguimos con el final del poema: no le gusta el agua pura ni la espuma de jabón a mi jicotea dura.",
       "batch": "B027",
-      "seq": 5,
-      "file": "B027-005.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-21-page-instruction",
+      "seq": 19,
+      "file": "B027-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-21-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 21,
         "printedPages": [
-          75
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-20-comprehension-1",
+      "text": "Según el poema La jicotea Jabela, ¿qué es lo que jamás le gusta a la jicotea?",
+      "batch": "B027",
+      "seq": 20,
+      "file": "B027-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-21-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
         ],
         "flipchartSheets": [
           51,
@@ -273,15 +1519,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -292,8 +1555,719 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-21-comprehension-2",
+      "text": "¿Qué le gusta tomar a Julia en la lectura de hoy?",
+      "batch": "B027",
+      "seq": 21,
+      "file": "B027-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-21-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra jugo?",
+      "batch": "B027",
+      "seq": 22,
+      "file": "B027-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-21-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-23-common-mistake-1",
+      "text": "No olvides bajar el bastoncito de la jota debajo de la línea y ponerle su puntito encima.",
+      "batch": "B027",
+      "seq": 23,
+      "file": "B027-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-21-common-mistake",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-24-common-mistake-2",
+      "text": "Fíjate muy bien en las tildes de jabón, jamón, ají, Jesús, José y jutía al leerlas.",
+      "batch": "B027",
+      "seq": 24,
+      "file": "B027-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-21-common-mistake",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-25-common-mistake-3",
+      "text": "No confundas la jota minúscula con la i; la jota es larga hacia abajo y termina en gancho.",
+      "batch": "B027",
+      "seq": 25,
+      "file": "B027-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-21-common-mistake",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-26-hint-1",
+      "text": "Busca el bastoncito con punto arriba y recuerda el sonido tibio desde la garganta.",
+      "batch": "B027",
+      "seq": 26,
+      "file": "B027-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-21-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-27-hint-2",
+      "text": "Compara el inicio de la palabra con jarra o con jugo para encontrar la sílaba exacta.",
+      "batch": "B027",
+      "seq": 27,
+      "file": "B027-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-21-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: jicotea.",
+      "batch": "B027",
+      "seq": 28,
+      "file": "B027-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-21-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la jota y leer sobre José, Julia y Jabela.",
+      "batch": "B027",
+      "seq": 29,
+      "file": "B027-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-21-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -311,11 +2285,87 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-06-page-instruction",
-      "text": "En la página setenta y seis encierra ja, je, ji, jo, ju en jabón, jefe, jirafa y José.",
+      "id": "v2-l21-30-page-instruction-1",
+      "text": "Escribe la jota mayúscula y minúscula bajando bien su bastoncito y haz un dibujo con jota.",
       "batch": "B027",
-      "seq": 6,
-      "file": "B027-006.mp3",
+      "seq": 30,
+      "file": "B027-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-21-page-instruction",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-31-page-instruction-2",
+      "text": "Después encierra en un círculo ja, je, ji, jo, ju en jabón, jefe, jirafa, José y jugar.",
+      "batch": "B027",
+      "seq": 31,
+      "file": "B027-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-21-page-instruction",
@@ -332,15 +2382,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -370,11 +2437,87 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-07-word-practice",
-      "text": "Leemos palabras de la página setenta y siete: jaba, jicotea, jinete, jamón, jarro y joven.",
+      "id": "v2-l21-32-syllable-practice",
+      "text": "Rodea cada sílaba con cuidado: ja en jabón, je en jefe, ji en jirafa, jo en José y ju en jugo.",
       "batch": "B027",
-      "seq": 7,
-      "file": "B027-007.mp3",
+      "seq": 32,
+      "file": "B027-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-21-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          76
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: jaba, jicotea, ají, baja, jura, jinete, jabón y vieja.",
+      "batch": "B027",
+      "seq": 33,
+      "file": "B027-033.mp3",
       "intent": "workbook-practice",
       "role": "word-practice",
       "variationGroup": "lesson-21-word-practice",
@@ -391,15 +2534,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -429,11 +2589,163 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-08-sentence-practice",
-      "text": "Lee la lectura de la página: A Julia le gusta el jugo de tomate.",
+      "id": "v2-l21-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: jefe, Jesús, jamón, José, Julia, jarro y joven.",
       "batch": "B027",
-      "seq": 8,
-      "file": "B027-008.mp3",
+      "seq": 34,
+      "file": "B027-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-21-word-practice",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          77
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-35-sight-or-vocab",
+      "text": "Presta atención también a las palabras del ejercicio final: jugar y jutía.",
+      "batch": "B027",
+      "seq": 35,
+      "file": "B027-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-21-word-practice",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          77
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-36-sentence-or-pair",
+      "text": "Lee en voz clara esta oración del libro: A José le gusta el jamón y a Julia le gusta el jugo de tomate.",
+      "batch": "B027",
+      "seq": 36,
+      "file": "B027-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-21-sentence-practice",
@@ -450,15 +2762,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -488,70 +2817,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-09-sentence-practice",
-      "text": "Seguimos con la jicotea: A Jabela le gusta la laguna, pero no el jabón.",
+      "id": "v2-l21-37-page-instruction-final",
+      "text": "Al final completa cada palabra con ja, je, ji, jo, ju, como en jaba, jugo, jamón, jefe, jugar y jutía.",
       "batch": "B027",
-      "seq": 9,
-      "file": "B027-009.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-21-sentence-practice",
-      "curriculumRefs": {
-        "lesson": 21,
-        "printedPages": [
-          77
-        ],
-        "flipchartSheets": [
-          51,
-          52,
-          53
-        ],
-        "letters": [
-          "j"
-        ],
-        "words": [
-          "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
-          "Jesús",
-          "José",
-          "Julia"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          21
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-sentence",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-sentence",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l21-10-page-instruction",
-      "text": "En la página setenta y ocho completa cada palabra con la sílaba de jota que falta.",
-      "batch": "B027",
-      "seq": 10,
-      "file": "B027-010.mp3",
+      "seq": 37,
+      "file": "B027-037.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-21-page-instruction",
@@ -568,15 +2838,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -606,19 +2893,21 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-11-adaptive-coaching",
-      "text": "Fíjate bien en las tildes de jabón, jamón, Jesús y José al leerlas.",
+      "id": "v2-l21-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva con las palabras de la jota para afirmar cada sílaba.",
       "batch": "B027",
-      "seq": 11,
-      "file": "B027-011.mp3",
-      "intent": "lesson-coaching",
-      "role": "adaptive-coaching",
-      "variationGroup": "lesson-21-adaptive-coaching",
+      "seq": 38,
+      "file": "B027-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-21-game-intro",
       "curriculumRefs": {
         "lesson": 21,
         "printedPages": [
+          75,
           76,
-          77
+          77,
+          78
         ],
         "flipchartSheets": [
           51,
@@ -628,34 +2917,51 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
-      "scope": "lesson",
+      "scope": "game",
       "eligibility": {
         "lessons": [
           21
         ]
       },
-      "hintLevel": 2,
-      "expression": "gentle",
-      "gesture": "help",
-      "presentationAction": "show-word",
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "read-word",
+      "expectedResponse": "none",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -666,11 +2972,406 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l21-12-closing",
-      "text": "Leíste con mucha alegría toda la aventura de Jabela. Ahora pasamos a la ce.",
+      "id": "v2-l21-39-game-step",
+      "text": "Observa la palabra incompleta y elige la sílaba de la jota que la completa con acierto.",
       "batch": "B027",
-      "seq": 12,
-      "file": "B027-012.mp3",
+      "seq": 39,
+      "file": "B027-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-21-game-step",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-40-game-correct",
+      "text": "Muy bien completado. Leíste la sílaba de la jota con mucha claridad.",
+      "batch": "B027",
+      "seq": 40,
+      "file": "B027-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-21-game-correct",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-41-game-retry",
+      "text": "Pronuncia el resto de la palabra en voz baja y comprueba cuál sílaba de la jota falta.",
+      "batch": "B027",
+      "seq": 41,
+      "file": "B027-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-21-game-retry",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: A Jabela le gusta la laguna.",
+      "batch": "B027",
+      "seq": 42,
+      "file": "B027-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-21-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-43-page-complete",
+      "text": "Terminaste todas las actividades de la letra jota con alegría y excelente entonación.",
+      "batch": "B027",
+      "seq": 43,
+      "file": "B027-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-21-page-complete",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-44-closing",
+      "text": "Leíste toda la aventura de la jicotea Jabela con gran soltura. Qué bien suenas leyendo.",
+      "batch": "B027",
+      "seq": 44,
+      "file": "B027-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-21-closing",
@@ -690,15 +3391,32 @@
         "letters": [
           "j"
         ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
         "words": [
           "jicotea",
-          "jabón",
-          "jarra",
-          "jirafa",
-          "jamón",
+          "jugo",
           "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
           "José",
-          "Julia"
+          "Julia",
+          "jarro",
+          "joven"
         ],
         "sourceStatus": "verified"
       },
@@ -712,6 +3430,85 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l21-45-next-step",
+      "text": "En la próxima lección estudiaremos el sonido firme de la letra ce con a, o y u.",
+      "batch": "B027",
+      "seq": 45,
+      "file": "B027-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-21-next-step",
+      "curriculumRefs": {
+        "lesson": 21,
+        "printedPages": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "flipchartSheets": [
+          51,
+          52,
+          53
+        ],
+        "letters": [
+          "j"
+        ],
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju"
+        ],
+        "words": [
+          "jicotea",
+          "jugo",
+          "Jesús",
+          "ajo",
+          "jarra",
+          "jaba",
+          "ají",
+          "baja",
+          "jura",
+          "jinete",
+          "jabón",
+          "vieja",
+          "jefe",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

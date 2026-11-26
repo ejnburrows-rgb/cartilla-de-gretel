@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import tutorLinesJson from "../../content/tutor-lines.json";
@@ -33,7 +34,8 @@ describe("tutor-dialogue-manifest v2 schema & loader", () => {
     expect(report.counts.v2Files).toBe(25); // universal.json + lesson-01..24.json
     expect(report.counts.legacyApproved).toBe(43);
     expect(report.counts.legacyPending).toBe(77);
-    expect(report.counts.v2Entries).toBeGreaterThanOrEqual(450);
+    expect(report.counts.v2Entries).toBeGreaterThanOrEqual(1100);
+    expect(report.counts.v2Entries).toBeLessThanOrEqual(1400);
     expect(report.counts.totalMerged).toBe(120 + report.counts.v2Entries);
   });
 
@@ -95,17 +97,38 @@ describe("tutor-dialogue-manifest v2 schema & loader", () => {
     }
   });
 
-  it("covers all 24 lessons plus universal batches B001-B030", () => {
+  it("covers all 24 lessons (40-50 lines each) plus universal batches B001-B030", () => {
     expect(V2_MANIFEST_FILES[0].scope).toBe("universal");
     for (let lesson = 1; lesson <= 24; lesson++) {
       const file = V2_MANIFEST_FILES[lesson];
       expect(file.lesson).toBe(lesson);
-      expect(file.entries.length).toBeGreaterThanOrEqual(12);
+      expect(file.entries.length).toBeGreaterThanOrEqual(40);
+      expect(file.entries.length).toBeLessThanOrEqual(50);
       const lessonEntries = getEntriesByLesson(lesson);
       expect(lessonEntries.some((e) => e.curriculumRefs.lesson === lesson)).toBe(true);
+      // 3-level progressive hints + distinct letter-name vs phonetic-sound models
+      const ownEntries = file.entries;
+      expect(ownEntries.some((e) => e.hintLevel === 1)).toBe(true);
+      expect(ownEntries.some((e) => e.hintLevel === 2)).toBe(true);
+      expect(ownEntries.some((e) => e.hintLevel === 3)).toBe(true);
+      expect(ownEntries.some((e) => e.role === "letter-name-model")).toBe(true);
+      expect(ownEntries.some((e) => e.role === "phonetic-sound-model")).toBe(true);
     }
     expect(getDialogueEntry("v2-b001-greet-first-01")?.batch).toBe("B001");
     expect(getEntriesByBatch("B001").length).toBe(36);
+  });
+
+  it("passes strict book-fidelity validation (no invented text, no sheet/page numbers read aloud)", () => {
+    const out = execFileSync(
+      process.execPath,
+      [join(REPO_ROOT, "scripts/validate-tutor-book-fidelity.mjs")],
+      { encoding: "utf8" },
+    );
+    expect(out).toMatch(/Book-fidelity validated:/);
+    for (const entry of V2_DIALOGUE_ENTRIES) {
+      expect(entry.text).not.toMatch(/La niña sueña con el pañuelo de Noña/i);
+      expect(entry.text).not.toMatch(/\b(?:láminas?|páginas?)\s+(?:uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce|trece|catorce|quince|dieci|veint|treint|cuarent|cincuent|sesent|setent|ochent|novent|\d+)/i);
+    }
   });
 });
 
@@ -208,8 +231,10 @@ describe("recording scripts and index synchronization", () => {
       batches.set(entry.batch, arr);
     }
 
-    // Verify each batch's .txt file exists and matches line-for-line
+    // Verify each batch's .txt file exists, has 25-50 lines, and matches line-for-line
     for (const [batch, expectedLines] of batches.entries()) {
+      expect(expectedLines.length, `batch ${batch} size`).toBeGreaterThanOrEqual(25);
+      expect(expectedLines.length, `batch ${batch} size`).toBeLessThanOrEqual(50);
       const indexMatch = csvLines.find((row) => row.startsWith(`${batch},`));
       expect(indexMatch, `CSV row for ${batch}`).toBeTruthy();
       const txtFile = indexMatch!.split(",")[14];

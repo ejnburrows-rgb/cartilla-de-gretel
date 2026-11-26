@@ -1,11 +1,13 @@
 import { execFileSync } from "node:child_process";
 import {
+  chmodSync,
   copyFileSync,
   existsSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
   rmSync,
+  symlinkSync,
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
@@ -16,6 +18,7 @@ import {
   applyAuthorizedManifestUpdates,
   checkRejectedSource,
   computeTranscriptSimilarity,
+  deriveSpeechSegmentsFromSilences,
   ingestPrivateOriginal,
   matchBatchByTranscriptSimilarity,
   measureSilenceIntervals,
@@ -33,7 +36,8 @@ import {
   verifyGitignorePrivateExclusions,
 } from "../tutor-intake/guard.mjs";
 import { needlemanWunschAlign } from "../tutor-intake/alignment.mjs";
-import { encodeWavPcm16, parseWavBuffer } from "../tutor-intake/media.mjs";
+import { encodeWavPcm16, extractAndResampleWav, parseWavBuffer } from "../tutor-intake/media.mjs";
+import { computeSpectralFlatnessStats } from "../tutor-intake/qc.mjs";
 import { parseFfmpegSilencedetect } from "../tutor-intake/silence.mjs";
 
 const REPO_ROOT = resolve(import.meta.dirname, "../..");
@@ -361,9 +365,23 @@ describe("manifest gating, visemes sync, and end-to-end intake", () => {
       "GretelVoicePrivate/\n.gretel-voice-private/\npublic/audio/private/\n",
     );
     const fakeFfmpeg = join(fakeRepo, ".tools/bin/ffmpeg");
+    const fakeFfprobe = join(fakeRepo, ".tools/bin/ffprobe");
+    const fakeRhubarbTargetDir = join(fakeRepo, ".tools/rhubarb");
+    const fakeRhubarbTarget = join(fakeRhubarbTargetDir, "rhubarb");
+    const fakeRhubarbLink = join(fakeRepo, ".tools/bin/rhubarb");
+    mkdirSync(fakeRhubarbTargetDir, { recursive: true });
     writeFileSync(fakeFfmpeg, "#!/bin/sh\nexit 0\n");
+    writeFileSync(fakeFfprobe, "#!/bin/sh\nexit 0\n");
+    writeFileSync(fakeRhubarbTarget, "#!/bin/sh\nexit 0\n");
+    chmodSync(fakeFfmpeg, 0o755);
+    chmodSync(fakeFfprobe, 0o755);
+    chmodSync(fakeRhubarbTarget, 0o755);
+    symlinkSync("../rhubarb/rhubarb", fakeRhubarbLink);
+
     const tools = resolveMediaTools({ repoRoot: fakeRepo });
     expect(tools.ffmpeg).toBe(fakeFfmpeg);
+    expect(tools.ffprobe).toBe(fakeFfprobe);
+    expect(tools.rhubarb).toBe(fakeRhubarbLink);
 
     // V2 manifest gating check: unmapped / QC-failed / unauthorized must NOT update manifest
     const v2Path = join(fakeRepo, "src/content/tutor-dialogue/universal.json");
@@ -534,5 +552,132 @@ describe("proof on the 43 existing approved recordings", () => {
     );
     expect(out).toContain("43 approved entries processed");
     expect(out).toContain("43 already up to date");
+  }, 60_000);
+});
+
+describe("silence-derived speech segmentation, spectral flatness, and real .tools integration", () => {
+  it("derives utterance windows strictly between measured silences and computes spectral flatness", () => {
+    const segs = deriveSpeechSegmentsFromSilences({
+      silences: [
+        { startSec: 0, endSec: 0.8 },
+        { startSec: 2.1, endSec: 3.0 },
+        { startSec: 4.3, endSec: 5.1 },
+      ],
+      totalDurationSec: 5.1,
+    });
+    expect(segs).toEqual([
+      { startSec: 0.8, endSec: 2.1, durationSec: 1.3 },
+      { startSec: 3.0, endSec: 4.3, durationSec: 1.3 },
+    ]);
+
+    const sr = 16000;
+    const tone = buildSpeechSamples(0.9, sr, 9000, 440);
+    const toneFlatness = computeSpectralFlatnessStats(tone);
+    expect(toneFlatness.meanSpectralFlatness).toBeGreaterThanOrEqual(0);
+    expect(toneFlatness.meanSpectralFlatness).toBeLessThan(0.1);
+
+    const noise = new Int16Array(Math.round(0.9 * sr));
+    let seed = 0x12345678;
+    for (let i = 0; i < noise.length; i++) {
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+      noise[i] = Math.round(((seed / 0xffffffff) * 2 - 1) * 5000);
+    }
+    const noiseFlatness = computeSpectralFlatnessStats(noise);
+    expect(noiseFlatness.meanSpectralFlatness).toBeGreaterThan(0.3);
+    expect(noiseFlatness.meanSpectralFlatness).toBeGreaterThan(toneFlatness.meanSpectralFlatness);
   });
+
+  it("discovers repo .tools binaries and runs continuous M4A batch intake with real ffmpeg + rhubarb", async () => {
+    const tools = resolveMediaTools({ repoRoot: REPO_ROOT });
+    if (!tools.ffmpeg || !tools.ffprobe || !tools.rhubarb) return;
+
+    const workDir = makeTempDir("gretel-real-batch-");
+    const privateDir = makeTempDir("gretel-real-priv-");
+    const exportDir = makeTempDir("gretel-real-exp-");
+    const batchWav = join(workDir, "mini-continuous.wav");
+    const batchM4a = join(workDir, "mini-continuous.m4a");
+
+    const osoWav = join(workDir, "oso.wav");
+    const aroWav = join(workDir, "aro.wav");
+    extractAndResampleWav({
+      inputPath: join(REPO_ROOT, "public/audio/voz/vocabulario/oso.mp3"),
+      outputWavPath: osoWav,
+      sampleRate: 24000,
+      channels: 1,
+      tools,
+    });
+    extractAndResampleWav({
+      inputPath: join(REPO_ROOT, "public/audio/voz/vocabulario/aro.mp3"),
+      outputWavPath: aroWav,
+      sampleRate: 24000,
+      channels: 1,
+      tools,
+    });
+    const osoSamples = parseWavBuffer(readFileSync(osoWav)).samples;
+    const aroSamples = parseWavBuffer(readFileSync(aroWav)).samples;
+    const silence700 = new Int16Array(Math.round(0.7 * 24000));
+    const silence900 = new Int16Array(Math.round(0.9 * 24000));
+    writeFileSync(
+      batchWav,
+      encodeWavPcm16(
+        concatSamples([silence700, osoSamples, silence900, aroSamples, silence700]),
+        24000,
+      ),
+    );
+    execFileSync(
+      tools.ffmpeg,
+      [
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        batchWav,
+        "-ar",
+        "44100",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "96k",
+        batchM4a,
+      ],
+      { stdio: ["ignore", "pipe", "pipe"] },
+    );
+
+    const res = await runTutorIntake({
+      repoRoot: REPO_ROOT,
+      inputFiles: [batchM4a],
+      batchId: "real-tools-mini-test",
+      date: "2026-11-26",
+      privateDir,
+      exportDir,
+      manifestWrite: false,
+      minSilenceDurationSec: 0.5,
+      expectedLines: [
+        { id: "l1-model-aro", seq: 1, lesson: 1, text: "aro" },
+        { id: "l1-model-oso", seq: 2, lesson: 1, text: "oso" },
+      ],
+      heardSegments: [{ text: "oso" }, { text: "aro" }], // intentionally out-of-order
+      authorized: true,
+      approval: "Owner 2026-11-26 test",
+      dryRun: false,
+      writeReport: false,
+    });
+
+    expect(res.silenceSummary[0].engine).toBe("ffmpeg-silencedetect");
+    expect(res.alignment.summary.matchedCount).toBe(2);
+    expect(res.alignment.summary.reorderedCount).toBe(1);
+    expect(res.items.every((it) => it.qc.passed && it.boundaryValid)).toBe(true);
+    expect(res.items.every((it) => it.visemesStatus === "built" && it.visemesCueCount > 0)).toBe(
+      true,
+    );
+    expect(res.manifestResult.filesModified).toEqual([]);
+
+    const osoVisemes = JSON.parse(
+      readFileSync(join(exportDir, "leccion-1/l1-model-oso.visemes.json"), "utf8"),
+    );
+    expect(mouthCuesAreValid(osoVisemes.mouthCues)).toBe(true);
+    expect(osoVisemes.metadata.recognizer).toBe("phonetic");
+    expect(osoVisemes.metadata.extendedShapes).toBe("GX");
+  }, 60_000);
 });

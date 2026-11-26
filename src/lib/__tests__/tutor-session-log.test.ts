@@ -53,6 +53,8 @@ function buildSampleSession(): TutorSessionLog {
     sessionId: "sess-demo-1",
     learnerId: "learner-slot-4",
     lesson: 7,
+    objective: "Practicar las sílabas ma, me, mi de la Lección 7",
+    isDemo: true,
     curriculumVersion: "cartilla-24-v1",
     resourceVersions: {
       curriculumVersion: "cartilla-24-v1",

@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l09-01-greeting-first",
-      "text": "Bienvenidos a la lección nueve para escuchar el suave silbido de la ese.",
+      "text": "Bienvenidos a esta lección para descubrir el sonido suave y silbante de la letra ese.",
       "batch": "B015",
       "seq": 1,
       "file": "B015-001.mp3",
@@ -31,16 +31,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -69,14 +93,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-02-lesson-focus",
-      "text": "Deja pasar un aire suave entre los dientes como en sol y sopa.",
+      "id": "v2-l09-02-greeting-return",
+      "text": "Qué gusto verte de nuevo para seguir leyendo historias con las sílabas de la ese.",
       "batch": "B015",
       "seq": 2,
       "file": "B015-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-09-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-09-greeting-return",
       "curriculumRefs": {
         "lesson": 9,
         "printedPages": [
@@ -93,16 +117,471 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-03-review-intro",
+      "text": "Ya leemos con eme y con pe; hoy agregamos la ese y muchas palabritas que unen oraciones.",
+      "batch": "B015",
+      "seq": 3,
+      "file": "B015-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-09-review-intro",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-04-review-check",
+      "text": "¿Recuerdas cómo suena una palabra con eme y pe como mapa antes de probar la ese?",
+      "batch": "B015",
+      "seq": 4,
+      "file": "B015-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-09-review-check",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido de la ese, leeremos sa, se, si, so, su y siete palabras cortas clave.",
+      "batch": "B015",
+      "seq": 5,
+      "file": "B015-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-09-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-06-letter-name",
+      "text": "Esta consonante se llama ese, y tiene la forma curva de un caminito o una culebrita.",
+      "batch": "B015",
+      "seq": 6,
+      "file": "B015-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-09-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-07-phonetic-sound",
+      "text": "Al pronunciarla dejamos salir aire suavecito entre los dientes cerrados: sss, como viento suave.",
+      "batch": "B015",
+      "seq": 7,
+      "file": "B015-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-09-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -131,11 +610,355 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-03-flipchart-intro",
-      "text": "En la lámina quince del rotafolio practicamos juntos sa, se, si, so, su.",
+      "id": "v2-l09-08-lesson-focus",
+      "text": "Deja salir un hilo suave de aire por entre los dientes para formar las sílabas de sopa y sapo.",
       "batch": "B015",
-      "seq": 3,
-      "file": "B015-003.mp3",
+      "seq": 8,
+      "file": "B015-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-09-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-09-sound-contrast",
+      "text": "A diferencia de la pe que suena de golpe, la ese puede alargarse suave como sss.",
+      "batch": "B015",
+      "seq": 9,
+      "file": "B015-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-09-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-10-explanation-primary",
+      "text": "Cuando unimos ese sonido suave con las vocales formamos sa, se, si, so, su.",
+      "batch": "B015",
+      "seq": 10,
+      "file": "B015-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-09-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-11-explanation-simple",
+      "text": "Sopla suavecito con los dientes casi juntos, como pidiendo silencio, y luego di la vocal: sa, se, si, so, su.",
+      "batch": "B015",
+      "seq": 11,
+      "file": "B015-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-09-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer las palabras y la rima divertida del Sapo Samapo.",
+      "batch": "B015",
+      "seq": 12,
+      "file": "B015-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-09-flipchart-intro",
@@ -153,16 +976,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -175,6 +1022,344 @@
       "expression": "warm",
       "gesture": "point",
       "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen Sesi, un plato de sopa, un sapo, un pie que pisa y Susi.",
+      "batch": "B015",
+      "seq": 13,
+      "file": "B015-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-09-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-14-flipchart-illustration-2",
+      "text": "También vemos al simpático sapo Samapo saltando sobre la mesa en la ilustración del poema.",
+      "batch": "B015",
+      "seq": 14,
+      "file": "B015-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-09-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-15-reading-order",
+      "text": "Lee las sílabas y palabras de izquierda a derecha, y sigue las oraciones renglón por renglón.",
+      "batch": "B015",
+      "seq": 15,
+      "file": "B015-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-09-reading-order",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-16-flipchart-model",
+      "text": "Leemos juntos las cinco sílabas de la ese: sa, se, si, so, su.",
+      "batch": "B015",
+      "seq": 16,
+      "file": "B015-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-09-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
@@ -191,12 +1376,12 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-04-flipchart-vocab",
-      "text": "La lámina dieciséis nos trae palabras muy útiles: masa, mesa, suma, sapo, sopa y Susi.",
+      "id": "v2-l09-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: Sesi, sopa, sapo, pisa y Susi.",
       "batch": "B015",
-      "seq": 4,
-      "file": "B015-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B015-017.mp3",
+      "intent": "flipchart-vocab",
       "role": "flipchart-vocab",
       "variationGroup": "lesson-09-flipchart-vocab",
       "curriculumRefs": {
@@ -208,21 +1393,45 @@
           30
         ],
         "flipchartSheets": [
-          16
+          15
         ],
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -233,12 +1442,12 @@
       },
       "hintLevel": 0,
       "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-flipchart",
+      "gesture": "teach",
+      "presentationAction": "show-word",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
-        "syncWith": "on-sheet"
+        "syncWith": "on-highlight"
       },
       "expectedResponse": "read-word",
       "cooldownTurns": 2,
@@ -251,12 +1460,12 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-05-flipchart-rhyme",
-      "text": "En la lámina diecisiete saludamos la rima divertida del Sapo Samapo en la mesa.",
+      "id": "v2-l09-18-flipchart-rhyme-1",
+      "text": "Leemos los versos de nuestra rima: Sapo Samapo, en la mesa está, sapo Samapo.",
       "batch": "B015",
-      "seq": 5,
-      "file": "B015-005.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 18,
+      "file": "B015-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-09-flipchart-rhyme",
       "curriculumRefs": {
@@ -273,16 +1482,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "flipchart",
@@ -311,18 +1544,105 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-06-page-instruction",
-      "text": "En la página veintisiete traza la ese con soltura y dibuja una palabra suya.",
+      "id": "v2-l09-19-flipchart-rhyme-2",
+      "text": "Fíjate cómo el poema repite el nombre del personaje: Sapo Samapo en la mesa está.",
       "batch": "B015",
-      "seq": 6,
-      "file": "B015-006.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-09-page-instruction",
+      "seq": 19,
+      "file": "B015-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-09-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 9,
         "printedPages": [
-          27
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-20-comprehension-1",
+      "text": "Según la rima del rotafolio, ¿dónde está sentado el sapo Samapo?",
+      "batch": "B015",
+      "seq": 20,
+      "file": "B015-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-09-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
         ],
         "flipchartSheets": [
           15,
@@ -332,16 +1652,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -351,8 +1695,782 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-21-comprehension-2",
+      "text": "¿Quién pasa la sopa a Susi en las oraciones de la lectura?",
+      "batch": "B015",
+      "seq": 21,
+      "file": "B015-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-09-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra sopa que leímos en el rotafolio?",
+      "batch": "B015",
+      "seq": 22,
+      "file": "B015-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-09-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-23-common-mistake-1",
+      "text": "Traza la ese siguiendo su curva suave sin invertir la dirección al empezar arriba.",
+      "batch": "B015",
+      "seq": 23,
+      "file": "B015-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-09-common-mistake",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-24-common-mistake-2",
+      "text": "No agregues una e antes de la ese; empieza directo con el aire suave sss.",
+      "batch": "B015",
+      "seq": 24,
+      "file": "B015-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-09-common-mistake",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-25-common-mistake-3",
+      "text": "Fíjate bien dónde va la ese dentro de palabras como masa, mesa y puso para no saltarla.",
+      "batch": "B015",
+      "seq": 25,
+      "file": "B015-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-09-common-mistake",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-26-hint-1",
+      "text": "Deja salir primero un aire suavecito entre los dientes y mira qué vocal viene después.",
+      "batch": "B015",
+      "seq": 26,
+      "file": "B015-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-09-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-27-hint-2",
+      "text": "Compara el comienzo de la palabra con sopa o con sapo para recordar la sílaba.",
+      "batch": "B015",
+      "seq": 27,
+      "file": "B015-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-09-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: sapo.",
+      "batch": "B015",
+      "seq": 28,
+      "file": "B015-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-09-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-29-workbook-transition",
+      "text": "Ahora pasamos a tu cuaderno de trabajo para trazar la ese y leer historias completas.",
+      "batch": "B015",
+      "seq": 29,
+      "file": "B015-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-09-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -370,11 +2488,94 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-07-page-instruction",
-      "text": "En la página veintiocho encierra cada sílaba de la ese dentro de las palabras.",
+      "id": "v2-l09-30-page-instruction-1",
+      "text": "Escribe la ese mayúscula y minúscula con soltura y haz un dibujo de algo que empiece con ese.",
       "batch": "B015",
-      "seq": 7,
-      "file": "B015-007.mp3",
+      "seq": 30,
+      "file": "B015-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-09-page-instruction",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-31-page-instruction-2",
+      "text": "Después encierra en un círculo la sílaba de la ese dentro de cada palabra del ejercicio.",
+      "batch": "B015",
+      "seq": 31,
+      "file": "B015-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-09-page-instruction",
@@ -391,16 +2592,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -429,14 +2654,97 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-08-sight-word-intro",
-      "text": "La página veintinueve trae palabritas cortas clave: es, de, un, está, en, la, el.",
+      "id": "v2-l09-32-syllable-practice",
+      "text": "Busca cada sílaba encerrándola con cuidado: sa en masa, se en sello, si en silla, so en sopa y su en suma.",
       "batch": "B015",
-      "seq": 8,
-      "file": "B015-008.mp3",
-      "intent": "workbook-page",
-      "role": "sight-word-intro",
-      "variationGroup": "lesson-09-sight-word-intro",
+      "seq": 32,
+      "file": "B015-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-09-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          28
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: masa, mesa, suma, sapo, seso, Susi y así.",
+      "batch": "B015",
+      "seq": 33,
+      "file": "B015-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-09-word-practice",
       "curriculumRefs": {
         "lesson": 9,
         "printedPages": [
@@ -450,16 +2758,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -488,11 +2820,177 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-09-sentence-practice",
-      "text": "Lee despacito esta oración de la página: La sopa está en la mesa.",
+      "id": "v2-l09-34-word-practice-2",
+      "text": "Sigamos con estas palabras de la lectura: sopa, paso, puso, supo, supe, Sisi, ese y esa.",
       "batch": "B015",
-      "seq": 9,
-      "file": "B015-009.mp3",
+      "seq": 34,
+      "file": "B015-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-09-word-practice",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          29
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-35-sight-or-vocab",
+      "text": "Hoy aprendemos siete palabritas clave para armar oraciones: es, de, un, está, en, la, el.",
+      "batch": "B015",
+      "seq": 35,
+      "file": "B015-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-09-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          29
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-36-sentence-or-pair",
+      "text": "Lee siguiendo con tu dedito esta oración del libro: La sopa está en la mesa.",
+      "batch": "B015",
+      "seq": 36,
+      "file": "B015-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-09-sentence-practice",
@@ -509,16 +3007,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -547,70 +3069,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-10-sentence-practice",
-      "text": "Ahora intenta leer la siguiente historia cortita: Papá pasa la sopa a Susi.",
+      "id": "v2-l09-37-page-instruction-final",
+      "text": "Al final completa las palabras con sa, se, si, so, su, como en sapo, puso, masa y pase.",
       "batch": "B015",
-      "seq": 10,
-      "file": "B015-010.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-09-sentence-practice",
-      "curriculumRefs": {
-        "lesson": 9,
-        "printedPages": [
-          29
-        ],
-        "flipchartSheets": [
-          15,
-          16,
-          17
-        ],
-        "letters": [
-          "s"
-        ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          9
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-sentence",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-sentence",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l09-11-page-instruction",
-      "text": "En la página treinta completa las palabras y escribe oraciones con lo aprendido.",
-      "batch": "B015",
-      "seq": 11,
-      "file": "B015-011.mp3",
+      "seq": 37,
+      "file": "B015-037.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-09-page-instruction",
@@ -627,16 +3090,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -665,11 +3152,527 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l09-12-closing",
-      "text": "Con la ese ya puedes leer historias enteras sobre la mesa y la sopa.",
+      "id": "v2-l09-38-game-intro",
+      "text": "Abrimos ahora el juego del Payaso Chano para formar palabras combinando ese, eme y pe.",
       "batch": "B015",
-      "seq": 12,
-      "file": "B015-012.mp3",
+      "seq": 38,
+      "file": "B015-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-09-game-intro",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-39-game-step",
+      "text": "Escucha la palabra de Chano, arrastra sus sílabas a la pizarra y toca la sombrilla para comprobar.",
+      "batch": "B015",
+      "seq": 39,
+      "file": "B015-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-09-game-step",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-40-game-correct",
+      "text": "Muy bien armado. La sombrilla celebró que formaste la palabra exacta en la pizarra de Chano.",
+      "batch": "B015",
+      "seq": 40,
+      "file": "B015-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-09-game-correct",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-41-game-retry",
+      "text": "Toca el resorte para devolver las sílabas y escucha otra vez qué sonido va primero.",
+      "batch": "B015",
+      "seq": 41,
+      "file": "B015-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-09-game-retry",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración completa: Papá pasa la sopa a Susi.",
+      "batch": "B015",
+      "seq": 42,
+      "file": "B015-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-09-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-43-page-complete",
+      "text": "Completaste todas las actividades y el juego de la letra ese con mucha seguridad.",
+      "batch": "B015",
+      "seq": 43,
+      "file": "B015-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-09-page-complete",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-44-closing",
+      "text": "Con la ese y sus palabritas cortas ya lees historias enteras sobre Susi y la sopa.",
+      "batch": "B015",
+      "seq": 44,
+      "file": "B015-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-09-closing",
@@ -689,16 +3692,40 @@
         "letters": [
           "s"
         ],
-        "words": [
-          "sapo",
-          "sopa",
-          "mesa",
-          "masa",
-          "suma",
-          "Susi",
-          "Sesi",
-          "es"
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
         ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
         "sourceStatus": "verified"
       },
       "scope": "lesson",
@@ -711,6 +3738,92 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l09-45-next-step",
+      "text": "En la próxima lección conoceremos el sonido firme de la letra te.",
+      "batch": "B015",
+      "seq": 45,
+      "file": "B015-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-09-next-step",
+      "curriculumRefs": {
+        "lesson": 9,
+        "printedPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "flipchartSheets": [
+          15,
+          16,
+          17
+        ],
+        "letters": [
+          "s"
+        ],
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su"
+        ],
+        "words": [
+          "Sesi",
+          "sopa",
+          "sapo",
+          "pisa",
+          "Susi",
+          "masa",
+          "mesa",
+          "suma",
+          "seso",
+          "así",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa",
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "gameId": "payaso-chano-ss",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

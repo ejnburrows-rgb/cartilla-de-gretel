@@ -250,6 +250,7 @@
         gap: 14px;
       }
 
+      .control-group .group-label,
       .control-group label {
         display: block;
         font-size: 0.82rem;
@@ -258,6 +259,18 @@
         margin-bottom: 6px;
         text-transform: uppercase;
         letter-spacing: 0.04em;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
       .pill-row {
@@ -486,7 +499,7 @@
 
         <div class="card controls-grid">
           <div class="control-group">
-            <label>Encuadre nativo (sin estiramiento)</label>
+            <span class="group-label">Encuadre nativo (sin estiramiento)</span>
             <div class="pill-row">
               <button type="button" data-framing-btn="torso-up" aria-pressed="true">Torso-up (718×860)</button>
               <button type="button" data-framing-btn="full" aria-pressed="false">Cuerpo completo (1086×1448)</button>
@@ -494,7 +507,7 @@
           </div>
 
           <div class="control-group">
-            <label>Sincronización labial Rhubarb A–G / X (bloqueada a tiempo)</label>
+            <span class="group-label">Sincronización labial Rhubarb A–G / X (bloqueada a tiempo)</span>
             <div class="pill-row" id="visemePills">
               <button type="button" data-viseme="X" aria-pressed="true">X (reposo)</button>
               <button type="button" data-viseme="A" aria-pressed="false">A (M/B/P)</button>
@@ -511,13 +524,14 @@
               <button id="btnBlinkNow" type="button">Parpadear</button>
             </div>
             <div class="scrubber-row" style="margin-top: 8px">
+              <label for="timeScrubber" class="sr-only">Tiempo de la frase demo</label>
               <input id="timeScrubber" type="range" min="0" max="2.4" step="0.02" value="0" />
               <span id="timeLabel" style="font-variant-numeric: tabular-nums; font-size: 0.85rem">0.00 s</span>
             </div>
           </div>
 
           <div class="control-group">
-            <label>Canales sutiles (cero rebotes, cero escalado labial)</label>
+            <span class="group-label">Canales sutiles (cero rebotes, cero escalado labial)</span>
             <div class="pill-row" id="expressionPills">
               <button type="button" data-expr="neutral" aria-pressed="true">Neutral</button>
               <button type="button" data-expr="listening" aria-pressed="false">Escuchando</button>
@@ -531,7 +545,7 @@
           </div>
 
           <div class="control-group">
-            <label>Dirección de mirada (sutil)</label>
+            <span class="group-label">Dirección de mirada (sutil)</span>
             <div class="pill-row" id="gazePills">
               <button type="button" data-gaze="student" aria-pressed="true">Estudiante</button>
               <button type="button" data-gaze="board-left" aria-pressed="false">Lámina izq.</button>
@@ -802,7 +816,7 @@
         if (reducedMotion) return;
         demoPlaying = true;
         demoStartMs = performance.now();
-        demoOffsetSec = parseFloat(timeScrubber.value) || 0;
+        demoOffsetSec = Number.parseFloat(timeScrubber.value) || 0;
         if (demoOffsetSec >= 2.38) demoOffsetSec = 0;
         rafId = requestAnimationFrame(stepDemo);
       });
@@ -818,7 +832,7 @@
       timeScrubber.addEventListener("input", () => {
         demoPlaying = false;
         cancelAnimationFrame(rafId);
-        const t = parseFloat(timeScrubber.value) || 0;
+        const t = Number.parseFloat(timeScrubber.value) || 0;
         timeLabel.textContent = `${t.toFixed(2)} s`;
         setViseme(resolveCue(t), "scrubber");
       });

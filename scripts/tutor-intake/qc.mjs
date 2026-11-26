@@ -22,6 +22,107 @@ function computeZeroCrossingRate(samples, start, len) {
   return crossings / Math.max(1, len - 1);
 }
 
+/**
+ * In-place radix-2 Cooley-Tukey FFT on Float64Array real/imag buffers (length must be power of 2).
+ */
+function fftRadix2(re, im) {
+  const n = re.length;
+  for (let i = 1, j = 0; i < n; i++) {
+    let bit = n >> 1;
+    for (; j & bit; bit >>= 1) {
+      j ^= bit;
+    }
+    j ^= bit;
+    if (i < j) {
+      [re[i], re[j]] = [re[j], re[i]];
+      [im[i], im[j]] = [im[j], im[i]];
+    }
+  }
+  for (let len = 2; len <= n; len <<= 1) {
+    const ang = (-2 * Math.PI) / len;
+    const wLenRe = Math.cos(ang);
+    const wLenIm = Math.sin(ang);
+    for (let i = 0; i < n; i += len) {
+      let wRe = 1;
+      let wIm = 0;
+      const half = len >> 1;
+      for (let j = 0; j < half; j++) {
+        const uRe = re[i + j];
+        const uIm = im[i + j];
+        const vRe = re[i + j + half] * wRe - im[i + j + half] * wIm;
+        const vIm = re[i + j + half] * wIm + im[i + j + half] * wRe;
+        re[i + j] = uRe + vRe;
+        im[i + j] = uIm + vIm;
+        re[i + j + half] = uRe - vRe;
+        im[i + j + half] = uIm - vIm;
+        const nextWRe = wRe * wLenRe - wIm * wLenIm;
+        wIm = wRe * wLenIm + wIm * wLenRe;
+        wRe = nextWRe;
+      }
+    }
+  }
+}
+
+/**
+ * Compute Wiener entropy (spectral flatness = geomMean / arithMean of power spectrum)
+ * over Hann-windowed 512-sample frames for a PCM16 slice.
+ */
+export function computeSpectralFlatnessStats(samples, { fftSize = 512, hopSize = 256 } = {}) {
+  if (!samples || samples.length < fftSize) {
+    return { meanSpectralFlatness: 0, quietSpectralFlatness: 0, frameFlatness: [] };
+  }
+  const hann = new Float64Array(fftSize);
+  for (let i = 0; i < fftSize; i++) {
+    hann[i] = 0.5 * (1 - Math.cos((2 * Math.PI * i) / (fftSize - 1)));
+  }
+  const re = new Float64Array(fftSize);
+  const im = new Float64Array(fftSize);
+  const halfBins = fftSize / 2 - 1; // exclude DC (bin 0) and Nyquist
+  const frames = [];
+
+  for (let start = 0; start + fftSize <= samples.length; start += hopSize) {
+    let sumSq = 0;
+    for (let i = 0; i < fftSize; i++) {
+      const val = (samples[start + i] / 32768) * hann[i];
+      re[i] = val;
+      im[i] = 0;
+      sumSq += val * val;
+    }
+    const rmsDb = amplitudeToDb(Math.sqrt(sumSq / fftSize) * 32768);
+    if (rmsDb <= -72) continue;
+
+    fftRadix2(re, im);
+    let logSum = 0;
+    let linSum = 0;
+    const eps = 1e-12;
+    for (let k = 1; k <= halfBins; k++) {
+      const power = re[k] * re[k] + im[k] * im[k] + eps;
+      logSum += Math.log(power);
+      linSum += power;
+    }
+    const geomMean = Math.exp(logSum / halfBins);
+    const arithMean = linSum / halfBins;
+    const flatness = arithMean > 0 ? Math.min(1, geomMean / arithMean) : 0;
+    frames.push({ rmsDb, flatness });
+  }
+
+  if (frames.length === 0) {
+    return { meanSpectralFlatness: 0, quietSpectralFlatness: 0, frameFlatness: [] };
+  }
+
+  const meanSpectralFlatness = frames.reduce((acc, f) => acc + f.flatness, 0) / frames.length;
+  const byEnergy = [...frames].sort((a, b) => a.rmsDb - b.rmsDb);
+  const quietPool = byEnergy.slice(0, Math.max(1, Math.floor(byEnergy.length * 0.25)));
+  const quietSpectralFlatness =
+    quietPool.reduce((acc, f) => acc + f.flatness, 0) / quietPool.length;
+
+  return {
+    meanSpectralFlatness: Number(meanSpectralFlatness.toFixed(4)),
+    quietSpectralFlatness: Number(quietSpectralFlatness.toFixed(4)),
+    frameFlatness: frames,
+  };
+}
+
 /** Check transcript text for lexical stutters (repeated words or truncated prefixes) not present in expectedText. */
 export function detectTranscriptStutter(heardText, expectedText = "") {
   const heardTokens = tokenizeSpanish(heardText, { foldAccents: true });
@@ -174,7 +275,8 @@ export function runClipQc({
 
   // Music / continuous bed detection:
   // Pure speech has true quiet gaps (< -38 dBFS) at edges/pauses and variable ZCR.
-  // Music beds keep the quietest 15% frames elevated (>= -34 dBFS) with low ZCR variance (tonal).
+  // Music beds keep the quietest 15-25% frames elevated (>= -34 dBFS) with low ZCR variance
+  // and/or low spectral flatness (tonal chords / sustained harmonic instruments).
   const quietFramesCount = frameDbs.filter((db) => db <= -38).length;
   const quietRatio = frameCount > 0 ? quietFramesCount / frameCount : 0;
   const p20Db = sortedDbs.length > 0 ? sortedDbs[Math.floor(sortedDbs.length * 0.2)] : -96;
@@ -187,15 +289,19 @@ export function runClipQc({
   const varQuietZcr =
     quietSlice.reduce((s, f) => s + (f.zcr - meanQuietZcr) ** 2, 0) / quietSlice.length;
 
+  const flatnessStats = computeSpectralFlatnessStats(samples);
+
   const musicSuspected =
     durationSec >= 0.8 &&
     activeSpeechRatio > 0.2 &&
     ((p20Db > cfg.musicFloorDb && quietRatio < cfg.minQuietRatioForMultiWord) ||
-      (noiseFloorDb > -35 && varQuietZcr < 0.002 && meanQuietZcr < 0.2));
+      (noiseFloorDb > -35 &&
+        ((varQuietZcr < 0.002 && meanQuietZcr < 0.2) ||
+          flatnessStats.quietSpectralFlatness < 0.08)));
 
   if (musicSuspected) {
     failures.push(
-      `music-or-continuous-bed (p20 ${p20Db.toFixed(1)} dBFS, quietRatio ${(quietRatio * 100).toFixed(1)}%, quietZcrVar ${varQuietZcr.toFixed(5)})`,
+      `music-or-continuous-bed (p20 ${p20Db.toFixed(1)} dBFS, quietRatio ${(quietRatio * 100).toFixed(1)}%, quietZcrVar ${varQuietZcr.toFixed(5)}, quietSpectralFlatness ${flatnessStats.quietSpectralFlatness})`,
     );
   }
 
@@ -256,6 +362,8 @@ export function runClipQc({
       snrDb: Number(snrDb.toFixed(2)),
       activeSpeechRatio: Number(activeSpeechRatio.toFixed(4)),
       quietRatio: Number(quietRatio.toFixed(4)),
+      spectralFlatness: flatnessStats.meanSpectralFlatness,
+      quietSpectralFlatness: flatnessStats.quietSpectralFlatness,
       clippedSamples,
       maxConsecutiveClipped,
       musicSuspected,

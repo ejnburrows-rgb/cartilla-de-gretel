@@ -1,26 +1,65 @@
-import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
+import {
+  accessSync,
+  constants as fsConstants,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
 import { delimiter, dirname, extname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   ANALYSIS_WAV_SAMPLE_RATE,
   RUNTIME_MP3_BITRATE,
   RUNTIME_MP3_CHANNELS,
   RUNTIME_MP3_SAMPLE_RATE,
 } from "./constants.mjs";
+import { parseFfmpegSilencedetect } from "./silence.mjs";
+
+const DEFAULT_REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
+
+function isExecutableFile(filePath) {
+  try {
+    if (!existsSync(filePath)) return false;
+    if (!statSync(filePath).isFile()) return false;
+    if (process.platform !== "win32") {
+      accessSync(filePath, fsConstants.X_OK);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 function findInDirTree(dirPath, targetNames, maxDepth = 3) {
   if (!existsSync(dirPath) || maxDepth < 0) return null;
-  const entries = readdirSync(dirPath, { withFileTypes: true });
+  let entries;
+  try {
+    entries = readdirSync(dirPath, { withFileTypes: true });
+  } catch {
+    return null;
+  }
   for (const entry of entries) {
-    if (entry.isFile() && targetNames.includes(entry.name)) {
-      return join(dirPath, entry.name);
+    if ((entry.isFile() || entry.isSymbolicLink()) && targetNames.includes(entry.name)) {
+      const full = join(dirPath, entry.name);
+      if (isExecutableFile(full)) return full;
     }
   }
   if (maxDepth === 0) return null;
   for (const entry of entries) {
-    if (entry.isDirectory()) {
-      const found = findInDirTree(join(dirPath, entry.name), targetNames, maxDepth - 1);
-      if (found) return found;
+    if (entry.isDirectory() || entry.isSymbolicLink()) {
+      const full = join(dirPath, entry.name);
+      try {
+        if (statSync(full).isDirectory()) {
+          const found = findInDirTree(full, targetNames, maxDepth - 1);
+          if (found) return found;
+        }
+      } catch {
+        // Ignore broken symlinks
+      }
     }
   }
   return null;
@@ -33,7 +72,7 @@ function findOnPath(binaryName) {
   for (const dir of pathEnv.split(delimiter).filter(Boolean)) {
     for (const candidate of candidates) {
       const full = join(dir, candidate);
-      if (existsSync(full)) return full;
+      if (isExecutableFile(full)) return full;
     }
   }
   return null;
@@ -41,24 +80,45 @@ function findOnPath(binaryName) {
 
 /**
  * Resolve an external binary (`ffmpeg`, `ffprobe`, `rhubarb`) from:
- * 1. Explicit path override, 2. environment variable, 3. `<repoRoot>/.tools/`, 4. system PATH.
+ * 1. Explicit path override,
+ * 2. environment variable,
+ * 3. `<repoRoot>/.tools/` (prioritizing `.tools/bin/<name>` and `.tools/<name>`),
+ * 4. system PATH.
  */
-export function resolveToolBinary(name, { repoRoot, explicitPath, envVar } = {}) {
-  if (explicitPath && existsSync(explicitPath)) return resolve(explicitPath);
-  if (envVar && process.env[envVar] && existsSync(process.env[envVar])) {
+export function resolveToolBinary(
+  name,
+  { repoRoot = DEFAULT_REPO_ROOT, explicitPath, envVar } = {},
+) {
+  if (explicitPath && isExecutableFile(explicitPath)) return resolve(explicitPath);
+  if (envVar && process.env[envVar] && isExecutableFile(process.env[envVar])) {
     return resolve(process.env[envVar]);
   }
   const names = process.platform === "win32" ? [`${name}.exe`, name] : [name];
   if (repoRoot) {
     const toolsDir = join(repoRoot, ".tools");
+    for (const candidate of names) {
+      const directCandidates = [
+        join(toolsDir, "bin", candidate),
+        join(toolsDir, candidate),
+        join(toolsDir, name, candidate),
+      ];
+      for (const direct of directCandidates) {
+        if (isExecutableFile(direct)) return resolve(direct);
+      }
+    }
     const inTools = findInDirTree(toolsDir, names, 3);
-    if (inTools) return inTools;
+    if (inTools) return resolve(inTools);
   }
   return findOnPath(name);
 }
 
 /** Discover ffmpeg, ffprobe, and rhubarb binaries available to the pipeline. */
-export function resolveMediaTools({ repoRoot, ffmpegPath, ffprobePath, rhubarbPath } = {}) {
+export function resolveMediaTools({
+  repoRoot = DEFAULT_REPO_ROOT,
+  ffmpegPath,
+  ffprobePath,
+  rhubarbPath,
+} = {}) {
   return {
     ffmpeg: resolveToolBinary("ffmpeg", {
       repoRoot,
@@ -333,6 +393,63 @@ export function probeMedia(inputPath, { tools } = {}) {
   }
 
   throw new Error(`Cannot probe ${ext} without ffprobe installed (checked PATH and .tools/)`);
+}
+
+/**
+ * Run ffmpeg's `silencedetect` audio filter to locate genuine silence intervals.
+ * Cut boundaries are strictly derived from measured silence intervals rather than guessed offsets.
+ */
+export function detectSilenceWithFfmpeg({
+  inputPath,
+  tools,
+  noiseThresholdDb = -40,
+  minSilenceDurationSec = 0.3,
+  totalDurationSec = null,
+}) {
+  const ffmpeg = tools?.ffmpeg;
+  if (!ffmpeg) {
+    throw new Error(
+      `ffmpeg is required for silencedetect on "${inputPath}" (install ffmpeg or place it in .tools/)`,
+    );
+  }
+
+  const probedDuration =
+    typeof totalDurationSec === "number"
+      ? totalDurationSec
+      : tools?.ffprobe
+        ? probeMedia(inputPath, { tools }).durationSec
+        : null;
+
+  const res = spawnSync(
+    ffmpeg,
+    [
+      "-hide_banner",
+      "-nostats",
+      "-i",
+      inputPath,
+      "-vn",
+      "-af",
+      `silencedetect=noise=${noiseThresholdDb}dB:d=${minSilenceDurationSec}`,
+      "-f",
+      "null",
+      "-",
+    ],
+    { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+  );
+  if (res.status !== 0) {
+    throw new Error(
+      `ffmpeg silencedetect failed on "${inputPath}": ${res.stderr || res.error?.message}`,
+    );
+  }
+
+  const silences = parseFfmpegSilencedetect(res.stderr, probedDuration);
+  return {
+    silences,
+    totalDurationSec: probedDuration,
+    noiseThresholdDb,
+    minSilenceDurationSec,
+    stderr: res.stderr,
+  };
 }
 
 /**

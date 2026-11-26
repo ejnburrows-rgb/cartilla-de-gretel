@@ -15,9 +15,30 @@
  * CLI: node scripts/validate-tutor-lines.mjs [path-to-manifest]
  * Exits non-zero with one clear message per problem.
  */
-import { existsSync, readFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { existsSync, readFileSync, realpathSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, join, relative, resolve, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
+
+function isWithinDir(candidate, baseDir) {
+  const rel = relative(baseDir, candidate);
+  return rel === "" || (!rel.startsWith("..") && !isAbsolute(rel));
+}
+
+function resolveCliManifestPath(repoRoot, rawArg) {
+  if (!rawArg) return join(repoRoot, "src/content/tutor-lines.json");
+  if (rawArg.includes("\0") || !rawArg.endsWith(".json")) {
+    throw new Error(`Invalid manifest path argument: ${rawArg}`);
+  }
+  const resolved = resolve(process.cwd(), rawArg);
+  const canonicalRepo = realpathSync(repoRoot);
+  const canonicalTmp = realpathSync(tmpdir());
+  const canonicalTarget = existsSync(resolved) ? realpathSync(resolved) : resolved;
+  if (!isWithinDir(canonicalTarget, canonicalRepo) && !isWithinDir(canonicalTarget, canonicalTmp)) {
+    throw new Error(`Refusing manifest path outside workspace or tmpdir: ${rawArg}`);
+  }
+  return canonicalTarget;
+}
 
 export const TUTOR_LINE_ROLES = [
   "greeting-first",
@@ -194,9 +215,13 @@ export function validateTutorLines(manifest, options = {}) {
 
 async function main() {
   const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-  const manifestPath = process.argv[2]
-    ? resolve(process.cwd(), process.argv[2])
-    : join(repoRoot, "src/content/tutor-lines.json");
+  let manifestPath;
+  try {
+    manifestPath = resolveCliManifestPath(repoRoot, process.argv[2]);
+  } catch (error) {
+    console.error(`✗ ${error.message}`);
+    process.exit(1);
+  }
 
   let manifest;
   try {

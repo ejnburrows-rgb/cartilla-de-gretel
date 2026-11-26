@@ -122,6 +122,46 @@ export function parseFfmpegSilencedetect(stderrText, totalDurationSec = null) {
   return silences;
 }
 
+/**
+ * Derive non-silent speech utterance windows from measured silence intervals.
+ * Cut boundaries come strictly from measured silences rather than guessed offsets.
+ */
+export function deriveSpeechSegmentsFromSilences({
+  silences,
+  totalDurationSec,
+  minSpeechDurationSec = 0.15,
+}) {
+  const sorted = [...(silences ?? [])].sort((a, b) => a.startSec - b.startSec);
+  const dur = Number(totalDurationSec ?? 0);
+  if (!(dur > 0)) return [];
+
+  const segments = [];
+  let cursor = 0;
+
+  for (const s of sorted) {
+    if (s.startSec > cursor + minSpeechDurationSec) {
+      segments.push({
+        startSec: Number(cursor.toFixed(4)),
+        endSec: Number(s.startSec.toFixed(4)),
+        durationSec: Number((s.startSec - cursor).toFixed(4)),
+      });
+    }
+    if (s.endSec > cursor) {
+      cursor = s.endSec;
+    }
+  }
+
+  if (dur > cursor + minSpeechDurationSec) {
+    segments.push({
+      startSec: Number(cursor.toFixed(4)),
+      endSec: Number(dur.toFixed(4)),
+      durationSec: Number((dur - cursor).toFixed(4)),
+    });
+  }
+
+  return segments;
+}
+
 function findSilenceNear(silences, targetSec, direction, maxDistanceSec) {
   let best = null;
   let bestDist = Infinity;

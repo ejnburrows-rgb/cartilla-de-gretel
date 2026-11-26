@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l12-01-greeting-first",
-      "text": "Llegamos a la lección doce para cantar y leer con la letra ele.",
+      "text": "Llegamos hoy a una nueva lección para cantar y leer con el sonido claro de la ele.",
       "batch": "B018",
       "seq": 1,
       "file": "B018-001.mp3",
@@ -31,15 +31,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -69,14 +86,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-02-lesson-focus",
-      "text": "Sube la punta de la lengua al paladar para producir su sonido luminoso.",
+      "id": "v2-l12-02-greeting-return",
+      "text": "Qué alegría verte otra vez para seguir leyendo palabras e historias con la letra ele.",
       "batch": "B018",
       "seq": 2,
       "file": "B018-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-12-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-12-greeting-return",
       "curriculumRefs": {
         "lesson": 12,
         "printedPages": [
@@ -93,15 +110,428 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-03-review-intro",
+      "text": "Ya leemos con eme, pe, ese, te y de; hoy la ele nos trae muchas palabras alegres.",
+      "batch": "B018",
+      "seq": 3,
+      "file": "B018-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-12-review-intro",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-04-review-check",
+      "text": "¿Recuerdas dónde apoyas la lengua cuando pasas de decir dedo a decir luna?",
+      "batch": "B018",
+      "seq": 4,
+      "file": "B018-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-12-review-check",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido de la letra ele, sus sílabas la, le, li, lo, lu y la palabra también.",
+      "batch": "B018",
+      "seq": 5,
+      "file": "B018-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-12-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-06-letter-name",
+      "text": "Esta consonante se llama ele, y la minúscula es un palito alto y derecho como una torre.",
+      "batch": "B018",
+      "seq": 6,
+      "file": "B018-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-12-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-07-phonetic-sound",
+      "text": "Para pronunciarla subimos la punta de la lengua detrás de los dientes de arriba: lll.",
+      "batch": "B018",
+      "seq": 7,
+      "file": "B018-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-12-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -131,11 +561,327 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-03-flipchart-intro",
-      "text": "En las láminas veinticuatro y veinticinco repasamos la, le, li, lo, lu junto a maleta.",
+      "id": "v2-l12-08-lesson-focus",
+      "text": "Sube la punta de la lengua hasta el cielo de la boca detrás de los dientes como en luna y maleta.",
       "batch": "B018",
-      "seq": 3,
-      "file": "B018-003.mp3",
+      "seq": 8,
+      "file": "B018-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-12-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-09-sound-contrast",
+      "text": "A diferencia de la de que vibra al soltar el aire, la ele deja escapar el aire por los lados.",
+      "batch": "B018",
+      "seq": 9,
+      "file": "B018-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-12-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-10-explanation-primary",
+      "text": "Cuando unimos ese sonido luminoso con las vocales formamos la, le, li, lo, lu.",
+      "batch": "B018",
+      "seq": 10,
+      "file": "B018-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-12-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-11-explanation-simple",
+      "text": "Pega la puntita de la lengua detrás de los dientes de arriba y canta lll antes de cada vocal.",
+      "batch": "B018",
+      "seq": 11,
+      "file": "B018-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-12-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer las palabras nuevas y leer el poema rítmico Leo lee.",
+      "batch": "B018",
+      "seq": 12,
+      "file": "B018-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-12-flipchart-intro",
@@ -148,21 +894,37 @@
           42
         ],
         "flipchartSheets": [
-          24,
-          25
+          24
         ],
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -181,6 +943,316 @@
         "pauseAfterMs": 350,
         "syncWith": "on-sheet"
       },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen una maleta, una lata, la niña Luli, una loma y Lala.",
+      "batch": "B018",
+      "seq": 13,
+      "file": "B018-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-12-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-14-flipchart-illustration-2",
+      "text": "También vemos a Leo leyendo feliz rodeado de palabras con tela, lana y maleta.",
+      "batch": "B018",
+      "seq": 14,
+      "file": "B018-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-12-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-15-reading-order",
+      "text": "Lee las sílabas de izquierda a derecha y sigue los versos repetidos del poema sin saltarte ninguno.",
+      "batch": "B018",
+      "seq": 15,
+      "file": "B018-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-12-reading-order",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-16-flipchart-model",
+      "text": "Leemos juntos en voz clara las cinco sílabas: la, le, li, lo, lu.",
+      "batch": "B018",
+      "seq": 16,
+      "file": "B018-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-12-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
       "expectedResponse": "read-syllable",
       "cooldownTurns": 2,
       "priority": 75,
@@ -192,12 +1264,89 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-04-flipchart-rhyme",
-      "text": "En la lámina veintiséis leemos Leo lee: maleta de tela y tela de lana.",
+      "id": "v2-l12-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: maleta, lata, Luli, loma y Lala.",
       "batch": "B018",
-      "seq": 4,
-      "file": "B018-004.mp3",
-      "intent": "flipchart-sheet",
+      "seq": 17,
+      "file": "B018-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-12-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-18-flipchart-rhyme-1",
+      "text": "Leemos el comienzo alegre del poema Leo lee: Leo, leo, leo, leo, lima, palo, tela, Tula.",
+      "batch": "B018",
+      "seq": 18,
+      "file": "B018-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-12-flipchart-rhyme",
       "curriculumRefs": {
@@ -214,15 +1363,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -252,18 +1418,98 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-05-page-instruction",
-      "text": "En la página treinta y nueve traza la ele alta y derecha hasta el renglón.",
+      "id": "v2-l12-19-flipchart-rhyme-2",
+      "text": "Seguimos con la segunda parte del poema: maleta de tela, tela de lana, maleta de Polo, de Lalo y de Ana.",
       "batch": "B018",
-      "seq": 5,
-      "file": "B018-005.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-12-page-instruction",
+      "seq": 19,
+      "file": "B018-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-12-flipchart-rhyme",
       "curriculumRefs": {
         "lesson": 12,
         "printedPages": [
-          39
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-20-comprehension-1",
+      "text": "Según el poema Leo lee, ¿de qué material está hecha la maleta de Polo?",
+      "batch": "B018",
+      "seq": 20,
+      "file": "B018-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-12-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
         ],
         "flipchartSheets": [
           24,
@@ -273,15 +1519,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -292,8 +1555,719 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-21-comprehension-2",
+      "text": "¿Quién más tiene una maleta de tela en la lectura de hoy?",
+      "batch": "B018",
+      "seq": 21,
+      "file": "B018-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-12-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra lupa?",
+      "batch": "B018",
+      "seq": 22,
+      "file": "B018-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-12-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-23-common-mistake-1",
+      "text": "No confundas la ele minúscula con una i sin punto ni con una te; es un palito alto sin rayita.",
+      "batch": "B018",
+      "seq": 23,
+      "file": "B018-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-12-common-mistake",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-24-common-mistake-2",
+      "text": "Cuando leas maleta o paloma, pasa sin prisa por la sílaba de en medio que lleva ele.",
+      "batch": "B018",
+      "seq": 24,
+      "file": "B018-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-12-common-mistake",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-25-common-mistake-3",
+      "text": "No cortes la sílaba en dos trozos; junta la ele y la vocal en una sola voz limpia.",
+      "batch": "B018",
+      "seq": 25,
+      "file": "B018-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-12-common-mistake",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-26-hint-1",
+      "text": "Sube la lengua detrás de los dientes de arriba y fíjate en la vocal siguiente.",
+      "batch": "B018",
+      "seq": 26,
+      "file": "B018-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-12-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-27-hint-2",
+      "text": "Compara el sonido con lata o con maleta para descubrir la sílaba correcta.",
+      "batch": "B018",
+      "seq": 27,
+      "file": "B018-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-12-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: maleta.",
+      "batch": "B018",
+      "seq": 28,
+      "file": "B018-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-12-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para trazar la ele y leer la historia de Luli y Polo.",
+      "batch": "B018",
+      "seq": 29,
+      "file": "B018-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-12-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -311,11 +2285,87 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-06-page-instruction",
-      "text": "En la página cuarenta circula la sílaba correcta en lata, maleta, lima y lupa.",
+      "id": "v2-l12-30-page-instruction-1",
+      "text": "Traza la ele mayúscula y minúscula alta y derechita y dibuja algo cuyo nombre empiece con ele.",
       "batch": "B018",
-      "seq": 6,
-      "file": "B018-006.mp3",
+      "seq": 30,
+      "file": "B018-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-12-page-instruction",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-31-page-instruction-2",
+      "text": "Después circula la sílaba correcta dentro de las palabras como lata, maleta, lima y lupa.",
+      "batch": "B018",
+      "seq": 31,
+      "file": "B018-031.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-12-page-instruction",
@@ -332,15 +2382,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -370,11 +2437,87 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-07-word-practice",
-      "text": "Practicamos juntos palabras del cuadro de lectura: paloma, pelota, pelusa, Lola y Luli.",
+      "id": "v2-l12-32-syllable-practice",
+      "text": "Encierra con cuidado cada sílaba: la en lata, le en maleta, li en lima, lo en pelota y lu en lupa.",
       "batch": "B018",
-      "seq": 7,
-      "file": "B018-007.mp3",
+      "seq": 32,
+      "file": "B018-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-12-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          40
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: lima, lata, aleta, maleta, lupa, sale, paloma y pala.",
+      "batch": "B018",
+      "seq": 33,
+      "file": "B018-033.mp3",
       "intent": "workbook-practice",
       "role": "word-practice",
       "variationGroup": "lesson-12-word-practice",
@@ -391,15 +2534,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -429,11 +2589,87 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-08-sight-word-intro",
-      "text": "La palabra nueva de la página cuarenta y uno es también.",
+      "id": "v2-l12-34-word-practice-2",
+      "text": "Sigamos con estas palabras del cuadro: lomo, pelusa, Lilo, Lola, Luli, tela y Tula.",
       "batch": "B018",
-      "seq": 8,
-      "file": "B018-008.mp3",
+      "seq": 34,
+      "file": "B018-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-12-word-practice",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          41
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-35-sight-or-vocab",
+      "text": "Hoy aprendemos una palabra nueva muy útil para sumar ideas: también.",
+      "batch": "B018",
+      "seq": 35,
+      "file": "B018-035.mp3",
       "intent": "workbook-page",
       "role": "sight-word-intro",
       "variationGroup": "lesson-12-sight-word-intro",
@@ -450,15 +2686,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -488,11 +2741,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-09-sentence-practice",
-      "text": "Sigue con el dedo esta oración: La maleta de Luli está en la mesa.",
+      "id": "v2-l12-36-sentence-or-pair",
+      "text": "Lee siguiendo con tu dedito esta oración del libro: La maleta de Luli está en la mesa.",
       "batch": "B018",
-      "seq": 9,
-      "file": "B018-009.mp3",
+      "seq": 36,
+      "file": "B018-036.mp3",
       "intent": "workbook-practice",
       "role": "sentence-practice",
       "variationGroup": "lesson-12-sentence-practice",
@@ -509,15 +2762,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -547,70 +2817,11 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-10-sentence-practice",
-      "text": "Ahora leemos la última frase: Lalo tiene una maleta de tela también.",
+      "id": "v2-l12-37-page-instruction-final",
+      "text": "Al final completa las palabras con la, le, li, lo, lu, como en paleta, solo, pala y lata.",
       "batch": "B018",
-      "seq": 10,
-      "file": "B018-010.mp3",
-      "intent": "workbook-practice",
-      "role": "sentence-practice",
-      "variationGroup": "lesson-12-sentence-practice",
-      "curriculumRefs": {
-        "lesson": 12,
-        "printedPages": [
-          41
-        ],
-        "flipchartSheets": [
-          24,
-          25,
-          26
-        ],
-        "letters": [
-          "l"
-        ],
-        "words": [
-          "maleta",
-          "lima",
-          "lata",
-          "pala",
-          "lupa",
-          "paloma",
-          "Lalo",
-          "Polo"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          12
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-sentence",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-sentence",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l12-11-page-instruction",
-      "text": "En la página cuarenta y dos completa las palabras con las sílabas de la ele.",
-      "batch": "B018",
-      "seq": 11,
-      "file": "B018-011.mp3",
+      "seq": 37,
+      "file": "B018-037.mp3",
       "intent": "workbook-page",
       "role": "page-instruction",
       "variationGroup": "lesson-12-page-instruction",
@@ -627,15 +2838,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -665,11 +2893,485 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l12-12-closing",
-      "text": "Qué suave y clara sonó tu lectura con la ele. Vamos por la ene.",
+      "id": "v2-l12-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva con las sílabas de la ele para reforzar la lectura.",
       "batch": "B018",
-      "seq": 12,
-      "file": "B018-012.mp3",
+      "seq": 38,
+      "file": "B018-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-12-game-intro",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-39-game-step",
+      "text": "Mira la palabra incompleta y elige entre la, le, li, lo, lu la sílaba que la forma bien.",
+      "batch": "B018",
+      "seq": 39,
+      "file": "B018-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-12-game-step",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-40-game-correct",
+      "text": "Muy bien leída esa palabra. La ele sonó clarita en el lugar exacto.",
+      "batch": "B018",
+      "seq": 40,
+      "file": "B018-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-12-game-correct",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-41-game-retry",
+      "text": "Pronuncia el resto de la palabra y prueba cuál de las cinco sílabas le da sentido.",
+      "batch": "B018",
+      "seq": 41,
+      "file": "B018-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-12-game-retry",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Lalo tiene una maleta de tela también.",
+      "batch": "B018",
+      "seq": 42,
+      "file": "B018-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-12-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-43-page-complete",
+      "text": "Completaste todas las actividades de la letra ele con mucha soltura y claridad.",
+      "batch": "B018",
+      "seq": 43,
+      "file": "B018-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-12-page-complete",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-44-closing",
+      "text": "Qué suave y limpia sonó tu lectura con la letra ele. Cada día lees historias más largas.",
+      "batch": "B018",
+      "seq": 44,
+      "file": "B018-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-12-closing",
@@ -689,15 +3391,32 @@
         "letters": [
           "l"
         ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
         "words": [
           "maleta",
-          "lima",
           "lata",
-          "pala",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
           "lupa",
+          "sale",
           "paloma",
-          "Lalo",
-          "Polo"
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
         ],
         "sourceStatus": "verified"
       },
@@ -711,6 +3430,85 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l12-45-next-step",
+      "text": "En la próxima lección descubriremos el sonido nasal de la letra ene.",
+      "batch": "B018",
+      "seq": 45,
+      "file": "B018-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-12-next-step",
+      "curriculumRefs": {
+        "lesson": 12,
+        "printedPages": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "flipchartSheets": [
+          24,
+          25,
+          26
+        ],
+        "letters": [
+          "l"
+        ],
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu"
+        ],
+        "words": [
+          "maleta",
+          "lata",
+          "Luli",
+          "loma",
+          "Lala",
+          "lima",
+          "aleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "tela",
+          "Tula",
+          "también"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

@@ -101,6 +101,7 @@ export interface TutorSessionEvent {
   activityId?: string;
   printedPage?: number;
   pdfSheet?: number | null;
+  sheetSource?: "workbook" | "flipchart";
   presentationAction?: string;
   attemptNumber?: number;
   outcome?: TutorSessionOutcome;
@@ -153,6 +154,10 @@ export interface TutorSessionLog {
   sessionId: string;
   learnerId: string;
   lesson: number;
+  /** Optional pedagogical objective worked during this session. */
+  objective?: string;
+  /** Explicit marker when the log represents synthetic/demo data (never a real student). */
+  isDemo?: boolean;
   startedAt: string;
   endedAt: string | null;
   durationMs: number;
@@ -203,11 +208,19 @@ function defaultKvStore(): SessionLogKvStorage {
   return { getItem: () => null, setItem: () => {}, removeItem: () => {} };
 }
 
+let idFallbackCounter = 0;
+
 function makeId(prefix: string): string {
   if (typeof globalThis.crypto?.randomUUID === "function") {
     return `${prefix}-${globalThis.crypto.randomUUID()}`;
   }
-  return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  if (typeof globalThis.crypto?.getRandomValues === "function") {
+    const buf = new Uint32Array(2);
+    globalThis.crypto.getRandomValues(buf);
+    return `${prefix}-${buf[0].toString(36)}-${buf[1].toString(36)}`;
+  }
+  idFallbackCounter += 1;
+  return `${prefix}-${Date.now().toString(36)}-${idFallbackCounter.toString(36)}`;
 }
 
 /** Disallowed raw media/PII keys stripped from any incoming event or session object. */
@@ -243,6 +256,8 @@ export interface CreateSessionLogInput {
   sessionId?: string;
   learnerId: string;
   lesson: number;
+  objective?: string;
+  isDemo?: boolean;
   curriculumVersion?: string;
   resourceVersions?: Partial<TutorSessionResourceVersions>;
   startedAt?: string;
@@ -270,6 +285,8 @@ export function createSessionLog(input: CreateSessionLogInput): TutorSessionLog 
     sessionId,
     learnerId: input.learnerId,
     lesson: input.lesson,
+    ...(input.objective?.trim() ? { objective: input.objective.trim() } : {}),
+    ...(input.isDemo ? { isDemo: true } : {}),
     startedAt,
     endedAt: null,
     durationMs: 0,
@@ -337,6 +354,7 @@ export function appendSessionEvent(
     ...(input.activityId ? { activityId: input.activityId } : {}),
     ...(typeof input.printedPage === "number" ? { printedPage: input.printedPage } : {}),
     ...(input.pdfSheet !== undefined ? { pdfSheet: input.pdfSheet } : {}),
+    ...(input.sheetSource ? { sheetSource: input.sheetSource } : {}),
     ...(input.presentationAction ? { presentationAction: input.presentationAction } : {}),
     ...(typeof input.attemptNumber === "number" ? { attemptNumber: input.attemptNumber } : {}),
     ...(input.outcome ? { outcome: input.outcome } : {}),
@@ -354,11 +372,23 @@ export function appendSessionEvent(
   // Track sheets without conflating printedPage and pdfSheet
   const sheets = [...session.sheets];
   if (typeof event.printedPage === "number") {
-    const exists = sheets.some(
-      (s) => s.printedPage === event.printedPage && (s.pdfSheet ?? null) === (event.pdfSheet ?? null),
+    const existingIdx = sheets.findIndex(
+      (s) =>
+        s.printedPage === event.printedPage &&
+        ((s.pdfSheet ?? null) === (event.pdfSheet ?? null) || event.pdfSheet == null),
     );
-    if (!exists) {
-      sheets.push({ printedPage: event.printedPage, pdfSheet: event.pdfSheet ?? null });
+    if (existingIdx === -1) {
+      sheets.push({
+        printedPage: event.printedPage,
+        pdfSheet: event.pdfSheet ?? null,
+        ...(event.sheetSource ? { source: event.sheetSource } : {}),
+      });
+    } else if (event.sheetSource && !sheets[existingIdx].source) {
+      sheets[existingIdx] = {
+        ...sheets[existingIdx],
+        source: event.sheetSource,
+        ...(event.pdfSheet != null ? { pdfSheet: event.pdfSheet } : {}),
+      };
     }
   }
 
@@ -545,6 +575,10 @@ function sanitizeSessionLog(raw: TutorSessionLog): TutorSessionLog {
     sessionId: base.sessionId,
     learnerId: base.learnerId,
     lesson: base.lesson,
+    ...(typeof base.objective === "string" && base.objective.trim()
+      ? { objective: base.objective.trim() }
+      : {}),
+    ...(base.isDemo === true ? { isDemo: true } : {}),
     startedAt: base.startedAt,
     endedAt: typeof base.endedAt === "string" ? base.endedAt : null,
     durationMs: typeof base.durationMs === "number" && base.durationMs >= 0 ? base.durationMs : 0,
@@ -940,19 +974,22 @@ export function formatDurationEs(durationMs: number): string {
 export function generateTeacherSessionReport(session: TutorSessionLog): TeacherSessionReport {
   const overrideByItem = new Map(session.teacherOverrides.map((o) => [o.itemId, o]));
 
-  // Resolve effective outcomes per item (applying teacher overrides when present)
-  const effectiveOutcomes: Array<{
-    itemId: string;
-    label: string;
-    outcome: TutorSessionOutcome;
-    attempts: number;
-    overridden: boolean;
-  }> = [];
+  // Resolve effective outcomes per item (coalescing by itemId and applying teacher overrides)
+  const outcomeByItem = new Map<
+    string,
+    {
+      itemId: string;
+      label: string;
+      outcome: TutorSessionOutcome;
+      attempts: number;
+      overridden: boolean;
+    }
+  >();
 
   for (const event of session.events) {
     if (event.kind === "outcome" && event.itemId && event.outcome) {
       const override = overrideByItem.get(event.itemId);
-      effectiveOutcomes.push({
+      outcomeByItem.set(event.itemId, {
         itemId: event.itemId,
         label: event.itemText ?? event.itemId,
         outcome: override ? override.overriddenOutcome : event.outcome,
@@ -961,6 +998,7 @@ export function generateTeacherSessionReport(session: TutorSessionLog): TeacherS
       });
     }
   }
+  const effectiveOutcomes = [...outcomeByItem.values()];
 
   const achievements = effectiveOutcomes.filter(
     (o) => o.outcome === "correct" || o.outcome === "correct_after_retry",
@@ -970,12 +1008,21 @@ export function generateTeacherSessionReport(session: TutorSessionLog): TeacherS
   const corrections = session.events.filter((e) => e.kind === "correction");
 
   // Section 1: Resumen de la sesión
-  const summaryLines = [
+  const summaryLines: string[] = [];
+  if (session.isDemo) {
+    summaryLines.push(
+      "Sesión sintética de demostración (datos ficticios, no corresponden a un estudiante real).",
+    );
+  }
+  if (session.objective) {
+    summaryLines.push(`Objetivo de la sesión: ${session.objective}.`);
+  }
+  summaryLines.push(
     `Lección ${session.lesson} · Duración: ${formatDurationEs(session.durationMs)}.`,
     `Versión curricular: ${session.curriculumVersion}.`,
     `Eventos estructurados registrados: ${session.events.length}.`,
     `Resultados registrados: ${achievements.length} logro(s), ${difficulties.length} dificultad(es), ${hints.length} pista(s).`,
-  ];
+  );
   if (session.recordingIds.length > 0) {
     summaryLines.push(
       `Grabaciones locales referenciadas en el dispositivo del estudiante: ${session.recordingIds.length} (no transferidas automáticamente).`,
@@ -989,11 +1036,13 @@ export function generateTeacherSessionReport(session: TutorSessionLog): TeacherS
   const contentLines: string[] = [];
   if (session.sheets.length > 0) {
     const pagesText = session.sheets
-      .map((s) =>
-        s.pdfSheet != null
-          ? `pág. impresa ${s.printedPage} (hoja PDF ${s.pdfSheet})`
-          : `pág. impresa ${s.printedPage}`,
-      )
+      .map((s) => {
+        const prefix =
+          s.source === "flipchart" ? "Rotafolio · " : s.source === "workbook" ? "Cuaderno · " : "";
+        return s.pdfSheet != null
+          ? `${prefix}pág. impresa ${s.printedPage} (hoja PDF ${s.pdfSheet})`
+          : `${prefix}pág. impresa ${s.printedPage}`;
+      })
       .join(", ");
     contentLines.push(`Páginas trabajadas: ${pagesText}.`);
   }
@@ -1101,11 +1150,16 @@ export function generateTeacherSessionReport(session: TutorSessionLog): TeacherS
     `Reporte docente — ${STRUCTURED_REPLAY_LABEL}`,
     `Sesión: ${session.sessionId} · Estudiante: ${session.learnerId} · Lección ${session.lesson}`,
     "",
-    ...sections.flatMap((section) => [
+    "=== OBSERVACIONES REGISTRADAS EN LA SESIÓN ===",
+    ...observations.flatMap((section) => [
       `## ${section.title}`,
       ...section.lines.map((line) => `- ${line}`),
       "",
     ]),
+    "=== RECOMENDACIONES PARA CONTINUAR (SEPARADAS DE LAS OBSERVACIONES) ===",
+    `## ${recommendations.title}`,
+    ...recommendations.lines.map((line) => `- ${line}`),
+    "",
     `Nota: ${STUDENT_DEVICE_RECORDINGS_NOTICE}`,
   ].join("\n");
 

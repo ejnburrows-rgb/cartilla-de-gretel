@@ -24,6 +24,7 @@ import {
 } from "../tutor-brain";
 import { COMMAND_PHRASES } from "../tutor-intent";
 import { VOWELS, VOWEL_ALIASES } from "../tutor-intent";
+import { TUTOR_STATE_LABELS, deriveSessionState } from "../tutor-session";
 
 const rng0 = () => 0;
 
@@ -524,7 +525,11 @@ describe("IDLE_TIMEOUT (15 min no tap) → ENDED", () => {
     const step = reduce(toListen(1), { type: "IDLE_TIMEOUT" }, rng0);
     expect(step.state.phase).toBe("ENDED");
     expect(step.state.endedReason).toBe("idle");
-    expect(step.effects).toEqual([{ type: "cancelSpeech" }, { type: "stopMic" }, { type: "flushLog" }]);
+    expect(step.effects).toEqual([
+      { type: "cancelSpeech" },
+      { type: "stopMic" },
+      { type: "flushLog" },
+    ]);
   });
 
   it("the idle window is 15 minutes", () => {
@@ -708,5 +713,185 @@ describe("Milestone 9: 24-lesson brain, confidence gating, interrupt & coaching 
         expect(step.fallbackLabel).toContain("Solo texto");
       }
     }
+  });
+});
+
+describe("Honest Status Badge (deriveSessionState & TUTOR_STATE_LABELS)", () => {
+  it("labels ready as 'Lista', waiting as 'Esperando respuesta', and thinking as 'Pensando…'", () => {
+    expect(TUTOR_STATE_LABELS.ready).toBe("Lista");
+    expect(TUTOR_STATE_LABELS.waiting).toBe("Esperando respuesta");
+    expect(TUTOR_STATE_LABELS.thinking).toBe("Pensando…");
+  });
+
+  it("NEVER shows 'Pensando…' when idle/ready at start of lesson or waiting at rest", () => {
+    expect(
+      deriveSessionState({
+        hasBrain: true,
+        brainPhase: "GREET",
+        micCapturing: false,
+        linePlaying: false,
+        presenting: false,
+        thinking: true,
+        analyzing: false,
+        recovering: false,
+        ended: false,
+      }),
+    ).toBe("ready");
+
+    expect(
+      deriveSessionState({
+        hasBrain: true,
+        brainPhase: "LISTEN",
+        micCapturing: false,
+        linePlaying: false,
+        presenting: false,
+        thinking: true,
+        analyzing: false,
+        recovering: false,
+        ended: false,
+      }),
+    ).toBe("waiting");
+
+    expect(
+      deriveSessionState({
+        hasBrain: true,
+        brainPhase: "MODEL",
+        micCapturing: false,
+        linePlaying: false,
+        presenting: false,
+        thinking: true,
+        analyzing: false,
+        recovering: false,
+        ended: false,
+      }),
+    ).toBe("ready");
+
+    expect(
+      deriveSessionState({
+        hasBrain: true,
+        brainPhase: "CELEBRATE",
+        micCapturing: false,
+        linePlaying: false,
+        presenting: false,
+        thinking: true,
+        analyzing: false,
+        recovering: false,
+        ended: false,
+      }),
+    ).toBe("ready");
+  });
+
+  it("shows 'Pensando…' ONLY during genuine turn processing / intent matching (MATCH / RESPOND)", () => {
+    for (const phase of ["MATCH", "RESPOND"] as const) {
+      expect(
+        deriveSessionState({
+          hasBrain: true,
+          brainPhase: phase,
+          micCapturing: false,
+          linePlaying: false,
+          presenting: false,
+          thinking: true,
+          analyzing: false,
+          recovering: false,
+          ended: false,
+        }),
+      ).toBe("thinking");
+    }
+  });
+});
+
+describe("Autonomous Full-Lesson Pedagogical Flow (Lesson 1 & Lesson 8 · Pp)", () => {
+  it("walks Lesson 8 (Pp) through welcome -> objective -> flipchart -> model -> 3-level hints -> correction -> workbook -> game -> review -> celebrate -> ended", () => {
+    const start = brain(8, {
+      items: [findTutorItem(8, "pa"), findTutorItem(8, "papá")],
+      returning: true,
+      reviewItemIds: ["l8-syllable-pa"],
+      pedagogicalFlow: true,
+      includePracticeStages: true,
+      priorCompletedCount: 2,
+    });
+
+    // 1. Welcome returning learner
+    const s1 = reduce(start, { type: "START" }, rng0);
+    expect(s1.state.phase).toBe("GREET");
+    expect(s1.state.stage).toBe("WELCOME");
+    expect(lineIds(s1.effects)[0]).toMatch(/^l0-greeting-return-/);
+
+    // 2. Objective
+    const s2 = reduce(s1.state, { type: "LINE_DONE" }, rng0);
+    expect(s2.state.stage).toBe("OBJECTIVE");
+    expect(s2.effects.some((e) => e.type === "recordSessionEvent" && e.kind === "objective")).toBe(
+      true,
+    );
+
+    // 3. Flip Chart sheet presentation in Split mode
+    const s3 = reduce(s2.state, { type: "LINE_DONE" }, rng0);
+    expect(s3.state.stage).toBe("FLIPCHART");
+    expect(s3.effects).toContainEqual({ type: "openFlipchart", sheetNumber: 12, layout: "split" });
+
+    // 4. Model first item ("pa") + return to Call mode
+    const s4 = reduce(s3.state, { type: "LINE_DONE" }, rng0);
+    expect(s4.state.phase).toBe("MODEL");
+    expect(s4.state.stage).toBe("MODEL");
+    expect(currentTargetItem(s4.state).text).toBe("pa");
+    expect(s4.effects).toContainEqual({ type: "setLayout", layout: "call" });
+
+    // 5. Question prompt in LISTEN
+    const s5 = reduce(s4.state, { type: "LINE_DONE" }, rng0);
+    expect(s5.state.phase).toBe("LISTEN");
+    expect(s5.state.stage).toBe("QUESTION");
+
+    // 6. Error 1 -> Hint Level 1, Error 2 -> Hint Level 2 (simpler explanation)
+    const err1 = tapAndHear(s5.state, "pe");
+    expect(err1.state.hintLevel).toBe(1);
+    expect(err1.state.activeHint?.level).toBe(1);
+    expect(err1.state.stage).toBe("HINT_ESCALATION");
+    const back1 = reduce(err1.state, { type: "LINE_DONE" }, rng0);
+
+    const err2 = tapAndHear(back1.state, "po");
+    expect(err2.state.hintLevel).toBe(2);
+    expect(err2.state.activeHint?.level).toBe(2);
+    expect(err2.state.activeHint?.explanationText).toContain("Explicación simple");
+    const back2 = reduce(err2.state, { type: "LINE_DONE" }, rng0);
+
+    // 7. Correction on attempt 3
+    const fix = tapAndHear(back2.state, "pa");
+    expect(fix.state.respondKind).toBe("correct");
+    expect(fix.state.hintLevel).toBe(0);
+    expect(
+      fix.effects.some((e) => e.type === "recordSessionEvent" && e.kind === "correction"),
+    ).toBe(true);
+
+    // Advance to item 2 ("papá") and pass
+    const m2 = reduce(fix.state, { type: "LINE_DONE" }, rng0);
+    expect(currentTargetItem(m2.state).text).toBe("papá");
+    const l2 = reduce(m2.state, { type: "LINE_DONE" }, rng0);
+    const pass2 = tapAndHear(l2.state, "papá");
+
+    // 8. Finish items -> Workbook Practice (Mode D)
+    const wb = reduce(pass2.state, { type: "LINE_DONE" }, rng0);
+    expect(wb.state.stage).toBe("WORKBOOK_PRACTICE");
+    expect(wb.effects).toContainEqual({ type: "openWorkbook", printedPage: 23 });
+    expect(wb.effects).toContainEqual({ type: "setLayout", layout: "practice" });
+    const wbListen = reduce(wb.state, { type: "LINE_DONE" }, rng0);
+    expect(wbListen.state.phase).toBe("LISTEN");
+
+    // 9. Complete Workbook -> Launch Reinforcement Game (Mode D)
+    const game = reduce(wbListen.state, { type: "COMPLETE_WORKBOOK" }, rng0);
+    expect(game.state.stage).toBe("GAME_PRACTICE");
+    expect(game.effects).toContainEqual({ type: "launchGame", gameId: "payaso-chano-ss" });
+    const gameListen = reduce(game.state, { type: "LINE_DONE" }, rng0);
+
+    // 10. Complete Game -> Review Round -> Celebrate -> Ended
+    const rev = reduce(gameListen.state, { type: "COMPLETE_GAME" }, rng0);
+    expect(rev.state.stage).toBe("REVIEW");
+    expect(rev.state.inReview).toBe(true);
+    const revListen = reduce(rev.state, { type: "LINE_DONE" }, rng0);
+    const revPass = tapAndHear(revListen.state, "pa");
+    const cel = reduce(revPass.state, { type: "LINE_DONE" }, rng0);
+    expect(cel.state.phase).toBe("CELEBRATE");
+    const end = reduce(cel.state, { type: "LINE_DONE" }, rng0);
+    expect(end.state.phase).toBe("ENDED");
+    expect(end.state.endedReason).toBe("complete");
   });
 });

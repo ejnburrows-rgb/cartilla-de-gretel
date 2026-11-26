@@ -129,6 +129,10 @@ export function TutorCallShell({
     startY: number;
     baseOffsetX: number;
     baseOffsetY: number;
+    minX: number;
+    maxX: number;
+    minY: number;
+    maxY: number;
   } | null>(null);
 
   // Sync browser fullscreen changes back to controller.
@@ -207,16 +211,39 @@ export function TutorCallShell({
     }
   };
 
-  // Mode C / Mode D PiP drag handlers
+  // Mode C / Mode D PiP drag handlers (clamped inside canvas so PiP never leaves the stage)
   const handlePipPointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if ((event.target as HTMLElement).closest("button")) return;
     event.currentTarget.setPointerCapture?.(event.pointerId);
+    const canvasRect = canvasRef.current?.getBoundingClientRect();
+    const pipHost = event.currentTarget.closest("[data-tutor-avatar-slot]");
+    const pipRect = pipHost?.getBoundingClientRect();
+    let minX = -600;
+    let maxX = 600;
+    let minY = -600;
+    let maxY = 120;
+    if (canvasRect && pipRect && canvasRect.width > 0 && pipRect.width > 0) {
+      const margin = 8;
+      // Current visual position includes current baseOffset; derive allowed offset delta around it
+      const spaceLeft = pipRect.left - canvasRect.left - margin;
+      const spaceRight = canvasRect.right - pipRect.right - margin;
+      const spaceTop = pipRect.top - canvasRect.top - margin;
+      const spaceBottom = canvasRect.bottom - pipRect.bottom - margin;
+      minX = snapshot.pip.offsetX - Math.max(0, spaceLeft);
+      maxX = snapshot.pip.offsetX + Math.max(0, spaceRight);
+      minY = snapshot.pip.offsetY - Math.max(0, spaceTop);
+      maxY = snapshot.pip.offsetY + Math.max(0, spaceBottom);
+    }
     pipDragOriginRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
       startY: event.clientY,
       baseOffsetX: snapshot.pip.offsetX,
       baseOffsetY: snapshot.pip.offsetY,
+      minX,
+      maxX,
+      minY,
+      maxY,
     };
     setDraggingPip(true);
   };
@@ -224,8 +251,10 @@ export function TutorCallShell({
   const handlePipPointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const origin = pipDragOriginRef.current;
     if (!origin || origin.pointerId !== event.pointerId) return;
-    const dx = origin.baseOffsetX + (event.clientX - origin.startX);
-    const dy = origin.baseOffsetY + (event.clientY - origin.startY);
+    const rawX = origin.baseOffsetX + (event.clientX - origin.startX);
+    const rawY = origin.baseOffsetY + (event.clientY - origin.startY);
+    const dx = Math.min(origin.maxX, Math.max(origin.minX, rawX));
+    const dy = Math.min(origin.maxY, Math.max(origin.minY, rawY));
     controller.setPipOffset(dx, dy);
   };
 
@@ -348,14 +377,15 @@ export function TutorCallShell({
               onPointerMove={handlePipPointerMove}
               onPointerUp={handlePipPointerUp}
             >
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#635145]">
-                <GripHorizontal className="h-4 w-4" aria-hidden="true" />
-                Gretel
+              <span className="tutor-pip-title tutor-ink-soft inline-flex items-center gap-1.5 text-xs font-bold">
+                <GripHorizontal className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span className="tutor-pip-title-text">Gretel</span>
               </span>
               <div className="tutor-pip-toolbar-actions">
                 <button
                   type="button"
                   className="tutor-pip-icon-btn"
+                  aria-pressed={snapshot.pip.corner === "bottom-left"}
                   aria-label="Acoplar ventana abajo a la izquierda"
                   title="Abajo a la izquierda"
                   onClick={() => controller.setPipCorner("bottom-left")}
@@ -365,6 +395,7 @@ export function TutorCallShell({
                 <button
                   type="button"
                   className="tutor-pip-icon-btn"
+                  aria-pressed={snapshot.pip.corner === "bottom-right"}
                   aria-label="Acoplar ventana abajo a la derecha"
                   title="Abajo a la derecha"
                   onClick={() => controller.setPipCorner("bottom-right")}
@@ -444,7 +475,7 @@ export function TutorCallShell({
                 {snapshot.cameraEnabled ? (
                   <div className="tutor-camera-slot" data-tutor-camera-slot="">
                     {cameraSlot ?? (
-                      <div className="p-4 text-center text-sm text-[#635145]">
+                      <div className="tutor-ink-soft p-4 text-center text-sm">
                         Cámara local activada
                       </div>
                     )}
@@ -457,15 +488,15 @@ export function TutorCallShell({
             {snapshot.layoutMode === "split" || snapshot.layoutMode === "flipchart-pip" ? (
               <div className="tutor-flipchart-frame" data-tutor-flipchart-frame="">
                 {flipchartSlot ?? (
-                  <div className="tutor-flipchart-sheet-box rounded-2xl border border-[#5c3d28]/15 bg-[#fffdf8] p-6 text-center">
-                    <BookOpen className="mb-2 h-8 w-8 text-[#1e4b82]" aria-hidden="true" />
-                    <p className="font-bold text-[#2a211b]">
+                  <div className="tutor-flipchart-sheet-box tutor-flipchart-fallback rounded-2xl p-6 text-center">
+                    <BookOpen className="tutor-cobalt-icon mb-2 h-8 w-8" aria-hidden="true" />
+                    <p className="tutor-ink-strong font-bold">
                       Rotafolio · Lección {snapshot.lesson}
                       {snapshot.activeFlipchartPage
                         ? ` · Lámina ${snapshot.activeFlipchartPage}`
                         : ""}
                     </p>
-                    <p className="mt-1 text-sm text-[#635145]">
+                    <p className="tutor-ink-soft mt-1 text-sm">
                       Relación de aspecto preservada sin recortes.
                     </p>
                   </div>
@@ -475,12 +506,10 @@ export function TutorCallShell({
 
             {snapshot.layoutMode === "practice" ? (
               <div className="flex h-full w-full flex-col gap-3" data-tutor-practice-frame="">
-                <div className="flex items-center justify-between gap-2 border-b border-[#5c3d28]/15 pb-2">
-                  <span className="text-sm font-bold text-[#2a211b]">
+                <div className="tutor-practice-header flex items-center justify-between gap-2 pb-2">
+                  <span className="tutor-ink-strong text-sm font-bold">
                     Práctica guiada
-                    {snapshot.activeWorkbookPage
-                      ? ` · Página ${snapshot.activeWorkbookPage}`
-                      : ""}
+                    {snapshot.activeWorkbookPage ? ` · Página ${snapshot.activeWorkbookPage}` : ""}
                   </span>
                   <button
                     type="button"
@@ -535,7 +564,7 @@ export function TutorCallShell({
             </div>
             <div className="tutor-transcript-list" role="log" aria-live="polite">
               {snapshot.transcript.length === 0 ? (
-                <p className="text-sm text-[#635145]">
+                <p className="tutor-ink-soft text-sm">
                   Aquí aparecerán las intervenciones de la sesión.
                 </p>
               ) : (
@@ -545,7 +574,7 @@ export function TutorCallShell({
                     className="tutor-transcript-item"
                     data-speaker={entry.speaker}
                   >
-                    <span className="block text-xs font-bold text-[#635145]">
+                    <span className="tutor-ink-soft block text-xs font-bold">
                       {entry.speaker === "gretel"
                         ? "Gretel"
                         : entry.speaker === "student"
@@ -599,7 +628,7 @@ export function TutorCallShell({
             </button>
           </div>
           {consentSlot ?? (
-            <p className="text-sm text-[#635145]">
+            <p className="tutor-ink-soft text-sm">
               La grabación y la cámara están desactivadas por defecto. Actívalas solo con permiso.
             </p>
           )}
@@ -645,9 +674,7 @@ export function TutorCallShell({
             ) : (
               <Volume2 className="h-4 w-4" aria-hidden="true" />
             )}
-            <span className="tutor-dock-btn-label">
-              {snapshot.muted ? "Sin sonido" : "Sonido"}
-            </span>
+            <span className="tutor-dock-btn-label">{snapshot.muted ? "Sin sonido" : "Sonido"}</span>
           </button>
 
           <button
@@ -704,9 +731,7 @@ export function TutorCallShell({
             type="button"
             className="tutor-dock-btn"
             aria-pressed={snapshot.transcriptOpen}
-            aria-label={
-              snapshot.transcriptOpen ? "Ocultar transcripción" : "Abrir transcripción"
-            }
+            aria-label={snapshot.transcriptOpen ? "Ocultar transcripción" : "Abrir transcripción"}
             onClick={() => controller.toggleTranscript()}
           >
             <MessageSquareText className="h-4 w-4" aria-hidden="true" />
@@ -724,7 +749,7 @@ export function TutorCallShell({
             }}
           >
             <Disc
-              className={`h-4 w-4 ${snapshot.recordingActive ? "text-[#a6342a]" : ""}`}
+              className={`h-4 w-4 ${snapshot.recordingActive ? "tutor-danger-icon" : ""}`}
               aria-hidden="true"
             />
             <span className="tutor-dock-btn-label">Grabación</span>
@@ -750,9 +775,7 @@ export function TutorCallShell({
             type="button"
             className="tutor-dock-btn"
             aria-pressed={snapshot.fullscreen}
-            aria-label={
-              snapshot.fullscreen ? "Salir de pantalla completa" : "Pantalla completa"
-            }
+            aria-label={snapshot.fullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
             onClick={() => void toggleFullscreen()}
           >
             {snapshot.fullscreen ? (

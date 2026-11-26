@@ -104,7 +104,7 @@ export function tutorBuildId(): string {
   }
   return hash(
     files
-      .sort()
+      .sort((a, b) => a.localeCompare(b))
       .map((file) => `${file}:${hash(readFileSync(file))}`)
       .join("\n"),
   );
@@ -175,7 +175,7 @@ export function tutorPackPlugin(buildId: string): Plugin {
       for (const layer of layers.layers ?? []) {
         if (layer.approval && layer.src) avatarUrls.add(layer.src);
       }
-      for (const url of [...avatarUrls].sort()) {
+      for (const url of [...avatarUrls].sort((a, b) => a.localeCompare(b))) {
         avatarFiles.push(add(url, readFileSync(`public${url}`)));
       }
 
@@ -248,7 +248,9 @@ export function tutorPackPlugin(buildId: string): Plugin {
           }
         }
 
-        for (const url of [...(lessonAssetUrls.get(lesson) ?? [])].sort()) {
+        for (const url of [...(lessonAssetUrls.get(lesson) ?? [])].sort((a, b) =>
+          a.localeCompare(b),
+        )) {
           const packed = add(url, readFileSync(`public${url}`));
           perLessonEntries.set(url, packed);
           if (url.endsWith(".mp3") || url.endsWith(".wav") || url.endsWith(".ogg")) {

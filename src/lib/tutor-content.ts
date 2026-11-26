@@ -241,7 +241,8 @@ function idSlug(text: string): string {
     .replace(/\p{M}/gu, (mark) => (mark === "\u0303" ? mark : ""))
     .normalize("NFC")
     .replace(/[^a-zñ0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
 }
 
 function deriveVowelLessonItems(lesson: number): TutorItem[] {

@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l05-01-greeting-first",
-      "text": "Bienvenidos a la lección cinco dedicada a nuestra amiga la vocal i.",
+      "text": "Bienvenidos hoy para conocer juntos a la delgadita y alegre vocal i.",
       "batch": "B011",
       "seq": 1,
       "file": "B011-001.mp3",
@@ -29,14 +29,15 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
+          "iglú",
+          "indio",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -66,14 +67,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l05-02-lesson-focus",
-      "text": "La i minúscula lleva siempre su puntito arriba y suena bien finita.",
+      "id": "v2-l05-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir practicando las palabras con la vocal i.",
       "batch": "B011",
       "seq": 2,
       "file": "B011-002.mp3",
-      "intent": "lesson-intro",
-      "role": "lesson-focus",
-      "variationGroup": "lesson-05-lesson-focus",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-05-greeting-return",
       "curriculumRefs": {
         "lesson": 5,
         "printedPages": [
@@ -88,14 +89,316 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
+          "iglú",
+          "indio",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-03-review-intro",
+      "text": "Ya recorrimos las hermanitas o, a y e; hoy seguimos con nuestra cuarta vocal.",
+      "batch": "B011",
+      "seq": 3,
+      "file": "B011-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-05-review-intro",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-04-review-check",
+      "text": "¿Recuerdas en qué se diferencia la sonrisa de la e del sonido finito de la i?",
+      "batch": "B011",
+      "seq": 4,
+      "file": "B011-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-05-review-check",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-05-lesson-objective",
+      "text": "Hoy aprenderemos a identificar el sonido agudo de la vocal i y a leer y trazar sus palabras.",
+      "batch": "B011",
+      "seq": 5,
+      "file": "B011-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-05-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-06-letter-name",
+      "text": "Esta vocal se llama i, y la minúscula es un palito derechito con su puntito arriba.",
+      "batch": "B011",
+      "seq": 6,
+      "file": "B011-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-05-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-07-phonetic-sound",
+      "text": "Para pronunciarla sonreímos suave y dejamos salir un sonido finito y largo: iii.",
+      "batch": "B011",
+      "seq": 7,
+      "file": "B011-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-05-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -125,11 +428,251 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l05-03-flipchart-intro",
-      "text": "En la lámina siete del rotafolio encontramos la rima de La niña llorona.",
+      "id": "v2-l05-08-lesson-focus",
+      "text": "La i minúscula lleva siempre un puntito arriba y suena bien finita desde el principio.",
       "batch": "B011",
-      "seq": 3,
-      "file": "B011-003.mp3",
+      "seq": 8,
+      "file": "B011-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-05-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-09-sound-contrast",
+      "text": "Al decir i juntamos más los labios en sonrisa que al decir e, logrando un sonido más delgado.",
+      "batch": "B011",
+      "seq": 9,
+      "file": "B011-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-05-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-10-explanation-primary",
+      "text": "Cuando una palabra empieza con ese sonido finito y claro, sabemos que comienza con la vocal i.",
+      "batch": "B011",
+      "seq": 10,
+      "file": "B011-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-05-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-11-explanation-simple",
+      "text": "Haz una sonrisa pequeñita como el sonido de un grillo alegre y escucha la i en imán.",
+      "batch": "B011",
+      "seq": 11,
+      "file": "B011-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-05-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer la simpática rima llamada La niña llorona.",
+      "batch": "B011",
+      "seq": 12,
+      "file": "B011-012.mp3",
       "intent": "flipchart-sheet",
       "role": "flipchart-intro",
       "variationGroup": "lesson-05-flipchart-intro",
@@ -147,14 +690,15 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
+          "iglú",
+          "indio",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -184,12 +728,312 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l05-04-flipchart-rhyme",
-      "text": "I de Irma, i de imán, i de iglú, i de insecto, no llores más.",
+      "id": "v2-l05-13-flipchart-illustration-1",
+      "text": "En las ilustraciones del rotafolio vemos un imán, un iglú, un indio y una isla.",
       "batch": "B011",
-      "seq": 4,
-      "file": "B011-004.mp3",
+      "seq": 13,
+      "file": "B011-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-05-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-14-flipchart-illustration-2",
+      "text": "También aparecen la niña Irma y un pequeño insecto junto a la rima de la flaquita vocal i.",
+      "batch": "B011",
+      "seq": 14,
+      "file": "B011-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-05-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-15-reading-order",
+      "text": "Lee los versos del poema de arriba hacia abajo y recorre luego las palabras de izquierda a derecha.",
+      "batch": "B011",
+      "seq": 15,
+      "file": "B011-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-05-reading-order",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-16-flipchart-model",
+      "text": "Observa el dibujo del imán mientras pronuncias con claridad su sonido inicial.",
+      "batch": "B011",
+      "seq": 16,
+      "file": "B011-016.mp3",
       "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-05-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-17-flipchart-vocab",
+      "text": "Leemos en voz alta las palabras del rotafolio: imán, iglú, indio, isla, Irma e insecto.",
+      "batch": "B011",
+      "seq": 17,
+      "file": "B011-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-05-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-18-flipchart-rhyme-1",
+      "text": "Leemos estos versos de La niña llorona: Flaquita y llorona viene la infeliz que le duele todo hasta la nariz.",
+      "batch": "B011",
+      "seq": 18,
+      "file": "B011-018.mp3",
+      "intent": "flipchart-rhyme",
       "role": "flipchart-rhyme",
       "variationGroup": "lesson-05-flipchart-rhyme",
       "curriculumRefs": {
@@ -206,14 +1050,75 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
+          "iglú",
+          "indio",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-19-flipchart-rhyme-2",
+      "text": "Seguimos con el coro del poema: I de Irma, i de imán, i de iglú, i de insecto.",
+      "batch": "B011",
+      "seq": 19,
+      "file": "B011-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-05-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -243,14 +1148,14 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l05-05-flipchart-model",
-      "text": "Observa el dibujo del imán en la lámina siete mientras pronuncias la vocal.",
+      "id": "v2-l05-20-comprehension-1",
+      "text": "Según el poema del rotafolio, ¿qué le pasa a la niña flaquita que representa a la vocal i?",
       "batch": "B011",
-      "seq": 5,
-      "file": "B011-005.mp3",
-      "intent": "flipchart-sheet",
-      "role": "flipchart-model",
-      "variationGroup": "lesson-05-flipchart-model",
+      "seq": 20,
+      "file": "B011-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-05-comprehension-question",
       "curriculumRefs": {
         "lesson": 5,
         "printedPages": [
@@ -265,71 +1170,15 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
-          "isla",
-          "igual",
-          "insecto"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "flipchart",
-      "eligibility": {
-        "lessons": [
-          5
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "show-flipchart",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "on-sheet"
-      },
-      "expectedResponse": "read-word",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l05-06-page-instruction",
-      "text": "En la página trece marca todos los dibujos cuyo nombre comienza con i.",
-      "batch": "B011",
-      "seq": 6,
-      "file": "B011-006.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-05-page-instruction",
-      "curriculumRefs": {
-        "lesson": 5,
-        "printedPages": [
-          13
-        ],
-        "flipchartSheets": [
-          7
-        ],
-        "letters": [
-          "i"
-        ],
-        "words": [
           "iglú",
-          "iguana",
           "indio",
-          "invierno",
-          "imán",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -340,66 +1189,9 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "point-workbook",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "tap-item",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l05-07-word-practice",
-      "text": "Pronuncia conmigo estas palabras de la página trece: iglú, iguana, indio e invierno.",
-      "batch": "B011",
-      "seq": 7,
-      "file": "B011-007.mp3",
-      "intent": "workbook-practice",
-      "role": "word-practice",
-      "variationGroup": "lesson-05-word-practice",
-      "curriculumRefs": {
-        "lesson": 5,
-        "printedPages": [
-          13
-        ],
-        "flipchartSheets": [
-          7
-        ],
-        "letters": [
-          "i"
-        ],
-        "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
-          "imán",
-          "isla",
-          "igual",
-          "insecto"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          5
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "teach",
-      "presentationAction": "show-word",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
@@ -416,131 +1208,19 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l05-08-word-practice",
-      "text": "Sigamos con imán, isla, igual, insecto e iglesia escuchando el inicio.",
+      "id": "v2-l05-21-comprehension-2",
+      "text": "¿Qué objeto del poema atrae metales y empieza con la vocal i?",
       "batch": "B011",
-      "seq": 8,
-      "file": "B011-008.mp3",
-      "intent": "workbook-practice",
-      "role": "word-practice",
-      "variationGroup": "lesson-05-word-practice",
+      "seq": 21,
+      "file": "B011-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-05-comprehension-question",
       "curriculumRefs": {
         "lesson": 5,
         "printedPages": [
-          13
-        ],
-        "flipchartSheets": [
-          7
-        ],
-        "letters": [
-          "i"
-        ],
-        "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
-          "imán",
-          "isla",
-          "igual",
-          "insecto"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          5
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "encouraging",
-      "gesture": "teach",
-      "presentationAction": "show-word",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "read-word",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l05-09-page-instruction",
-      "text": "En la página catorce une con una línea la vocal con sus dibujos correspondientes.",
-      "batch": "B011",
-      "seq": 9,
-      "file": "B011-009.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-05-page-instruction",
-      "curriculumRefs": {
-        "lesson": 5,
-        "printedPages": [
-          14
-        ],
-        "flipchartSheets": [
-          7
-        ],
-        "letters": [
-          "i"
-        ],
-        "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
-          "imán",
-          "isla",
-          "igual",
-          "insecto"
-        ],
-        "sourceStatus": "verified"
-      },
-      "scope": "lesson",
-      "eligibility": {
-        "lessons": [
-          5
-        ]
-      },
-      "hintLevel": 0,
-      "expression": "warm",
-      "gesture": "point",
-      "presentationAction": "point-workbook",
-      "cueTiming": {
-        "leadInMs": 150,
-        "pauseAfterMs": 350,
-        "syncWith": "before-item"
-      },
-      "expectedResponse": "tap-item",
-      "cooldownTurns": 2,
-      "priority": 75,
-      "audio": {
-        "sha256": null,
-        "durationMs": null,
-        "visemes": null
-      },
-      "status": "scripted"
-    },
-    {
-      "id": "v2-l05-10-page-instruction",
-      "text": "En la página quince escribe la i con cariño sin olvidar su puntito.",
-      "batch": "B011",
-      "seq": 10,
-      "file": "B011-010.mp3",
-      "intent": "workbook-page",
-      "role": "page-instruction",
-      "variationGroup": "lesson-05-page-instruction",
-      "curriculumRefs": {
-        "lesson": 5,
-        "printedPages": [
+          13,
+          14,
           15
         ],
         "flipchartSheets": [
@@ -550,14 +1230,15 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
+          "iglú",
+          "indio",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -568,8 +1249,488 @@
         ]
       },
       "hintLevel": 0,
-      "expression": "calm",
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-22-comprehension-3",
+      "text": "¿Empieza la palabra isla con el mismo sonido que la palabra iglú?",
+      "batch": "B011",
+      "seq": 22,
+      "file": "B011-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-05-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-23-common-mistake-1",
+      "text": "No olvides poner el puntito redondo encima de la i minúscula cuando la escribas.",
+      "batch": "B011",
+      "seq": 23,
+      "file": "B011-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-05-common-mistake",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-24-common-mistake-2",
+      "text": "Evita marcar avión, abanico, oso, alas, olla ni uña, porque no empiezan con i.",
+      "batch": "B011",
+      "seq": 24,
+      "file": "B011-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-05-common-mistake",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-25-common-mistake-3",
+      "text": "Ten cuidado de no alargar demasiado hacia abajo; recuerda mantener la boca en sonrisa suave.",
+      "batch": "B011",
+      "seq": 25,
+      "file": "B011-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-05-common-mistake",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-26-hint-1",
+      "text": "Mira el dibujo y pronuncia su nombre despacio escuchando si suena finito al empezar.",
+      "batch": "B011",
+      "seq": 26,
+      "file": "B011-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-05-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-27-hint-2",
+      "text": "Compara el sonido inicial del dibujo con imán e iglú para comprobar si empiezan igual.",
+      "batch": "B011",
+      "seq": 27,
+      "file": "B011-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-05-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-28-hint-3",
+      "text": "Repite conmigo estas palabras seguras de la lección: iglú, iguana, indio e invierno.",
+      "batch": "B011",
+      "seq": 28,
+      "file": "B011-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-05-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
       "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-29-workbook-transition",
+      "text": "Ahora pasamos juntos a tu cuaderno de trabajo para buscar y trazar la vocal i.",
+      "batch": "B011",
+      "seq": 29,
+      "file": "B011-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-05-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
       "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
@@ -587,19 +1748,18 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l05-11-adaptive-coaching",
-      "text": "Sonríe suave al pronunciar la i para que salga limpia desde el principio.",
+      "id": "v2-l05-30-page-instruction-1",
+      "text": "Marca con una equis todos los dibujos cuyo nombre comienza con la vocal i.",
       "batch": "B011",
-      "seq": 11,
-      "file": "B011-011.mp3",
-      "intent": "lesson-coaching",
-      "role": "adaptive-coaching",
-      "variationGroup": "lesson-05-adaptive-coaching",
+      "seq": 30,
+      "file": "B011-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-05-page-instruction",
       "curriculumRefs": {
         "lesson": 5,
         "printedPages": [
-          13,
-          14
+          13
         ],
         "flipchartSheets": [
           7
@@ -608,14 +1768,15 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
+          "iglú",
+          "indio",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -625,16 +1786,16 @@
           5
         ]
       },
-      "hintLevel": 2,
-      "expression": "gentle",
-      "gesture": "help",
-      "presentationAction": "show-letter",
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,
         "syncWith": "before-item"
       },
-      "expectedResponse": "sound-out",
+      "expectedResponse": "none",
       "cooldownTurns": 2,
       "priority": 75,
       "audio": {
@@ -645,11 +1806,777 @@
       "status": "scripted"
     },
     {
-      "id": "v2-l05-12-closing",
-      "text": "Ya dominas las palabras con i. Nos falta solo una vocal por recorrer.",
+      "id": "v2-l05-31-page-instruction-2",
+      "text": "Después traza una línea desde la vocal i hasta cada dibujo que comienza con su sonido.",
       "batch": "B011",
-      "seq": 12,
-      "file": "B011-012.mp3",
+      "seq": 31,
+      "file": "B011-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-05-page-instruction",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          14
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-32-syllable-practice",
+      "text": "Escucha el inicio finito en toda la serie: iglú, iguana, indio, invierno, imán, isla, igual e insecto.",
+      "batch": "B011",
+      "seq": 32,
+      "file": "B011-032.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-05-word-practice",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          14
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-33-word-practice-1",
+      "text": "Pronuncia conmigo estas cuatro palabras del cuaderno: iglú, iguana, indio e invierno.",
+      "batch": "B011",
+      "seq": 33,
+      "file": "B011-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-05-word-practice",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo de palabras: imán, isla, igual e insecto.",
+      "batch": "B011",
+      "seq": 34,
+      "file": "B011-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-05-word-practice",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-35-sight-or-vocab",
+      "text": "Fíjate también en Irma, un nombre propio que escribimos con la i mayúscula.",
+      "batch": "B011",
+      "seq": 35,
+      "file": "B011-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-05-word-practice",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-36-sentence-or-pair",
+      "text": "Compara ahora dos nombres distintos: iguana empieza con i, mientras que abeja comienza con a.",
+      "batch": "B011",
+      "seq": 36,
+      "file": "B011-036.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-05-word-practice",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-37-page-instruction-final",
+      "text": "Al final escribe con buena letra la vocal i mayúscula y minúscula sin olvidar su puntito.",
+      "batch": "B011",
+      "seq": 37,
+      "file": "B011-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-05-page-instruction",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-38-game-intro",
+      "text": "Juguemos ahora a cazar con el oído las palabras que comienzan con la vocal i.",
+      "batch": "B011",
+      "seq": 38,
+      "file": "B011-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-05-game-intro",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-39-game-step",
+      "text": "Escucha la palabra que te digo y dime si empieza con i como imán o con otra vocal.",
+      "batch": "B011",
+      "seq": 39,
+      "file": "B011-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-05-game-step",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-40-game-correct",
+      "text": "Muy bien escuchado. Reconociste al instante el sonido finito de la vocal i.",
+      "batch": "B011",
+      "seq": 40,
+      "file": "B011-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-05-game-correct",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-41-game-retry",
+      "text": "Escucha una vez más el comienzo de la palabra y compáralo con iglú e isla.",
+      "batch": "B011",
+      "seq": 41,
+      "file": "B011-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-05-game-retry",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-42-assessment",
+      "text": "Para cerrar hoy, dime dos palabras de tu cuaderno que empiecen con la vocal i.",
+      "batch": "B011",
+      "seq": 42,
+      "file": "B011-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-05-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-43-page-complete",
+      "text": "Completaste todas las actividades de la vocal i con gran concentración y cuidado.",
+      "batch": "B011",
+      "seq": 43,
+      "file": "B011-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-05-page-complete",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-44-closing",
+      "text": "Ya dominas las palabras con la vocal i. Qué poquito nos falta para completar todas las vocales.",
+      "batch": "B011",
+      "seq": 44,
+      "file": "B011-044.mp3",
       "intent": "lesson-closing",
       "role": "closing",
       "variationGroup": "lesson-05-closing",
@@ -667,14 +2594,15 @@
           "i"
         ],
         "words": [
-          "iglú",
-          "iguana",
-          "indio",
-          "invierno",
           "imán",
+          "iglú",
+          "indio",
           "isla",
-          "igual",
-          "insecto"
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
         ],
         "sourceStatus": "verified"
       },
@@ -688,6 +2616,66 @@
       "expression": "proud",
       "gesture": "cheer",
       "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-45-next-step",
+      "text": "En nuestra próxima lección conoceremos la quinta hermanita, la traviesa vocal u.",
+      "batch": "B011",
+      "seq": 45,
+      "file": "B011-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-05-next-step",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "imán",
+          "iglú",
+          "indio",
+          "isla",
+          "Irma",
+          "insecto",
+          "iguana",
+          "invierno",
+          "igual"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
       "cueTiming": {
         "leadInMs": 150,
         "pauseAfterMs": 350,

@@ -2,7 +2,8 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { dirname, extname, join } from "node:path";
+import { dirname, extname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   ALLOWED_MOUTH_SHAPE_SET,
   RHUBARB_EXTENDED_SHAPES,
@@ -13,6 +14,8 @@ import {
 import { sha256File } from "./checksum.mjs";
 import { checkRejectedSource } from "./guard.mjs";
 import { extractAndResampleWav, resolveMediaTools } from "./media.mjs";
+
+const DEFAULT_REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 
 export const PINNED_RHUBARB_LINUX_URL = `https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v${RHUBARB_VERSION}/Rhubarb-Lip-Sync-${RHUBARB_VERSION}-Linux.zip`;
 export const PINNED_RHUBARB_LINUX_SHA256 =
@@ -56,7 +59,11 @@ export function visemesFileMatches(visemesDiskPath, sourceSha256) {
  * Ensure Rhubarb binary is available via `.tools/`, `PATH`, explicit override,
  * or (on Linux x64 when `autoDownload: true`) pinned MIT release download.
  */
-export async function ensureRhubarbBinary({ repoRoot, rhubarbPath, autoDownload = true } = {}) {
+export async function ensureRhubarbBinary({
+  repoRoot = DEFAULT_REPO_ROOT,
+  rhubarbPath,
+  autoDownload = true,
+} = {}) {
   const tools = resolveMediaTools({ repoRoot, rhubarbPath });
   if (tools.rhubarb) return tools.rhubarb;
 
@@ -156,10 +163,20 @@ export async function syncVisemesForAudio({
     };
   }
 
-  const resolvedTools = tools ?? resolveMediaTools({ repoRoot });
+  const autoTools = resolveMediaTools({ repoRoot: repoRoot ?? DEFAULT_REPO_ROOT });
+  const resolvedTools = tools
+    ? {
+        ffmpeg: tools.ffmpeg === undefined ? autoTools.ffmpeg : tools.ffmpeg,
+        ffprobe: tools.ffprobe === undefined ? autoTools.ffprobe : tools.ffprobe,
+        rhubarb: tools.rhubarb === undefined ? autoTools.rhubarb : tools.rhubarb,
+      }
+    : autoTools;
   const rhubarb =
     resolvedTools.rhubarb ??
-    (await ensureRhubarbBinary({ repoRoot, autoDownload: autoDownloadRhubarb }));
+    (await ensureRhubarbBinary({
+      repoRoot: repoRoot ?? DEFAULT_REPO_ROOT,
+      autoDownload: autoDownloadRhubarb,
+    }));
 
   const tempDir = mkdtempSync(join(tmpdir(), "gretel-visemes-"));
   try {

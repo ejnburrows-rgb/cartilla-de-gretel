@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { stripScriptAnnotations } from "./alignment.mjs";
 import { checkRejectedSource } from "./guard.mjs";
 
 function listJsonFiles(dirPath) {
@@ -191,10 +192,7 @@ export function applyAuthorizedManifestUpdates({ repoRoot, updates, dryRun = fal
         const pendIdx = pendingList.findIndex((e) => e.lineId === update.lineId);
         if (pendIdx !== -1) {
           const pend = pendingList.splice(pendIdx, 1)[0];
-          const cleanText = String(pend.text ?? "")
-            .replace(/^\[DRAFT\s+—\s+owner to approve\]\s*/i, "")
-            .replace(/\s*\(reuse:\s*[A-Za-zÀ-ÿ0-9_ -]+\)$/i, "")
-            .trim();
+          const cleanText = stripScriptAnnotations(pend.text ?? "");
           approvedList.push({
             lineId: pend.lineId,
             lesson: pend.lesson,
