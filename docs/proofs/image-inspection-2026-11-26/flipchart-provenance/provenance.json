@@ -1,0 +1,4344 @@
+[
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p003-scene.png",
+  "page": 3,
+  "word": "Ilustración de la página 3",
+  "pending": true,
+  "crop": [
+   13,
+   56,
+   514,
+   337
+  ],
+  "score": 0.531,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   539,
+   539
+  ],
+  "scanRegionPx": [
+   1311,
+   859
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p003-avion.png",
+  "page": 3,
+  "word": "avión",
+  "pending": true,
+  "crop": [
+   66,
+   644,
+   225,
+   207
+  ],
+  "score": 0.998,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   574,
+   528
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p003-escoba.png",
+  "page": 3,
+  "word": "escoba",
+  "pending": true,
+  "crop": [
+   408,
+   644,
+   178,
+   212
+  ],
+  "score": 0.902,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   454,
+   541
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p003-iman.png",
+  "page": 3,
+  "word": "imán",
+  "pending": true,
+  "crop": [
+   706,
+   638,
+   222,
+   214
+  ],
+  "score": 0.726,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   566,
+   546
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p003-olla.png",
+  "page": 3,
+  "word": "olla",
+  "pending": true,
+  "crop": [
+   235,
+   1140,
+   204,
+   171
+  ],
+  "score": 0.99,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   520,
+   436
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p003-una.png",
+  "page": 3,
+  "word": "uña",
+  "pending": true,
+  "crop": [
+   568,
+   1130,
+   170,
+   182
+  ],
+  "score": 0.56,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   433,
+   464
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p004-scene.png",
+  "page": 4,
+  "word": "Ilustración de la página 4",
+  "pending": true,
+  "crop": [
+   18,
+   50,
+   469,
+   460
+  ],
+  "score": 0.776,
+  "offset": [
+   12,
+   6
+  ],
+  "layerSize": [
+   560,
+   560
+  ],
+  "scanRegionPx": [
+   1196,
+   1173
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p004-olla.png",
+  "page": 4,
+  "word": "olla",
+  "pending": true,
+  "crop": [
+   64,
+   647,
+   223,
+   182
+  ],
+  "score": 0.991,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   569,
+   464
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p004-oto.png",
+  "page": 4,
+  "word": "Oto",
+  "pending": true,
+  "crop": [
+   377,
+   640,
+   225,
+   184
+  ],
+  "score": 0.847,
+  "offset": [
+   12,
+   12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   574,
+   469
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p004-oveja.png",
+  "page": 4,
+  "word": "oveja",
+  "pending": true,
+  "crop": [
+   706,
+   628,
+   227,
+   211
+  ],
+  "score": 0.922,
+  "offset": [
+   -6,
+   6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   579,
+   538
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p004-oso.png",
+  "page": 4,
+  "word": "oso",
+  "pending": true,
+  "crop": [
+   58,
+   979,
+   220,
+   257
+  ],
+  "score": 0.89,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   561,
+   655
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p004-oreja.png",
+  "page": 4,
+  "word": "oreja",
+  "pending": true,
+  "crop": [
+   418,
+   987,
+   158,
+   243
+  ],
+  "score": 0.945,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   403,
+   620
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p004-ocho.png",
+  "page": 4,
+  "word": "ocho",
+  "pending": true,
+  "crop": [
+   714,
+   973,
+   208,
+   260
+  ],
+  "score": 0.985,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   530,
+   663
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p005-scene.png",
+  "page": 5,
+  "word": "Ilustración de la página 5",
+  "pending": true,
+  "crop": [
+   66,
+   36,
+   396,
+   516
+  ],
+  "score": 0.975,
+  "offset": [
+   -6,
+   12
+  ],
+  "layerSize": [
+   556,
+   556
+  ],
+  "scanRegionPx": [
+   1010,
+   1316
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p005-abanico.png",
+  "page": 5,
+  "word": "abanico",
+  "pending": true,
+  "crop": [
+   65,
+   642,
+   232,
+   236
+  ],
+  "score": 0.993,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   592,
+   602
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p005-anillo.png",
+  "page": 5,
+  "word": "anillo",
+  "pending": true,
+  "crop": [
+   394,
+   658,
+   216,
+   191
+  ],
+  "score": 0.993,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   551,
+   487
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p005-arana.png",
+  "page": 5,
+  "word": "araña",
+  "pending": true,
+  "crop": [
+   718,
+   675,
+   188,
+   192
+  ],
+  "score": 0.975,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   479,
+   490
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p005-ala.png",
+  "page": 5,
+  "word": "ala",
+  "pending": true,
+  "crop": [
+   39,
+   1029,
+   285,
+   217
+  ],
+  "score": 0.683,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   727,
+   553
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p005-aro.png",
+  "page": 5,
+  "word": "aro",
+  "pending": true,
+  "crop": [
+   390,
+   1010,
+   220,
+   265
+  ],
+  "score": 0.661,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   561,
+   676
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p005-ana.png",
+  "page": 5,
+  "word": "Ana",
+  "pending": false,
+  "crop": [
+   705.882353,
+   1024.705882,
+   243.137255,
+   252.54902
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   620,
+   644
+  ],
+  "scanRegionPx": [
+   620,
+   644
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-scene.png",
+  "page": 6,
+  "word": "Ilustración de la página 6",
+  "pending": true,
+  "crop": [
+   62,
+   54,
+   414,
+   545
+  ],
+  "score": 0.719,
+  "offset": [
+   -12,
+   6
+  ],
+  "layerSize": [
+   950,
+   1250
+  ],
+  "scanRegionPx": [
+   1056,
+   1390
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-elefante.png",
+  "page": 6,
+  "word": "elefante",
+  "pending": true,
+  "crop": [
+   58,
+   654,
+   220,
+   208
+  ],
+  "score": 0.987,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   570,
+   540
+  ],
+  "scanRegionPx": [
+   561,
+   530
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-espejo.png",
+  "page": 6,
+  "word": "espejo",
+  "pending": true,
+  "crop": [
+   376,
+   638,
+   216,
+   224
+  ],
+  "score": 0.999,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   520,
+   540
+  ],
+  "scanRegionPx": [
+   551,
+   571
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+  "page": 6,
+  "word": "Ema",
+  "pending": true,
+  "crop": [
+   730,
+   638,
+   195,
+   211
+  ],
+  "score": 0.916,
+  "offset": [
+   -12,
+   6
+  ],
+  "layerSize": [
+   500,
+   540
+  ],
+  "scanRegionPx": [
+   497,
+   538
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-estrella.png",
+  "page": 6,
+  "word": "estrella",
+  "pending": true,
+  "crop": [
+   60,
+   1004,
+   216,
+   234
+  ],
+  "score": 0.567,
+  "offset": [
+   0,
+   12
+  ],
+  "layerSize": [
+   600,
+   650
+  ],
+  "scanRegionPx": [
+   551,
+   597
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-erizo.png",
+  "page": 6,
+  "word": "erizo",
+  "pending": true,
+  "crop": [
+   376,
+   998,
+   210,
+   263
+  ],
+  "score": 0.924,
+  "offset": [
+   6,
+   0
+  ],
+  "layerSize": [
+   520,
+   650
+  ],
+  "scanRegionPx": [
+   536,
+   671
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-escalera.png",
+  "page": 6,
+  "word": "escalera",
+  "pending": true,
+  "crop": [
+   722,
+   988,
+   194,
+   229
+  ],
+  "score": 0.831,
+  "offset": [
+   -6,
+   6
+  ],
+  "layerSize": [
+   550,
+   650
+  ],
+  "scanRegionPx": [
+   495,
+   584
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p007-scene.png",
+  "page": 7,
+  "word": "Ilustración de la página 7",
+  "pending": true,
+  "crop": [
+   41,
+   29,
+   417,
+   523
+  ],
+  "score": 0.931,
+  "offset": [
+   -6,
+   12
+  ],
+  "layerSize": [
+   560,
+   560
+  ],
+  "scanRegionPx": [
+   1063,
+   1334
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p007-iman.png",
+  "page": 7,
+  "word": "imán",
+  "pending": true,
+  "crop": [
+   71,
+   642,
+   224,
+   212
+  ],
+  "score": 0.996,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   571,
+   541
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p007-iglu.png",
+  "page": 7,
+  "word": "iglú",
+  "pending": true,
+  "crop": [
+   380,
+   645,
+   218,
+   222
+  ],
+  "score": 0.282,
+  "offset": [
+   6,
+   -12
+  ],
+  "layerSize": [
+   640,
+   640
+  ],
+  "scanRegionPx": [
+   556,
+   566
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p007-indio.png",
+  "page": 7,
+  "word": "indio",
+  "pending": false,
+  "crop": [
+   711.764706,
+   581.960784,
+   202.352941,
+   288.235294
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   516,
+   735
+  ],
+  "scanRegionPx": [
+   516,
+   735
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p007-insecto.png",
+  "page": 7,
+  "word": "insecto",
+  "pending": true,
+  "crop": [
+   56,
+   1001,
+   256,
+   224
+  ],
+  "score": 0.994,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   653,
+   571
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p007-isla.png",
+  "page": 7,
+  "word": "isla",
+  "pending": true,
+  "crop": [
+   355,
+   997,
+   279,
+   253
+  ],
+  "score": 0.852,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   711,
+   645
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p007-irma.png",
+  "page": 7,
+  "word": "Irma",
+  "pending": false,
+  "crop": [
+   695.686275,
+   993.72549,
+   235.686275,
+   274.509804
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   -6
+  ],
+  "layerSize": [
+   601,
+   700
+  ],
+  "scanRegionPx": [
+   601,
+   700
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p008-scene.png",
+  "page": 8,
+  "word": "Ilustración de la página 8",
+  "pending": true,
+  "crop": [
+   14,
+   28,
+   441,
+   439
+  ],
+  "score": 0.886,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   480,
+   480
+  ],
+  "scanRegionPx": [
+   1125,
+   1119
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p008-uno.png",
+  "page": 8,
+  "word": "uno",
+  "pending": true,
+  "crop": [
+   72,
+   570,
+   232,
+   240
+  ],
+  "score": 0.773,
+  "offset": [
+   -6,
+   12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   592,
+   612
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p008-uva.png",
+  "page": 8,
+  "word": "uva",
+  "pending": true,
+  "crop": [
+   391,
+   568,
+   237,
+   230
+  ],
+  "score": 0.543,
+  "offset": [
+   12,
+   12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   604,
+   586
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p008-urraca.png",
+  "page": 8,
+  "word": "urraca",
+  "pending": true,
+  "crop": [
+   719,
+   557,
+   223,
+   227
+  ],
+  "score": 0.788,
+  "offset": [
+   12,
+   12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   569,
+   579
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p008-unicornio.png",
+  "page": 8,
+  "word": "unicornio",
+  "pending": true,
+  "crop": [
+   56,
+   904,
+   258,
+   260
+  ],
+  "score": 0.589,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   658,
+   663
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p008-uniforme.png",
+  "page": 8,
+  "word": "uniforme",
+  "pending": true,
+  "crop": [
+   429,
+   906,
+   163,
+   252
+  ],
+  "score": 0.94,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   416,
+   643
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p008-ulises.png",
+  "page": 8,
+  "word": "Ulises",
+  "pending": true,
+  "crop": [
+   711,
+   927,
+   243,
+   200
+  ],
+  "score": 0.992,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   620,
+   510
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p009-scene.png",
+  "page": 9,
+  "word": "Ilustración de la página 9",
+  "pending": true,
+  "crop": [
+   20,
+   30,
+   528,
+   500
+  ],
+  "score": 0.667,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   530,
+   530
+  ],
+  "scanRegionPx": [
+   1346,
+   1275
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+  "page": 9,
+  "word": "mamá",
+  "pending": true,
+  "crop": [
+   46,
+   561,
+   217,
+   286
+  ],
+  "score": 0.962,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   344,
+   344
+  ],
+  "scanRegionPx": [
+   553,
+   729
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
+  "page": 9,
+  "word": "amo",
+  "pending": false,
+  "crop": [
+   350.980392,
+   549.803922,
+   270.196078,
+   285.490196
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   689,
+   728
+  ],
+  "scanRegionPx": [
+   689,
+   728
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
+  "page": 9,
+  "word": "mima",
+  "pending": false,
+  "crop": [
+   660.784314,
+   528.627451,
+   304.313725,
+   304.705882
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   776,
+   777
+  ],
+  "scanRegionPx": [
+   776,
+   777
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
+  "page": 9,
+  "word": "Meme",
+  "pending": false,
+  "crop": [
+   229.803922,
+   957.647059,
+   150.196078,
+   309.411765
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   383,
+   789
+  ],
+  "scanRegionPx": [
+   383,
+   789
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+  "page": 9,
+  "word": "Mumi",
+  "pending": false,
+  "crop": [
+   532.941176,
+   960.0,
+   281.176471,
+   296.078431
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   717,
+   755
+  ],
+  "scanRegionPx": [
+   717,
+   755
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p011-scene.png",
+  "page": 11,
+  "word": "Ilustración de la página 11",
+  "pending": false,
+  "crop": [
+   270.588235,
+   176.470588,
+   658.823529,
+   537.254902
+  ],
+  "score": 0.967,
+  "offset": [
+   12,
+   0
+  ],
+  "layerSize": [
+   1680,
+   1370
+  ],
+  "scanRegionPx": [
+   1680,
+   1370
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p012-scene.png",
+  "page": 12,
+  "word": "Ilustración de la página 12",
+  "pending": true,
+  "crop": [
+   6,
+   28,
+   552,
+   520
+  ],
+  "score": 0.544,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   560,
+   560
+  ],
+  "scanRegionPx": [
+   1408,
+   1326
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
+  "page": 12,
+  "word": "papá",
+  "pending": true,
+  "crop": [
+   56,
+   541,
+   182,
+   278
+  ],
+  "score": 0.995,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   464,
+   709
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+  "page": 12,
+  "word": "pie",
+  "pending": true,
+  "crop": [
+   347,
+   632,
+   265,
+   179
+  ],
+  "score": 0.971,
+  "offset": [
+   12,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   676,
+   456
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+  "page": 12,
+  "word": "Pepe",
+  "pending": false,
+  "crop": [
+   680.784314,
+   514.901961,
+   305.490196,
+   306.27451
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   779,
+   781
+  ],
+  "scanRegionPx": [
+   779,
+   781
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+  "page": 12,
+  "word": "puma",
+  "pending": false,
+  "crop": [
+   68.627451,
+   967.843137,
+   272.54902,
+   295.294118
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   695,
+   753
+  ],
+  "scanRegionPx": [
+   695,
+   753
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+  "page": 12,
+  "word": "pomo",
+  "pending": true,
+  "crop": [
+   626,
+   985,
+   154,
+   277
+  ],
+  "score": 0.769,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   393,
+   706
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p014-scene.png",
+  "page": 14,
+  "word": "Ilustración de la página 14",
+  "pending": false,
+  "crop": [
+   329.803922,
+   44.705882,
+   670.196078,
+   545.490196
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   1709,
+   1391
+  ],
+  "scanRegionPx": [
+   1709,
+   1391
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p015-scene.png",
+  "page": 15,
+  "word": "Ilustración de la página 15",
+  "pending": true,
+  "crop": [
+   63,
+   53,
+   457,
+   499
+  ],
+  "score": 0.806,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   560,
+   560
+  ],
+  "scanRegionPx": [
+   1165,
+   1272
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+  "page": 15,
+  "word": "Sesi",
+  "pending": true,
+  "crop": [
+   99,
+   566,
+   241,
+   294
+  ],
+  "score": 0.861,
+  "offset": [
+   -12,
+   6
+  ],
+  "layerSize": [
+   342,
+   342
+  ],
+  "scanRegionPx": [
+   615,
+   750
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+  "page": 15,
+  "word": "sopa",
+  "pending": true,
+  "crop": [
+   374,
+   667,
+   241,
+   149
+  ],
+  "score": 0.468,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   615,
+   380
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+  "page": 15,
+  "word": "sapo",
+  "pending": true,
+  "crop": [
+   680,
+   621,
+   271,
+   211
+  ],
+  "score": 0.997,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   691,
+   538
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+  "page": 15,
+  "word": "pisa",
+  "pending": false,
+  "crop": [
+   133.72549,
+   1021.960784,
+   319.607843,
+   220.392157
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   815,
+   562
+  ],
+  "scanRegionPx": [
+   815,
+   562
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+  "page": 15,
+  "word": "Susi",
+  "pending": false,
+  "crop": [
+   554.901961,
+   952.941176,
+   230.196078,
+   308.235294
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   587,
+   786
+  ],
+  "scanRegionPx": [
+   587,
+   786
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p017-scene.png",
+  "page": 17,
+  "word": "Ilustración de la página 17",
+  "pending": true,
+  "crop": [
+   590,
+   28,
+   398,
+   698
+  ],
+  "score": 0.566,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   645,
+   645
+  ],
+  "scanRegionPx": [
+   1015,
+   1780
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-scene.png",
+  "page": 18,
+  "word": "Ilustración de la página 18",
+  "pending": true,
+  "crop": [
+   72,
+   28,
+   466,
+   521
+  ],
+  "score": 0.755,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   558,
+   558
+  ],
+  "scanRegionPx": [
+   1188,
+   1329
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+  "page": 18,
+  "word": "tomate",
+  "pending": false,
+  "crop": [
+   35,
+   575,
+   270,
+   245
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   1536,
+   1395
+  ],
+  "scanRegionPx": [
+   688,
+   625
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+  "page": 18,
+  "word": "tapa",
+  "pending": false,
+  "crop": [
+   350,
+   570,
+   285,
+   230
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   1536,
+   1240
+  ],
+  "scanRegionPx": [
+   727,
+   586
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+  "page": 18,
+  "word": "topo",
+  "pending": false,
+  "crop": [
+   690,
+   545,
+   260,
+   270
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   1478,
+   1536
+  ],
+  "scanRegionPx": [
+   663,
+   688
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+  "page": 18,
+  "word": "tipi",
+  "pending": false,
+  "crop": [
+   89.803922,
+   960.0,
+   340.392157,
+   287.058824
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   868,
+   732
+  ],
+  "scanRegionPx": [
+   868,
+   732
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+  "page": 18,
+  "word": "Tuto",
+  "pending": false,
+  "crop": [
+   540.0,
+   929.803922,
+   315.294118,
+   320.392157
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   804,
+   817
+  ],
+  "scanRegionPx": [
+   804,
+   817
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p020-scene.png",
+  "page": 20,
+  "word": "Ilustración de la página 20",
+  "pending": false,
+  "crop": [
+   339.607843,
+   69.803922,
+   660.392157,
+   527.45098
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   1684,
+   1345
+  ],
+  "scanRegionPx": [
+   1684,
+   1345
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p021-scene.png",
+  "page": 21,
+  "word": "Ilustración de la página 21",
+  "pending": true,
+  "crop": [
+   165,
+   28,
+   313,
+   510
+  ],
+  "score": 0.906,
+  "offset": [
+   -12,
+   6
+  ],
+  "layerSize": [
+   559,
+   559
+  ],
+  "scanRegionPx": [
+   798,
+   1300
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+  "page": 21,
+  "word": "Didi",
+  "pending": true,
+  "crop": [
+   42,
+   545,
+   207,
+   231
+  ],
+  "score": 0.999,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   1536,
+   1360
+  ],
+  "scanRegionPx": [
+   528,
+   589
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
+  "page": 21,
+  "word": "dados",
+  "pending": true,
+  "crop": [
+   376,
+   516,
+   245,
+   250
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   1536,
+   1440
+  ],
+  "scanRegionPx": [
+   625,
+   638
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+  "page": 21,
+  "word": "dedo",
+  "pending": true,
+  "crop": [
+   740,
+   513,
+   180,
+   256
+  ],
+  "score": 0.483,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   1281,
+   1536
+  ],
+  "scanRegionPx": [
+   459,
+   653
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+  "page": 21,
+  "word": "doce",
+  "pending": true,
+  "crop": [
+   122,
+   909,
+   232,
+   290
+  ],
+  "score": 0.999,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   1355,
+   1536
+  ],
+  "scanRegionPx": [
+   592,
+   740
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
+  "page": 21,
+  "word": "Dunia",
+  "pending": true,
+  "crop": [
+   508,
+   914,
+   361,
+   256
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   1536,
+   1324
+  ],
+  "scanRegionPx": [
+   921,
+   653
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p023-scene.png",
+  "page": 23,
+  "word": "Ilustración de la página 23",
+  "pending": true,
+  "crop": [
+   452,
+   28,
+   471,
+   559
+  ],
+  "score": 0.454,
+  "offset": [
+   -12,
+   6
+  ],
+  "layerSize": [
+   621,
+   621
+  ],
+  "scanRegionPx": [
+   1201,
+   1425
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-scene.png",
+  "page": 24,
+  "word": "Ilustración de la página 24",
+  "pending": true,
+  "crop": [
+   71,
+   28,
+   209,
+   519
+  ],
+  "score": 0.043,
+  "offset": [
+   12,
+   12
+  ],
+  "layerSize": [
+   549,
+   549
+  ],
+  "scanRegionPx": [
+   533,
+   1323
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+  "page": 24,
+  "word": "maleta",
+  "pending": false,
+  "crop": [
+   45,
+   555,
+   245,
+   275
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   1369,
+   1536
+  ],
+  "scanRegionPx": [
+   625,
+   701
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+  "page": 24,
+  "word": "lata",
+  "pending": false,
+  "crop": [
+   385,
+   555,
+   245,
+   270
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   1395,
+   1536
+  ],
+  "scanRegionPx": [
+   625,
+   688
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+  "page": 24,
+  "word": "Luli",
+  "pending": false,
+  "crop": [
+   720,
+   500,
+   220,
+   320
+  ],
+  "score": 0.998,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   1058,
+   1536
+  ],
+  "scanRegionPx": [
+   561,
+   816
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+  "page": 24,
+  "word": "loma",
+  "pending": false,
+  "crop": [
+   90,
+   950,
+   360,
+   290
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   1536,
+   1238
+  ],
+  "scanRegionPx": [
+   918,
+   740
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
+  "page": 24,
+  "word": "Lala",
+  "pending": true,
+  "crop": [
+   565,
+   970,
+   280,
+   245
+  ],
+  "score": 0.386,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   550,
+   495
+  ],
+  "scanRegionPx": [
+   714,
+   625
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p026-scene.png",
+  "page": 26,
+  "word": "Ilustración de la página 26",
+  "pending": true,
+  "crop": [
+   485,
+   20,
+   480,
+   695
+  ],
+  "score": 0.978,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   1006,
+   1457
+  ],
+  "scanRegionPx": [
+   1224,
+   1772
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p027-scene.png",
+  "page": 27,
+  "word": "Ilustración de la página 27",
+  "pending": true,
+  "crop": [
+   15,
+   28,
+   501,
+   524
+  ],
+  "score": 0.794,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   560,
+   560
+  ],
+  "scanRegionPx": [
+   1278,
+   1336
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+  "page": 27,
+  "word": "nido",
+  "pending": true,
+  "crop": [
+   57,
+   635,
+   245,
+   168
+  ],
+  "score": 0.993,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   625,
+   428
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+  "page": 27,
+  "word": "nudo",
+  "pending": true,
+  "crop": [
+   353,
+   617,
+   260,
+   204
+  ],
+  "score": 0.999,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   663,
+   520
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
+  "page": 27,
+  "word": "mono",
+  "pending": false,
+  "crop": [
+   709.803922,
+   524.705882,
+   190.196078,
+   295.294118
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   485,
+   753
+  ],
+  "scanRegionPx": [
+   485,
+   753
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
+  "page": 27,
+  "word": "Napi",
+  "pending": false,
+  "crop": [
+   80.0,
+   964.705882,
+   300.0,
+   280.392157
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   765,
+   715
+  ],
+  "scanRegionPx": [
+   765,
+   715
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+  "page": 27,
+  "word": "tenedor",
+  "pending": false,
+  "crop": [
+   636.862745,
+   924.705882,
+   76.470588,
+   325.490196
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   195,
+   830
+  ],
+  "scanRegionPx": [
+   195,
+   830
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
+  "page": 29,
+  "word": "Ilustración de la página 29",
+  "pending": false,
+  "crop": [
+   501.7921,
+   20.1613,
+   479.3907,
+   678.7634
+  ],
+  "score": 0.999,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   1070,
+   1515
+  ],
+  "scanRegionPx": [
+   1222,
+   1731
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p030-scene.png",
+  "page": 30,
+  "word": "Ilustración de la página 30",
+  "pending": true,
+  "crop": [
+   100,
+   28,
+   347,
+   512
+  ],
+  "score": 0.788,
+  "offset": [
+   -6,
+   12
+  ],
+  "layerSize": [
+   545,
+   545
+  ],
+  "scanRegionPx": [
+   885,
+   1306
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+  "page": 30,
+  "word": "piñata",
+  "pending": false,
+  "crop": [
+   41.960784,
+   569.803922,
+   225.098039,
+   225.490196
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   574,
+   575
+  ],
+  "scanRegionPx": [
+   574,
+   575
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+  "page": 30,
+  "word": "Ñuno",
+  "pending": false,
+  "crop": [
+   400.0,
+   494.901961,
+   210.196078,
+   305.098039
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   536,
+   778
+  ],
+  "scanRegionPx": [
+   536,
+   778
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+  "page": 30,
+  "word": "niñito",
+  "pending": false,
+  "crop": [
+   714.901961,
+   534.901961,
+   205.098039,
+   262.352941
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   523,
+   669
+  ],
+  "scanRegionPx": [
+   523,
+   669
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
+  "page": 30,
+  "word": "moño",
+  "pending": true,
+  "crop": [
+   125,
+   925,
+   242,
+   292
+  ],
+  "score": 0.749,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   617,
+   745
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
+  "page": 30,
+  "word": "Meñe",
+  "pending": false,
+  "crop": [
+   554.901961,
+   900.0,
+   210.196078,
+   318.039216
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   536,
+   811
+  ],
+  "scanRegionPx": [
+   536,
+   811
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
+  "page": 32,
+  "word": "Ilustración de la página 32",
+  "pending": true,
+  "crop": [
+   505,
+   25,
+   480,
+   665
+  ],
+  "score": 0.98,
+  "offset": [
+   0,
+   -6
+  ],
+  "layerSize": [
+   1003,
+   1389
+  ],
+  "scanRegionPx": [
+   1224,
+   1696
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p033-scene.png",
+  "page": 33,
+  "word": "Ilustración de la página 33",
+  "pending": true,
+  "crop": [
+   102,
+   29,
+   470,
+   520
+  ],
+  "score": 0.666,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   549,
+   549
+  ],
+  "scanRegionPx": [
+   1198,
+   1326
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+  "page": 33,
+  "word": "Beba",
+  "pending": true,
+  "crop": [
+   57,
+   572,
+   237,
+   223
+  ],
+  "score": 0.997,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   604,
+   569
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+  "page": 33,
+  "word": "Bubi",
+  "pending": true,
+  "crop": [
+   365,
+   562,
+   251,
+   230
+  ],
+  "score": 0.983,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   640,
+   586
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
+  "page": 33,
+  "word": "bate",
+  "pending": true,
+  "crop": [
+   700,
+   527,
+   215,
+   264
+  ],
+  "score": 0.995,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   548,
+   673
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+  "page": 33,
+  "word": "bota",
+  "pending": true,
+  "crop": [
+   134,
+   963,
+   238,
+   260
+  ],
+  "score": 0.762,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   607,
+   663
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+  "page": 33,
+  "word": "bebita",
+  "pending": false,
+  "crop": [
+   524.705882,
+   914.901961,
+   300.392157,
+   314.117647
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   766,
+   801
+  ],
+  "scanRegionPx": [
+   766,
+   801
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p035-scene.png",
+  "page": 35,
+  "word": "Ilustración de la página 35",
+  "pending": true,
+  "crop": [
+   474,
+   193,
+   498,
+   315
+  ],
+  "score": 0.254,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   666,
+   666
+  ],
+  "scanRegionPx": [
+   1270,
+   803
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p036-scene.png",
+  "page": 36,
+  "word": "Ilustración de la página 36",
+  "pending": true,
+  "crop": [
+   30,
+   64,
+   487,
+   327
+  ],
+  "score": 0.488,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   526,
+   526
+  ],
+  "scanRegionPx": [
+   1242,
+   834
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+  "page": 36,
+  "word": "vaso",
+  "pending": true,
+  "crop": [
+   113,
+   601,
+   101,
+   194
+  ],
+  "score": 0.928,
+  "offset": [
+   -6,
+   12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   258,
+   495
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+  "page": 36,
+  "word": "vela",
+  "pending": true,
+  "crop": [
+   397,
+   569,
+   218,
+   235
+  ],
+  "score": 0.996,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   556,
+   599
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+  "page": 36,
+  "word": "Vita",
+  "pending": true,
+  "crop": [
+   707,
+   554,
+   220,
+   252
+  ],
+  "score": 0.855,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   561,
+   643
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+  "page": 36,
+  "word": "pavo",
+  "pending": false,
+  "crop": [
+   144.705882,
+   974.901961,
+   240.392157,
+   260.392157
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   613,
+   664
+  ],
+  "scanRegionPx": [
+   613,
+   664
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
+  "page": 36,
+  "word": "Vuli",
+  "pending": true,
+  "crop": [
+   536,
+   1035,
+   307,
+   209
+  ],
+  "score": 0.999,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   330,
+   330
+  ],
+  "scanRegionPx": [
+   783,
+   533
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p038-scene.png",
+  "page": 38,
+  "word": "Ilustración de la página 38",
+  "pending": true,
+  "crop": [
+   500,
+   25,
+   470,
+   680
+  ],
+  "score": 0.966,
+  "offset": [
+   0,
+   -6
+  ],
+  "layerSize": [
+   1008,
+   1458
+  ],
+  "scanRegionPx": [
+   1198,
+   1734
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p039-scene.png",
+  "page": 39,
+  "word": "Ilustración de la página 39",
+  "pending": true,
+  "crop": [
+   87,
+   28,
+   434,
+   474
+  ],
+  "score": 0.777,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   519,
+   519
+  ],
+  "scanRegionPx": [
+   1107,
+   1209
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p039-rana.png",
+  "page": 39,
+  "word": "rana",
+  "pending": true,
+  "crop": [
+   47,
+   553,
+   231,
+   221
+  ],
+  "score": 0.993,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   589,
+   564
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p039-remos.png",
+  "page": 39,
+  "word": "remos",
+  "pending": true,
+  "crop": [
+   364,
+   550,
+   243,
+   225
+  ],
+  "score": 0.991,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   620,
+   574
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p039-rita.png",
+  "page": 39,
+  "word": "Rita",
+  "pending": false,
+  "crop": [
+   669.803922,
+   540.0,
+   280.392157,
+   233.333333
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   715,
+   595
+  ],
+  "scanRegionPx": [
+   715,
+   595
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p039-rosa.png",
+  "page": 39,
+  "word": "rosa",
+  "pending": false,
+  "crop": [
+   129.803922,
+   934.901961,
+   205.490196,
+   245.098039
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   -6
+  ],
+  "layerSize": [
+   524,
+   625
+  ],
+  "scanRegionPx": [
+   524,
+   625
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p039-rueda.png",
+  "page": 39,
+  "word": "rueda",
+  "pending": false,
+  "crop": [
+   504.705882,
+   924.705882,
+   330.588235,
+   256.470588
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   0
+  ],
+  "layerSize": [
+   843,
+   654
+  ],
+  "scanRegionPx": [
+   843,
+   654
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p041-scene.png",
+  "page": 41,
+  "word": "Ilustración de la página 41",
+  "pending": true,
+  "crop": [
+   444,
+   28,
+   531,
+   504
+  ],
+  "score": 0.87,
+  "offset": [
+   -12,
+   6
+  ],
+  "layerSize": [
+   586,
+   586
+  ],
+  "scanRegionPx": [
+   1354,
+   1285
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p042-scene.png",
+  "page": 42,
+  "word": "Ilustración de la página 42",
+  "pending": true,
+  "crop": [
+   12,
+   97,
+   509,
+   401
+  ],
+  "score": 0.786,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   529,
+   529
+  ],
+  "scanRegionPx": [
+   1298,
+   1023
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p042-burro.png",
+  "page": 42,
+  "word": "burro",
+  "pending": true,
+  "crop": [
+   37,
+   566,
+   262,
+   240
+  ],
+  "score": 0.745,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   668,
+   612
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p042-carrusel.png",
+  "page": 42,
+  "word": "carrusel",
+  "pending": true,
+  "crop": [
+   363,
+   570,
+   244,
+   238
+  ],
+  "score": 0.877,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   622,
+   607
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p042-torre.png",
+  "page": 42,
+  "word": "torre",
+  "pending": true,
+  "crop": [
+   759,
+   526,
+   111,
+   283
+  ],
+  "score": 0.227,
+  "offset": [
+   12,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   283,
+   722
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p042-barril.png",
+  "page": 42,
+  "word": "barril",
+  "pending": true,
+  "crop": [
+   163,
+   975,
+   176,
+   270
+  ],
+  "score": 0.562,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   449,
+   688
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p042-tierra.png",
+  "page": 42,
+  "word": "Tierra",
+  "pending": true,
+  "crop": [
+   535,
+   963,
+   277,
+   290
+  ],
+  "score": 0.911,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   706,
+   740
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p044-scene.png",
+  "page": 44,
+  "word": "Ilustración de la página 44",
+  "pending": false,
+  "crop": [
+   451.764706,
+   26.666667,
+   531.372549,
+   545.490196
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   1355,
+   1391
+  ],
+  "scanRegionPx": [
+   1355,
+   1391
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p045-scene.png",
+  "page": 45,
+  "word": "Ilustración de la página 45",
+  "pending": true,
+  "crop": [
+   131,
+   31,
+   403,
+   511
+  ],
+  "score": 0.732,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   557,
+   557
+  ],
+  "scanRegionPx": [
+   1028,
+   1303
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p045-gaveta.png",
+  "page": 45,
+  "word": "gaveta",
+  "pending": true,
+  "crop": [
+   37,
+   572,
+   265,
+   223
+  ],
+  "score": 0.996,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   321,
+   321
+  ],
+  "scanRegionPx": [
+   676,
+   569
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p045-gusano.png",
+  "page": 45,
+  "word": "gusano",
+  "pending": true,
+  "crop": [
+   356,
+   639,
+   277,
+   141
+  ],
+  "score": 0.997,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   333,
+   333
+  ],
+  "scanRegionPx": [
+   706,
+   360
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p045-goloso.png",
+  "page": 45,
+  "word": "Goloso",
+  "pending": false,
+  "crop": [
+   700.784314,
+   523.921569,
+   242.352941,
+   270.196078
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   618,
+   689
+  ],
+  "scanRegionPx": [
+   618,
+   689
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p045-gorra.png",
+  "page": 45,
+  "word": "gorra",
+  "pending": true,
+  "crop": [
+   127,
+   969,
+   255,
+   201
+  ],
+  "score": 0.795,
+  "offset": [
+   -6,
+   12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   650,
+   513
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p045-mago.png",
+  "page": 45,
+  "word": "mago",
+  "pending": false,
+  "crop": [
+   560.0,
+   918.823529,
+   238.039216,
+   272.54902
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   607,
+   695
+  ],
+  "scanRegionPx": [
+   607,
+   695
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p047-scene.png",
+  "page": 47,
+  "word": "Ilustración de la página 47",
+  "pending": true,
+  "crop": [
+   473,
+   29,
+   506,
+   532
+  ],
+  "score": 0.406,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   667,
+   667
+  ],
+  "scanRegionPx": [
+   1290,
+   1357
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p048-scene.png",
+  "page": 48,
+  "word": "Ilustración de la página 48",
+  "pending": false,
+  "crop": [
+   132.941176,
+   13.72549,
+   342.352941,
+   536.470588
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   -6
+  ],
+  "layerSize": [
+   873,
+   1368
+  ],
+  "scanRegionPx": [
+   873,
+   1368
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p048-foto.png",
+  "page": 48,
+  "word": "foto",
+  "pending": true,
+  "crop": [
+   66,
+   584,
+   199,
+   261
+  ],
+  "score": 0.994,
+  "offset": [
+   0,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   507,
+   666
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p048-fideos.png",
+  "page": 48,
+  "word": "fideos",
+  "pending": true,
+  "crop": [
+   428,
+   566,
+   212,
+   276
+  ],
+  "score": 0.967,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   325,
+   325
+  ],
+  "scanRegionPx": [
+   541,
+   704
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p048-familia.png",
+  "page": 48,
+  "word": "familia",
+  "pending": false,
+  "crop": [
+   725.882353,
+   509.803922,
+   175.294118,
+   329.411765
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   447,
+   840
+  ],
+  "scanRegionPx": [
+   447,
+   840
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p048-felo.png",
+  "page": 48,
+  "word": "Felo",
+  "pending": false,
+  "crop": [
+   157.647059,
+   960.0,
+   300.392157,
+   295.294118
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   766,
+   753
+  ],
+  "scanRegionPx": [
+   766,
+   753
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p048-funda.png",
+  "page": 48,
+  "word": "funda",
+  "pending": false,
+  "crop": [
+   587.843137,
+   989.803922,
+   244.313725,
+   245.490196
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   623,
+   626
+  ],
+  "scanRegionPx": [
+   623,
+   626
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p050-scene.png",
+  "page": 50,
+  "word": "Ilustración de la página 50",
+  "pending": false,
+  "crop": [
+   436.862745,
+   21.960784,
+   538.431373,
+   540.392157
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   1373,
+   1378
+  ],
+  "scanRegionPx": [
+   1373,
+   1378
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p051-scene.png",
+  "page": 51,
+  "word": "Ilustración de la página 51",
+  "pending": true,
+  "crop": [
+   63,
+   31,
+   465,
+   496
+  ],
+  "score": 0.746,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   537,
+   537
+  ],
+  "scanRegionPx": [
+   1186,
+   1265
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p051-jicotea.png",
+  "page": 51,
+  "word": "jicotea",
+  "pending": true,
+  "crop": [
+   37,
+   562,
+   269,
+   221
+  ],
+  "score": 0.997,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   322,
+   322
+  ],
+  "scanRegionPx": [
+   686,
+   564
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p051-jugo.png",
+  "page": 51,
+  "word": "jugo",
+  "pending": true,
+  "crop": [
+   399,
+   561,
+   196,
+   224
+  ],
+  "score": 0.993,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   500,
+   571
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p051-jesus.png",
+  "page": 51,
+  "word": "Jesús",
+  "pending": false,
+  "crop": [
+   727.843137,
+   509.803922,
+   250.196078,
+   276.470588
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   638,
+   705
+  ],
+  "scanRegionPx": [
+   638,
+   705
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p051-ajo.png",
+  "page": 51,
+  "word": "ajo",
+  "pending": true,
+  "crop": [
+   141,
+   974,
+   246,
+   211
+  ],
+  "score": 0.996,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   627,
+   538
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p051-jarra.png",
+  "page": 51,
+  "word": "jarra",
+  "pending": true,
+  "crop": [
+   584,
+   937,
+   200,
+   270
+  ],
+  "score": 0.796,
+  "offset": [
+   12,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   510,
+   688
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p053-scene.png",
+  "page": 53,
+  "word": "Ilustración de la página 53",
+  "pending": true,
+  "crop": [
+   481,
+   28,
+   504,
+   562
+  ],
+  "score": 0.63,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   671,
+   671
+  ],
+  "scanRegionPx": [
+   1285,
+   1433
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p054-scene.png",
+  "page": 54,
+  "word": "Ilustración de la página 54",
+  "pending": false,
+  "crop": [
+   35.686275,
+   41.960784,
+   503.529412,
+   397.254902
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -6
+  ],
+  "layerSize": [
+   1284,
+   1013
+  ],
+  "scanRegionPx": [
+   1284,
+   1013
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p054-cuna.png",
+  "page": 54,
+  "word": "cuna",
+  "pending": true,
+  "crop": [
+   48,
+   552,
+   251,
+   196
+  ],
+  "score": 0.986,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   640,
+   500
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p054-conejo.png",
+  "page": 54,
+  "word": "conejo",
+  "pending": false,
+  "crop": [
+   414.901961,
+   511.764706,
+   172.156863,
+   247.45098
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   439,
+   631
+  ],
+  "scanRegionPx": [
+   439,
+   631
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p054-casa.png",
+  "page": 54,
+  "word": "casa",
+  "pending": false,
+  "crop": [
+   666.666667,
+   509.803922,
+   293.333333,
+   254.509804
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   748,
+   649
+  ],
+  "scanRegionPx": [
+   748,
+   649
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p054-cubo.png",
+  "page": 54,
+  "word": "cubo",
+  "pending": true,
+  "crop": [
+   141,
+   919,
+   230,
+   278
+  ],
+  "score": 0.313,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   586,
+   709
+  ],
+  "verdict": "NO MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p054-catalina.png",
+  "page": 54,
+  "word": "Catalina",
+  "pending": false,
+  "crop": [
+   598.823529,
+   885.882353,
+   147.45098,
+   309.411765
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   376,
+   789
+  ],
+  "scanRegionPx": [
+   376,
+   789
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p056-caramelos.webp",
+  "page": 56,
+  "word": "Ilustración de la página 56",
+  "pending": true,
+  "crop": [
+   502,
+   28,
+   482,
+   677
+  ],
+  "score": 0.974,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   1034,
+   1536
+  ],
+  "scanRegionPx": [
+   1229,
+   1726
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p057-scene.png",
+  "page": 57,
+  "word": "Ilustración de la página 57",
+  "pending": true,
+  "crop": [
+   48,
+   28,
+   484,
+   515
+  ],
+  "score": 0.782,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   560,
+   560
+  ],
+  "scanRegionPx": [
+   1234,
+   1313
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p057-yate.png",
+  "page": 57,
+  "word": "yate",
+  "pending": true,
+  "crop": [
+   37,
+   579,
+   287,
+   186
+  ],
+  "score": 0.903,
+  "offset": [
+   -12,
+   12
+  ],
+  "layerSize": [
+   338,
+   338
+  ],
+  "scanRegionPx": [
+   732,
+   474
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p057-yema.png",
+  "page": 57,
+  "word": "yema",
+  "pending": true,
+  "crop": [
+   352,
+   661,
+   284,
+   107
+  ],
+  "score": 0.991,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   333,
+   333
+  ],
+  "scanRegionPx": [
+   724,
+   273
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p057-yayita.png",
+  "page": 57,
+  "word": "Yayita",
+  "pending": true,
+  "crop": [
+   702,
+   538,
+   251,
+   230
+  ],
+  "score": 0.742,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   640,
+   586
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p057-mayuscula.png",
+  "page": 57,
+  "word": "mayúscula",
+  "pending": false,
+  "crop": [
+   130.980392,
+   935.686275,
+   229.019608,
+   253.333333
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   584,
+   646
+  ],
+  "scanRegionPx": [
+   584,
+   646
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p057-yoyo.png",
+  "page": 57,
+  "word": "yoyo",
+  "pending": false,
+  "crop": [
+   551.764706,
+   920.784314,
+   251.372549,
+   266.27451
+  ],
+  "score": 1.0,
+  "offset": [
+   -12,
+   -12
+  ],
+  "layerSize": [
+   641,
+   679
+  ],
+  "scanRegionPx": [
+   641,
+   679
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p059-scene.png",
+  "page": 59,
+  "word": "Ilustración de la página 59",
+  "pending": true,
+  "crop": [
+   441,
+   28,
+   508,
+   571
+  ],
+  "score": 0.755,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   567,
+   567
+  ],
+  "scanRegionPx": [
+   1295,
+   1456
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
+  "page": 60,
+  "word": "Ilustración de la página 60",
+  "pending": false,
+  "crop": [
+   80.784314,
+   21.960784,
+   475.294118,
+   478.039216
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   1212,
+   1219
+  ],
+  "scanRegionPx": [
+   1212,
+   1219
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p060-zapato.png",
+  "page": 60,
+  "word": "zapato",
+  "pending": true,
+  "crop": [
+   40,
+   552,
+   249,
+   231
+  ],
+  "score": 0.968,
+  "offset": [
+   -6,
+   0
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   635,
+   589
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p060-zigzag.png",
+  "page": 60,
+  "word": "zig-zag",
+  "pending": false,
+  "crop": [
+   391.764706,
+   541.960784,
+   216.470588,
+   247.058824
+  ],
+  "score": 1.0,
+  "offset": [
+   0,
+   0
+  ],
+  "layerSize": [
+   552,
+   630
+  ],
+  "scanRegionPx": [
+   552,
+   630
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p060-zorro.png",
+  "page": 60,
+  "word": "zorro",
+  "pending": false,
+  "crop": [
+   716.862745,
+   520.0,
+   222.352941,
+   261.176471
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   567,
+   666
+  ],
+  "scanRegionPx": [
+   567,
+   666
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p060-zepelin.png",
+  "page": 60,
+  "word": "zepelín",
+  "pending": false,
+  "crop": [
+   104.705882,
+   964.705882,
+   310.588235,
+   242.352941
+  ],
+  "score": 1.0,
+  "offset": [
+   -6,
+   -6
+  ],
+  "layerSize": [
+   792,
+   618
+  ],
+  "scanRegionPx": [
+   792,
+   618
+  ],
+  "verdict": "MATCHES SCAN"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p060-zulema.png",
+  "page": 60,
+  "word": "Zulema",
+  "pending": true,
+  "crop": [
+   573,
+   932,
+   190,
+   282
+  ],
+  "score": 0.632,
+  "offset": [
+   -6,
+   -12
+  ],
+  "layerSize": [
+   320,
+   320
+  ],
+  "scanRegionPx": [
+   484,
+   719
+  ],
+  "verdict": "WEAK MATCH"
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p062-scene.png",
+  "page": 62,
+  "word": "Ilustración de la página 62",
+  "pending": true,
+  "crop": [
+   435,
+   20,
+   545,
+   670
+  ],
+  "score": 0.832,
+  "offset": [
+   6,
+   0
+  ],
+  "layerSize": [
+   1081,
+   1329
+  ],
+  "scanRegionPx": [
+   1390,
+   1708
+  ],
+  "verdict": "MATCHES SCAN"
+ }
+]

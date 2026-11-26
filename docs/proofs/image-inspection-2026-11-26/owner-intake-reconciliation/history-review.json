@@ -1,0 +1,15 @@
+{
+ "_note": "Visual review (Hoplite, 2026-11-26) of history-search.json / history-*.jpg. Searched: the 3 owner-intake folders in public/cartilla/art/owner-intake (2026-10-14: 69 originals; 2026-10-20-recovered: 4; 2026-10-22: 4), main's full history back to the 2026-09-19 rewrite (2c4b22f), and the trees of all 271 remote branches. NOT searched: the Drive/ZIP archives and chat uploads that ARTWORK_AUDIT_2026-10-16.md lists as unenumerated (multipart 509 MB ZIP, 39-image transfer folder, 558357.jpg, other chat histories). So 'not found' below is bounded to the searched sources; it is not a claim that no original exists. No owner request is made from this; the coordinator decides whether to escalate.",
+ "pictures": {
+  "leccion-14-n/nino.webp": {
+   "result": "EARLIER COMPLETE VERSION IN MAIN HISTORY",
+   "detail": "main@2c4b22f (before e9e248f 'repair authentic niño and zorro cutouts', 2026-09-25) holds nino.webp 634x870 showing the whole drawing (both shoes and the right side), whereas the current 436x564 file is cut at the right and bottom. Same drawing and colours. Candidate for coordinator/owner review only; e9e248f's reason for replacing it is not recorded in its message, so it is not proposed as a swap here."
+  },
+  "leccion-1/pajaro.webp": {"result": "NOT FOUND IN SEARCHED SOURCES", "detail": "Only the grey printed-page crop (190x200, uncut) and an older brown version (870x557) that is also cut and carries a stray line."},
+  "leccion-1/pera.webp": {"result": "NOT FOUND IN SEARCHED SOURCES", "detail": "Only the grey printed-page crop (209x202, uncut)."},
+  "leccion-1/taza.webp": {"result": "NOT FOUND IN SEARCHED SOURCES (one unverified version)", "detail": "Grey printed-page crop (124x95, uncut). feat/games-realism-overhaul (commit 095c4e97, 'update 51 images with maximum quality…', 2026-11-06) has a 1536x1024 glossy blue cup: a redrawn style with no recorded source; not usable under ASSET_FIDELITY_POLICY unless the owner confirms it is his."},
+  "vocal-o/ola.webp": {"result": "NOT FOUND IN SEARCHED SOURCES (one unverified version)", "detail": "Three grey printed-page crops (uncut). feat/games-realism-overhaul has a 1254x1254 glossy wave with no recorded source (same caveat)."},
+  "leccion-1/aguila.webp": {"result": "NOT FOUND IN SEARCHED SOURCES (one unverified version)", "detail": "feat/games-realism-overhaul has a 1254x1254 cartoon bird in a striped scarf with no recorded source; it is a different character from the printed eagle."},
+  "vocal-a/ardilla.webp": {"result": "NOT FOUND IN SEARCHED SOURCES (one unverified version)", "detail": "Grey printed-page crop (238x210, uncut). jules-lane-1-lesson-3-combine (commit 0e5fd85c, 'Combine Lesson 3 drafts and fixes', 2026-10-18) has a 1254x1254 orange cartoon squirrel with no recorded source; redrawn style."}
+ }
+}

@@ -1,0 +1,85 @@
+{
+ "intakeManifest": "public/cartilla/art/owner-intake/2026-10-14/manifest.json",
+ "intakeCount": 69,
+ "method": "visual comparison against numbered contact sheets intake-1-36.jpg / intake-37-69.jpg",
+ "pictures": {
+  "leccion-14-n/nino.webp": {
+   "match": null,
+   "closest": [
+    10,
+    43
+   ],
+   "note": "Seated toddler in red-dotted yellow shirt; intake #10 (boy in wheelchair) and #43 (boy with drum) are different drawings.",
+   "closestPaths": [
+    "public/cartilla/art/owner-intake/2026-10-14/originals/primary/15tCAnwaMLB_PDin8StY_bYSaTWZZ520Z.png",
+    "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1vndYxRJ2Vp3jxnjFc17jdxuCdZsrv_oZ.png"
+   ]
+  },
+  "leccion-1/pajaro.webp": {
+   "match": null,
+   "closest": [
+    39
+   ],
+   "note": "Brown songbird; intake #39 is a yellow chick on a nest, a different drawing.",
+   "closestPaths": [
+    "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1xMGh7655Iac23IsfOGovMiMmkXZbTH8t.png"
+   ]
+  },
+  "leccion-1/pera.webp": {
+   "match": null,
+   "closest": [],
+   "note": "No pear in the intake (#12 is an apple).",
+   "closestPaths": []
+  },
+  "leccion-1/taza.webp": {
+   "match": null,
+   "closest": [],
+   "note": "No cup in the intake.",
+   "closestPaths": []
+  },
+  "vocal-o/ola.webp": {
+   "match": null,
+   "closest": [
+    25,
+    60
+   ],
+   "note": "Wave; intake #25/#60 are a blowing wind cloud, not a wave.",
+   "closestPaths": [
+    "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1_9C2YrVc8awejkisxDOS9wIOEpMVM7p5.png",
+    "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1fkOdPjx20OEvKKe9XWPVNklGe9hDn2_e.png"
+   ]
+  },
+  "leccion-1/aguila.webp": {
+   "match": null,
+   "closest": [],
+   "note": "No eagle in the intake.",
+   "closestPaths": []
+  },
+  "vocal-a/ardilla.webp": {
+   "match": null,
+   "closest": [],
+   "note": "No squirrel in the intake.",
+   "closestPaths": []
+  },
+  "vocal-i/igual.webp": {
+   "match": 1,
+   "closest": [
+    1
+   ],
+   "note": "Intake #1 is an owner-supplied equals sign (two dark bars, brown outline), 1254x1254. Same subject, different finish from the 106x61 Workbook crop (plain bars); usable only with owner approval.",
+   "closestPaths": [
+    "public/cartilla/art/owner-intake/2026-10-14/originals/primary/1Szh0OtkOPhrrs91ieKxNcfHbaXR9LAuE.png"
+   ]
+  }
+ },
+ "scope": "Only the 2026-10-14 intake folder (69 originals) is compared here. Absence here is not repository-wide absence; see history-search.json for the wider search.",
+ "notFoundIn20261014Intake": [
+  "leccion-14-n/nino.webp",
+  "leccion-1/pajaro.webp",
+  "leccion-1/pera.webp",
+  "leccion-1/taza.webp",
+  "vocal-o/ola.webp",
+  "leccion-1/aguila.webp",
+  "vocal-a/ardilla.webp"
+ ]
+}

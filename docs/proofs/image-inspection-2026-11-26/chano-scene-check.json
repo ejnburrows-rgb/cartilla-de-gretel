@@ -1,0 +1,327 @@
+{
+ "files": {
+  "ball-ma.svg": {
+   "svgSize": [
+    188.0,
+    188.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    188.0,
+    188.0
+   ],
+   "embeddedPixels": [
+    188,
+    188
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "ball-me.svg": {
+   "svgSize": [
+    180.0,
+    180.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    180.0,
+    180.0
+   ],
+   "embeddedPixels": [
+    180,
+    180
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "ball-mi.svg": {
+   "svgSize": [
+    184.0,
+    184.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    184.0,
+    184.0
+   ],
+   "embeddedPixels": [
+    184,
+    184
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "ball-mu.svg": {
+   "svgSize": [
+    186.0,
+    186.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    186.0,
+    186.0
+   ],
+   "embeddedPixels": [
+    186,
+    186
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "chano-arm-left.svg": {
+   "svgSize": [
+    192.0,
+    221.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    192.0,
+    221.0
+   ],
+   "embeddedPixels": [
+    192,
+    221
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "chano-arm-right.svg": {
+   "svgSize": [
+    175.0,
+    206.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    175.0,
+    206.0
+   ],
+   "embeddedPixels": [
+    175,
+    206
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "chano-body.svg": {
+   "svgSize": [
+    458.0,
+    627.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    458.0,
+    627.0
+   ],
+   "embeddedPixels": [
+    458,
+    627
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "juggle-ball-ma.svg": {
+   "svgSize": [
+    158.0,
+    156.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    158.0,
+    156.0
+   ],
+   "embeddedPixels": [
+    158,
+    156
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "juggle-ball-me.svg": {
+   "svgSize": [
+    157.0,
+    156.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    157.0,
+    156.0
+   ],
+   "embeddedPixels": [
+    157,
+    156
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "juggle-ball-mi.svg": {
+   "svgSize": [
+    160.0,
+    161.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    160.0,
+    161.0
+   ],
+   "embeddedPixels": [
+    160,
+    161
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "juggle-ball-mo.svg": {
+   "svgSize": [
+    167.0,
+    161.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    167.0,
+    161.0
+   ],
+   "embeddedPixels": [
+    167,
+    161
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "juggle-ball-mu.svg": {
+   "svgSize": [
+    160.0,
+    157.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    160.0,
+    157.0
+   ],
+   "embeddedPixels": [
+    160,
+    157
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "scene-juggle-bg.svg": {
+   "svgSize": [
+    1086.0,
+    1448.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    1086.0,
+    1448.0
+   ],
+   "embeddedPixels": [
+    1086,
+    1448
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  },
+  "scene.svg": {
+   "svgSize": [
+    1086.0,
+    1448.0
+   ],
+   "imageBox": [
+    0.0,
+    0.0,
+    1086.0,
+    1448.0
+   ],
+   "embeddedPixels": [
+    1086,
+    1448
+   ],
+   "scale": [
+    1.0,
+    1.0
+   ],
+   "result": "PASS"
+  }
+ },
+ "checks": {
+  "backgroundChangedPixels": 93993,
+  "backgroundMeanDiffOutsideBalls": 2.56,
+  "backgroundP99DiffOutsideBalls": 13,
+  "backgroundChangedOutsideBalls": 1,
+  "backgroundResult": "PASS (changes only under the five balls)",
+  "juggleBalls": {
+   "juggle-ball-ma.svg": {
+    "meanDiffVsScene": 2.77,
+    "result": "CUT FROM SCENE"
+   },
+   "juggle-ball-me.svg": {
+    "meanDiffVsScene": 3.1,
+    "result": "CUT FROM SCENE"
+   },
+   "juggle-ball-mi.svg": {
+    "meanDiffVsScene": 2.75,
+    "result": "CUT FROM SCENE"
+   },
+   "juggle-ball-mo.svg": {
+    "meanDiffVsScene": 3.12,
+    "result": "CUT FROM SCENE"
+   },
+   "juggle-ball-mu.svg": {
+    "meanDiffVsScene": 2.97,
+    "result": "CUT FROM SCENE"
+   }
+  }
+ }
+}

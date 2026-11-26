@@ -1,0 +1,174 @@
+{
+ "rebuilt (#1326)": {
+  "reducedMotion": {
+   "meanDiff": 0,
+   "changedPct": 0,
+   "changedBox": null
+  },
+  "frames": [
+   {
+    "t": 0,
+    "meanDiff": 0,
+    "changedPct": 0,
+    "changedBox": null
+   },
+   {
+    "t": 400,
+    "meanDiff": 2.39,
+    "changedPct": 1.45,
+    "changedBox": [
+     231,
+     44,
+     511,
+     390
+    ]
+   },
+   {
+    "t": 900,
+    "meanDiff": 3.08,
+    "changedPct": 2.19,
+    "changedBox": [
+     230,
+     43,
+     511,
+     391
+    ]
+   },
+   {
+    "t": 1400,
+    "meanDiff": 0.54,
+    "changedPct": 0.17,
+    "changedBox": [
+     250,
+     265,
+     410,
+     387
+    ]
+   },
+   {
+    "t": 2100,
+    "meanDiff": 1.63,
+    "changedPct": 0.73,
+    "changedBox": [
+     232,
+     45,
+     515,
+     387
+    ]
+   },
+   {
+    "t": 2800,
+    "meanDiff": 1.55,
+    "changedPct": 1.37,
+    "changedBox": [
+     244,
+     249,
+     415,
+     391
+    ]
+   },
+   {
+    "t": 3600,
+    "meanDiff": 1.69,
+    "changedPct": 0.92,
+    "changedBox": [
+     230,
+     43,
+     511,
+     206
+    ]
+   }
+  ]
+ },
+ "old (main)": {
+  "reducedMotion": {
+   "meanDiff": 32.55,
+   "changedPct": 21.88,
+   "changedBox": [
+    36,
+    39,
+    534,
+    497
+   ]
+  },
+  "frames": [
+   {
+    "t": 0,
+    "meanDiff": 32.55,
+    "changedPct": 21.88,
+    "changedBox": [
+     36,
+     39,
+     534,
+     497
+    ]
+   },
+   {
+    "t": 400,
+    "meanDiff": 31.58,
+    "changedPct": 21.36,
+    "changedBox": [
+     36,
+     39,
+     529,
+     497
+    ]
+   },
+   {
+    "t": 900,
+    "meanDiff": 31.4,
+    "changedPct": 21.29,
+    "changedBox": [
+     36,
+     39,
+     529,
+     497
+    ]
+   },
+   {
+    "t": 1400,
+    "meanDiff": 32.44,
+    "changedPct": 21.79,
+    "changedBox": [
+     36,
+     39,
+     534,
+     497
+    ]
+   },
+   {
+    "t": 2100,
+    "meanDiff": 33.03,
+    "changedPct": 22.16,
+    "changedBox": [
+     36,
+     39,
+     535,
+     497
+    ]
+   },
+   {
+    "t": 2800,
+    "meanDiff": 32.92,
+    "changedPct": 22.31,
+    "changedBox": [
+     36,
+     39,
+     534,
+     497
+    ]
+   },
+   {
+    "t": 3600,
+    "meanDiff": 31.63,
+    "changedPct": 21.48,
+    "changedBox": [
+     36,
+     39,
+     526,
+     497
+    ]
+   }
+  ]
+ }
+}
