@@ -72,7 +72,8 @@ function catalogEntry(lessonId: string): CatalogEntry | undefined {
 
 function skillName(entry: CatalogEntry): { title: string; detail: string } {
   if (entry.kind === "intro") return { title: "Vocales", detail: "a–e–i–o–u" };
-  if (entry.kind === "vowel") return { title: `Vocal ${entry.vowel.toUpperCase()}`, detail: entry.vowel };
+  if (entry.kind === "vowel")
+    return { title: `Vocal ${entry.vowel.toUpperCase()}`, detail: entry.vowel };
   return { title: `Letra ${entry.letter.toUpperCase()}`, detail: entry.data.syllables.join("–") };
 }
 
@@ -122,7 +123,8 @@ function statusForLesson(
   const recent = rounds.slice(0, 5);
   const recentStats = aggregateAccuracy(recent);
   const lowRounds = recent.filter((event) => (event.score ?? 0) / (event.total ?? 1) < 0.6).length;
-  const enoughEvidenceForReview = rounds.length >= 3 && ((recentStats.accuracy ?? 1) < 0.6 || lowRounds >= 3);
+  const enoughEvidenceForReview =
+    rounds.length >= 3 && ((recentStats.accuracy ?? 1) < 0.6 || lowRounds >= 3);
 
   let status: SkillStatus;
   let reason: string;
@@ -174,13 +176,20 @@ function exerciseName(event: LearningEvent): string {
 }
 
 function activityForLesson(events: LearningEvent[]): ActivityId {
-  const weakest = scoredRounds(events).find((event) => (event.score ?? 0) / (event.total ?? 1) < 0.8);
+  const weakest = scoredRounds(events).find(
+    (event) => (event.score ?? 0) / (event.total ?? 1) < 0.8,
+  );
   const exercise = weakest ? exerciseName(weakest) : "";
   if (exercise.includes("sound_search")) return "sonido";
   if (exercise.includes("gretel_mirror") || exercise.includes("pronunciation")) return "espejo";
   if (exercise.includes("trace")) return "trazar";
   if (exercise.includes("order") || exercise.includes("build")) return "armar";
-  if (exercise.includes("picture") || exercise.includes("line_match") || exercise.includes("match_pairs")) return "palabras";
+  if (
+    exercise.includes("picture") ||
+    exercise.includes("line_match") ||
+    exercise.includes("match_pairs")
+  )
+    return "palabras";
   return "silabas";
 }
 
@@ -203,10 +212,22 @@ export function buildStudentLearningInsight(
   now: number = Date.now(),
 ): StudentLearningInsight {
   const sortedEvents = events.slice().sort((a, b) => b.created_at.localeCompare(a.created_at));
-  const engagedLessonNumbers = sortedEvents.map((event) => Number(event.lesson_id)).filter((n) => Number.isFinite(n) && n > 0);
-  const completedNumbers = Array.from(completedLessonIds).map(Number).filter((n) => Number.isFinite(n) && n > 0);
-  const assignedNumbers = assignments.map(assignmentLessonId).map(Number).filter((n) => Number.isFinite(n) && n > 0);
-  const reachedLesson = Math.max(1, ...engagedLessonNumbers, ...completedNumbers, ...assignedNumbers);
+  const engagedLessonNumbers = sortedEvents
+    .map((event) => Number(event.lesson_id))
+    .filter((n) => Number.isFinite(n) && n > 0);
+  const completedNumbers = Array.from(completedLessonIds)
+    .map(Number)
+    .filter((n) => Number.isFinite(n) && n > 0);
+  const assignedNumbers = assignments
+    .map(assignmentLessonId)
+    .map(Number)
+    .filter((n) => Number.isFinite(n) && n > 0);
+  const reachedLesson = Math.max(
+    1,
+    ...engagedLessonNumbers,
+    ...completedNumbers,
+    ...assignedNumbers,
+  );
 
   const skills = CATALOG.filter((entry) => entry.n <= reachedLesson).map((entry) => {
     const lessonId = String(entry.n);
@@ -296,7 +317,8 @@ export function buildStudentLearningInsight(
     const lessonId = assignmentLessonId(assignment);
     if (!lessonId || completedLessonIds.has(lessonId)) continue;
     const lessonEvents = sortedEvents.filter((event) => event.lesson_id === lessonId);
-    const dueAt = assignmentDueAt(assignment);
+    const rawDueAt = assignmentDueAt(assignment);
+    const dueAt = rawDueAt ? (rawDueAt.includes("T") ? rawDueAt : `${rawDueAt}T00:00:00`) : null;
     let overdue = false;
     if (dueAt) {
       // dueAt was saved by parsing the chosen date as local midnight (i.e. dueAt + "T00:00:00").
@@ -309,12 +331,16 @@ export function buildStudentLearningInsight(
     if (!overdue && lessonEvents.length === 0) continue;
     const entry = catalogEntry(lessonId);
     if (!entry) continue;
-    const skill = skills.find((item) => item.lessonId === lessonId) ?? statusForLesson(entry, lessonEvents, false, entry.n);
+    const skill =
+      skills.find((item) => item.lessonId === lessonId) ??
+      statusForLesson(entry, lessonEvents, false, entry.n);
     attention.push({
       key: `assignment-${lessonId}`,
       lessonNumber: entry.n,
       exactSkill: skillDisplay(skill),
-      reason: overdue ? "Lección asignada vencida y sin terminar" : "Lección asignada iniciada y sin terminar",
+      reason: overdue
+        ? "Lección asignada vencida y sin terminar"
+        : "Lección asignada iniciada y sin terminar",
       supportingData: overdue
         ? `Fecha límite: ${new Date(dueAt as string).toLocaleDateString("es")}. La lección no figura como completada.`
         : `${counted(lessonEvents.length, "registro", "registros")} de actividad; la lección no figura como completada.`,
@@ -357,7 +383,9 @@ export function buildStudentLearningInsight(
 
   let recommendation: PracticeRecommendation | null = null;
   if (recommendationSkill) {
-    const lessonEvents = sortedEvents.filter((event) => event.lesson_id === recommendationSkill.lessonId);
+    const lessonEvents = sortedEvents.filter(
+      (event) => event.lesson_id === recommendationSkill.lessonId,
+    );
     recommendation = {
       lessonNumber: recommendationSkill.lessonNumber,
       lessonId: recommendationSkill.lessonId,
@@ -370,5 +398,10 @@ export function buildStudentLearningInsight(
     };
   }
 
-  return { skills, attention: attention.slice(0, 6), recommendation, recentAccuracy: recentStats.accuracy };
+  return {
+    skills,
+    attention: attention.slice(0, 6),
+    recommendation,
+    recentAccuracy: recentStats.accuracy,
+  };
 }
