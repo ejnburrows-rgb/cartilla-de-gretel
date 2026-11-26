@@ -8,6 +8,7 @@
 import { describe, expect, it } from "vitest";
 import { findTutorItem, itemsForLesson } from "../tutor-content";
 import {
+  classifyBroadCommand,
   classifyIntent,
   countsAsAttempt,
   heardVowel,
@@ -352,5 +353,23 @@ describe("vowel aliases (exported)", () => {
     expect(VOWEL_ALIASES.e).toEqual(["eh", "he"]);
     expect(VOWEL_ALIASES.i).toEqual(["y", "hi", "ii"]);
     expect(VOWEL_ALIASES.u).toEqual(["uh", "hu", "ú"]);
+  });
+});
+
+describe("Milestone 9: broad commands & multi-word sentence items (L7–24)", () => {
+  it("classifies broad-mode commands and questions without grading", () => {
+    expect(classifyBroadCommand("para por favor")).toBe("STOP");
+    expect(classifyBroadCommand("más despacio")).toBe("SLOWER");
+    expect(classifyBroadCommand("otra vez")).toBe("REPEAT");
+    expect(classifyBroadCommand("¿cómo se lee esta letra?")).toBe("QUESTION");
+    expect(classifyBroadCommand("siguiente")).toBe("NEXT");
+  });
+
+  it("matches multi-word sentence targets in Lessons 7–24", () => {
+    const l7Items = itemsForLesson(7);
+    const sentence = l7Items.find((i) => i.kind === "sentence");
+    expect(sentence).toBeDefined();
+    expect(classifyIntent(sentence!.text, sentence!, l7Items)).toBe("TARGET");
+    expect(classifyIntent("zzz qqq", sentence!, l7Items)).toBe("OFF_SCRIPT");
   });
 });

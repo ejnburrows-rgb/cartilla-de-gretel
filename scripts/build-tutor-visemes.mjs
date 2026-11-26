@@ -1,160 +1,53 @@
 #!/usr/bin/env node
 /**
- * Tutor visemes builder (spec §6 — lip-sync).
+ * Generalized Tutor Visemes Builder (Milestone 4 — lip-sync).
  *
- * For every approved entry in src/content/tutor-lines.json:
- *   1. converts its mp3 to wav with ffmpeg into a temp dir outside the repo,
- *   2. runs Rhubarb Lip Sync with `-r phonetic -f json --extendedShapes GX`
- *      (the phonetic recognizer is for non-English audio like our Spanish
- *      recordings),
- *   3. writes the mouth-cue JSON to
- *      public/audio/voz/tutor/leccion-<lesson>/<lineId>.visemes.json
- *      (spec §3 — the tutor routes own their copies, NOT the vocabulario dir),
- *   4. adds a "visemes" field with that public path to the approved entry in
- *      src/content/tutor-lines.json, keeping every other field byte-identical
- *      (verified by a round-trip check before writing).
+ * Supports both:
+ *   - v1 manifest: src/content/tutor-lines.json (approved array, byte-identical round-trip proof)
+ *   - v2 manifests: src/content/tutor-dialogue/*.json (entries with status "approved" | "validated" and audio.src)
  *
- * Timing only — this script never generates, stitches, or alters any audio.
- * It only reads the existing owner-approved recordings.
+ * For every authorized entry with active audio:
+ *   1. verifies the audio path & SHA-256 against permanent rejection rules (67-clip ZIP, nina-sordita.mp3),
+ *   2. checks idempotency (same source audio SHA-256, Rhubarb v1.14.0, `-r phonetic --extendedShapes GX`),
+ *   3. if missing/stale (or `--force`), converts audio to wav outside the repo via ffmpeg (.tools/ or PATH),
+ *   4. runs Rhubarb Lip Sync (`-r phonetic -f json --extendedShapes GX`) via .tools/, PATH, or pinned Linux download,
+ *   5. writes mouth-cue JSON under public/audio/voz/tutor/leccion-<lesson>/<id>.visemes.json,
+ *   6. updates the manifest's `visemes` field without altering any audio or unapproved entries.
  *
- * Rhubarb Lip Sync CLI: https://github.com/DanielSWolf/rhubarb-lip-sync
- * License: MIT (free). Downloaded at run time into the gitignored .tools dir;
- * the release and zip SHA-256 below are pinned. Never committed to the repo.
- *
- * Idempotent: entries whose visemes file already exists and matches (same
- * source audio SHA-256, same pinned Rhubarb release and recognizer flags)
- * are skipped. Use --force to rebuild every entry.
- *
- * CLI: node scripts/build-tutor-visemes.mjs [--force]
- * After the manifest update, run node scripts/validate-tutor-lines.mjs
- * and node scripts/validate-tutor-visemes.mjs.
+ * CLI:
+ *   node scripts/build-tutor-visemes.mjs [--force] [--dry-run] [--all] [--manifest <path>]
  */
-import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { mkdtempSync } from "node:fs";
-import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
-import { isRejectedSourcePath } from "./validate-tutor-lines.mjs";
-
-/** Pinned Rhubarb release (MIT license — see header comment). */
-const RHUBARB_VERSION = "1.14.0";
-const RHUBARB_ZIP_URL =
-  "https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v" +
-  RHUBARB_VERSION +
-  "/Rhubarb-Lip-Sync-" +
-  RHUBARB_VERSION +
-  "-Linux.zip";
-const RHUBARB_ZIP_SHA256 = "a9a9074862cff47b2d59b8bf399a678a3b0b74f9452ad6ad94cb292913dd8667";
-const RHUBARB_RECOGNIZER = "phonetic";
-const RHUBARB_EXTENDED_SHAPES = "GX";
-/** Mouth shapes Rhubarb may emit with standard + --extendedShapes GX. */
-const ALLOWED_SHAPES = new Set(["A", "B", "C", "D", "E", "F", "G", "H", "X"]);
+import {
+  RHUBARB_EXTENDED_SHAPES,
+  RHUBARB_RECOGNIZER,
+  RHUBARB_VERSION,
+} from "./tutor-intake/constants.mjs";
+import { sha256File } from "./tutor-intake/checksum.mjs";
+import { checkRejectedSource } from "./tutor-intake/guard.mjs";
+import { resolveMediaTools } from "./tutor-intake/media.mjs";
+import {
+  ensureRhubarbBinary,
+  syncVisemesForAudio,
+  visemesFileMatches,
+} from "./tutor-intake/visemes.mjs";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const manifestPath = join(repoRoot, "src/content/tutor-lines.json");
+const defaultV1Manifest = join(repoRoot, "src/content/tutor-lines.json");
+const v2DialogueDir = join(repoRoot, "src/content/tutor-dialogue");
 const publicDir = join(repoRoot, "public");
-const toolsDir = join(repoRoot, ".tools");
-const rhubarbBinary = join(
-  toolsDir,
-  `Rhubarb-Lip-Sync-${RHUBARB_VERSION}-Linux`,
-  "rhubarb",
-);
 
 function fail(message) {
   console.error(`✗ ${message}`);
   process.exit(1);
 }
 
-/** SHA-256 hex digest of a file. */
-function sha256File(filePath) {
-  return createHash("sha256").update(readFileSync(filePath)).digest("hex");
-}
-
-/**
- * Ensure the pinned Rhubarb binary is present, downloading + verifying it on
- * first use. The zip and binary live only in the gitignored .tools dir.
- */
-async function ensureRhubarb() {
-  if (process.platform !== "linux" || process.arch !== "x64") {
-    fail(`Rhubarb pinned download only covers linux/x64 (this host: ${process.platform}/${process.arch}).`);
-  }
-  if (existsSync(rhubarbBinary)) return;
-
-  console.log(`Downloading Rhubarb Lip Sync v${RHUBARB_VERSION} (MIT) to ${toolsDir} …`);
-  mkdirSync(toolsDir, { recursive: true });
-  const zipPath = join(toolsDir, `rhubarb-${RHUBARB_VERSION}.zip`);
-  const response = await fetch(RHUBARB_ZIP_URL);
-  if (!response.ok) fail(`download failed: HTTP ${response.status} for ${RHUBARB_ZIP_URL}`);
-  const bytes = Buffer.from(await response.arrayBuffer());
-  const digest = createHash("sha256").update(bytes).digest("hex");
-  if (digest !== RHUBARB_ZIP_SHA256) {
-    fail(`SHA-256 mismatch for ${RHUBARB_ZIP_URL}: got ${digest}, expected ${RHUBARB_ZIP_SHA256}`);
-  }
-  writeFileSync(zipPath, bytes);
-  execFileSync("unzip", ["-o", "-q", zipPath, "-d", toolsDir], { stdio: "pipe" });
-  rmSync(zipPath, { force: true });
-  if (!existsSync(rhubarbBinary)) fail(`Rhubarb binary missing after extract: ${rhubarbBinary}`);
-}
-
-/**
- * Run Rhubarb on a wav file and return its parsed mouth-cue JSON.
- * Recognizer and shapes come from spec §6: `-r phonetic -f json --extendedShapes GX`.
- */
-function runRhubarb(rhubarb, wavPath, outputPath) {
-  execFileSync(
-    rhubarb,
-    [
-      "-r", RHUBARB_RECOGNIZER,
-      "-f", "json",
-      "--extendedShapes", RHUBARB_EXTENDED_SHAPES,
-      "-o", outputPath,
-      wavPath,
-    ],
-    { stdio: ["ignore", "ignore", "pipe"] }, // progress bar goes to stderr; JSON goes to -o file
-  );
-  return JSON.parse(readFileSync(outputPath, "utf8"));
-}
-
-/** Validate Rhubarb's mouth-cue JSON: non-empty, allowed shapes, monotonic times. */
-function mouthCuesAreValid(cues) {
-  if (!Array.isArray(cues) || cues.length === 0) return false;
-  let previousEnd = 0;
-  for (const cue of cues) {
-    if (!cue || typeof cue.value !== "string" || !ALLOWED_SHAPES.has(cue.value)) return false;
-    if (typeof cue.start !== "number" || typeof cue.end !== "number") return false;
-    if (!(cue.start >= previousEnd - 1e-6) || !(cue.end > cue.start)) return false;
-    previousEnd = cue.end;
-  }
-  return true;
-}
-
-/** True when an existing visemes file matches the current audio + pipeline settings. */
-function visemesFileMatches(visemesPath, sourceSha256) {
-  try {
-    const data = JSON.parse(readFileSync(visemesPath, "utf8"));
-    const meta = data?.metadata ?? {};
-    return (
-      meta.rhubarbVersion === RHUBARB_VERSION &&
-      meta.recognizer === RHUBARB_RECOGNIZER &&
-      meta.extendedShapes === RHUBARB_EXTENDED_SHAPES &&
-      meta.sourceSha256 === sourceSha256 &&
-      mouthCuesAreValid(data.mouthCues)
-    );
-  } catch {
-    return false;
-  }
-}
-
-/**
- * Rebuild an approved entry object with "visemes" right after "src"
- * (spec §6 manifest example), preserving the original key order otherwise.
- */
-function entryWithVisemes(entry, visemesPath) {
+function entryWithVisemesV1(entry, visemesPath) {
   const rebuilt = {};
   for (const [key, value] of Object.entries(entry)) {
-    if (key === "visemes") continue; // re-inserted once, right after src
+    if (key === "visemes") continue;
     if (key === "src") {
       rebuilt.src = value;
       rebuilt.visemes = visemesPath;
@@ -162,106 +55,270 @@ function entryWithVisemes(entry, visemesPath) {
       rebuilt[key] = value;
     }
   }
-  if (!("visemes" in rebuilt)) rebuilt.visemes = visemesPath; // entry had no src yet? keep spec order anyway
+  if (!("visemes" in rebuilt)) rebuilt.visemes = visemesPath;
   return rebuilt;
 }
 
-async function main() {
-  const force = process.argv.includes("--force");
+function discoverTargetManifests(argv) {
+  const manifestPaths = [];
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === "--manifest" && argv[i + 1]) {
+      manifestPaths.push(resolve(process.cwd(), argv[++i]));
+    }
+  }
+  if (manifestPaths.length > 0) return manifestPaths;
+
+  const targets = [defaultV1Manifest];
+  if (argv.includes("--all") && existsSync(v2DialogueDir)) {
+    const files = readdirSync(v2DialogueDir, { withFileTypes: true })
+      .filter((e) => e.isFile() && e.name.endsWith(".json"))
+      .map((e) => join(v2DialogueDir, e.name))
+      .sort();
+    targets.push(...files);
+  }
+  return targets;
+}
+
+async function processV1Manifest(manifestPath, { force, dryRun, tools }) {
   const manifestText = readFileSync(manifestPath, "utf8");
   const manifest = JSON.parse(manifestText);
-  if (!Array.isArray(manifest.approved)) fail("manifest has no approved array");
+  if (!Array.isArray(manifest.approved)) fail(`${manifestPath}: manifest has no approved array`);
 
-  await ensureRhubarb();
-
-  const tempDir = mkdtempSync(join(tmpdir(), "rhubarb-visemes-"));
   let built = 0;
   let skipped = 0;
+  let missingOrStale = 0;
   const updatedEntries = [];
 
-  try {
-    for (const entry of manifest.approved) {
-      if (!entry || typeof entry.src !== "string" || typeof entry.lineId !== "string") {
-        fail(`approved entry without src/lineId: ${JSON.stringify(entry)}`);
-      }
-      if (isRejectedSourcePath(entry.src)) {
-        fail(`${entry.lineId}: src "${entry.src}" is a REJECTED audio source — refusing to build visemes from it`);
-      }
-      const mp3Path = join(publicDir, entry.src);
-      if (!existsSync(mp3Path)) fail(`${entry.lineId}: src file missing under public/: ${entry.src}`);
-
-      const lesson = typeof entry.lesson === "number" ? entry.lesson : 0;
-      const visemesPublicPath = `/audio/voz/tutor/leccion-${lesson}/${entry.lineId}.visemes.json`;
-      const visemesDiskPath = join(publicDir, visemesPublicPath);
-
-      const sourceSha256 = sha256File(mp3Path);
-      if (!force && existsSync(visemesDiskPath) && visemesFileMatches(visemesDiskPath, sourceSha256)) {
-        skipped += 1;
-        updatedEntries.push(entryWithVisemes(entry, visemesPublicPath));
-        continue;
-      }
-
-      const wavPath = join(tempDir, `${entry.lineId}.wav`);
-      const rawJsonPath = join(tempDir, `${entry.lineId}.raw.json`);
-      execFileSync(
-        "ffmpeg",
-        ["-hide_banner", "-loglevel", "error", "-y", "-i", mp3Path, "-ac", "1", "-ar", "44100", "-c:a", "pcm_s16le", wavPath],
-        { stdio: "pipe" },
-      );
-
-      const rhubarbOutput = runRhubarb(rhubarbBinary, wavPath, rawJsonPath);
-      if (!mouthCuesAreValid(rhubarbOutput.mouthCues)) {
-        fail(`${entry.lineId}: Rhubarb output failed shape/monotonic-time validation`);
-      }
-      if (rhubarbOutput?.metadata?.soundFile !== wavPath || typeof rhubarbOutput.metadata?.duration !== "number") {
-        fail(`${entry.lineId}: unexpected Rhubarb metadata shape`);
-      }
-
-      const visemesJson = {
-        metadata: {
-          // Point at the real committed source (the public mp3), not the temp wav.
-          soundFile: entry.src,
-          duration: rhubarbOutput.metadata.duration,
-          rhubarbVersion: RHUBARB_VERSION,
-          recognizer: RHUBARB_RECOGNIZER,
-          extendedShapes: RHUBARB_EXTENDED_SHAPES,
-          sourceSha256,
-        },
-        mouthCues: rhubarbOutput.mouthCues,
-      };
-
-      mkdirSync(dirname(visemesDiskPath), { recursive: true });
-      writeFileSync(visemesDiskPath, JSON.stringify(visemesJson, null, 2) + "\n");
-      built += 1;
-      updatedEntries.push(entryWithVisemes(entry, visemesPublicPath));
+  for (const entry of manifest.approved) {
+    if (!entry || typeof entry.src !== "string" || typeof entry.lineId !== "string") {
+      fail(`${manifestPath}: approved entry without src/lineId: ${JSON.stringify(entry)}`);
+    }
+    const audioDiskPath = join(publicDir, entry.src);
+    if (!existsSync(audioDiskPath)) {
+      fail(`${entry.lineId}: src file missing under public/: ${entry.src}`);
+    }
+    const sourceSha256 = sha256File(audioDiskPath);
+    const rejected = checkRejectedSource({
+      filePath: entry.src,
+      sha256: sourceSha256,
+      transcript: entry.text,
+    });
+    if (rejected.rejected) {
+      fail(`${entry.lineId}: ${rejected.reasons.join("; ")}`);
     }
 
-    // Manifest update — every other field byte-identical.
+    const lesson = typeof entry.lesson === "number" ? entry.lesson : 0;
+    const visemesPublicPath =
+      typeof entry.visemes === "string" && entry.visemes.startsWith("/audio/voz/tutor/")
+        ? entry.visemes
+        : `/audio/voz/tutor/leccion-${lesson}/${entry.lineId}.visemes.json`;
+    const visemesDiskPath = join(publicDir, visemesPublicPath);
+
+    if (
+      !force &&
+      existsSync(visemesDiskPath) &&
+      visemesFileMatches(visemesDiskPath, sourceSha256)
+    ) {
+      skipped += 1;
+      updatedEntries.push(entryWithVisemesV1(entry, visemesPublicPath));
+      continue;
+    }
+
+    if (dryRun) {
+      missingOrStale += 1;
+      updatedEntries.push(entryWithVisemesV1(entry, visemesPublicPath));
+      continue;
+    }
+
+    if (!tools.rhubarb) {
+      tools.rhubarb = await ensureRhubarbBinary({ repoRoot, autoDownload: true });
+    }
+    const res = await syncVisemesForAudio({
+      audioPath: audioDiskPath,
+      publicAudioSrc: entry.src,
+      visemesDiskPath,
+      repoRoot,
+      tools,
+      force,
+      dryRun: false,
+    });
+    if (res.status === "built") built += 1;
+    updatedEntries.push(entryWithVisemesV1(entry, visemesPublicPath));
+  }
+
+  if (!dryRun) {
     const newManifest = { ...manifest, approved: updatedEntries };
     const newText = JSON.stringify(newManifest, null, 2) + "\n";
     if (newText !== manifestText) {
-      // Round-trip proof: strip the visemes fields and re-serialize — must
-      // reproduce the original manifest text byte for byte.
+      // Round-trip proof: strip visemes fields and re-serialize — must match original byte for byte.
       const stripped = JSON.parse(newText);
-      const roundTrip = { ...stripped, approved: stripped.approved.map((entry) => {
-        const copy = { ...entry };
-        delete copy.visemes;
-        return copy;
-      }) };
+      const roundTrip = {
+        ...stripped,
+        approved: stripped.approved.map((entry) => {
+          const copy = { ...entry };
+          delete copy.visemes;
+          return copy;
+        }),
+      };
       if (JSON.stringify(roundTrip, null, 2) + "\n" !== manifestText) {
-        fail("manifest round-trip check failed — aborting without writing; nothing else may change");
+        fail(
+          "manifest round-trip check failed — aborting without writing; nothing else may change",
+        );
       }
       writeFileSync(manifestPath, newText);
       console.log("manifest updated with visemes paths (all other fields byte-identical)");
     }
-  } finally {
-    rmSync(tempDir, { recursive: true, force: true });
   }
 
-  const total = manifest.approved.length;
-  console.log(
-    `✓ visemes: ${total} approved entr${total === 1 ? "y" : "ies"} processed — ${built} built, ${skipped} already up to date (Rhubarb v${RHUBARB_VERSION}, -r ${RHUBARB_RECOGNIZER}, --extendedShapes ${RHUBARB_EXTENDED_SHAPES})`,
-  );
+  return { total: manifest.approved.length, built, skipped, missingOrStale };
 }
 
-await main();
+async function processV2Manifest(manifestPath, { force, dryRun, tools }) {
+  const manifestText = readFileSync(manifestPath, "utf8");
+  const manifest = JSON.parse(manifestText);
+  if (!Array.isArray(manifest.entries)) {
+    fail(`${manifestPath}: v2 manifest has no entries array`);
+  }
+
+  let total = 0;
+  let built = 0;
+  let skipped = 0;
+  let missingOrStale = 0;
+  let changed = false;
+
+  const updatedEntries = [];
+  for (const entry of manifest.entries) {
+    const active = entry?.status === "approved" || entry?.status === "validated";
+    const src = entry?.audio?.src;
+    if (!active || typeof src !== "string" || !src.startsWith("/")) {
+      updatedEntries.push(entry);
+      continue;
+    }
+
+    total += 1;
+    const audioDiskPath = join(publicDir, src);
+    if (!existsSync(audioDiskPath)) {
+      fail(`${entry.id}: audio.src missing under public/: ${src}`);
+    }
+    const sourceSha256 = sha256File(audioDiskPath);
+    const rejected = checkRejectedSource({
+      filePath: src,
+      sha256: sourceSha256,
+      transcript: entry.text,
+    });
+    if (rejected.rejected) {
+      fail(`${entry.id}: ${rejected.reasons.join("; ")}`);
+    }
+
+    const lesson = entry.curriculumRefs?.lesson ?? manifest.lesson ?? 0;
+    const visemesPublicPath =
+      typeof entry.audio?.visemes === "string" &&
+      entry.audio.visemes.startsWith("/audio/voz/tutor/")
+        ? entry.audio.visemes
+        : `/audio/voz/tutor/leccion-${lesson}/${entry.id}.visemes.json`;
+    const visemesDiskPath = join(publicDir, visemesPublicPath);
+
+    if (
+      !force &&
+      existsSync(visemesDiskPath) &&
+      visemesFileMatches(visemesDiskPath, sourceSha256)
+    ) {
+      skipped += 1;
+      if (entry.audio.visemes !== visemesPublicPath || entry.audio.sha256 !== sourceSha256) {
+        changed = true;
+        updatedEntries.push({
+          ...entry,
+          audio: { ...entry.audio, sha256: sourceSha256, visemes: visemesPublicPath },
+        });
+      } else {
+        updatedEntries.push(entry);
+      }
+      continue;
+    }
+
+    if (dryRun) {
+      missingOrStale += 1;
+      updatedEntries.push(entry);
+      continue;
+    }
+
+    if (!tools.rhubarb) {
+      tools.rhubarb = await ensureRhubarbBinary({ repoRoot, autoDownload: true });
+    }
+    const res = await syncVisemesForAudio({
+      audioPath: audioDiskPath,
+      publicAudioSrc: src,
+      visemesDiskPath,
+      repoRoot,
+      tools,
+      force,
+      dryRun: false,
+    });
+    if (res.status === "built") built += 1;
+    changed = true;
+    updatedEntries.push({
+      ...entry,
+      audio: {
+        ...entry.audio,
+        sha256: sourceSha256,
+        durationMs:
+          typeof res.durationSec === "number"
+            ? Math.round(res.durationSec * 1000)
+            : (entry.audio?.durationMs ?? null),
+        visemes: visemesPublicPath,
+      },
+    });
+  }
+
+  if (!dryRun && changed) {
+    mkdirSync(dirname(manifestPath), { recursive: true });
+    writeFileSync(
+      manifestPath,
+      JSON.stringify({ ...manifest, entries: updatedEntries }, null, 2) + "\n",
+    );
+    console.log(`updated v2 dialogue visemes metadata in ${manifestPath}`);
+  }
+
+  return { total, built, skipped, missingOrStale };
+}
+
+export async function buildTutorVisemes(argv = process.argv.slice(2)) {
+  const force = argv.includes("--force");
+  const dryRun = argv.includes("--dry-run") || argv.includes("--check");
+  const tools = resolveMediaTools({ repoRoot });
+  const targets = discoverTargetManifests(argv);
+
+  let total = 0;
+  let built = 0;
+  let skipped = 0;
+  let missingOrStale = 0;
+
+  for (const manifestPath of targets) {
+    if (!existsSync(manifestPath)) fail(`manifest not found: ${manifestPath}`);
+    const parsed = JSON.parse(readFileSync(manifestPath, "utf8"));
+    const stats = Array.isArray(parsed.approved)
+      ? await processV1Manifest(manifestPath, { force, dryRun, tools })
+      : await processV2Manifest(manifestPath, { force, dryRun, tools });
+    total += stats.total;
+    built += stats.built;
+    skipped += stats.skipped;
+    missingOrStale += stats.missingOrStale;
+  }
+
+  if (dryRun && missingOrStale > 0) {
+    fail(`${missingOrStale} visemes file(s) missing or stale in dry-run mode`);
+  }
+
+  console.log(
+    `✓ visemes: ${total} approved entr${total === 1 ? "y" : "ies"} processed across ${targets.length} manifest(s) — ` +
+      `${built} built, ${skipped} already up to date (Rhubarb v${RHUBARB_VERSION}, -r ${RHUBARB_RECOGNIZER}, --extendedShapes ${RHUBARB_EXTENDED_SHAPES})`,
+  );
+  return { total, built, skipped, missingOrStale, manifests: targets.length };
+}
+
+if (
+  import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith("build-tutor-visemes.mjs")
+) {
+  await buildTutorVisemes(process.argv.slice(2));
+}

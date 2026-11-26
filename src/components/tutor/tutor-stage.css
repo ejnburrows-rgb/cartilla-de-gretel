@@ -1,11 +1,40 @@
+/* ==========================================================================
+   La Cartilla de Gretel — Tutor Stage & Persistent Video-Call Shell
+   Warm paper, sienna ink, deep Cartilla cobalt, canonical teal, warm gold.
+   ========================================================================== */
+
+:root {
+  --tutor-paper: #f6efe2;
+  --tutor-surface: #fffaf0;
+  --tutor-surface-muted: #efe5d3;
+  --tutor-ink: #2a211b;
+  --tutor-ink-soft: #635145;
+  --tutor-border: rgba(92, 61, 40, 0.16);
+  --tutor-border-strong: rgba(92, 61, 40, 0.28);
+  --tutor-cobalt: #1e4b82;
+  --tutor-cobalt-soft: rgba(30, 75, 130, 0.1);
+  --tutor-teal: #0f766e;
+  --tutor-teal-soft: rgba(15, 118, 110, 0.12);
+  --tutor-gold: #b88228;
+  --tutor-danger: #a6342a;
+  --tutor-danger-soft: rgba(166, 52, 42, 0.12);
+  --tutor-shadow-sm: 0 2px 8px rgba(42, 33, 27, 0.08);
+  --tutor-shadow-md: 0 10px 28px rgba(42, 33, 27, 0.13);
+  --tutor-shadow-lg: 0 18px 42px rgba(42, 33, 27, 0.18);
+  --tutor-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Legacy TutorStage (preserved for backwards compatibility)
+   -------------------------------------------------------------------------- */
 .tutor-stage {
   min-height: 100svh;
-  background: hsl(40 45% 93%);
+  background: var(--tutor-paper);
   display: grid;
   grid-template-rows: auto minmax(180px, 30svh) 1fr;
   padding: 12px 20px 24px;
   gap: 12px;
-  color: #292524;
+  color: var(--tutor-ink);
 }
 .tutor-controls {
   display: flex;
@@ -26,9 +55,10 @@
   font-weight: 700;
 }
 .tutor-controls :focus-visible,
-.tutor-replay:focus-visible {
-  outline: 3px solid #92400e;
-  outline-offset: 3px;
+.tutor-replay:focus-visible,
+.tutor-call-shell :focus-visible {
+  outline: 3px solid var(--tutor-cobalt);
+  outline-offset: 2px;
 }
 .tutor-figure {
   min-height: 0;
@@ -52,9 +82,13 @@
 }
 .tutor-word-card {
   position: relative;
-  min-height: 220px;
+  min-height: 180px;
   max-width: 100%;
-  padding: 24px;
+  padding: 20px 24px;
+  border-radius: 24px;
+  border: 1.5px solid var(--tutor-border);
+  background: var(--tutor-surface);
+  box-shadow: var(--tutor-shadow-sm);
 }
 .tutor-word-card .workbook-pencil-mark {
   position: absolute;
@@ -64,85 +98,818 @@
   pointer-events: none;
 }
 .tutor-word {
-  font-size: clamp(2.5rem, 9vw, 6rem);
+  font-size: clamp(2.25rem, 7vw, 5rem);
   overflow-wrap: anywhere;
 }
 .tutor-replay {
   min-height: 44px;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 12px;
   font-weight: 700;
 }
 .tutor-caption {
-  max-width: 32ch;
+  max-width: 44ch;
   font-size: 1rem;
-  line-height: 1.3;
-  min-height: 1.3em;
+  line-height: 1.4;
+  min-height: 1.4em;
   text-align: center;
+  color: var(--tutor-ink);
 }
-@media (min-width: 1024px), (min-width: 600px) and (orientation: landscape) {
-  .tutor-stage {
-    grid-template: auto 1fr / minmax(0, 40%) minmax(0, 60%);
-    min-height: 100svh;
+
+/* --------------------------------------------------------------------------
+   Persistent Video-Call Shell (Milestone 6)
+   -------------------------------------------------------------------------- */
+.tutor-call-shell {
+  --tutor-split-ratio: 0.38;
+  --pip-x: 0px;
+  --pip-y: 0px;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100svh;
+  min-height: 100svh;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  background: var(--tutor-paper);
+  color: var(--tutor-ink);
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Header bar */
+.tutor-call-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 250, 240, 0.92);
+  border-bottom: 1px solid var(--tutor-border);
+  z-index: 20;
+}
+
+.tutor-call-header-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tutor-call-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--tutor-ink-soft);
+  text-decoration: none;
+  transition: background-color 160ms var(--tutor-ease), color 160ms var(--tutor-ease);
+}
+.tutor-call-back:hover {
+  background: var(--tutor-surface-muted);
+  color: var(--tutor-ink);
+}
+
+.tutor-call-title-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.tutor-call-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--tutor-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tutor-call-subtitle {
+  font-size: 0.8125rem;
+  color: var(--tutor-ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Real session state pill */
+.tutor-state-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--tutor-border);
+  background: var(--tutor-surface);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--tutor-ink);
+  white-space: nowrap;
+}
+.tutor-state-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--tutor-ink-soft);
+  flex-shrink: 0;
+}
+.tutor-state-pill[data-tutor-state="listening"] {
+  border-color: rgba(166, 52, 42, 0.35);
+  background: var(--tutor-danger-soft);
+  color: #7c2018;
+}
+.tutor-state-pill[data-tutor-state="listening"] .tutor-state-dot {
+  background: var(--tutor-danger);
+}
+.tutor-state-pill[data-tutor-state="speaking"],
+.tutor-state-pill[data-tutor-state="presenting"] {
+  border-color: rgba(15, 118, 110, 0.35);
+  background: var(--tutor-teal-soft);
+  color: #0b5953;
+}
+.tutor-state-pill[data-tutor-state="speaking"] .tutor-state-dot,
+.tutor-state-pill[data-tutor-state="presenting"] .tutor-state-dot {
+  background: var(--tutor-teal);
+}
+.tutor-state-pill[data-tutor-state="waiting"],
+.tutor-state-pill[data-tutor-state="ready"] {
+  border-color: rgba(30, 75, 130, 0.25);
+  background: var(--tutor-cobalt-soft);
+  color: var(--tutor-cobalt);
+}
+.tutor-state-pill[data-tutor-state="waiting"] .tutor-state-dot,
+.tutor-state-pill[data-tutor-state="ready"] .tutor-state-dot {
+  background: var(--tutor-cobalt);
+}
+.tutor-state-pill[data-tutor-state="thinking"],
+.tutor-state-pill[data-tutor-state="analyzing"],
+.tutor-state-pill[data-tutor-state="preparing"] {
+  border-color: rgba(184, 130, 40, 0.35);
+  background: rgba(184, 130, 40, 0.12);
+  color: #785012;
+}
+.tutor-state-pill[data-tutor-state="thinking"] .tutor-state-dot,
+.tutor-state-pill[data-tutor-state="analyzing"] .tutor-state-dot,
+.tutor-state-pill[data-tutor-state="preparing"] .tutor-state-dot {
+  background: var(--tutor-gold);
+}
+.tutor-state-pill[data-tutor-state="recovering"] {
+  border-color: rgba(166, 52, 42, 0.35);
+  background: rgba(184, 130, 40, 0.16);
+  color: #7c2d12;
+}
+
+/* Mode switcher */
+.tutor-mode-switcher {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 14px;
+  background: var(--tutor-surface-muted);
+  border: 1px solid var(--tutor-border);
+}
+.tutor-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--tutor-ink-soft);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms var(--tutor-ease), color 160ms var(--tutor-ease),
+    box-shadow 160ms var(--tutor-ease);
+}
+.tutor-mode-btn:hover {
+  color: var(--tutor-ink);
+}
+.tutor-mode-btn[aria-pressed="true"] {
+  background: var(--tutor-surface);
+  color: var(--tutor-cobalt);
+  box-shadow: var(--tutor-shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Main Workspace + Canvas (ONE persistent avatar host across all 4 modes)
+   -------------------------------------------------------------------------- */
+.tutor-call-workspace {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tutor-call-canvas {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 14px 16px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Persistent Avatar Host — NEVER unmounted; repositioned purely via layout CSS */
+.tutor-call-avatar-host {
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  background: radial-gradient(circle at 50% 30%, #fffdf8 0%, #f5ecdc 100%);
+  border: 1.5px solid var(--tutor-border);
+  box-shadow: var(--tutor-shadow-sm);
+  overflow: hidden;
+}
+
+.tutor-call-avatar-inner {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutor-pip-toolbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 6px 8px;
+  background: rgba(255, 250, 240, 0.94);
+  border-bottom: 1px solid var(--tutor-border);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.tutor-pip-toolbar:active {
+  cursor: grabbing;
+}
+.tutor-pip-toolbar-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.tutor-pip-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--tutor-border);
+  background: var(--tutor-surface);
+  color: var(--tutor-ink);
+  cursor: pointer;
+}
+.tutor-pip-icon-btn:hover {
+  background: var(--tutor-surface-muted);
+}
+
+/* Primary surface container (word card in call, flipchart in split/pip, practice in practice) */
+.tutor-call-primary-surface {
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  overflow: auto;
+}
+
+/* MODE A: Call — dominant avatar + calm companion card + optional camera */
+.tutor-call-shell[data-layout-mode="call"] .tutor-call-canvas {
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+.tutor-call-shell[data-layout-mode="call"] .tutor-call-avatar-host {
+  grid-column: 1;
+  grid-row: 1;
+}
+.tutor-call-shell[data-layout-mode="call"] .tutor-call-primary-surface {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* MODE B: Split screen — Gretel beside Flip Chart, pointer resizable */
+.tutor-call-shell[data-layout-mode="split"] .tutor-call-canvas {
+  grid-template-columns:
+    minmax(200px, calc(var(--tutor-split-ratio) * 100%))
+    14px
+    minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+}
+.tutor-call-shell[data-layout-mode="split"] .tutor-call-avatar-host {
+  grid-column: 1;
+  grid-row: 1;
+}
+.tutor-call-shell[data-layout-mode="split"] .tutor-split-divider {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+  touch-action: none;
+  user-select: none;
+}
+.tutor-call-shell[data-layout-mode="split"] .tutor-call-primary-surface {
+  grid-column: 3;
+  grid-row: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--tutor-surface);
+  border: 1.5px solid var(--tutor-border);
+  padding: 12px;
+}
+
+.tutor-split-divider {
+  display: none;
+}
+.tutor-split-handle {
+  width: 5px;
+  height: 52px;
+  border-radius: 999px;
+  background: var(--tutor-border-strong);
+  transition: background-color 140ms var(--tutor-ease), transform 140ms var(--tutor-ease);
+}
+.tutor-split-divider:hover .tutor-split-handle,
+.tutor-split-divider:focus-visible .tutor-split-handle {
+  background: var(--tutor-cobalt);
+  transform: scaleY(1.1);
+}
+
+/* MODE C: Full-screen Flip Chart + movable/resizable in-app PiP Gretel */
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-canvas {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-primary-surface {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--tutor-surface);
+  border: 1.5px solid var(--tutor-border);
+  padding: 12px;
+  overflow: hidden;
+}
+
+/* MODE D: Supervised practice — side panel (default) or non-overlapping PiP */
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-canvas {
+  grid-template-columns: minmax(0, 1fr) clamp(210px, 24vw, 290px);
+  grid-template-rows: minmax(0, 1fr);
+}
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-primary-surface {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--tutor-surface);
+  border: 1.5px solid var(--tutor-border);
+  padding: 12px;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: auto;
+}
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-avatar-host {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"] .tutor-call-canvas {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"] .tutor-call-primary-surface {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--tutor-surface);
+  border: 1.5px solid var(--tutor-border);
+  padding: 12px;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
+/* Floating PiP treatment (shared by Mode C and Mode D when practiceDock=pip) */
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-avatar-host,
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"] .tutor-call-avatar-host {
+  position: absolute;
+  bottom: 22px;
+  z-index: 30;
+  box-shadow: var(--tutor-shadow-lg);
+  transform: translate3d(var(--pip-x), var(--pip-y), 0);
+  transition: width 180ms var(--tutor-ease), height 180ms var(--tutor-ease);
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-avatar-host[data-pip-dragging="true"],
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-dragging="true"] {
+  transition: none;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-pip-toolbar,
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"] .tutor-pip-toolbar {
+  display: flex;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"]
+  .tutor-call-avatar-host[data-pip-corner="bottom-right"],
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-corner="bottom-right"] {
+  right: 22px;
+  left: auto;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"]
+  .tutor-call-avatar-host[data-pip-corner="bottom-left"],
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-corner="bottom-left"] {
+  left: 22px;
+  right: auto;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-avatar-host[data-pip-size="sm"],
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-size="sm"] {
+  width: 168px;
+  height: 214px;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-avatar-host[data-pip-size="md"],
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-size="md"] {
+  width: 220px;
+  height: 276px;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-avatar-host[data-pip-size="lg"],
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-size="lg"] {
+  width: 280px;
+  height: 344px;
+}
+
+/* Minimized PiP: visually collapses without unmounting the avatar DOM node! */
+.tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-avatar-host[data-pip-minimized="true"],
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-minimized="true"] {
+  width: 196px;
+  height: 46px;
+}
+.tutor-call-avatar-host[data-pip-minimized="true"] .tutor-call-avatar-inner {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Flip Chart aspect-ratio preservation container */
+.tutor-flipchart-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tutor-flipchart-sheet-box {
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Student camera optional slot */
+.tutor-camera-slot {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  border: 1.5px solid var(--tutor-border);
+  background: var(--tutor-surface);
+  overflow: hidden;
+  box-shadow: var(--tutor-shadow-sm);
+}
+
+/* Caption bar over avatar */
+.tutor-live-caption {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: rgba(42, 33, 27, 0.86);
+  color: #fffaf0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Transcript & Text-input side drawer */
+.tutor-transcript-drawer {
+  width: 320px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  background: var(--tutor-surface);
+  border-left: 1px solid var(--tutor-border);
+  z-index: 25;
+}
+.tutor-transcript-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--tutor-border);
+  font-weight: 800;
+  font-size: 0.9375rem;
+}
+.tutor-transcript-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--tutor-border-strong) transparent;
+}
+.tutor-transcript-item {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  border: 1px solid var(--tutor-border);
+  background: var(--tutor-paper);
+}
+.tutor-transcript-item[data-speaker="student"] {
+  background: var(--tutor-cobalt-soft);
+  border-color: rgba(30, 75, 130, 0.22);
+  align-self: flex-end;
+}
+.tutor-transcript-form {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--tutor-border);
+}
+.tutor-transcript-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--tutor-border-strong);
+  background: #fff;
+  color: var(--tutor-ink);
+  font-size: 0.9375rem;
+}
+
+/* Recording / Consent floating popover */
+.tutor-consent-popover {
+  position: absolute;
+  right: 16px;
+  bottom: 86px;
+  width: min(380px, calc(100vw - 32px));
+  max-height: 70svh;
+  overflow-y: auto;
+  border-radius: 18px;
+  background: var(--tutor-surface);
+  border: 1.5px solid var(--tutor-border-strong);
+  box-shadow: var(--tutor-shadow-lg);
+  padding: 16px;
+  z-index: 40;
+}
+
+/* Bottom Call Control Dock */
+.tutor-call-dock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 14px;
+  padding: 10px 16px;
+  background: rgba(255, 250, 240, 0.95);
+  border-top: 1px solid var(--tutor-border);
+  z-index: 25;
+}
+.tutor-call-dock-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.tutor-dock-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--tutor-border);
+  background: var(--tutor-surface);
+  color: var(--tutor-ink);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 150ms var(--tutor-ease), border-color 150ms var(--tutor-ease);
+}
+.tutor-dock-btn:hover:not(:disabled) {
+  background: var(--tutor-surface-muted);
+}
+.tutor-dock-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.tutor-dock-btn[aria-pressed="true"] {
+  background: var(--tutor-cobalt-soft);
+  border-color: rgba(30, 75, 130, 0.35);
+  color: var(--tutor-cobalt);
+}
+.tutor-dock-btn--danger {
+  background: var(--tutor-danger);
+  border-color: var(--tutor-danger);
+  color: #fffaf0;
+}
+.tutor-dock-btn--danger:hover:not(:disabled) {
+  background: #8c2920;
+}
+.tutor-dock-btn--interrupt {
+  border-color: rgba(184, 130, 40, 0.45);
+  background: rgba(184, 130, 40, 0.14);
+  color: #70490e;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive breakpoints: Phone portrait stacks cleanly
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) and (orientation: portrait) {
+  .tutor-call-shell[data-layout-mode="call"] .tutor-call-canvas {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(200px, 44%) minmax(0, 1fr);
   }
-  .tutor-controls {
-    grid-column: 1 / -1;
+  .tutor-call-shell[data-layout-mode="call"] .tutor-call-avatar-host {
+    grid-column: 1;
+    grid-row: 1;
   }
-  .tutor-figure {
+  .tutor-call-shell[data-layout-mode="call"] .tutor-call-primary-surface {
     grid-column: 1;
     grid-row: 2;
-    min-height: 0;
-    height: calc(100svh - 100px);
   }
-  .tutor-learning {
-    grid-column: 2;
+
+  /* Mode B stacks vertically on portrait phone with horizontal splitter */
+  .tutor-call-shell[data-layout-mode="split"] .tutor-call-canvas {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows:
+      minmax(160px, calc(var(--tutor-split-ratio) * 100%))
+      16px
+      minmax(0, 1fr);
+  }
+  .tutor-call-shell[data-layout-mode="split"] .tutor-call-avatar-host {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .tutor-call-shell[data-layout-mode="split"] .tutor-split-divider {
+    grid-column: 1;
     grid-row: 2;
-    gap: 20px;
+    cursor: row-resize;
   }
-  .tutor-word {
-    font-size: clamp(2.5rem, 7vw, 6rem);
+  .tutor-call-shell[data-layout-mode="split"] .tutor-split-handle {
+    width: 52px;
+    height: 5px;
   }
-}
-@media (max-height: 500px) and (orientation: landscape) {
-  .tutor-stage {
-    padding: 6px 18px 14px;
+  .tutor-call-shell[data-layout-mode="split"] .tutor-call-primary-surface {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  /* Mode D side dock becomes a non-overlapping top strip on portrait phone */
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-canvas {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 150px minmax(0, 1fr);
+  }
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-avatar-host {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
+    .tutor-call-primary-surface {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .tutor-transcript-drawer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tutor-dock-btn-label {
+    display: none;
+  }
+
+  .tutor-call-header {
+    padding: 8px 10px;
+    gap: 6px 8px;
+  }
+  .tutor-call-back {
+    min-height: 36px;
+    padding: 0 8px;
+    font-size: 0.8125rem;
+  }
+  .tutor-call-title {
+    font-size: 0.875rem;
+  }
+  .tutor-call-subtitle {
+    font-size: 0.75rem;
+  }
+  .tutor-state-pill {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+  .tutor-mode-switcher {
+    width: 100%;
+    justify-content: space-between;
+    gap: 2px;
+    padding: 3px;
+  }
+  .tutor-mode-btn {
+    flex: 1 1 0;
+    justify-content: center;
+    min-width: 0;
+    padding: 6px 4px;
+    font-size: 0.75rem;
     gap: 4px;
   }
-  .tutor-figure {
-    height: calc(100svh - 74px);
-    padding: 18px 24px;
-  }
-  .tutor-learning {
-    gap: 12px;
+  .tutor-call-canvas {
+    padding: 10px;
+    gap: 10px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .tutor-word-card {
-    padding: 12px 20px;
-    border-radius: 24px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 0;
+    padding: 14px 16px;
   }
-  .tutor-word {
-    font-size: clamp(2rem, 5vw, 3rem);
+  .tutor-live-caption {
+    font-size: 0.8125rem;
+    padding: 6px 10px;
+    overflow-wrap: anywhere;
   }
-  .tutor-response {
-    gap: 4px;
-  }
-  .tutor-word-card > div {
-    gap: 4px;
-  }
-  .tutor-caption {
-    font-size: 0.9rem;
+  .tutor-call-dock {
+    padding: 8px 10px;
+    gap: 6px 8px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
-@media (max-height: 500px) and (orientation: landscape) {
-  .tutor-response {
-    flex-direction: row;
-    align-items: center;
-  }
-  .tutor-response > section {
-    max-width: 260px;
-    padding: 8px 10px;
-  }
-  .tutor-response > section p {
-    font-size: 0.875rem;
+/* Reduced motion: zero decorative or layout tweening */
+@media (prefers-reduced-motion: reduce) {
+  .tutor-call-shell *,
+  .tutor-stage * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

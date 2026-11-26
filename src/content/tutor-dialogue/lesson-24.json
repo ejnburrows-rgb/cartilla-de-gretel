@@ -1,0 +1,728 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 24,
+  "batchIds": [
+    "B030"
+  ],
+  "entries": [
+    {
+      "id": "v2-l24-01-greeting-first",
+      "text": "Qué alegría llegar juntos a la lección veinticuatro, la última consonante de la cartilla.",
+      "batch": "B030",
+      "seq": 1,
+      "file": "B030-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-24-greeting-first",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88,
+          89,
+          90
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-02-lesson-focus",
+      "text": "La letra zeta camina en zigzag y en nuestro español suena suavecita como la ese.",
+      "batch": "B030",
+      "seq": 2,
+      "file": "B030-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-24-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88,
+          89,
+          90
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-03-flipchart-intro",
+      "text": "En las láminas sesenta y sesenta y uno leemos za, ze, zi, zo, zu con zapato.",
+      "batch": "B030",
+      "seq": 3,
+      "file": "B030-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-24-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88,
+          89,
+          90
+        ],
+        "flipchartSheets": [
+          60,
+          61
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-04-flipchart-rhyme",
+      "text": "En la lámina sesenta y dos paseamos en El carro-calabaza con Zulema rumbo a la plaza.",
+      "batch": "B030",
+      "seq": 4,
+      "file": "B030-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-24-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88,
+          89,
+          90
+        ],
+        "flipchartSheets": [
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-05-page-instruction",
+      "text": "En la página ochenta y ocho encierra cada sílaba en taza, zapato, zorro y zig-zag.",
+      "batch": "B030",
+      "seq": 5,
+      "file": "B030-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-24-page-instruction",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-06-word-practice",
+      "text": "Leemos palabras de la página ochenta y nueve: plaza, zumo, azul, lazo, azúcar y calabaza.",
+      "batch": "B030",
+      "seq": 6,
+      "file": "B030-006.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-24-word-practice",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          89
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-07-sentence-practice",
+      "text": "Lee con orgullo la historia de Zulema: Zulema toma zumo de melón con azúcar.",
+      "batch": "B030",
+      "seq": 7,
+      "file": "B030-007.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-24-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          89
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-08-sentence-practice",
+      "text": "Continuamos leyendo la página: Zila va con Zulema en un carro con ruedas de calabazas.",
+      "batch": "B030",
+      "seq": 8,
+      "file": "B030-008.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-24-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          89
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-09-page-instruction",
+      "text": "En la página noventa completa las últimas palabras para cerrar todo el libro.",
+      "batch": "B030",
+      "seq": 9,
+      "file": "B030-009.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-24-page-instruction",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          90
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-10-adaptive-coaching",
+      "text": "Recuerda que en español escribimos ce y ci como en dulce, y za, zo, zu.",
+      "batch": "B030",
+      "seq": 10,
+      "file": "B030-010.mp3",
+      "intent": "lesson-coaching",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-24-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88,
+          89
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-11-closing",
+      "text": "Llegaste al final de las veinticuatro lecciones de La Cartilla de Gretel. ¡Felicidades!",
+      "batch": "B030",
+      "seq": 11,
+      "file": "B030-011.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-24-closing",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88,
+          89,
+          90
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l24-12-closing",
+      "text": "Ya eres un lector valiente capaz de descubrir historias nuevas cada día.",
+      "batch": "B030",
+      "seq": 12,
+      "file": "B030-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-24-closing",
+      "curriculumRefs": {
+        "lesson": 24,
+        "printedPages": [
+          88,
+          89,
+          90
+        ],
+        "flipchartSheets": [
+          60,
+          61,
+          62
+        ],
+        "letters": [
+          "z"
+        ],
+        "words": [
+          "zapato",
+          "zorro",
+          "taza",
+          "lazo",
+          "zumo",
+          "azúcar",
+          "calabaza",
+          "Zulema"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          24
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "wave",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

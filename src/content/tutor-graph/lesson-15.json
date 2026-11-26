@@ -1,0 +1,733 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-15",
+  "lesson": 15,
+  "title": "Bb",
+  "kind": "consonant",
+  "focus": "B",
+  "printedWorkbookPages": {
+    "start": 51,
+    "end": 54,
+    "pages": [
+      51,
+      52,
+      53,
+      54
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 57,
+    "end": 60,
+    "sheets": [
+      57,
+      58,
+      59,
+      60
+    ]
+  },
+  "flipchartPages": [
+    33,
+    34,
+    35
+  ],
+  "prerequisiteLessons": [
+    "lesson-14"
+  ],
+  "nextLessons": [
+    "lesson-16"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 51,
+      "pdfSheet": 57,
+      "status": "verified",
+      "exerciseId": "l15-p51-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con b.",
+      "flipchartPrimaryPages": [
+        33
+      ],
+      "flipchartSupplementalPages": [
+        34,
+        35
+      ]
+    },
+    {
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "status": "verified",
+      "exerciseId": "l15-p52-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        33,
+        34
+      ],
+      "flipchartSupplementalPages": [
+        35
+      ]
+    },
+    {
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "status": "verified",
+      "exerciseId": "l15-p53-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        34
+      ],
+      "flipchartSupplementalPages": [
+        35
+      ]
+    },
+    {
+      "printedPage": 54,
+      "pdfSheet": 60,
+      "status": "verified",
+      "exerciseId": "l15-p54-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        34
+      ],
+      "flipchartSupplementalPages": [
+        33,
+        35
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "Beba",
+      "flipchartPage": 33,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-beba.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/beba.mp3"
+    },
+    {
+      "word": "Bubi",
+      "flipchartPage": 33,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bubi.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/bubi.mp3"
+    },
+    {
+      "word": "bate",
+      "flipchartPage": 33,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bate.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/bate.mp3"
+    },
+    {
+      "word": "bota",
+      "flipchartPage": 33,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bota.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/bota.mp3"
+    },
+    {
+      "word": "bebita",
+      "flipchartPage": 33,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p033-bebita.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/bebita.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l15-syllable-ba",
+      "lesson": 15,
+      "kind": "syllable",
+      "text": "ba",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-syllable-be",
+      "lesson": 15,
+      "kind": "syllable",
+      "text": "be",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-syllable-bi",
+      "lesson": 15,
+      "kind": "syllable",
+      "text": "bi",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-syllable-bo",
+      "lesson": 15,
+      "kind": "syllable",
+      "text": "bo",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-syllable-bu",
+      "lesson": 15,
+      "kind": "syllable",
+      "text": "bu",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-baño",
+      "lesson": 15,
+      "kind": "word",
+      "text": "baño",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bala",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bala",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-batir",
+      "lesson": 15,
+      "kind": "word",
+      "text": "batir",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-batea",
+      "lesson": 15,
+      "kind": "word",
+      "text": "batea",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-abanico",
+      "lesson": 15,
+      "kind": "word",
+      "text": "abanico",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/abanico.mp3",
+      "tutorLineId": "l1-model-abanico"
+    },
+    {
+      "id": "l15-word-loba",
+      "lesson": 15,
+      "kind": "word",
+      "text": "loba",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-sube",
+      "lesson": 15,
+      "kind": "word",
+      "text": "sube",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bebo",
+      "lesson": 15,
+      "kind": "word",
+      "text": "Bebo",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bebe",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bebé",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/bebé.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-abeja",
+      "lesson": 15,
+      "kind": "word",
+      "text": "abeja",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/abeja.mp3",
+      "tutorLineId": "l1-model-abeja"
+    },
+    {
+      "id": "l15-word-nube",
+      "lesson": 15,
+      "kind": "word",
+      "text": "nube",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-cubeta",
+      "lesson": 15,
+      "kind": "word",
+      "text": "cubeta",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bebida",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bebida",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-cabito",
+      "lesson": 15,
+      "kind": "word",
+      "text": "cabito",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bicicleta",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bicicleta",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bisagra",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bisagra",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bisonte",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bisonte",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-cubito",
+      "lesson": 15,
+      "kind": "word",
+      "text": "cubito",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-lobo",
+      "lesson": 15,
+      "kind": "word",
+      "text": "lobo",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bonita",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bonita",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-tubo",
+      "lesson": 15,
+      "kind": "word",
+      "text": "tubo",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bodega",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bodega",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bola",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bola",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-botella",
+      "lesson": 15,
+      "kind": "word",
+      "text": "botella",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-burro",
+      "lesson": 15,
+      "kind": "word",
+      "text": "burro",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/burro.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-aburre",
+      "lesson": 15,
+      "kind": "word",
+      "text": "aburre",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-aburrido",
+      "lesson": 15,
+      "kind": "word",
+      "text": "aburrido",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bulla",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bulla",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-abuso",
+      "lesson": 15,
+      "kind": "word",
+      "text": "abuso",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-buche",
+      "lesson": 15,
+      "kind": "word",
+      "text": "buche",
+      "printedPage": 52,
+      "pdfSheet": 58,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bota",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bota",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/bota.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bolo",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bolo",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bonito",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bonito",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bueno",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bueno",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bate",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bate",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/bate.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-bote",
+      "lesson": 15,
+      "kind": "word",
+      "text": "bote",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-cubo",
+      "lesson": 15,
+      "kind": "word",
+      "text": "cubo",
+      "printedPage": 54,
+      "pdfSheet": 60,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/cubo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-word-batido",
+      "lesson": 15,
+      "kind": "word",
+      "text": "batido",
+      "printedPage": 54,
+      "pdfSheet": 60,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sight-alto",
+      "lesson": 15,
+      "kind": "sight-word",
+      "text": "alto",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sight-con",
+      "lesson": 15,
+      "kind": "sight-word",
+      "text": "con",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sight-bueno",
+      "lesson": 15,
+      "kind": "sight-word",
+      "text": "bueno",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sentence-01",
+      "lesson": 15,
+      "kind": "sentence",
+      "text": "La nube sube y sube. Es una nube bonita.",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sentence-02",
+      "lesson": 15,
+      "kind": "sentence",
+      "text": "Bebo, batea la bola de Pepito.",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sentence-03",
+      "lesson": 15,
+      "kind": "sentence",
+      "text": "La bola sube y sube alto.",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sentence-04",
+      "lesson": 15,
+      "kind": "sentence",
+      "text": "La bola sube a la nube.",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sentence-05",
+      "lesson": 15,
+      "kind": "sentence",
+      "text": "Pepito batea la bola con el bate.",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sentence-06",
+      "lesson": 15,
+      "kind": "sentence",
+      "text": "La bola sube y sube alto también.",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l15-sentence-07",
+      "lesson": 15,
+      "kind": "sentence",
+      "text": "Pepito es bueno en la pelota.",
+      "printedPage": 53,
+      "pdfSheet": 59,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 53,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 38,
+      "sight-word": 3,
+      "sentence": 7
+    },
+    "itemsWithApprovedAudio": 7,
+    "itemsAudioPending": 46
+  }
+}

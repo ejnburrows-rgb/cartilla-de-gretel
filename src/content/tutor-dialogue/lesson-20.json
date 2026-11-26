@@ -1,0 +1,730 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 20,
+  "batchIds": [
+    "B026"
+  ],
+  "entries": [
+    {
+      "id": "v2-l20-01-greeting-first",
+      "text": "Bienvenidos a la lección veinte para practicar el soplido suave de la efe.",
+      "batch": "B026",
+      "seq": 1,
+      "file": "B026-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-20-greeting-first",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-02-lesson-focus",
+      "text": "Apoya suavemente los dientes de arriba en el labio inferior como soplando velitas.",
+      "batch": "B026",
+      "seq": 2,
+      "file": "B026-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-20-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-03-flipchart-intro",
+      "text": "En las láminas cuarenta y ocho y cuarenta y nueve practicamos fa, fe, fi, fo, fu.",
+      "batch": "B026",
+      "seq": 3,
+      "file": "B026-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-20-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-04-flipchart-rhyme",
+      "text": "En la lámina cincuenta celebramos la rima A la fiesta de familia con Fefita.",
+      "batch": "B026",
+      "seq": 4,
+      "file": "B026-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-20-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-05-page-instruction",
+      "text": "En la página setenta y uno escribe la efe alta con sus dos rayitas limpias.",
+      "batch": "B026",
+      "seq": 5,
+      "file": "B026-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-20-page-instruction",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-06-page-instruction",
+      "text": "En la página setenta y dos rodea fa, fe, fi, fo, fu en familia, Felo, fila y foto.",
+      "batch": "B026",
+      "seq": 6,
+      "file": "B026-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-20-page-instruction",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          72
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-07-sight-word-intro",
+      "text": "En la página setenta y tres aprendemos la palabrita nueva hay con hache muda.",
+      "batch": "B026",
+      "seq": 7,
+      "file": "B026-007.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-20-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          73
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-08-word-practice",
+      "text": "Leemos palabras conocidas de la lección: familia, faro, fino, fusta, teléfono y foca.",
+      "batch": "B026",
+      "seq": 8,
+      "file": "B026-008.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-20-word-practice",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          73
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-09-sentence-practice",
+      "text": "Lee con calma la oración inicial: La familia de Ofelia va a la finca de Felo.",
+      "batch": "B026",
+      "seq": 9,
+      "file": "B026-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-20-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          73
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-10-sentence-practice",
+      "text": "Ahora sigue leyendo: En la finca de Felo hay aves y ganado en fila.",
+      "batch": "B026",
+      "seq": 10,
+      "file": "B026-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-20-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          73
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-11-page-instruction",
+      "text": "En la página setenta y cuatro completa las palabras con las sílabas de la efe.",
+      "batch": "B026",
+      "seq": 11,
+      "file": "B026-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-20-page-instruction",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l20-12-closing",
+      "text": "Completaste las veinte primeras lecciones de la cartilla. Nos esperan cuatro letras más.",
+      "batch": "B026",
+      "seq": 12,
+      "file": "B026-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-20-closing",
+      "curriculumRefs": {
+        "lesson": 20,
+        "printedPages": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "flipchartSheets": [
+          48,
+          49,
+          50
+        ],
+        "letters": [
+          "f"
+        ],
+        "words": [
+          "familia",
+          "foto",
+          "faro",
+          "fila",
+          "foca",
+          "teléfono",
+          "Felo",
+          "Ofelia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

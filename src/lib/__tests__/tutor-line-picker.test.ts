@@ -10,13 +10,17 @@ import { findTutorItem } from "../tutor-content";
 import {
   RECENT_WINDOW,
   SEQUENCE_PAUSE_MS,
+  TEXT_ONLY_FALLBACK_LABEL,
   TUTOR_LINES,
   confusionLineIdFor,
   createLinePickerState,
+  modelDeliveryForItem,
   modelLineIdForItem,
+  pickContextualChain,
   pickLine,
   pickSequence,
   poolForRole,
+  resolveLineDelivery,
   type LinePickerState,
 } from "../tutor-line-picker";
 
@@ -207,5 +211,70 @@ describe("fixed line lookups", () => {
     expect(confusionLineIdFor("e")).toBe("l0-confusion-e");
     expect(confusionLineIdFor("u")).toBe("l0-confusion-u");
     expect(confusionLineIdFor("x")).toBeNull();
+  });
+});
+
+describe("Milestone 9: 24-lesson pools, chaining & honest text-only fallback", () => {
+  it("resolves lesson-scoped greeting-first pools across all 24 lessons", () => {
+    for (let lesson = 1; lesson <= 24; lesson++) {
+      const pool = poolForRole("greeting-first", lesson);
+      expect(pool.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("distinguishes approved audio from clearly labeled text-only fallback (never claims speech)", () => {
+    const approved = resolveLineDelivery("l1-model-oso");
+    expect(approved).toMatchObject({
+      deliveryMode: "approved-audio",
+      isSpeech: true,
+      fallbackLabel: null,
+    });
+    expect(approved?.audioSrc).toBeTruthy();
+
+    const pendingLegacy = resolveLineDelivery("l0-vowel-model-a");
+    expect(pendingLegacy).toMatchObject({
+      deliveryMode: "text-only-fallback",
+      isSpeech: false,
+      audioSrc: null,
+      fallbackLabel: TEXT_ONLY_FALLBACK_LABEL,
+    });
+
+    const scripted = resolveLineDelivery("v2-l07-01-greeting-first");
+    expect(scripted).toMatchObject({
+      deliveryMode: "text-only-fallback",
+      isSpeech: false,
+      audioSrc: null,
+      fallbackLabel: TEXT_ONLY_FALLBACK_LABEL,
+    });
+
+    const missingModel = modelDeliveryForItem({
+      id: "l24-word-unrecorded",
+      lesson: 24,
+      text: "xilófono",
+      kind: "word",
+      printedPage: 88,
+    });
+    expect(missingModel.deliveryMode).toBe("text-only-fallback");
+    expect(missingModel.isSpeech).toBe(false);
+    expect(missingModel.fallbackLabel).toBe(TEXT_ONLY_FALLBACK_LABEL);
+  });
+
+  it("chains whole utterances in order acknowledge -> explain -> example -> at most one question", () => {
+    const chain = pickContextualChain(
+      createLinePickerState(),
+      {
+        lesson: 7,
+        acknowledgeRole: "help",
+      },
+      seededRng(19),
+    );
+    expect(chain.steps.length).toBeGreaterThanOrEqual(2);
+    expect(chain.questionCount).toBeLessThanOrEqual(1);
+    const slotOrder = ["acknowledge", "explain", "example", "question"];
+    const indices = chain.steps.map((s) => slotOrder.indexOf(s.slot));
+    expect(indices).toEqual([...indices].sort((a, b) => a - b));
+    // All lineIds in the chain are unique whole utterances
+    const ids = chain.steps.map((s) => s.lineId).filter(Boolean);
+    expect(new Set(ids).size).toBe(ids.length);
   });
 });

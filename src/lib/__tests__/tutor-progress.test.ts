@@ -9,13 +9,17 @@ import {
   TUTOR_SESSION_NAMESPACE,
   appendTutorProgress,
   clearTutorProgress,
+  clearTutorProgressForLearner,
   flushTutorProgress,
   logTutorProgressEvent,
   makeSessionId,
   readTutorProgress,
+  readTutorProgressForLearner,
   uuidV5,
   type TutorProgressEvent,
 } from "../tutor-progress";
+import { TUTOR_MEMORY_KEY } from "../tutor-memory";
+import { TUTOR_PACK_MARKER_KEY } from "../tutor-offline-pack";
 
 // jsdom's crypto has no subtle; fall back to Node's Web Crypto.
 if (!(globalThis as { crypto?: { subtle?: unknown } }).crypto?.subtle) {
@@ -34,7 +38,6 @@ beforeEach(() => {
 
 describe("uuidV5 (RFC 4122 v5, SHA-1)", () => {
   it("matches the published RFC 4122 v5 known-answer vector", async () => {
-    // python.org under the DNS namespace (RFC 4122 test vector)
     expect(await uuidV5(DNS_NAMESPACE, "python.org")).toBe("886313e1-3b8a-5372-9b90-0c9aee199e5d");
   });
 
@@ -107,11 +110,21 @@ describe("progress event storage", () => {
     expect(stored[0].created_at).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
   });
 
-  it("never stores audio, name, or transcript fields, even if passed in", () => {
+  it("supports all 24 lessons and rejects out-of-range lesson IDs", () => {
+    appendTutorProgress({ ...baseEvent, lesson_id: 1, item_id: "l1-a" });
+    appendTutorProgress({ ...baseEvent, lesson_id: 24, item_id: "l24-z" });
+    expect(readTutorProgress().map((e) => e.lesson_id)).toEqual(["1", "24"]);
+
+    expect(() => appendTutorProgress({ ...baseEvent, lesson_id: 0 })).toThrow(/lesson_id/);
+    expect(() => appendTutorProgress({ ...baseEvent, lesson_id: 25 })).toThrow(/lesson_id/);
+    expect(() => appendTutorProgress({ ...baseEvent, lesson_id: "abc" })).toThrow(/lesson_id/);
+  });
+
+  it("never stores audio, image, name, or transcript fields, even if passed in", () => {
     appendTutorProgress({
       ...baseEvent,
-      // Hostile extras: must never reach storage.
       audio: "data:audio/webm;base64,XYZ",
+      image: "data:image/png;base64,IMG",
       name: "Sofia",
       transcript: "osho",
       extra_field: "anything",
@@ -127,6 +140,7 @@ describe("progress event storage", () => {
       "session_id",
     ]);
     expect(raw).not.toContain("audio");
+    expect(raw).not.toContain("image");
     expect(raw).not.toContain("transcript");
     expect(raw).not.toContain("extra_field");
     expect(raw).not.toContain("Sofia");
@@ -140,14 +154,31 @@ describe("progress event storage", () => {
     expect(stored.map((event) => event.item_id)).toEqual(["ola", "oveja"]);
   });
 
-  it("validates lesson, result, attempts, and item_id length", () => {
-    expect(() => appendTutorProgress({ ...baseEvent, lesson_id: 4 })).toThrow(/lesson_id/);
+  it("validates result, attempts, and item_id length", () => {
     expect(() => appendTutorProgress({ ...baseEvent, result: "almost" as never })).toThrow(
       /result/,
     );
     expect(() => appendTutorProgress({ ...baseEvent, attempts: 0 })).toThrow(/attempts/);
     expect(() => appendTutorProgress({ ...baseEvent, attempts: 4 })).toThrow(/attempts/);
     expect(() => appendTutorProgress({ ...baseEvent, item_id: "x".repeat(65) })).toThrow(/item_id/);
+  });
+
+  it("isolates progress per learner and clears one learner without touching memory or offline packs", () => {
+    localStorage.setItem(TUTOR_MEMORY_KEY, JSON.stringify({ learnerA: { sessions: 1 } }));
+    localStorage.setItem(TUTOR_PACK_MARKER_KEY, JSON.stringify({ version: "v1.1.0" }));
+
+    appendTutorProgress({ ...baseEvent, session_id: "learner-a", item_id: "a1" });
+    appendTutorProgress({ ...baseEvent, session_id: "learner-b", item_id: "b1" });
+
+    expect(readTutorProgressForLearner("learner-a").map((e) => e.item_id)).toEqual(["a1"]);
+    expect(readTutorProgressForLearner("learner-b").map((e) => e.item_id)).toEqual(["b1"]);
+
+    clearTutorProgressForLearner("learner-a");
+    expect(readTutorProgressForLearner("learner-a")).toEqual([]);
+    expect(readTutorProgressForLearner("learner-b").map((e) => e.item_id)).toEqual(["b1"]);
+    // Memory and offline pack keys remain completely intact
+    expect(localStorage.getItem(TUTOR_MEMORY_KEY)).toBe(JSON.stringify({ learnerA: { sessions: 1 } }));
+    expect(localStorage.getItem(TUTOR_PACK_MARKER_KEY)).toBe(JSON.stringify({ version: "v1.1.0" }));
   });
 
   it("uses the exact spec §10 localStorage key", () => {
@@ -180,20 +211,21 @@ describe("FIFO bound and flush helpers", () => {
   it("flush persists buffered events and returns the stored count", () => {
     logTutorProgressEvent(event(1));
     logTutorProgressEvent(event(2));
-    // Nothing persisted before the flush.
     expect(readTutorProgress()).toHaveLength(0);
     expect(flushTutorProgress()).toBe(2);
     expect(readTutorProgress()).toHaveLength(2);
-    expect(flushTutorProgress()).toBe(2); // idempotent
+    expect(flushTutorProgress()).toBe(2);
   });
 
-  it("clearTutorProgress erases stored events and any pending buffer", () => {
+  it("clearTutorProgress erases stored events and any pending buffer without touching offline packs", () => {
+    localStorage.setItem(TUTOR_PACK_MARKER_KEY, JSON.stringify({ version: "v1.1.0" }));
     appendTutorProgress(event(1));
     logTutorProgressEvent(event(2));
     clearTutorProgress();
     expect(readTutorProgress()).toHaveLength(0);
     expect(flushTutorProgress()).toBe(0);
     expect(localStorage.getItem(TUTOR_PROGRESS_KEY)).toBeNull();
+    expect(localStorage.getItem(TUTOR_PACK_MARKER_KEY)).toBe(JSON.stringify({ version: "v1.1.0" }));
   });
 
   it("survives an unreadable stored value without throwing", () => {

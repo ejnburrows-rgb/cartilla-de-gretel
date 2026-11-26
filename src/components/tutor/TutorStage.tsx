@@ -8,6 +8,12 @@ export interface TutorStageProps {
   status?: ReactNode;
   controls?: ReactNode;
 }
+
+/**
+ * Legacy simple stage preserved for backwards compatibility with any direct
+ * callers; `/tutor/$n` now uses `TutorCallShell` for the 4-mode persistent
+ * video-call experience.
+ */
 export function TutorStage({ gretel, card, mic, status, controls }: TutorStageProps) {
   return (
     <main data-tutor-stage="" className="tutor-stage">
@@ -27,4 +33,5 @@ export function TutorStage({ gretel, card, mic, status, controls }: TutorStagePr
     </main>
   );
 }
+
 export default TutorStage;

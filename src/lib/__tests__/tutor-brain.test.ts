@@ -11,9 +11,11 @@ import { findTutorItem, itemsForLesson } from "../tutor-content";
 import {
   IDLE_TIMEOUT_MS,
   SPANISH_CARRIER_WORDS,
+  buildCoachingResponse,
   buildListenGrammar,
   createBrainState,
   currentTargetItem,
+  recommendedEarsMode,
   reduce,
   type BrainEvent,
   type BrainState,
@@ -647,5 +649,64 @@ describe("purity", () => {
     const b = reduce(tapped, ev, rng0);
     expect(a).toEqual(b);
     expect(a.state.attempts).toBe(1);
+  });
+});
+
+describe("Milestone 9: 24-lesson brain, confidence gating, interrupt & coaching chains", () => {
+  it("runs Lessons 4–24 cleanly with v2 greetings and buildListenGrammar", () => {
+    for (const lesson of [4, 7, 12, 18, 24]) {
+      const start = brain(lesson);
+      expect(start.items.length).toBeGreaterThan(0);
+
+      const greeted = reduce(start, { type: "START" }, rng0);
+      expect(greeted.state.phase).toBe("GREET");
+      expect(lineIds(greeted.effects).length).toBeGreaterThan(0);
+
+      const grammar = buildListenGrammar(lesson);
+      expect(grammar).toContain("[unk]");
+      expect(grammar.length).toBeGreaterThan(10);
+    }
+  });
+
+  it("NEVER grades unreliable or low-confidence transcripts as counted attempts", () => {
+    const state = toListen(1);
+    const tapped = reduce(state, { type: "MIC_TAP" }, rng0).state;
+
+    const lowConf = reduce(
+      tapped,
+      { type: "HEARD", transcript: "e", alternatives: [], confidence: 0.25, reliable: false },
+      rng0,
+    );
+    expect(lowConf.state.phase).toBe("LISTEN");
+    expect(lowConf.state.attempts).toBe(0);
+    expect(lowConf.effects.some((e) => e.type === "markWrongErase")).toBe(false);
+    expect(lineIds(lowConf.effects)[0]).toMatch(/^l0-noise-/);
+  });
+
+  it("supports always-available INTERRUPT from any active phase", () => {
+    const greeted = drive(brain(1), [{ type: "START" }]).state;
+    const interrupted = reduce(greeted, { type: "INTERRUPT" }, rng0);
+    expect(interrupted.state.phase).toBe("LISTEN");
+    expect(interrupted.state.capturing).toBe(false);
+    expect(interrupted.effects).toEqual([{ type: "cancelSpeech" }, { type: "stopMic" }]);
+  });
+
+  it("recommends constrained mode during active item LISTEN and broad mode outside it", () => {
+    expect(recommendedEarsMode(brain(7))).toBe("broad");
+    expect(recommendedEarsMode(toListen(7))).toBe("constrained");
+  });
+
+  it("builds a compatible whole-utterance coaching chain with honest text-only fallback labels", () => {
+    const state = toListen(7);
+    const { chain, effects } = buildCoachingResponse(state, "help", rng0);
+    expect(chain.steps.length).toBeGreaterThanOrEqual(2);
+    expect(chain.questionCount).toBeLessThanOrEqual(1);
+    expect(effects[0].type).toBe("presentChain");
+    for (const step of chain.steps) {
+      if (step.deliveryMode === "text-only-fallback") {
+        expect(step.isSpeech).toBe(false);
+        expect(step.fallbackLabel).toContain("Solo texto");
+      }
+    }
   });
 });

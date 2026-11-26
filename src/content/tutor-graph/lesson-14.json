@@ -1,0 +1,680 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-14",
+  "lesson": 14,
+  "title": "Ññ",
+  "kind": "consonant",
+  "focus": "Ñ",
+  "printedWorkbookPages": {
+    "start": 47,
+    "end": 50,
+    "pages": [
+      47,
+      48,
+      49,
+      50
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 53,
+    "end": 56,
+    "sheets": [
+      53,
+      54,
+      55,
+      56
+    ]
+  },
+  "flipchartPages": [
+    30,
+    31,
+    32
+  ],
+  "prerequisiteLessons": [
+    "lesson-13"
+  ],
+  "nextLessons": [
+    "lesson-15"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 47,
+      "pdfSheet": 53,
+      "status": "verified",
+      "exerciseId": "l14-p47-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con ñ.",
+      "flipchartPrimaryPages": [
+        30
+      ],
+      "flipchartSupplementalPages": [
+        31,
+        32
+      ]
+    },
+    {
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "status": "verified",
+      "exerciseId": "l14-p48-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        30,
+        31
+      ],
+      "flipchartSupplementalPages": [
+        32
+      ]
+    },
+    {
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "status": "verified",
+      "exerciseId": "l14-p49-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        31
+      ],
+      "flipchartSupplementalPages": [
+        32
+      ]
+    },
+    {
+      "printedPage": 50,
+      "pdfSheet": 56,
+      "status": "verified",
+      "exerciseId": "l14-p50-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        31
+      ],
+      "flipchartSupplementalPages": [
+        30,
+        32
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "piñata",
+      "flipchartPage": 30,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-pinata.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/piñata.mp3"
+    },
+    {
+      "word": "Ñuno",
+      "flipchartPage": 30,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-nuno.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ñuno.mp3"
+    },
+    {
+      "word": "niñito",
+      "flipchartPage": 30,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-ninito.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/niñito.mp3"
+    },
+    {
+      "word": "moño",
+      "flipchartPage": 30,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-mono.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/moño.mp3"
+    },
+    {
+      "word": "Meñe",
+      "flipchartPage": 30,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p030-mene.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/meñe.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l14-syllable-ña",
+      "lesson": 14,
+      "kind": "syllable",
+      "text": "ña",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-syllable-ñe",
+      "lesson": 14,
+      "kind": "syllable",
+      "text": "ñe",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-syllable-ñi",
+      "lesson": 14,
+      "kind": "syllable",
+      "text": "ñi",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-syllable-ño",
+      "lesson": 14,
+      "kind": "syllable",
+      "text": "ño",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-syllable-ñu",
+      "lesson": 14,
+      "kind": "syllable",
+      "text": "ñu",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-maña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "maña",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-mañana",
+      "lesson": 14,
+      "kind": "word",
+      "text": "mañana",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-montaña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "montaña",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-ñame",
+      "lesson": 14,
+      "kind": "word",
+      "text": "ñame",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-araña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "araña",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/araña.mp3",
+      "tutorLineId": "l1-model-araña"
+    },
+    {
+      "id": "l14-word-caña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "caña",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-meñe",
+      "lesson": 14,
+      "kind": "word",
+      "text": "Meñe",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/meñe.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-añejo",
+      "lesson": 14,
+      "kind": "word",
+      "text": "añejo",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-sueñe",
+      "lesson": 14,
+      "kind": "word",
+      "text": "sueñe",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-adueñe",
+      "lesson": 14,
+      "kind": "word",
+      "text": "adueñe",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-cañengo",
+      "lesson": 14,
+      "kind": "word",
+      "text": "cañengo",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-apañe",
+      "lesson": 14,
+      "kind": "word",
+      "text": "apañe",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-añico",
+      "lesson": 14,
+      "kind": "word",
+      "text": "añico",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-pañito",
+      "lesson": 14,
+      "kind": "word",
+      "text": "pañito",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-cañita",
+      "lesson": 14,
+      "kind": "word",
+      "text": "cañita",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-niñito",
+      "lesson": 14,
+      "kind": "word",
+      "text": "niñito",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/niñito.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-arañita",
+      "lesson": 14,
+      "kind": "word",
+      "text": "arañita",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-reñido",
+      "lesson": 14,
+      "kind": "word",
+      "text": "reñido",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-moño",
+      "lesson": 14,
+      "kind": "word",
+      "text": "moño",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/moño.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-niño",
+      "lesson": 14,
+      "kind": "word",
+      "text": "niño",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/niño.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-sueño",
+      "lesson": 14,
+      "kind": "word",
+      "text": "sueño",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-ñoña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "Ñoña",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-año",
+      "lesson": 14,
+      "kind": "word",
+      "text": "año",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-ñuco",
+      "lesson": 14,
+      "kind": "word",
+      "text": "Ñuco",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-ñuto",
+      "lesson": 14,
+      "kind": "word",
+      "text": "Ñuto",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-cañuto",
+      "lesson": 14,
+      "kind": "word",
+      "text": "cañuto",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-moñudo",
+      "lesson": 14,
+      "kind": "word",
+      "text": "moñudo",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-ceñudo",
+      "lesson": 14,
+      "kind": "word",
+      "text": "ceñudo",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-pañuelo",
+      "lesson": 14,
+      "kind": "word",
+      "text": "pañuelo",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-puño",
+      "lesson": 14,
+      "kind": "word",
+      "text": "puño",
+      "printedPage": 48,
+      "pdfSheet": 54,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-niña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "niña",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-sueña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "sueña",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-paño",
+      "lesson": 14,
+      "kind": "word",
+      "text": "paño",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-piña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "piña",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-word-uña",
+      "lesson": 14,
+      "kind": "word",
+      "text": "uña",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uña.mp3",
+      "tutorLineId": "l1-model-uña"
+    },
+    {
+      "id": "l14-word-añitos",
+      "lesson": 14,
+      "kind": "word",
+      "text": "añitos",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-sight-del",
+      "lesson": 14,
+      "kind": "sight-word",
+      "text": "del",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-sentence-01",
+      "lesson": 14,
+      "kind": "sentence",
+      "text": "Meñe es dueña de esa piñata.",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-sentence-02",
+      "lesson": 14,
+      "kind": "sentence",
+      "text": "La piñata es del año pasado.",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-sentence-03",
+      "lesson": 14,
+      "kind": "sentence",
+      "text": "La piñata está en el patio.",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-sentence-04",
+      "lesson": 14,
+      "kind": "sentence",
+      "text": "Noña tiene una niña.",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-sentence-05",
+      "lesson": 14,
+      "kind": "sentence",
+      "text": "La niña tiene sueño.",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l14-sentence-06",
+      "lesson": 14,
+      "kind": "sentence",
+      "text": "Noña le pone el pañal a la niña.",
+      "printedPage": 49,
+      "pdfSheet": 55,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 48,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 36,
+      "sight-word": 1,
+      "sentence": 6
+    },
+    "itemsWithApprovedAudio": 6,
+    "itemsAudioPending": 42
+  }
+}

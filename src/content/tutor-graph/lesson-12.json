@@ -1,0 +1,669 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-12",
+  "lesson": 12,
+  "title": "Ll",
+  "kind": "consonant",
+  "focus": "L",
+  "printedWorkbookPages": {
+    "start": 39,
+    "end": 42,
+    "pages": [
+      39,
+      40,
+      41,
+      42
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 45,
+    "end": 48,
+    "sheets": [
+      45,
+      46,
+      47,
+      48
+    ]
+  },
+  "flipchartPages": [
+    24,
+    25,
+    26
+  ],
+  "prerequisiteLessons": [
+    "lesson-11"
+  ],
+  "nextLessons": [
+    "lesson-13"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 39,
+      "pdfSheet": 45,
+      "status": "verified",
+      "exerciseId": "l12-p39-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con l.",
+      "flipchartPrimaryPages": [
+        24
+      ],
+      "flipchartSupplementalPages": [
+        25,
+        26
+      ]
+    },
+    {
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "status": "verified",
+      "exerciseId": "l12-p40-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        24,
+        25
+      ],
+      "flipchartSupplementalPages": [
+        26
+      ]
+    },
+    {
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "status": "verified",
+      "exerciseId": "l12-p41-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        25
+      ],
+      "flipchartSupplementalPages": [
+        26
+      ]
+    },
+    {
+      "printedPage": 42,
+      "pdfSheet": 48,
+      "status": "verified",
+      "exerciseId": "l12-p42-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        25
+      ],
+      "flipchartSupplementalPages": [
+        24,
+        26
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "maleta",
+      "flipchartPage": 24,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-maleta.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/maleta.mp3"
+    },
+    {
+      "word": "lata",
+      "flipchartPage": 24,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-lata.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/lata.mp3"
+    },
+    {
+      "word": "Luli",
+      "flipchartPage": 24,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/luli.mp3"
+    },
+    {
+      "word": "loma",
+      "flipchartPage": 24,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/loma.mp3"
+    },
+    {
+      "word": "Lala",
+      "flipchartPage": 24,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p024-lala.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/lala.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l12-syllable-la",
+      "lesson": 12,
+      "kind": "syllable",
+      "text": "la",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-syllable-le",
+      "lesson": 12,
+      "kind": "syllable",
+      "text": "le",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-syllable-li",
+      "lesson": 12,
+      "kind": "syllable",
+      "text": "li",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-syllable-lo",
+      "lesson": 12,
+      "kind": "syllable",
+      "text": "lo",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-syllable-lu",
+      "lesson": 12,
+      "kind": "syllable",
+      "text": "lu",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lata",
+      "lesson": 12,
+      "kind": "word",
+      "text": "lata",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/lata.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-mala",
+      "lesson": 12,
+      "kind": "word",
+      "text": "mala",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-pala",
+      "lesson": 12,
+      "kind": "word",
+      "text": "pala",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lamas",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Lamas",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-mula",
+      "lesson": 12,
+      "kind": "word",
+      "text": "mula",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-pila",
+      "lesson": 12,
+      "kind": "word",
+      "text": "pila",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-leo",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Leo",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-aleta",
+      "lesson": 12,
+      "kind": "word",
+      "text": "aleta",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-saleta",
+      "lesson": 12,
+      "kind": "word",
+      "text": "saleta",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-maleta",
+      "lesson": 12,
+      "kind": "word",
+      "text": "maleta",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/maleta.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-sale",
+      "lesson": 12,
+      "kind": "word",
+      "text": "sale",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-paleta",
+      "lesson": 12,
+      "kind": "word",
+      "text": "paleta",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lima",
+      "lesson": 12,
+      "kind": "word",
+      "text": "lima",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lila",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Lila",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-alita",
+      "lesson": 12,
+      "kind": "word",
+      "text": "alita",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-liso",
+      "lesson": 12,
+      "kind": "word",
+      "text": "liso",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-palito",
+      "lesson": 12,
+      "kind": "word",
+      "text": "palito",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-limon",
+      "lesson": 12,
+      "kind": "word",
+      "text": "limón",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-pelota",
+      "lesson": 12,
+      "kind": "word",
+      "text": "pelota",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-palo",
+      "lesson": 12,
+      "kind": "word",
+      "text": "palo",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lolo",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Lolo",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-polo",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Polo",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lola",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Lola",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-paloma",
+      "lesson": 12,
+      "kind": "word",
+      "text": "paloma",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lupa",
+      "lesson": 12,
+      "kind": "word",
+      "text": "lupa",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-pelusa",
+      "lesson": 12,
+      "kind": "word",
+      "text": "pelusa",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-luli",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Luli",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/luli.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-luna",
+      "lesson": 12,
+      "kind": "word",
+      "text": "luna",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-saluda",
+      "lesson": 12,
+      "kind": "word",
+      "text": "saluda",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lupe",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Lupe",
+      "printedPage": 40,
+      "pdfSheet": 46,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lomo",
+      "lesson": 12,
+      "kind": "word",
+      "text": "lomo",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-lilo",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Lilo",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-tela",
+      "lesson": 12,
+      "kind": "word",
+      "text": "tela",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-tula",
+      "lesson": 12,
+      "kind": "word",
+      "text": "Tula",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-word-solo",
+      "lesson": 12,
+      "kind": "word",
+      "text": "solo",
+      "printedPage": 42,
+      "pdfSheet": 48,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-sight-tambien",
+      "lesson": 12,
+      "kind": "sight-word",
+      "text": "también",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-sentence-01",
+      "lesson": 12,
+      "kind": "sentence",
+      "text": "La maleta de Luli está en la mesa.",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-sentence-02",
+      "lesson": 12,
+      "kind": "sentence",
+      "text": "La tela de la maleta tiene pelusas.",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-sentence-03",
+      "lesson": 12,
+      "kind": "sentence",
+      "text": "La maleta de Polo es de tela.",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-sentence-04",
+      "lesson": 12,
+      "kind": "sentence",
+      "text": "Mamá le da la maleta a Polo.",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-sentence-05",
+      "lesson": 12,
+      "kind": "sentence",
+      "text": "Polo toma su maleta de tela.",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l12-sentence-06",
+      "lesson": 12,
+      "kind": "sentence",
+      "text": "Lalo tiene una maleta de tela también.",
+      "printedPage": 41,
+      "pdfSheet": 47,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 47,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 35,
+      "sight-word": 1,
+      "sentence": 6
+    },
+    "itemsWithApprovedAudio": 3,
+    "itemsAudioPending": 44
+  }
+}

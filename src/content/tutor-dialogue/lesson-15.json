@@ -1,0 +1,730 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 15,
+  "batchIds": [
+    "B021"
+  ],
+  "entries": [
+    {
+      "id": "v2-l15-01-greeting-first",
+      "text": "Llegamos a la lección quince para leer y jugar con la letra be.",
+      "batch": "B021",
+      "seq": 1,
+      "file": "B021-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-15-greeting-first",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-02-lesson-focus",
+      "text": "Junta los labios con voz suave para decir bebé, bola, bota y nube.",
+      "batch": "B021",
+      "seq": 2,
+      "file": "B021-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-15-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-03-flipchart-intro",
+      "text": "En las láminas treinta y tres y treinta y cuatro leemos ba, be, bi, bo, bu con Beba.",
+      "batch": "B021",
+      "seq": 3,
+      "file": "B021-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-15-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-04-flipchart-rhyme",
+      "text": "En la lámina treinta y cinco seguimos Sube la bola mientras Bebo batea alto.",
+      "batch": "B021",
+      "seq": 4,
+      "file": "B021-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-15-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-05-page-instruction",
+      "text": "En la página cincuenta y uno practica la be cuidando sus barriguita redondas.",
+      "batch": "B021",
+      "seq": 5,
+      "file": "B021-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-15-page-instruction",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-06-page-instruction",
+      "text": "En la página cincuenta y dos encierra ba, be, bi, bo, bu en abanico, nube y lobo.",
+      "batch": "B021",
+      "seq": 6,
+      "file": "B021-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-15-page-instruction",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          52
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-07-sight-word-intro",
+      "text": "En la página cincuenta y tres practicamos tres palabras nuevas: alto, con y bueno.",
+      "batch": "B021",
+      "seq": 7,
+      "file": "B021-007.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-15-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          53
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-08-word-practice",
+      "text": "Lee conmigo palabras de esta lección: baño, bota, bolo, bonito, bote y cubito.",
+      "batch": "B021",
+      "seq": 8,
+      "file": "B021-008.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-15-word-practice",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          53
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-09-sentence-practice",
+      "text": "Sigue esta oración con tu dedo: La nube sube y sube, es una nube bonita.",
+      "batch": "B021",
+      "seq": 9,
+      "file": "B021-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-15-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          53
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-10-sentence-practice",
+      "text": "Ahora lee esta historia de pelota: Pepito batea la bola con el bate.",
+      "batch": "B021",
+      "seq": 10,
+      "file": "B021-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-15-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          53
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-11-page-instruction",
+      "text": "En la página cincuenta y cuatro completa las palabras con las sílabas de la be.",
+      "batch": "B021",
+      "seq": 11,
+      "file": "B021-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-15-page-instruction",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l15-12-closing",
+      "text": "Bateaste todas las palabras de la be hasta las nubes. Seguimos con la uve.",
+      "batch": "B021",
+      "seq": 12,
+      "file": "B021-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-15-closing",
+      "curriculumRefs": {
+        "lesson": 15,
+        "printedPages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "flipchartSheets": [
+          33,
+          34,
+          35
+        ],
+        "letters": [
+          "b"
+        ],
+        "words": [
+          "bebé",
+          "bota",
+          "bola",
+          "nube",
+          "bate",
+          "lobo",
+          "Bebo",
+          "alto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          15
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

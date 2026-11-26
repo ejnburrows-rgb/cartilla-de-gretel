@@ -1,29 +1,43 @@
 /**
- * Tutor memory tests (GRETEL-TUTOR-BUILD-SPEC §18.4, §18.6).
+ * Tutor memory tests (GRETEL-TUTOR-BUILD-SPEC §18.4, §18.6, Milestone 10).
  *
  * Locks: returning-child detection (greeting-return vs greeting-first),
- * the review-round set, pacing hints, best-streak updates, the no-PII shape
- * of the persisted store, corrupt-data tolerance, and clear-all
- * ("Borrar memoria"). Storage is injected — tests never touch localStorage.
+ * lessons 1–24 support, bounded per-learner & conversation memory,
+ * strict isolation between learners, no raw audio/images/transcripts/names,
+ * corrupt-data & quota tolerance, and authorized clearing leaving offline
+ * packs and progress logs intact.
  */
 import { describe, expect, it } from "vitest";
 import {
   DEFAULT_PAUSE_MS,
   SLOW_PACE_PAUSE_MS,
+  TUTOR_CONVERSATION_MAX_TURNS,
+  TUTOR_CONVERSATION_MEMORY_KEY,
   TUTOR_MEMORY_KEY,
+  TUTOR_MEMORY_MAX_MISSED_ITEMS,
   beginSession,
   clearAllTutorMemory,
+  clearLearnerTutorMemory,
+  getConversationMemory,
   getTutorMemory,
   greetingRole,
+  listTutorMemoryLearners,
   noteMissedItem,
   pacingFor,
+  recordConversationTurn,
   recordStreak,
   reviewRoundSet,
   streakPraiseDue,
   type TutorMemoryStorage,
 } from "../tutor-memory";
+import { TUTOR_PACK_MARKER_KEY } from "../tutor-offline-pack";
+import { TUTOR_PROGRESS_KEY } from "../tutor-progress";
 
-function fakeStore(): TutorMemoryStorage & { raw: () => string | null } {
+function fakeStore(): TutorMemoryStorage & {
+  raw: () => string | null;
+  rawConversation: () => string | null;
+  dump: () => Map<string, string>;
+} {
   const data = new Map<string, string>();
   return {
     getItem: (key) => data.get(key) ?? null,
@@ -34,10 +48,12 @@ function fakeStore(): TutorMemoryStorage & { raw: () => string | null } {
       data.delete(key);
     },
     raw: () => data.get(TUTOR_MEMORY_KEY) ?? null,
+    rawConversation: () => data.get(TUTOR_CONVERSATION_MEMORY_KEY) ?? null,
+    dump: () => data,
   };
 }
 
-describe("beginSession: returning-child detection", () => {
+describe("beginSession: returning-child detection across lessons 1–24", () => {
   it("first visit is a first-time greeting", () => {
     const store = fakeStore();
     const { record, returning } = beginSession(store, "classA:7", 1);
@@ -47,32 +63,40 @@ describe("beginSession: returning-child detection", () => {
     expect(record.lastLesson).toBe(1);
   });
 
-  it("second visit plays the greeting-return line", () => {
+  it("second visit plays the greeting-return line and supports lessons up to 24", () => {
     const store = fakeStore();
     beginSession(store, "classA:7", 1);
-    const { record, returning } = beginSession(store, "classA:7", 2);
+    const { record, returning } = beginSession(store, "classA:7", 18);
     expect(returning).toBe(true);
     expect(greetingRole(returning)).toBe("greeting-return");
     expect(record.sessions).toBe(2);
-    expect(record.lastLesson).toBe(2);
+    expect(record.lastLesson).toBe(18);
   });
 
-  it("keeps session_ids independent", () => {
+  it("keeps session_ids strictly independent", () => {
     const store = fakeStore();
     beginSession(store, "classA:7", 1);
     const { returning } = beginSession(store, "classA:8", 1);
     expect(returning).toBe(false);
+    expect(listTutorMemoryLearners(store).sort()).toEqual(["classA:7", "classA:8"]);
   });
 });
 
 describe("missed items and the review-round set", () => {
-  it("records missed item ids, deduped, and reads them back", () => {
+  it("records missed item ids, deduped and bounded, and reads them back", () => {
     const store = fakeStore();
     beginSession(store, "classA:7", 1);
     noteMissedItem(store, "classA:7", "l1-vowel-a");
     noteMissedItem(store, "classA:7", "l1-vowel-a");
     noteMissedItem(store, "classA:7", "l1-word-oso");
     expect(getTutorMemory(store, "classA:7").missedItemIds).toEqual(["l1-vowel-a", "l1-word-oso"]);
+
+    for (let i = 0; i < TUTOR_MEMORY_MAX_MISSED_ITEMS + 15; i += 1) {
+      noteMissedItem(store, "classA:7", `item-${i}`);
+    }
+    expect(getTutorMemory(store, "classA:7").missedItemIds).toHaveLength(
+      TUTOR_MEMORY_MAX_MISSED_ITEMS,
+    );
   });
 
   it("beginSession resets the current misses and hands back last time's", () => {
@@ -127,8 +151,50 @@ describe("pacing hints (§18.4)", () => {
   });
 });
 
-describe("privacy: no names, audio, or transcripts", () => {
-  it("the serialized store never contains name/audio/transcript data", () => {
+describe("bounded per-learner conversation memory", () => {
+  it("bounds turns per learner, isolates learners, and strips raw audio/images/transcripts", () => {
+    const store = fakeStore();
+    for (let i = 0; i < TUTOR_CONVERSATION_MAX_TURNS + 8; i += 1) {
+      recordConversationTurn(store, "learner-a", {
+        lesson: 7,
+        itemId: `l7-syl-${i}`,
+        outcome: "correct",
+        hintUsed: i % 2 === 0,
+        attempts: 1,
+        // Hostile extras must never be persisted
+        ...({
+          audio: "data:audio/webm;base64,AAA",
+          image: "data:image/png;base64,BBB",
+          transcript: "raw student speech",
+          name: "Mateo",
+        } as object),
+      });
+    }
+    recordConversationTurn(store, "learner-b", {
+      lesson: 12,
+      itemId: "l12-word-casa",
+      outcome: "missed",
+      hintUsed: true,
+      attempts: 2,
+    });
+
+    const turnsA = getConversationMemory(store, "learner-a");
+    const turnsB = getConversationMemory(store, "learner-b");
+    expect(turnsA).toHaveLength(TUTOR_CONVERSATION_MAX_TURNS);
+    expect(turnsA[0].itemId).toBe("l7-syl-8");
+    expect(turnsB).toHaveLength(1);
+    expect(turnsB[0].itemId).toBe("l12-word-casa");
+
+    const raw = store.rawConversation() ?? "";
+    expect(raw).not.toContain("audio");
+    expect(raw).not.toContain("image");
+    expect(raw).not.toContain("transcript");
+    expect(raw).not.toContain("Mateo");
+  });
+});
+
+describe("privacy: no names, audio, images, or transcripts", () => {
+  it("the serialized store never contains name/audio/image/transcript data", () => {
     const store = fakeStore();
     beginSession(store, "classA:7", 2);
     noteMissedItem(store, "classA:7", "l1-vowel-a");
@@ -138,6 +204,7 @@ describe("privacy: no names, audio, or transcripts", () => {
     expect(raw).not.toBeNull();
     expect(raw).not.toMatch(/name/i);
     expect(raw).not.toMatch(/audio/i);
+    expect(raw).not.toMatch(/image/i);
     expect(raw).not.toMatch(/transcript/i);
     expect(raw).not.toMatch(/apellido/i);
 
@@ -166,19 +233,64 @@ describe("privacy: no names, audio, or transcripts", () => {
   });
 });
 
-describe("Borrar memoria (clear-all)", () => {
-  it("removes the whole tutor memory key", () => {
+describe("Authorized clearing leaves offline packs and progress intact", () => {
+  it("clearLearnerTutorMemory removes only that learner and keeps offline packs + progress intact", () => {
     const store = fakeStore();
+    store.setItem(TUTOR_PACK_MARKER_KEY, JSON.stringify({ version: "v1.1.0" }));
+    store.setItem(TUTOR_PROGRESS_KEY, JSON.stringify([{ session_id: "classA:7" }]));
+
     beginSession(store, "classA:7", 1);
     beginSession(store, "classA:8", 2);
-    expect(store.raw()).not.toBeNull();
+    recordConversationTurn(store, "classA:7", {
+      lesson: 1,
+      itemId: "l1-vowel-a",
+      outcome: "correct",
+      hintUsed: false,
+      attempts: 1,
+    });
+    recordConversationTurn(store, "classA:8", {
+      lesson: 2,
+      itemId: "l2-vowel-o",
+      outcome: "missed",
+      hintUsed: true,
+      attempts: 2,
+    });
+
+    clearLearnerTutorMemory(store, "classA:7");
+
+    expect(getTutorMemory(store, "classA:7").sessions).toBe(0);
+    expect(getConversationMemory(store, "classA:7")).toEqual([]);
+    // Other learner untouched
+    expect(getTutorMemory(store, "classA:8").sessions).toBe(1);
+    expect(getConversationMemory(store, "classA:8")).toHaveLength(1);
+    // Offline pack marker & progress log untouched
+    expect(store.getItem(TUTOR_PACK_MARKER_KEY)).toBe(JSON.stringify({ version: "v1.1.0" }));
+    expect(store.getItem(TUTOR_PROGRESS_KEY)).toBe(JSON.stringify([{ session_id: "classA:7" }]));
+  });
+
+  it("clearAllTutorMemory removes both memory keys while leaving offline packs + progress intact", () => {
+    const store = fakeStore();
+    store.setItem(TUTOR_PACK_MARKER_KEY, JSON.stringify({ version: "v1.1.0" }));
+    store.setItem(TUTOR_PROGRESS_KEY, JSON.stringify([{ session_id: "classA:7" }]));
+
+    beginSession(store, "classA:7", 1);
+    beginSession(store, "classA:8", 2);
+    recordConversationTurn(store, "classA:7", {
+      lesson: 1,
+      itemId: "l1-vowel-a",
+      outcome: "correct",
+      hintUsed: false,
+      attempts: 1,
+    });
 
     clearAllTutorMemory(store);
     expect(store.raw()).toBeNull();
+    expect(store.rawConversation()).toBeNull();
     expect(getTutorMemory(store, "classA:7").sessions).toBe(0);
-
-    // A cleared child is a first-timer again.
     expect(beginSession(store, "classA:7", 1).returning).toBe(false);
+    // Offline pack marker & progress log remain completely intact
+    expect(store.getItem(TUTOR_PACK_MARKER_KEY)).toBe(JSON.stringify({ version: "v1.1.0" }));
+    expect(store.getItem(TUTOR_PROGRESS_KEY)).toBe(JSON.stringify([{ session_id: "classA:7" }]));
   });
 });
 
@@ -191,6 +303,7 @@ describe("storage faults and separate seats", () => {
     );
     expect(beginSession(store, "broken", 1).returning).toBe(false);
   });
+
   it("storage denied/quota errors leave the lesson usable", () => {
     const store = {
       getItem() {
@@ -203,6 +316,7 @@ describe("storage faults and separate seats", () => {
     };
     expect(beginSession(store, "seat", 1).returning).toBe(false);
   });
+
   it("one seat never inherits another seat's missed words", () => {
     const store = fakeStore();
     beginSession(store, "class:1", 1);

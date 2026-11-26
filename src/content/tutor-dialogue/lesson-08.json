@@ -1,0 +1,730 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 8,
+  "batchIds": [
+    "B014"
+  ],
+  "entries": [
+    {
+      "id": "v2-l08-01-greeting-first",
+      "text": "Hoy llegamos a la lección ocho para conocer la letra pe y sus sílabas.",
+      "batch": "B014",
+      "seq": 1,
+      "file": "B014-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-08-greeting-first",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-02-lesson-focus",
+      "text": "Junta los labios y suelta un golpecito limpio de aire como en papá.",
+      "batch": "B014",
+      "seq": 2,
+      "file": "B014-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-08-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-03-flipchart-intro",
+      "text": "En la lámina doce del rotafolio leemos en voz clara pa, pe, pi, po, pu.",
+      "batch": "B014",
+      "seq": 3,
+      "file": "B014-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-08-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-04-flipchart-vocab",
+      "text": "La lámina trece reúne palabras conocidas como papá, papi, puma, pie, mapa y pomo.",
+      "batch": "B014",
+      "seq": 4,
+      "file": "B014-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-08-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          13
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-05-flipchart-rhyme",
+      "text": "En la lámina catorce leemos juntos Mi papá: Yo amo a Pupi, yo amo a papá.",
+      "batch": "B014",
+      "seq": 5,
+      "file": "B014-005.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-08-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-06-page-instruction",
+      "text": "En la página veintitrés practica la escritura de la pe y haz tu dibujo.",
+      "batch": "B014",
+      "seq": 6,
+      "file": "B014-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-08-page-instruction",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-07-page-instruction",
+      "text": "En la página veinticuatro encierra la sílaba correcta en papá, Pepe, pipo, pomo y puma.",
+      "batch": "B014",
+      "seq": 7,
+      "file": "B014-007.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-08-page-instruction",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          24
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-08-sight-word-intro",
+      "text": "En la página veinticinco aprendemos la palabra nueva yo para hablar de nosotros.",
+      "batch": "B014",
+      "seq": 8,
+      "file": "B014-008.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-08-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          25
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-09-sentence-practice",
+      "text": "Lee siguiendo con tu dedo la oración: Papá y Pepe aman a mamá.",
+      "batch": "B014",
+      "seq": 9,
+      "file": "B014-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-08-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          25
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-10-sentence-practice",
+      "text": "Ahora prueba leer esta otra de la misma página: Yo amo a mamá y a papá.",
+      "batch": "B014",
+      "seq": 10,
+      "file": "B014-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-08-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          25
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-11-page-instruction",
+      "text": "En la página veintiséis completa las palabras con las sílabas de la pe.",
+      "batch": "B014",
+      "seq": 11,
+      "file": "B014-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-08-page-instruction",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l08-12-closing",
+      "text": "Ya lees oraciones combinando eme y pe. Seguimos creciendo en la lectura.",
+      "batch": "B014",
+      "seq": 12,
+      "file": "B014-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-08-closing",
+      "curriculumRefs": {
+        "lesson": 8,
+        "printedPages": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "flipchartSheets": [
+          12,
+          13,
+          14
+        ],
+        "letters": [
+          "p"
+        ],
+        "words": [
+          "papá",
+          "papi",
+          "Pepe",
+          "Pupi",
+          "mapa",
+          "pomo",
+          "puma",
+          "yo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

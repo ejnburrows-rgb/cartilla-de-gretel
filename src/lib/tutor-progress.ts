@@ -1,12 +1,16 @@
 /**
- * Tutor progress log — on the device only (spec §10, milestone 6).
+ * Tutor progress log — on the device only (spec §10, milestone 6 + milestone 10).
  *
  * Owner decision (EJN, 2026-10-21): progress is stored on-device ONLY.
  * No Supabase writer is built; the migration file
  * `supabase/migrations/20261021_tutor_progress.sql` ships for later and is
  * NOT applied anywhere.
  *
- * Event shape (one event per finished item — never audio, names, or
+ * Progress is strictly separate from conversation memory (`tutor-memory.ts`)
+ * and from offline packs (`tutor-offline-pack.ts`). Clearing progress never
+ * removes offline packs or conversation memory.
+ *
+ * Event shape (one event per finished item — never audio, images, names, or
  * transcripts):
  *   { session_id, lesson_id, item_id, result, attempts, created_at }
  *
@@ -14,24 +18,21 @@
  *   Crypto (SHA-1 per RFC 4122 v5). Class code + slot (1–40) come from a
  *   tutor-only picker and contain no names. The id is anonymous, not secret:
  *   anyone who knows the class code can compute it.
+ * - `lesson_id`: "1".."24" (supports all 24 Cartilla lessons).
  * - Storage: localStorage key `cartilla.tutor.progress.v1`, bounded to 500
- *   events, FIFO (oldest dropped).
- *
- * NOTE: `src/lib/storage-keys.ts` is the registry for localStorage keys, but
- * it is owned by another lane. Registering this key there is deferred to
- * integration; the key constant here is the single definition meanwhile.
+ *   events, FIFO (oldest dropped), with quota-exceeded fallback.
  */
 
 export type TutorProgressResult = "correct" | "correct_after_retry" | "missed";
 
 export interface TutorProgressEvent {
   session_id: string;
-  /** "1" | "2" | "3" — matches the migration's `^[1-3]$` check */
+  /** "1".."24" — canonical Cartilla lesson number */
   lesson_id: string;
-  /** ≤ 64 chars — matches the migration's char_length check */
+  /** ≤ 64 chars */
   item_id: string;
   result: TutorProgressResult;
-  /** 1–3, matching the migration's attempts check */
+  /** 1–3 */
   attempts: number;
   /** ISO-8601 timestamp */
   created_at: string;
@@ -41,6 +42,8 @@ export interface TutorProgressEvent {
 export const TUTOR_PROGRESS_KEY = "cartilla.tutor.progress.v1";
 /** Hard FIFO bound on stored events. */
 export const TUTOR_PROGRESS_MAX_EVENTS = 500;
+export const TUTOR_PROGRESS_MIN_LESSON = 1;
+export const TUTOR_PROGRESS_MAX_LESSON = 24;
 
 /**
  * Fixed Cartilla namespace for tutor session UUIDv5 ids. Arbitrary but
@@ -134,23 +137,79 @@ function boundFifo(events: TutorProgressEvent[]): TutorProgressEvent[] {
   return events.slice(events.length - TUTOR_PROGRESS_MAX_EVENTS);
 }
 
+function isValidLessonId(raw: number | string): boolean {
+  const str = String(raw).trim();
+  if (!/^\d+$/.test(str)) return false;
+  const num = Number(str);
+  return (
+    Number.isInteger(num) &&
+    num >= TUTOR_PROGRESS_MIN_LESSON &&
+    num <= TUTOR_PROGRESS_MAX_LESSON
+  );
+}
+
 function readRaw(): TutorProgressEvent[] {
   try {
     const raw = globalThis.localStorage?.getItem(TUTOR_PROGRESS_KEY);
     if (!raw) return [];
     const parsed: unknown = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as TutorProgressEvent[]) : [];
+    if (!Array.isArray(parsed)) return [];
+    const valid: TutorProgressEvent[] = [];
+    for (const entry of parsed) {
+      if (!entry || typeof entry !== "object" || Array.isArray(entry)) continue;
+      const e = entry as Record<string, unknown>;
+      if (
+        typeof e.session_id === "string" &&
+        e.session_id.length > 0 &&
+        (typeof e.lesson_id === "string" || typeof e.lesson_id === "number") &&
+        isValidLessonId(e.lesson_id) &&
+        typeof e.item_id === "string" &&
+        e.item_id.length > 0 &&
+        e.item_id.length <= 64 &&
+        typeof e.result === "string" &&
+        RESULTS.has(e.result) &&
+        typeof e.attempts === "number" &&
+        Number.isInteger(e.attempts) &&
+        e.attempts >= 1 &&
+        e.attempts <= 3 &&
+        typeof e.created_at === "string"
+      ) {
+        valid.push({
+          session_id: e.session_id,
+          lesson_id: String(e.lesson_id),
+          item_id: e.item_id,
+          result: e.result as TutorProgressResult,
+          attempts: e.attempts,
+          created_at: e.created_at,
+        });
+      }
+    }
+    return valid;
   } catch {
     return [];
   }
 }
 
 function writeRaw(events: TutorProgressEvent[]): void {
-  globalThis.localStorage?.setItem(TUTOR_PROGRESS_KEY, JSON.stringify(boundFifo(events)));
+  let slice = boundFifo(events);
+  try {
+    globalThis.localStorage?.setItem(TUTOR_PROGRESS_KEY, JSON.stringify(slice));
+  } catch {
+    // QuotaExceededError fallback: shrink oldest events until write succeeds or empty.
+    while (slice.length > 1) {
+      slice = slice.slice(Math.ceil(slice.length / 2));
+      try {
+        globalThis.localStorage?.setItem(TUTOR_PROGRESS_KEY, JSON.stringify(slice));
+        return;
+      } catch {
+        /* keep shrinking */
+      }
+    }
+  }
 }
 
 /**
- * Validate + sanitize one event. Unknown fields (e.g. audio, name,
+ * Validate + sanitize one event. Unknown fields (e.g. audio, image, name,
  * transcript) are never carried into the stored shape; invalid core fields
  * throw.
  */
@@ -161,10 +220,10 @@ function toStoredEvent(input: NewTutorProgressEvent): TutorProgressEvent {
   if (typeof input.session_id !== "string" || !input.session_id) {
     throw new TypeError("tutor progress event: session_id must be a non-empty string");
   }
-  const lessonId = String(input.lesson_id);
-  if (!["1", "2", "3"].includes(lessonId)) {
-    throw new TypeError("tutor progress event: lesson_id must be 1, 2, or 3");
+  if (!isValidLessonId(input.lesson_id)) {
+    throw new TypeError("tutor progress event: lesson_id must be an integer between 1 and 24");
   }
+  const lessonId = String(Number(String(input.lesson_id).trim()));
   const itemId = String(input.item_id ?? "");
   if (!itemId || itemId.length > 64) {
     throw new TypeError("tutor progress event: item_id must be 1–64 characters");
@@ -218,7 +277,29 @@ export function readTutorProgress(): TutorProgressEvent[] {
   return readRaw();
 }
 
-/** Erase the stored progress log and any unflushed buffer. */
+/** Read progress events strictly isolated to one learner (`session_id`). */
+export function readTutorProgressForLearner(sessionId: string): TutorProgressEvent[] {
+  return readRaw().filter((event) => event.session_id === sessionId);
+}
+
+/**
+ * Erase stored and buffered progress for ONE learner only.
+ * Leaves other learners, conversation memory, and offline packs intact.
+ */
+export function clearTutorProgressForLearner(sessionId: string): void {
+  pending = pending.filter((event) => event.session_id !== sessionId);
+  const remaining = readRaw().filter((event) => event.session_id !== sessionId);
+  if (remaining.length === 0) {
+    globalThis.localStorage?.removeItem(TUTOR_PROGRESS_KEY);
+  } else {
+    writeRaw(remaining);
+  }
+}
+
+/**
+ * Erase the stored progress log and any unflushed buffer.
+ * Leaves offline packs and conversation memory intact.
+ */
 export function clearTutorProgress(): void {
   pending = [];
   globalThis.localStorage?.removeItem(TUTOR_PROGRESS_KEY);

@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-04",
+  "lesson": 4,
+  "title": "Ee",
+  "kind": "vowel",
+  "focus": "E",
+  "printedWorkbookPages": {
+    "start": 10,
+    "end": 12,
+    "pages": [
+      10,
+      11,
+      12
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 16,
+    "end": 18,
+    "sheets": [
+      16,
+      17,
+      18
+    ]
+  },
+  "flipchartPages": [
+    6
+  ],
+  "prerequisiteLessons": [
+    "lesson-01"
+  ],
+  "nextLessons": [
+    "lesson-05",
+    "lesson-07"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "status": "verified",
+      "exerciseId": "l4-p10-picture-grid",
+      "exerciseKind": "picture-grid",
+      "prompt": "Marca con una x los dibujos de las palabras que comienzan con E e.",
+      "flipchartPrimaryPages": [
+        6
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        5,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 11,
+      "pdfSheet": 17,
+      "status": "verified",
+      "exerciseId": "l4-p11-vowel-line-match",
+      "exerciseKind": "vowel-line-match",
+      "prompt": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee.",
+      "flipchartPrimaryPages": [
+        6
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        5,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 12,
+      "pdfSheet": 18,
+      "status": "verified",
+      "exerciseId": "l4-p12-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con e.",
+      "flipchartPrimaryPages": [
+        6
+      ],
+      "flipchartSupplementalPages": [
+        3
+      ]
+    }
+  ],
+  "flipchartVocab": [],
+  "items": [
+    {
+      "id": "l4-vowel-e",
+      "lesson": 4,
+      "kind": "vowel",
+      "text": "e",
+      "printedPage": 11,
+      "pdfSheet": 17,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-e"
+    },
+    {
+      "id": "l4-word-elefante",
+      "lesson": 4,
+      "kind": "word",
+      "text": "elefante",
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/elefante.mp3",
+      "tutorLineId": "l1-model-elefante"
+    },
+    {
+      "id": "l4-word-escalera",
+      "lesson": 4,
+      "kind": "word",
+      "text": "escalera",
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/escalera.mp3",
+      "tutorLineId": "l1-model-escalera"
+    },
+    {
+      "id": "l4-word-erizo",
+      "lesson": 4,
+      "kind": "word",
+      "text": "erizo",
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/erizo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l4-word-escoba",
+      "lesson": 4,
+      "kind": "word",
+      "text": "escoba",
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/escoba.mp3",
+      "tutorLineId": "l1-model-escoba"
+    },
+    {
+      "id": "l4-word-estrella",
+      "lesson": 4,
+      "kind": "word",
+      "text": "estrella",
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/estrella.mp3",
+      "tutorLineId": "l1-model-estrella"
+    },
+    {
+      "id": "l4-word-escuela",
+      "lesson": 4,
+      "kind": "word",
+      "text": "escuela",
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/escuela.mp3",
+      "tutorLineId": "l1-model-escuela"
+    },
+    {
+      "id": "l4-word-espejo",
+      "lesson": 4,
+      "kind": "word",
+      "text": "espejo",
+      "printedPage": 10,
+      "pdfSheet": 16,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/espejo.mp3",
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 8,
+    "byKind": {
+      "vowel": 1,
+      "syllable": 0,
+      "word": 7,
+      "sight-word": 0,
+      "sentence": 0
+    },
+    "itemsWithApprovedAudio": 7,
+    "itemsAudioPending": 1
+  }
+}

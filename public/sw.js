@@ -7,37 +7,74 @@ const CACHE_NAMES = {
   book: `cartilla:book:${CACHE_VERSION}`,
 };
 
-// Tutor offline pack (spec §18.1): a dedicated, versioned cache
-// `cartilla:tutor:<version>`, downloaded once by the teacher-side
-// "Preparar sin internet" control. It is NEVER mixed into the caches above
-// and survives app cache version changes. When no pack exists the lookups
-// below resolve to null and every strategy behaves exactly as before.
+// Tutor offline pack (spec §18.1 + Milestone 12): dedicated versioned caches
+// `cartilla:tutor:<version>:*`, downloaded via the teacher-side
+// "Preparar sin internet" control or per-lesson modular pack controls.
+// They are NEVER mixed into the caches above and survive app cache version
+// changes. When no pack exists the lookups below resolve to null and every
+// strategy behaves exactly as before.
 const TUTOR_PACK_CACHE_PREFIX = "cartilla:tutor:";
+const TUTOR_PACK_VERSION = "v1.1.0";
+const TUTOR_ROUTE_PATTERN = /^\/tutor(?:\/(?:[1-9]|1[0-9]|2[0-4]))?\/?$/;
 
-// Cache-first match against the tutor pack cache, or null when no pack
-// exists (or the request is not packed).
+async function matchInTutorCache(cacheName, request, url, decodedPath) {
+  if (!cacheName?.startsWith(`${TUTOR_PACK_CACHE_PREFIX}${TUTOR_PACK_VERSION}:`)) return null;
+  if (!(await caches.has(cacheName))) return null;
+  const cache = await caches.open(cacheName);
+  return (
+    (await cache.match(request, { ignoreVary: true })) ||
+    (await cache.match(url.pathname, { ignoreVary: true })) ||
+    (decodedPath !== url.pathname
+      ? await cache.match(decodedPath, { ignoreVary: true })
+      : null) ||
+    (decodedPath.normalize("NFC") !== url.pathname
+      ? await cache.match(decodedPath.normalize("NFC"), { ignoreVary: true })
+      : null) ||
+    (TUTOR_ROUTE_PATTERN.test(url.pathname)
+      ? await cache.match(url.pathname.replace(/\/$/, ""), { ignoreVary: true })
+      : null)
+  );
+}
+
+// Cache-first match against the active full tutor pack OR any committed modular
+// pack slot (universal, avatar, Vosk, Lessons 1–24), or null when not packed.
 async function tutorPackMatch(request) {
   try {
     if (request.headers.get("x-tutor-prepare") === "1") return null;
     const controlName = `${TUTOR_PACK_CACHE_PREFIX}control`;
     if (!(await caches.has(controlName))) return null;
     const control = await caches.open(controlName);
-    const pointer = await control.match("/__tutor_active_pack__");
-    if (!pointer) return null;
-    const marker = await pointer.json();
-    if (!marker.cacheName?.startsWith(`${TUTOR_PACK_CACHE_PREFIX}v1.1.0:`) ||
-        !(await caches.has(marker.cacheName))) return null;
-    const cache = await caches.open(marker.cacheName);
     const url = new URL(request.url);
     let decodedPath = url.pathname;
-    try { decodedPath = decodeURIComponent(url.pathname); } catch { /* keep raw */ }
-    // Class/seat query parameters do not change the SPA document; also match decoded NFC/NFD paths.
-    return (await cache.match(request, { ignoreVary: true })) ||
-      (await cache.match(url.pathname, { ignoreVary: true })) ||
-      (decodedPath !== url.pathname ? await cache.match(decodedPath, { ignoreVary: true }) : null) ||
-      (decodedPath.normalize("NFC") !== url.pathname ? await cache.match(decodedPath.normalize("NFC"), { ignoreVary: true }) : null) ||
-      (/^\/tutor(?:\/[123])?\/?$/.test(url.pathname) ? await cache.match(url.pathname.replace(/\/$/, ""), { ignoreVary: true }) : null);
-  } catch { return null; }
+    try {
+      decodedPath = decodeURIComponent(url.pathname);
+    } catch {
+      /* keep raw */
+    }
+
+    // 1. Check active full pack pointer first.
+    const pointer = await control.match("/__tutor_active_pack__");
+    if (pointer) {
+      const marker = await pointer.json();
+      const hit = await matchInTutorCache(marker?.cacheName, request, url, decodedPath);
+      if (hit) return hit;
+    }
+
+    // 2. Check modular per-slot registry (universal, avatar, Vosk, lesson-1..lesson-24).
+    const registryRes = await control.match("/__tutor_pack_registry__");
+    if (registryRes) {
+      const registry = await registryRes.json();
+      const slots = registry?.slots ?? {};
+      for (const slotMarker of Object.values(slots)) {
+        const hit = await matchInTutorCache(slotMarker?.cacheName, request, url, decodedPath);
+        if (hit) return hit;
+      }
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 const PRECACHE_URLS = [
@@ -118,9 +155,11 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(fetch(request));
     return;
   }
-  // Tutor documents are immutable with their pack, including offline cold launch.
-  if (/^\/tutor(?:\/[123])?\/?$/.test(path) && request.mode === "navigate") {
-    event.respondWith(tutorPackMatch(request).then((hit) => hit || fetch(request)));
+  // Tutor documents (all Lessons 1–24) are immutable with their pack, including offline cold launch.
+  if (TUTOR_ROUTE_PATTERN.test(path) && request.mode === "navigate") {
+    event.respondWith(
+      tutorPackMatch(request).then((hit) => hit || fetch(request)),
+    );
     return;
   }
 
@@ -162,10 +201,12 @@ self.addEventListener("fetch", (event) => {
         return caches.open(CACHE_NAMES.audio).then((cache) => {
           return cache.match(request).then((cached) => {
             if (cached) return cached;
-            return fetch(request).then((fresh) => {
-              if (fresh.ok) cache.put(request, fresh.clone());
-              return fresh;
-            }).catch(() => new Response("", { status: 503 }));
+            return fetch(request)
+              .then((fresh) => {
+                if (fresh.ok) cache.put(request, fresh.clone());
+                return fresh;
+              })
+              .catch(() => new Response("", { status: 503 }));
           });
         });
       }),
@@ -241,7 +282,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // 6. Generic stale-while-revalidate fallback
+  // 6. Generic stale-while-revalidate fallback (also serves lazy /tutor-dialogue/*.json from pack)
   event.respondWith(
     tutorPackMatch(request).then((packHit) => {
       if (packHit) return packHit;

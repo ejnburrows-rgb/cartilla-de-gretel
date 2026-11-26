@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-05",
+  "lesson": 5,
+  "title": "Ii",
+  "kind": "vowel",
+  "focus": "I",
+  "printedWorkbookPages": {
+    "start": 13,
+    "end": 15,
+    "pages": [
+      13,
+      14,
+      15
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 19,
+    "end": 21,
+    "sheets": [
+      19,
+      20,
+      21
+    ]
+  },
+  "flipchartPages": [
+    7
+  ],
+  "prerequisiteLessons": [
+    "lesson-01"
+  ],
+  "nextLessons": [
+    "lesson-06",
+    "lesson-07"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "status": "verified",
+      "exerciseId": "l5-p13-picture-grid",
+      "exerciseKind": "picture-grid",
+      "prompt": "Marca con una x los dibujos de las palabras que comienzan con I i.",
+      "flipchartPrimaryPages": [
+        7
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        5,
+        6,
+        8
+      ]
+    },
+    {
+      "printedPage": 14,
+      "pdfSheet": 20,
+      "status": "verified",
+      "exerciseId": "l5-p14-vowel-line-match",
+      "exerciseKind": "vowel-line-match",
+      "prompt": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii.",
+      "flipchartPrimaryPages": [
+        7
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        5,
+        6,
+        8
+      ]
+    },
+    {
+      "printedPage": 15,
+      "pdfSheet": 21,
+      "status": "verified",
+      "exerciseId": "l5-p15-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con i.",
+      "flipchartPrimaryPages": [
+        7
+      ],
+      "flipchartSupplementalPages": [
+        3
+      ]
+    }
+  ],
+  "flipchartVocab": [],
+  "items": [
+    {
+      "id": "l5-vowel-i",
+      "lesson": 5,
+      "kind": "vowel",
+      "text": "i",
+      "printedPage": 14,
+      "pdfSheet": 20,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-i"
+    },
+    {
+      "id": "l5-word-iglu",
+      "lesson": 5,
+      "kind": "word",
+      "text": "iglú",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/iglú.mp3",
+      "tutorLineId": "l2-model-iglú"
+    },
+    {
+      "id": "l5-word-iguana",
+      "lesson": 5,
+      "kind": "word",
+      "text": "iguana",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/iguana.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l5-word-indio",
+      "lesson": 5,
+      "kind": "word",
+      "text": "indio",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/indio.mp3",
+      "tutorLineId": "l1-model-indio"
+    },
+    {
+      "id": "l5-word-invierno",
+      "lesson": 5,
+      "kind": "word",
+      "text": "invierno",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/invierno.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l5-word-iman",
+      "lesson": 5,
+      "kind": "word",
+      "text": "imán",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/imán.mp3",
+      "tutorLineId": "l1-model-imán"
+    },
+    {
+      "id": "l5-word-isla",
+      "lesson": 5,
+      "kind": "word",
+      "text": "isla",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/isla.mp3",
+      "tutorLineId": "l1-model-isla"
+    },
+    {
+      "id": "l5-word-igual",
+      "lesson": 5,
+      "kind": "word",
+      "text": "igual",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/igual.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l5-word-insecto",
+      "lesson": 5,
+      "kind": "word",
+      "text": "insecto",
+      "printedPage": 13,
+      "pdfSheet": 19,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/insecto.mp3",
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 9,
+    "byKind": {
+      "vowel": 1,
+      "syllable": 0,
+      "word": 8,
+      "sight-word": 0,
+      "sentence": 0
+    },
+    "itemsWithApprovedAudio": 8,
+    "itemsAudioPending": 1
+  }
+}

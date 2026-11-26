@@ -1,18 +1,35 @@
 /**
- * Tutor memory and adaptation (GRETEL-TUTOR-BUILD-SPEC §18.4).
+ * Tutor memory and adaptation (GRETEL-TUTOR-BUILD-SPEC §18.4, Milestone 10).
  *
- * Local-only, on the device (owner decision 2026-10-21). One localStorage
- * key, `cartilla.tutor.memory.v1`, stores per session_id (class code +
- * slot — anonymous, not secret): sessions count, last lesson, missed item
- * ids, best streak.
+ * Local-only, on the device (owner decision 2026-10-21).
  *
- * NO names, NO audio, NO transcripts — ever. The stored shape only ever
- * contains counts and opaque item ids; a test locks that in.
+ * Storage separation:
+ * - `cartilla.tutor.memory.v1` (`TUTOR_MEMORY_KEY`): per-learner session counters,
+ *   last lesson (1–24), bounded missed item IDs, and best streak.
+ * - `cartilla.tutor.conversation-memory.v1` (`TUTOR_CONVERSATION_MEMORY_KEY`):
+ *   bounded per-learner structured turn memory (counts/item IDs/outcomes/hints only).
+ * - Kept strictly separate from `cartilla.tutor.progress.v1` (progress log) and
+ *   `cartilla.tutor.pack.v1` / Cache Storage (offline packs).
+ *
+ * Privacy invariants:
+ * - NO names, NO raw audio, NO images/photos, NO full transcripts stored by default.
+ * - Strict isolation between learners (`sessionId` / `learnerId`).
+ * - Bounded per-learner and total-learner caps so storage cannot grow unbounded.
+ * - Authorized clearing (`clearLearnerTutorMemory` / `clearAllTutorMemory`) leaves
+ *   offline packs and progress logs intact.
  *
  * Storage access is injectable so tests never touch a real localStorage.
  */
 
 export const TUTOR_MEMORY_KEY = "cartilla.tutor.memory.v1";
+export const TUTOR_CONVERSATION_MEMORY_KEY = "cartilla.tutor.conversation-memory.v1";
+
+/** Hard bounds to keep per-learner memory compact and predictable. */
+export const TUTOR_MEMORY_MAX_LEARNERS = 100;
+export const TUTOR_MEMORY_MAX_MISSED_ITEMS = 50;
+export const TUTOR_CONVERSATION_MAX_TURNS = 20;
+export const TUTOR_MIN_LESSON = 1;
+export const TUTOR_MAX_LESSON = 24;
 
 /** Minimal storage surface (subset of DOM Storage); injectable for tests. */
 export interface TutorMemoryStorage {
@@ -26,7 +43,7 @@ export interface TutorMemoryRecord {
   /** Sessions started, including the current one. */
   sessions: number;
   lastLesson: number | null;
-  /** Item ids missed in the current session (reset at each session start). */
+  /** Item ids missed in the current session (reset at each session start, bounded). */
   missedItemIds: string[];
   /** Best first-try correct streak ever seen for this session_id. */
   bestStreak: number;
@@ -41,6 +58,38 @@ interface StoredSession {
 
 type StoredShape = Record<string, StoredSession>;
 
+/**
+ * Bounded structured conversation turn summary for one learner.
+ * Intentionally excludes raw audio, images, photos, names, and full transcripts.
+ */
+export type TutorMemoryTurnOutcome =
+  | "correct"
+  | "correct_after_retry"
+  | "missed"
+  | "hint_given"
+  | "skipped"
+  | "prompted";
+
+export interface TutorConversationTurn {
+  lesson: number;
+  itemId: string;
+  outcome: TutorMemoryTurnOutcome;
+  hintUsed: boolean;
+  attempts: number;
+  at: string;
+}
+
+type StoredConversationShape = Record<string, TutorConversationTurn[]>;
+
+const VALID_TURN_OUTCOMES: ReadonlySet<string> = new Set([
+  "correct",
+  "correct_after_retry",
+  "missed",
+  "hint_given",
+  "skipped",
+  "prompted",
+]);
+
 /** Default storage: the browser's localStorage, resolved lazily. */
 function defaultStore(): TutorMemoryStorage {
   try {
@@ -52,6 +101,33 @@ function defaultStore(): TutorMemoryStorage {
   return { getItem: () => null, setItem: () => {}, removeItem: () => {} };
 }
 
+function isValidLesson(value: unknown): value is number {
+  return (
+    typeof value === "number" &&
+    Number.isInteger(value) &&
+    value >= TUTOR_MIN_LESSON &&
+    value <= TUTOR_MAX_LESSON
+  );
+}
+
+function isSafeItemId(value: unknown): value is string {
+  return typeof value === "string" && value.length > 0 && value.length <= 128;
+}
+
+function boundLearners<T>(shape: Record<string, T>, activeId?: string): Record<string, T> {
+  const keys = Object.keys(shape);
+  if (keys.length <= TUTOR_MEMORY_MAX_LEARNERS) return shape;
+  const trimmed: Record<string, T> = Object.create(null);
+  const keepKeys = keys.filter((k) => k !== activeId).slice(-(TUTOR_MEMORY_MAX_LEARNERS - (activeId ? 1 : 0)));
+  for (const key of keepKeys) {
+    trimmed[key] = shape[key];
+  }
+  if (activeId && activeId in shape) {
+    trimmed[activeId] = shape[activeId];
+  }
+  return trimmed;
+}
+
 function readShape(store: TutorMemoryStorage): StoredShape {
   try {
     const raw = store.getItem(TUTOR_MEMORY_KEY);
@@ -59,19 +135,28 @@ function readShape(store: TutorMemoryStorage): StoredShape {
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
     const clean: StoredShape = Object.create(null);
     for (const [id, value] of Object.entries(parsed)) {
-      if (!value || typeof value !== "object") continue;
-      const record = value as StoredSession;
+      if (!id || !value || typeof value !== "object" || Array.isArray(value)) continue;
+      const record = value as Record<string, unknown>;
       if (
+        typeof record.sessions !== "number" ||
         !Number.isInteger(record.sessions) ||
         record.sessions < 0 ||
+        typeof record.bestStreak !== "number" ||
         !Number.isInteger(record.bestStreak) ||
         record.bestStreak < 0 ||
         !Array.isArray(record.missedItemIds) ||
-        !record.missedItemIds.every((id) => typeof id === "string") ||
-        (record.lastLesson !== null && ![1, 2, 3].includes(record.lastLesson))
-      )
+        !record.missedItemIds.every((itemId) => typeof itemId === "string") ||
+        (record.lastLesson !== null && !isValidLesson(record.lastLesson))
+      ) {
         continue;
-      clean[id] = record;
+      }
+      // Strip any unknown/hostile keys so only the 4 canonical fields survive.
+      clean[id] = {
+        sessions: record.sessions,
+        lastLesson: record.lastLesson as number | null,
+        missedItemIds: (record.missedItemIds as string[]).slice(-TUTOR_MEMORY_MAX_MISSED_ITEMS),
+        bestStreak: record.bestStreak,
+      };
     }
     return clean;
   } catch {
@@ -79,15 +164,16 @@ function readShape(store: TutorMemoryStorage): StoredShape {
   }
 }
 
-function writeShape(store: TutorMemoryStorage, shape: StoredShape): void {
+function writeShape(store: TutorMemoryStorage, shape: StoredShape, activeId?: string): void {
+  const bounded = boundLearners(shape, activeId);
   try {
-    store.setItem(TUTOR_MEMORY_KEY, JSON.stringify(shape));
+    store.setItem(TUTOR_MEMORY_KEY, JSON.stringify(bounded));
   } catch {
     /* private mode/quota: lesson remains usable */
   }
 }
 
-function emptyRecord(sessionId: string): StoredSession {
+function emptyRecord(): StoredSession {
   return { sessions: 0, lastLesson: null, missedItemIds: [], bestStreak: 0 };
 }
 
@@ -96,8 +182,15 @@ export function getTutorMemory(
   store: TutorMemoryStorage = defaultStore(),
   sessionId: string,
 ): TutorMemoryRecord {
-  const stored = readShape(store)[sessionId] ?? emptyRecord(sessionId);
+  const stored = readShape(store)[sessionId] ?? emptyRecord();
   return { sessionId, ...stored };
+}
+
+/** List all learner/session IDs currently stored in tutor memory. */
+export function listTutorMemoryLearners(
+  store: TutorMemoryStorage = defaultStore(),
+): string[] {
+  return Object.keys(readShape(store));
 }
 
 export interface BeginSessionResult {
@@ -110,9 +203,9 @@ export interface BeginSessionResult {
 }
 
 /**
- * Start a session: bump the sessions count, note the lesson, snapshot the
- * previous misses, and reset the per-session miss list. Detects a returning
- * child (any earlier session for this session_id).
+ * Start a session: bump the sessions count, note the lesson (1–24), snapshot
+ * the previous misses, and reset the per-session miss list. Detects a
+ * returning child (any earlier session for this session_id).
  */
 export function beginSession(
   store: TutorMemoryStorage = defaultStore(),
@@ -120,17 +213,18 @@ export function beginSession(
   lesson: number,
 ): BeginSessionResult {
   const shape = readShape(store);
-  const prior = shape[sessionId] ?? emptyRecord(sessionId);
+  const prior = shape[sessionId] ?? emptyRecord();
   const returning = prior.sessions >= 1;
   const previousMissedItemIds = [...prior.missedItemIds];
+  const validLesson = isValidLesson(lesson) ? lesson : prior.lastLesson;
   const updated: StoredSession = {
     sessions: prior.sessions + 1,
-    lastLesson: lesson,
+    lastLesson: validLesson,
     missedItemIds: [],
     bestStreak: prior.bestStreak,
   };
   shape[sessionId] = updated;
-  writeShape(store, shape);
+  writeShape(store, shape, sessionId);
   return {
     record: { sessionId, ...updated },
     returning,
@@ -143,18 +237,18 @@ export function greetingRole(returning: boolean): "greeting-return" | "greeting-
   return returning ? "greeting-return" : "greeting-first";
 }
 
-/** Record one missed item id for the current session (deduped). */
+/** Record one missed item id for the current session (deduped & bounded). */
 export function noteMissedItem(
   store: TutorMemoryStorage = defaultStore(),
   sessionId: string,
   itemId: string,
 ): TutorMemoryRecord {
   const shape = readShape(store);
-  const stored = shape[sessionId] ?? emptyRecord(sessionId);
-  if (!stored.missedItemIds.includes(itemId)) {
-    stored.missedItemIds = [...stored.missedItemIds, itemId];
+  const stored = shape[sessionId] ?? emptyRecord();
+  if (isSafeItemId(itemId) && !stored.missedItemIds.includes(itemId)) {
+    stored.missedItemIds = [...stored.missedItemIds, itemId].slice(-TUTOR_MEMORY_MAX_MISSED_ITEMS);
     shape[sessionId] = stored;
-    writeShape(store, shape);
+    writeShape(store, shape, sessionId);
   }
   return { sessionId, ...stored };
 }
@@ -166,13 +260,112 @@ export function recordStreak(
   streak: number,
 ): TutorMemoryRecord {
   const shape = readShape(store);
-  const stored = shape[sessionId] ?? emptyRecord(sessionId);
-  if (streak > stored.bestStreak) {
+  const stored = shape[sessionId] ?? emptyRecord();
+  if (Number.isInteger(streak) && streak > stored.bestStreak) {
     stored.bestStreak = streak;
     shape[sessionId] = stored;
-    writeShape(store, shape);
+    writeShape(store, shape, sessionId);
   }
   return { sessionId, ...stored };
+}
+
+// ---------------------------------------------------------------------------
+// Bounded per-learner conversation turn memory (strictly no raw audio/images/transcripts)
+// ---------------------------------------------------------------------------
+
+function readConversationShape(store: TutorMemoryStorage): StoredConversationShape {
+  try {
+    const raw = store.getItem(TUTOR_CONVERSATION_MEMORY_KEY);
+    const parsed: unknown = raw ? JSON.parse(raw) : null;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+    const clean: StoredConversationShape = Object.create(null);
+    for (const [id, value] of Object.entries(parsed)) {
+      if (!id || !Array.isArray(value)) continue;
+      const turns: TutorConversationTurn[] = [];
+      for (const entry of value) {
+        if (!entry || typeof entry !== "object" || Array.isArray(entry)) continue;
+        const turn = entry as Record<string, unknown>;
+        if (
+          !isValidLesson(turn.lesson) ||
+          !isSafeItemId(turn.itemId) ||
+          typeof turn.outcome !== "string" ||
+          !VALID_TURN_OUTCOMES.has(turn.outcome) ||
+          typeof turn.hintUsed !== "boolean" ||
+          typeof turn.attempts !== "number" ||
+          !Number.isInteger(turn.attempts) ||
+          turn.attempts < 0 ||
+          typeof turn.at !== "string"
+        ) {
+          continue;
+        }
+        turns.push({
+          lesson: turn.lesson,
+          itemId: turn.itemId,
+          outcome: turn.outcome as TutorMemoryTurnOutcome,
+          hintUsed: turn.hintUsed,
+          attempts: turn.attempts,
+          at: turn.at,
+        });
+      }
+      clean[id] = turns.slice(-TUTOR_CONVERSATION_MAX_TURNS);
+    }
+    return clean;
+  } catch {
+    return {};
+  }
+}
+
+function writeConversationShape(
+  store: TutorMemoryStorage,
+  shape: StoredConversationShape,
+  activeId?: string,
+): void {
+  const bounded = boundLearners(shape, activeId);
+  try {
+    store.setItem(TUTOR_CONVERSATION_MEMORY_KEY, JSON.stringify(bounded));
+  } catch {
+    /* private mode/quota: lesson remains usable */
+  }
+}
+
+/**
+ * Append one bounded structured turn to a learner's conversation memory.
+ * Any unknown fields (raw audio, images, photos, full transcripts, names) are
+ * stripped before persistence. Strictly isolated per learnerId/sessionId.
+ */
+export function recordConversationTurn(
+  store: TutorMemoryStorage = defaultStore(),
+  sessionId: string,
+  turn: Omit<TutorConversationTurn, "at"> & { at?: string },
+): TutorConversationTurn[] {
+  if (!sessionId || !isValidLesson(turn.lesson) || !isSafeItemId(turn.itemId)) {
+    return getConversationMemory(store, sessionId);
+  }
+  if (!VALID_TURN_OUTCOMES.has(turn.outcome)) {
+    return getConversationMemory(store, sessionId);
+  }
+  const cleanTurn: TutorConversationTurn = {
+    lesson: turn.lesson,
+    itemId: turn.itemId,
+    outcome: turn.outcome,
+    hintUsed: Boolean(turn.hintUsed),
+    attempts: Number.isInteger(turn.attempts) && turn.attempts >= 0 ? turn.attempts : 0,
+    at: typeof turn.at === "string" && turn.at.length > 0 ? turn.at : new Date().toISOString(),
+  };
+  const shape = readConversationShape(store);
+  const existing = shape[sessionId] ?? [];
+  const next = [...existing, cleanTurn].slice(-TUTOR_CONVERSATION_MAX_TURNS);
+  shape[sessionId] = next;
+  writeConversationShape(store, shape, sessionId);
+  return next;
+}
+
+/** Read one learner's bounded structured conversation turns. */
+export function getConversationMemory(
+  store: TutorMemoryStorage = defaultStore(),
+  sessionId: string,
+): TutorConversationTurn[] {
+  return [...(readConversationShape(store)[sessionId] ?? [])];
 }
 
 /**
@@ -214,7 +407,41 @@ export function streakPraiseDue(streak: number): boolean {
   return streak >= 3;
 }
 
-/** "Borrar memoria" — clear all tutor memory for every session_id. */
+/**
+ * Clear tutor memory for ONE specific learner (session_id) only.
+ * Leaves other learners, progress logs, and offline packs completely intact.
+ */
+export function clearLearnerTutorMemory(
+  store: TutorMemoryStorage = defaultStore(),
+  sessionId: string,
+): void {
+  const shape = readShape(store);
+  if (sessionId in shape) {
+    delete shape[sessionId];
+    if (Object.keys(shape).length === 0) {
+      store.removeItem(TUTOR_MEMORY_KEY);
+    } else {
+      writeShape(store, shape);
+    }
+  }
+  const convShape = readConversationShape(store);
+  if (sessionId in convShape) {
+    delete convShape[sessionId];
+    if (Object.keys(convShape).length === 0) {
+      store.removeItem(TUTOR_CONVERSATION_MEMORY_KEY);
+    } else {
+      writeConversationShape(store, convShape);
+    }
+  }
+}
+
+/**
+ * "Borrar memoria" — clear all tutor memory (session counters + bounded
+ * conversation memory) for every session_id.
+ * Intentionally leaves progress logs (`cartilla.tutor.progress.v1`) and
+ * offline packs (`cartilla.tutor.pack.v1` + Cache Storage) intact.
+ */
 export function clearAllTutorMemory(store: TutorMemoryStorage = defaultStore()): void {
   store.removeItem(TUTOR_MEMORY_KEY);
+  store.removeItem(TUTOR_CONVERSATION_MEMORY_KEY);
 }

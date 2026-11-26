@@ -1,0 +1,730 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 14,
+  "batchIds": [
+    "B020"
+  ],
+  "entries": [
+    {
+      "id": "v2-l14-01-greeting-first",
+      "text": "Bienvenidos a la lección catorce para celebrar nuestra querida letra eñe.",
+      "batch": "B020",
+      "seq": 1,
+      "file": "B020-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-14-greeting-first",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-02-lesson-focus",
+      "text": "La eñe lleva una olita alegre arriba llamada tilde y suena muy festiva.",
+      "batch": "B020",
+      "seq": 2,
+      "file": "B020-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-14-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-03-flipchart-intro",
+      "text": "En las láminas treinta y treinta y uno leemos ña, ñe, ñi, ño, ñu junto a piñata.",
+      "batch": "B020",
+      "seq": 3,
+      "file": "B020-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-14-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-04-flipchart-rhyme",
+      "text": "En la lámina treinta y dos leemos La niña sueña con el pañuelo de Noña.",
+      "batch": "B020",
+      "seq": 4,
+      "file": "B020-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-14-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-05-page-instruction",
+      "text": "En la página cuarenta y siete escribe la eñe sin olvidar su sombrerito ondulado.",
+      "batch": "B020",
+      "seq": 5,
+      "file": "B020-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-14-page-instruction",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-06-page-instruction",
+      "text": "En la página cuarenta y ocho rodea las sílabas de la eñe en araña, piñata y moño.",
+      "batch": "B020",
+      "seq": 6,
+      "file": "B020-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-14-page-instruction",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          48
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-07-word-practice",
+      "text": "Leemos juntos las palabras del recuadro: ñame, año, niña, sueña, piña, puño y uña.",
+      "batch": "B020",
+      "seq": 7,
+      "file": "B020-007.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-14-word-practice",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-08-sight-word-intro",
+      "text": "En la página cuarenta y nueve conocemos la palabra del, unión de de y el.",
+      "batch": "B020",
+      "seq": 8,
+      "file": "B020-008.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-14-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-09-sentence-practice",
+      "text": "Lee en voz clara esta oración: Meñe es dueña de esa piñata del año pasado.",
+      "batch": "B020",
+      "seq": 9,
+      "file": "B020-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-14-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-10-sentence-practice",
+      "text": "Ahora lee con ternura esta frase: La niña tiene sueño en el patio.",
+      "batch": "B020",
+      "seq": 10,
+      "file": "B020-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-14-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-11-page-instruction",
+      "text": "En la página cincuenta completa cada palabra con la sílaba de la eñe que falta.",
+      "batch": "B020",
+      "seq": 11,
+      "file": "B020-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-14-page-instruction",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l14-12-closing",
+      "text": "Qué bien sonó la eñe en cada palabra. Ya pasas de la mitad del libro.",
+      "batch": "B020",
+      "seq": 12,
+      "file": "B020-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-14-closing",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "words": [
+          "piñata",
+          "niña",
+          "niño",
+          "moño",
+          "araña",
+          "mañana",
+          "pañuelo",
+          "sueño"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

@@ -1,0 +1,707 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 3,
+  "batchIds": [
+    "B009"
+  ],
+  "entries": [
+    {
+      "id": "v2-l03-01-greeting-first",
+      "text": "Hoy nos toca la lección tres para descubrir la alegre vocal a.",
+      "batch": "B009",
+      "seq": 1,
+      "file": "B009-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-03-greeting-first",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7,
+          8,
+          9
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-02-lesson-focus",
+      "text": "Para decir la vocal a abrimos bien la boca como en la visita al doctor.",
+      "batch": "B009",
+      "seq": 2,
+      "file": "B009-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-03-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7,
+          8,
+          9
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-03-flipchart-intro",
+      "text": "En la lámina cinco del rotafolio leemos la historia de La niña enfermita.",
+      "batch": "B009",
+      "seq": 3,
+      "file": "B009-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-03-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7,
+          8,
+          9
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-04-flipchart-rhyme",
+      "text": "Abre bien la boca si tienes dolor; di a como abuela, abanico y amor.",
+      "batch": "B009",
+      "seq": 4,
+      "file": "B009-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-03-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7,
+          8,
+          9
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-05-flipchart-model",
+      "text": "La lámina cinco también nos muestra ala, anillo y avión empezando igual.",
+      "batch": "B009",
+      "seq": 5,
+      "file": "B009-005.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-03-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7,
+          8,
+          9
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-06-page-instruction",
+      "text": "En la página siete marca con cuidado todos los dibujos que empiezan con a.",
+      "batch": "B009",
+      "seq": 6,
+      "file": "B009-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-03-page-instruction",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-07-word-practice",
+      "text": "Escucha estas cuatro palabras de la página siete: abanico, aro, abeja y árbol.",
+      "batch": "B009",
+      "seq": 7,
+      "file": "B009-007.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-03-word-practice",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-08-word-practice",
+      "text": "Ahora repite conmigo las otras cuatro: alas, ardilla, avión y aguja.",
+      "batch": "B009",
+      "seq": 8,
+      "file": "B009-008.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-03-word-practice",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-09-page-instruction",
+      "text": "En la página ocho traza líneas desde la vocal hasta sus dibujos correctos.",
+      "batch": "B009",
+      "seq": 9,
+      "file": "B009-009.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-03-page-instruction",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          8
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-10-page-instruction",
+      "text": "En la página nueve escribe con buena letra y dibuja algo que empiece con a.",
+      "batch": "B009",
+      "seq": 10,
+      "file": "B009-010.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-03-page-instruction",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          9
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-11-adaptive-coaching",
+      "text": "Recuerda que la vocal a suena brillante y abierta desde el primer instante.",
+      "batch": "B009",
+      "seq": 11,
+      "file": "B009-011.mp3",
+      "intent": "lesson-coaching",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-03-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7,
+          8
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l03-12-closing",
+      "text": "Completaste todas las palabras de la vocal a. Lo hiciste con mucha claridad.",
+      "batch": "B009",
+      "seq": 12,
+      "file": "B009-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-03-closing",
+      "curriculumRefs": {
+        "lesson": 3,
+        "printedPages": [
+          7,
+          8,
+          9
+        ],
+        "flipchartSheets": [
+          5
+        ],
+        "letters": [
+          "a"
+        ],
+        "words": [
+          "abanico",
+          "aro",
+          "abeja",
+          "árbol",
+          "alas",
+          "ardilla",
+          "avión",
+          "aguja"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          3
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

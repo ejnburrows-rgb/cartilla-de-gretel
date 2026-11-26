@@ -1,0 +1,731 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 18,
+  "batchIds": [
+    "B024"
+  ],
+  "entries": [
+    {
+      "id": "v2-l18-01-greeting-first",
+      "text": "Bienvenidos a la lección dieciocho con la fuerza vibrante de la doble erre.",
+      "batch": "B024",
+      "seq": 1,
+      "file": "B024-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-18-greeting-first",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-02-lesson-focus",
+      "text": "Cuando dos erres van juntas en medio de vocales vibran fuerte como motor.",
+      "batch": "B024",
+      "seq": 2,
+      "file": "B024-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-18-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-03-flipchart-intro",
+      "text": "En las láminas cuarenta y dos y cuarenta y tres leemos rra, rre, rri, rro, rru con burro.",
+      "batch": "B024",
+      "seq": 3,
+      "file": "B024-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-18-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-04-flipchart-rhyme",
+      "text": "En la lámina cuarenta y cuatro leemos ¡Rápido arriba! con Barri el burrito y Perri.",
+      "batch": "B024",
+      "seq": 4,
+      "file": "B024-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-18-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-05-page-instruction",
+      "text": "En la página sesenta y tres escribe las dos erres juntas y dibuja.",
+      "batch": "B024",
+      "seq": 5,
+      "file": "B024-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-18-page-instruction",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-06-page-instruction",
+      "text": "En la página sesenta y cuatro encierra la doble erre en pizarra, torre, arriba y carro.",
+      "batch": "B024",
+      "seq": 6,
+      "file": "B024-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-18-page-instruction",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          64
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-07-word-practice",
+      "text": "Repite con fuerza estas palabras de la página: tarro, tierra, barro, parra y carrusel.",
+      "batch": "B024",
+      "seq": 7,
+      "file": "B024-007.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-18-word-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-08-sentence-practice",
+      "text": "Leamos juntos la lectura de Rode: El perro de Rode tiene una tina de barro.",
+      "batch": "B024",
+      "seq": 8,
+      "file": "B024-008.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-18-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-09-sentence-practice",
+      "text": "Continúa con la frase siguiente: Rosi amarra el perro en la mata.",
+      "batch": "B024",
+      "seq": 9,
+      "file": "B024-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-18-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-10-page-instruction",
+      "text": "En la página sesenta y seis completa las palabras usando rra, rre, rri, rro, rru.",
+      "batch": "B024",
+      "seq": 10,
+      "file": "B024-010.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-18-page-instruction",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-11-adaptive-coaching",
+      "text": "Compara cómo cambia el sonido entre pera con una erre y perra con dos.",
+      "batch": "B024",
+      "seq": 11,
+      "file": "B024-011.mp3",
+      "intent": "lesson-coaching",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-18-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          64,
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l18-12-closing",
+      "text": "Hiciste vibrar muy bien cada palabra con doble erre. Seguimos con la ge.",
+      "batch": "B024",
+      "seq": 12,
+      "file": "B024-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-18-closing",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "words": [
+          "burro",
+          "perro",
+          "carro",
+          "torre",
+          "tierra",
+          "carrusel",
+          "pizarra",
+          "arriba"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

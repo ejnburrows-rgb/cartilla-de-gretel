@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-03",
+  "lesson": 3,
+  "title": "Aa",
+  "kind": "vowel",
+  "focus": "A",
+  "printedWorkbookPages": {
+    "start": 7,
+    "end": 9,
+    "pages": [
+      7,
+      8,
+      9
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 13,
+    "end": 15,
+    "sheets": [
+      13,
+      14,
+      15
+    ]
+  },
+  "flipchartPages": [
+    5
+  ],
+  "prerequisiteLessons": [
+    "lesson-01"
+  ],
+  "nextLessons": [
+    "lesson-04",
+    "lesson-07"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [
+    {
+      "id": "vocal-a",
+      "type": "juego-vocal",
+      "answerKeyStatus": "verified"
+    }
+  ],
+  "pages": [
+    {
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "status": "verified",
+      "exerciseId": "l3-p7-picture-grid",
+      "exerciseKind": "picture-grid",
+      "prompt": "Marca con una x los dibujos de las palabras que comienzan con A a.",
+      "flipchartPrimaryPages": [
+        5
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 8,
+      "pdfSheet": 14,
+      "status": "verified",
+      "exerciseId": "l3-p8-vowel-line-match",
+      "exerciseKind": "vowel-line-match",
+      "prompt": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+      "flipchartPrimaryPages": [
+        5
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 9,
+      "pdfSheet": 15,
+      "status": "verified",
+      "exerciseId": "l3-p9-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con a.",
+      "flipchartPrimaryPages": [
+        5
+      ],
+      "flipchartSupplementalPages": [
+        3
+      ]
+    }
+  ],
+  "flipchartVocab": [],
+  "items": [
+    {
+      "id": "l3-vowel-a",
+      "lesson": 3,
+      "kind": "vowel",
+      "text": "a",
+      "printedPage": 8,
+      "pdfSheet": 14,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-a"
+    },
+    {
+      "id": "l3-word-abanico",
+      "lesson": 3,
+      "kind": "word",
+      "text": "abanico",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/abanico.mp3",
+      "tutorLineId": "l1-model-abanico"
+    },
+    {
+      "id": "l3-word-aro",
+      "lesson": 3,
+      "kind": "word",
+      "text": "aro",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/aro.mp3",
+      "tutorLineId": "l1-model-aro"
+    },
+    {
+      "id": "l3-word-abeja",
+      "lesson": 3,
+      "kind": "word",
+      "text": "abeja",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/abeja.mp3",
+      "tutorLineId": "l1-model-abeja"
+    },
+    {
+      "id": "l3-word-arbol",
+      "lesson": 3,
+      "kind": "word",
+      "text": "árbol",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/árbol.mp3",
+      "tutorLineId": "l1-model-árbol"
+    },
+    {
+      "id": "l3-word-alas",
+      "lesson": 3,
+      "kind": "word",
+      "text": "alas",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/alas.mp3",
+      "tutorLineId": "l2-model-alas"
+    },
+    {
+      "id": "l3-word-ardilla",
+      "lesson": 3,
+      "kind": "word",
+      "text": "ardilla",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ardilla.mp3",
+      "tutorLineId": "l3-model-ardilla"
+    },
+    {
+      "id": "l3-word-avion",
+      "lesson": 3,
+      "kind": "word",
+      "text": "avión",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/avión.mp3",
+      "tutorLineId": "l1-model-avión"
+    },
+    {
+      "id": "l3-word-aguja",
+      "lesson": 3,
+      "kind": "word",
+      "text": "aguja",
+      "printedPage": 7,
+      "pdfSheet": 13,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/aguja.mp3",
+      "tutorLineId": "l3-model-aguja"
+    }
+  ],
+  "summary": {
+    "totalItems": 9,
+    "byKind": {
+      "vowel": 1,
+      "syllable": 0,
+      "word": 8,
+      "sight-word": 0,
+      "sentence": 0
+    },
+    "itemsWithApprovedAudio": 8,
+    "itemsAudioPending": 1
+  }
+}

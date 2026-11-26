@@ -1,17 +1,18 @@
 /**
- * Tutor intent engine (GRETEL-TUTOR-BUILD-SPEC §18.3).
+ * Tutor intent engine (GRETEL-TUTOR-BUILD-SPEC §18.3, Milestone 9).
  *
  * Pure, offline, deterministic. `classifyIntent()` maps what the child said
  * to one of the ten intents of the §18.3 table. It builds on the finished
  * lanes: `matchTarget`/`normalize` from tutor-match and the derived lesson
- * items from tutor-content.
+ * items from tutor-content across all 24 lessons.
  *
  * Only TARGET / CLOSE / OTHER_VOWEL / OTHER_WORD count as attempts
  * (`countsAsAttempt`). REPEAT / DONT_KNOW / HELP / SILENCE / NOISE /
  * OFF_SCRIPT never do — the brain re-plays the model for them instead.
  *
- * The command-word list and its aliases live here, exported, and are also
- * the source for the ears' grammar (see buildListenGrammar in tutor-brain).
+ * Milestone 9 adds `classifyBroadCommand()` for `"broad"` recognition mode
+ * (unconstrained Spanish questions & commands) and sentence-aware handling for
+ * Lessons 7–24.
  */
 import { tutorItems, type TutorItem } from "./tutor-content";
 import { matchTarget, normalize } from "./tutor-match";
@@ -27,6 +28,16 @@ export type Intent =
   | "SILENCE"
   | "NOISE"
   | "OFF_SCRIPT";
+
+/** Intents recognized in `"broad"` mode (unconstrained Spanish questions & commands). */
+export type BroadIntent =
+  | "REPEAT"
+  | "DONT_KNOW"
+  | "HELP"
+  | "STOP"
+  | "SLOWER"
+  | "NEXT"
+  | "QUESTION";
 
 /** The five Spanish vowels, printed order (book p.2). */
 export const VOWELS = ["a", "e", "i", "o", "u"] as const;
@@ -61,6 +72,29 @@ export const COMMAND_WORDS: Readonly<Record<"repeat" | "dontKnow" | "help", read
     "no puedo",
     "me equivoqué",
     "me equivoque",
+  ],
+};
+
+/** Additional phrases recognized in `"broad"` mode for navigation and questions. */
+export const BROAD_COMMAND_WORDS: Readonly<
+  Record<"stop" | "slower" | "next" | "questionStarters", readonly string[]>
+> = {
+  stop: ["para", "detente", "pausa", "espera", "silencio"],
+  slower: ["mas despacio", "más despacio", "despacio", "lento"],
+  next: ["siguiente", "otra palabra", "avanza", "continuar"],
+  questionStarters: [
+    "que es",
+    "qué es",
+    "como se lee",
+    "cómo se lee",
+    "como suena",
+    "cómo suena",
+    "cual es",
+    "cuál es",
+    "por que",
+    "por qué",
+    "donde esta",
+    "dónde está",
   ],
 };
 
@@ -142,6 +176,54 @@ function otherItemsFor(target: TutorItem, lessonItems: readonly TutorItem[]): re
 }
 
 /**
+ * Classifies unconstrained Spanish utterances in `"broad"` mode for questions
+ * and control commands. Never grades an exercise attempt.
+ */
+export function classifyBroadCommand(transcript: string): BroadIntent | null {
+  const normalized = normalize(transcript);
+  if (!normalized) return null;
+
+  for (const phrase of BROAD_COMMAND_WORDS.stop) {
+    if (containsPhrase(normalized, phrase)) return "STOP";
+  }
+  for (const phrase of COMMAND_WORDS.repeat) {
+    if (containsPhrase(normalized, phrase)) return "REPEAT";
+  }
+  for (const phrase of BROAD_COMMAND_WORDS.slower) {
+    if (containsPhrase(normalized, phrase)) return "SLOWER";
+  }
+  for (const phrase of COMMAND_WORDS.dontKnow) {
+    if (containsPhrase(normalized, phrase)) return "DONT_KNOW";
+  }
+  for (const phrase of COMMAND_WORDS.help) {
+    if (containsPhrase(normalized, phrase)) return "HELP";
+  }
+  for (const phrase of BROAD_COMMAND_WORDS.next) {
+    if (containsPhrase(normalized, phrase)) return "NEXT";
+  }
+  if (transcript.includes("?") || transcript.includes("¿")) {
+    return "QUESTION";
+  }
+  for (const phrase of BROAD_COMMAND_WORDS.questionStarters) {
+    if (containsPhrase(normalized, phrase)) return "QUESTION";
+  }
+  return null;
+}
+
+/** Token overlap check for multi-word sentence items in Lessons 7–24. */
+function matchesSentenceTarget(targetText: string, transcript: string): boolean {
+  const targetTokens = tokensOf(targetText);
+  const spokenTokens = tokensOf(transcript);
+  if (targetTokens.length === 0 || spokenTokens.length === 0) return false;
+  const spokenSet = new Set(spokenTokens);
+  let matched = 0;
+  for (const token of targetTokens) {
+    if (spokenSet.has(token)) matched += 1;
+  }
+  return matched / targetTokens.length >= 0.75;
+}
+
+/**
  * Classify one heard transcript for the current target (spec §18.3 table):
  *
  *   SILENCE      — no speech at all (empty/whitespace transcript)
@@ -166,8 +248,6 @@ export function classifyIntent(
   const tokens = tokensOf(transcript);
   if (tokens.length === 0) return "SILENCE";
 
-  // TARGET: the matcher passes (exact, contained, edit-distance, or alias).
-
   const normalized = normalize(transcript);
   // Commands next: an explicit child request never counts as an attempt.
   for (const phrase of COMMAND_WORDS.repeat) {
@@ -178,6 +258,18 @@ export function classifyIntent(
   }
   for (const phrase of COMMAND_WORDS.help) {
     if (containsPhrase(normalized, phrase)) return "HELP";
+  }
+
+  // Sentence items (Lessons 7–24) naturally have more than 4 words.
+  if (target.kind === "sentence") {
+    if (tokens.every(isNoiseToken)) return "NOISE";
+    if (matchesSentenceTarget(target.text, transcript)) return "TARGET";
+    const targetTokens = tokensOf(target.text);
+    if (tokens.length > targetTokens.length + 4) return "OFF_SCRIPT";
+    const spokenSet = new Set(tokens);
+    const shared = targetTokens.filter((t) => spokenSet.has(t)).length;
+    if (shared > 0) return "CLOSE";
+    return "OFF_SCRIPT";
   }
 
   // Questions and unrelated long statements are never speaking answers,
@@ -197,6 +289,7 @@ export function classifyIntent(
 
   // OTHER_WORD: another lesson/page item matches.
   for (const item of otherItemsFor(target, lessonItems)) {
+    if (item.kind === "sentence") continue;
     if (matchTarget(item, transcript).pass) return "OTHER_WORD";
   }
 

@@ -1,0 +1,548 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-19",
+  "lesson": 19,
+  "title": "Gg",
+  "kind": "consonant",
+  "focus": "G",
+  "printedWorkbookPages": {
+    "start": 67,
+    "end": 70,
+    "pages": [
+      67,
+      68,
+      69,
+      70
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 73,
+    "end": 76,
+    "sheets": [
+      73,
+      74,
+      75,
+      76
+    ]
+  },
+  "flipchartPages": [
+    45,
+    46,
+    47
+  ],
+  "prerequisiteLessons": [
+    "lesson-18"
+  ],
+  "nextLessons": [
+    "lesson-20"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "teacher-guide-verification"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 67,
+      "pdfSheet": 73,
+      "status": "verified",
+      "exerciseId": "l19-p67-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con g.",
+      "flipchartPrimaryPages": [
+        45
+      ],
+      "flipchartSupplementalPages": [
+        46,
+        47
+      ]
+    },
+    {
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "status": "verified",
+      "exerciseId": "l19-p68-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        45,
+        46
+      ],
+      "flipchartSupplementalPages": [
+        47
+      ]
+    },
+    {
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "status": "verified",
+      "exerciseId": "l19-p69-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        46
+      ],
+      "flipchartSupplementalPages": [
+        47
+      ]
+    },
+    {
+      "printedPage": 70,
+      "pdfSheet": 76,
+      "status": "verified",
+      "exerciseId": "l19-p70-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        46
+      ],
+      "flipchartSupplementalPages": [
+        45,
+        47
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "gaveta",
+      "flipchartPage": 45,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/gaveta.mp3"
+    },
+    {
+      "word": "gusano",
+      "flipchartPage": 45,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/gusano.mp3"
+    },
+    {
+      "word": "Goloso",
+      "flipchartPage": 45,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/goloso.mp3"
+    },
+    {
+      "word": "gorra",
+      "flipchartPage": 45,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/gorra.mp3"
+    },
+    {
+      "word": "mago",
+      "flipchartPage": 45,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/mago.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mago.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l19-syllable-ga",
+      "lesson": 19,
+      "kind": "syllable",
+      "text": "ga",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-syllable-go",
+      "lesson": 19,
+      "kind": "syllable",
+      "text": "go",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-syllable-gu",
+      "lesson": 19,
+      "kind": "syllable",
+      "text": "gu",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-garras",
+      "lesson": 19,
+      "kind": "word",
+      "text": "garras",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gasolina",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gasolina",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gato",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gato",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/gato.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-paga",
+      "lesson": 19,
+      "kind": "word",
+      "text": "paga",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-ganas",
+      "lesson": 19,
+      "kind": "word",
+      "text": "ganas",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-maga",
+      "lesson": 19,
+      "kind": "word",
+      "text": "maga",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-goma",
+      "lesson": 19,
+      "kind": "word",
+      "text": "goma",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gorra",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gorra",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/gorra.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-lago",
+      "lesson": 19,
+      "kind": "word",
+      "text": "lago",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gota",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gota",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-mago",
+      "lesson": 19,
+      "kind": "word",
+      "text": "mago",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mago.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-goloso",
+      "lesson": 19,
+      "kind": "word",
+      "text": "goloso",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/goloso.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gusano",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gusano",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/gusano.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gula",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gula",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-agudo",
+      "lesson": 19,
+      "kind": "word",
+      "text": "agudo",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-mangu",
+      "lesson": 19,
+      "kind": "word",
+      "text": "mangú",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-laguna",
+      "lesson": 19,
+      "kind": "word",
+      "text": "laguna",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-aguja",
+      "lesson": 19,
+      "kind": "word",
+      "text": "aguja",
+      "printedPage": 68,
+      "pdfSheet": 74,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/aguja.mp3",
+      "tutorLineId": "l3-model-aguja"
+    },
+    {
+      "id": "l19-word-gustavo",
+      "lesson": 19,
+      "kind": "word",
+      "text": "Gustavo",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gotero",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gotero",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-magali",
+      "lesson": 19,
+      "kind": "word",
+      "text": "Magali",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-golosina",
+      "lesson": 19,
+      "kind": "word",
+      "text": "golosina",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-agua",
+      "lesson": 19,
+      "kind": "word",
+      "text": "agua",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gusta",
+      "lesson": 19,
+      "kind": "word",
+      "text": "gusta",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-word-gondola",
+      "lesson": 19,
+      "kind": "word",
+      "text": "góndola",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-01",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "El gato de Magali bebe agua en el lago.",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-02",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "Magali le pone una gorra a su gato Goloso.",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-03",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "Goloso ve a Musulunga, la gata gordita.",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-04",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "Magali y Gustavo van al lago. En el lago",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-05",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "ven el agua. A Magali le gusta el agua.",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-06",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "Goloso y Musulunga van a la laguna.",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-07",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "Goloso le regala un gusanito rosadito a",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l19-sentence-08",
+      "lesson": 19,
+      "kind": "sentence",
+      "text": "Musulunga.",
+      "printedPage": 69,
+      "pdfSheet": 75,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 36,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 3,
+      "word": 25,
+      "sight-word": 0,
+      "sentence": 8
+    },
+    "itemsWithApprovedAudio": 6,
+    "itemsAudioPending": 30
+  }
+}

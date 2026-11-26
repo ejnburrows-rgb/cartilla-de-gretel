@@ -1,32 +1,50 @@
 /**
  * Tutor brain — the pure, deterministic state machine
- * (GRETEL-TUTOR-BUILD-SPEC §4 and §5, intent wiring §18.3).
+ * (GRETEL-TUTOR-BUILD-SPEC §4 and §5, intent wiring §18.3, Milestone 9).
  *
- * `reduce(state, ev, rng)` implements every row of the §5 table. It is pure:
- * no Math.random (rng injected), no clock, no storage, no network. Side
- * effects are returned as an ordered effect list for the runtime to play:
- *   playLine(lineId) | highlight(itemId) | markCorrect | markWrongErase |
- *   logProgress(evt) | stopMic | showUnavailable(problem)
- * plus cancelSpeech (EXIT) and flushLog (IDLE_TIMEOUT) from the same table.
+ * `reduce(state, ev, rng)` implements every row of the §5 table and extends
+ * cleanly across all 24 lessons using `tutor-content.ts` + `tutor-dialogue-manifest.ts`.
+ * It is pure: no Math.random (rng injected), no clock, no storage, no network.
  *
- * Consecutive playLine effects are a response "sequence": whole lines back
- * to back with a 400 ms pause (§18.5), never mid-sentence joins.
- *
- * The mic is the runtime's: it opens only on MIC_TAP in LISTEN, so a HEARD
- * event before a tap is ignored ("mic never opens before the tap").
+ * Milestone 9 additions:
+ * - Unreliable transcripts (`reliable === false` or `confidence < threshold`)
+ *   are NEVER graded as counted attempts.
+ * - `INTERRUPT` event provides always-available stop/interrupt.
+ * - `recommendedEarsMode(state)` selects `"constrained"` vs `"broad"`.
+ * - `buildCoachingResponse()` produces compatible whole-utterance chains
+ *   (`acknowledge -> explain -> example -> one question`) with honest
+ *   `approved-audio` vs `text-only-fallback` delivery metadata.
+ * - `buildListenGrammar(lesson)` works across all 24 lessons (vowels,
+ *   syllables, words, sight-words, and sentence words).
  */
 import { itemsForLesson, tutorItems, type TutorItem } from "./tutor-content";
-import { classifyIntent, heardVowel, COMMAND_PHRASES, VOWELS, VOWEL_ALIASES } from "./tutor-intent";
 import {
+  classifyBroadCommand,
+  classifyIntent,
+  heardVowel,
+  COMMAND_PHRASES,
+  VOWELS,
+  VOWEL_ALIASES,
+} from "./tutor-intent";
+import {
+  TEXT_ONLY_FALLBACK_LABEL,
   confusionLineIdFor,
   createLinePickerState,
+  modelDeliveryForItem,
   modelLineIdForItem,
+  pickContextualChain,
   pickLine,
   type LinePickerState,
   type TutorLineRole,
+  type UtteranceChainResult,
+  type UtteranceChainStep,
 } from "./tutor-line-picker";
 import { matchTarget, normalize } from "./tutor-match";
-import type { EarsProblem } from "./tutor-ears";
+import {
+  DEFAULT_CONFIDENCE_THRESHOLD,
+  type EarsProblem,
+  type EarsRecognitionMode,
+} from "./tutor-ears";
 
 export type Phase = "GREET" | "MODEL" | "LISTEN" | "MATCH" | "RESPOND" | "CELEBRATE" | "ENDED";
 
@@ -35,7 +53,15 @@ export type BrainEvent =
   | { type: "LINE_DONE" }
   | { type: "MIC_TAP" }
   | { type: "MIC_CANCEL" }
-  | { type: "HEARD"; transcript: string; alternatives: string[] }
+  | { type: "INTERRUPT" }
+  | {
+      type: "HEARD";
+      transcript: string;
+      alternatives: string[];
+      confidence?: number;
+      reliable?: boolean;
+      mode?: EarsRecognitionMode;
+    }
   | { type: "EARS_PROBLEM"; problem: EarsProblem }
   | { type: "IDLE_TIMEOUT" }
   | { type: "EXIT" };
@@ -56,6 +82,8 @@ export interface ProgressEvent {
 
 export type Effect =
   | { type: "playLine"; lineId: string }
+  | { type: "showTextFallback"; lineId: string | null; text: string; label: string }
+  | { type: "presentChain"; steps: readonly UtteranceChainStep[] }
   | { type: "highlight"; itemId: string }
   | { type: "markCorrect" }
   | { type: "markWrongErase" }
@@ -99,7 +127,7 @@ export interface BrainState {
   inReview: boolean;
   reviewIndex: number;
   endedReason: "idle" | "exit" | "complete" | null;
-  /** Line picker state (no-repeat window + play counts) travels with the brain. */
+  /** Line picker state (no-repeat window + cooldowns + play counts) travels with the brain. */
   lines: LinePickerState;
 }
 
@@ -109,7 +137,7 @@ export const IDLE_TIMEOUT_MS = 15 * 60 * 1000;
 export interface CreateBrainStateOptions {
   lesson: number;
   sessionId: string;
-  /** Defaults to the locked lesson items in order. */
+  /** Defaults to the locked lesson items in order (Lessons 1–24). */
   items?: readonly TutorItem[];
   /** From tutor-memory's beginSession — selects the greeting. */
   returning?: boolean;
@@ -152,6 +180,18 @@ export function currentTargetItem(state: BrainState): TutorItem {
   return state.items[state.itemIndex];
 }
 
+/**
+ * Recommends the Vosk recognition mode for the current brain phase:
+ * - `"constrained"` during structured exercise answers (`LISTEN` with an active target)
+ * - `"broad"` for open questions, commands, or navigation outside structured prompts.
+ */
+export function recommendedEarsMode(state: BrainState): EarsRecognitionMode {
+  if (state.phase === "LISTEN" && activeItem(state) !== null) {
+    return "constrained";
+  }
+  return "broad";
+}
+
 function progressEvent(
   state: BrainState,
   item: TutorItem,
@@ -172,7 +212,18 @@ function progressEvent(
 
 function playModel(item: TutorItem): Effect | null {
   const lineId = modelLineIdForItem(item);
-  return lineId ? { type: "playLine", lineId } : null;
+  if (lineId) return { type: "playLine", lineId };
+  // Lessons 4–24 items without a manifest model line fall back honestly to labeled text-only.
+  const delivery = modelDeliveryForItem(item);
+  if (delivery.deliveryMode === "text-only-fallback") {
+    return {
+      type: "showTextFallback",
+      lineId: null,
+      text: delivery.text,
+      label: delivery.fallbackLabel ?? TEXT_ONLY_FALLBACK_LABEL,
+    };
+  }
+  return null;
 }
 
 function pickedLine(
@@ -185,6 +236,40 @@ function pickedLine(
   return {
     effect: { type: "playLine", lineId: picked.lineId },
     state: { ...state, lines: picked.state },
+  };
+}
+
+/**
+ * Builds a compatible whole-utterance coaching chain
+ * (`acknowledge -> explain -> example -> one question`) for any lesson 1–24,
+ * with honest `approved-audio` vs `text-only-fallback` labeling on every step.
+ */
+export function buildCoachingResponse(
+  state: BrainState,
+  reason: "help" | "dont-know" | "retry" | "explain",
+  rng: () => number,
+): { state: BrainState; chain: UtteranceChainResult; effects: Effect[] } {
+  const acknowledgeRole: TutorLineRole =
+    reason === "help"
+      ? "help"
+      : reason === "dont-know"
+        ? "dont-know"
+        : reason === "retry"
+          ? "try-again"
+          : "repeat-ack";
+  const chain = pickContextualChain(
+    state.lines,
+    {
+      lesson: state.lesson,
+      acknowledgeRole,
+      item: activeItem(state) ?? undefined,
+    },
+    rng,
+  );
+  return {
+    state: { ...state, lines: chain.state },
+    chain,
+    effects: [{ type: "presentChain", steps: chain.steps }],
   };
 }
 
@@ -211,7 +296,7 @@ function reviewItem(state: BrainState, index: number): TutorItem | null {
 
 /** The item the child is answering right now (main queue or review round). */
 function activeItem(state: BrainState): TutorItem | null {
-  return state.inReview ? reviewItem(state, state.reviewIndex) : currentTargetItem(state);
+  return state.inReview ? reviewItem(state, state.reviewIndex) : currentTargetItem(state) ?? null;
 }
 
 /** RESPOND LINE_DONE after correct/missed: log the final result, then advance. */
@@ -335,6 +420,14 @@ function onLineDone(
   }
 }
 
+function isUnreliableHeard(ev: Extract<BrainEvent, { type: "HEARD" }>): boolean {
+  if (ev.reliable === false) return true;
+  if (typeof ev.confidence === "number" && ev.confidence < DEFAULT_CONFIDENCE_THRESHOLD) {
+    return true;
+  }
+  return false;
+}
+
 /**
  * LISTEN + HEARD → MATCH, then the §5 "(auto)" rows resolve immediately in
  * the same reduce call: pass → RESPOND(correct); fail attempts<3 →
@@ -347,6 +440,42 @@ function onHeard(
 ): { state: BrainState; effects: Effect[] } {
   const item = activeItem(state);
   if (!item) return noChange(state);
+
+  // Milestone 9 safety rule: NEVER grade unreliable / low-confidence transcripts.
+  if (isUnreliableHeard(ev)) {
+    let match: BrainState = { ...state, phase: "MATCH", capturing: false };
+    const effects: Effect[] = [];
+    const noise = pickedLine(match, "noise", rng);
+    match = noise ? noise.state : match;
+    if (noise) effects.push(noise.effect);
+    return { state: { ...match, phase: "LISTEN" }, effects };
+  }
+
+  // In "broad" mode, honor broad commands (STOP / SLOWER / QUESTION) without grading.
+  if (ev.mode === "broad") {
+    const broad = classifyBroadCommand(ev.transcript);
+    if (broad === "STOP") {
+      return {
+        state: { ...state, phase: "LISTEN", capturing: false },
+        effects: [{ type: "cancelSpeech" }, { type: "stopMic" }],
+      };
+    }
+    if (broad === "SLOWER") {
+      let match: BrainState = { ...state, phase: "MATCH", capturing: false };
+      const effects: Effect[] = [];
+      const ack = pickedLine(match, "repeat-ack", rng);
+      match = ack ? ack.state : match;
+      if (ack) effects.push(ack.effect);
+      const model = playModel(item);
+      if (model) effects.push(model);
+      return { state: { ...match, phase: "LISTEN" }, effects };
+    }
+    if (broad === "QUESTION") {
+      let match: BrainState = { ...state, phase: "MATCH", capturing: false };
+      const { state: nextState, effects } = buildCoachingResponse(match, "help", rng);
+      return { state: { ...nextState, phase: "LISTEN" }, effects };
+    }
+  }
 
   const intent = classifyIntent(ev.transcript, item, state.items);
   const commandish = intent === "REPEAT" || intent === "DONT_KNOW" || intent === "HELP";
@@ -511,6 +640,12 @@ export function reduce(
         state: { ...state, phase: "ENDED", endedReason: "exit", capturing: false },
         effects: [{ type: "cancelSpeech" }, { type: "stopMic" }],
       };
+    case "INTERRUPT":
+      // Always-available stop/interrupt: stops speech & mic, parks cleanly in LISTEN.
+      return {
+        state: { ...state, phase: "LISTEN", capturing: false, respondKind: null },
+        effects: [{ type: "cancelSpeech" }, { type: "stopMic" }],
+      };
     case "IDLE_TIMEOUT":
       // any | IDLE_TIMEOUT (15 min no tap) → ENDED: cancelSpeech + stopMic + flush log.
       return {
@@ -552,26 +687,37 @@ export const SPANISH_CARRIER_WORDS = [
 ] as const;
 
 /**
- * Grammar for ears.listen() (spec §18.2 / §18.6): lesson items ∪ same-page
- * distractors ∪ the 5 vowels and their aliases ∪ command words ∪ Spanish carrier
- * words ∪ "[unk]". Both the printed form (accents kept) and the normalized
- * decode form are included, deduped, in a deterministic order.
+ * Grammar for ears.listen() in `"constrained"` mode (spec §18.2 / §18.6,
+ * extended across all 24 lessons):
+ * lesson items ∪ same-page distractors ∪ the 5 vowels and their aliases ∪
+ * command words ∪ Spanish carrier words ∪ "[unk]".
+ * For sentence items in Lessons 7–24, individual sentence words are also added
+ * so Vosk can decode them cleanly.
  */
 export function buildListenGrammar(lesson: number): string[] {
   const lessonItems = itemsForLesson(lesson);
   const words = new Set<string>();
 
-  for (const item of lessonItems) {
+  const addItemText = (item: TutorItem) => {
     words.add(item.text);
-    words.add(normalize(item.text));
+    const norm = normalize(item.text);
+    if (norm) words.add(norm);
+    if (item.kind === "sentence" && norm) {
+      for (const token of norm.split(" ")) {
+        if (token) words.add(token);
+      }
+    }
+  };
+
+  for (const item of lessonItems) {
+    addItemText(item);
   }
   // Same-page distractors: any derived tutor item sharing a printed page
   // with this lesson (covers cross-lesson pages too).
   const pages = new Set(lessonItems.map((item) => item.printedPage));
   for (const item of tutorItems) {
     if (!pages.has(item.printedPage)) continue;
-    words.add(item.text);
-    words.add(normalize(item.text));
+    addItemText(item);
   }
   // The 5 vowels and their aliases.
   for (const vowel of VOWELS) {

@@ -1,0 +1,731 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 22,
+  "batchIds": [
+    "B028"
+  ],
+  "entries": [
+    {
+      "id": "v2-l22-01-greeting-first",
+      "text": "Bienvenidos a la lección veintidós para estudiar el sonido firme de la ce.",
+      "batch": "B028",
+      "seq": 1,
+      "file": "B028-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-22-greeting-first",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-02-lesson-focus",
+      "text": "Con las vocales a, o y u la ce suena firme como en casa y coco.",
+      "batch": "B028",
+      "seq": 2,
+      "file": "B028-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-22-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-03-flipchart-intro",
+      "text": "En las láminas cincuenta y cuatro y cincuenta y cinco leemos ca, co, cu.",
+      "batch": "B028",
+      "seq": 3,
+      "file": "B028-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-22-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-04-flipchart-vocab",
+      "text": "También vemos en la lámina palabras familiares: cuna, conejo, casa, cubo y Catalina.",
+      "batch": "B028",
+      "seq": 4,
+      "file": "B028-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-22-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-05-flipchart-rhyme",
+      "text": "En la lámina cincuenta y seis leemos Los caramelos: Cuco reparte cariño y caramelos también.",
+      "batch": "B028",
+      "seq": 5,
+      "file": "B028-005.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-22-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-06-page-instruction",
+      "text": "En la página setenta y nueve traza la ce bien redondita y dibuja una casa.",
+      "batch": "B028",
+      "seq": 6,
+      "file": "B028-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-22-page-instruction",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-07-page-instruction",
+      "text": "En la página ochenta circula ca, co y cu en cama, casa, copa y cuna.",
+      "batch": "B028",
+      "seq": 7,
+      "file": "B028-007.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-22-page-instruction",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          80
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-08-word-practice",
+      "text": "Leemos palabras de la lectura: carro, boca, coco, saco, roca, camisa y Cuco.",
+      "batch": "B028",
+      "seq": 8,
+      "file": "B028-008.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-22-word-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          81
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-09-sentence-practice",
+      "text": "Sigue la lectura sobre Cuco Casanova: Cuco vive en el campo con su mamá.",
+      "batch": "B028",
+      "seq": 9,
+      "file": "B028-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-22-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          81
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-10-sentence-practice",
+      "text": "Leemos también el cierre: Cuco juega con los niños y todos lo aman mucho.",
+      "batch": "B028",
+      "seq": 10,
+      "file": "B028-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-22-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          81
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-11-page-instruction",
+      "text": "En la página ochenta y dos completa cada palabra con ca, co o cu.",
+      "batch": "B028",
+      "seq": 11,
+      "file": "B028-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-22-page-instruction",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l22-12-closing",
+      "text": "Qué bien dominas ca, co y cu. Solo nos quedan dos letras para terminar.",
+      "batch": "B028",
+      "seq": 12,
+      "file": "B028-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-22-closing",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "words": [
+          "casa",
+          "cuna",
+          "coco",
+          "cama",
+          "saco",
+          "camisa",
+          "Cuco",
+          "Paco"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

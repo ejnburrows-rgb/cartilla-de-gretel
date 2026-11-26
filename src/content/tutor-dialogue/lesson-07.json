@@ -1,0 +1,731 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 7,
+  "batchIds": [
+    "B013"
+  ],
+  "entries": [
+    {
+      "id": "v2-l07-01-greeting-first",
+      "text": "Qué día tan especial: en la lección siete conocemos nuestra primera consonante, la eme.",
+      "batch": "B013",
+      "seq": 1,
+      "file": "B013-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-07-greeting-first",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-02-lesson-focus",
+      "text": "Al juntar los labios suavemente hacemos el sonido de mamá y mami.",
+      "batch": "B013",
+      "seq": 2,
+      "file": "B013-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-07-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-03-flipchart-intro",
+      "text": "En la lámina nueve del rotafolio leemos juntos las sílabas ma, me, mi, mo, mu.",
+      "batch": "B013",
+      "seq": 3,
+      "file": "B013-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-07-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-04-flipchart-vocab",
+      "text": "En la lámina diez practicamos palabras nuevas como mamá, mami, Mimo, Meme y Mumi.",
+      "batch": "B013",
+      "seq": 4,
+      "file": "B013-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-07-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          10
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-05-flipchart-rhyme",
+      "text": "En la lámina once leemos el poema Mi mamá: Mami me ama, amo a mamá.",
+      "batch": "B013",
+      "seq": 5,
+      "file": "B013-005.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-07-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-06-page-instruction",
+      "text": "En la página diecinueve escribe con buena letra y dibuja algo con eme.",
+      "batch": "B013",
+      "seq": 6,
+      "file": "B013-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-07-page-instruction",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-07-page-instruction",
+      "text": "En la página veinte encierra en un círculo la sílaba que corresponde.",
+      "batch": "B013",
+      "seq": 7,
+      "file": "B013-007.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-07-page-instruction",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          20
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-08-syllable-practice",
+      "text": "Busca ma en mamá, me en mesa, mi en mío, mo en mono y mu en muro.",
+      "batch": "B013",
+      "seq": 8,
+      "file": "B013-008.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-07-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          20,
+          21
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-09-sight-word-intro",
+      "text": "En la página veintiuno aparece la palabrita y para unir dos nombres.",
+      "batch": "B013",
+      "seq": 9,
+      "file": "B013-009.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-07-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          21
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-10-sentence-practice",
+      "text": "Leamos juntos la primera oración completa de la página: Mi mamá me ama.",
+      "batch": "B013",
+      "seq": 10,
+      "file": "B013-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-07-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          21
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-11-page-instruction",
+      "text": "En la página veintidós completa cada palabra eligiendo la sílaba correcta.",
+      "batch": "B013",
+      "seq": 11,
+      "file": "B013-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-07-page-instruction",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l07-12-closing",
+      "text": "Ya leíste tus primeras palabras y oraciones con eme. Qué alegría tan grande.",
+      "batch": "B013",
+      "seq": 12,
+      "file": "B013-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-07-closing",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Memo",
+          "Mimo",
+          "mío",
+          "ama",
+          "mima",
+          "Mumi"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

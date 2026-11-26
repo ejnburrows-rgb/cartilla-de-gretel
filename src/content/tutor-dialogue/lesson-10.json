@@ -1,0 +1,730 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 10,
+  "batchIds": [
+    "B016"
+  ],
+  "entries": [
+    {
+      "id": "v2-l10-01-greeting-first",
+      "text": "Hoy entramos a la lección diez para practicar el sonido firme de la te.",
+      "batch": "B016",
+      "seq": 1,
+      "file": "B016-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-10-greeting-first",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-02-lesson-focus",
+      "text": "Apoya la punta de la lengua detrás de los dientes como un relojito alegre.",
+      "batch": "B016",
+      "seq": 2,
+      "file": "B016-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-10-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-03-flipchart-intro",
+      "text": "En la lámina dieciocho del rotafolio leemos ta, te, ti, to, tu junto a tomate.",
+      "batch": "B016",
+      "seq": 3,
+      "file": "B016-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-10-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "flipchartSheets": [
+          18
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-04-flipchart-vocab",
+      "text": "La lámina diecinueve muestra palabras para leer claro: seta, toma, pata, tapa y Titi.",
+      "batch": "B016",
+      "seq": 4,
+      "file": "B016-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-10-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "flipchartSheets": [
+          19
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-05-flipchart-rhyme",
+      "text": "En la lámina veinte leemos el cuento La sopa de pato en el patio.",
+      "batch": "B016",
+      "seq": 5,
+      "file": "B016-005.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-10-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "flipchartSheets": [
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-06-page-instruction",
+      "text": "En la página treinta y uno escribe la te con trazo limpio y dibuja.",
+      "batch": "B016",
+      "seq": 6,
+      "file": "B016-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-10-page-instruction",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          31
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-07-page-instruction",
+      "text": "En la página treinta y dos busca y rodea la sílaba de la te.",
+      "batch": "B016",
+      "seq": 7,
+      "file": "B016-007.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-10-page-instruction",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          32
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-08-sight-word-intro",
+      "text": "En la página treinta y tres conocemos tres palabras nuevas: tiene, patio y no.",
+      "batch": "B016",
+      "seq": 8,
+      "file": "B016-008.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-10-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          33
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-09-sentence-practice",
+      "text": "Leamos juntos la oración de la página: La mesa está en el patio.",
+      "batch": "B016",
+      "seq": 9,
+      "file": "B016-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-10-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          33
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-10-sentence-practice",
+      "text": "Prueba ahora esta oración divertida de Tito: Tito tapa el pomo de sopa.",
+      "batch": "B016",
+      "seq": 10,
+      "file": "B016-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-10-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          33
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-11-page-instruction",
+      "text": "En la página treinta y cuatro completa las palabras con ta, te, ti, to, tu.",
+      "batch": "B016",
+      "seq": 11,
+      "file": "B016-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-10-page-instruction",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          34
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l10-12-closing",
+      "text": "Muy bien leída toda la lección de la te. Sigamos con la letra de.",
+      "batch": "B016",
+      "seq": 12,
+      "file": "B016-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-10-closing",
+      "curriculumRefs": {
+        "lesson": 10,
+        "printedPages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "flipchartSheets": [
+          18,
+          19,
+          20
+        ],
+        "letters": [
+          "t"
+        ],
+        "words": [
+          "tomate",
+          "tapa",
+          "pato",
+          "Tito",
+          "topo",
+          "toma",
+          "tiene",
+          "patio"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

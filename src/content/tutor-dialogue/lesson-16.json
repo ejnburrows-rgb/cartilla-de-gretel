@@ -1,0 +1,731 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 16,
+  "batchIds": [
+    "B022"
+  ],
+  "entries": [
+    {
+      "id": "v2-l16-01-greeting-first",
+      "text": "Bienvenidos a la lección dieciséis dedicada a la letra uve.",
+      "batch": "B022",
+      "seq": 1,
+      "file": "B022-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-16-greeting-first",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          55,
+          56,
+          57,
+          58
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-02-lesson-focus",
+      "text": "En nuestro español la uve suena igual de suave que la be en vaso y vela.",
+      "batch": "B022",
+      "seq": 2,
+      "file": "B022-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-16-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          55,
+          56,
+          57,
+          58
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-03-flipchart-intro",
+      "text": "En las láminas treinta y seis y treinta y siete practicamos va, ve, vi, vo, vu con vaso.",
+      "batch": "B022",
+      "seq": 3,
+      "file": "B022-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-16-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          55,
+          56,
+          57,
+          58
+        ],
+        "flipchartSheets": [
+          36,
+          37
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-04-flipchart-rhyme",
+      "text": "En la lámina treinta y ocho navegamos en Mi bote de vela bajo el viento.",
+      "batch": "B022",
+      "seq": 4,
+      "file": "B022-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-16-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          55,
+          56,
+          57,
+          58
+        ],
+        "flipchartSheets": [
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-05-page-instruction",
+      "text": "En la página cincuenta y cinco traza los dos bracitos abiertos de la uve.",
+      "batch": "B022",
+      "seq": 5,
+      "file": "B022-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-16-page-instruction",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          55
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-06-page-instruction",
+      "text": "En la página cincuenta y seis circula las sílabas de uve en vaso, ave, vino y pavo.",
+      "batch": "B022",
+      "seq": 6,
+      "file": "B022-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-16-page-instruction",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          56
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-07-word-practice",
+      "text": "Lee despacio estas palabras del libro: avena, ventana, vela, lavamanos, venas y vive.",
+      "batch": "B022",
+      "seq": 7,
+      "file": "B022-007.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-16-word-practice",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          57
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-08-sentence-practice",
+      "text": "Lee la oración completa con calma: Vita se lava las manos en el lavamanos.",
+      "batch": "B022",
+      "seq": 8,
+      "file": "B022-008.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-16-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          57
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-09-sentence-practice",
+      "text": "Ahora sigue esta escena bonita: El viento mueve los manteles y el papalote vuela.",
+      "batch": "B022",
+      "seq": 9,
+      "file": "B022-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-16-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          57
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-10-page-instruction",
+      "text": "En la página cincuenta y ocho completa cada palabra eligiendo entre va, ve, vi, vo, vu.",
+      "batch": "B022",
+      "seq": 10,
+      "file": "B022-010.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-16-page-instruction",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          58
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-11-adaptive-coaching",
+      "text": "Mira bien si la palabra se escribe con be o con uve al leer el dibujo.",
+      "batch": "B022",
+      "seq": 11,
+      "file": "B022-011.mp3",
+      "intent": "lesson-coaching",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-16-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          56,
+          57
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l16-12-closing",
+      "text": "Navegaste muy bien por la lección dieciséis. Ahora viene la ere suave.",
+      "batch": "B022",
+      "seq": 12,
+      "file": "B022-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-16-closing",
+      "curriculumRefs": {
+        "lesson": 16,
+        "printedPages": [
+          55,
+          56,
+          57,
+          58
+        ],
+        "flipchartSheets": [
+          36,
+          37,
+          38
+        ],
+        "letters": [
+          "v"
+        ],
+        "words": [
+          "vaso",
+          "vela",
+          "ventana",
+          "pavo",
+          "lavamanos",
+          "avena",
+          "vivo",
+          "Vita"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

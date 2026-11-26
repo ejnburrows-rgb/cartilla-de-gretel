@@ -143,19 +143,39 @@ try {
   mkdirSync(path.dirname(OUT_PATH), { recursive: true });
   const staged = `${OUT_PATH}.${process.pid}.partial`;
   try {
-    run("tar", [
-      ...(process.platform === "win32" ? ["--force-local"] : []),
-      "--sort=name",
-      "--mtime=@0",
-      "--owner=0",
-      "--group=0",
-      "--numeric-owner",
-      "-czf",
-      staged,
-      "-C",
-      extractDir,
-      MODEL_NAME,
-    ]);
+    const tarVersion = spawnSync("tar", ["--version"], { encoding: "utf8" });
+    const isGnuTar = /gnu tar/i.test(`${tarVersion.stdout ?? ""} ${tarVersion.stderr ?? ""}`);
+    const tarArgs = isGnuTar
+      ? [
+          ...(process.platform === "win32" ? ["--force-local"] : []),
+          "--sort=name",
+          "--mtime=@0",
+          "--owner=0",
+          "--group=0",
+          "--numeric-owner",
+          "-czf",
+          staged,
+          "-C",
+          extractDir,
+          MODEL_NAME,
+        ]
+      : [
+          // BSD/macOS tar rejects GNU flags (--sort=name, --mtime=@0, --owner=0).
+          "--uid",
+          "0",
+          "--gid",
+          "0",
+          "--uname",
+          "root",
+          "--gname",
+          "root",
+          "-czf",
+          staged,
+          "-C",
+          extractDir,
+          MODEL_NAME,
+        ];
+    run("tar", tarArgs, { COPYFILE_DISABLE: "1" });
     const bytes = readFileSync(staged);
     const integrity = {
       sourceSha256: EXPECTED_SHA256,
@@ -192,8 +212,11 @@ function requireTool(command, versionArgs, label) {
   }
 }
 
-function run(command, args) {
-  const result = spawnSync(command, args, { encoding: "utf8" });
+function run(command, args, extraEnv = {}) {
+  const result = spawnSync(command, args, {
+    encoding: "utf8",
+    env: { ...process.env, ...extraEnv },
+  });
   if (result.status !== 0) {
     fail(
       `${command} ${args.join(" ")} failed (exit ${result.status}): ${result.stderr?.trim() ?? ""}`,

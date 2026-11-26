@@ -1,33 +1,43 @@
 /**
- * VoskEars — the tutor's primary on-device ears (spec §18.2).
+ * VoskEars — the tutor's primary on-device ears (spec §18.2, Milestone 9).
  *
- * `vosk-browser` (Apache-2.0) runs the Vosk/Kaldi WASM recognizer inside its
- * own Web Worker. Audio flows in memory only:
+ * `vosk-browser` (Apache-2.0) runs the Vosk/Kaldi WASM recognizer
+ * (`vosk-model-small-es-0.42`) inside its own Web Worker. Audio flows in
+ * memory only:
  *
- *   getUserMedia (16 kHz mono) → AudioContext → ScriptProcessor → recognizer
+ *   getUserMedia (16 kHz mono, echoCancellation) → AudioContext → ScriptProcessor → recognizer
  *
  * Nothing is recorded, cached, or uploaded: child audio never leaves memory
  * and is discarded when the attempt ends. The only network fetch is the model
  * archive itself, one time, from this app's own same-origin path
  * (`scripts/fetch-vosk-model.mjs` puts it there; it is never committed).
  *
- * The microphone opens ONLY inside listen(), after the child taps. probe()
- * warms/verifies the model and engine without ever touching the microphone.
- *
- * Grammar limiting is native, not a post-filter: `KaldiRecognizer` takes a
- * JSON grammar and decodes constrained to it, which is far more reliable on
- * short child utterances than open dictation. The brain layer passes the
- * per-item list (lesson items, same-page distractors, vowels + aliases,
- * command words) via `listen({ grammar })`; `"[unk]"` is appended here.
+ * Milestone 9 capabilities:
+ * - Two explicit modes:
+ *   1. `"constrained"`: grammar-limited Kaldi decoding for known lesson words,
+ *      letters, syllables, and exercise answers (`"[unk]"` always appended).
+ *      NEVER labeled open conversation.
+ *   2. `"broad"`: unconstrained Spanish decoding for student questions & commands.
+ * - Partial and final transcripts (`onPartial`, `onFinal`).
+ * - Silence detection (RMS energy + post-speech / no-speech silence timer).
+ * - Confidence & uncertainty thresholds (never grade unreliable transcripts).
+ * - Echo cancellation (`echoCancellation`, `noiseSuppression`, `autoGainControl`).
+ * - Strict mic gating while Gretel speaks (`setGretelSpeaking` / `isGretelSpeaking`)
+ *   so Gretel's own playback can NEVER be fed to the recognizer or graded as student speech.
+ * - Always-available `cancel()` and `interrupt()`.
  */
 
 import { assetPath } from "./assets";
-import type {
-  EarsListenOptions,
-  EarsListenOutcome,
-  EarsProblem,
-  EarsStatus,
-  TutorEars,
+import {
+  DEFAULT_CONFIDENCE_THRESHOLD,
+  DEFAULT_SILENCE_RMS_THRESHOLD,
+  type EarsHeard,
+  type EarsListenOptions,
+  type EarsListenOutcome,
+  type EarsProblem,
+  type EarsRecognitionMode,
+  type EarsStatus,
+  type TutorEars,
 } from "./tutor-ears";
 
 /** Asset path served by this app; `scripts/fetch-vosk-model.mjs` fills it. */
@@ -46,8 +56,22 @@ export function voskModelUrl(): string {
 // inject fakes without loading the ~4 MB WASM bundle).
 // ---------------------------------------------------------------------------
 
+export interface VoskWordConfidence {
+  readonly conf?: number;
+  readonly start?: number;
+  readonly end?: number;
+  readonly word?: string;
+}
+
 export type VoskResultMessage =
-  | { event: "result"; result: { text: string } }
+  | {
+      event: "result";
+      result: {
+        text: string;
+        /** Optional Kaldi/Vosk word-level confidence entries. */
+        result?: readonly VoskWordConfidence[];
+      };
+    }
   | { event: "partialresult"; result: { partial: string } }
   | { event: "error"; error: string };
 
@@ -112,14 +136,66 @@ export function voskGrammar(grammar: readonly string[] | undefined): string | un
   return JSON.stringify([...words]);
 }
 
+/**
+ * Computes mean word confidence [0..1] from Vosk word-level entries.
+ * `[unk]` tokens contribute 0 so uncertain utterances drop below threshold.
+ */
+export function computeVoskConfidence(
+  words: readonly VoskWordConfidence[] | undefined,
+): number | undefined {
+  if (!words || words.length === 0) return undefined;
+  let sum = 0;
+  let count = 0;
+  for (const w of words) {
+    const token = w.word?.trim().toLowerCase();
+    if (token === "[unk]" || token === "unk") {
+      sum += 0;
+      count += 1;
+      continue;
+    }
+    if (typeof w.conf === "number" && Number.isFinite(w.conf)) {
+      sum += Math.max(0, Math.min(1, w.conf));
+      count += 1;
+    }
+  }
+  if (count === 0) return undefined;
+  return Number((sum / count).toFixed(4));
+}
+
+/** Computes RMS amplitude of channel 0 when available; returns null for fake buffers without PCM. */
+export function computeBufferRms(buffer: AudioBuffer | null | undefined): number | null {
+  if (!buffer || typeof buffer.getChannelData !== "function") return null;
+  try {
+    const channel = buffer.getChannelData(0);
+    if (!channel || channel.length === 0) return 0;
+    let sumSq = 0;
+    for (let i = 0; i < channel.length; i++) {
+      const sample = channel[i];
+      sumSq += sample * sample;
+    }
+    return Math.sqrt(sumSq / channel.length);
+  } catch {
+    return null;
+  }
+}
+
 const AUDIO_CHUNK_SIZE = 4096;
 /** Wait after stop for the recognizer's final `result` event to arrive. */
 const FINAL_RESULT_GRACE_MS = 300;
+/** Conservative confidence assigned when settling from a partial-only fallback. */
+const PARTIAL_ONLY_CONFIDENCE = 0.5;
 
 interface VoskSession {
+  mode: EarsRecognitionMode;
+  explicitMeta: boolean;
+  minConfidence: number;
   finals: string[];
+  finalConfidences: number[];
   noiseHeard: boolean;
   lastValidPartial: string;
+  speechDetected: boolean;
+  silenceMs?: number;
+  silenceRmsThreshold: number;
   stream: MediaStream;
   audioContext: VoskAudioContextLike;
   source: MediaStreamAudioSourceNode;
@@ -128,12 +204,16 @@ interface VoskSession {
   recognizer: VoskRecognizerLike;
   listenTimer: ReturnType<typeof setTimeout> | null;
   graceTimer: ReturnType<typeof setTimeout> | null;
+  silenceTimer: ReturnType<typeof setTimeout> | null;
   /** True once the first final result asked the attempt to wind down. */
   settling: boolean;
   settled: boolean;
   tornDown: boolean;
   captureStopped: boolean;
   onCaptureChange?: (capturing: boolean) => void;
+  onPartial?: (partial: string) => void;
+  onFinal?: (transcript: string, confidence?: number) => void;
+  isGretelSpeaking?: () => boolean;
   onTrackEnded?: () => void;
   resolve: (outcome: EarsListenOutcome) => void;
 }
@@ -162,11 +242,30 @@ export class VoskEars implements TutorEars {
   private model: VoskModelLike | null = null;
   private generation = 0;
   private disposed = false;
+  private gretelSpeaking = false;
   private active: VoskSession | null = null;
 
   constructor(options: VoskEarsOptions = {}) {
     this.modelUrl = options.modelUrl ?? voskModelUrl();
     this.deps = options.deps ?? {};
+  }
+
+  /** Whether mic capture is currently gated because Gretel is speaking. */
+  get isGretelSpeaking(): boolean {
+    return this.gretelSpeaking;
+  }
+
+  /**
+   * Strict mic gating while Gretel speaks:
+   * - While `speaking` is true, `listen()` refuses to open the mic.
+   * - If a listen session is currently open, it is immediately aborted and
+   *   its mic tracks stopped so Gretel's playback is never recognized.
+   */
+  setGretelSpeaking(speaking: boolean): void {
+    this.gretelSpeaking = speaking;
+    if (speaking) {
+      this.abortActiveForPlaybackGate();
+    }
   }
 
   /** Loads/verifies the on-device engine. Never opens the microphone. */
@@ -190,12 +289,25 @@ export class VoskEars implements TutorEars {
     this.cancel();
     const generation = this.generation;
     if (this.disposed) return { ok: false, problem: "failed" };
+
+    // Strict playback gate: never open the microphone while Gretel speaks.
+    if (this.gretelSpeaking || opts.isGretelSpeaking?.()) {
+      return { ok: false, problem: "no-speech", gatedByPlayback: true };
+    }
+
     if (typeof WebAssembly === "undefined") {
       return { ok: false, problem: "unsupported" };
     }
     if (!navigator.mediaDevices?.getUserMedia) {
       return { ok: false, problem: "no-microphone" };
     }
+
+    const mode: EarsRecognitionMode =
+      opts.mode ?? (opts.grammar && opts.grammar.length > 0 ? "constrained" : "broad");
+    const explicitMeta = opts.mode !== undefined || opts.minConfidence !== undefined;
+    const minConfidence = opts.minConfidence ?? DEFAULT_CONFIDENCE_THRESHOLD;
+    const grammarJson = mode === "constrained" ? voskGrammar(opts.grammar) : undefined;
+
     // The model loads with the mic still off; the mic opens only below.
     let model: VoskModelLike;
     try {
@@ -208,6 +320,10 @@ export class VoskEars implements TutorEars {
     }
 
     if (generation !== this.generation || this.disposed) return { ok: false, problem: "no-speech" };
+    if (this.gretelSpeaking || opts.isGretelSpeaking?.()) {
+      return { ok: false, problem: "no-speech", gatedByPlayback: true };
+    }
+
     let stream: MediaStream;
     try {
       stream = await this.waitForAttempt(
@@ -217,14 +333,21 @@ export class VoskEars implements TutorEars {
             audio: {
               echoCancellation: true,
               noiseSuppression: true,
+              autoGainControl: true,
               channelCount: 1,
               sampleRate: 16000,
             },
           })
-          .then((stream) => {
-            if (generation !== this.generation || this.disposed)
-              stream.getTracks().forEach((track) => track.stop());
-            return stream;
+          .then((mediaStream) => {
+            if (
+              generation !== this.generation ||
+              this.disposed ||
+              this.gretelSpeaking ||
+              opts.isGretelSpeaking?.()
+            ) {
+              mediaStream.getTracks().forEach((track) => track.stop());
+            }
+            return mediaStream;
           }),
       );
     } catch (error) {
@@ -238,6 +361,11 @@ export class VoskEars implements TutorEars {
       stream.getTracks().forEach((track) => track.stop());
       return { ok: false, problem: "no-speech" };
     }
+    if (this.gretelSpeaking || opts.isGretelSpeaking?.()) {
+      stream.getTracks().forEach((track) => track.stop());
+      return { ok: false, problem: "no-speech", gatedByPlayback: true };
+    }
+
     opts.onCaptureChange?.(true);
     try {
       const audioContext = this.deps.createAudioContext?.() ?? new AudioContext();
@@ -250,12 +378,18 @@ export class VoskEars implements TutorEars {
         audioContext.close().catch(() => {});
         return { ok: false, problem: "no-speech" };
       }
+      if (this.gretelSpeaking || opts.isGretelSpeaking?.()) {
+        stream.getTracks().forEach((track) => track.stop());
+        opts.onCaptureChange?.(false);
+        audioContext.close().catch(() => {});
+        return { ok: false, problem: "no-speech", gatedByPlayback: true };
+      }
+
       return await new Promise<EarsListenOutcome>((resolve) => {
         // Audio pipeline — everything below lives in memory only.
-        const recognizer = new model.KaldiRecognizer(
-          audioContext.sampleRate,
-          voskGrammar(opts.grammar),
-        );
+        // In "broad" mode grammarJson is always undefined (unconstrained Spanish).
+        // In "constrained" mode grammarJson is the deduped lesson grammar + "[unk]".
+        const recognizer = new model.KaldiRecognizer(audioContext.sampleRate, grammarJson);
         const processor = audioContext.createScriptProcessor(AUDIO_CHUNK_SIZE, 1, 1);
         const source = audioContext.createMediaStreamSource(stream);
         // Chrome only pumps a ScriptProcessor that reaches the destination;
@@ -271,9 +405,16 @@ export class VoskEars implements TutorEars {
         };
 
         const session: VoskSession = {
+          mode,
+          explicitMeta,
+          minConfidence,
           finals: [],
+          finalConfidences: [],
           noiseHeard: false,
           lastValidPartial: "",
+          speechDetected: false,
+          silenceMs: opts.silenceMs,
+          silenceRmsThreshold: opts.silenceRmsThreshold ?? DEFAULT_SILENCE_RMS_THRESHOLD,
           stream,
           audioContext,
           source,
@@ -282,6 +423,7 @@ export class VoskEars implements TutorEars {
           recognizer,
           listenTimer: null,
           graceTimer: null,
+          silenceTimer: null,
           settling: false,
           settled: false,
           tornDown: false,
@@ -289,8 +431,29 @@ export class VoskEars implements TutorEars {
           onTrackEnded,
           resolve,
           onCaptureChange: opts.onCaptureChange,
+          onPartial: opts.onPartial,
+          onFinal: opts.onFinal,
+          isGretelSpeaking: opts.isGretelSpeaking,
         };
         this.active = session;
+
+        const isPlaybackGated = () =>
+          this.gretelSpeaking || Boolean(session.isGretelSpeaking?.());
+
+        const resetSilenceTimer = () => {
+          if (!session.silenceMs || session.silenceMs <= 0) return;
+          if (session.silenceTimer) clearTimeout(session.silenceTimer);
+          session.silenceTimer = setTimeout(() => {
+            if (session.settling || session.settled) return;
+            if (session.speechDetected) {
+              this.finishSession();
+            } else {
+              session.settled = true;
+              this.teardownSession(session);
+              session.resolve({ ok: false, problem: "no-speech", silenceDetected: true });
+            }
+          }, session.silenceMs);
+        };
 
         const audioTracks =
           typeof stream.getAudioTracks === "function"
@@ -307,8 +470,13 @@ export class VoskEars implements TutorEars {
 
         recognizer.on("result", (message) => {
           if (message.event !== "result") return;
+          if (isPlaybackGated()) {
+            this.abortActiveForPlaybackGate();
+            return;
+          }
           const text = message.result.text.trim();
           if (!text) return;
+          const conf = computeVoskConfidence(message.result.result);
           const tokens = text.split(/\s+/).filter(Boolean);
           const isPureNoise =
             tokens.length > 0 &&
@@ -320,16 +488,29 @@ export class VoskEars implements TutorEars {
             session.noiseHeard = true;
             return;
           }
+          session.speechDetected = true;
           session.finals.push(text);
+          if (conf !== undefined) {
+            session.finalConfidences.push(conf);
+          }
+          session.onFinal?.(text, conf);
           this.status = "hearing";
           // A finished child utterance is recognized: end the attempt now.
           this.finishSession();
         });
+
         recognizer.on("partialresult", (message) => {
           if (message.event !== "partialresult") return;
+          if (isPlaybackGated()) {
+            this.abortActiveForPlaybackGate();
+            return;
+          }
           const partial = message.result.partial.trim();
           if (partial) {
+            session.speechDetected = true;
             this.status = "hearing";
+            session.onPartial?.(partial);
+            resetSilenceTimer();
             const validTokens = partial.split(/\s+/).filter((t) => {
               const lower = t.toLowerCase();
               return lower && lower !== "[unk]" && lower !== "unk";
@@ -341,6 +522,15 @@ export class VoskEars implements TutorEars {
         });
 
         processor.onaudioprocess = (event) => {
+          if (isPlaybackGated()) {
+            this.abortActiveForPlaybackGate();
+            return;
+          }
+          const rms = computeBufferRms(event.inputBuffer);
+          if (rms !== null && rms >= session.silenceRmsThreshold) {
+            session.speechDetected = true;
+            resetSilenceTimer();
+          }
           try {
             recognizer.acceptWaveform(event.inputBuffer);
           } catch {
@@ -352,6 +542,7 @@ export class VoskEars implements TutorEars {
         silence.connect(audioContext.destination);
 
         this.status = "listening";
+        resetSilenceTimer();
         session.listenTimer = setTimeout(() => {
           // No final result within maxMs: ask once more, then settle.
           this.finishSession();
@@ -373,6 +564,20 @@ export class VoskEars implements TutorEars {
     this.finalizeSession();
   }
 
+  /**
+   * Always-available stop/interrupt: discards any in-flight speech immediately,
+   * closes the mic, and resolves with `{ ok: false, problem: "no-speech", interrupted: true }`.
+   */
+  interrupt(): void {
+    this.generation += 1;
+    this.cancelListenWait?.();
+    const session = this.active;
+    if (!session || session.settled) return;
+    session.settled = true;
+    this.teardownSession(session);
+    session.resolve({ ok: false, problem: "no-speech", interrupted: true });
+  }
+
   dispose(): void {
     this.disposed = true;
     this.cancel();
@@ -383,6 +588,16 @@ export class VoskEars implements TutorEars {
     this.status = "off";
   }
 
+  private abortActiveForPlaybackGate(): void {
+    this.generation += 1;
+    this.cancelListenWait?.();
+    const session = this.active;
+    if (!session || session.settled) return;
+    session.settled = true;
+    this.teardownSession(session);
+    session.resolve({ ok: false, problem: "no-speech", gatedByPlayback: true });
+  }
+
   /** Ask the recognizer to flush its final result, then settle after a grace. */
   private finishSession(): void {
     const session = this.active;
@@ -390,7 +605,9 @@ export class VoskEars implements TutorEars {
     session.settling = true;
     this.stopCapture(session);
     if (session.listenTimer) clearTimeout(session.listenTimer);
+    if (session.silenceTimer) clearTimeout(session.silenceTimer);
     session.listenTimer = null;
+    session.silenceTimer = null;
     try {
       session.recognizer.retrieveFinalResult();
     } catch {
@@ -406,10 +623,13 @@ export class VoskEars implements TutorEars {
     if (!session || session.settled) return;
     session.settled = true;
     this.teardownSession(session);
+
+    const hasFinals = session.finals.length > 0;
     let transcript = session.finals.join(" ").trim();
     if (!transcript && session.lastValidPartial) {
       transcript = session.lastValidPartial;
     }
+
     if (transcript) {
       const cleanTokens = transcript.split(/\s+/).filter((t) => {
         const lower = t.toLowerCase();
@@ -418,9 +638,40 @@ export class VoskEars implements TutorEars {
       if (cleanTokens.length > 0) {
         transcript = cleanTokens.join(" ");
       }
-      session.resolve({ ok: true, transcript, alternatives: [] });
+
+      const outcome: EarsHeard = { ok: true, transcript, alternatives: [] };
+
+      const meanConf =
+        session.finalConfidences.length > 0
+          ? Number(
+              (
+                session.finalConfidences.reduce((sum, c) => sum + c, 0) /
+                session.finalConfidences.length
+              ).toFixed(4),
+            )
+          : undefined;
+
+      // Attach extended metadata when word confidences were reported or the caller
+      // explicitly opted into mode/confidence tracking (preserves exact legacy object
+      // shape for existing tests that do not pass mode/minConfidence/word confidences).
+      if (meanConf !== undefined || session.explicitMeta) {
+        const resolvedConf = meanConf ?? (hasFinals ? 1 : PARTIAL_ONLY_CONFIDENCE);
+        outcome.mode = session.mode;
+        outcome.confidence = resolvedConf;
+        outcome.reliable = resolvedConf >= session.minConfidence;
+        outcome.isFinal = hasFinals;
+      }
+
+      session.resolve(outcome);
     } else if (session.noiseHeard) {
-      session.resolve({ ok: true, transcript: "[unk]", alternatives: [] });
+      const outcome: EarsHeard = { ok: true, transcript: "[unk]", alternatives: [] };
+      if (session.explicitMeta) {
+        outcome.mode = session.mode;
+        outcome.confidence = 0;
+        outcome.reliable = false;
+        outcome.isFinal = false;
+      }
+      session.resolve(outcome);
     } else {
       session.resolve({ ok: false, problem: "no-speech" });
     }
@@ -472,8 +723,10 @@ export class VoskEars implements TutorEars {
     }
     if (session.listenTimer) clearTimeout(session.listenTimer);
     if (session.graceTimer) clearTimeout(session.graceTimer);
+    if (session.silenceTimer) clearTimeout(session.silenceTimer);
     session.listenTimer = null;
     session.graceTimer = null;
+    session.silenceTimer = null;
     try {
       session.processor.onaudioprocess = null;
     } catch {

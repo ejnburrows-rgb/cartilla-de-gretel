@@ -1,35 +1,42 @@
 /**
- * /tutor/$n — one tutor session (spec §2, §5, §9, §18): the full runtime
- * wiring of the finished lanes.
+ * /tutor/$n — persistent video-call tutor session for Lessons 1–24
+ * (spec §2, §5, §9, §18 + Milestone 6).
  *
- * - mounts the recorded-audio voice provider (never a TTS path),
- * - drives the pure brain with reduce() and translates its effects into
- *   UI + voice + progress + memory,
- * - opens the mic ONLY on the child's tap: ears.listen() with the lesson
- *   grammar from buildListenGrammar(); Chrome's on-device recognizer runs
- *   alongside as an extra alternative when it confirms on-device Spanish,
- * - 15 minutes without a tap → IDLE_TIMEOUT; leaving the route → EXIT,
- *   stopping the mic and speech,
- * - returning-child greeting + review round come from tutor-memory,
- * - celebrate at the end of the last (review) item.
- *
- * Runtime-only wiring decision (brain is untouched): the brain keeps
- * `missedItemIds` itself but reads its review queue from `reviewItemIds`,
- * so before each reduce the runtime merges the two the way §18.4 defines
- * (session misses first, then up to 3 carried over from last time). This
- * gives missed items one more try before celebrate without editing the
- * brain lane's module.
+ * Guarantees:
+ * - ONE persistent TutorSessionController per session
+ * - ONE persistent TutorGretelPuppet instance (never remounted across layout switches)
+ * - ONE recorded-audio speech channel (never TTS)
+ * - ONE mic session (never restarted by layout switches)
+ * - Real states ONLY (preparing, ready, listening, thinking, speaking,
+ *   presenting, waiting, analyzing, recovering, ended)
  */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Star, VolumeX, Volume2, RotateCcw } from "lucide-react";
+import { ArrowLeft, RotateCcw, Star, VolumeX } from "lucide-react";
+import { TutorCallShell } from "@/components/tutor/TutorCallShell";
+import { TutorCameraPanel } from "@/components/tutor/TutorCameraPanel";
+import {
+  DEFAULT_TUTOR_CONSENT,
+  TutorConsentControls,
+  type TutorConsentState,
+} from "@/components/tutor/TutorConsentControls";
+import {
+  TutorFlipchartPresenter,
+  getFlipchartImportantRects,
+} from "@/components/tutor/TutorFlipchartPresenter";
 import { TutorGretelPuppet } from "@/components/tutor/TutorGretelPuppet";
 import { TutorMicButton } from "@/components/tutor/TutorMicButton";
-import { TutorStage } from "@/components/tutor/TutorStage";
+import {
+  TutorPracticeHost,
+  type TutorPracticeTarget,
+} from "@/components/tutor/TutorPracticeHost";
+import { TutorReplay } from "@/components/tutor/TutorReplay";
 import { TutorTargetWord } from "@/components/tutor/TutorTargetWord";
 import { TutorUnavailable } from "@/components/tutor/TutorUnavailable";
+import { createSessionLog, type TutorSessionLog } from "@/lib/tutor-session-log";
 import { WorkbookPencilMark } from "@/components/cartilla/WorkbookPencilMark";
 import { useGretelAnimation } from "@/components/gretel/useGretelAnimation";
+import { CATALOG } from "@/lib/lesson-catalog";
 import {
   buildListenGrammar,
   createBrainState,
@@ -47,8 +54,17 @@ import { cancelGretelSpeech, isGretelVoiceMuted, setGretelVoiceMuted } from "@/l
 import { modelLineIdForItem, SEQUENCE_PAUSE_MS, TUTOR_LINES } from "@/lib/tutor-line-picker";
 import { beginSession, noteMissedItem, recordStreak, reviewRoundSet } from "@/lib/tutor-memory";
 import { appendTutorProgress, flushTutorProgress, makeSessionId } from "@/lib/tutor-progress";
-import { TUTOR_LESSONS } from "@/lib/tutor-content";
-import { mountTutorVoice, speakTutorLine, type TutorViseme } from "@/lib/tutor-voice";
+import { ALL_CURRICULUM_LESSONS, lessonGraphFor } from "@/lib/tutor-content";
+import {
+  deriveSessionState,
+  TutorSessionController,
+} from "@/lib/tutor-session";
+import {
+  mountTutorVoice,
+  speakTutorLine,
+  type TutorPlaybackPosition,
+  type TutorViseme,
+} from "@/lib/tutor-voice";
 import { mulberry32, seedFromStrings } from "@/lib/random-with-seed";
 
 export const Route = createFileRoute("/tutor/$n")({
@@ -71,7 +87,7 @@ export const Route = createFileRoute("/tutor/$n")({
       { title: "Tutor de Gretel — Lección — La Cartilla de Gretel" },
       {
         name: "description",
-        content: "Sesión del tutor de voz de Gretel de La Cartilla de Gretel.",
+        content: "Sesión del tutor interactivo de Gretel de La Cartilla de Gretel.",
       },
     ],
   }),
@@ -118,9 +134,38 @@ function TutorSessionScreen() {
   const { n } = Route.useParams();
   const search = Route.useSearch();
   const lesson = Number(n);
-  const validLesson = (TUTOR_LESSONS as readonly number[]).includes(lesson);
+  const validLesson = (ALL_CURRICULUM_LESSONS as readonly number[]).includes(lesson);
   const lessonRef = useRef(lesson);
   lessonRef.current = lesson;
+
+  const lessonGraph = useMemo(() => lessonGraphFor(lesson), [lesson]);
+  const catalogEntry = useMemo(
+    () => CATALOG.find((candidate) => candidate.n === lesson),
+    [lesson],
+  );
+  const defaultFlipchartPage = lessonGraph?.flipchartPages[0] ?? 1;
+  const defaultWorkbookPage = lessonGraph?.printedWorkbookPages.start ?? 1;
+
+  // ONE persistent session controller for the lifetime of this route identity
+  const controller = useMemo(
+    () =>
+      new TutorSessionController({
+        sessionId: `${search.code}-${search.slot}-l${lesson}`,
+        lesson,
+        initialLayoutMode: "call",
+        initialMuted: isGretelVoiceMuted(),
+        initialFlipchartPage: defaultFlipchartPage,
+        initialWorkbookPage: defaultWorkbookPage,
+      }),
+    [lesson, search.code, search.slot, defaultFlipchartPage, defaultWorkbookPage],
+  );
+
+  useEffect(() => {
+    controller.reconnect();
+    return () => controller.dispose();
+  }, [controller]);
+
+  const shellSnapshot = useSyncExternalStore(controller.subscribe, controller.getSnapshot);
 
   const [brain, setBrain] = useState<BrainState | null>(null);
   const brainRef = useRef<BrainState | null>(null);
@@ -128,18 +173,35 @@ function TutorSessionScreen() {
   const rngRef = useRef<() => number>(() => 0.5);
 
   const [unavailableProblem, setUnavailableProblem] = useState<EarsProblem | null>(null);
-  const [muted, setMuted] = useState(isGretelVoiceMuted);
   const [spokenText, setSpokenText] = useState("");
   const [replaying, setReplaying] = useState(false);
   const [actuallyCapturing, setActuallyCapturing] = useState(false);
   const [linePlaying, setLinePlaying] = useState(false);
   const [effectsRunning, setEffectsRunning] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [playbackPosition, setPlaybackPosition] = useState<TutorPlaybackPosition | null>(null);
   const effectsInFlightRef = useRef(0);
   const silentHoldCancelRef = useRef<(() => void) | null>(null);
   const [silentLine, setSilentLine] = useState(false);
   const [viseme, setViseme] = useState("X");
   const [mark, setMark] = useState<{ isCorrect: boolean; key: number; itemId: string } | null>(
     null,
+  );
+  const [practiceTarget, setPracticeTarget] = useState<TutorPracticeTarget>({
+    kind: "workbook",
+    printedPage: defaultWorkbookPage,
+    lesson,
+  });
+  const [consent, setConsent] = useState<TutorConsentState>(DEFAULT_TUTOR_CONSENT);
+  const sessionLog = useMemo<TutorSessionLog>(
+    () =>
+      createSessionLog({
+        sessionId: `${search.code}-${search.slot}-l${lesson}`,
+        learnerId: `${search.code}:${search.slot}`,
+        lesson,
+        curriculumVersion: lessonGraph?.schemaVersion ?? "cartilla-24-v1",
+      }),
+    [search.code, search.slot, lesson, lessonGraph?.schemaVersion],
   );
 
   const markDoneRef = useRef<(() => void) | null>(null);
@@ -159,6 +221,28 @@ function TutorSessionScreen() {
 
   const item = brain ? activeItemOf(brain) : null;
 
+  // Keep practice target aligned when lesson changes
+  useEffect(() => {
+    setPracticeTarget({
+      kind: "workbook",
+      printedPage: defaultWorkbookPage,
+      lesson,
+    });
+  }, [defaultWorkbookPage, lesson]);
+
+  // Keep Mode C PiP protected regions synced with the active Flip Chart sheet
+  useEffect(() => {
+    const sheet = shellSnapshot.activeFlipchartPage ?? defaultFlipchartPage;
+    const rects = getFlipchartImportantRects(sheet).map((r) => ({
+      x: r.xPct / 100,
+      y: r.yPct / 100,
+      width: r.wPct / 100,
+      height: r.hPct / 100,
+      label: r.regionId,
+    }));
+    controller.setProtectedRegions(rects);
+  }, [controller, shellSnapshot.activeFlipchartPage, defaultFlipchartPage]);
+
   // ---------------------------------------------------------------------
   // Voice + visemes
   // ---------------------------------------------------------------------
@@ -172,6 +256,8 @@ function TutorSessionScreen() {
     silentHoldCancelRef.current = null;
     setViseme("X");
     setLinePlaying(false);
+    setPlaybackPosition(null);
+    controller.endSpeaking();
   }
 
   async function playLine(lineId: string): Promise<void> {
@@ -181,7 +267,12 @@ function TutorSessionScreen() {
       return;
     }
     setSilentLine(false);
-    setSpokenText(text.replace(/\[DRAFT[^\]]*\]\s*/g, "").replace(/\s*\(reuse:.*\)$/, ""));
+    const cleanedCaption = text
+      .replace(/\[DRAFT[^\]]*\]\s*/g, "")
+      .replace(/\s*\(reuse:.*\)$/, "");
+    setSpokenText(cleanedCaption);
+    controller.beginSpeaking(lineId, cleanedCaption, false);
+
     const result = await speakTutorLine(text, {
       onStart: () => {
         setLinePlaying(true);
@@ -192,7 +283,7 @@ function TutorSessionScreen() {
     });
     stopVisemePlayer();
     if (result === "silent" && !isGretelVoiceMuted()) {
-      // Gentle pacing for pending lines: the visual model step still runs.
+      setSilentLine(true);
       await sleep(SILENT_LINE_HOLD_MS, (cancel) => {
         silentHoldCancelRef.current = cancel;
       });
@@ -261,6 +352,7 @@ function TutorSessionScreen() {
     earsRef.current?.cancel();
     chromeRef.current?.cancel();
     setActuallyCapturing(false);
+    controller.setMicCapturing(false);
   }
 
   async function handleEffects(state: BrainState, effects: Effect[], epoch: number): Promise<void> {
@@ -275,75 +367,69 @@ function TutorSessionScreen() {
     const linePlaybacks: Promise<void>[] = [];
     const markWaiters: Promise<void>[] = [];
     try {
-
-    for (const effect of effects) {
-      if (!alive()) return;
-      switch (effect.type) {
-        case "playLine": {
-          // Consecutive playLine effects are a response sequence: whole
-          // lines back to back with a 400 ms pause (§18.5).
-          const playback =
-            linePlaybacks.length > 0
-              ? linePlaybacks[linePlaybacks.length - 1]
-                  .then(() => sleep(SEQUENCE_PAUSE_MS))
-                  .then(() => (alive() ? playLine(effect.lineId) : undefined))
-              : playLine(effect.lineId);
-          linePlaybacks.push(playback);
-          break;
+      for (const effect of effects) {
+        if (!alive()) return;
+        switch (effect.type) {
+          case "playLine": {
+            const playback =
+              linePlaybacks.length > 0
+                ? linePlaybacks[linePlaybacks.length - 1]
+                    .then(() => sleep(SEQUENCE_PAUSE_MS))
+                    .then(() => (alive() ? playLine(effect.lineId) : undefined))
+                : playLine(effect.lineId);
+            linePlaybacks.push(playback);
+            break;
+          }
+          case "highlight":
+            break;
+          case "markCorrect":
+          case "markWrongErase":
+            markWaiters.push(runMark(effect.type === "markCorrect", state));
+            break;
+          case "logProgress":
+            logProgressEvent(effect.evt);
+            break;
+          case "stopMic":
+            stopMic();
+            break;
+          case "showUnavailable":
+            setUnavailableProblem(effect.problem);
+            break;
+          case "cancelSpeech":
+            cancelGretelSpeech();
+            stopVisemePlayer();
+            break;
+          case "flushLog":
+            flushTutorProgress();
+            break;
         }
-        case "highlight":
-          // The card renders the active item from brain state directly.
-          break;
-        case "markCorrect":
-        case "markWrongErase":
-          markWaiters.push(runMark(effect.type === "markCorrect", state));
-          break;
-        case "logProgress":
-          logProgressEvent(effect.evt);
-          break;
-        case "stopMic":
-          stopMic();
-          break;
-        case "showUnavailable":
-          setUnavailableProblem(effect.problem);
-          break;
-        case "cancelSpeech":
-          cancelGretelSpeech();
-          stopVisemePlayer();
-          break;
-        case "flushLog":
+      }
+
+      await Promise.all([...linePlaybacks, ...markWaiters]);
+      if (!alive()) return;
+
+      const after = brainRef.current;
+      if (!after) return;
+
+      if (after.phase === "ENDED") {
+        if (after.endedReason === "complete" || after.endedReason === "idle") {
+          writeMemory(after);
           flushTutorProgress();
-          break;
+        }
+        return;
       }
-    }
 
-    await Promise.all([...linePlaybacks, ...markWaiters]);
-    if (!alive()) return;
-
-    const after = brainRef.current;
-    if (!after) return;
-
-    if (after.phase === "ENDED") {
-      if (after.endedReason === "complete" || after.endedReason === "idle") {
-        writeMemory(after);
-        flushTutorProgress();
+      if (
+        after.phase === "GREET" ||
+        after.phase === "MODEL" ||
+        after.phase === "RESPOND" ||
+        after.phase === "CELEBRATE"
+      ) {
+        dispatchRef.current({ type: "LINE_DONE" });
+        return;
       }
-      return;
-    }
 
-    // LINE_DONE is the runtime's: once the response (lines + marks) is
-    // finished, the brain advances GREET → MODEL → LISTEN → RESPOND → …
-    if (
-      after.phase === "GREET" ||
-      after.phase === "MODEL" ||
-      after.phase === "RESPOND" ||
-      after.phase === "CELEBRATE"
-    ) {
-      dispatchRef.current({ type: "LINE_DONE" });
-      return;
-    }
-
-    maybeListen();
+      maybeListen();
     } finally {
       if (hasBlockingEffects) {
         effectsInFlightRef.current = Math.max(0, effectsInFlightRef.current - 1);
@@ -359,9 +445,6 @@ function TutorSessionScreen() {
     if (!current) return;
     const epoch = epochRef.current;
 
-    // Runtime wiring for §18.4: keep the brain's review queue in sync with
-    // this session's misses (plus up to 3 from last time) outside the
-    // review round itself. The brain module stays untouched.
     const base =
       !current.inReview && current.started
         ? {
@@ -389,7 +472,10 @@ function TutorSessionScreen() {
         lang: EARS_LANG,
         maxMs: LISTEN_MAX_MS,
         grammar,
-        onCaptureChange: setActuallyCapturing,
+        onCaptureChange: (cap) => {
+          setActuallyCapturing(cap);
+          controller.setMicCapturing(cap);
+        },
       });
       if (!primary) return;
       const chrome = chromeReadyRef.current
@@ -400,11 +486,10 @@ function TutorSessionScreen() {
       const [outcome, chromeOutcome] = await Promise.all([primary, chrome]);
       if (epoch !== epochRef.current) return;
       const state = brainRef.current;
-      if (!state || !state.capturing) return; // stopMic / EXIT already settled this attempt
+      if (!state || !state.capturing) return;
 
+      setAnalyzing(true);
       if (outcome.ok) {
-        // Fusion (§18.2): the Chrome on-device opinion joins as an extra
-        // alternative; the brain's matcher decides on all of them.
         const alternatives = [...outcome.alternatives];
         if (chromeOutcome?.ok) {
           if (chromeOutcome.transcript && chromeOutcome.transcript !== outcome.transcript) {
@@ -414,14 +499,18 @@ function TutorSessionScreen() {
             if (alt !== outcome.transcript && !alternatives.includes(alt)) alternatives.push(alt);
           }
         }
+        if (outcome.transcript.trim()) {
+          controller.appendTranscript({ speaker: "student", text: outcome.transcript.trim() });
+        }
         dispatch({ type: "HEARD", transcript: outcome.transcript, alternatives });
       } else if (outcome.problem === "no-speech") {
-        // §18.3 SILENCE: nothing in the window → gentle nudge path.
         dispatch({ type: "HEARD", transcript: "", alternatives: [] });
       } else {
         dispatch({ type: "EARS_PROBLEM", problem: outcome.problem });
       }
+      setAnalyzing(false);
     } catch {
+      setAnalyzing(false);
       if (epoch === epochRef.current) dispatch({ type: "EARS_PROBLEM", problem: "failed" });
     } finally {
       if (epoch === epochRef.current) {
@@ -464,8 +553,35 @@ function TutorSessionScreen() {
     writeMemory(brainRef.current);
   }
 
+  // Register controller callbacks so shell mute/interrupt/end drive real runtime
+  useEffect(() => {
+    controller.setCallbacks({
+      onMuteChange: (nextMuted) => {
+        setGretelVoiceMuted(nextMuted);
+        if (nextMuted) stopVisemePlayer();
+        stopMic();
+        if (brainRef.current?.capturing) dispatchRef.current({ type: "MIC_CANCEL" });
+      },
+      onInterrupt: () => {
+        resetIdleTimer();
+        cancelGretelSpeech();
+        stopVisemePlayer();
+        stopMic();
+        if (brainRef.current?.capturing) dispatchRef.current({ type: "MIC_CANCEL" });
+      },
+      onEndSession: () => {
+        finishSession();
+        const state = brainRef.current;
+        if (state && state.started && state.phase !== "ENDED") {
+          dispatchRef.current({ type: "EXIT" });
+        }
+      },
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [controller]);
+
   // ---------------------------------------------------------------------
-  // Session lifecycle
+  // Session lifecycle (ONE persistent voice + ears mount per lesson)
   // ---------------------------------------------------------------------
 
   useEffect(() => {
@@ -483,6 +599,7 @@ function TutorSessionScreen() {
         visemeTimelinesRef.current.set(lineId, timeline);
       },
       onPlaybackPosition: (position) => {
+        setPlaybackPosition(position);
         if (!position) {
           setViseme("X");
           return;
@@ -491,7 +608,14 @@ function TutorSessionScreen() {
         const cue = timeline.find(
           (segment) => segment.start <= position.currentTime && segment.end > position.currentTime,
         );
-        setViseme(cue?.shape ?? "X");
+        const shape = cue?.shape ?? "X";
+        setViseme(shape);
+        controller.updatePlaybackPosition(
+          position.currentTime,
+          position.duration,
+          position.lineId,
+          shape,
+        );
       },
       onSilentLine: () => {
         setSilentLine(true);
@@ -509,8 +633,6 @@ function TutorSessionScreen() {
         if (epoch === epochRef.current) setUnavailableProblem("failed");
       });
 
-    // Chrome's on-device recognizer: extra opinion only when it confirms
-    // on-device processing (spec §18.2). Never cloud, never mid-session.
     const chrome = new ChromeLocalEars();
     chromeRef.current = chrome;
     chrome
@@ -551,10 +673,10 @@ function TutorSessionScreen() {
 
     return () => {
       cancelled = true;
-      epochRef.current += 1; // invalidate every in-flight async step
+      epochRef.current += 1;
       const state = brainRef.current;
       if (state && state.started && state.phase !== "ENDED") {
-        dispatchRef.current({ type: "EXIT" }); // cancelSpeech + stopMic
+        dispatchRef.current({ type: "EXIT" });
       }
       finishSession();
       ears.dispose?.();
@@ -563,7 +685,6 @@ function TutorSessionScreen() {
       listenInFlightRef.current = false;
       disposeVoice();
     };
-    // The session identity is fixed for the life of this screen.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson, search.code, search.slot]);
 
@@ -572,8 +693,7 @@ function TutorSessionScreen() {
     setMark(null);
   }, [item?.id]);
 
-  // Puppet states from the brain's phases (talking comes from the
-  // gretel:speak_start/stop events the voice layer already dispatches).
+  // Puppet states from the brain's phases.
   useEffect(() => {
     if (!brain) return;
     if (brain.phase === "ENDED") {
@@ -583,11 +703,40 @@ function TutorSessionScreen() {
     } else if (brain.phase === "LISTEN" && brain.capturing) {
       puppet.send({ type: "LISTEN" });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- send is stable; phases drive it
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [brain?.phase, brain?.capturing]);
 
-  // Focus management on phase change (spec §9): the mic is the one control
-  // the child needs in LISTEN; unavailable states take focus themselves.
+  // Derive ONLY real session states from actual runtime signals.
+  const simulated = !import.meta.env.PROD && import.meta.env.VITE_TUTOR_EARS === "stub";
+  const capturing = simulated ? Boolean(brain?.capturing) : actuallyCapturing;
+
+  useEffect(() => {
+    const presenting =
+      shellSnapshot.layoutMode === "split" || shellSnapshot.layoutMode === "flipchart-pip";
+    const nextState = deriveSessionState({
+      hasBrain: brain !== null,
+      brainPhase: brain?.phase ?? null,
+      micCapturing: capturing,
+      linePlaying,
+      presenting: presenting && (linePlaying || brain?.phase === "MODEL"),
+      thinking: effectsRunning && !linePlaying && !analyzing,
+      analyzing,
+      recovering: unavailableProblem !== null,
+      ended: brain?.phase === "ENDED",
+    });
+    controller.setRealState(nextState);
+  }, [
+    controller,
+    brain,
+    capturing,
+    linePlaying,
+    effectsRunning,
+    analyzing,
+    unavailableProblem,
+    shellSnapshot.layoutMode,
+  ]);
+
+  // Focus management on phase change.
   useEffect(() => {
     if (brain?.phase === "LISTEN" && !brain.capturing && !unavailableProblem) {
       micButtonRef.current?.focus();
@@ -600,10 +749,10 @@ function TutorSessionScreen() {
 
   if (!validLesson) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background px-6 text-center text-foreground">
-        <Star className="h-12 w-12 text-amber-500" aria-hidden="true" />
+      <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#f6efe2] px-6 text-center text-[#2a211b]">
+        <Star className="h-12 w-12 text-[#b88228]" aria-hidden="true" />
         <h1 className="text-2xl font-black">Esta lección todavía no está lista.</h1>
-        <Link to="/tutor" className="text-lg font-bold text-foreground/70 underline">
+        <Link to="/tutor" className="text-lg font-bold text-[#1e4b82] underline">
           Volver al tutor
         </Link>
       </main>
@@ -615,29 +764,25 @@ function TutorSessionScreen() {
       <main
         data-tutor-ended=""
         data-ended-reason={brain.endedReason ?? undefined}
-        className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[hsl(40_45%_93%)] px-6 text-center text-stone-800"
+        className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#f6efe2] px-6 text-center text-[#2a211b]"
       >
-        <Star className="h-16 w-16 text-amber-500" aria-hidden="true" />
+        <Star className="h-16 w-16 text-[#b88228]" aria-hidden="true" />
         {brain.endedReason === "idle" ? (
           <h1 className="text-3xl font-black">Sesión en pausa</h1>
         ) : (
-          /* Approved praise string from the line bank. */
           <h1 className="text-4xl font-black">¡Muy bien!</h1>
         )}
         <Link
           to="/tutor"
-          className="kid-card mt-2 inline-flex items-center gap-2 px-6 py-4 text-lg font-black text-foreground"
+          className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[#5c3d28]/20 bg-[#fffaf0] px-6 py-3 text-lg font-black text-[#2a211b] shadow-[0_6px_18px_rgba(42,33,27,0.1)]"
         >
           <ArrowLeft className="h-5 w-5" aria-hidden="true" />
-          {/* DRAFT wording — owner to approve. */}
           Volver a las lecciones
         </Link>
       </main>
     );
   }
 
-  const simulated = !import.meta.env.PROD && import.meta.env.VITE_TUTOR_EARS === "stub";
-  const capturing = simulated ? Boolean(brain?.capturing) : actuallyCapturing;
   const micDisabled =
     unavailableProblem !== null ||
     brain?.phase !== "LISTEN" ||
@@ -645,52 +790,72 @@ function TutorSessionScreen() {
     linePlaying ||
     effectsRunning;
 
+  const replayDisabled =
+    !item ||
+    brain?.phase !== "LISTEN" ||
+    capturing ||
+    replaying ||
+    linePlaying ||
+    effectsRunning;
+
+  const handleReplayLast = async () => {
+    if (!item) return;
+    resetIdleTimer();
+    const epoch = epochRef.current;
+    setReplaying(true);
+    const lineId = modelLineIdForItem(item);
+    if (lineId) await playLine(lineId);
+    if (epoch === epochRef.current) setReplaying(false);
+  };
+
+  const activeSheet = shellSnapshot.activeFlipchartPage ?? defaultFlipchartPage;
+  const lessonTitle = catalogEntry
+    ? `Lección ${lesson} · ${catalogEntry.title}`
+    : lessonGraph
+      ? `Lección ${lesson} · ${lessonGraph.title}`
+      : `Lección ${lesson}`;
+
   return (
-    <TutorStage
-      controls={
-        <>
-          <Link to="/tutor" onClick={finishSession}>
-            <ArrowLeft className="h-5 w-5" /> Lecciones
-          </Link>
-          <button
-            type="button"
-            aria-pressed={muted}
-            aria-label={muted ? "Activar sonido" : "Silenciar"}
-            onClick={() => {
-              const next = !muted;
-              setMuted(next);
-              setGretelVoiceMuted(next);
-              if (next) stopVisemePlayer();
-              stopMic();
-              if (brainRef.current?.capturing) dispatch({ type: "MIC_CANCEL" });
-            }}
-          >
-            {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
-            {muted ? "Sin sonido" : "Sonido"}
-          </button>
-        </>
+    <TutorCallShell
+      controller={controller}
+      lessonTitle={lessonTitle}
+      lessonSubtitle={catalogEntry?.subtitle ?? lessonGraph?.focus}
+      backLink={
+        <Link to="/tutor" onClick={finishSession} className="tutor-call-back">
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+          <span>Lecciones</span>
+        </Link>
       }
-      gretel={<TutorGretelPuppet state={puppet.machineState} viseme={viseme} />}
+      avatar={
+        <TutorGretelPuppet
+          state={puppet.machineState}
+          viseme={viseme}
+          playbackTime={playbackPosition?.currentTime ?? null}
+          isSpeaking={linePlaying}
+          isMuted={shellSnapshot.muted}
+        />
+      }
       card={
         <div
           data-tutor-word-card=""
-          className="tutor-word-card relative rounded-[2rem] border-4 border-stone-200/80 bg-[#fffaf0] px-10 py-10 shadow-[0_10px_0_rgba(45,32,20,0.08)]"
+          className="tutor-word-card w-full max-w-md"
         >
           <div className="flex flex-col items-center gap-4">
             {item ? (
-              <TutorTargetWord word={item.text} playing={linePlaying && (brain?.phase === "MODEL" || replaying)} />
+              <TutorTargetWord
+                word={item.text}
+                playing={linePlaying && (brain?.phase === "MODEL" || replaying)}
+              />
             ) : (
               <span aria-hidden="true" className="text-6xl font-black text-stone-300">
                 ·
               </span>
             )}
 
-            {/* Silent-line indicator (spec §9): a line had no recording.
-                Icon-only by design; the aria-label wording is DRAFT. */}
             {silentLine ? (
               <p
                 data-tutor-silent-line=""
-                className="flex items-center gap-2 text-sm font-bold text-stone-400"
+                className="flex items-center gap-2 text-sm font-bold text-[#635145]"
                 aria-label="Sin audio en esta línea"
               >
                 <VolumeX className="h-5 w-5" aria-hidden="true" />
@@ -701,32 +866,17 @@ function TutorSessionScreen() {
             <p className="tutor-caption" role="status" aria-live="polite">
               {spokenText}
             </p>
+
             <button
               type="button"
-              className="tutor-replay"
-              disabled={
-                !item ||
-                brain?.phase !== "LISTEN" ||
-                capturing ||
-                replaying ||
-                linePlaying ||
-                effectsRunning
-              }
-              onClick={async () => {
-                if (!item) return;
-                resetIdleTimer();
-                const epoch = epochRef.current;
-                setReplaying(true);
-                const lineId = modelLineIdForItem(item);
-                if (lineId) await playLine(lineId);
-                if (epoch === epochRef.current) setReplaying(false);
-              }}
+              className="tutor-replay border border-[#5c3d28]/20 bg-[#f6efe2] text-[#2a211b] hover:bg-[#efe5d3] disabled:opacity-45"
+              disabled={replayDisabled}
+              onClick={() => void handleReplayLast()}
             >
-              <RotateCcw className="inline h-4 w-4" /> Escuchar otra vez
+              <RotateCcw className="mr-1.5 inline h-4 w-4" aria-hidden="true" />
+              Escuchar otra vez
             </button>
 
-            {/* Shared kernel marks (no tutor-local copy): wooden pencil
-                green circle on correct, red + pink eraser on wrong. */}
             {mark ? (
               <WorkbookPencilMark
                 key={mark.key}
@@ -756,10 +906,76 @@ function TutorSessionScreen() {
       }
       status={
         <>
-          {simulated && <p className="text-sm">Prueba: micrófono simulado</p>}
+          {simulated && (
+            <p className="text-xs font-semibold text-[#635145]">Prueba: micrófono simulado</p>
+          )}
           <TutorUnavailable problem={unavailableProblem} />
         </>
       }
+      flipchartSlot={
+        <TutorFlipchartPresenter
+          sheetNumber={activeSheet}
+          lesson={lesson}
+          playbackPosition={playbackPosition}
+          isSpeaking={linePlaying}
+          onSheetChange={(sheet) => controller.setFlipchartPage(sheet)}
+        />
+      }
+      practiceSlot={
+        <TutorPracticeHost
+          target={practiceTarget}
+          onWorkbookPageChange={(printedPage) => {
+            controller.setWorkbookPage(printedPage);
+            setPracticeTarget({ kind: "workbook", printedPage, lesson });
+          }}
+          onGameChange={(gameId) => {
+            controller.setGameId(gameId);
+            setPracticeTarget({ kind: "game", gameId, lesson });
+          }}
+          onRequestHint={() => void handleReplayLast()}
+          onExitPractice={() => controller.setLayoutMode("call")}
+        />
+      }
+      cameraSlot={
+        <TutorCameraPanel
+          enabled={shellSnapshot.cameraEnabled}
+          onEnabledChange={(enabled) => {
+            controller.setCameraEnabled(enabled);
+            setConsent((prev) => ({ ...prev, studentCamera: enabled }));
+          }}
+          compact
+        />
+      }
+      consentSlot={
+        <TutorConsentControls
+          consent={consent}
+          onConsentChange={(next) => {
+            setConsent(next);
+            controller.setCameraEnabled(next.studentCamera);
+            controller.setRecordingActive(next.audiovisualRecording);
+          }}
+          sessionId={sessionIdRef.current ?? shellSnapshot.sessionId}
+          learnerId={`${search.code}:${search.slot}`}
+          onRecordingSaved={() => controller.setRecordingActive(false)}
+        />
+      }
+      replaySlot={<TutorReplay session={sessionLog} />}
+      onReplayLast={() => void handleReplayLast()}
+      replayDisabled={replayDisabled}
+      textInputDisabled={!brain}
+      onTextSubmit={(text) => {
+        resetIdleTimer();
+        if (brainRef.current?.phase === "LISTEN") {
+          dispatch({ type: "HEARD", transcript: text, alternatives: [] });
+        }
+      }}
+      onEndCall={() => {
+        finishSession();
+        const state = brainRef.current;
+        if (state && state.started && state.phase !== "ENDED") {
+          dispatch({ type: "EXIT" });
+        }
+      }}
     />
   );
 }

@@ -1,0 +1,680 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-10",
+  "lesson": 10,
+  "title": "Tt",
+  "kind": "consonant",
+  "focus": "T",
+  "printedWorkbookPages": {
+    "start": 31,
+    "end": 34,
+    "pages": [
+      31,
+      32,
+      33,
+      34
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 37,
+    "end": 40,
+    "sheets": [
+      37,
+      38,
+      39,
+      40
+    ]
+  },
+  "flipchartPages": [
+    18,
+    19,
+    20
+  ],
+  "prerequisiteLessons": [
+    "lesson-09"
+  ],
+  "nextLessons": [
+    "lesson-11"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 31,
+      "pdfSheet": 37,
+      "status": "verified",
+      "exerciseId": "l10-p31-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con t.",
+      "flipchartPrimaryPages": [
+        18
+      ],
+      "flipchartSupplementalPages": [
+        19,
+        20
+      ]
+    },
+    {
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "status": "verified",
+      "exerciseId": "l10-p32-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        18,
+        19
+      ],
+      "flipchartSupplementalPages": [
+        20
+      ]
+    },
+    {
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "status": "verified",
+      "exerciseId": "l10-p33-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        19
+      ],
+      "flipchartSupplementalPages": [
+        20
+      ]
+    },
+    {
+      "printedPage": 34,
+      "pdfSheet": 40,
+      "status": "verified",
+      "exerciseId": "l10-p34-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        19
+      ],
+      "flipchartSupplementalPages": [
+        18,
+        20
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "tomate",
+      "flipchartPage": 18,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tomate.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tomate.mp3"
+    },
+    {
+      "word": "tapa",
+      "flipchartPage": 18,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tapa.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tapa.mp3"
+    },
+    {
+      "word": "topo",
+      "flipchartPage": 18,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/topo.mp3"
+    },
+    {
+      "word": "tipi",
+      "flipchartPage": 18,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tipi.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tipi.mp3"
+    },
+    {
+      "word": "Tuto",
+      "flipchartPage": 18,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tuto.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l10-syllable-ta",
+      "lesson": 10,
+      "kind": "syllable",
+      "text": "ta",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-syllable-te",
+      "lesson": 10,
+      "kind": "syllable",
+      "text": "te",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-syllable-ti",
+      "lesson": 10,
+      "kind": "syllable",
+      "text": "ti",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-syllable-to",
+      "lesson": 10,
+      "kind": "syllable",
+      "text": "to",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-syllable-tu",
+      "lesson": 10,
+      "kind": "syllable",
+      "text": "tu",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tapa",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tapa",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tapa.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-mota",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Mota",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tota",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Tota",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-seta",
+      "lesson": 10,
+      "kind": "word",
+      "text": "seta",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-peseta",
+      "lesson": 10,
+      "kind": "word",
+      "text": "peseta",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-pata",
+      "lesson": 10,
+      "kind": "word",
+      "text": "pata",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tema",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tema",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tomate",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tomate",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tomate.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-mete",
+      "lesson": 10,
+      "kind": "word",
+      "text": "mete",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-teme",
+      "lesson": 10,
+      "kind": "word",
+      "text": "teme",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tete",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Teté",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tapete",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tapete",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tito",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Tito",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-piti",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Piti",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-timon",
+      "lesson": 10,
+      "kind": "word",
+      "text": "timón",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tina",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tina",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-poti",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Poti",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tipi",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tipi",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tipi.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-topo",
+      "lesson": 10,
+      "kind": "word",
+      "text": "topo",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/topo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-moto",
+      "lesson": 10,
+      "kind": "word",
+      "text": "moto",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-pato",
+      "lesson": 10,
+      "kind": "word",
+      "text": "pato",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-toma",
+      "lesson": 10,
+      "kind": "word",
+      "text": "toma",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-sapito",
+      "lesson": 10,
+      "kind": "word",
+      "text": "sapito",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tupe",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tupe",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tubo",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tubo",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tulipan",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tulipán",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tuna",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tuna",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tuba",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tuba",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-matute",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Matute",
+      "printedPage": 32,
+      "pdfSheet": 38,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-tute",
+      "lesson": 10,
+      "kind": "word",
+      "text": "tute",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-titi",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Titi",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-soto",
+      "lesson": 10,
+      "kind": "word",
+      "text": "Soto",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-word-mata",
+      "lesson": 10,
+      "kind": "word",
+      "text": "mata",
+      "printedPage": 34,
+      "pdfSheet": 40,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sight-tiene",
+      "lesson": 10,
+      "kind": "sight-word",
+      "text": "tiene",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sight-patio",
+      "lesson": 10,
+      "kind": "sight-word",
+      "text": "patio",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sight-no",
+      "lesson": 10,
+      "kind": "sight-word",
+      "text": "no",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sentence-01",
+      "lesson": 10,
+      "kind": "sentence",
+      "text": "La mesa tiene un tapete.",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sentence-02",
+      "lesson": 10,
+      "kind": "sentence",
+      "text": "El pomo está en la mesa.",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sentence-03",
+      "lesson": 10,
+      "kind": "sentence",
+      "text": "La mesa está en el patio.",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sentence-04",
+      "lesson": 10,
+      "kind": "sentence",
+      "text": "El pomo tiene sopa. El pomo tiene tapa.",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sentence-05",
+      "lesson": 10,
+      "kind": "sentence",
+      "text": "Tito tapa el pomo.",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sentence-06",
+      "lesson": 10,
+      "kind": "sentence",
+      "text": "–¡No Tito, no, no tapes el pomo!",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l10-sentence-07",
+      "lesson": 10,
+      "kind": "sentence",
+      "text": "Papá tapa la sopa.",
+      "printedPage": 33,
+      "pdfSheet": 39,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 48,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 33,
+      "sight-word": 3,
+      "sentence": 7
+    },
+    "itemsWithApprovedAudio": 4,
+    "itemsAudioPending": 44
+  }
+}

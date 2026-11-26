@@ -1,0 +1,726 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 23,
+  "batchIds": [
+    "B029"
+  ],
+  "entries": [
+    {
+      "id": "v2-l23-01-greeting-first",
+      "text": "Llegamos a la lección veintitrés para navegar leyendo con la letra ye.",
+      "batch": "B029",
+      "seq": 1,
+      "file": "B029-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-23-greeting-first",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-02-lesson-focus",
+      "text": "La letra ye extiende dos bracitos hacia arriba y suena suave como en yoyo.",
+      "batch": "B029",
+      "seq": 2,
+      "file": "B029-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-23-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-03-flipchart-intro",
+      "text": "En las láminas cincuenta y siete y cincuenta y ocho leemos ya, ye, yi, yo, yu.",
+      "batch": "B029",
+      "seq": 3,
+      "file": "B029-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-23-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-04-flipchart-rhyme",
+      "text": "En la lámina cincuenta y nueve viajamos en El yate de Yayo desde Yateras.",
+      "batch": "B029",
+      "seq": 4,
+      "file": "B029-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-23-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-05-page-instruction",
+      "text": "En la página ochenta y tres practica el trazo de la ye y dibuja un yoyo.",
+      "batch": "B029",
+      "seq": 5,
+      "file": "B029-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-23-page-instruction",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-06-page-instruction",
+      "text": "En la página ochenta y cuatro rodea ya, ye, yi, yo, yu en yate, yema y yoyo.",
+      "batch": "B029",
+      "seq": 6,
+      "file": "B029-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-23-page-instruction",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          84
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-07-word-practice",
+      "text": "Repite conmigo palabras verificadas de la lección: yuca, ayer, cayo, payaso, joya y yegua.",
+      "batch": "B029",
+      "seq": 7,
+      "file": "B029-007.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-23-word-practice",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-08-word-practice",
+      "text": "También leemos en la página ochenta y cinco estas palabras: yute, yeso y Yayita.",
+      "batch": "B029",
+      "seq": 8,
+      "file": "B029-008.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-23-word-practice",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-09-sentence-practice",
+      "text": "Leamos la historia de la página ochenta y cinco: El yate de Yayo está en Yateras.",
+      "batch": "B029",
+      "seq": 9,
+      "file": "B029-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-23-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-10-sentence-practice",
+      "text": "Seguimos con la lectura del viaje: Yayo comió yuca, guacamole y arroz con yemas ayer.",
+      "batch": "B029",
+      "seq": 10,
+      "file": "B029-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-23-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-11-adaptive-coaching",
+      "text": "Recuerda que cuando la y está solita suena i, pero con vocales suena ya, ye, yi, yo, yu.",
+      "batch": "B029",
+      "seq": 11,
+      "file": "B029-011.mp3",
+      "intent": "lesson-coaching",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-23-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l23-12-closing",
+      "text": "Amarraste el yate de Yayo con éxito. Ya nos espera la última lección.",
+      "batch": "B029",
+      "seq": 12,
+      "file": "B029-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-23-closing",
+      "curriculumRefs": {
+        "lesson": 23,
+        "printedPages": [
+          83,
+          84,
+          85
+        ],
+        "flipchartSheets": [
+          57,
+          58,
+          59
+        ],
+        "letters": [
+          "y"
+        ],
+        "words": [
+          "yate",
+          "yoyo",
+          "yema",
+          "yuca",
+          "payaso",
+          "yegua",
+          "Yayo",
+          "ayer"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

@@ -1,16 +1,20 @@
-/**
- * Locks tutor content derivation to the GRETEL-TUTOR-BUILD-SPEC §7 table
- * exactly: counts and order for Lecciones 1–3, derived from the verbatim
- * book transcription with nothing hand-typed in the derivation.
- */
 import { describe, expect, it } from "vitest";
-import { deriveTutorItems, findTutorItem, itemsForLesson, tutorItems } from "../tutor-content";
+import {
+  ALL_CURRICULUM_LESSONS,
+  TUTOR_LESSONS,
+  deriveTutorItems,
+  findTutorItem,
+  itemsForLesson,
+  lessonGraphFor,
+  tutorItems,
+  tutorLessonGraphs,
+} from "../tutor-content";
 
 type Expected = { lesson: number; text: string; kind: "vowel" | "word"; printedPage: number };
 
 // §7 table, verbatim. Lesson 1: 5 vowels (p.2 printed order) + 19 words = 24.
 // Lesson 2 (pp. 4–6): 8. Lesson 3 (pp. 7–9): 9.
-const EXPECTED: Expected[] = [
+const EXPECTED_L1_TO_L3: Expected[] = [
   { lesson: 1, text: "a", kind: "vowel", printedPage: 2 },
   { lesson: 1, text: "e", kind: "vowel", printedPage: 2 },
   { lesson: 1, text: "i", kind: "vowel", printedPage: 2 },
@@ -54,25 +58,32 @@ const EXPECTED: Expected[] = [
   { lesson: 3, text: "aguja", kind: "word", printedPage: 7 },
 ];
 
-describe("tutor content derivation (spec §7)", () => {
-  it("locks every derived item to the §7 table, in exact order", () => {
+describe("tutor content derivation (spec §7 + 24-lesson generalization)", () => {
+  it("locks every L1–3 derived item to the §7 table, in exact order", () => {
+    const l1To3 = [...itemsForLesson(1), ...itemsForLesson(2), ...itemsForLesson(3)];
     expect(
-      tutorItems.map(({ lesson, text, kind, printedPage }) => ({ lesson, text, kind, printedPage })),
-    ).toEqual(EXPECTED);
+      l1To3.map(({ lesson, text, kind, printedPage }) => ({ lesson, text, kind, printedPage })),
+    ).toEqual(EXPECTED_L1_TO_L3);
   });
 
-  it("derives fresh (not cached) items equal to the locked table", () => {
+  it("derives fresh L1–3 items equal to the locked table", () => {
     expect(
-      deriveTutorItems().map(({ lesson, text, kind, printedPage }) => ({ lesson, text, kind, printedPage })),
-    ).toEqual(EXPECTED);
+      deriveTutorItems(TUTOR_LESSONS).map(({ lesson, text, kind, printedPage }) => ({
+        lesson,
+        text,
+        kind,
+        printedPage,
+      })),
+    ).toEqual(EXPECTED_L1_TO_L3);
   });
 
-  it("locks the per-lesson counts: 24, 8, 9", () => {
+  it("preserves the locked L1–3 per-lesson counts: 24 + 8 + 9 = 41", () => {
+    expect(TUTOR_LESSONS).toEqual([1, 2, 3]);
     expect(itemsForLesson(1)).toHaveLength(24);
     expect(itemsForLesson(2)).toHaveLength(8);
     expect(itemsForLesson(3)).toHaveLength(9);
-    expect(itemsForLesson(4)).toHaveLength(0);
-    expect(tutorItems).toHaveLength(24 + 8 + 9);
+    expect(deriveTutorItems([1, 2, 3])).toHaveLength(24 + 8 + 9);
+    expect(itemsForLesson(25)).toHaveLength(0);
   });
 
   it("puts the five vowels first in Lección 1, in printed order a e i o u", () => {
@@ -81,21 +92,62 @@ describe("tutor content derivation (spec §7)", () => {
     expect(itemsForLesson(1)[0].text).toBe("a");
   });
 
-  it("has unique ids and no duplicate text within a lesson", () => {
+  it("generalizes cleanly across all 24 lessons with unique canonical IDs", () => {
+    expect(ALL_CURRICULUM_LESSONS).toHaveLength(24);
     const ids = new Set(tutorItems.map((item) => item.id));
     expect(ids.size).toBe(tutorItems.length);
-    for (const lesson of [1, 2, 3]) {
-      const texts = new Set(itemsForLesson(lesson).map((item) => item.text));
-      expect(texts.size).toBe(itemsForLesson(lesson).length);
-    }
-  });
 
-  it("gives every item a stable l{lesson}-{kind}-{slug} id", () => {
-    for (const item of tutorItems) {
-      expect(item.id).toMatch(new RegExp(`^l${item.lesson}-(vowel|word)-[a-zñ0-9-]+$`));
+    for (const lesson of ALL_CURRICULUM_LESSONS) {
+      const lessonItems = itemsForLesson(lesson);
+      expect(lessonItems.length).toBeGreaterThan(0);
+      for (const item of lessonItems) {
+        expect(item.id).toMatch(
+          new RegExp(`^l${item.lesson}-(vowel|syllable|word|sight|sentence)-[a-zñ0-9-]+$`),
+        );
+      }
     }
     // ñ survives in the slug so uña can never collide with a hypothetical "una".
     expect(findTutorItem(1, "uña").id).toBe("l1-word-uña");
+    expect(findTutorItem(7, "mamá").id).toBe("l7-word-mama");
+    expect(findTutorItem(24, "zapato").id).toBe("l24-word-zapato");
+  });
+
+  it("matches the 24-lesson instructional graph files and respects absent-in-source pages 86–87", () => {
+    expect(tutorLessonGraphs).toHaveLength(24);
+    for (const lesson of ALL_CURRICULUM_LESSONS) {
+      const graph = lessonGraphFor(lesson);
+      expect(graph).toBeDefined();
+      expect(graph!.lessonId).toBe(`lesson-${String(lesson).padStart(2, "0")}`);
+      expect(
+        graph!.items.map(({ id, lesson: l, text, kind, printedPage }) => ({
+          id,
+          lesson: l,
+          text,
+          kind,
+          printedPage,
+        })),
+      ).toEqual(itemsForLesson(lesson));
+    }
+
+    const l23 = lessonGraphFor(23)!;
+    expect(l23.sourceStatus).toBe("partial-absent-in-source");
+    expect(l23.printedWorkbookPages.absentInSourcePages).toEqual([86]);
+    expect(l23.pages.find((p) => p.printedPage === 86)).toMatchObject({
+      printedPage: 86,
+      pdfSheet: null,
+      status: "absent-in-source",
+    });
+    expect(l23.items.some((item) => item.printedPage === 86)).toBe(false);
+
+    const l24 = lessonGraphFor(24)!;
+    expect(l24.sourceStatus).toBe("partial-absent-in-source");
+    expect(l24.printedWorkbookPages.absentInSourcePages).toEqual([87]);
+    expect(l24.pages.find((p) => p.printedPage === 87)).toMatchObject({
+      printedPage: 87,
+      pdfSheet: null,
+      status: "absent-in-source",
+    });
+    expect(l24.items.some((item) => item.printedPage === 87)).toBe(false);
   });
 
   it("throws when asked for a non-existent item", () => {

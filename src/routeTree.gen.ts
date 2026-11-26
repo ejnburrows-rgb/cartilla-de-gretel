@@ -66,6 +66,7 @@ import { Route as CartillaTeacherCrmClassIdRouteImport } from './routes/cartilla
 import { Route as CartillaTeacherCrmClassIdIndexRouteImport } from './routes/cartilla/teacher/crm.$classId.index'
 import { Route as CartillaTeacherCrmClassIdStudentIdRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId'
 import { Route as CartillaTeacherCrmClassIdStudentIdIndexRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.index'
+import { Route as CartillaTeacherCrmClassIdStudentIdSesionesRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.sesiones'
 import { Route as CartillaTeacherCrmClassIdStudentIdReporteRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.reporte'
 import { Route as CartillaTeacherCrmClassIdStudentIdLessonIdRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.$lessonId'
 
@@ -413,6 +414,16 @@ const CartillaTeacherCrmClassIdStudentIdIndexRoute =
       (d) => d.Route,
     ),
   )
+const CartillaTeacherCrmClassIdStudentIdSesionesRoute =
+  CartillaTeacherCrmClassIdStudentIdSesionesRouteImport.update({
+    id: '/sesiones',
+    path: '/sesiones',
+    getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
+  } as any).lazy(() =>
+    import('./routes/cartilla/teacher/crm.$classId.$studentId.sesiones.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 const CartillaTeacherCrmClassIdStudentIdReporteRoute =
   CartillaTeacherCrmClassIdStudentIdReporteRouteImport.update({
     id: '/reporte',
@@ -493,6 +504,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/crm/$classId/': typeof CartillaTeacherCrmClassIdIndexRoute
   '/cartilla/teacher/crm/$classId/$studentId/$lessonId': typeof CartillaTeacherCrmClassIdStudentIdLessonIdRoute
   '/cartilla/teacher/crm/$classId/$studentId/reporte': typeof CartillaTeacherCrmClassIdStudentIdReporteRoute
+  '/cartilla/teacher/crm/$classId/$studentId/sesiones': typeof CartillaTeacherCrmClassIdStudentIdSesionesRoute
   '/cartilla/teacher/crm/$classId/$studentId/': typeof CartillaTeacherCrmClassIdStudentIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -550,6 +562,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/crm/$classId': typeof CartillaTeacherCrmClassIdIndexRoute
   '/cartilla/teacher/crm/$classId/$studentId/$lessonId': typeof CartillaTeacherCrmClassIdStudentIdLessonIdRoute
   '/cartilla/teacher/crm/$classId/$studentId/reporte': typeof CartillaTeacherCrmClassIdStudentIdReporteRoute
+  '/cartilla/teacher/crm/$classId/$studentId/sesiones': typeof CartillaTeacherCrmClassIdStudentIdSesionesRoute
   '/cartilla/teacher/crm/$classId/$studentId': typeof CartillaTeacherCrmClassIdStudentIdIndexRoute
 }
 export interface FileRoutesById {
@@ -612,6 +625,7 @@ export interface FileRoutesById {
   '/cartilla/teacher/crm/$classId/': typeof CartillaTeacherCrmClassIdIndexRoute
   '/cartilla/teacher/crm/$classId/$studentId/$lessonId': typeof CartillaTeacherCrmClassIdStudentIdLessonIdRoute
   '/cartilla/teacher/crm/$classId/$studentId/reporte': typeof CartillaTeacherCrmClassIdStudentIdReporteRoute
+  '/cartilla/teacher/crm/$classId/$studentId/sesiones': typeof CartillaTeacherCrmClassIdStudentIdSesionesRoute
   '/cartilla/teacher/crm/$classId/$studentId/': typeof CartillaTeacherCrmClassIdStudentIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -675,6 +689,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/crm/$classId/'
     | '/cartilla/teacher/crm/$classId/$studentId/$lessonId'
     | '/cartilla/teacher/crm/$classId/$studentId/reporte'
+    | '/cartilla/teacher/crm/$classId/$studentId/sesiones'
     | '/cartilla/teacher/crm/$classId/$studentId/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -732,6 +747,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/crm/$classId'
     | '/cartilla/teacher/crm/$classId/$studentId/$lessonId'
     | '/cartilla/teacher/crm/$classId/$studentId/reporte'
+    | '/cartilla/teacher/crm/$classId/$studentId/sesiones'
     | '/cartilla/teacher/crm/$classId/$studentId'
   id:
     | '__root__'
@@ -793,6 +809,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/crm/$classId/'
     | '/cartilla/teacher/crm/$classId/$studentId/$lessonId'
     | '/cartilla/teacher/crm/$classId/$studentId/reporte'
+    | '/cartilla/teacher/crm/$classId/$studentId/sesiones'
     | '/cartilla/teacher/crm/$classId/$studentId/'
   fileRoutesById: FileRoutesById
 }
@@ -1235,6 +1252,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherCrmClassIdStudentIdIndexRouteImport
       parentRoute: typeof CartillaTeacherCrmClassIdStudentIdRoute
     }
+    '/cartilla/teacher/crm/$classId/$studentId/sesiones': {
+      id: '/cartilla/teacher/crm/$classId/$studentId/sesiones'
+      path: '/sesiones'
+      fullPath: '/cartilla/teacher/crm/$classId/$studentId/sesiones'
+      preLoaderRoute: typeof CartillaTeacherCrmClassIdStudentIdSesionesRouteImport
+      parentRoute: typeof CartillaTeacherCrmClassIdStudentIdRoute
+    }
     '/cartilla/teacher/crm/$classId/$studentId/reporte': {
       id: '/cartilla/teacher/crm/$classId/$studentId/reporte'
       path: '/reporte'
@@ -1265,6 +1289,7 @@ const TutorRouteWithChildren = TutorRoute._addFileChildren(TutorRouteChildren)
 interface CartillaTeacherCrmClassIdStudentIdRouteChildren {
   CartillaTeacherCrmClassIdStudentIdLessonIdRoute: typeof CartillaTeacherCrmClassIdStudentIdLessonIdRoute
   CartillaTeacherCrmClassIdStudentIdReporteRoute: typeof CartillaTeacherCrmClassIdStudentIdReporteRoute
+  CartillaTeacherCrmClassIdStudentIdSesionesRoute: typeof CartillaTeacherCrmClassIdStudentIdSesionesRoute
   CartillaTeacherCrmClassIdStudentIdIndexRoute: typeof CartillaTeacherCrmClassIdStudentIdIndexRoute
 }
 
@@ -1274,6 +1299,8 @@ const CartillaTeacherCrmClassIdStudentIdRouteChildren: CartillaTeacherCrmClassId
       CartillaTeacherCrmClassIdStudentIdLessonIdRoute,
     CartillaTeacherCrmClassIdStudentIdReporteRoute:
       CartillaTeacherCrmClassIdStudentIdReporteRoute,
+    CartillaTeacherCrmClassIdStudentIdSesionesRoute:
+      CartillaTeacherCrmClassIdStudentIdSesionesRoute,
     CartillaTeacherCrmClassIdStudentIdIndexRoute:
       CartillaTeacherCrmClassIdStudentIdIndexRoute,
   }

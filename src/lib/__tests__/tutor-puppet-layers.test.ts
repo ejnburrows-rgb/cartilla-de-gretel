@@ -1,18 +1,38 @@
 /**
- * tutor-puppet-layers tests (spec §17 / blocker B5).
+ * tutor-puppet-layers tests (Milestone 5 / spec §2, §6, §17 / blocker B5).
  *
- * The manifest is EMPTY today: layers land only after the owner approves
- * each piece side-by-side (docs/gretel/LAYER-PACK-SPEC.md Step C). These
- * tests lock the gate: nothing without an approval reference or outside the
- * layers directory can ever reach the puppet, and the empty/absent manifest
- * always resolves to the approved-master fallback.
+ * Verifies:
+ * 1. Manifest safety gate: nothing without an approval reference or outside
+ *    the layers directory can ever reach the puppet, and the empty/absent
+ *    manifest always resolves to the approved-master fallback.
+ * 2. Native-pixel-scale torso-up framing (zero stretching, exact registration).
+ * 3. Playback-time-locked Rhubarb A–G/X lip sync driven from real `audio.currentTime`
+ *    (play, pause, replay, mute, interrupt/cancel, explicitly labeled amplitude
+ *    fallback, and strict reduced-motion gating).
+ * 4. Independent subtle motion channels (breathing, blinking, gaze, brows,
+ *    listening tilt, thinking, smiling, encouragement, nods, pointing, farewell)
+ *    with zero bouncing, zero mouth-scaling, zero exaggerated gestures, and
+ *    strict `prefers-reduced-motion: reduce` zeroing.
  */
 import { describe, expect, it, vi } from "vitest";
 import {
+  CORE_VISEME_SHAPES,
+  MASTER_CANVAS,
+  PUPPET_CHANNEL_LIMITS,
   PUPPET_LAYERS_DIR,
   PUPPET_LAYERS_MANIFEST_URL,
-  validatePuppetLayers,
+  TORSO_UP_VIEWBOX,
+  computePuppetChannels,
+  expressionFromState,
+  getPuppetViewBox,
   loadPuppetLayers,
+  normalizeVisemeShape,
+  resolveLipSync,
+  validatePuppetLayers,
+  visemeFromAmplitude,
+  type TutorGazeTarget,
+  type TutorPuppetExpression,
+  type VisemeCue,
 } from "../tutor-puppet-layers";
 
 // Overrides are intentionally untyped: the validator must be fed raw,
@@ -53,10 +73,20 @@ describe("validatePuppetLayers", () => {
         role: "blink",
         src: `${PUPPET_LAYERS_DIR}blink-closed.webp`,
       }),
+      makeLayer({
+        id: "brows-lift",
+        role: "brows",
+        src: `${PUPPET_LAYERS_DIR}brows-lift.png`,
+      }),
     ];
     const valid = validatePuppetLayers({ layers });
-    expect(valid).toHaveLength(3);
-    expect(valid.map((l) => l.id)).toEqual(["hair-back", "mouth-open", "blink-closed"]);
+    expect(valid).toHaveLength(4);
+    expect(valid.map((l) => l.id)).toEqual([
+      "hair-back",
+      "mouth-open",
+      "blink-closed",
+      "brows-lift",
+    ]);
     expect(valid[1].shapes).toEqual(["C", "D"]);
   });
 
@@ -195,6 +225,7 @@ describe("loadPuppetLayers", () => {
     const fetchJson = vi.fn(async () => ({ layers: [makeLayer({ approval: "" })] }));
     await expect(loadPuppetLayers(fetchJson)).resolves.toEqual({ mode: "master" });
   });
+
   it.each(["blink", "mouth", "static"])(
     "partial %s pack can never replace the body",
     async (role) => {
@@ -208,6 +239,7 @@ describe("loadPuppetLayers", () => {
       expect(await loadPuppetLayers(async () => raw)).toEqual({ mode: "master" });
     },
   );
+
   it("only a complete, registered, approved base can replace the master", async () => {
     const ids = [
       "hair-back",
@@ -238,5 +270,194 @@ describe("loadPuppetLayers", () => {
     });
     raw.width = 1000;
     expect(await loadPuppetLayers(async () => raw)).toEqual({ mode: "master" });
+  });
+});
+
+describe("native torso-up framing", () => {
+  it("frames torso-up inside the 1086×1448 master canvas without exceeding bounds or stretching", () => {
+    const torso = getPuppetViewBox("torso-up");
+    expect(torso).toEqual(TORSO_UP_VIEWBOX);
+    expect(torso.x).toBeGreaterThanOrEqual(0);
+    expect(torso.y).toBe(0);
+    expect(torso.x + torso.width).toBeLessThanOrEqual(MASTER_CANVAS.width);
+    expect(torso.y + torso.height).toBeLessThanOrEqual(MASTER_CANVAS.height);
+    // Full framing preserves exact approved master dimensions.
+    expect(getPuppetViewBox("full")).toEqual({
+      x: 0,
+      y: 0,
+      width: MASTER_CANVAS.width,
+      height: MASTER_CANVAS.height,
+    });
+  });
+});
+
+describe("playback-time-locked Rhubarb A–G/X lip sync", () => {
+  const timeline: VisemeCue[] = [
+    { start: 0.0, end: 0.12, shape: "A" },
+    { start: 0.12, end: 0.25, shape: "B" },
+    { start: 0.25, end: 0.4, shape: "C" },
+    { start: 0.4, end: 0.55, shape: "D" },
+    { start: 0.55, end: 0.7, shape: "E" },
+    { start: 0.7, end: 0.85, shape: "F" },
+    { start: 0.85, end: 1.0, shape: "G" },
+    { start: 1.0, end: 1.15, shape: "X" },
+  ];
+
+  it("locks every Rhubarb A–G and X cue strictly to real audio.currentTime", () => {
+    const sampleTimes = [0.05, 0.18, 0.3, 0.48, 0.62, 0.78, 0.92, 1.08];
+    const resolved = sampleTimes.map((currentTime) =>
+      resolveLipSync({ currentTime, timeline, isSpeaking: true }),
+    );
+    expect(resolved.map((r) => r.shape)).toEqual([...CORE_VISEME_SHAPES]);
+    expect(resolved.every((r) => r.source === "rhubarb-timeline" && !r.isFallback)).toBe(true);
+  });
+
+  it("resets immediately to rest (X) on pause, interrupt/cancel, or mute", () => {
+    expect(
+      resolveLipSync({ currentTime: 0.45, timeline, isSpeaking: true, isPaused: true }),
+    ).toEqual({ shape: "X", source: "rest", cueIndex: null, isFallback: false });
+
+    expect(
+      resolveLipSync({ currentTime: 0.45, timeline, isSpeaking: false }),
+    ).toEqual({ shape: "X", source: "rest", cueIndex: null, isFallback: false });
+
+    expect(
+      resolveLipSync({ currentTime: 0.45, timeline, isSpeaking: true, isMuted: true }),
+    ).toEqual({ shape: "X", source: "muted", cueIndex: null, isFallback: false });
+  });
+
+  it("re-locks cleanly on replay when currentTime seeks back to 0", () => {
+    const mid = resolveLipSync({ currentTime: 0.62, timeline, isSpeaking: true });
+    expect(mid.shape).toBe("E");
+    const replay = resolveLipSync({ currentTime: 0.02, timeline, isSpeaking: true });
+    expect(replay.shape).toBe("A");
+    expect(replay.cueIndex).toBe(0);
+  });
+
+  it("explicitly labels amplitude fallback when no Rhubarb timeline is available", () => {
+    const res = resolveLipSync({
+      currentTime: 0.3,
+      timeline: [],
+      isSpeaking: true,
+      amplitude: 0.5,
+    });
+    expect(res.source).toBe("amplitude-fallback");
+    expect(res.isFallback).toBe(true);
+    expect(res.shape).toBe("C");
+
+    expect(visemeFromAmplitude(0)).toBe("X");
+    expect(visemeFromAmplitude(0.1)).toBe("A");
+    expect(visemeFromAmplitude(0.25)).toBe("B");
+    expect(visemeFromAmplitude(0.5)).toBe("C");
+    expect(visemeFromAmplitude(0.85)).toBe("D");
+  });
+
+  it("locks mouth to X under prefers-reduced-motion: reduce", () => {
+    expect(
+      resolveLipSync({
+        currentTime: 0.45,
+        timeline,
+        isSpeaking: true,
+        reducedMotion: true,
+      }),
+    ).toEqual({ shape: "X", source: "reduced-motion", cueIndex: null, isFallback: false });
+  });
+
+  it("normalizes unknown shapes safely to X", () => {
+    expect(normalizeVisemeShape("d")).toBe("D");
+    expect(normalizeVisemeShape("invalid")).toBe("X");
+    expect(normalizeVisemeShape(undefined)).toBe("X");
+  });
+});
+
+describe("independent subtle motion channels & reduced-motion gating", () => {
+  const allExpressions: TutorPuppetExpression[] = [
+    "neutral",
+    "listening",
+    "thinking",
+    "smiling",
+    "encouraging",
+    "nodding",
+    "pointing",
+    "farewell",
+    "gentle-error",
+  ];
+  const allGazeTargets: TutorGazeTarget[] = [
+    "center",
+    "student",
+    "board-left",
+    "board-right",
+    "down-notes",
+  ];
+
+  it("enforces zero bouncing, zero mouth-scaling, and calm bounds across all expressions", () => {
+    expect(PUPPET_CHANNEL_LIMITS.mouthScale).toBe(1);
+    expect(PUPPET_CHANNEL_LIMITS.maxBouncePx).toBe(0);
+
+    for (const expression of allExpressions) {
+      const pose = computePuppetChannels({
+        state: "idle",
+        expression,
+        gazeTarget: "student",
+        reducedMotion: false,
+      });
+      expect(Math.abs(pose.headTiltDeg)).toBeLessThanOrEqual(PUPPET_CHANNEL_LIMITS.maxTiltDeg);
+      expect(Math.abs(pose.headShiftX)).toBeLessThanOrEqual(PUPPET_CHANNEL_LIMITS.maxShiftXPx);
+      expect(Math.abs(pose.headShiftY)).toBeLessThanOrEqual(PUPPET_CHANNEL_LIMITS.maxShiftYPx);
+      expect(pose.breathingScaleY).toBeLessThanOrEqual(PUPPET_CHANNEL_LIMITS.maxBreathingScaleY);
+      expect(pose.breathingDurationSec).toBeGreaterThanOrEqual(
+        PUPPET_CHANNEL_LIMITS.minBreathingDurationSec,
+      );
+      // Zero bouncing: nod sequences only move downward (>= 0), never upward hop (< 0).
+      if (pose.nodSequenceY) {
+        expect(pose.nodSequenceY.every((y) => y >= 0 && y <= PUPPET_CHANNEL_LIMITS.maxShiftYPx)).toBe(
+          true,
+        );
+      }
+    }
+  });
+
+  it("drives distinct subtle offsets for eye gaze targets", () => {
+    const poses = allGazeTargets.map((gazeTarget) =>
+      computePuppetChannels({ state: "idle", gazeTarget, reducedMotion: false }),
+    );
+    expect(poses.find((_, i) => allGazeTargets[i] === "board-left")!.gazeOffsetX).toBeLessThan(0);
+    expect(poses.find((_, i) => allGazeTargets[i] === "board-right")!.gazeOffsetX).toBeGreaterThan(
+      0,
+    );
+    expect(poses.find((_, i) => allGazeTargets[i] === "down-notes")!.gazeOffsetY).toBeGreaterThan(0);
+  });
+
+  it("strictly zeroes all motion channels when prefers-reduced-motion: reduce is active", () => {
+    for (const expression of allExpressions) {
+      const pose = computePuppetChannels({
+        state: "cheering",
+        expression,
+        gazeTarget: "board-left",
+        reducedMotion: true,
+      });
+      expect(pose.headTiltDeg).toBe(0);
+      expect(pose.headShiftX).toBe(0);
+      expect(pose.headShiftY).toBe(0);
+      expect(pose.gazeOffsetX).toBe(0);
+      expect(pose.gazeOffsetY).toBe(0);
+      expect(pose.browLiftPx).toBe(0);
+      expect(pose.breathingEnabled).toBe(false);
+      expect(pose.breathingScaleY).toBe(1);
+      expect(pose.blinkEnabled).toBe(false);
+      expect(pose.nodSequenceY).toBeNull();
+      expect(pose.transitionDurationSec).toBe(0);
+    }
+  });
+
+  it("maps legacy gretelMachine states to calm expressions", () => {
+    expect(expressionFromState("listening")).toBe("listening");
+    expect(expressionFromState("help")).toBe("thinking");
+    expect(expressionFromState("cheering")).toBe("encouraging");
+    expect(expressionFromState("pointing")).toBe("pointing");
+    expect(expressionFromState("waving")).toBe("farewell");
+    expect(expressionFromState("exiting")).toBe("farewell");
+    expect(expressionFromState("gentle-error")).toBe("gentle-error");
+    expect(expressionFromState("idle")).toBe("neutral");
   });
 });

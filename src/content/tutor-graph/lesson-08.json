@@ -1,0 +1,623 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-08",
+  "lesson": 8,
+  "title": "Pp",
+  "kind": "consonant",
+  "focus": "P",
+  "printedWorkbookPages": {
+    "start": 23,
+    "end": 26,
+    "pages": [
+      23,
+      24,
+      25,
+      26
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 29,
+    "end": 32,
+    "sheets": [
+      29,
+      30,
+      31,
+      32
+    ]
+  },
+  "flipchartPages": [
+    12,
+    13,
+    14
+  ],
+  "prerequisiteLessons": [
+    "lesson-07"
+  ],
+  "nextLessons": [
+    "lesson-09"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [
+    {
+      "id": "payaso-chano-ss",
+      "type": "payaso-chano",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "silabas-p",
+      "type": "lectura-silabas",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "mariposas-p",
+      "type": "mariposas",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "fonetica-p",
+      "type": "fonetica-completar",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "rima-p",
+      "type": "lectura-rima",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "palabras-minuto-p",
+      "type": "palabras-por-minuto",
+      "answerKeyStatus": "verified"
+    }
+  ],
+  "pages": [
+    {
+      "printedPage": 23,
+      "pdfSheet": 29,
+      "status": "verified",
+      "exerciseId": "l8-p23-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con p.",
+      "flipchartPrimaryPages": [
+        12
+      ],
+      "flipchartSupplementalPages": [
+        13,
+        14
+      ]
+    },
+    {
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "status": "verified",
+      "exerciseId": "l8-p24-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        12,
+        13
+      ],
+      "flipchartSupplementalPages": [
+        14
+      ]
+    },
+    {
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "status": "verified",
+      "exerciseId": "l8-p25-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        13
+      ],
+      "flipchartSupplementalPages": [
+        14
+      ]
+    },
+    {
+      "printedPage": 26,
+      "pdfSheet": 32,
+      "status": "verified",
+      "exerciseId": "l8-p26-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        13
+      ],
+      "flipchartSupplementalPages": [
+        12,
+        14
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "papá",
+      "flipchartPage": 12,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-papa.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/papá.mp3"
+    },
+    {
+      "word": "pie",
+      "flipchartPage": 12,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-pie.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pie.mp3"
+    },
+    {
+      "word": "Pepe",
+      "flipchartPage": 12,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-pepe.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pepe.mp3"
+    },
+    {
+      "word": "puma",
+      "flipchartPage": 12,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/puma.mp3"
+    },
+    {
+      "word": "pomo",
+      "flipchartPage": 12,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p012-pomo.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pomo.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l8-syllable-pa",
+      "lesson": 8,
+      "kind": "syllable",
+      "text": "pa",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-syllable-pe",
+      "lesson": 8,
+      "kind": "syllable",
+      "text": "pe",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-syllable-pi",
+      "lesson": 8,
+      "kind": "syllable",
+      "text": "pi",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-syllable-po",
+      "lesson": 8,
+      "kind": "syllable",
+      "text": "po",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-syllable-pu",
+      "lesson": 8,
+      "kind": "syllable",
+      "text": "pu",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-papa",
+      "lesson": 8,
+      "kind": "word",
+      "text": "papá",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/papá.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pupa",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pupa",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-mapa",
+      "lesson": 8,
+      "kind": "word",
+      "text": "mapa",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-papo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "Papo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-upa",
+      "lesson": 8,
+      "kind": "word",
+      "text": "¡upa!",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pala",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pala",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pepe",
+      "lesson": 8,
+      "kind": "word",
+      "text": "Pepe",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pepe.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pelo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pelo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-tapete",
+      "lesson": 8,
+      "kind": "word",
+      "text": "tapete",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pesa",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pesa",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pelota",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pelota",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-chupete",
+      "lesson": 8,
+      "kind": "word",
+      "text": "chupete",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pipo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pipo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pupi",
+      "lesson": 8,
+      "kind": "word",
+      "text": "Pupi",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-mupi",
+      "lesson": 8,
+      "kind": "word",
+      "text": "Mupi",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-papi",
+      "lesson": 8,
+      "kind": "word",
+      "text": "papi",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-mapi",
+      "lesson": 8,
+      "kind": "word",
+      "text": "Mapi",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pio",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pío",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pomo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pomo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pomo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-polo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "polo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-sapo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "sapo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/sapo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-mapo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "mapo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-tapo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "tapo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pepo",
+      "lesson": 8,
+      "kind": "word",
+      "text": "Pepo",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-puso",
+      "lesson": 8,
+      "kind": "word",
+      "text": "puso",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-puma",
+      "lesson": 8,
+      "kind": "word",
+      "text": "puma",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/puma.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-apura",
+      "lesson": 8,
+      "kind": "word",
+      "text": "apura",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pua",
+      "lesson": 8,
+      "kind": "word",
+      "text": "púa",
+      "printedPage": 24,
+      "pdfSheet": 30,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-word-pie",
+      "lesson": 8,
+      "kind": "word",
+      "text": "pie",
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pie.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-sight-yo",
+      "lesson": 8,
+      "kind": "sight-word",
+      "text": "yo",
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-sentence-01",
+      "lesson": 8,
+      "kind": "sentence",
+      "text": "Papá y Pepe aman a mamá.",
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-sentence-02",
+      "lesson": 8,
+      "kind": "sentence",
+      "text": "Pupi ama a papá.",
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-sentence-03",
+      "lesson": 8,
+      "kind": "sentence",
+      "text": "Yo amo a mamá y a papá.",
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-sentence-04",
+      "lesson": 8,
+      "kind": "sentence",
+      "text": "Mi papá ama a Pupi.",
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l8-sentence-05",
+      "lesson": 8,
+      "kind": "sentence",
+      "text": "Papá y mamá me aman.",
+      "printedPage": 25,
+      "pdfSheet": 31,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 40,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 29,
+      "sight-word": 1,
+      "sentence": 5
+    },
+    "itemsWithApprovedAudio": 6,
+    "itemsAudioPending": 34
+  }
+}

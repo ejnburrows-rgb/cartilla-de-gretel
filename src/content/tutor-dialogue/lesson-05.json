@@ -1,0 +1,707 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 5,
+  "batchIds": [
+    "B011"
+  ],
+  "entries": [
+    {
+      "id": "v2-l05-01-greeting-first",
+      "text": "Bienvenidos a la lección cinco dedicada a nuestra amiga la vocal i.",
+      "batch": "B011",
+      "seq": 1,
+      "file": "B011-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-05-greeting-first",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-02-lesson-focus",
+      "text": "La i minúscula lleva siempre su puntito arriba y suena bien finita.",
+      "batch": "B011",
+      "seq": 2,
+      "file": "B011-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-05-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-03-flipchart-intro",
+      "text": "En la lámina siete del rotafolio encontramos la rima de La niña llorona.",
+      "batch": "B011",
+      "seq": 3,
+      "file": "B011-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-05-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-04-flipchart-rhyme",
+      "text": "I de Irma, i de imán, i de iglú, i de insecto, no llores más.",
+      "batch": "B011",
+      "seq": 4,
+      "file": "B011-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-05-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-05-flipchart-model",
+      "text": "Observa el dibujo del imán en la lámina siete mientras pronuncias la vocal.",
+      "batch": "B011",
+      "seq": 5,
+      "file": "B011-005.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-05-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-06-page-instruction",
+      "text": "En la página trece marca todos los dibujos cuyo nombre comienza con i.",
+      "batch": "B011",
+      "seq": 6,
+      "file": "B011-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-05-page-instruction",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-07-word-practice",
+      "text": "Pronuncia conmigo estas palabras de la página trece: iglú, iguana, indio e invierno.",
+      "batch": "B011",
+      "seq": 7,
+      "file": "B011-007.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-05-word-practice",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-08-word-practice",
+      "text": "Sigamos con imán, isla, igual, insecto e iglesia escuchando el inicio.",
+      "batch": "B011",
+      "seq": 8,
+      "file": "B011-008.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-05-word-practice",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-09-page-instruction",
+      "text": "En la página catorce une con una línea la vocal con sus dibujos correspondientes.",
+      "batch": "B011",
+      "seq": 9,
+      "file": "B011-009.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-05-page-instruction",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          14
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-10-page-instruction",
+      "text": "En la página quince escribe la i con cariño sin olvidar su puntito.",
+      "batch": "B011",
+      "seq": 10,
+      "file": "B011-010.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-05-page-instruction",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-11-adaptive-coaching",
+      "text": "Sonríe suave al pronunciar la i para que salga limpia desde el principio.",
+      "batch": "B011",
+      "seq": 11,
+      "file": "B011-011.mp3",
+      "intent": "lesson-coaching",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-05-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l05-12-closing",
+      "text": "Ya dominas las palabras con i. Nos falta solo una vocal por recorrer.",
+      "batch": "B011",
+      "seq": 12,
+      "file": "B011-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-05-closing",
+      "curriculumRefs": {
+        "lesson": 5,
+        "printedPages": [
+          13,
+          14,
+          15
+        ],
+        "flipchartSheets": [
+          7
+        ],
+        "letters": [
+          "i"
+        ],
+        "words": [
+          "iglú",
+          "iguana",
+          "indio",
+          "invierno",
+          "imán",
+          "isla",
+          "igual",
+          "insecto"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

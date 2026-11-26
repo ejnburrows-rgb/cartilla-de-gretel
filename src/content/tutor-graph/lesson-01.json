@@ -1,0 +1,378 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-01",
+  "lesson": 1,
+  "title": "Las hermanitas vocales",
+  "kind": "intro",
+  "focus": "vowels-intro",
+  "printedWorkbookPages": {
+    "start": 1,
+    "end": 3,
+    "pages": [
+      1,
+      2,
+      3
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 7,
+    "end": 9,
+    "sheets": [
+      7,
+      8,
+      9
+    ]
+  },
+  "flipchartPages": [
+    3
+  ],
+  "prerequisiteLessons": [],
+  "nextLessons": [
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "status": "verified",
+      "exerciseId": "l1-p1-picture-grid",
+      "exerciseKind": "picture-grid",
+      "prompt": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+      "flipchartPrimaryPages": [
+        3
+      ],
+      "flipchartSupplementalPages": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "status": "verified",
+      "exerciseId": "l1-p2-vowel-pick-one",
+      "exerciseKind": "vowel-pick-one",
+      "prompt": "Circula el dibujo que comienza con la vocal del recuadro.",
+      "flipchartPrimaryPages": [
+        3
+      ],
+      "flipchartSupplementalPages": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 3,
+      "pdfSheet": 9,
+      "status": "verified",
+      "exerciseId": "l1-p3-vowel-match-all",
+      "exerciseKind": "vowel-match-all",
+      "prompt": "Traza una línea de la vocal al dibujo que le corresponde.",
+      "flipchartPrimaryPages": [
+        3
+      ],
+      "flipchartSupplementalPages": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "flipchartVocab": [],
+  "items": [
+    {
+      "id": "l1-vowel-a",
+      "lesson": 1,
+      "kind": "vowel",
+      "text": "a",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-a"
+    },
+    {
+      "id": "l1-vowel-e",
+      "lesson": 1,
+      "kind": "vowel",
+      "text": "e",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-e"
+    },
+    {
+      "id": "l1-vowel-i",
+      "lesson": 1,
+      "kind": "vowel",
+      "text": "i",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-i"
+    },
+    {
+      "id": "l1-vowel-o",
+      "lesson": 1,
+      "kind": "vowel",
+      "text": "o",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-o"
+    },
+    {
+      "id": "l1-vowel-u",
+      "lesson": 1,
+      "kind": "vowel",
+      "text": "u",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-u"
+    },
+    {
+      "id": "l1-word-abrigo",
+      "lesson": 1,
+      "kind": "word",
+      "text": "abrigo",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/abrigo.mp3",
+      "tutorLineId": "l1-model-abrigo"
+    },
+    {
+      "id": "l1-word-abanico",
+      "lesson": 1,
+      "kind": "word",
+      "text": "abanico",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/abanico.mp3",
+      "tutorLineId": "l1-model-abanico"
+    },
+    {
+      "id": "l1-word-isla",
+      "lesson": 1,
+      "kind": "word",
+      "text": "isla",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/isla.mp3",
+      "tutorLineId": "l1-model-isla"
+    },
+    {
+      "id": "l1-word-iman",
+      "lesson": 1,
+      "kind": "word",
+      "text": "imán",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/imán.mp3",
+      "tutorLineId": "l1-model-imán"
+    },
+    {
+      "id": "l1-word-escalera",
+      "lesson": 1,
+      "kind": "word",
+      "text": "escalera",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/escalera.mp3",
+      "tutorLineId": "l1-model-escalera"
+    },
+    {
+      "id": "l1-word-escuela",
+      "lesson": 1,
+      "kind": "word",
+      "text": "escuela",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/escuela.mp3",
+      "tutorLineId": "l1-model-escuela"
+    },
+    {
+      "id": "l1-word-uniforme",
+      "lesson": 1,
+      "kind": "word",
+      "text": "uniforme",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uniforme.mp3",
+      "tutorLineId": "l1-model-uniforme"
+    },
+    {
+      "id": "l1-word-uña",
+      "lesson": 1,
+      "kind": "word",
+      "text": "uña",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uña.mp3",
+      "tutorLineId": "l1-model-uña"
+    },
+    {
+      "id": "l1-word-ojos",
+      "lesson": 1,
+      "kind": "word",
+      "text": "ojos",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ojos.mp3",
+      "tutorLineId": "l1-model-ojos"
+    },
+    {
+      "id": "l1-word-olla",
+      "lesson": 1,
+      "kind": "word",
+      "text": "olla",
+      "printedPage": 1,
+      "pdfSheet": 7,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/olla.mp3",
+      "tutorLineId": "l1-model-olla"
+    },
+    {
+      "id": "l1-word-anillo",
+      "lesson": 1,
+      "kind": "word",
+      "text": "anillo",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/anillo.mp3",
+      "tutorLineId": "l1-model-anillo"
+    },
+    {
+      "id": "l1-word-estrella",
+      "lesson": 1,
+      "kind": "word",
+      "text": "estrella",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/estrella.mp3",
+      "tutorLineId": "l1-model-estrella"
+    },
+    {
+      "id": "l1-word-indio",
+      "lesson": 1,
+      "kind": "word",
+      "text": "indio",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/indio.mp3",
+      "tutorLineId": "l1-model-indio"
+    },
+    {
+      "id": "l1-word-oso",
+      "lesson": 1,
+      "kind": "word",
+      "text": "oso",
+      "printedPage": 2,
+      "pdfSheet": 8,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/oso.mp3",
+      "tutorLineId": "l1-model-oso"
+    },
+    {
+      "id": "l1-word-ocho",
+      "lesson": 1,
+      "kind": "word",
+      "text": "ocho",
+      "printedPage": 3,
+      "pdfSheet": 9,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ocho.mp3",
+      "tutorLineId": "l1-model-ocho"
+    },
+    {
+      "id": "l1-word-araña",
+      "lesson": 1,
+      "kind": "word",
+      "text": "araña",
+      "printedPage": 3,
+      "pdfSheet": 9,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/araña.mp3",
+      "tutorLineId": "l1-model-araña"
+    },
+    {
+      "id": "l1-word-iglesia",
+      "lesson": 1,
+      "kind": "word",
+      "text": "iglesia",
+      "printedPage": 3,
+      "pdfSheet": 9,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/iglesia.mp3",
+      "tutorLineId": "l1-model-iglesia"
+    },
+    {
+      "id": "l1-word-escoba",
+      "lesson": 1,
+      "kind": "word",
+      "text": "escoba",
+      "printedPage": 3,
+      "pdfSheet": 9,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/escoba.mp3",
+      "tutorLineId": "l1-model-escoba"
+    },
+    {
+      "id": "l1-word-uno",
+      "lesson": 1,
+      "kind": "word",
+      "text": "uno",
+      "printedPage": 3,
+      "pdfSheet": 9,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uno.mp3",
+      "tutorLineId": "l1-model-uno"
+    }
+  ],
+  "summary": {
+    "totalItems": 24,
+    "byKind": {
+      "vowel": 5,
+      "syllable": 0,
+      "word": 19,
+      "sight-word": 0,
+      "sentence": 0
+    },
+    "itemsWithApprovedAudio": 19,
+    "itemsAudioPending": 5
+  }
+}

@@ -1,0 +1,570 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-22",
+  "lesson": 22,
+  "title": "Cc",
+  "kind": "consonant",
+  "focus": "C",
+  "printedWorkbookPages": {
+    "start": 79,
+    "end": 82,
+    "pages": [
+      79,
+      80,
+      81,
+      82
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 85,
+    "end": 88,
+    "sheets": [
+      85,
+      86,
+      87,
+      88
+    ]
+  },
+  "flipchartPages": [
+    54,
+    55,
+    56
+  ],
+  "prerequisiteLessons": [
+    "lesson-21"
+  ],
+  "nextLessons": [
+    "lesson-23"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "teacher-guide-verification"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 79,
+      "pdfSheet": 85,
+      "status": "verified",
+      "exerciseId": "l22-p79-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con c.",
+      "flipchartPrimaryPages": [
+        54
+      ],
+      "flipchartSupplementalPages": [
+        55,
+        56
+      ]
+    },
+    {
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "status": "verified",
+      "exerciseId": "l22-p80-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        54,
+        55
+      ],
+      "flipchartSupplementalPages": [
+        56
+      ]
+    },
+    {
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "status": "verified",
+      "exerciseId": "l22-p81-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        55
+      ],
+      "flipchartSupplementalPages": [
+        56
+      ]
+    },
+    {
+      "printedPage": 82,
+      "pdfSheet": 88,
+      "status": "verified",
+      "exerciseId": "l22-p82-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        55
+      ],
+      "flipchartSupplementalPages": [
+        54,
+        56
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "cuna",
+      "flipchartPage": 54,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/cuna.mp3"
+    },
+    {
+      "word": "conejo",
+      "flipchartPage": 54,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/conejo.mp3"
+    },
+    {
+      "word": "casa",
+      "flipchartPage": 54,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/casa.mp3"
+    },
+    {
+      "word": "cubo",
+      "flipchartPage": 54,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/cubo.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/cubo.mp3"
+    },
+    {
+      "word": "Catalina",
+      "flipchartPage": 54,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/catalina.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/catalina.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l22-syllable-ca",
+      "lesson": 22,
+      "kind": "syllable",
+      "text": "ca",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-syllable-co",
+      "lesson": 22,
+      "kind": "syllable",
+      "text": "co",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-syllable-cu",
+      "lesson": 22,
+      "kind": "syllable",
+      "text": "cu",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cama",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cama",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cala",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cala",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-casa",
+      "lesson": 22,
+      "kind": "word",
+      "text": "casa",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/casa.mp3",
+      "tutorLineId": "l1-model-casa"
+    },
+    {
+      "id": "l22-word-cana",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cana",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-loca",
+      "lesson": 22,
+      "kind": "word",
+      "text": "loca",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-saca",
+      "lesson": 22,
+      "kind": "word",
+      "text": "saca",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-coma",
+      "lesson": 22,
+      "kind": "word",
+      "text": "coma",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cosa",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cosa",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-poco",
+      "lesson": 22,
+      "kind": "word",
+      "text": "poco",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cola",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cola",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-copa",
+      "lesson": 22,
+      "kind": "word",
+      "text": "copa",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-saco",
+      "lesson": 22,
+      "kind": "word",
+      "text": "saco",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cuna",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cuna",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/cuna.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cuba",
+      "lesson": 22,
+      "kind": "word",
+      "text": "Cuba",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-acuna",
+      "lesson": 22,
+      "kind": "word",
+      "text": "acuna",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-acuso",
+      "lesson": 22,
+      "kind": "word",
+      "text": "acuso",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-acumula",
+      "lesson": 22,
+      "kind": "word",
+      "text": "acumula",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cubo",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cubo",
+      "printedPage": 80,
+      "pdfSheet": 86,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/cubo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-carro",
+      "lesson": 22,
+      "kind": "word",
+      "text": "carro",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/carro.mp3",
+      "tutorLineId": "l1-model-carro"
+    },
+    {
+      "id": "l22-word-boca",
+      "lesson": 22,
+      "kind": "word",
+      "text": "boca",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-coco",
+      "lesson": 22,
+      "kind": "word",
+      "text": "coco",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-colombia",
+      "lesson": 22,
+      "kind": "word",
+      "text": "Colombia",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-roca",
+      "lesson": 22,
+      "kind": "word",
+      "text": "roca",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-pico",
+      "lesson": 22,
+      "kind": "word",
+      "text": "pico",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cumbia",
+      "lesson": 22,
+      "kind": "word",
+      "text": "cumbia",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-camisa",
+      "lesson": 22,
+      "kind": "word",
+      "text": "camisa",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-cuco",
+      "lesson": 22,
+      "kind": "word",
+      "text": "Cuco",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-word-colonia",
+      "lesson": 22,
+      "kind": "word",
+      "text": "colonia",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-sentence-01",
+      "lesson": 22,
+      "kind": "sentence",
+      "text": "Cuco Casanova es un buen amigo del",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-sentence-02",
+      "lesson": 22,
+      "kind": "sentence",
+      "text": "papá y de la mamá de Paco. El señor",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-sentence-03",
+      "lesson": 22,
+      "kind": "sentence",
+      "text": "Casanova es cubano. El vive en el",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-sentence-04",
+      "lesson": 22,
+      "kind": "sentence",
+      "text": "campo, vive con Doña María, su mamá.",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-sentence-05",
+      "lesson": 22,
+      "kind": "sentence",
+      "text": "Cuco Casanova juega con los niños y los",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-sentence-06",
+      "lesson": 22,
+      "kind": "sentence",
+      "text": "cuida también. Todos en la casa de",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l22-sentence-07",
+      "lesson": 22,
+      "kind": "sentence",
+      "text": "Paco aman a Cuco.",
+      "printedPage": 81,
+      "pdfSheet": 87,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 38,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 3,
+      "word": 28,
+      "sight-word": 0,
+      "sentence": 7
+    },
+    "itemsWithApprovedAudio": 4,
+    "itemsAudioPending": 34
+  }
+}

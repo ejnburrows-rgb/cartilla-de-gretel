@@ -1,0 +1,756 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 1,
+  "batchIds": [
+    "B007"
+  ],
+  "entries": [
+    {
+      "id": "v2-l01-01-greeting-first",
+      "text": "Hoy abrimos nuestra cartilla para conocer juntas a las cinco hermanitas vocales.",
+      "batch": "B007",
+      "seq": 1,
+      "file": "B007-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-01-greeting-first",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1,
+          2,
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-02-lesson-focus",
+      "text": "Las vocales son cinco amigas inseparables que cantan dentro de cada palabra.",
+      "batch": "B007",
+      "seq": 2,
+      "file": "B007-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-01-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1,
+          2,
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-03-flipchart-intro",
+      "text": "En nuestra lámina tres del rotafolio aparece la rima Cinco hermanitas.",
+      "batch": "B007",
+      "seq": 3,
+      "file": "B007-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-01-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1,
+          2,
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-04-flipchart-rhyme",
+      "text": "Cinco hermanitas todas aplicadas, las cinco bonitas nunca están calladas.",
+      "batch": "B007",
+      "seq": 4,
+      "file": "B007-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-01-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1,
+          2,
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-05-flipchart-model",
+      "text": "Repite conmigo en orden las cinco vocales de la lámina: a, e, i, o, u.",
+      "batch": "B007",
+      "seq": 5,
+      "file": "B007-005.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-01-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1,
+          2,
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-06-page-instruction",
+      "text": "En la página uno circula en cada fila los dibujos que empiezan igual.",
+      "batch": "B007",
+      "seq": 6,
+      "file": "B007-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-01-page-instruction",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-07-word-practice",
+      "text": "Escucha juntos abrigo y abanico, y luego compara isla con imán.",
+      "batch": "B007",
+      "seq": 7,
+      "file": "B007-007.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-01-word-practice",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-08-page-instruction",
+      "text": "En la página dos mira la vocal del recuadro y busca su dibujo.",
+      "batch": "B007",
+      "seq": 8,
+      "file": "B007-008.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-01-page-instruction",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          2
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-09-word-practice",
+      "text": "Anillo comienza con a, estrella con e, indio con i, y oso con o.",
+      "batch": "B007",
+      "seq": 9,
+      "file": "B007-009.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-01-word-practice",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          2
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-10-page-instruction",
+      "text": "En la página tres une cada vocal con su dibujo: ocho, araña, iglesia, escoba y uno.",
+      "batch": "B007",
+      "seq": 10,
+      "file": "B007-010.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-01-page-instruction",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-11-adaptive-coaching",
+      "text": "Para no confundirlas, escucha bien el primer sonido apenas abres la boca.",
+      "batch": "B007",
+      "seq": 11,
+      "file": "B007-011.mp3",
+      "intent": "lesson-coaching",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-01-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1,
+          2,
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "patient",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l01-12-closing",
+      "text": "Ya conoces a las cinco hermanitas vocales. Qué buen comienzo en tu cartilla.",
+      "batch": "B007",
+      "seq": 12,
+      "file": "B007-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-01-closing",
+      "curriculumRefs": {
+        "lesson": 1,
+        "printedPages": [
+          1,
+          2,
+          3
+        ],
+        "flipchartSheets": [
+          3
+        ],
+        "letters": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "words": [
+          "abrigo",
+          "abanico",
+          "isla",
+          "imán",
+          "escalera",
+          "escuela",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

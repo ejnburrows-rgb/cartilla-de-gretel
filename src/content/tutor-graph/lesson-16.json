@@ -1,0 +1,669 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-16",
+  "lesson": 16,
+  "title": "Vv",
+  "kind": "consonant",
+  "focus": "V",
+  "printedWorkbookPages": {
+    "start": 55,
+    "end": 58,
+    "pages": [
+      55,
+      56,
+      57,
+      58
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 61,
+    "end": 64,
+    "sheets": [
+      61,
+      62,
+      63,
+      64
+    ]
+  },
+  "flipchartPages": [
+    36,
+    37,
+    38
+  ],
+  "prerequisiteLessons": [
+    "lesson-15"
+  ],
+  "nextLessons": [
+    "lesson-17"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 55,
+      "pdfSheet": 61,
+      "status": "verified",
+      "exerciseId": "l16-p55-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con v.",
+      "flipchartPrimaryPages": [
+        36
+      ],
+      "flipchartSupplementalPages": [
+        37,
+        38
+      ]
+    },
+    {
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "status": "verified",
+      "exerciseId": "l16-p56-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        36,
+        37
+      ],
+      "flipchartSupplementalPages": [
+        38
+      ]
+    },
+    {
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "status": "verified",
+      "exerciseId": "l16-p57-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        37
+      ],
+      "flipchartSupplementalPages": [
+        38
+      ]
+    },
+    {
+      "printedPage": 58,
+      "pdfSheet": 64,
+      "status": "verified",
+      "exerciseId": "l16-p58-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        37
+      ],
+      "flipchartSupplementalPages": [
+        36,
+        38
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "vaso",
+      "flipchartPage": 36,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vaso.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/vaso.mp3"
+    },
+    {
+      "word": "vela",
+      "flipchartPage": 36,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vela.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/vela.mp3"
+    },
+    {
+      "word": "Vita",
+      "flipchartPage": 36,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vita.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/vita.mp3"
+    },
+    {
+      "word": "pavo",
+      "flipchartPage": 36,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-pavo.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pavo.mp3"
+    },
+    {
+      "word": "Vuli",
+      "flipchartPage": 36,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p036-vuli.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/vuli.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l16-syllable-va",
+      "lesson": 16,
+      "kind": "syllable",
+      "text": "va",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-syllable-ve",
+      "lesson": 16,
+      "kind": "syllable",
+      "text": "ve",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-syllable-vi",
+      "lesson": 16,
+      "kind": "syllable",
+      "text": "vi",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-syllable-vo",
+      "lesson": 16,
+      "kind": "syllable",
+      "text": "vo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-syllable-vu",
+      "lesson": 16,
+      "kind": "syllable",
+      "text": "vu",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vaso",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vaso",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/vaso.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-lavamos",
+      "lesson": 16,
+      "kind": "word",
+      "text": "lavamos",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vamonos",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vámonos",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-lava",
+      "lesson": 16,
+      "kind": "word",
+      "text": "lava",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-nieva",
+      "lesson": 16,
+      "kind": "word",
+      "text": "nieva",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-lavamanos",
+      "lesson": 16,
+      "kind": "word",
+      "text": "lavamanos",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-venado",
+      "lesson": 16,
+      "kind": "word",
+      "text": "venado",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-ave",
+      "lesson": 16,
+      "kind": "word",
+      "text": "ave",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vela",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vela",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/vela.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-venas",
+      "lesson": 16,
+      "kind": "word",
+      "text": "venas",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-velo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "velo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-nave",
+      "lesson": 16,
+      "kind": "word",
+      "text": "nave",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vino",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vino",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vivo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vivo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vidente",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vidente",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vine",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vine",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-aviso",
+      "lesson": 16,
+      "kind": "word",
+      "text": "aviso",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vitamina",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vitamina",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-lavo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "lavo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-pavo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "pavo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pavo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-clavo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "clavo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-volar",
+      "lesson": 16,
+      "kind": "word",
+      "text": "volar",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-tavo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "Tavo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vuela",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vuela",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vuelta",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vuelta",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vuelan",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vuelan",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vuelo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vuelo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-revuelta",
+      "lesson": 16,
+      "kind": "word",
+      "text": "revuelta",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-revuelo",
+      "lesson": 16,
+      "kind": "word",
+      "text": "revuelo",
+      "printedPage": 56,
+      "pdfSheet": 62,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-avena",
+      "lesson": 16,
+      "kind": "word",
+      "text": "avena",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-ventana",
+      "lesson": 16,
+      "kind": "word",
+      "text": "ventana",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vive",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vive",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vale",
+      "lesson": 16,
+      "kind": "word",
+      "text": "vale",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-vuli",
+      "lesson": 16,
+      "kind": "word",
+      "text": "Vuli",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/vuli.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-word-ven",
+      "lesson": 16,
+      "kind": "word",
+      "text": "ven",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-sentence-01",
+      "lesson": 16,
+      "kind": "sentence",
+      "text": "La nieve se va. Vita se lava",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-sentence-02",
+      "lesson": 16,
+      "kind": "sentence",
+      "text": "las manos en el lavamanos.",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-sentence-03",
+      "lesson": 16,
+      "kind": "sentence",
+      "text": "Mamá lava las mesas del patio.",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-sentence-04",
+      "lesson": 16,
+      "kind": "sentence",
+      "text": "Mamá pone unos manteles nuevos.",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-sentence-05",
+      "lesson": 16,
+      "kind": "sentence",
+      "text": "El viento mueve los manteles de mamá y",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-sentence-06",
+      "lesson": 16,
+      "kind": "sentence",
+      "text": "mueve el papalote de Valentín.",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l16-sentence-07",
+      "lesson": 16,
+      "kind": "sentence",
+      "text": "El papalote vuela y vuela.",
+      "printedPage": 57,
+      "pdfSheet": 63,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 47,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 35,
+      "sight-word": 0,
+      "sentence": 7
+    },
+    "itemsWithApprovedAudio": 4,
+    "itemsAudioPending": 43
+  }
+}

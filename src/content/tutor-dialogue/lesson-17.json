@@ -1,0 +1,730 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 17,
+  "batchIds": [
+    "B023"
+  ],
+  "entries": [
+    {
+      "id": "v2-l17-01-greeting-first",
+      "text": "Hoy abrimos la lección diecisiete para explorar el sonido de la erre.",
+      "batch": "B023",
+      "seq": 1,
+      "file": "B023-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-17-greeting-first",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-02-lesson-focus",
+      "text": "Al comenzar una palabra suena vibrante como en rana, y en medio da un toque suave.",
+      "batch": "B023",
+      "seq": 2,
+      "file": "B023-002.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-17-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-03-flipchart-intro",
+      "text": "En las láminas treinta y nueve y cuarenta leemos ra, re, ri, ro, ru con rana.",
+      "batch": "B023",
+      "seq": 3,
+      "file": "B023-003.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-17-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-04-flipchart-rhyme",
+      "text": "En la lámina cuarenta y uno compartimos La rosca de Manolo y la risa de tío Rolo.",
+      "batch": "B023",
+      "seq": 4,
+      "file": "B023-004.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-17-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-05-page-instruction",
+      "text": "En la página cincuenta y nueve practica el trazo de la erre y dibuja.",
+      "batch": "B023",
+      "seq": 5,
+      "file": "B023-005.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-17-page-instruction",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-06-page-instruction",
+      "text": "En la página sesenta circula las sílabas en rana, reloj, risa, rosa y Rolo.",
+      "batch": "B023",
+      "seq": 6,
+      "file": "B023-006.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-17-page-instruction",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          60
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-07-sight-word-intro",
+      "text": "En la página sesenta y uno aprendemos la palabra bien para nuestras lecturas.",
+      "batch": "B023",
+      "seq": 7,
+      "file": "B023-007.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-17-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-08-word-practice",
+      "text": "Lee el vocabulario de la lección: ramo, remo, ropa, rosado, ruta, rulo y rebaño.",
+      "batch": "B023",
+      "seq": 8,
+      "file": "B023-008.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-17-word-practice",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-09-sentence-practice",
+      "text": "Esta lección trae nuestra primera historia larga: La bola de Roberto rueda bien.",
+      "batch": "B023",
+      "seq": 9,
+      "file": "B023-009.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-17-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-10-sentence-practice",
+      "text": "Seguimos leyendo juntos: Rolo patea la bola, el bolo se rompe y Rita se ríe.",
+      "batch": "B023",
+      "seq": 10,
+      "file": "B023-010.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-17-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-11-page-instruction",
+      "text": "En la página sesenta y dos completa las palabras con las sílabas de la erre.",
+      "batch": "B023",
+      "seq": 11,
+      "file": "B023-011.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-17-page-instruction",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    },
+    {
+      "id": "v2-l17-12-closing",
+      "text": "Qué bien leíste tu primera historia completa. En la siguiente conocerás la doble erre.",
+      "batch": "B023",
+      "seq": 12,
+      "file": "B023-012.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-17-closing",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "words": [
+          "rana",
+          "rama",
+          "remo",
+          "risa",
+          "rosa",
+          "Rita",
+          "Roberto",
+          "Rolo"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted"
+    }
+  ]
+}

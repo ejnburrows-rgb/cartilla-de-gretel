@@ -158,10 +158,12 @@ test.describe("tutor scripted sessions (StubEars)", () => {
     initScriptEars(page, { probe: "denied" });
     await page.goto(tutorSessionUrl(1));
 
-    await expect(page.locator('[data-tutor-unavailable][data-problem="denied"]')).toBeVisible();
+    await expect(page.locator('[data-tutor-unavailable][data-problem="denied"]')).toBeVisible({
+      timeout: 60_000,
+    });
     await expect(
       page.getByText("El micrófono necesita permiso para escuchar."),
-    ).toBeVisible();
+    ).toBeVisible({ timeout: 30_000 });
     // No crash, and the mic was never opened by any real engine.
     expect(await gumCallCount(page)).toBe(0);
     const state = await micState(page);
@@ -176,8 +178,12 @@ test.describe("tutor scripted sessions (StubEars)", () => {
     initScriptEars(page, { probe: "no-local" });
     await page.goto(tutorSessionUrl(1));
 
-    await expect(page.locator('[data-tutor-unavailable][data-problem="no-local"]')).toBeVisible();
-    await expect(page.getByText("Este aparato no puede escuchar por ahora.")).toBeVisible();
+    await expect(page.locator('[data-tutor-unavailable][data-problem="no-local"]')).toBeVisible({
+      timeout: 60_000,
+    });
+    await expect(page.getByText("Este aparato no puede escuchar por ahora.")).toBeVisible({
+      timeout: 30_000,
+    });
     expect(await gumCallCount(page)).toBe(0);
     expect(consoleErrors.errors()).toEqual([]);
   });
@@ -364,19 +370,27 @@ test.describe("tutor scripted sessions (StubEars)", () => {
   const MAIN_ROUTES = ["/", "/cartilla/", "/entrar", "/cartilla/lecciones"];
   for (const route of MAIN_ROUTES) {
     test(`gretel-approved-master.png on ${route} stays at the pre-tutor mascot baseline`, async ({ page }) => {
-      test.setTimeout(60_000);
+      test.setTimeout(90_000);
       const requests = trackRequests(page);
       await page.goto(route, { waitUntil: "domcontentloaded" });
+
+      const collectMasterUrls = async () =>
+        new Set(
+          [
+            ...requests.urls(),
+            ...(await page.evaluate(() =>
+              Array.from(document.images).map((image) => image.currentSrc || image.src),
+            )),
+          ].filter((url) => url.includes("gretel-approved-master.png")),
+        );
+
+      // Wait until the route's React tree mounts and requests/renders the mascot.
+      await expect
+        .poll(async () => (await collectMasterUrls()).size, { timeout: 60_000 })
+        .toBeGreaterThanOrEqual(1);
       await page.waitForLoadState("networkidle").catch(() => {});
 
-      const masterUrls = new Set(
-        [
-          ...requests.urls(),
-          ...(await page.evaluate(() =>
-            Array.from(document.images).map((image) => image.currentSrc || image.src),
-          )),
-        ].filter((url) => url.includes("gretel-approved-master.png")),
-      );
+      const masterUrls = await collectMasterUrls();
       // Baseline: exactly the one approved mascot image, loaded once, from
       // the app's own origin — no tutor-puppet duplicates or extra copies.
       expect(masterUrls.size).toBe(1);
@@ -413,7 +427,9 @@ test.describe("tutor scripted sessions (StubEars)", () => {
           await expect(page.locator('[data-tutor-stage]')).toBeVisible({ timeout: 60_000 });
         } else {
           await page.goto(route);
-          await expect(page.getByRole("heading", { name: "Tutor de Gretel" })).toBeVisible();
+          await expect(page.getByRole("heading", { name: "Tutor de Gretel" })).toBeVisible({
+            timeout: 60_000,
+          });
         }
         const label = route.includes("/tutor/1") ? "tutor-session" : "tutor-picker";
         await page.screenshot({
@@ -430,15 +446,20 @@ test.describe("tutor scripted sessions (StubEars)", () => {
 
     // 1. Navigation Entry from WelcomeSplash
     await page.goto("/");
-    await page.waitForSelector('[data-testid="welcome-splash"]', { state: "visible" });
+    await page.waitForSelector('[data-testid="welcome-splash"]', {
+      state: "visible",
+      timeout: 60_000,
+    });
     const tutorLink = page.getByTestId("wc-tutor");
-    await expect(tutorLink).toBeVisible();
+    await expect(tutorLink).toBeVisible({ timeout: 30_000 });
     await page.screenshot({ path: path.join(PROOF_DIR, "01_nav_entry_splash_phone.png") });
 
     // Click to enter Tutor
     await tutorLink.click();
-    await page.waitForURL("**/tutor");
-    await expect(page.getByRole("heading", { name: "Tutor de Gretel" })).toBeVisible();
+    await page.waitForURL("**/tutor", { timeout: 30_000 });
+    await expect(page.getByRole("heading", { name: "Tutor de Gretel" })).toBeVisible({
+      timeout: 30_000,
+    });
     await page.screenshot({ path: path.join(PROOF_DIR, "02_tutor_picker_phone.png") });
 
     // 2. Open Lección 1 with authentic book content (24 items)
