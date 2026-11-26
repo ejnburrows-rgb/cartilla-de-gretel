@@ -26,7 +26,7 @@ export type TutorProgressResult = "correct" | "correct_after_retry" | "missed";
 
 export interface TutorProgressEvent {
   session_id: string;
-  /** "1" | "2" | "3" — matches the migration's `^[1-3]$` check */
+  /** Local printed lesson number. */
   lesson_id: string;
   /** ≤ 64 chars — matches the migration's char_length check */
   item_id: string;
@@ -162,8 +162,8 @@ function toStoredEvent(input: NewTutorProgressEvent): TutorProgressEvent {
     throw new TypeError("tutor progress event: session_id must be a non-empty string");
   }
   const lessonId = String(input.lesson_id);
-  if (!["1", "2", "3"].includes(lessonId)) {
-    throw new TypeError("tutor progress event: lesson_id must be 1, 2, or 3");
+  if (!/^(?:[1-9]|1[0-9]|2[0-4])$/.test(lessonId)) {
+    throw new TypeError("tutor progress event: lesson_id must be a printed lesson number from 1 to 24");
   }
   const itemId = String(input.item_id ?? "");
   if (!itemId || itemId.length > 64) {

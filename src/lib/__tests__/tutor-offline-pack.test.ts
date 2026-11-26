@@ -2,6 +2,7 @@ import { webcrypto, createHash } from "node:crypto";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   TUTOR_BUILD_ID,
+  TUTOR_ROUTES,
   TUTOR_PACK_CACHE_NAME,
   TUTOR_PACK_CONTROL_CACHE,
   TUTOR_PACK_POINTER,
@@ -64,7 +65,7 @@ beforeEach(() => {
   localStorage.clear();
   for (const url of tutorPackFileList()) bodies.set(url, url.endsWith(".json") ? "{}" : "binary");
   bodies.set("/cartilla/images/gretel/layers/manifest.json", '{"layers":[]}');
-  for (const url of ["/tutor", "/tutor/1", "/tutor/2", "/tutor/3"])
+  for (const url of TUTOR_ROUTES)
     bodies.set(url, '<html><script src="/assets/main.js"></script></html>');
   bodies.set("/assets/main.js", 'import("./lazy.js")');
   bodies.set("/assets/lazy.js", "export const lesson = 1");

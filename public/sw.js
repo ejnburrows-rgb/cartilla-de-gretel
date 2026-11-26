@@ -36,7 +36,7 @@ async function tutorPackMatch(request) {
       (await cache.match(url.pathname, { ignoreVary: true })) ||
       (decodedPath !== url.pathname ? await cache.match(decodedPath, { ignoreVary: true }) : null) ||
       (decodedPath.normalize("NFC") !== url.pathname ? await cache.match(decodedPath.normalize("NFC"), { ignoreVary: true }) : null) ||
-      (/^\/tutor(?:\/[123])?\/?$/.test(url.pathname) ? await cache.match(url.pathname.replace(/\/$/, ""), { ignoreVary: true }) : null);
+      (/^\/tutor(?:\/(?:[1-9]|1[0-9]|2[0-4]))?\/?$/.test(url.pathname) ? await cache.match(url.pathname.replace(/\/$/, ""), { ignoreVary: true }) : null);
   } catch { return null; }
 }
 
@@ -119,7 +119,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   // Tutor documents are immutable with their pack, including offline cold launch.
-  if (/^\/tutor(?:\/[123])?\/?$/.test(path) && request.mode === "navigate") {
+  if (/^\/tutor(?:\/(?:[1-9]|1[0-9]|2[0-4]))?\/?$/.test(path) && request.mode === "navigate") {
     event.respondWith(tutorPackMatch(request).then((hit) => hit || fetch(request)));
     return;
   }

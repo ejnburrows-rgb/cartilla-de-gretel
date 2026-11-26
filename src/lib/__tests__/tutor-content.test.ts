@@ -57,13 +57,13 @@ const EXPECTED: Expected[] = [
 describe("tutor content derivation (spec §7)", () => {
   it("locks every derived item to the §7 table, in exact order", () => {
     expect(
-      tutorItems.map(({ lesson, text, kind, printedPage }) => ({ lesson, text, kind, printedPage })),
+      tutorItems.filter(item => item.lesson <= 3).map(({ lesson, text, kind, printedPage }) => ({ lesson, text, kind, printedPage })),
     ).toEqual(EXPECTED);
   });
 
   it("derives fresh (not cached) items equal to the locked table", () => {
     expect(
-      deriveTutorItems().map(({ lesson, text, kind, printedPage }) => ({ lesson, text, kind, printedPage })),
+      deriveTutorItems().filter(item => item.lesson <= 3).map(({ lesson, text, kind, printedPage }) => ({ lesson, text, kind, printedPage })),
     ).toEqual(EXPECTED);
   });
 
@@ -71,8 +71,9 @@ describe("tutor content derivation (spec §7)", () => {
     expect(itemsForLesson(1)).toHaveLength(24);
     expect(itemsForLesson(2)).toHaveLength(8);
     expect(itemsForLesson(3)).toHaveLength(9);
-    expect(itemsForLesson(4)).toHaveLength(0);
-    expect(tutorItems).toHaveLength(24 + 8 + 9);
+    for (let lesson = 4; lesson <= 24; lesson++) expect(itemsForLesson(lesson).length).toBeGreaterThan(0);
+    expect(itemsForLesson(25)).toHaveLength(0);
+    expect(tutorItems.some(item => [86, 87].includes(item.printedPage))).toBe(false);
   });
 
   it("puts the five vowels first in Lección 1, in printed order a e i o u", () => {

@@ -14,6 +14,8 @@
  */
 import bookData from "@/data/book-transcription/lessons-01-07.json";
 
+import consonants from "@/data/book-transcription/lessons-08-24.json";
+
 export type TutorItemKind = "vowel" | "word";
 
 export interface TutorItem {
@@ -27,8 +29,8 @@ export interface TutorItem {
   printedPage: number;
 }
 
-/** Lecciones covered by tutor milestone 1 (workbook pages 1–9). */
-export const TUTOR_LESSONS = [1, 2, 3] as const;
+/** Instructional lessons with verified reading targets in the book transcriptions. */
+export const TUTOR_LESSONS = Array.from({ length: 24 }, (_, i) => i + 1);
 
 type PictureGridPage = {
   lesson: number;
@@ -109,7 +111,7 @@ export function deriveTutorItems(): TutorItem[] {
     .sort((a, b) => a.page - b.page);
 
   const items: TutorItem[] = [];
-  for (const lesson of TUTOR_LESSONS) {
+  for (const lesson of TUTOR_LESSONS.slice(0, 6)) {
     const seen = new Set<string>();
     const vowels: { text: string; printedPage: number }[] = [];
     const words: { text: string; printedPage: number }[] = [];
@@ -136,6 +138,24 @@ export function deriveTutorItems(): TutorItem[] {
     }
     for (const { text, printedPage } of words) {
       items.push({ id: `l${lesson}-word-${idSlug(text)}`, lesson, text, kind: "word", printedPage });
+    }
+  }
+  // Lesson 7 stores its reading columns in page 21. Later transcriptions
+  // already flatten the same printed columns into a vocabulary list.
+  const seventh = bookData.pages["21"];
+  const readings = [
+    { lesson: seventh.lesson, printedPage: 21, words: seventh.vocabColumns.flat() },
+    ...Object.values(consonants.lessons).map(book => ({
+      lesson: book.lesson, printedPage: book.pages.letter, words: book.vocab,
+    })),
+  ];
+  for (const { lesson, printedPage, words } of readings) {
+    const seen = new Set<string>();
+    for (const text of words) {
+      const id = `l${lesson}-word-${idSlug(text)}`;
+      if (seen.has(id)) continue;
+      seen.add(id);
+      items.push({ id, lesson, printedPage, kind: "word", text });
     }
   }
   return items;

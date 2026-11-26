@@ -12,7 +12,7 @@ export const VOSK_MODEL_PACK_PATH = "/models/vosk/vosk-model-small-es-0.42.bin";
 export const GRETEL_MASTER_PACK_PATH = "/cartilla/images/gretel/gretel-approved-master.png";
 const LAYERS_PATH = "/cartilla/images/gretel/layers/manifest.json";
 const ASSETS_PATH = "/tutor-assets.json";
-export const TUTOR_ROUTES = ["/tutor", "/tutor/1", "/tutor/2", "/tutor/3"] as const;
+export const TUTOR_ROUTES = ["/tutor", ...Array.from({ length: 24 }, (_, n) => `/tutor/${n+1}`)];
 
 export function tutorPackFileList(): string[] {
   const files = new Set<string>([

@@ -141,7 +141,7 @@ describe("progress event storage", () => {
   });
 
   it("validates lesson, result, attempts, and item_id length", () => {
-    expect(() => appendTutorProgress({ ...baseEvent, lesson_id: 4 })).toThrow(/lesson_id/);
+    expect(() => appendTutorProgress({ ...baseEvent, lesson_id: 25 })).toThrow(/lesson_id/);
     expect(() => appendTutorProgress({ ...baseEvent, result: "almost" as never })).toThrow(
       /result/,
     );
