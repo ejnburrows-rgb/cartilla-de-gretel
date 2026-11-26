@@ -1,0 +1,28 @@
+[
+ {
+  "name": "phone",
+  "marks": [
+   "abeja:Sí:green",
+   "aguja:Sí:green",
+   "oso:No:green",
+   "ola:No:green",
+   "oveja:No:green"
+  ],
+  "result": "5 de 5 correctas",
+  "resetOk": true,
+  "errors": []
+ },
+ {
+  "name": "desktop",
+  "marks": [
+   "abeja:Sí:green",
+   "aguja:Sí:green",
+   "oso:Sí:red",
+   "ola:No:green",
+   "oveja:No:green"
+  ],
+  "result": "4 de 5 correctas",
+  "resetOk": true,
+  "errors": []
+ }
+]

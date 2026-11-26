@@ -1,0 +1,17 @@
+[
+ {
+  "name": "phone",
+  "src": "p006-elefante-alive.svg",
+  "framesDiffer": true
+ },
+ {
+  "name": "projector",
+  "src": "p006-elefante-alive.svg",
+  "framesDiffer": true
+ },
+ {
+  "name": "projector-reduced",
+  "src": "p006-elefante.png",
+  "framesDiffer": false
+ }
+]

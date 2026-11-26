@@ -1,0 +1,24 @@
+tests/e2e/all-games.spec.ts › all themed games › mariposas completes a source-backed word
+tests/e2e/all-games.spec.ts › all themed games › mariposas-p mounts as a real game
+tests/e2e/flipchart-vowel-motion.spec.ts › laptop: Flip Chart sheet 2 vowel pictures move only their parts
+tests/e2e/flipchart-vowel-motion.spec.ts › laptop: Flip Chart sheet 4 vowel pictures move only their parts
+tests/e2e/flipchart-vowel-motion.spec.ts › laptop: Flip Chart sheet 5 vowel pictures move only their parts
+tests/e2e/flipchart-vowel-motion.spec.ts › projector: Flip Chart sheet 2 vowel pictures move only their parts
+tests/e2e/flipchart-vowel-motion.spec.ts › projector: Flip Chart sheet 4 vowel pictures move only their parts
+tests/e2e/flipchart-vowel-motion.spec.ts › projector: Flip Chart sheet 5 vowel pictures move only their parts
+tests/e2e/living-motion-discipline.spec.ts › Workbook page 1: registered actors move, static art stays static
+tests/e2e/piano-hablador.spec.ts › Piano Hablador › SAPO: separated syllables turn red keys green one at a time, then one celebration
+tests/e2e/piano-hablador.spec.ts › Piano Hablador › interrupted speech keeps confirmed keys; a retry continues from the next key
+tests/e2e/piano-hablador.spec.ts › Piano Hablador › whole word spoken naturally completes; wrong and uncertain speech never turn keys green
+tests/e2e/review-game-links.spec.ts › review hub lists the 12 existing game routes without calling them alternatives
+tests/e2e/workbook-vowel-motion.spec.ts › laptop: Lesson 2 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › laptop: Lesson 3 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › laptop: Lesson 4 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › laptop: Lesson 5 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › laptop: Lesson 6 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › phone: Lesson 2 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › phone: Lesson 3 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › phone: Lesson 4 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › phone: Lesson 5 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › phone: Lesson 6 vowel pictures move only their parts
+tests/e2e/workbook-vowel-motion.spec.ts › reduced motion: vowel pictures show the still drawing and nothing moves
