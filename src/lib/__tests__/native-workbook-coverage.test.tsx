@@ -124,6 +124,7 @@ describe("native workbook coverage", () => {
     const fixture: RemasterAsset = {
       originalSourcePath: canonical,
       remasteredPath: "__test_only__/page-001-enhanced.jpg",
+      remasteredPathV2: "__test_only__/page-001-projection.jpg",
       cleanupStatus: "approved",
       artifactFixed: true,
       remasterType: "test fixture",
@@ -138,9 +139,14 @@ describe("native workbook coverage", () => {
         expect(source.originalImageRef).toBe(canonical);
         expect(source.fallbackChain?.[0]).toBe(canonical);
         expect(source.imageRef).toBe(
-          mode === "source" ? canonical : "/__test_only__/page-001-enhanced.jpg",
+          {
+            source: canonical,
+            enhanced: "/__test_only__/page-001-enhanced.jpg",
+            projection: "/__test_only__/page-001-projection.jpg",
+          }[mode],
         );
         expect(source.remasteredPath).toBe("/__test_only__/page-001-enhanced.jpg");
+        expect(source.remasteredPathV2).toBe("/__test_only__/page-001-projection.jpg");
         expect(source.remasterStatus).toBe("approved");
       }
     } finally {
