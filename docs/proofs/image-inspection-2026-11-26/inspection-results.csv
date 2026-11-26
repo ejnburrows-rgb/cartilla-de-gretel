@@ -1682,6 +1682,8 @@ workbook,p083,desktop,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p084,desktop,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p085,desktop,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p088,desktop,(no pictures on this view),,,,,,,,,NO PICTURES
+workbook,p089,desktop,(no pictures on this view),,,,,,,,,NO PICTURES
+workbook,p090,desktop,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p001,phone,/cartilla/art/optimized/workbook/leccion-1/abrigo.png,img,1024x1024,61x53,contain,0.1,0,,,PASS
 workbook,p001,phone,/cartilla/art/optimized/workbook/leccion-1/iman.svg,img,215x206,61x53,contain,,0,,,PASS
 workbook,p001,phone,/cartilla/art/optimized/workbook/leccion-1/abanico.svg,img,220x221,61x53,contain,,0,,,PASS
@@ -1915,6 +1917,8 @@ workbook,p083,phone,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p084,phone,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p085,phone,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p088,phone,(no pictures on this view),,,,,,,,,NO PICTURES
+workbook,p089,phone,(no pictures on this view),,,,,,,,,NO PICTURES
+workbook,p090,phone,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p001,projector,/cartilla/art/optimized/workbook/leccion-1/abrigo.png,img,1024x1024,192x143,contain,0.14,0,,,PASS
 workbook,p001,projector,/cartilla/art/optimized/workbook/leccion-1/iman.svg,img,215x206,192x143,contain,,0,,,PASS
 workbook,p001,projector,/cartilla/art/optimized/workbook/leccion-1/abanico.svg,img,220x221,192x143,contain,,0,,,PASS
@@ -2148,3 +2152,5 @@ workbook,p083,projector,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p084,projector,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p085,projector,(no pictures on this view),,,,,,,,,NO PICTURES
 workbook,p088,projector,(no pictures on this view),,,,,,,,,NO PICTURES
+workbook,p089,projector,(no pictures on this view),,,,,,,,,NO PICTURES
+workbook,p090,projector,(no pictures on this view),,,,,,,,,NO PICTURES
