@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import restored from "../../../docs/proofs/m7-m8-m9-verification/continuation/lesson4-ground-restoration.json";
 import nativeAssets from "@/data/flipchart-native-assets.json";
 import proof from "../../../docs/proofs/m7-m8-m9-verification/continuation/lesson4-source-provenance.json";
+import motionManifest from "../../../scripts/living-motion/manifest.json";
 
 const root = process.cwd();
 describe("Lesson 4 full source replacements", () => {
@@ -31,6 +32,16 @@ describe("Lesson 4 full source replacements", () => {
   it("holds every replaced scene and picture still until new motion geometry is reviewed", () => {
     expect(nativeAssets["6"]).toHaveLength(7);
     expect(nativeAssets["6"].map(asset => asset.src).sort()).toEqual(proof.assets.map(asset => asset.destination.replace(/^public/, "")).sort());
-    for (const asset of nativeAssets["6"]) expect(asset.motionDisabled, asset.src).toBe(true);
+    // The elephant's motion was rebuilt from the replaced still (#1326) and checked by the
+    // Images lane (HANDOFF-assets-motion.md on #1327); it may move only while that motion
+    // file is built from the current still bytes. The other six stay held.
+    const elephant = "/cartilla/art/optimized/flipchart-native/p006-elefante.png";
+    for (const asset of nativeAssets["6"]) {
+      if (asset.src === elephant) expect("motionDisabled" in asset, asset.src).toBe(false);
+      else expect(asset.motionDisabled, asset.src).toBe(true);
+    }
+    const built = motionManifest.fc_p006_elefante;
+    expect(built.still).toBe(`public${elephant}`);
+    expect(createHash("sha256").update(readFileSync(path.join(root, built.still))).digest("hex")).toBe(built.stillSha256);
   });
 });
