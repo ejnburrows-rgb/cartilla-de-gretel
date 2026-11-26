@@ -154,7 +154,7 @@ flowchart TD
 - `continuation/1247-review`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `34f899b7`
 - `continuation/1247-source-recovery`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `51d2eb8d`
 - `continuation/1247-test-repairs`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `69325f0d`
-- `controller/jobs/d258e76a-4875-4178-b06f-0c0bf03e48c4-8404474860463475856`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1627115b`
+- `controller/jobs/d258e76a-4875-4178-b06f-0c0bf03e48c4-8404474860463475856`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1627114b`
 - `controls/execution-gate-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `725a5a4a`
 - `devin/1795540156-demo-handoff-20261124`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `11fef427`
 - `docs/20261022-integration-recovery`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `053a167d`
