@@ -1,0 +1,574 @@
+{
+ "views": {
+  "flipchart/desktop": 60,
+  "flipchart/phone": 60,
+  "flipchart/projector": 60,
+  "game/desktop": 12,
+  "game/phone": 12,
+  "game/projector": 12,
+  "workbook/desktop": 86,
+  "workbook/phone": 86,
+  "workbook/projector": 86
+ },
+ "pictureChecks": {
+  "flipchart/desktop": {
+   "PASS": 503
+  },
+  "flipchart/phone": {
+   "PASS": 167
+  },
+  "flipchart/projector": {
+   "PASS": 503
+  },
+  "game/desktop": {
+   "PASS": 38,
+   "CLIPPED": 1,
+   "CLIPPED;OFFSCREEN_X": 2,
+   "DISTORTED": 40
+  },
+  "game/phone": {
+   "PASS": 30,
+   "CLIPPED;OFFSCREEN_X;LOW_RES": 5,
+   "OFFSCREEN_X;LOW_RES": 5,
+   "OFFSCREEN_X": 2,
+   "DISTORTED": 40
+  },
+  "game/projector": {
+   "PASS": 38,
+   "CLIPPED": 1,
+   "CLIPPED;OFFSCREEN_X": 2,
+   "DISTORTED": 40
+  },
+  "workbook/desktop": {
+   "PASS": 158,
+   "LOW_RES": 2
+  },
+  "workbook/phone": {
+   "PASS": 160
+  },
+  "workbook/projector": {
+   "PASS": 158,
+   "LOW_RES": 2
+  }
+ },
+ "uniquePictures": {
+  "flipchart": 167,
+  "game": 45,
+  "workbook": 79
+ },
+ "flagged": [
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/open-body.png",
+   "result": "DISTORTED",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@phone",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/open-head.png",
+   "result": "DISTORTED",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@phone",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/open-leg-a.png",
+   "result": "DISTORTED",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@phone",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/open-leg-b.png",
+   "result": "DISTORTED",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@phone",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/open-leg-c.png",
+   "result": "DISTORTED",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@phone",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/open-leg-d.png",
+   "result": "DISTORTED",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@phone",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/open-tail.png",
+   "result": "DISTORTED",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@phone",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/scene-portrait.webp",
+   "result": "OFFSCREEN_X",
+   "where": [
+    "cow-game-m@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/cartilla/art/games/cow/scene.webp",
+   "result": "CLIPPED;OFFSCREEN_X",
+   "where": [
+    "cow-game-m@desktop",
+    "cow-game-m@projector"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_orange.png",
+   "result": "OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_pinkdaisy.png",
+   "result": "OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_pinktulip.png",
+   "result": "OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_purple.png",
+   "result": "OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_rose.png",
+   "result": "OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_sunflower.png",
+   "result": "CLIPPED;OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_tulip.png",
+   "result": "CLIPPED;OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/fl_whitedaisy.png",
+   "result": "CLIPPED;OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/garden.jpg",
+   "result": "CLIPPED;OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/grass.png",
+   "result": "CLIPPED;OFFSCREEN_X;LOW_RES",
+   "where": [
+    "mariposas-p@phone"
+   ]
+  },
+  {
+   "surface": "game",
+   "src": "/src/assets/games/butterfly-garden/ui_can.png",
+   "result": "CLIPPED",
+   "where": [
+    "mariposas-p@desktop",
+    "mariposas-p@projector"
+   ]
+  },
+  {
+   "surface": "workbook",
+   "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+   "result": "LOW_RES",
+   "where": [
+    "p013@desktop",
+    "p013@projector",
+    "p014@desktop",
+    "p014@projector"
+   ]
+  }
+ ],
+ "notes": [
+  {
+   "surface": "workbook",
+   "id": "L24-i2",
+   "viewport": "desktop",
+   "note": "resume landed on 1/3"
+  },
+  {
+   "surface": "workbook",
+   "id": "L24-i3",
+   "viewport": "desktop",
+   "note": "resume landed on 2/3"
+  },
+  {
+   "surface": "workbook",
+   "id": "L25",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L26",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L27",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L28",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L29",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L30",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L31",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L32",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L33",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L34",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L35",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L36",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L37",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L38",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L39",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L40",
+   "viewport": "desktop",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L24-i2",
+   "viewport": "phone",
+   "note": "resume landed on 1/3"
+  },
+  {
+   "surface": "workbook",
+   "id": "L24-i3",
+   "viewport": "phone",
+   "note": "resume landed on 2/3"
+  },
+  {
+   "surface": "workbook",
+   "id": "L25",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L26",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L27",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L28",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L29",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L30",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L31",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L32",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L33",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L34",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L35",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L36",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L37",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L38",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L39",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L40",
+   "viewport": "phone",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L24-i2",
+   "viewport": "projector",
+   "note": "resume landed on 1/3"
+  },
+  {
+   "surface": "workbook",
+   "id": "L24-i3",
+   "viewport": "projector",
+   "note": "resume landed on 2/3"
+  },
+  {
+   "surface": "workbook",
+   "id": "L25",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L26",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L27",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L28",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L29",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L30",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L31",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L32",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L33",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L34",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L35",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L36",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L37",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L38",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L39",
+   "viewport": "projector",
+   "note": "no native viewer"
+  },
+  {
+   "surface": "workbook",
+   "id": "L40",
+   "viewport": "projector",
+   "note": "no native viewer"
+  }
+ ]
+}

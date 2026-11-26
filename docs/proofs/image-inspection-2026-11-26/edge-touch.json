@@ -1,0 +1,187 @@
+[
+ {
+  "src": "/cartilla/art/faithful/flipchart/p035-full-sheet.jpg",
+  "size": [
+   3406,
+   4345
+  ],
+  "inkOnEdge": {
+   "top": 0.891,
+   "bottom": 0.747,
+   "left": 1.0,
+   "right": 0.526
+  }
+ },
+ {
+  "src": "/cartilla/art/faithful/flipchart/p041-full-sheet.jpg",
+  "size": [
+   3410,
+   4343
+  ],
+  "inkOnEdge": {
+   "top": 0.521,
+   "bottom": 0.486,
+   "left": 1.0,
+   "right": 0.355
+  }
+ },
+ {
+  "src": "/cartilla/art/faithful/flipchart/p047-full-sheet.jpg",
+  "size": [
+   3408,
+   4343
+  ],
+  "inkOnEdge": {
+   "top": 0.683,
+   "left": 1.0,
+   "right": 1.0
+  }
+ },
+ {
+  "src": "/cartilla/art/faithful/flipchart/p053-full-sheet.jpg",
+  "size": [
+   3406,
+   4344
+  ],
+  "inkOnEdge": {
+   "top": 0.628,
+   "bottom": 0.441,
+   "left": 1.0,
+   "right": 0.437
+  }
+ },
+ {
+  "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
+  "size": [
+   1354,
+   754
+  ],
+  "inkOnEdge": {
+   "left": 0.076,
+   "right": 0.077
+  }
+ },
+ {
+  "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+  "size": [
+   924,
+   990
+  ],
+  "inkOnEdge": {
+   "left": 0.043
+  }
+ },
+ {
+  "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
+  "size": [
+   188,
+   181
+  ],
+  "inkOnEdge": {
+   "top": 0.101,
+   "right": 0.448
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p006-ema.png",
+  "size": [
+   500,
+   540
+  ],
+  "inkOnEdge": {
+   "top": 0.122
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p012-puma.png",
+  "size": [
+   695,
+   753
+  ],
+  "inkOnEdge": {
+   "bottom": 0.063
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-topo.webp",
+  "size": [
+   1478,
+   1536
+  ],
+  "inkOnEdge": {
+   "bottom": 0.376
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p018-tuto.webp",
+  "size": [
+   804,
+   817
+  ],
+  "inkOnEdge": {
+   "bottom": 0.068
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+  "size": [
+   1281,
+   1536
+  ],
+  "inkOnEdge": {
+   "bottom": 0.253
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-loma.webp",
+  "size": [
+   1536,
+   1238
+  ],
+  "inkOnEdge": {
+   "bottom": 0.845
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p024-luli.webp",
+  "size": [
+   1058,
+   1536
+  ],
+  "inkOnEdge": {
+   "bottom": 0.192
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p029-scene.png",
+  "size": [
+   1070,
+   1515
+  ],
+  "inkOnEdge": {
+   "top": 0.45,
+   "bottom": 0.185
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p032-scene.png",
+  "size": [
+   1003,
+   1389
+  ],
+  "inkOnEdge": {
+   "top": 0.087,
+   "left": 0.066
+  }
+ },
+ {
+  "src": "/cartilla/art/optimized/flipchart-native/p060-scene.png",
+  "size": [
+   1212,
+   1219
+  ],
+  "inkOnEdge": {
+   "right": 0.268
+  }
+ }
+]
