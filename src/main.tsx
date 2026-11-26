@@ -5,10 +5,14 @@ import { RouterProvider } from "@tanstack/react-router";
 import { getRouter } from "./router";
 import { initArtScanBlend } from "./lib/art-blend";
 import { initLivingArtRuntime } from "./lib/living-art-runtime";
+import { installPreloadRecovery } from "./lib/preload-recovery";
 import "./styles.css";
 import "./styles/living-art.css";
 import "./styles/gretel-presence.css";
 import "./styles/art-blend.css";
+
+// Recover once from missing code files after a release instead of a blank screen.
+installPreloadRecovery();
 
 const router = getRouter();
 

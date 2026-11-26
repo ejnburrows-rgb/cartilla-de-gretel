@@ -1,5 +1,5 @@
 // Versioned caches - must match src/lib/cache-version.ts
-const CACHE_VERSION = "v2.0.0";
+const CACHE_VERSION = "v2.0.1";
 const CACHE_NAMES = {
   appShell: `cartilla:shell:${CACHE_VERSION}`,
   assets: `cartilla:assets:${CACHE_VERSION}`,
@@ -13,8 +13,15 @@ const PRECACHE_URLS = [
   "/cartilla/lecciones",
   "/icons/app-192.png",
   "/icons/app-512.png",
-  "/gretel/thinking.webp",
 ];
+
+// A missing build file must never be cached as HTML under a script/style URL:
+// after a release that would leave the old tab stuck on a blank screen.
+function isCacheableAsset(response) {
+  if (!response.ok) return false;
+  const type = response.headers.get("content-type") || "";
+  return !type.includes("text/html");
+}
 
 // Helper to determine if a cached response has expired (in milliseconds)
 function isExpired(response, maxAgeMs) {
@@ -145,7 +152,7 @@ self.addEventListener("fetch", (event) => {
         return cache.match(request).then((cached) => {
           const fetchPromise = fetch(request)
             .then((fresh) => {
-              if (fresh.ok) cache.put(request, fresh.clone());
+              if (isCacheableAsset(fresh)) cache.put(request, fresh.clone());
               return fresh;
             })
             .catch(() => null);
@@ -173,7 +180,7 @@ self.addEventListener("fetch", (event) => {
           }
           return fetch(request)
             .then((fresh) => {
-              if (fresh.ok) cache.put(request, fresh.clone());
+              if (isCacheableAsset(fresh)) cache.put(request, fresh.clone());
               return fresh;
             })
             .catch(() => cached);
@@ -189,7 +196,7 @@ self.addEventListener("fetch", (event) => {
       return cache.match(request).then((cached) => {
         const fetchPromise = fetch(request)
           .then((fresh) => {
-            if (fresh.ok) cache.put(request, fresh.clone());
+            if (isCacheableAsset(fresh)) cache.put(request, fresh.clone());
             return fresh;
           })
           .catch(() => null);
