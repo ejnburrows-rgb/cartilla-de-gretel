@@ -6,7 +6,8 @@ import numpy as np
 from PIL import Image, ImageOps
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-D = sys.argv[1]
+from _paths import safe_dir, arg
+D = safe_dir(arg(1))
 
 def prep(im):
     im = im.convert("RGBA")

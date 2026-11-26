@@ -9,7 +9,8 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "docs/proofs/image-inspection/flipchart-provenance")
+from _paths import safe_dir, arg
+OUT = safe_dir(arg(1), os.path.join(ROOT, "docs/proofs/image-inspection/flipchart-provenance"))
 os.makedirs(OUT, exist_ok=True)
 assets = json.load(open(os.path.join(ROOT, "src/data/flipchart-native-assets.json")))
 audit = json.load(open(os.path.join(ROOT, "docs/production-art-classification-audit.json")))

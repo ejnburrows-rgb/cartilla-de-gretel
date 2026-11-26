@@ -3,7 +3,8 @@ existing alternatives). Read-only; writes one comparison image."""
 import os, sys
 from PIL import Image, ImageDraw
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-OUT = sys.argv[1]
+from _paths import safe_dir, arg
+OUT = safe_dir(arg(1))
 os.makedirs(OUT, exist_ok=True)
 A = os.path.join(ROOT, "public/cartilla/art")
 scan = Image.open(f"{A}/source/workbook/page-007.jpg").convert("RGB")

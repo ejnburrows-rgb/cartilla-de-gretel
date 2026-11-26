@@ -6,7 +6,8 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-P = sys.argv[1]
+from _paths import safe_dir, arg
+P = safe_dir(arg(1))
 srcs = sorted({r["src"].split("?")[0] for r in csv.DictReader(open(os.path.join(P, "inspection-results.csv")))
                if r["src"].startswith("/") and r["surface"] in ("workbook", "flipchart")})
 

@@ -2,7 +2,8 @@
 usage: python3 scripts/image-inspection/summarize.py RESULTS_DIR OUT_DIR"""
 import csv, json, os, sys, glob
 from collections import Counter, defaultdict
-src, out = sys.argv[1], sys.argv[2]
+from _paths import safe_dir, arg
+src, out = safe_dir(arg(1)), safe_dir(arg(2))
 os.makedirs(out, exist_ok=True)
 rows, notes, views = [], [], Counter()
 for f in sorted(glob.glob(os.path.join(src, "*", "results.json"))):

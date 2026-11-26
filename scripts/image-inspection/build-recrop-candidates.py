@@ -10,7 +10,8 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageOps
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "docs/proofs/image-inspection/recrop-candidates")
+from _paths import safe_dir, arg
+OUT = safe_dir(arg(1), os.path.join(ROOT, "docs/proofs/image-inspection/recrop-candidates"))
 os.makedirs(OUT, exist_ok=True)
 
 # current faithful file -> Flip Chart native entry that records the same drawing on an HD sheet
