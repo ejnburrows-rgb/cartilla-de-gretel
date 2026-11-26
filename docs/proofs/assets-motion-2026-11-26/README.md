@@ -8,9 +8,60 @@ production preview https://cartilla-de-gretel-psi.vercel.app (main `3c559eea` / 
 |---|---|---|
 | 1 (first pass) | `65310d0` | this folder |
 | 2 (owner "continue", items 1–5) | cow `d4f4cb8`, Chano `0b59012`, elephant `c925073` | `round2/` |
+| **3 (complete rounds, exact head)** | **`1471c828`** (all app code; later commits are docs only) | **`round3-1471c828/`** |
 
 Correction to round 1: the elephant is on Flip Chart **sheet (lámina) 6**, shown in Lesson 4
 (`/cartilla/presentar/4`), not "sheet 4".
+
+---
+
+## Round 3: complete rounds of every game at `1471c828`
+
+Round 1 and 2 recordings were made at earlier heads and do not test the current cow geometry or
+the Chano catch. Round 3 replays everything at the exact head the PR now carries. One script,
+one run per game and screen size, raw results in `round3-1471c828/full-rounds-*.json`. No page
+errors and no sideways scroll in any run.
+
+| Game | Screens | Complete round at `1471c828` | Recording |
+|---|---|---|---|
+| Cow | phone, tablet, desktop, ultrawide | 1 wrong try, then 5/5 placed, "Juego completado", 5 cards on the fence, "Jugar otra vez" resets | `cow-phone.webm`, `cow-ultrawide.webm` |
+| Payaso Chano | phone (touch), phone landscape (touch), desktop | All 5 words (mima, mamá, Meme, Mumi, mami): every picked ball caught and landed `on-board`, "¡Muy bien!" each time, 5 balls throughout, ends "¡Terminaste!" | `chano-phone.webm`, `chano-phone-land.webm`, `chano-desktop.webm` |
+| Vocal A | phone, desktop | phone 5/5 all green; desktop "oso" answered wrongly on purpose → red, "4 de 5 correctas"; "Repetir" resets | `vocal-a-desktop.webm` |
+| Fonética P | phone, desktop | 1 wrong try, then papi, papá, pomo → "3 de 3 palabras completadas" | `fonetica-p-phone.webm` |
+| Rima P | phone, desktop | 1 wrong try, then papi→Pepi, Pipo→mapo → "2 de 2 rimas encontradas" | `rima-p-phone.webm` |
+| Palabras por minuto | phone, desktop | Timer started, all 18 words read in order, "Terminé la lista" → "Leíste 18 palabras." | `palabras-minuto-p-phone.webm` |
+| Dibujos O | phone, desktop | 1 wrong try, then oso, ola, oveja → "3 de 3 dibujos correctos" | `dibujos-o-phone.webm` |
+| Sílabas O / M / P | phone, desktop | Every word built and checked "¡Muy bien!" (o·so, o·la, o·ve·ja; ma·má, mo·no; pa·pá, so·pa), then "Terminar" | `silabas-o-phone.webm`, `silabas-m-desktop.webm`, `silabas-p-desktop.webm` |
+| Completar palabras | phone, desktop | **Cannot be completed:** the answers are not in the teacher file yet, so all 15 blanks show "pendiente" by design. Nothing invented. | screenshots |
+| Butterfly Garden | — | Protected, not touched; its own 9 browser tests pass | — |
+| Piano Hablador | — | **NOT TESTED** (needs a microphone) | — |
+| Board game | — | **Missing** in main and every branch | — |
+
+**First-pass timeouts kept on record.** In the first pass, Fonética (phone, desktop), Rima (phone,
+desktop) and Dibujos (phone) timed out (`*-first-pass-script-timeout.jpg`,
+`full-rounds-first-pass.json`). Cause: my script. Each of these games shows its "try again" message
+for 0.65 s and ignores taps while it shows; the script tapped the right answer inside that window.
+The rerun waits for the message to clear and all five pass (`full-rounds-rerun-fonetica-rima-dibujos.json`).
+The earlier Vocal A timeouts are kept the same way in `results.json` (round 1) with corrected reruns
+in `round2/` and here.
+
+**Findings for the owner (not changed here):**
+- Sílabas O/M/P: after "Terminar" the game records the completion and goes straight back to word 1,
+  with no "you finished" screen.
+- Fonética, Rima, Dibujos: a tap during the 0.65 s "try again" message is silently ignored.
+
+**Elephant, Flip Chart sheet 6 through the real presenter (`/cartilla/presentar/4`) at `1471c828`**
+(`round3-1471c828/elephant-results.json`, `elephant-sheet6-*.jpg`):
+
+| Screen | Motion | Picture served | Frames change |
+|---|---|---|---|
+| phone 390×844 | normal | `p006-elefante-alive.svg` | yes |
+| phone 390×844 | reduced | `p006-elefante.png` | no |
+| projector 1920×1080 | normal | `p006-elefante-alive.svg` | yes |
+| projector 1920×1080 | reduced | `p006-elefante.png` | no |
+
+Only `p006-elefante` changed; the other six sheet-6 entries still carry `"motionDisabled": true`
+(checked in `src/data/flipchart-native-assets.json`: 6 held, elephant released).
 
 ---
 

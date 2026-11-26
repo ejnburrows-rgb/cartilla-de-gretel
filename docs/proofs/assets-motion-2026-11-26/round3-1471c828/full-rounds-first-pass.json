@@ -1,0 +1,338 @@
+[
+ {
+  "head": "1471c828",
+  "game": "cow",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "completion": "Juego completado",
+   "cards": 5,
+   "replay": true
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "cow",
+  "vp": "tablet",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "completion": "Juego completado",
+   "cards": 5,
+   "replay": true
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "cow",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "completion": "Juego completado",
+   "cards": 5,
+   "replay": true
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "cow",
+  "vp": "ultrawide",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "completion": "Juego completado",
+   "cards": 5,
+   "replay": true
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "chano",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "mima:¡Muy bien!:5balls",
+    "mamá:¡Muy bien!:5balls",
+    "Meme:¡Muy bien!:5balls",
+    "Mumi:¡Muy bien!:5balls",
+    "mami:¡Muy bien!:5balls"
+   ],
+   "end": "¡Terminaste!"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "chano",
+  "vp": "phone-land",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "mima:¡Muy bien!:5balls",
+    "mamá:¡Muy bien!:5balls",
+    "Meme:¡Muy bien!:5balls",
+    "Mumi:¡Muy bien!:5balls",
+    "mami:¡Muy bien!:5balls"
+   ],
+   "end": "¡Terminaste!"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "chano",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "mima:¡Muy bien!:5balls",
+    "mamá:¡Muy bien!:5balls",
+    "Meme:¡Muy bien!:5balls",
+    "Mumi:¡Muy bien!:5balls",
+    "mami:¡Muy bien!:5balls"
+   ],
+   "end": "¡Terminaste!"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "vocal-a",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "marks": [
+    "abeja:green",
+    "aguja:green",
+    "oso:green",
+    "ola:green",
+    "oveja:green"
+   ],
+   "total": "5 de 5 correctas"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "vocal-a",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "marks": [
+    "abeja:green",
+    "aguja:green",
+    "oso:red",
+    "ola:green",
+    "oveja:green"
+   ],
+   "total": "4 de 5 correctas"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "fonetica-p",
+  "vp": "phone",
+  "ok": false,
+  "overflowX": false,
+  "errors": [],
+  "detail": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded."
+ },
+ {
+  "head": "1471c828",
+  "game": "rima-p",
+  "vp": "phone",
+  "ok": false,
+  "overflowX": false,
+  "errors": [],
+  "detail": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded."
+ },
+ {
+  "head": "1471c828",
+  "game": "palabras-minuto-p",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "Leíste 18 palabras."
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "dibujos-o",
+  "vp": "phone",
+  "ok": false,
+  "overflowX": false,
+  "errors": [],
+  "detail": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded."
+ },
+ {
+  "head": "1471c828",
+  "game": "silabas-o",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "o·so:ok",
+    "o·la:ok",
+    "o·ve·ja:ok"
+   ],
+   "end": []
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "silabas-m",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "ma·má:ok",
+    "mo·no:ok"
+   ],
+   "end": []
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "silabas-p",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "pa·pá:ok",
+    "so·pa:ok"
+   ],
+   "end": []
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "completar-palabras",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "playable": false,
+   "pendingMarkers": 15
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "fonetica-p",
+  "vp": "desktop",
+  "ok": false,
+  "overflowX": false,
+  "errors": [],
+  "detail": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded."
+ },
+ {
+  "head": "1471c828",
+  "game": "rima-p",
+  "vp": "desktop",
+  "ok": false,
+  "overflowX": false,
+  "errors": [],
+  "detail": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded."
+ },
+ {
+  "head": "1471c828",
+  "game": "palabras-minuto-p",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "Leíste 18 palabras."
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "dibujos-o",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "3 de 3 dibujos correctos"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "silabas-o",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "o·so:ok",
+    "o·la:ok",
+    "o·ve·ja:ok"
+   ],
+   "end": []
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "silabas-m",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "ma·má:ok",
+    "mo·no:ok"
+   ],
+   "end": []
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "silabas-p",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "words": [
+    "pa·pá:ok",
+    "so·pa:ok"
+   ],
+   "end": []
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "completar-palabras",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "playable": false,
+   "pendingMarkers": 15
+  }
+ }
+]
