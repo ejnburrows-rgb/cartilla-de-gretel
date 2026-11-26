@@ -27,22 +27,64 @@
 
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, rmSync, statSync, readFileSync, writeFileSync, renameSync, existsSync } from "node:fs";
+import {
+  accessSync,
+  constants as fsConstants,
+  mkdirSync,
+  rmSync,
+  statSync,
+  readFileSync,
+  writeFileSync,
+  renameSync,
+  existsSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-if (process.platform === "win32") {
-  const candidates = [
-    path.join(process.env.LOCALAPPDATA ?? "", "Programs", "Git", "usr", "bin"),
-    "C:\\Program Files\\Git\\usr\\bin",
-  ];
-  for (const c of candidates) {
-    if (existsSync(c) && !process.env.PATH?.includes(c)) {
-      process.env.PATH = `${c}${path.delimiter}${process.env.PATH ?? ""}`;
-      break;
+const FIXED_BINARY_CANDIDATES = {
+  unzip: [
+    "/usr/bin/unzip",
+    "/bin/unzip",
+    "/opt/homebrew/bin/unzip",
+    "/usr/local/bin/unzip",
+  ],
+  tar: [
+    "/usr/bin/tar",
+    "/bin/tar",
+    "/opt/homebrew/bin/tar",
+    "/usr/local/bin/tar",
+  ],
+};
+
+function isExecutableBinary(candidate) {
+  try {
+    if (!existsSync(candidate) || !statSync(candidate).isFile()) return false;
+    if (process.platform !== "win32") {
+      accessSync(candidate, fsConstants.X_OK);
     }
+    return true;
+  } catch {
+    return false;
   }
+}
+
+function resolveFixedSystemBinary(name) {
+  const candidates = [path.join(REPO_ROOT, ".tools", "bin", name)];
+  if (process.platform === "win32") {
+    candidates.push(
+      path.join(REPO_ROOT, ".tools", "bin", `${name}.exe`),
+      path.join(process.env.LOCALAPPDATA ?? "", "Programs", "Git", "usr", "bin", `${name}.exe`),
+      path.join("C:\\Program Files\\Git\\usr\\bin", `${name}.exe`),
+    );
+  }
+  candidates.push(...(FIXED_BINARY_CANDIDATES[name] ?? []));
+  for (const candidate of candidates) {
+    if (isExecutableBinary(candidate)) return candidate;
+  }
+  fail(
+    `the "${name}" command-line tool is required but was not found in fixed system paths (${candidates.join(", ")})`,
+  );
 }
 
 const MODEL_NAME = "vosk-model-small-es-0.42";
@@ -128,11 +170,13 @@ try {
   console.log(`fetch-vosk-model: verified SHA-256 ${sha256}`);
 
   // --- unzip → tar.gz (vosk-browser loads models as gzipped tar archives) ---
-  requireTool("unzip", ["-v"], "unzip");
-  requireTool("tar", ["--version"], "tar");
+  const unzipBin = resolveFixedSystemBinary("unzip");
+  const tarBin = resolveFixedSystemBinary("tar");
+  requireTool(unzipBin, ["-v"], "unzip");
+  requireTool(tarBin, ["--version"], "tar");
 
   rmSync(extractDir, { recursive: true, force: true });
-  run("unzip", ["-q", zipPath, "-d", extractDir]);
+  run(unzipBin, ["-q", zipPath, "-d", extractDir]);
   const modelDir = path.join(extractDir, MODEL_NAME);
   try {
     if (!statSync(modelDir).isDirectory()) throw new Error("not a directory");
@@ -143,7 +187,7 @@ try {
   mkdirSync(path.dirname(OUT_PATH), { recursive: true });
   const staged = `${OUT_PATH}.${process.pid}.partial`;
   try {
-    const tarVersion = spawnSync("tar", ["--version"], { encoding: "utf8" });
+    const tarVersion = spawnSync(tarBin, ["--version"], { encoding: "utf8" });
     const isGnuTar = /gnu tar/i.test(`${tarVersion.stdout ?? ""} ${tarVersion.stderr ?? ""}`);
     const tarArgs = isGnuTar
       ? [
@@ -175,7 +219,7 @@ try {
           extractDir,
           MODEL_NAME,
         ];
-    run("tar", tarArgs, { COPYFILE_DISABLE: "1" });
+    run(tarBin, tarArgs, { COPYFILE_DISABLE: "1" });
     const bytes = readFileSync(staged);
     const integrity = {
       sourceSha256: EXPECTED_SHA256,

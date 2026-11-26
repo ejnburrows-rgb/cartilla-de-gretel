@@ -85,7 +85,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos a esta nueva lección para descubrir y practicar el sonido suave de la letra de",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-02-greeting-return",
@@ -167,7 +169,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez para seguir leyendo preguntas y palabras con la letra de",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-03-review-intro",
@@ -248,7 +252,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya conocemos el golpe limpio de la te hoy aprendemos su compañera suave la letra de",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-04-review-check",
@@ -329,7 +335,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo leíamos palabras con te como toma y pato antes de ver la de",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-05-lesson-objective",
@@ -410,7 +418,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido vibrante de la de sus sílabas da de di do du y son y están",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-06-letter-name",
@@ -491,7 +501,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama de y lleva una pancita redonda mirando hacia la izquierda en minúscula",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-07-phonetic-sound",
@@ -572,7 +584,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al pronunciarla apoyamos suavemente la punta de la lengua entre o detrás de los dientes",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-08-lesson-focus",
@@ -653,7 +667,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la letra de vibra suavecito en la punta de la lengua cuando decimos dedo y dados",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-09-sound-contrast",
@@ -734,7 +750,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a diferencia de la te que es seca y sin vibración la de hace vibrar suavemente la garganta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-10-explanation-primary",
@@ -815,7 +833,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando juntamos esa vibración suave con las vocales formamos da de di do du",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-11-explanation-simple",
@@ -896,7 +916,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "saca un poquito la punta de la lengua entre los dientes con voz suave y di dedo y dado",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-12-flipchart-intro",
@@ -975,7 +997,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para practicar las palabras y buscar a made en el poema made y papá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-21-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 21
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-22-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 22
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-23-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 23
+        }
+      ]
     },
     {
       "id": "v2-l11-13-flipchart-illustration-1",
@@ -1054,7 +1104,31 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en las ilustraciones del rotafolio vemos un dedo a didi unos dados el número doce y a dunia",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-21-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 21,
+          "expectedAnswer": "dedo",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-22-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 22,
+          "expectedAnswer": "dedo",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l11-14-flipchart-illustration-2",
@@ -1133,7 +1207,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos en el poema a made colocada justo en medio y delante de mamá y papá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-15-reading-order",
@@ -1214,7 +1290,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las sílabas de izquierda a derecha pasa por las palabras y luego lee las preguntas del poema",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-16-flipchart-model",
@@ -1293,7 +1371,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo en voz clara las sílabas da de di do du",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-17-flipchart-vocab",
@@ -1372,7 +1452,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos las palabras del rotafolio dedo didi dados doce y dunia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-18-flipchart-rhyme-1",
@@ -1451,7 +1533,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos del poema made y papá dónde está está en el medio de mamá y papá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-21-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 21,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-22-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 22,
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l11-19-flipchart-rhyme-2",
@@ -1530,7 +1634,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el final del poema made está delante de mamá y papá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-20-comprehension-1",
@@ -1611,7 +1717,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en el poema del rotafolio dónde está ubicada made respecto a mamá y papá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-21-comprehension-2",
@@ -1692,7 +1800,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "dónde pone dunia los dados según la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-22-comprehension-3",
@@ -1773,7 +1883,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra dados",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-23-common-mistake-1",
@@ -1854,7 +1966,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuida la pancita de la de minúscula hacia la izquierda antes de subir su palito derecho",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-24-common-mistake-2",
@@ -1935,7 +2049,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate bien en las tildes de dónde y día al leer las preguntas con entonación curiosa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-25-common-mistake-3",
@@ -2016,7 +2132,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no pronuncies la de tan fuerte como la te déjala vibrar suave en la punta de la lengua",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-26-hint-1",
@@ -2097,7 +2215,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "apoya la lengua suave en los dientes y escucha qué vocal suena después",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-23-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 23
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-dedo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-dedo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mide-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mide-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mudo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "do",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mudo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-ada-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "da",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-ada-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-pide-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-pide-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-duma-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "Du",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-duma-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l11-27-hint-2",
@@ -2178,7 +2464,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el comienzo de la palabra con dedo o con dados para encontrar la sílaba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-28-hint-3",
@@ -2259,7 +2547,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy dedo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-29-workbook-transition",
@@ -2340,7 +2630,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para escribir la de y leer preguntas en plural",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-30-page-instruction-1",
@@ -2418,7 +2710,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la de mayúscula y minúscula con cuidado y haz un dibujo que empiece con de",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-35-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-35-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l11-31-page-instruction-2",
@@ -2496,7 +2886,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después rodea en un círculo la sílaba correspondiente en palabras como dado dedo dime y duda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-32-syllable-practice",
@@ -2574,7 +2966,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con atención cada sílaba da en dame de en dedo di en dime do en dado y du en duma",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-da",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "da"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-de",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "de"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-di",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "di"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-do",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "do"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-du",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "du"
+        }
+      ]
     },
     {
       "id": "v2-l11-33-word-practice-1",
@@ -2652,7 +3118,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras dedo dónde deme dame duma de y día",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-34-word-practice-2",
@@ -2730,7 +3198,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo dime duda ada pide mudo moneda mide y dunia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-35-sight-or-vocab",
@@ -2808,7 +3278,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos las palabras son y están que usamos cuando hablamos de varias cosas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-36-sentence-or-pair",
@@ -2886,7 +3358,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con tono curioso esta oración del libro los dados son de dunia",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dedo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dónde",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-deme",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dame",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-duma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-de",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-día",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dime",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-duda",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-ada",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-pide",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-mudo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-moneda",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-mide",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dunia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l11-37-page-instruction-final",
@@ -2964,7 +3620,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para cerrar el cuaderno completa cada palabra con su sílaba como en dedo mide mudo y ada",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-38-game-intro",
@@ -3045,7 +3703,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva para usar bien da de di do du en palabras del libro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-39-game-step",
@@ -3126,7 +3786,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y selecciona la sílaba de la de que la completa correctamente",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-40-game-correct",
@@ -3207,7 +3869,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "exacto completaste la palabra con la sílaba correcta y la leíste con mucha claridad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-41-game-retry",
@@ -3288,7 +3952,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee primero la parte de la palabra que ya está escrita y prueba con otra sílaba de la de",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-42-assessment",
@@ -3369,7 +4035,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta pregunta del libro dónde están los dados",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mide",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mudo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "do",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-ada",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "da",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-pide",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-duma",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "Du",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l11-43-page-complete",
@@ -3450,7 +4190,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la letra de con mucha atención y buena entonación",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-35-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l11-44-closing",
@@ -3531,7 +4288,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya sabes leer preguntas y respuestas completas con la letra de qué bien avanzas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-45-next-step",
@@ -3612,7 +4371,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la siguiente lección conoceremos el sonido claro y alto de la letra ele",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-46-atlas-flipchart",
+      "text": "¿Entre quiénes está Made al principio?",
+      "normalizedText": "entre quiénes está made al principio",
+      "batch": "B017",
+      "seq": 46,
+      "file": "B017-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-11-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 11,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          23
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-23-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 23,
+          "expectedAnswer": "entre mamá y papá"
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-47-atlas-workbook",
+      "text": "Queremos escribir «dedo». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir dedo qué parte falta en el espacio",
+      "batch": "B017",
+      "seq": 47,
+      "file": "B017-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-11-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 11,
+        "sourceStatus": "verified",
+        "printedPages": [
+          38
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-dedo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

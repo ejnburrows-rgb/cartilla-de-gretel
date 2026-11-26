@@ -244,4 +244,79 @@ describe("recording scripts and index synchronization", () => {
       expect(actualLines).toEqual(expectedLines);
     }
   });
+
+  it("deduplicates all v2 utterances by normalized Spanish text and preserves all 1,208 PR #1322 context mappings", () => {
+    const normalize = (t: string) =>
+      t
+        .toLowerCase()
+        .replace(/[¡!¿?.,;:«»“”‘’"'()\-–—…]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    const seenNorm = new Set<string>();
+    const sourceContextIds = new Set<string>();
+    let wbPageCount = 0;
+    let wbPdfSheetCount = 0;
+    let fcSheetCount = 0;
+    let expectedAnswerCount = 0;
+    let commonErrorCount = 0;
+
+    for (const entry of V2_DIALOGUE_ENTRIES) {
+      const nt = normalize(entry.text);
+      expect(seenNorm.has(nt), `duplicate normalized text on ${entry.id}: "${nt}"`).toBe(false);
+      seenNorm.add(nt);
+
+      for (const ctx of entry.sourceContexts ?? []) {
+        expect(sourceContextIds.has(ctx.sourceLineId), `duplicate sourceLineId ${ctx.sourceLineId}`).toBe(false);
+        sourceContextIds.add(ctx.sourceLineId);
+        expect(ctx.workbookPage).not.toBe(86);
+        expect(ctx.workbookPage).not.toBe(87);
+        if (ctx.workbookPage !== undefined) wbPageCount++;
+        if (ctx.workbookPdfSheet !== undefined) wbPdfSheetCount++;
+        if (ctx.flipchartSheet !== undefined) fcSheetCount++;
+        if (ctx.expectedAnswer !== undefined) expectedAnswerCount++;
+        if (ctx.commonError !== undefined) commonErrorCount++;
+      }
+    }
+
+    expect(seenNorm.size).toBe(V2_DIALOGUE_ENTRIES.length);
+    expect(sourceContextIds.size).toBe(1208);
+    expect(wbPageCount).toBe(971);
+    expect(wbPdfSheetCount).toBe(971);
+    expect(fcSheetCount).toBe(180);
+    expect(expectedAnswerCount).toBe(433);
+    expect(commonErrorCount).toBe(204);
+  });
+
+  it("includes a synchronized Priority Recording Package (universal + complete Lesson 1)", () => {
+    const guidePath = join(RECORDING_DIR, "PRIORITY-PACKAGE.md");
+    const prioUniversalPath = join(RECORDING_DIR, "PRIORITY-B001-universal.txt");
+    const prioLesson1Path = join(RECORDING_DIR, "PRIORITY-B002-lesson-01.txt");
+    const reconDocPath = join(REPO_ROOT, "docs/tutor/CATALOG-RECONCILIATION.md");
+
+    expect(existsSync(guidePath)).toBe(true);
+    expect(existsSync(prioUniversalPath)).toBe(true);
+    expect(existsSync(prioLesson1Path)).toBe(true);
+    expect(existsSync(reconDocPath)).toBe(true);
+
+    const prioUniversalLines = readFileSync(prioUniversalPath, "utf8").trimEnd().split("\n");
+    const b001Lines = getEntriesByBatch("B001")
+      .slice()
+      .sort((a, b) => a.seq - b.seq)
+      .map((e) => e.text);
+    expect(prioUniversalLines).toEqual(b001Lines);
+
+    const prioLesson1Lines = readFileSync(prioLesson1Path, "utf8").trimEnd().split("\n");
+    const b007Lines = getEntriesByBatch("B007")
+      .slice()
+      .sort((a, b) => a.seq - b.seq)
+      .map((e) => e.text);
+    expect(prioLesson1Lines).toEqual(b007Lines);
+
+    for (const line of [...prioUniversalLines, ...prioLesson1Lines]) {
+      expect(line.trim()).toBe(line);
+      expect(line).not.toMatch(/^(B\d+|v2-|\d+[.)\s]|#|-|\*)/);
+      expect(countSpanishWords(line)).toBeGreaterThanOrEqual(5);
+    }
+  });
 });

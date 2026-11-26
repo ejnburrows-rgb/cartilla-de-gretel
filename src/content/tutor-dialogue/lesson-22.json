@@ -81,7 +81,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos hoy a nuestra lección para estudiar el sonido firme de la letra ce",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-02-greeting-return",
@@ -159,7 +161,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo la historia de cuco con la letra ce",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-03-review-intro",
@@ -236,7 +240,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya leemos con jota palabras como jugo y jabón hoy la letra ce nos trae a cuco casanova",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-04-review-check",
@@ -313,7 +319,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo suena el principio firme de palabras conocidas como casa y coco",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-05-lesson-objective",
@@ -390,7 +398,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido fuerte de la ce con a o u en las sílabas ca co cu y el cuento de cuco",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-06-letter-name",
@@ -467,7 +477,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ce y tiene forma de media luna abierta hacia la derecha",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-07-phonetic-sound",
@@ -544,7 +556,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando acompaña a las vocales a o y u suena firme desde atrás de la lengua como en casa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-08-lesson-focus",
@@ -621,7 +635,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con las vocales a o y u la ce suena firme y clara en casa coco y cuna",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-09-sound-contrast",
@@ -698,7 +714,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en esta lección practicamos solamente ca co y cu donde la ce siempre suena firme y fuerte",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-10-explanation-primary",
@@ -775,7 +793,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos la ce con las vocales a o y u formamos las tres sílabas ca co cu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-11-explanation-simple",
@@ -852,7 +872,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "da un golpecito firme atrás con la lengua al soltar la vocal igual que en cuna y conejo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-12-flipchart-intro",
@@ -927,7 +949,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer los dibujos nuevos y la rima los caramelos",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-54-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 54
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-55-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 55
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-56-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 56
+        }
+      ]
     },
     {
       "id": "v2-l22-13-flipchart-illustration-1",
@@ -1002,7 +1052,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una cuna un conejo una casa un cubo y la niña catalina",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-54-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 54,
+          "expectedAnswer": "cuna"
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-55-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 55,
+          "expectedAnswer": "carro"
+        }
+      ]
     },
     {
       "id": "v2-l22-14-flipchart-illustration-2",
@@ -1077,7 +1149,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también vemos a cuco rodeado de ricos caramelos de miel compartiendo cariño con todos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-15-reading-order",
@@ -1154,7 +1228,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las tres sílabas en orden pasa por las palabras del cuadro y recorre el cuento de cuco",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-16-flipchart-model",
@@ -1229,7 +1305,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas de la lección ca co cu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-17-flipchart-vocab",
@@ -1304,7 +1382,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio cuna conejo casa cubo y catalina",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-18-flipchart-rhyme-1",
@@ -1379,7 +1459,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de los caramelos cuco tiene caramelos caramelitos de miel",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-54-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 54
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-55-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 55
+        }
+      ]
     },
     {
       "id": "v2-l22-19-flipchart-rhyme-2",
@@ -1454,7 +1554,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el segundo verso del poema cuco reparte cariño y caramelos también",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-20-comprehension-1",
@@ -1531,7 +1633,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema los caramelos de qué son los caramelitos que tiene cuco",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-21-comprehension-2",
@@ -1608,7 +1712,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con quién vive cuco casanova en el campo según la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-22-comprehension-3",
@@ -1685,7 +1791,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra conejo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-23-common-mistake-1",
@@ -1762,7 +1870,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no dejes demasiado abierta ni cerrada la curva de la ce dibújala como media luna redondita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-24-common-mistake-2",
@@ -1839,7 +1949,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate si la palabra lleva una o dos erres como en carro frente a coco y roca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-25-common-mistake-3",
@@ -1916,7 +2028,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuida la mayúscula inicial en los nombres propios cuba colombia cuco y catalina",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-26-hint-1",
@@ -1993,7 +2107,176 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira si después de la ce viene a o o u para leerla con sonido firme",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-56-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 56
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-coma-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-coma-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cosa-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cosa-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-saca-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-saca-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cola-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cola-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-loca-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-loca-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cubo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "cu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cubo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l22-27-hint-2",
@@ -2070,7 +2353,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el comienzo con casa coco o cuna para reconocer ca co o cu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-28-hint-3",
@@ -2147,7 +2432,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy casa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-29-workbook-transition",
@@ -2224,7 +2511,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la ce y leer la historia de cuco casanova",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-30-page-instruction-1",
@@ -2298,7 +2587,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza la ce mayúscula y minúscula bien redondita y haz un dibujo cuyo nombre empiece con ce",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-79-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-79-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l22-31-page-instruction-2",
@@ -2372,7 +2759,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después circula ca co y cu en palabras como cama casa copa cola y cuna",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-32-syllable-practice",
@@ -2446,7 +2835,53 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con cuidado cada sílaba ca en cama y casa co en coma y copa cu en cuna y cubo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-80-find-ca",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 80,
+          "workbookPdfSheet": 86,
+          "relatedFlipchartSheets": [
+            54,
+            55
+          ],
+          "expectedAnswer": "ca"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-80-find-co",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 80,
+          "workbookPdfSheet": 86,
+          "relatedFlipchartSheets": [
+            54,
+            55
+          ],
+          "expectedAnswer": "co"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-80-find-cu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 80,
+          "workbookPdfSheet": 86,
+          "relatedFlipchartSheets": [
+            54,
+            55
+          ],
+          "expectedAnswer": "cu"
+        }
+      ]
     },
     {
       "id": "v2-l22-33-word-practice-1",
@@ -2520,7 +2955,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras carro boca cuna coco colombia saco casa y poco",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-34-word-practice-2",
@@ -2594,7 +3031,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo roca cuba pico cumbia camisa cuco y colonia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-35-sight-or-vocab",
@@ -2668,7 +3107,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate también en estas palabras del ejercicio final coma cosa saca cola y loca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-36-sentence-or-pair",
@@ -2742,7 +3183,192 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con calma esta oración del libro cuco casanova juega con los niños y los cuida también",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-carro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-boca",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cuna",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-coco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-colombia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-saco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-casa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-poco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-roca",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cuba",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-pico",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cumbia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-camisa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cuco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-colonia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l22-37-page-instruction-final",
@@ -2816,7 +3442,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con ca co o cu como en coma cosa saca cola loca y cubo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-38-game-intro",
@@ -2893,7 +3521,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva con ca co y cu para completar palabras del libro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-39-game-step",
@@ -2970,7 +3600,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige la sílaba exacta entre ca co y cu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-40-game-correct",
@@ -3047,7 +3679,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien elegido completaste esa palabra con la sílaba firme exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-41-game-retry",
@@ -3124,7 +3758,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee en voz alta la sílaba que ya está escrita y prueba con ca co o cu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-42-assessment",
@@ -3201,7 +3837,67 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro todos en la casa de paco aman a cuco",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cosa",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-saca",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cola",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-loca",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l22-43-page-complete",
@@ -3278,7 +3974,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la letra ce con mucha soltura y buena lectura",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-79-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l22-44-closing",
@@ -3355,7 +4068,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bien dominas las sílabas ca co y cu solo nos quedan dos letras para terminar el libro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l22-45-next-step",
@@ -3432,7 +4147,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección navegaremos leyendo con la letra ye y el yate de yayo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-46-atlas-flipchart",
+      "text": "¿De qué son los caramelitos de Cuco?",
+      "normalizedText": "de qué son los caramelitos de cuco",
+      "batch": "B028",
+      "seq": 46,
+      "file": "B028-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-22-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 22,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          56
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-56-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 56,
+          "expectedAnswer": "de miel"
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-47-atlas-workbook",
+      "text": "Queremos escribir «coma». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir coma qué parte falta en el espacio",
+      "batch": "B028",
+      "seq": 47,
+      "file": "B028-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-22-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 22,
+        "sourceStatus": "verified",
+        "printedPages": [
+          82
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-coma",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

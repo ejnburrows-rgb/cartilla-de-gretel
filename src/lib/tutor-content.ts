@@ -235,14 +235,17 @@ function pageContent(page: Bt1Page): { vowelLetters: string[]; answerWords: stri
 
 /** Lowercase slug for stable ids; keeps ñ so "uña" can never collide with "una". */
 function idSlug(text: string): string {
-  return text
+  const collapsed = text
     .toLowerCase()
     .normalize("NFD")
     .replace(/\p{M}/gu, (mark) => (mark === "\u0303" ? mark : ""))
     .normalize("NFC")
-    .replace(/[^a-zñ0-9]+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+    .replace(/[^a-zñ0-9]+/g, "-");
+  let start = 0;
+  let end = collapsed.length;
+  while (start < end && collapsed[start] === "-") start += 1;
+  while (end > start && collapsed[end - 1] === "-") end -= 1;
+  return collapsed.slice(start, end);
 }
 
 function deriveVowelLessonItems(lesson: number): TutorItem[] {

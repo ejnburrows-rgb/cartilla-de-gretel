@@ -34,7 +34,7 @@ import { trackConsoleErrors } from "./support/tutor-helpers";
 
 const SCREENSHOT_DIR =
   process.env.TEACHER_REVIEW_SCREENSHOT_DIR ||
-  "/Users/ejn/.gemini/antigravity/brain/1afe681b-328c-4694-a6f8-d92230341964";
+  path.join(process.cwd(), "test-results", "tutor-teacher-review");
 
 const CRM_SESIONES_PATH = "/cartilla/teacher/crm/seed-class-demo/seed-student-sofia/sesiones";
 
@@ -63,8 +63,7 @@ function buildSyntheticDemoSession(): TutorSessionLog {
   session = appendSessionEvent(session, {
     kind: "sheet_opened",
     summary: "Lámina del rotafolio: vocal a/A e ilustraciones iniciales",
-    printedPage: 2,
-    pdfSheet: 4,
+    flipchartSheet: 2,
     sheetSource: "flipchart",
     at: "2026-11-26T14:00:10.000Z",
   });
@@ -337,7 +336,7 @@ test.describe("Teacher Review & Structured Replay E2E (synthetic demo data)", ()
 
     // Verify objective, sheets, activities, achievements (with override), difficulties, hints, and pending work
     await expect(reportArticle).toContainText(demoSession.objective!);
-    await expect(reportArticle).toContainText("Rotafolio · pág. impresa 2 (hoja PDF 4)");
+    await expect(reportArticle).toContainText("Rotafolio · lámina 2");
     await expect(reportArticle).toContainText("Cuaderno · pág. impresa 3 (hoja PDF 5)");
     await expect(reportArticle).toContainText("Actividad: cuaderno-vocal-a.");
     await expect(reportArticle).toContainText("Actividad: juego-jardin-mariposas.");

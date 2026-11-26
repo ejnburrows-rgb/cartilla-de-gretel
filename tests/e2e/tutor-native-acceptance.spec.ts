@@ -30,7 +30,7 @@ import {
 
 const SCREENSHOT_DIR =
   process.env.TUTOR_ACCEPTANCE_SCREENSHOT_DIR ||
-  "/Users/ejn/.gemini/antigravity/brain/13341849-4226-44df-b257-bcc5f8fc1d8c";
+  path.join(process.cwd(), "test-results", "tutor-native-acceptance");
 
 const REQUIRED_VIEWPORTS = [
   { width: 390, height: 844, tag: "390x844" },

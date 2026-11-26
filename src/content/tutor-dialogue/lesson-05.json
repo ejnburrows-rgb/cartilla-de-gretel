@@ -64,7 +64,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos hoy para conocer juntos a la delgadita y alegre vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-02-greeting-return",
@@ -125,7 +127,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir practicando las palabras con la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-03-review-intro",
@@ -185,7 +189,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya recorrimos las hermanitas o a y e hoy seguimos con nuestra cuarta vocal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-04-review-check",
@@ -245,7 +251,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas en qué se diferencia la sonrisa de la e del sonido finito de la i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-05-lesson-objective",
@@ -305,7 +313,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos a identificar el sonido agudo de la vocal i y a leer y trazar sus palabras",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-06-letter-name",
@@ -365,7 +375,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta vocal se llama i y la minúscula es un palito derechito con su puntito arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-07-phonetic-sound",
@@ -425,7 +437,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para pronunciarla sonreímos suave y dejamos salir un sonido finito y largo iii",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-08-lesson-focus",
@@ -485,7 +499,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la i minúscula lleva siempre un puntito arriba y suena bien finita desde el principio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-09-sound-contrast",
@@ -545,7 +561,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al decir i juntamos más los labios en sonrisa que al decir e logrando un sonido más delgado",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-10-explanation-primary",
@@ -605,7 +623,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando una palabra empieza con ese sonido finito y claro sabemos que comienza con la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-11-explanation-simple",
@@ -665,7 +685,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "haz una sonrisa pequeñita como el sonido de un grillo alegre y escucha la i en imán",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-12-flipchart-intro",
@@ -725,7 +747,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer la simpática rima llamada la niña llorona",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-sheet-7-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 7
+        }
+      ]
     },
     {
       "id": "v2-l05-13-flipchart-illustration-1",
@@ -785,7 +819,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en las ilustraciones del rotafolio vemos un imán un iglú un indio y una isla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-14-flipchart-illustration-2",
@@ -845,7 +881,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también aparecen la niña irma y un pequeño insecto junto a la rima de la flaquita vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-15-reading-order",
@@ -905,7 +943,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee los versos del poema de arriba hacia abajo y recorre luego las palabras de izquierda a derecha",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-16-flipchart-model",
@@ -965,7 +1005,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa el dibujo del imán mientras pronuncias con claridad su sonido inicial",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-17-flipchart-vocab",
@@ -1025,7 +1067,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos en voz alta las palabras del rotafolio imán iglú indio isla irma e insecto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-18-flipchart-rhyme-1",
@@ -1085,7 +1129,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos estos versos de la niña llorona flaquita y llorona viene la infeliz que le duele todo hasta la nariz",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-19-flipchart-rhyme-2",
@@ -1145,7 +1191,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el coro del poema i de irma i de imán i de iglú i de insecto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-20-comprehension-1",
@@ -1205,7 +1253,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema del rotafolio qué le pasa a la niña flaquita que representa a la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-21-comprehension-2",
@@ -1265,7 +1315,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué objeto del poema atrae metales y empieza con la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-22-comprehension-3",
@@ -1325,7 +1377,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "empieza la palabra isla con el mismo sonido que la palabra iglú",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-23-common-mistake-1",
@@ -1385,7 +1439,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no olvides poner el puntito redondo encima de la i minúscula cuando la escribas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-24-common-mistake-2",
@@ -1445,7 +1501,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "evita marcar avión abanico oso alas olla ni uña porque no empiezan con i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-25-common-mistake-3",
@@ -1505,7 +1563,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ten cuidado de no alargar demasiado hacia abajo recuerda mantener la boca en sonrisa suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-26-hint-1",
@@ -1565,7 +1625,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira el dibujo y pronuncia su nombre despacio escuchando si suena finito al empezar",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-sheet-7-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 7
+        }
+      ]
     },
     {
       "id": "v2-l05-27-hint-2",
@@ -1625,7 +1697,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el sonido inicial del dibujo con imán e iglú para comprobar si empiezan igual",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-28-hint-3",
@@ -1685,7 +1759,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo estas palabras seguras de la lección iglú iguana indio e invierno",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-29-workbook-transition",
@@ -1745,7 +1821,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora pasamos juntos a tu cuaderno de trabajo para buscar y trazar la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-30-page-instruction-1",
@@ -1803,7 +1881,94 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "marca con una equis todos los dibujos cuyo nombre comienza con la vocal i",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-page-13-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l05-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l05-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l05-31-page-instruction-2",
@@ -1861,7 +2026,23 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después traza una línea desde la vocal i hasta cada dibujo que comienza con su sonido",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-page-14-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 14,
+          "workbookPdfSheet": 20,
+          "relatedFlipchartSheets": [
+            7
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l05-32-syllable-practice",
@@ -1919,7 +2100,160 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha el inicio finito en toda la serie iglú iguana indio invierno imán isla igual e insecto",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-page-13-pair-0",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i"
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-13-initial-indio-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-13-pair-1",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i"
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-13-initial-imán-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-13-pair-2",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i"
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-13-initial-igual-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-13-pair-3",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i"
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-14-initial-imán-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 14,
+          "workbookPdfSheet": 20,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-14-initial-igual-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 14,
+          "workbookPdfSheet": 20,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-14-initial-indio-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 14,
+          "workbookPdfSheet": 20,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-14-initial-iguana-4",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 14,
+          "workbookPdfSheet": 20,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i"
+        }
+      ]
     },
     {
       "id": "v2-l05-33-word-practice-1",
@@ -1977,7 +2311,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pronuncia conmigo estas cuatro palabras del cuaderno iglú iguana indio e invierno",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-34-word-practice-2",
@@ -2035,7 +2371,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo de palabras imán isla igual e insecto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-35-sight-or-vocab",
@@ -2093,7 +2431,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate también en irma un nombre propio que escribimos con la i mayúscula",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-36-sentence-or-pair",
@@ -2151,7 +2491,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara ahora dos nombres distintos iguana empieza con i mientras que abeja comienza con a",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-37-page-instruction-final",
@@ -2209,7 +2551,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final escribe con buena letra la vocal i mayúscula y minúscula sin olvidar su puntito",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-page-15-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 15,
+          "workbookPdfSheet": 21,
+          "relatedFlipchartSheets": [
+            7
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-15-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 15,
+          "workbookPdfSheet": 21,
+          "relatedFlipchartSheets": [
+            7
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l05-38-game-intro",
@@ -2269,7 +2639,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "juguemos ahora a cazar con el oído las palabras que comienzan con la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-39-game-step",
@@ -2329,7 +2701,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha la palabra que te digo y dime si empieza con i como imán o con otra vocal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-40-game-correct",
@@ -2389,7 +2763,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien escuchado reconociste al instante el sonido finito de la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-41-game-retry",
@@ -2449,7 +2825,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha una vez más el comienzo de la palabra y compáralo con iglú e isla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-42-assessment",
@@ -2509,7 +2887,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para cerrar hoy dime dos palabras de tu cuaderno que empiecen con la vocal i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-43-page-complete",
@@ -2569,7 +2949,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades de la vocal i con gran concentración y cuidado",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-page-15-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 15,
+          "workbookPdfSheet": 21,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l05-44-closing",
@@ -2629,7 +3026,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya dominas las palabras con la vocal i qué poquito nos falta para completar todas las vocales",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l05-45-next-step",
@@ -2689,7 +3088,136 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en nuestra próxima lección conoceremos la quinta hermanita la traviesa vocal u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l05-46-atlas-flipchart",
+      "text": "¿Qué parte de la cara le duele a la niña?",
+      "normalizedText": "qué parte de la cara le duele a la niña",
+      "batch": "B011",
+      "seq": 46,
+      "file": "B011-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-05-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 5,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          7
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-sheet-7-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 7,
+          "expectedAnswer": "la nariz"
+        }
+      ]
+    },
+    {
+      "id": "v2-l05-47-atlas-workbook",
+      "text": "Di «iglú» muy despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "di iglú muy despacio con qué vocal empieza",
+      "batch": "B011",
+      "seq": 47,
+      "file": "B011-047.mp3",
+      "intent": "identify-initial",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-05-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 5,
+        "sourceStatus": "verified",
+        "printedPages": [
+          13
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          5
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l05-page-13-initial-iglú-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 13,
+          "workbookPdfSheet": 19,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l05-page-14-initial-iglú-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 14,
+          "workbookPdfSheet": 20,
+          "relatedFlipchartSheets": [
+            7
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        }
+      ]
     }
   ]
 }

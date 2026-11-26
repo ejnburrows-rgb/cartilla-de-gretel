@@ -64,7 +64,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos a esta lección nueva para jugar escuchar y leer con la vocal o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-02-greeting-return",
@@ -125,7 +127,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué gusto verte de nuevo para seguir practicando juntos nuestra redonda vocal o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-03-review-intro",
@@ -185,7 +189,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recordemos las cinco hermanitas vocales que conocimos antes y hoy saludamos primero a la vocal o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-04-review-check",
@@ -245,7 +251,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo pones los labios cuando pronuncias la vocal o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-05-lesson-objective",
@@ -305,7 +313,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos a identificar escuchar trazar y leer palabras que comienzan con la vocal o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-06-letter-name",
@@ -365,7 +375,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta letra se llama o y tanto la mayúscula como la minúscula tienen forma redondita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-07-phonetic-sound",
@@ -425,7 +437,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al pronunciarla redondeamos los labios como un aro y dejamos salir el sonido limpio ooo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-08-lesson-focus",
@@ -485,7 +499,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira qué redonda es esta vocal y pon tu boca en círculo cada vez que la digas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-09-sound-contrast",
@@ -545,7 +561,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a diferencia de la a bien abierta la o mantiene los labios suaves y en forma de rueda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-10-explanation-primary",
@@ -605,7 +623,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando una palabra empieza con ese sonido redondo y firme sabemos que comienza con la vocal o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-11-explanation-simple",
@@ -665,7 +685,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "imagina que tu boca dibuja una pequeña rueda en el aire ese sonido redondo es la o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-12-flipchart-intro",
@@ -725,7 +747,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para disfrutar juntos la rima alegre llamada arre caballito",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-sheet-4-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 4
+        }
+      ]
     },
     {
       "id": "v2-l02-13-flipchart-illustration-1",
@@ -785,7 +819,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la ilustración principal vemos un caballito de madera junto a una olla una oveja y un oso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-14-flipchart-illustration-2",
@@ -845,7 +881,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también aparecen en el rotafolio el niño oto una oreja y el número ocho bien dibujados",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-15-reading-order",
@@ -905,7 +943,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recorre con la vista cada verso del poema desde arriba hacia abajo y luego las palabras de izquierda a derecha",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-16-flipchart-model",
@@ -965,7 +1005,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate en la palabra clave olla mientras miras el dibujo y escuchas el sonido inicial redondo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-17-flipchart-vocab",
@@ -1025,7 +1067,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos en voz clara las palabras del rotafolio olla oto oveja oso oreja y ocho",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-18-flipchart-rhyme-1",
@@ -1085,7 +1129,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos el comienzo del poema arre caballito llévame a pasear yo soy redondita y puedo rodar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-19-flipchart-rhyme-2",
@@ -1145,7 +1191,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con la segunda parte del poema oh oh caballito yo quiero parar oh oh caballito ya no ruedes más",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-20-comprehension-1",
@@ -1205,7 +1253,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en el poema arre caballito qué puede hacer la vocal o por ser tan redondita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-21-comprehension-2",
@@ -1265,7 +1315,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "quién aparece montado o jugando junto al caballito en nuestra escena del rotafolio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-22-comprehension-3",
@@ -1325,7 +1377,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "comienza la palabra oveja con el mismo sonido redondo que la palabra oso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-23-common-mistake-1",
@@ -1385,7 +1439,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "si confundes la o con la u abre un poquito más el círculo de tus labios al hablar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-24-common-mistake-2",
@@ -1445,7 +1501,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ten cuidado de no marcar iglú maíz uña alas uvas ni uno porque no empiezan con o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-25-common-mistake-3",
@@ -1505,7 +1563,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando traces la letra o cierra bien el círculo para que no parezca abierta por arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-26-hint-1",
@@ -1565,7 +1625,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa el dibujo y pronuncia su nombre despacio para oír cómo empieza",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-sheet-4-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 4
+        }
+      ]
     },
     {
       "id": "v2-l02-27-hint-2",
@@ -1625,7 +1697,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pon tu boca bien redondita y comprueba si el primer sonido suena igual que en oso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-28-hint-3",
@@ -1685,7 +1759,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo estas palabras seguras que empiezan con o ola oso y oveja",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-29-workbook-transition",
@@ -1745,7 +1821,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para buscar dibujos y practicar el trazo de la o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-30-page-instruction-1",
@@ -1803,7 +1881,94 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la cuadrícula de dibujos marca con una equis solamente los que comienzan con el sonido o",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-page-4-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l02-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l02-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l02-31-page-instruction-2",
@@ -1861,7 +2026,23 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después traza una línea desde la vocal o hasta cada dibujo cuyo nombre comienza con ella",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-page-5-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 5,
+          "workbookPdfSheet": 11,
+          "relatedFlipchartSheets": [
+            4
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l02-32-syllable-practice",
@@ -1919,7 +2100,174 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha el inicio redondo en cada palabra del ejercicio ola oso oveja oreja olla ocho y ojos",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-page-4-pair-0",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o"
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-4-initial-oveja-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-4-pair-1",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o"
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-4-initial-olla-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-4-pair-2",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o"
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-4-initial-oso-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-4-pair-3",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o"
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-5-initial-oveja-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 5,
+          "workbookPdfSheet": 11,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-5-initial-ojos-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 5,
+          "workbookPdfSheet": 11,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-5-initial-oreja-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 5,
+          "workbookPdfSheet": 11,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o"
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-5-initial-olla-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 5,
+          "workbookPdfSheet": 11,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-5-initial-oso-5",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 5,
+          "workbookPdfSheet": 11,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l02-33-word-practice-1",
@@ -1977,7 +2325,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras del primer grupo ola oso oveja y oreja",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-34-word-practice-2",
@@ -2035,7 +2385,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora practica las demás palabras que comienzan con o olla ocho y ojos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-35-sight-or-vocab",
@@ -2093,7 +2445,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate también en oto que lleva la o mayúscula por ser el nombre propio de un niño",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-36-sentence-or-pair",
@@ -2151,7 +2505,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara ahora estos pares para distinguir el inicio oso empieza con o pero alas empieza con a",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-37-page-instruction-final",
@@ -2209,7 +2565,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final escribe con tu mejor letra la vocal o mayúscula y minúscula sobre los renglones",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-page-6-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 6,
+          "workbookPdfSheet": 12,
+          "relatedFlipchartSheets": [
+            4
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-6-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 6,
+          "workbookPdfSheet": 12,
+          "relatedFlipchartSheets": [
+            4
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l02-38-game-intro",
@@ -2269,7 +2653,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abrimos el juego de dibujos con la vocal o para que señales cada imagen que corresponde",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-39-game-step",
@@ -2329,7 +2715,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee o escucha la palabra que aparece y toca el dibujo exacto entre oso ola y oveja",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-40-game-correct",
@@ -2389,7 +2777,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien tocado escuchaste el sonido o al inicio y elegiste el dibujo exacto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-41-game-retry",
@@ -2449,7 +2839,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ese dibujo tiene otro nombre escucha de nuevo la palabra y vuelve a tocar la imagen correcta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-42-assessment",
@@ -2509,7 +2901,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy dime dos palabras de tu cuaderno que comiencen con o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-43-page-complete",
@@ -2569,7 +2963,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la vocal o con mucha atención y buena letra",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-page-6-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 6,
+          "workbookPdfSheet": 12,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l02-44-closing",
@@ -2629,7 +3040,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué gran trabajo hiciste con la redonda vocal o cantaste leíste y trazaste muy bien",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-45-next-step",
@@ -2689,7 +3102,136 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la siguiente lección te espera nuestra segunda hermanita la alegre vocal a",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l02-46-atlas-flipchart",
+      "text": "¿Qué animal lleva a pasear a la voz del poema?",
+      "normalizedText": "qué animal lleva a pasear a la voz del poema",
+      "batch": "B008",
+      "seq": 46,
+      "file": "B008-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-02-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 2,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          4
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-sheet-4-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 4,
+          "expectedAnswer": "caballito"
+        }
+      ]
+    },
+    {
+      "id": "v2-l02-47-atlas-workbook",
+      "text": "Di «ola» muy despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "di ola muy despacio con qué vocal empieza",
+      "batch": "B008",
+      "seq": 47,
+      "file": "B008-047.mp3",
+      "intent": "identify-initial",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-02-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 2,
+        "sourceStatus": "verified",
+        "printedPages": [
+          4
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          2
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l02-page-4-initial-ola-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 4,
+          "workbookPdfSheet": 10,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l02-page-5-initial-ola-4",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 5,
+          "workbookPdfSheet": 11,
+          "relatedFlipchartSheets": [
+            4
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        }
+      ]
     }
   ]
 }

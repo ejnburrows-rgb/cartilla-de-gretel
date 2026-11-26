@@ -79,7 +79,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy abrimos nuestra cartilla para conocer juntos a las cinco hermanitas vocales",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-02-greeting-return",
@@ -155,7 +157,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez para seguir descubriendo las cinco hermanitas vocales",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-03-review-intro",
@@ -230,7 +234,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "antes de empezar a formar palabras largas vamos a escuchar los sonidos con los que comienzan los dibujos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-04-review-check",
@@ -305,7 +311,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "puedes nombrar alguno de los dibujos que ves aquí arriba en tu cuaderno",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-05-lesson-objective",
@@ -380,7 +388,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos a reconocer los cinco sonidos vocales y a encontrarlos al inicio de cada palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-06-letter-name",
@@ -455,7 +465,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "las cinco vocales se llaman o a e i u y cada una tiene su propia forma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-07-phonetic-sound",
@@ -530,7 +542,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando suenan solitas salen limpias y abiertas como en olla avión escoba imán y uña",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-08-lesson-focus",
@@ -605,7 +619,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "las vocales son cinco amigas inseparables que cantan con claridad dentro de todas las palabras",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-09-sound-contrast",
@@ -680,7 +696,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cada vocal abre o redondea los labios de un modo distinto para que nunca se confundan",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-10-explanation-primary",
@@ -755,7 +773,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "si escuchas con calma el primer sonido de cada dibujo sabrás enseguida qué vocal lo acompaña",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-11-explanation-simple",
@@ -830,7 +850,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate primero en cómo pones la boca al empezar a decir la palabra y así descubres la vocal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-12-flipchart-intro",
@@ -905,7 +927,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para mirar la lámina ilustrada y leer la rima cinco hermanitas",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-sheet-3-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 3
+        }
+      ]
     },
     {
       "id": "v2-l01-13-flipchart-illustration-1",
@@ -980,7 +1014,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen un avión una escoba un imán una olla y una uña",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-14-flipchart-illustration-2",
@@ -1055,7 +1091,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira también a las cinco hermanitas juntas jugando y cantando debajo del título en color rojo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-15-reading-order",
@@ -1130,7 +1168,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos siempre de izquierda a derecha y de arriba hacia abajo pasando por cada dibujo en orden",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-16-flipchart-model",
@@ -1205,7 +1245,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo los nombres ilustrados del rotafolio avión escoba imán olla y uña",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-17-flipchart-vocab",
@@ -1280,7 +1322,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora pronuncia cada vocal junto a su dibujo de ejemplo para recordar su sonido desde el inicio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-18-flipchart-rhyme-1",
@@ -1355,7 +1399,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos el comienzo de nuestra rima cinco hermanitas todas aplicadas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-19-flipchart-rhyme-2",
@@ -1430,7 +1476,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el verso final de la rima las cinco bonitas nunca están calladas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-20-comprehension-1",
@@ -1505,7 +1553,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según la rima del rotafolio cómo están siempre las cinco hermanitas vocales",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-21-comprehension-2",
@@ -1580,7 +1630,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué vocal comienza la palabra imán que ves dibujada en el rotafolio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-22-comprehension-3",
@@ -1655,7 +1707,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuál dibujo del rotafolio comienza igual que la palabra avión",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-23-common-mistake-1",
@@ -1730,7 +1784,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "si dudas entre dos sonidos di el nombre del dibujo despacio y alarga solo el primer sonido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-24-common-mistake-2",
@@ -1805,7 +1861,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ten cuidado de no mezclar la o redonda con la u cerrada mira tus labios frente a ti",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-25-common-mistake-3",
@@ -1880,7 +1938,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no digas la palabra de prisa escúchala completa antes de elegir su dibujo compañero",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-26-hint-1",
@@ -1955,7 +2015,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira el dibujo con calma y piensa en su nombre en voz baja antes de responder",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-sheet-3-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 3
+        }
+      ]
     },
     {
       "id": "v2-l01-27-hint-2",
@@ -2030,7 +2102,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "di el primer sonido bien largo y compáralo con a e i o u",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-28-hint-3",
@@ -2105,7 +2179,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo el ejemplo completo avión empieza con a y olla empieza con o",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-29-workbook-transition",
@@ -2180,7 +2256,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para practicar con los dibujos y las cinco vocales",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-30-page-instruction-1",
@@ -2253,7 +2331,94 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en cada fila horizontal observa los cuatro dibujos y circula los que comienzan con el mismo sonido",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-page-1-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l01-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l01-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l01-31-page-instruction-2",
@@ -2326,7 +2491,23 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después mira la vocal de cada recuadro y encierra en un círculo el dibujo que empieza igual",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-page-2-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "vowel-pick-one",
+          "workbookPage": 2,
+          "workbookPdfSheet": 8,
+          "relatedFlipchartSheets": [
+            3
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l01-32-syllable-practice",
@@ -2399,7 +2580,200 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara los cinco sonidos iniciales en orden o en ojos a en abrigo e en escalera i en isla y u en uña",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-page-1-pair-0",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "a"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-initial-isla-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "i"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-pair-1",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "i"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-initial-escalera-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-pair-2",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "e"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-initial-uniforme-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-pair-3",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "u"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-initial-ojos-4",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-1-pair-4",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "o"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-2-initial-anillo-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-pick-one",
+          "workbookPage": 2,
+          "workbookPdfSheet": 8,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "a"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-2-initial-estrella-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-pick-one",
+          "workbookPage": 2,
+          "workbookPdfSheet": 8,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-2-initial-indio-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-pick-one",
+          "workbookPage": 2,
+          "workbookPdfSheet": 8,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "i",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-2-initial-oso-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-pick-one",
+          "workbookPage": 2,
+          "workbookPdfSheet": 8,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "o",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-2-initial-uniforme-4",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-pick-one",
+          "workbookPage": 2,
+          "workbookPdfSheet": 8,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l01-33-word-practice-1",
@@ -2472,7 +2846,78 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite estas palabras de tu cuaderno abrigo abanico isla imán escalera y escuela",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-page-3-initial-ocho-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-match-all",
+          "workbookPage": 3,
+          "workbookPdfSheet": 9,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "o"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-3-initial-araña-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-match-all",
+          "workbookPage": 3,
+          "workbookPdfSheet": 9,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "a"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-3-initial-iglesia-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-match-all",
+          "workbookPage": 3,
+          "workbookPdfSheet": 9,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "i"
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-3-initial-escoba-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-match-all",
+          "workbookPage": 3,
+          "workbookPdfSheet": 9,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l01-page-3-initial-uno-4",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-match-all",
+          "workbookPage": 3,
+          "workbookPdfSheet": 9,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l01-34-word-practice-2",
@@ -2545,7 +2990,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con este grupo de palabras uniforme uña ojos olla anillo estrella indio y oso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-35-sight-or-vocab",
@@ -2618,7 +3065,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la última actividad une cada vocal con su compañero ocho araña iglesia escoba y uno",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-36-sentence-or-pair",
@@ -2691,7 +3140,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara despacio estos pares de igual inicio abrigo con abanico e isla con imán",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-37-page-instruction-final",
@@ -2764,7 +3215,23 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza con tu lápiz una línea limpia desde cada vocal hasta el dibujo que le corresponde",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-page-3-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "vowel-match-all",
+          "workbookPage": 3,
+          "workbookPdfSheet": 9,
+          "relatedFlipchartSheets": [
+            3
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l01-38-game-intro",
@@ -2839,7 +3306,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora un juego rápido de oídos atentos para encontrar sonidos iniciales en la pantalla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-39-game-step",
@@ -2914,7 +3383,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha la palabra que te digo mira los dibujos disponibles y elige el que empieza igual",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-40-game-correct",
@@ -2989,7 +3460,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "acertaste con mucha atención reconociste enseguida con qué vocal empieza ese dibujo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-41-game-retry",
@@ -3064,7 +3537,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha otra vez el comienzo de la palabra y fíjate cuál vocal suena primero",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-42-assessment",
@@ -3139,7 +3614,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para cerrar tu práctica dime qué vocal escuchas al principio de la palabra estrella",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-43-page-complete",
@@ -3214,7 +3691,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste todos los ejercicios de las cinco hermanitas vocales con mucha paciencia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-44-closing",
@@ -3289,7 +3768,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya conoces a las cinco hermanitas vocales qué hermoso comienzo diste hoy en tu cartilla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l01-45-next-step",
@@ -3364,7 +3845,121 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en nuestra próxima sesión conoceremos a fondo la vocal o con su rima del caballito",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l01-46-atlas-flipchart",
+      "text": "¿Cuántas hermanitas hay en el poema?",
+      "normalizedText": "cuántas hermanitas hay en el poema",
+      "batch": "B007",
+      "seq": 46,
+      "file": "B007-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-01-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 1,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          3
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-sheet-3-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 3,
+          "expectedAnswer": "cinco"
+        }
+      ]
+    },
+    {
+      "id": "v2-l01-47-atlas-workbook",
+      "text": "Di «abrigo» muy despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "di abrigo muy despacio con qué vocal empieza",
+      "batch": "B007",
+      "seq": 47,
+      "file": "B007-047.mp3",
+      "intent": "identify-initial",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-01-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 1,
+        "sourceStatus": "verified",
+        "printedPages": [
+          1
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          1
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l01-page-1-initial-abrigo-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 1,
+          "workbookPdfSheet": 7,
+          "relatedFlipchartSheets": [
+            3
+          ],
+          "expectedAnswer": "a"
+        }
+      ]
     }
   ]
 }

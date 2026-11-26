@@ -49,10 +49,12 @@ export interface TutorSessionResourceVersions {
 }
 
 export interface TutorSessionSheetRef {
-  /** Printed workbook page number (strictly separate from pdfSheet). */
-  printedPage: number;
-  /** Optional PDF sheet number (never conflated with printedPage). */
+  /** Printed workbook page number (strictly separate from pdfSheet and flipchartSheet). */
+  printedPage?: number;
+  /** Optional Workbook PDF sheet number (never conflated with printedPage). */
   pdfSheet?: number | null;
+  /** Flip Chart sheet/lámina number (strictly separate from Workbook printedPage/pdfSheet). */
+  flipchartSheet?: number;
   source?: "workbook" | "flipchart";
 }
 
@@ -101,6 +103,7 @@ export interface TutorSessionEvent {
   activityId?: string;
   printedPage?: number;
   pdfSheet?: number | null;
+  flipchartSheet?: number;
   sheetSource?: "workbook" | "flipchart";
   presentationAction?: string;
   attemptNumber?: number;
@@ -343,6 +346,9 @@ export function appendSessionEvent(
         ? Math.max(0, eventMs - startedMs)
         : session.durationMs;
 
+  const isFlipchartEvent =
+    input.sheetSource === "flipchart" && typeof input.flipchartSheet === "number";
+
   const event: TutorSessionEvent = {
     id: input.id ?? makeId("evt"),
     at,
@@ -352,8 +358,11 @@ export function appendSessionEvent(
     ...(input.itemId ? { itemId: input.itemId } : {}),
     ...(input.itemText ? { itemText: input.itemText } : {}),
     ...(input.activityId ? { activityId: input.activityId } : {}),
-    ...(typeof input.printedPage === "number" ? { printedPage: input.printedPage } : {}),
-    ...(input.pdfSheet !== undefined ? { pdfSheet: input.pdfSheet } : {}),
+    ...(!isFlipchartEvent && typeof input.printedPage === "number"
+      ? { printedPage: input.printedPage }
+      : {}),
+    ...(!isFlipchartEvent && input.pdfSheet !== undefined ? { pdfSheet: input.pdfSheet } : {}),
+    ...(typeof input.flipchartSheet === "number" ? { flipchartSheet: input.flipchartSheet } : {}),
     ...(input.sheetSource ? { sheetSource: input.sheetSource } : {}),
     ...(input.presentationAction ? { presentationAction: input.presentationAction } : {}),
     ...(typeof input.attemptNumber === "number" ? { attemptNumber: input.attemptNumber } : {}),
@@ -369,11 +378,22 @@ export function appendSessionEvent(
 
   const events = [...session.events, event].slice(-TUTOR_SESSION_LOG_MAX_EVENTS_PER_SESSION);
 
-  // Track sheets without conflating printedPage and pdfSheet
+  // Track sheets without conflating Flip Chart láminas with Workbook printedPage/pdfSheet
   const sheets = [...session.sheets];
-  if (typeof event.printedPage === "number") {
+  if (typeof event.flipchartSheet === "number") {
+    const existingIdx = sheets.findIndex(
+      (s) => s.source === "flipchart" && s.flipchartSheet === event.flipchartSheet,
+    );
+    if (existingIdx === -1) {
+      sheets.push({
+        flipchartSheet: event.flipchartSheet,
+        source: "flipchart",
+      });
+    }
+  } else if (typeof event.printedPage === "number") {
     const existingIdx = sheets.findIndex(
       (s) =>
+        s.source !== "flipchart" &&
         s.printedPage === event.printedPage &&
         ((s.pdfSheet ?? null) === (event.pdfSheet ?? null) || event.pdfSheet == null),
     );
@@ -1037,14 +1057,25 @@ export function generateTeacherSessionReport(session: TutorSessionLog): TeacherS
   if (session.sheets.length > 0) {
     const pagesText = session.sheets
       .map((s) => {
-        const prefix =
-          s.source === "flipchart" ? "Rotafolio · " : s.source === "workbook" ? "Cuaderno · " : "";
-        return s.pdfSheet != null
-          ? `${prefix}pág. impresa ${s.printedPage} (hoja PDF ${s.pdfSheet})`
-          : `${prefix}pág. impresa ${s.printedPage}`;
+        if (s.source === "flipchart" && typeof s.flipchartSheet === "number") {
+          return `Rotafolio · lámina ${s.flipchartSheet}`;
+        }
+        if (s.source === "flipchart" && typeof s.printedPage === "number") {
+          return `Rotafolio · lámina ${s.printedPage}`;
+        }
+        if (typeof s.printedPage === "number") {
+          const prefix = s.source === "workbook" ? "Cuaderno · " : "";
+          return s.pdfSheet != null
+            ? `${prefix}pág. impresa ${s.printedPage} (hoja PDF ${s.pdfSheet})`
+            : `${prefix}pág. impresa ${s.printedPage}`;
+        }
+        return "";
       })
+      .filter(Boolean)
       .join(", ");
-    contentLines.push(`Páginas trabajadas: ${pagesText}.`);
+    if (pagesText) {
+      contentLines.push(`Páginas trabajadas: ${pagesText}.`);
+    }
   }
   const uniqueItems = [...new Set(session.events.map((e) => e.itemText ?? e.itemId).filter(Boolean))];
   if (uniqueItems.length > 0) {

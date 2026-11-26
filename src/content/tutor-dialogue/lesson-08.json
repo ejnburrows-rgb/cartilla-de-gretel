@@ -81,7 +81,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy llegamos a una nueva lección para conocer la letra pe y todas sus sílabas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-02-greeting-return",
@@ -159,7 +161,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo palabras y juegos con la letra pe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-03-review-intro",
@@ -236,7 +240,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya sabemos leer con eme palabras como mamá y amo hoy sumamos la pe para formar más historias",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-04-review-check",
@@ -313,7 +319,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo juntabas los labios para la eme antes de pasar a la letra pe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-05-lesson-objective",
@@ -390,7 +398,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido explosivo de la pe leeremos pa pe pi po pu y la palabra yo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-06-letter-name",
@@ -467,7 +477,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama pe y tiene una pancita arriba en mayúscula y patita hacia abajo en minúscula",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-07-phonetic-sound",
@@ -544,7 +556,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para hacer su sonido apretamos un instante los labios y soltamos un golpecito limpio de aire",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-08-lesson-focus",
@@ -621,7 +635,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "junta los labios con firmeza y suelta un pequeño estallido suave de aire como en papá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-09-sound-contrast",
@@ -698,7 +714,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a diferencia de la eme que vibra largo la pe sale cortita y limpia como una burbuja",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-10-explanation-primary",
@@ -775,7 +793,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al unir el golpecito de la pe con las cinco vocales formamos las sílabas pa pe pi po pu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-11-explanation-simple",
@@ -852,7 +872,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "imagina que explota una burbujita suave entre tus labios así suenan papá pepe y puma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-12-flipchart-intro",
@@ -927,7 +949,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer las sílabas los dibujos y el poema mi papá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-sheet-12-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 12
+        },
+        {
+          "sourceLineId": "dialogue-l08-sheet-13-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 13
+        },
+        {
+          "sourceLineId": "dialogue-l08-sheet-14-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 14
+        }
+      ]
     },
     {
       "id": "v2-l08-13-flipchart-illustration-1",
@@ -1002,7 +1052,31 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en las ilustraciones del rotafolio vemos a papá un pie a pepe un puma y un pomo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-sheet-12-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 12,
+          "expectedAnswer": "papá",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l08-sheet-13-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 13,
+          "expectedAnswer": "papá",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l08-14-flipchart-illustration-2",
@@ -1077,7 +1151,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos las sílabas ordenadas arriba y luego al revés para leerlas en ambos sentidos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-15-reading-order",
@@ -1154,7 +1230,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las sílabas de izquierda a derecha y luego recorre cada fila de palabras en el mismo orden",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-16-flipchart-model",
@@ -1229,7 +1307,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las cinco sílabas pa pe pi po pu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-17-flipchart-vocab",
@@ -1304,7 +1384,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio papá pie pepe puma y pomo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-18-flipchart-rhyme-1",
@@ -1379,7 +1461,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos el comienzo del poema mi papá yo amo a pupi yo amo a papá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-sheet-12-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 12,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l08-sheet-13-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 13,
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l08-19-flipchart-rhyme-2",
@@ -1454,7 +1558,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el segundo verso del poema pipo me ama a mí y a mamá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-20-comprehension-1",
@@ -1531,7 +1637,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en el poema mi papá a quiénes ama el niño o la niña que habla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-21-comprehension-2",
@@ -1608,7 +1716,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra pomo que aparece en el rotafolio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-22-comprehension-3",
@@ -1685,7 +1795,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuál animal salvaje aparece dibujado en el rotafolio de la letra pe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-23-common-mistake-1",
@@ -1762,7 +1874,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuida que la patita de la pe minúscula baje por debajo de la línea y la bolita quede arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-24-common-mistake-2",
@@ -1839,7 +1953,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate bien en la tilde de papá púa y pío para leerlas con la fuerza en su sílaba exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-25-common-mistake-3",
@@ -1916,7 +2032,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no agregues una vocal antes de la pe suéltala directo junto a la vocal que sigue",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-26-hint-1",
@@ -1993,7 +2111,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira la vocal que acompaña a la pe y recuerda el golpecito suave de los labios",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-sheet-14-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 14
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-papá-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pá",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-papá-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-mapa-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pa",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-mapa-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-puma-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-puma-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-mapi-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-mapi-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-pío-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pí",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-pío-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-pepe-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "Pe",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-pepe-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l08-27-hint-2",
@@ -2070,7 +2356,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "si empieza con p y u junta ambas en un solo sonido como en puma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-28-hint-3",
@@ -2147,7 +2435,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy papá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-29-workbook-transition",
@@ -2224,7 +2514,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la pe leer oraciones y completar palabras",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-30-page-instruction-1",
@@ -2298,7 +2590,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la pe mayúscula y minúscula con buena letra y dibuja algo cuyo nombre empiece con pe",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-page-23-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-23-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l08-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l08-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l08-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l08-31-page-instruction-2",
@@ -2372,7 +2762,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después encierra la sílaba correspondiente en palabras como papá pepe pipo pomo y puma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-32-syllable-practice",
@@ -2446,7 +2838,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos y buscamos en el ejercicio las sílabas pa pe pi po pu en papá pelo pipo pomo y puma",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-page-24-find-pa",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 24,
+          "workbookPdfSheet": 30,
+          "relatedFlipchartSheets": [
+            12,
+            13
+          ],
+          "expectedAnswer": "pa"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-24-find-pe",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 24,
+          "workbookPdfSheet": 30,
+          "relatedFlipchartSheets": [
+            12,
+            13
+          ],
+          "expectedAnswer": "pe"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-24-find-pi",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 24,
+          "workbookPdfSheet": 30,
+          "relatedFlipchartSheets": [
+            12,
+            13
+          ],
+          "expectedAnswer": "pi"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-24-find-po",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 24,
+          "workbookPdfSheet": 30,
+          "relatedFlipchartSheets": [
+            12,
+            13
+          ],
+          "expectedAnswer": "po"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-24-find-pu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 24,
+          "workbookPdfSheet": 30,
+          "relatedFlipchartSheets": [
+            12,
+            13
+          ],
+          "expectedAnswer": "pu"
+        }
+      ]
     },
     {
       "id": "v2-l08-33-word-practice-1",
@@ -2520,7 +2986,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee despacio el primer grupo de palabras del cuadro papá mapo mapi papi y puma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-34-word-practice-2",
@@ -2594,7 +3062,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo pie pepe mupi púa mapa pomo pupi y pepo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-35-sight-or-vocab",
@@ -2668,7 +3138,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos una palabra nueva cortita y especial yo para hablar de nosotros mismos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-36-sentence-or-pair",
@@ -2742,7 +3214,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con tu dedito esta oración del libro yo amo a mamá y a papá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-papá",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-mapo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-mapi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-papi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-puma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-pie",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-pepe",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-mupi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-púa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-pipo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-mapa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-pomo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-pupi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-upa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-25-read-pepo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 25,
+          "workbookPdfSheet": 31,
+          "relatedFlipchartSheets": [
+            13
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l08-37-page-instruction-final",
@@ -2816,7 +3472,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa las palabras con pa pe pi po pu como en papá mapa puma y pepe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-38-game-intro",
@@ -2893,7 +3551,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "tenemos varios juegos con la letra pe como ayudar a las mariposas a regresar al jardín",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-39-game-step",
@@ -2970,7 +3630,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha la palabra y toca las sílabas en orden para formar papá papi o pomo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-40-game-correct",
@@ -3047,7 +3709,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira cómo regresan contentas las mariposas formaste la palabra de pe con exactitud",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-41-game-retry",
@@ -3124,7 +3788,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha otra vez cuál sílaba suena primero y vuelve a ordenar las tarjetas con calma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-42-assessment",
@@ -3201,7 +3867,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee en voz clara la oración papá y pepe aman a mamá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-mapa",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pa",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-puma",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-mapi",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-pío",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pí",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-pepe",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "Pe",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l08-43-page-complete",
@@ -3278,7 +4018,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades y juegos de la letra pe con excelente atención",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-page-23-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 23,
+          "workbookPdfSheet": 29,
+          "relatedFlipchartSheets": [
+            12
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l08-44-closing",
@@ -3355,7 +4112,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya lees oraciones completas combinando eme y pe cada día tu lectura suena más segura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l08-45-next-step",
@@ -3432,7 +4191,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la siguiente lección escucharemos el silbido suave de la letra ese",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l08-46-atlas-flipchart",
+      "text": "¿A quién ama la voz del poema además de papá?",
+      "normalizedText": "a quién ama la voz del poema además de papá",
+      "batch": "B014",
+      "seq": 46,
+      "file": "B014-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-08-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 8,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          14
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-sheet-14-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 14,
+          "expectedAnswer": "a Pupi"
+        }
+      ]
+    },
+    {
+      "id": "v2-l08-47-atlas-workbook",
+      "text": "Queremos escribir «papá». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir papá qué parte falta en el espacio",
+      "batch": "B014",
+      "seq": 47,
+      "file": "B014-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-08-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 8,
+        "sourceStatus": "verified",
+        "printedPages": [
+          26
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          8
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l08-page-26-fill-papá",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 26,
+          "workbookPdfSheet": 32,
+          "relatedFlipchartSheets": [
+            13
+          ],
+          "expectedAnswer": "pá",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

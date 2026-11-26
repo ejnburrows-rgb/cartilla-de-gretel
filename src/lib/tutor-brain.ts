@@ -90,6 +90,7 @@ export type BrainEvent =
       reliable?: boolean;
       mode?: EarsRecognitionMode;
     }
+  | { type: "TYPED_ANSWER"; transcript: string }
   | { type: "EARS_PROBLEM"; problem: EarsProblem }
   | { type: "IDLE_TIMEOUT" }
   | { type: "EXIT" };
@@ -225,12 +226,15 @@ export interface CreateBrainStateOptions {
 export function createBrainState(opts: CreateBrainStateOptions): BrainState {
   const graph = lessonGraphFor(opts.lesson);
   const pedagogicalFlow = opts.pedagogicalFlow ?? false;
+  const items = opts.items ?? itemsForLesson(opts.lesson);
+  const validItemIds = new Set(items.map((item) => item.id));
+  const reviewItemIds = (opts.reviewItemIds ?? []).filter((id) => validItemIds.has(id));
   return {
     phase: "GREET",
     started: false,
     lesson: opts.lesson,
     sessionId: opts.sessionId,
-    items: opts.items ?? itemsForLesson(opts.lesson),
+    items,
     itemIndex: 0,
     attempts: 0,
     streak: 0,
@@ -241,7 +245,7 @@ export function createBrainState(opts: CreateBrainStateOptions): BrainState {
     itemLogged: false,
     silenceNudges: 0,
     missedItemIds: [],
-    reviewItemIds: opts.reviewItemIds ?? [],
+    reviewItemIds,
     inReview: false,
     reviewIndex: 0,
     endedReason: null,
@@ -408,6 +412,18 @@ function reviewItem(state: BrainState, index: number): TutorItem | null {
   return state.items.find((item) => item.id === id) ?? null;
 }
 
+/** Find the next review item in `state.reviewItemIds` starting at `startIndex`, skipping unknown IDs. */
+function findNextValidReview(
+  state: BrainState,
+  startIndex: number,
+): { item: TutorItem; index: number } | null {
+  for (let i = startIndex; i < state.reviewItemIds.length; i += 1) {
+    const found = reviewItem(state, i);
+    if (found) return { item: found, index: i };
+  }
+  return null;
+}
+
 /** The item the child is answering right now (main queue or review round). */
 function activeItem(state: BrainState): TutorItem | null {
   return state.inReview ? reviewItem(state, state.reviewIndex) : (currentTargetItem(state) ?? null);
@@ -505,21 +521,24 @@ function enterReviewOrCelebrate(
   effects: Effect[],
 ): { state: BrainState; effects: Effect[] } {
   if (state.reviewItemIds.length > 0 && !state.inReview) {
-    const first = reviewItem(state, 0);
+    const first = findNextValidReview(state, 0);
     if (!first) return celebrate(state, rng, effects);
+    const validCount = state.reviewItemIds.filter((id) =>
+      state.items.some((item) => item.id === id),
+    ).length;
     const intro = pickedLine(state, "review-intro", rng);
     const withIntro = intro ? intro.state : state;
     if (intro) effects.push(intro.effect);
-    effects.push({ type: "highlight", itemId: first.id });
-    const model = playModel(first);
+    effects.push({ type: "highlight", itemId: first.item.id });
+    const model = playModel(first.item);
     if (model) effects.push(model);
     if (state.pedagogicalFlow) {
       effects.push({
         type: "recordSessionEvent",
         kind: "review",
-        summary: `Ronda de repaso con ${state.reviewItemIds.length} elemento(s)`,
-        itemId: first.id,
-        itemText: first.text,
+        summary: `Ronda de repaso con ${validCount} elemento(s)`,
+        itemId: first.item.id,
+        itemText: first.item.text,
       });
     }
     return {
@@ -528,7 +547,7 @@ function enterReviewOrCelebrate(
         phase: "MODEL",
         stage: "REVIEW",
         inReview: true,
-        reviewIndex: 0,
+        reviewIndex: first.index,
         hintLevel: 0,
         activeHint: null,
       },
@@ -593,14 +612,13 @@ function advance(
     return enterReviewOrCelebrate(state, rng, effects);
   }
 
-  const nextReview = state.reviewIndex + 1;
-  const item = reviewItem(state, nextReview);
-  if (!item) return celebrate(state, rng, effects);
-  effects.push({ type: "highlight", itemId: item.id });
-  const model = playModel(item);
+  const nextReview = findNextValidReview(state, state.reviewIndex + 1);
+  if (!nextReview) return celebrate(state, rng, effects);
+  effects.push({ type: "highlight", itemId: nextReview.item.id });
+  const model = playModel(nextReview.item);
   if (model) effects.push(model);
   return {
-    state: { ...state, phase: "MODEL", stage: "REVIEW", reviewIndex: nextReview },
+    state: { ...state, phase: "MODEL", stage: "REVIEW", reviewIndex: nextReview.index },
     effects,
   };
 }
@@ -1224,6 +1242,20 @@ export function reduce(
       // Heard speech without a tap is ignored (mic-before-tap rule).
       if (state.phase !== "LISTEN" || !state.capturing) return noChange(state);
       return onHeard(state, ev, rng);
+    case "TYPED_ANSWER":
+      // Typed answers work in LISTEN without microphone capture or MIC_TAP.
+      if (state.phase !== "LISTEN" || ev.transcript.trim().length === 0) return noChange(state);
+      return onHeard(
+        state,
+        {
+          type: "HEARD",
+          transcript: ev.transcript,
+          alternatives: [],
+          reliable: true,
+          mode: recommendedEarsMode(state),
+        },
+        rng,
+      );
   }
 }
 

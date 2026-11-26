@@ -31,7 +31,7 @@ import {
 const ORIGIN = "http://127.0.0.1:5175";
 const ARTIFACT_DIR =
   process.env.TUTOR_FULL_LESSON_ARTIFACT_DIR ||
-  "/Users/ejn/.gemini/antigravity/brain/bfa2eb2c-2895-40ef-8a19-77a5607722cb";
+  path.join(process.cwd(), "test-results", "tutor-full-lesson");
 
 const EXPECTED_REPORT_SECTIONS = [
   "Resumen de la sesión",
@@ -403,5 +403,45 @@ test.describe("Tutor Full-Lesson E2E Proof (StubEars scripted fixtures, emulated
     if (video) {
       await video.saveAs(path.join(ARTIFACT_DIR, "tutor-full-lesson-8-390x844.webm"));
     }
+  });
+
+  test("invalid lesson URLs (/tutor/25, /tutor/0, /tutor/abc) render friendly fallback without crashing (Gitar #11)", async ({
+    page,
+  }) => {
+    const consoleErrors = trackConsoleErrors(page);
+    for (const badPath of ["/tutor/25", "/tutor/0", "/tutor/abc"]) {
+      await page.goto(badPath, { waitUntil: "domcontentloaded" });
+      await expect(
+        page.getByRole("heading", { name: "Esta lección todavía no está lista." }),
+      ).toBeVisible({ timeout: 15_000 });
+      await expect(page.getByRole("link", { name: "Volver al tutor" })).toBeVisible();
+    }
+    expect(consoleErrors.errors()).toEqual([]);
+  });
+
+  test("typed answers work in LISTEN without microphone capture (Gitar #12)", async ({ page }) => {
+    test.setTimeout(120_000);
+    const consoleErrors = trackConsoleErrors(page);
+
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(tutorSessionUrl(1, "typed-l1", 4));
+    await expect(page.locator("[data-tutor-call-shell]")).toBeVisible({ timeout: 60_000 });
+    await expect.poll(async () => micReadyToListen(page), { timeout: 60_000 }).toBe(true);
+
+    // Open transcript drawer and submit typed answer "a" WITHOUT clicking the mic button
+    await page.getByRole("button", { name: "Abrir transcripción" }).click();
+    const input = page.getByLabel("Escribir respuesta o pregunta");
+    await input.fill("a");
+    await input.press("Enter");
+
+    await expect
+      .poll(
+        async () => (await readProgressEvents(page)).find((ev) => ev.item_id === "l1-vowel-a"),
+        { timeout: 30_000 },
+      )
+      .toMatchObject({ result: "correct", attempts: 1 });
+
+    expect(await gumCallCount(page)).toBe(0);
+    expect(consoleErrors.errors()).toEqual([]);
   });
 });

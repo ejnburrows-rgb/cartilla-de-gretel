@@ -90,7 +90,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos a esta lección para descubrir el sonido suave y silbante de la letra ese",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-02-greeting-return",
@@ -177,7 +179,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué gusto verte de nuevo para seguir leyendo historias con las sílabas de la ese",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-03-review-intro",
@@ -263,7 +267,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya leemos con eme y con pe hoy agregamos la ese y muchas palabritas que unen oraciones",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-04-review-check",
@@ -349,7 +355,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo suena una palabra con eme y pe como mapa antes de probar la ese",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-05-lesson-objective",
@@ -435,7 +443,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido de la ese leeremos sa se si so su y siete palabras cortas clave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-06-letter-name",
@@ -521,7 +531,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ese y tiene la forma curva de un caminito o una culebrita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-07-phonetic-sound",
@@ -607,7 +619,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al pronunciarla dejamos salir aire suavecito entre los dientes cerrados sss como viento suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-08-lesson-focus",
@@ -693,7 +707,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "deja salir un hilo suave de aire por entre los dientes para formar las sílabas de sopa y sapo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-09-sound-contrast",
@@ -779,7 +795,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a diferencia de la pe que suena de golpe la ese puede alargarse suave como sss",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-10-explanation-primary",
@@ -865,7 +883,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos ese sonido suave con las vocales formamos sa se si so su",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-11-explanation-simple",
@@ -951,7 +971,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sopla suavecito con los dientes casi juntos como pidiendo silencio y luego di la vocal sa se si so su",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-12-flipchart-intro",
@@ -1035,7 +1057,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer las palabras y la rima divertida del sapo samapo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-sheet-15-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 15
+        },
+        {
+          "sourceLineId": "dialogue-l09-sheet-16-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 16
+        },
+        {
+          "sourceLineId": "dialogue-l09-sheet-17-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 17
+        }
+      ]
     },
     {
       "id": "v2-l09-13-flipchart-illustration-1",
@@ -1119,7 +1169,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen sesi un plato de sopa un sapo un pie que pisa y susi",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-sheet-15-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 15,
+          "expectedAnswer": "Sesi"
+        },
+        {
+          "sourceLineId": "dialogue-l09-sheet-16-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 16,
+          "expectedAnswer": "masa"
+        }
+      ]
     },
     {
       "id": "v2-l09-14-flipchart-illustration-2",
@@ -1203,7 +1275,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también vemos al simpático sapo samapo saltando sobre la mesa en la ilustración del poema",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-15-reading-order",
@@ -1289,7 +1363,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las sílabas y palabras de izquierda a derecha y sigue las oraciones renglón por renglón",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-16-flipchart-model",
@@ -1373,7 +1449,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos las cinco sílabas de la ese sa se si so su",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-17-flipchart-vocab",
@@ -1457,7 +1535,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio sesi sopa sapo pisa y susi",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-18-flipchart-rhyme-1",
@@ -1541,7 +1621,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos los versos de nuestra rima sapo samapo en la mesa está sapo samapo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-sheet-15-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 15
+        },
+        {
+          "sourceLineId": "dialogue-l09-sheet-16-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 16
+        }
+      ]
     },
     {
       "id": "v2-l09-19-flipchart-rhyme-2",
@@ -1625,7 +1725,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate cómo el poema repite el nombre del personaje sapo samapo en la mesa está",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-20-comprehension-1",
@@ -1711,7 +1813,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según la rima del rotafolio dónde está sentado el sapo samapo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-21-comprehension-2",
@@ -1797,7 +1901,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "quién pasa la sopa a susi en las oraciones de la lectura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-22-comprehension-3",
@@ -1883,7 +1989,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra sopa que leímos en el rotafolio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-23-common-mistake-1",
@@ -1969,7 +2077,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza la ese siguiendo su curva suave sin invertir la dirección al empezar arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-24-common-mistake-2",
@@ -2055,7 +2165,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no agregues una e antes de la ese empieza directo con el aire suave sss",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-25-common-mistake-3",
@@ -2141,7 +2253,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate bien dónde va la ese dentro de palabras como masa mesa y puso para no saltarla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-26-hint-1",
@@ -2227,7 +2341,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "deja salir primero un aire suavecito entre los dientes y mira qué vocal viene después",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-sheet-17-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 17
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-sapo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "sa",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-sapo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-puso-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "so",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-puso-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-masa-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "sa",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-masa-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-así-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "sí",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-así-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-supo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "su",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-supo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-pase-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "se",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-pase-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l09-27-hint-2",
@@ -2313,7 +2595,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el comienzo de la palabra con sopa o con sapo para recordar la sílaba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-28-hint-3",
@@ -2399,7 +2683,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy sapo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-29-workbook-transition",
@@ -2485,7 +2771,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para trazar la ese y leer historias completas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-30-page-instruction-1",
@@ -2568,7 +2856,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la ese mayúscula y minúscula con soltura y haz un dibujo de algo que empiece con ese",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-page-27-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-27-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l09-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l09-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l09-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l09-31-page-instruction-2",
@@ -2651,7 +3037,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo la sílaba de la ese dentro de cada palabra del ejercicio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-32-syllable-practice",
@@ -2734,7 +3122,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "busca cada sílaba encerrándola con cuidado sa en masa se en sello si en silla so en sopa y su en suma",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-page-28-find-sa",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 28,
+          "workbookPdfSheet": 34,
+          "relatedFlipchartSheets": [
+            15,
+            16
+          ],
+          "expectedAnswer": "sa"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-28-find-se",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 28,
+          "workbookPdfSheet": 34,
+          "relatedFlipchartSheets": [
+            15,
+            16
+          ],
+          "expectedAnswer": "se"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-28-find-si",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 28,
+          "workbookPdfSheet": 34,
+          "relatedFlipchartSheets": [
+            15,
+            16
+          ],
+          "expectedAnswer": "si"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-28-find-so",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 28,
+          "workbookPdfSheet": 34,
+          "relatedFlipchartSheets": [
+            15,
+            16
+          ],
+          "expectedAnswer": "so"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-28-find-su",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 28,
+          "workbookPdfSheet": 34,
+          "relatedFlipchartSheets": [
+            15,
+            16
+          ],
+          "expectedAnswer": "su"
+        }
+      ]
     },
     {
       "id": "v2-l09-33-word-practice-1",
@@ -2817,7 +3279,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras masa mesa suma sapo seso susi y así",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-34-word-practice-2",
@@ -2900,7 +3364,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con estas palabras de la lectura sopa paso puso supo supe sisi ese y esa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-35-sight-or-vocab",
@@ -2983,7 +3449,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos siete palabritas clave para armar oraciones es de un está en la el",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-36-sentence-or-pair",
@@ -3066,7 +3534,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee siguiendo con tu dedito esta oración del libro la sopa está en la mesa",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-masa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-mesa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-suma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-sapo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-seso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-susi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-así",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-sopa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-paso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-puso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-supo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-supe",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-sisi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-ese",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-29-read-esa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 29,
+          "workbookPdfSheet": 35,
+          "relatedFlipchartSheets": [
+            16
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l09-37-page-instruction-final",
@@ -3149,7 +3801,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa las palabras con sa se si so su como en sapo puso masa y pase",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-38-game-intro",
@@ -3235,7 +3889,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abrimos ahora el juego del payaso chano para formar palabras combinando ese eme y pe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-39-game-step",
@@ -3321,7 +3977,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha la palabra de chano arrastra sus sílabas a la pizarra y toca la sombrilla para comprobar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-40-game-correct",
@@ -3407,7 +4065,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien armado la sombrilla celebró que formaste la palabra exacta en la pizarra de chano",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-41-game-retry",
@@ -3493,7 +4153,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "toca el resorte para devolver las sílabas y escucha otra vez qué sonido va primero",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-42-assessment",
@@ -3579,7 +4241,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración completa papá pasa la sopa a susi",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-puso",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "so",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-masa",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "sa",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-así",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "sí",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-supo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "su",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-pase",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "se",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l09-43-page-complete",
@@ -3665,7 +4401,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades y el juego de la letra ese con mucha seguridad",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-page-27-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 27,
+          "workbookPdfSheet": 33,
+          "relatedFlipchartSheets": [
+            15
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l09-44-closing",
@@ -3751,7 +4504,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con la ese y sus palabritas cortas ya lees historias enteras sobre susi y la sopa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-45-next-step",
@@ -3837,7 +4592,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos el sonido firme de la letra te",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l09-46-atlas-flipchart",
+      "text": "¿Dónde está el sapo Samapo?",
+      "normalizedText": "dónde está el sapo samapo",
+      "batch": "B015",
+      "seq": 46,
+      "file": "B015-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-09-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 9,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          17
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-sheet-17-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 17,
+          "expectedAnswer": "en la mesa"
+        }
+      ]
+    },
+    {
+      "id": "v2-l09-47-atlas-workbook",
+      "text": "Queremos escribir «sapo». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir sapo qué parte falta en el espacio",
+      "batch": "B015",
+      "seq": 47,
+      "file": "B015-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-09-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 9,
+        "sourceStatus": "verified",
+        "printedPages": [
+          30
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          9
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l09-page-30-fill-sapo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 30,
+          "workbookPdfSheet": 36,
+          "relatedFlipchartSheets": [
+            16
+          ],
+          "expectedAnswer": "sa",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

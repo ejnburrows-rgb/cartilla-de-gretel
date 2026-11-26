@@ -508,8 +508,13 @@ export function validateTutorBookFidelity() {
       }
     }
 
-    // Ensure no orphan B*.txt files exist
-    const txtFiles = readdirSync(recordingDir).filter((f) => /^B\d+.*\.txt$/i.test(f));
+    // Ensure no orphan B*.txt files exist (linear non-backtracking check)
+    const txtFiles = readdirSync(recordingDir).filter((f) => {
+      const lower = f.toLowerCase();
+      if (!lower.startsWith("b") || !lower.endsWith(".txt") || lower.length < 6) return false;
+      const code = lower.charCodeAt(1);
+      return code >= 48 && code <= 57;
+    });
     if (txtFiles.length !== batches.size) {
       errors.push(`Expected ${batches.size} batch .txt files, found ${txtFiles.length}`);
     }

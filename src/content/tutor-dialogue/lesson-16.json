@@ -81,7 +81,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos hoy a una lección muy marinera dedicada a nuestra letra uve",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-02-greeting-return",
@@ -159,7 +161,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo con el viento suave de la letra uve",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-03-review-intro",
@@ -236,7 +240,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya practicamos la letra be hoy conocemos a su compañera en sonido la letra uve",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-04-review-check",
@@ -313,7 +319,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo sonaban los labios en bota antes de probar vaso y vela",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-05-lesson-objective",
@@ -390,7 +398,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el nombre la forma y la lectura de la letra uve en sus sílabas va ve vi vo vu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-06-letter-name",
@@ -467,7 +477,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama uve y se dibuja como un pequeño valle con dos bracitos abiertos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-07-phonetic-sound",
@@ -544,7 +556,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en nuestro español suena igual de suave que la be juntando con delicadeza los labios",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-08-lesson-focus",
@@ -621,7 +635,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la uve suena suave al hablar en vaso vela pavo y ventana",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-09-sound-contrast",
@@ -698,7 +714,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "aunque la be y la uve suenan igual al hablar tienen formas distintas y cada palabra guarda la suya",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-10-explanation-primary",
@@ -775,7 +793,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos la uve con las cinco vocales leemos va ve vi vo vu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-11-explanation-simple",
@@ -852,7 +872,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abre los dos bracitos de la uve con la mirada y léela suave como en vaso y vela",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-12-flipchart-intro",
@@ -927,7 +949,37 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer las palabras nuevas y navegar en mi bote de vela",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-sheet-36-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 36,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l16-sheet-37-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 37,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l16-sheet-38-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 38
+        }
+      ]
     },
     {
       "id": "v2-l16-13-flipchart-illustration-1",
@@ -1002,7 +1054,31 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen un vaso una vela la niña vita un pavo y vuli",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-sheet-36-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 36,
+          "expectedAnswer": "vaso",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l16-sheet-37-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 37,
+          "expectedAnswer": "vaso",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l16-14-flipchart-illustration-2",
@@ -1077,7 +1153,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos un bote de vela navegando sobre el mar empujado por el viento",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-15-reading-order",
@@ -1154,7 +1232,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recorre las sílabas en ambos sentidos y luego lee las palabras y la historia de vita y valentín",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-16-flipchart-model",
@@ -1229,7 +1309,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas de la uve va ve vi vo vu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-17-flipchart-vocab",
@@ -1304,7 +1386,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio vaso vela vita pavo y vuli",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-18-flipchart-rhyme-1",
@@ -1379,7 +1463,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos el comienzo de mi bote de vela en mi bote de vela voy a pasear vela al viento vamos al mar",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-sheet-36-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 36,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l16-sheet-37-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 37,
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l16-19-flipchart-rhyme-2",
@@ -1454,7 +1560,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el cierre del poema vuela velita volando vas mi volantina volando más",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-20-comprehension-1",
@@ -1531,7 +1639,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en el poema mi bote de vela hacia dónde vamos paseando en el bote",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-21-comprehension-2",
@@ -1608,7 +1718,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué mueve el viento en la historia de mamá y valentín",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-22-comprehension-3",
@@ -1685,7 +1797,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra ventana",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-23-common-mistake-1",
@@ -1762,7 +1876,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa con cuidado qué palabras se escriben con uve como vaso vela pavo y ventana",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-24-common-mistake-2",
@@ -1839,7 +1955,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza las dos líneas de la uve bien rectas para que se unan en punta abajo no redondeadas como la u",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-25-common-mistake-3",
@@ -1916,7 +2034,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee despacito palabras largas como lavamanos y papalote dividiéndolas en voz natural",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-26-hint-1",
@@ -1993,7 +2113,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira la forma en punta de la uve y escucha qué vocal la acompaña",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-sheet-38-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 38
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-nave-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "ve",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-nave-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vaso-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "va",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vaso-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vela-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "ve",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vela-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-pavo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "vo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-pavo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vine-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "vi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vine-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-aviso-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "vi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-aviso-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l16-27-hint-2",
@@ -2070,7 +2358,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerda vaso y vela para unir la uve con la vocal siguiente",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-28-hint-3",
@@ -2147,7 +2437,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy vaso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-29-workbook-transition",
@@ -2224,7 +2516,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la uve y leer sobre vita y valentín",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-30-page-instruction-1",
@@ -2298,7 +2592,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza los dos bracitos rectos de la uve mayúscula y minúscula y haz un dibujo con uve",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-page-55-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-55-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l16-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l16-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l16-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l16-31-page-instruction-2",
@@ -2372,7 +2764,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después circula las sílabas de la uve en palabras como vaso ave vela vino pavo y vuela",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-32-syllable-practice",
@@ -2446,7 +2840,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con calma cada sílaba va en vaso ve en vela vi en vino vo en pavo y vu en vuela",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-page-56-find-va",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 56,
+          "workbookPdfSheet": 62,
+          "relatedFlipchartSheets": [
+            36,
+            37
+          ],
+          "expectedAnswer": "va"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-56-find-ve",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 56,
+          "workbookPdfSheet": 62,
+          "relatedFlipchartSheets": [
+            36,
+            37
+          ],
+          "expectedAnswer": "ve"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-56-find-vi",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 56,
+          "workbookPdfSheet": 62,
+          "relatedFlipchartSheets": [
+            36,
+            37
+          ],
+          "expectedAnswer": "vi"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-56-find-vo",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 56,
+          "workbookPdfSheet": 62,
+          "relatedFlipchartSheets": [
+            36,
+            37
+          ],
+          "expectedAnswer": "vo"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-56-find-vu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 56,
+          "workbookPdfSheet": 62,
+          "relatedFlipchartSheets": [
+            36,
+            37
+          ],
+          "expectedAnswer": "vu"
+        }
+      ]
     },
     {
       "id": "v2-l16-33-word-practice-1",
@@ -2520,7 +2988,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras vaso avena vivo vela ventana vive vale y pavo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-34-word-practice-2",
@@ -2594,7 +3064,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo vine vino lava vuli venas lavamanos y ven",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-35-sight-or-vocab",
@@ -2668,7 +3140,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate bien en nombres propios de la lectura como vita vuli y valentín",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-36-sentence-or-pair",
@@ -2742,7 +3216,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con calma esta oración del libro vita se lava las manos en el lavamanos",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vaso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-avena",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vivo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vela",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-ventana",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vive",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vale",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-pavo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vine",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vino",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-lava",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-vuli",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-venas",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-lavamanos",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-57-read-ven",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 57,
+          "workbookPdfSheet": 63,
+          "relatedFlipchartSheets": [
+            37
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l16-37-page-instruction-final",
@@ -2816,7 +3474,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra eligiendo entre va ve vi vo vu como en nave vaso vela y pavo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-38-game-intro",
@@ -2893,7 +3553,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva con las palabras de la uve para afirmar la ortografía visual",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-39-game-step",
@@ -2970,7 +3632,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira la palabra incompleta y elige la sílaba exacta entre va ve vi vo vu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-40-game-correct",
@@ -3047,7 +3711,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien navegado completaste la palabra con la sílaba correcta de la uve",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-41-game-retry",
@@ -3124,7 +3790,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pronuncia el dibujo o la palabra completa y revisa qué vocal falta después de la uve",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-42-assessment",
@@ -3201,7 +3869,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro el papalote vuela y vuela",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vaso",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "va",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vela",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "ve",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-pavo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "vo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-vine",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "vi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-aviso",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "vi",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l16-43-page-complete",
@@ -3278,7 +4020,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades de la letra uve con mucha calma y claridad",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-page-55-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 55,
+          "workbookPdfSheet": 61,
+          "relatedFlipchartSheets": [
+            36
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l16-44-closing",
@@ -3355,7 +4114,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "navegaste muy bien por toda la lección de la uve tu lectura es cada vez más fluida",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-45-next-step",
@@ -3432,7 +4193,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección exploraremos el sonido vibrante de la letra erre al iniciar palabras",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l16-46-atlas-flipchart",
+      "text": "¿Adónde van en el bote de vela?",
+      "normalizedText": "adónde van en el bote de vela",
+      "batch": "B022",
+      "seq": 46,
+      "file": "B022-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-16-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 16,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          38
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-sheet-38-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 38,
+          "expectedAnswer": "al mar"
+        }
+      ]
+    },
+    {
+      "id": "v2-l16-47-atlas-workbook",
+      "text": "Queremos escribir «nave». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir nave qué parte falta en el espacio",
+      "batch": "B022",
+      "seq": 47,
+      "file": "B022-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-16-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 16,
+        "sourceStatus": "verified",
+        "printedPages": [
+          58
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          16
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l16-page-58-fill-nave",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 58,
+          "workbookPdfSheet": 64,
+          "relatedFlipchartSheets": [
+            37
+          ],
+          "expectedAnswer": "ve",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

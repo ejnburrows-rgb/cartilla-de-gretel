@@ -7,6 +7,7 @@ import {
   mkdtempSync,
   readFileSync,
   rmSync,
+  statSync,
   symlinkSync,
   writeFileSync,
 } from "node:fs";
@@ -16,11 +17,14 @@ import { afterAll, describe, expect, it } from "vitest";
 import {
   alignBatchSegments,
   applyAuthorizedManifestUpdates,
+  buildApprovedSpeechHashIndex,
   checkRejectedSource,
   computeTranscriptSimilarity,
   deriveSpeechSegmentsFromSilences,
+  enforcePrivatePermissions,
   ingestPrivateOriginal,
   matchBatchByTranscriptSimilarity,
+  matchInstalledApprovedBySha256,
   measureSilenceIntervals,
   mouthCuesAreValid,
   proveApprovedRecordings,
@@ -36,7 +40,14 @@ import {
   verifyGitignorePrivateExclusions,
 } from "../tutor-intake/guard.mjs";
 import { needlemanWunschAlign } from "../tutor-intake/alignment.mjs";
-import { encodeWavPcm16, extractAndResampleWav, parseWavBuffer } from "../tutor-intake/media.mjs";
+import {
+  encodeWavPcm16,
+  extractAndResampleWav,
+  FFMPEG_SECURITY_FLAGS,
+  FFPROBE_SECURITY_FLAGS,
+  parseWavBuffer,
+  resolveFixedSystemBinary,
+} from "../tutor-intake/media.mjs";
 import { computeSpectralFlatnessStats } from "../tutor-intake/qc.mjs";
 import { parseFfmpegSilencedetect } from "../tutor-intake/silence.mjs";
 
@@ -680,4 +691,76 @@ describe("silence-derived speech segmentation, spectral flatness, and real .tool
     expect(osoVisemes.metadata.recognizer).toBe("phonetic");
     expect(osoVisemes.metadata.extendedShapes).toBe("GX");
   }, 60_000);
+});
+
+describe("PR #1323 security hardening and S4036 fixed binary resolution", () => {
+  it("resolves fixed system binaries via absolute paths without trusting PATH", () => {
+    const gitBin = resolveFixedSystemBinary("git", { repoRoot: REPO_ROOT });
+    expect(gitBin).toBeTruthy();
+    expect(gitBin.startsWith("/")).toBe(true);
+
+    const tarBin = resolveFixedSystemBinary("tar", { repoRoot: REPO_ROOT });
+    expect(tarBin).toBeTruthy();
+    expect(tarBin.startsWith("/")).toBe(true);
+
+    const missingBin = resolveFixedSystemBinary("nonexistent-binary-xyz", { repoRoot: REPO_ROOT });
+    expect(missingBin).toBeNull();
+  });
+
+  it("exports hardened ffmpeg and ffprobe protocol/stdin/error flags", () => {
+    expect(FFMPEG_SECURITY_FLAGS).toEqual([
+      "-nostdin",
+      "-xerror",
+      "-protocol_whitelist",
+      "file,pipe",
+    ]);
+    expect(FFPROBE_SECURITY_FLAGS).toEqual(["-protocol_whitelist", "file,pipe"]);
+  });
+
+  it("enforces owner-only 0o700 dir and 0o600 file permissions on private originals", () => {
+    if (process.platform === "win32") return;
+    const privateDir = makeTempDir("gretel-priv-perms-");
+    const srcDir = makeTempDir("gretel-src-perms-");
+    const sample = join(srcDir, "sample.wav");
+    writeFileSync(sample, encodeWavPcm16(buildSpeechSamples(0.5, 16000), 16000));
+
+    const ingested = ingestPrivateOriginal({
+      sourcePath: sample,
+      privateDir,
+      repoRoot: REPO_ROOT,
+      batchId: "perm-test",
+      dryRun: false,
+    });
+    expect(ingested.accepted).toBe(true);
+
+    const permResult = enforcePrivatePermissions(privateDir, [ingested.privateOriginalPath]);
+    expect(permResult.applied).toBe(true);
+    expect(statSync(privateDir).mode & 0o777).toBe(0o700);
+    expect(statSync(join(privateDir, "originals")).mode & 0o777).toBe(0o700);
+    expect(statSync(join(privateDir, "index.json")).mode & 0o777).toBe(0o600);
+    expect(statSync(ingested.privateOriginalPath).mode & 0o777).toBe(0o600);
+  });
+
+  it("matches incoming audio content hashes against installed approved speech", async () => {
+    const hashIndex = buildApprovedSpeechHashIndex(REPO_ROOT);
+    expect(hashIndex.size).toBe(43);
+
+    const osoPath = join(REPO_ROOT, "public/audio/voz/vocabulario/oso.mp3");
+    const privateDir = makeTempDir("gretel-priv-hash-");
+    const srcDir = makeTempDir("gretel-src-hash-");
+    const copiedOso = join(srcDir, "incoming-oso.mp3");
+    copyFileSync(osoPath, copiedOso);
+
+    const ingested = ingestPrivateOriginal({
+      sourcePath: copiedOso,
+      privateDir,
+      repoRoot: REPO_ROOT,
+      batchId: "hash-test",
+      dryRun: true,
+    });
+    const matches = matchInstalledApprovedBySha256(ingested.sha256, hashIndex);
+    expect(matches.length).toBeGreaterThanOrEqual(1);
+    expect(matches[0].lineId).toBe("l1-model-oso");
+    expect(matches[0].src).toBe("/audio/voz/vocabulario/oso.mp3");
+  });
 });

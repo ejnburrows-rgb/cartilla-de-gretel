@@ -81,7 +81,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "llegamos hoy a una lección muy viajera para navegar leyendo con la letra ye",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-02-greeting-return",
@@ -159,7 +161,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo el viaje del yate de yayo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-03-review-intro",
@@ -236,7 +240,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya practicamos ca co cu con la letra ce hoy conocemos la letra ye de yate y yoyo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-04-review-check",
@@ -313,7 +319,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cuándo usabas la palabrita y solita para unir dos nombres como mamá y papá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-05-lesson-objective",
@@ -390,7 +398,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos cómo suena la ye junto a las vocales en ya ye yi yo yu y la historia de yayo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-06-letter-name",
@@ -467,7 +477,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ye también conocida como i griega con dos bracitos abiertos arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-07-phonetic-sound",
@@ -544,7 +556,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando acompaña a las vocales resbala suave sobre el paladar como en yate yema y yoyo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-08-lesson-focus",
@@ -621,7 +635,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la letra ye abre dos bracitos hacia arriba y suena suave en ya ye yi yo yu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-09-sound-contrast",
@@ -698,7 +714,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando va solita suena igual que la vocal i pero pegada a vocales suena suave como en yoyo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-10-explanation-primary",
@@ -775,7 +793,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos la ye con las vocales formamos las cinco sílabas ya ye yi yo yu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-11-explanation-simple",
@@ -852,7 +872,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "apoya suavemente el centro de la lengua arriba mientras sale la voz y di yate yema y yoyo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-12-flipchart-intro",
@@ -927,7 +949,37 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer los dibujos nuevos y navegar en el yate de yayo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-sheet-57-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 57,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l23-sheet-58-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 58,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l23-sheet-59-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 59
+        }
+      ]
     },
     {
       "id": "v2-l23-13-flipchart-illustration-1",
@@ -1002,7 +1054,20 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen un yate una yema la niña yayita una letra mayúscula y un yoyo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-sheet-58-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 58,
+          "expectedAnswer": "yuca"
+        }
+      ]
     },
     {
       "id": "v2-l23-14-flipchart-illustration-2",
@@ -1077,7 +1142,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos el yate cayo largo amarrado con una soga de yute navegando hacia yucatán",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-15-reading-order",
@@ -1154,7 +1221,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las sílabas en orden luego pasa por el vocabulario y lee el viaje de yayo oración por oración",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-16-flipchart-model",
@@ -1229,7 +1298,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas de la ye ya ye yi yo yu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-17-flipchart-vocab",
@@ -1304,7 +1375,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio yate yema yayita mayúscula y yoyo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-18-flipchart-rhyme-1",
@@ -1379,7 +1452,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de el yate de yayo de yateras a cayo hueso de cayo hueso a yateras yayo va con sus amigas sus amigas yucatecas",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-sheet-57-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 57
+        },
+        {
+          "sourceLineId": "dialogue-l23-sheet-58-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 58
+        }
+      ]
     },
     {
       "id": "v2-l23-19-flipchart-rhyme-2",
@@ -1454,7 +1547,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el final del poema en su yate cayo largo ayer vino a yucatán con una soga de yute yayo lo pudo amarrar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-20-comprehension-1",
@@ -1531,7 +1626,20 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema el yate de yayo con qué pudo amarrar yayo su yate",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-sheet-59-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 59,
+          "expectedAnswer": "con sus amigas"
+        }
+      ]
     },
     {
       "id": "v2-l23-21-comprehension-2",
@@ -1608,7 +1716,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con quiénes fue yayo a pescar a los cayos en la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-22-comprehension-3",
@@ -1685,7 +1795,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra yate",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-23-common-mistake-1",
@@ -1762,7 +1874,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate en la diferencia de sonido cuando la ye está solita en medio de palabras o al inicio de yoyo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-24-common-mistake-2",
@@ -1839,7 +1953,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "respeta la tilde en la palabra yucatán para acentuar el final con claridad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-25-common-mistake-3",
@@ -1916,7 +2032,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza el palito de la ye minúscula bajando inclinado debajo del renglón",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-26-hint-1",
@@ -1993,7 +2111,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira si la ye va acompañada de una vocal para leer ya ye yi yo o yu",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-sheet-59-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 59
+        }
+      ]
     },
     {
       "id": "v2-l23-27-hint-2",
@@ -2070,7 +2200,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el sonido con yate yema o yoyo para recordar la sílaba exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-28-hint-3",
@@ -2147,7 +2279,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy yate",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-29-workbook-transition",
@@ -2224,7 +2358,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la ye rodear sílabas y leer la historia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-30-page-instruction-1",
@@ -2299,7 +2435,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "practica el trazo de la ye mayúscula y minúscula y haz un dibujo cuyo nombre empiece con ye",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-page-83-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-83-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l23-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l23-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l23-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l23-31-page-instruction-2",
@@ -2374,7 +2608,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después rodea en un círculo ya ye yi yo yu en palabras como yate yema mayito yoyo y yuca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-32-syllable-practice",
@@ -2449,7 +2685,67 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con calma cada sílaba ya en yate ye en yema yi en yayita yo en yoyo y yu en yuca",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-page-84-find-ye",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 84,
+          "workbookPdfSheet": 90,
+          "relatedFlipchartSheets": [
+            57,
+            58
+          ],
+          "expectedAnswer": "ye"
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-84-find-yi",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 84,
+          "workbookPdfSheet": 90,
+          "relatedFlipchartSheets": [
+            57,
+            58
+          ],
+          "expectedAnswer": "yi"
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-84-find-yo",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 84,
+          "workbookPdfSheet": 90,
+          "relatedFlipchartSheets": [
+            57,
+            58
+          ],
+          "expectedAnswer": "yo"
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-84-find-yu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 84,
+          "workbookPdfSheet": 90,
+          "relatedFlipchartSheets": [
+            57,
+            58
+          ],
+          "expectedAnswer": "yu"
+        }
+      ]
     },
     {
       "id": "v2-l23-33-word-practice-1",
@@ -2524,7 +2820,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras yuca ayer cayo yema payaso mayito yate y yute",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-34-word-practice-2",
@@ -2599,7 +2897,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo joya yegua yoyo yucateco yagua yucatán y yeso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-35-sight-or-vocab",
@@ -2674,7 +2974,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate también en los nombres propios del ejercicio como yayita yayo y yateras",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-36-sentence-or-pair",
@@ -2749,7 +3051,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con claridad esta oración del libro el yate de yayo está en yateras",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yuca",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-ayer",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-cayo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yema",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-payaso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-mayito",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yate",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yute",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-joya",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yegua",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yoyo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yucateco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yagua",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yucatán",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l23-page-85-read-yeso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 85,
+          "workbookPdfSheet": 91,
+          "relatedFlipchartSheets": [
+            58
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l23-37-page-instruction-final",
@@ -2824,7 +3310,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para terminar el cuaderno leemos el cierre del viaje yayo comió yuca y guacamole",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-38-game-intro",
@@ -2901,7 +3389,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva con las palabras de la ye para afirmar la lectura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-39-game-step",
@@ -2978,7 +3468,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha cada palabra de la lección y señala cuál sílaba entre ya ye yi yo yu aparece en ella",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-40-game-correct",
@@ -3055,7 +3547,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien amarrado ese yate identificaste con exactitud la sílaba de la ye",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-41-game-retry",
@@ -3132,7 +3626,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite la palabra en voz alta y escucha si suena ya ye yi yo o yu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-42-assessment",
@@ -3209,7 +3705,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro yayo tiene una soga de yute para amarrar su yate",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-43-page-complete",
@@ -3286,7 +3784,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades disponibles de la letra ye con mucha seguridad",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-page-83-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 83,
+          "workbookPdfSheet": 89,
+          "relatedFlipchartSheets": [
+            57
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l23-44-closing",
@@ -3363,7 +3878,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "amarraste el yate de yayo con éxito ya nos espera la última lección de toda la cartilla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l23-45-next-step",
@@ -3440,7 +3957,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en nuestra última lección conoceremos la letra zeta y el carro calabaza de zulema",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l23-46-atlas-flipchart",
+      "text": "Busca la palabra «yate» en la lámina. ¿Dónde la encuentras?",
+      "normalizedText": "busca la palabra yate en la lámina dónde la encuentras",
+      "batch": "B029",
+      "seq": 46,
+      "file": "B029-046.mp3",
+      "intent": "locate-word",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-23-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 23,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          57
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-sheet-57-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 57,
+          "expectedAnswer": "yate"
+        }
+      ]
+    },
+    {
+      "id": "v2-l23-47-atlas-workbook",
+      "text": "Fíjate en «ya». Busca esa misma sílaba dentro de las palabras del grupo.",
+      "normalizedText": "fíjate en ya busca esa misma sílaba dentro de las palabras del grupo",
+      "batch": "B029",
+      "seq": 47,
+      "file": "B029-047.mp3",
+      "intent": "locate-syllable",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-23-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 23,
+        "sourceStatus": "verified",
+        "printedPages": [
+          84
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          23
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l23-page-84-find-ya",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 84,
+          "workbookPdfSheet": 90,
+          "relatedFlipchartSheets": [
+            57,
+            58
+          ],
+          "expectedAnswer": "ya"
+        }
+      ]
     }
   ]
 }

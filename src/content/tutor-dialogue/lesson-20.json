@@ -84,7 +84,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos hoy a una nueva lección para practicar el soplido suave de la letra efe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-02-greeting-return",
@@ -165,7 +167,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo la historia familiar de la letra efe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-03-review-intro",
@@ -245,7 +249,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya conocemos la ge suave de gato y mago hoy nos visita el aire tibio de la letra efe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-04-review-check",
@@ -325,7 +331,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo soplamos suavemente una velita de fiesta antes de probar la letra efe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-05-lesson-objective",
@@ -405,7 +413,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido de la efe las sílabas fa fe fi fo fu y la palabra hay",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-06-letter-name",
@@ -485,7 +495,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama efe y la minúscula sube formando un bastoncito curvo con su rayita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-07-phonetic-sound",
@@ -565,7 +577,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al pronunciarla apoyamos los dientes de arriba en el labio inferior y soplamos suave fff",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-08-lesson-focus",
@@ -645,7 +659,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sopla suavecito apoyando los dientes de arriba sobre el labio inferior como en foto y familia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-09-sound-contrast",
@@ -725,7 +741,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mientras la ge nace atrás en la garganta la efe sale adelante entre los dientes y el labio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-10-explanation-primary",
@@ -805,7 +823,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos ese soplido suave con las vocales formamos fa fe fi fo fu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-11-explanation-simple",
@@ -885,7 +905,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "imagina que apagas las velitas del pastel de fefita soplando despacito así sale la efe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-12-flipchart-intro",
@@ -963,7 +985,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer los dibujos nuevos y cantar la rima a la fiesta",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-sheet-48-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 48
+        },
+        {
+          "sourceLineId": "dialogue-l20-sheet-49-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 49
+        },
+        {
+          "sourceLineId": "dialogue-l20-sheet-50-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 50
+        }
+      ]
     },
     {
       "id": "v2-l20-13-flipchart-illustration-1",
@@ -1041,7 +1091,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una foto unos fideos una familia felo y una funda",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-sheet-48-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 48,
+          "expectedAnswer": "foto"
+        },
+        {
+          "sourceLineId": "dialogue-l20-sheet-49-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 49,
+          "expectedAnswer": "familia"
+        }
+      ]
     },
     {
       "id": "v2-l20-14-flipchart-illustration-2",
@@ -1119,7 +1191,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos a tía fela y a fefita apagando las velitas de un pastel en la fiesta familiar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-15-reading-order",
@@ -1199,7 +1273,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las sílabas en orden pasa por el vocabulario y sigue la historia de ofelia y felo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-16-flipchart-model",
@@ -1277,7 +1353,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas de la efe fa fe fi fo fu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-17-flipchart-vocab",
@@ -1355,7 +1433,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio foto fideos familia felo y funda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-18-flipchart-rhyme-1",
@@ -1433,7 +1513,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de a la fiesta a la fiesta de familia tía fela va a invitar las velitas del pastel fefita va a apagar",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-sheet-48-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 48
+        },
+        {
+          "sourceLineId": "dialogue-l20-sheet-49-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 49
+        }
+      ]
     },
     {
       "id": "v2-l20-19-flipchart-rhyme-2",
@@ -1511,7 +1611,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el juego final de las velitas fu fu apaga la vela fa fa la vela no es mía",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-20-comprehension-1",
@@ -1591,7 +1693,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema a la fiesta qué va a apagar fefita en la fiesta de familia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-21-comprehension-2",
@@ -1671,7 +1775,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a dónde va la familia de ofelia en la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-22-comprehension-3",
@@ -1751,7 +1857,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra foto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-23-common-mistake-1",
@@ -1831,7 +1939,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no olvides la rayita horizontal de la efe para distinguirla bien de la te",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-24-common-mistake-2",
@@ -1911,7 +2021,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate en la tilde de fígaro y teléfono para acentuar la sílaba correcta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-25-common-mistake-3",
@@ -1991,7 +2103,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerda que en la palabra hay la primera letra es muda y suena igual que ai",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-26-hint-1",
@@ -2071,7 +2185,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "apoya los dientes de arriba en el labio inferior y escucha qué vocal sigue al soplido",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-sheet-50-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 50
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fama-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fa",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fama-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fila-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fila-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-teléfono-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-teléfono-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-foca-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-foca-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fecha-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fe",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fecha-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-foto-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-foto-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l20-27-hint-2",
@@ -2151,7 +2433,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el inicio de la palabra con foto o con familia para elegir la sílaba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-28-hint-3",
@@ -2231,7 +2515,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy familia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-29-workbook-transition",
@@ -2311,7 +2597,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la efe y visitar la finca de felo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-30-page-instruction-1",
@@ -2388,7 +2676,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la efe mayúscula y minúscula con trazos limpios y haz un dibujo con efe",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-page-71-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-71-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l20-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l20-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l20-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l20-31-page-instruction-2",
@@ -2465,7 +2851,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después rodea fa fe fi fo fu dentro de palabras como familia felo fila foto y funda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-32-syllable-practice",
@@ -2542,7 +2930,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con calma cada sílaba fa en familia fe en felo fi en fila fo en foto y fu en funda",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-page-72-find-fa",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 72,
+          "workbookPdfSheet": 78,
+          "relatedFlipchartSheets": [
+            48,
+            49
+          ],
+          "expectedAnswer": "fa"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-72-find-fe",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 72,
+          "workbookPdfSheet": 78,
+          "relatedFlipchartSheets": [
+            48,
+            49
+          ],
+          "expectedAnswer": "fe"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-72-find-fi",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 72,
+          "workbookPdfSheet": 78,
+          "relatedFlipchartSheets": [
+            48,
+            49
+          ],
+          "expectedAnswer": "fi"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-72-find-fo",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 72,
+          "workbookPdfSheet": 78,
+          "relatedFlipchartSheets": [
+            48,
+            49
+          ],
+          "expectedAnswer": "fo"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-72-find-fu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 72,
+          "workbookPdfSheet": 78,
+          "relatedFlipchartSheets": [
+            48,
+            49
+          ],
+          "expectedAnswer": "fu"
+        }
+      ]
     },
     {
       "id": "v2-l20-33-word-practice-1",
@@ -2619,7 +3081,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras familia fino fila fígaro fusta falso fama y fumiga",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-34-word-practice-2",
@@ -2696,7 +3160,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo fortuna famoso teléfono ofelia foto feo y foca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-35-sight-or-vocab",
@@ -2773,7 +3239,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos la palabra hay que nos sirve para contar qué cosas existen en un lugar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-36-sentence-or-pair",
@@ -2850,7 +3318,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con calma esta oración del libro la familia de ofelia va a la finca de felo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-familia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-fino",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-fila",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-fígaro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-fusta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-falso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-fama",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-fumiga",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-fortuna",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-famoso",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-teléfono",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-ofelia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-foto",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-feo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-73-read-foca",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 73,
+          "workbookPdfSheet": 79,
+          "relatedFlipchartSheets": [
+            49
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l20-37-page-instruction-final",
@@ -2927,7 +3579,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con su sílaba como en fama fila teléfono foca fecha y foto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-38-game-intro",
@@ -3007,7 +3661,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva completando palabras de la efe para afirmar tu lectura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-39-game-step",
@@ -3087,7 +3743,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige la sílaba exacta entre fa fe fi fo fu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-40-game-correct",
@@ -3167,7 +3825,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien apagada esa vela elegiste la sílaba exacta de la efe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-41-game-retry",
@@ -3247,7 +3907,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee el resto de la palabra y prueba cuál sílaba entre fa fe fi fo fu la forma bien",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-42-assessment",
@@ -3327,7 +3989,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro en la finca de felo hay aves y ganado",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fila",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-teléfono",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-foca",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fecha",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fe",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-foto",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fo",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l20-43-page-complete",
@@ -3407,7 +4143,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste las actividades de la letra efe y ya superaste las veinte primeras lecciones",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-page-71-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 71,
+          "workbookPdfSheet": 77,
+          "relatedFlipchartSheets": [
+            48
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l20-44-closing",
@@ -3487,7 +4240,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bien leíste toda la visita a la finca de felo solo nos quedan cuatro consonantes más",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-45-next-step",
@@ -3567,7 +4322,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos a la jicotea jabela y el sonido alegre de la letra jota",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l20-46-atlas-flipchart",
+      "text": "¿Quién va a apagar las velitas?",
+      "normalizedText": "quién va a apagar las velitas",
+      "batch": "B026",
+      "seq": 46,
+      "file": "B026-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-20-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 20,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          50
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-sheet-50-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 50,
+          "expectedAnswer": "Fefita"
+        }
+      ]
+    },
+    {
+      "id": "v2-l20-47-atlas-workbook",
+      "text": "Queremos escribir «fama». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir fama qué parte falta en el espacio",
+      "batch": "B026",
+      "seq": 47,
+      "file": "B026-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-20-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 20,
+        "sourceStatus": "verified",
+        "printedPages": [
+          74
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          20
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l20-page-74-fill-fama",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 74,
+          "workbookPdfSheet": 80,
+          "relatedFlipchartSheets": [
+            49
+          ],
+          "expectedAnswer": "fa",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

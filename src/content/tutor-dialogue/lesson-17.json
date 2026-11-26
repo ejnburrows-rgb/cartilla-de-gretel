@@ -83,7 +83,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy abrimos juntos una nueva lección para explorar el sonido de la erre al comenzar palabras",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-02-greeting-return",
@@ -163,7 +165,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo el cuento de roberto rolo y rita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-03-review-intro",
@@ -242,7 +246,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya navegamos con la uve de vela hoy escuchamos la vibración alegre de la letra ere",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-04-review-check",
@@ -321,7 +327,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "has escuchado cómo vibra la lengua al imitar una ranita o el motor en la palabra rana",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-05-lesson-objective",
@@ -400,7 +408,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos cómo suena la erre al principio de las palabras leeremos ra re ri ro ru y bien",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-06-letter-name",
@@ -479,7 +489,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ere y hoy la estudiamos como r inicial al comienzo de cada palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-07-phonetic-sound",
@@ -558,7 +570,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al iniciar una palabra vibra fuerte en el paladar rrr y en medio de vocales da un toque suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-08-lesson-focus",
@@ -637,7 +651,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando la ere empieza una palabra vibra con energía como en rana rosa y rueda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-09-sound-contrast",
@@ -716,7 +732,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha la diferencia al inicio como en rana vibra fuerte pero en medio como en pera da un solo toque",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-10-explanation-primary",
@@ -795,7 +813,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos la ere inicial con las vocales leemos las sílabas ra re ri ro ru",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-11-explanation-simple",
@@ -874,7 +894,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sube la punta de la lengua arriba y déjala temblar suavecito como un motorcito al decir rana y remo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-12-flipchart-intro",
@@ -951,7 +973,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer los dibujos nuevos y la rima la rosca de manolo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-39-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 39
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-40-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 40
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-41-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 41
+        }
+      ]
     },
     {
       "id": "v2-l17-13-flipchart-illustration-1",
@@ -1028,7 +1078,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una rana unos remos la niña rita una rosa y una rueda",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-39-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 39,
+          "expectedAnswer": "rana"
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-40-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 40,
+          "expectedAnswer": "ramo"
+        }
+      ]
     },
     {
       "id": "v2-l17-14-flipchart-illustration-2",
@@ -1105,7 +1177,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos en la escena al ratón al mono risueño y la rosca redonda de manolo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-15-reading-order",
@@ -1184,7 +1258,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee primero las sílabas luego las palabras del cuadro y después sigue el cuento completo en orden",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-16-flipchart-model",
@@ -1261,7 +1337,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas ra re ri ro ru",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-17-flipchart-vocab",
@@ -1338,7 +1416,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio rana remos rita rosa y rueda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-18-flipchart-rhyme-1",
@@ -1415,7 +1495,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de la rosca de manolo la r para la rama para el roer del ratón",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-39-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 39
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-40-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 40
+        }
+      ]
     },
     {
       "id": "v2-l17-19-flipchart-rhyme-2",
@@ -1492,7 +1592,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con la segunda parte de la rima la rana el remo la rosa y la rosca de manolo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-20-comprehension-1",
@@ -1571,7 +1673,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según la rima la rosca de manolo qué animal roe en el poema",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-21-comprehension-2",
@@ -1650,7 +1754,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué le pasa al bolo cuando la bola de roberto rueda y le da en la historia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-22-comprehension-3",
@@ -1729,7 +1835,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra rueda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-23-common-mistake-1",
@@ -1808,7 +1916,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando veas una sola erre entre vocales como en cara o pero no la hagas vibrar fuerte dale un toque suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-24-common-mistake-2",
@@ -1887,7 +1997,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al inicio de palabra como en rana o roberto sí vibra con fuerza aunque veas una sola erre",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-25-common-mistake-3",
@@ -1966,7 +2078,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "respeta la tilde en palabras como ratón también y ríe al leer la historia de rolo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-26-hint-1",
@@ -2045,7 +2159,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate si la erre está al principio de la palabra para hacerla vibrar con fuerza",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-41-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 41
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rana-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ra",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rana-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rita-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "Ri",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rita-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-ruta-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-ruta-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-remo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "re",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-remo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rosa-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rosa-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rubio-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rubio-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l17-27-hint-2",
@@ -2124,7 +2406,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el sonido inicial con rana o con rosa para elegir la sílaba exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-28-hint-3",
@@ -2203,7 +2487,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy rana",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-29-workbook-transition",
@@ -2282,7 +2568,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la ere y leer nuestra primera historia larga",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-30-page-instruction-1",
@@ -2358,7 +2646,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "practica el trazo de la ere mayúscula y minúscula y haz un dibujo cuyo nombre empiece con erre",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-59-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-59-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l17-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l17-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l17-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l17-31-page-instruction-2",
@@ -2434,7 +2820,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después circula las sílabas en palabras como rana reloj risa rosa rolo y ruta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-32-syllable-practice",
@@ -2510,7 +2898,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con atención cada sílaba ra en rana re en remo ri en risa ro en rosa y ru en ruta",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ra",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ra"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-re",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "re"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ri",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ri"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ro",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ro"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ru",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ru"
+        }
+      ]
     },
     {
       "id": "v2-l17-33-word-practice-1",
@@ -2586,7 +3048,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras ramo remo ropa rosa rana rosado risa y ruta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-34-word-practice-2",
@@ -2662,7 +3126,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo rulo rata rita rolo roto roma y rebaño",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-35-sight-or-vocab",
@@ -2738,7 +3204,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos la palabra bien que aparece para contar cómo rueda la bola de roberto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-36-sentence-or-pair",
@@ -2814,7 +3282,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con entusiasmo la historia de hoy la bola de roberto rueda bien",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-ramo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-remo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-ropa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rosa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rana",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rosado",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-risa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-ruta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rulo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rata",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rita",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rolo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-roto",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-roma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rebaño",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l17-37-page-instruction-final",
@@ -2890,7 +3542,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa las palabras con ra re ri ro ru como en rana rita ruta remo rosa y rubio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-38-game-intro",
@@ -2969,7 +3623,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva para dominar las sílabas ra re ri ro ru",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-39-game-step",
@@ -3048,7 +3704,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige cuál de las cinco sílabas la completa bien",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-40-game-correct",
@@ -3127,7 +3785,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "excelente vibración elegiste la sílaba inicial exacta y leíste con mucha claridad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-41-game-retry",
@@ -3206,7 +3866,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "di el nombre del dibujo o la palabra en voz alta y escucha qué vocal acompaña a la erre",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-42-assessment",
@@ -3285,7 +3947,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee estas oraciones del libro rolo patea la bola la bola rueda y le da a un bolo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rita",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "Ri",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-ruta",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-remo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "re",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rosa",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rubio",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l17-43-page-complete",
@@ -3364,7 +4100,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la erre inicial y leíste tu primera historia completa",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-59-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l17-44-closing",
@@ -3443,7 +4196,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bien leíste toda la historia de roberto rolo y rita tu voz suena cada vez más segura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l17-45-next-step",
@@ -3522,7 +4277,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conocerás la doble erre para que vibre fuerte en medio de las palabras",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-46-atlas-flipchart",
+      "text": "¿Qué comida aparece en el título?",
+      "normalizedText": "qué comida aparece en el título",
+      "batch": "B023",
+      "seq": 46,
+      "file": "B023-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-17-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 17,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          41
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-41-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 41,
+          "expectedAnswer": "la rosca"
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-47-atlas-workbook",
+      "text": "Queremos escribir «rana». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir rana qué parte falta en el espacio",
+      "batch": "B023",
+      "seq": 47,
+      "file": "B023-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-17-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 17,
+        "sourceStatus": "verified",
+        "printedPages": [
+          62
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rana",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ra",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

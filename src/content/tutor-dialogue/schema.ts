@@ -142,10 +142,39 @@ export const DialogueAudioMetadataSchema = z.object({
 });
 export type DialogueAudioMetadata = z.infer<typeof DialogueAudioMetadataSchema>;
 
+export const DIALOGUE_SOURCE_PRS = ["PR#1073", "PR#1322", "reconciled"] as const;
+export type DialogueSourcePr = (typeof DIALOGUE_SOURCE_PRS)[number];
+
+export const SourceContextMappingSchema = z
+  .object({
+    sourceLineId: z.string().min(1),
+    sourcePr: z.enum(["PR#1073", "PR#1322"]),
+    intent: z.string().min(1),
+    role: z.string().min(1),
+    activity: z.string().min(1).optional(),
+    workbookPage: z.number().int().min(1).max(90).optional(),
+    workbookPdfSheet: z.number().int().min(1).max(120).optional(),
+    flipchartSheet: z.number().int().min(1).max(62).optional(),
+    relatedFlipchartSheets: z.array(z.number().int().min(1).max(62)).optional(),
+    expectedAnswer: z.string().min(1).optional(),
+    commonError: z.string().min(1).optional(),
+    sharedClip: z.boolean().optional(),
+  })
+  .superRefine((ctxItem, ctx) => {
+    if (ctxItem.workbookPage === 86 || ctxItem.workbookPage === 87) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `${ctxItem.sourceLineId}: sourceContext must not reference absent-in-source workbook pages 86-87`,
+      });
+    }
+  });
+export type SourceContextMapping = z.infer<typeof SourceContextMappingSchema>;
+
 export const DialogueLineV2Schema = z
   .object({
     id: z.string().min(1),
     text: z.string().min(1),
+    normalizedText: z.string().min(1).optional(),
     batch: z.string().min(1),
     seq: z.number().int().positive(),
     file: z.string().min(1),
@@ -166,6 +195,8 @@ export const DialogueLineV2Schema = z
     audio: DialogueAudioMetadataSchema,
     status: z.enum(DIALOGUE_STATUSES),
     approval: z.string().min(1).optional(),
+    sourcePr: z.enum(DIALOGUE_SOURCE_PRS).optional(),
+    sourceContexts: z.array(SourceContextMappingSchema).optional(),
   })
   .superRefine((entry, ctx) => {
     if (isRejectedAudioSource(entry.audio.src) || isRejectedAudioSource(entry.audio.visemes) || isRejectedAudioSource(entry.file)) {

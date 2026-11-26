@@ -83,7 +83,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "llegamos hoy a una nueva lección para cantar y leer con el sonido claro de la ele",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-02-greeting-return",
@@ -163,7 +165,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez para seguir leyendo palabras e historias con la letra ele",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-03-review-intro",
@@ -242,7 +246,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya leemos con eme pe ese te y de hoy la ele nos trae muchas palabras alegres",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-04-review-check",
@@ -321,7 +327,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas dónde apoyas la lengua cuando pasas de decir dedo a decir luna",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-05-lesson-objective",
@@ -400,7 +408,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido de la letra ele sus sílabas la le li lo lu y la palabra también",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-06-letter-name",
@@ -479,7 +489,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ele y la minúscula es un palito alto y derecho como una torre",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-07-phonetic-sound",
@@ -558,7 +570,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para pronunciarla subimos la punta de la lengua detrás de los dientes de arriba lll",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-08-lesson-focus",
@@ -637,7 +651,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sube la punta de la lengua hasta el cielo de la boca detrás de los dientes como en luna y maleta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-09-sound-contrast",
@@ -716,7 +732,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a diferencia de la de que vibra al soltar el aire la ele deja escapar el aire por los lados",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-10-explanation-primary",
@@ -795,7 +813,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos ese sonido luminoso con las vocales formamos la le li lo lu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-11-explanation-simple",
@@ -874,7 +894,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pega la puntita de la lengua detrás de los dientes de arriba y canta lll antes de cada vocal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-12-flipchart-intro",
@@ -951,7 +973,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer las palabras nuevas y leer el poema rítmico leo lee",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-sheet-24-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 24
+        },
+        {
+          "sourceLineId": "dialogue-l12-sheet-25-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 25
+        },
+        {
+          "sourceLineId": "dialogue-l12-sheet-26-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 26
+        }
+      ]
     },
     {
       "id": "v2-l12-13-flipchart-illustration-1",
@@ -1028,7 +1078,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una maleta una lata la niña luli una loma y lala",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-sheet-24-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 24,
+          "expectedAnswer": "maleta"
+        },
+        {
+          "sourceLineId": "dialogue-l12-sheet-25-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 25,
+          "expectedAnswer": "lima"
+        }
+      ]
     },
     {
       "id": "v2-l12-14-flipchart-illustration-2",
@@ -1105,7 +1177,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también vemos a leo leyendo feliz rodeado de palabras con tela lana y maleta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-15-reading-order",
@@ -1184,7 +1258,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las sílabas de izquierda a derecha y sigue los versos repetidos del poema sin saltarte ninguno",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-16-flipchart-model",
@@ -1261,7 +1337,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las cinco sílabas la le li lo lu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-17-flipchart-vocab",
@@ -1338,7 +1416,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio maleta lata luli loma y lala",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-18-flipchart-rhyme-1",
@@ -1415,7 +1495,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo alegre del poema leo lee leo leo leo leo lima palo tela tula",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-sheet-24-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 24
+        },
+        {
+          "sourceLineId": "dialogue-l12-sheet-25-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 25
+        }
+      ]
     },
     {
       "id": "v2-l12-19-flipchart-rhyme-2",
@@ -1492,7 +1592,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con la segunda parte del poema maleta de tela tela de lana maleta de polo de lalo y de ana",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-20-comprehension-1",
@@ -1571,7 +1673,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema leo lee de qué material está hecha la maleta de polo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-21-comprehension-2",
@@ -1650,7 +1754,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "quién más tiene una maleta de tela en la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-22-comprehension-3",
@@ -1729,7 +1835,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra lupa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-23-common-mistake-1",
@@ -1808,7 +1916,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no confundas la ele minúscula con una i sin punto ni con una te es un palito alto sin rayita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-24-common-mistake-2",
@@ -1887,7 +1997,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando leas maleta o paloma pasa sin prisa por la sílaba de en medio que lleva ele",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-25-common-mistake-3",
@@ -1966,7 +2078,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no cortes la sílaba en dos trozos junta la ele y la vocal en una sola voz limpia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-26-hint-1",
@@ -2045,7 +2159,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sube la lengua detrás de los dientes de arriba y fíjate en la vocal siguiente",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-sheet-26-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 26
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-paleta-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "le",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-paleta-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-solo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "lo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-solo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-pala-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "la",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-pala-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-lata-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "la",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-lata-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-maleta-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "le",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-maleta-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-lupa-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "lu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-lupa-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l12-27-hint-2",
@@ -2124,7 +2406,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el sonido con lata o con maleta para descubrir la sílaba correcta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-28-hint-3",
@@ -2203,7 +2487,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy maleta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-29-workbook-transition",
@@ -2282,7 +2568,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para trazar la ele y leer la historia de luli y polo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-30-page-instruction-1",
@@ -2358,7 +2646,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza la ele mayúscula y minúscula alta y derechita y dibuja algo cuyo nombre empiece con ele",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-page-39-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-39-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l12-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l12-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l12-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l12-31-page-instruction-2",
@@ -2434,7 +2820,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después circula la sílaba correcta dentro de las palabras como lata maleta lima y lupa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-32-syllable-practice",
@@ -2510,7 +2898,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con cuidado cada sílaba la en lata le en maleta li en lima lo en pelota y lu en lupa",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-page-40-find-la",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 40,
+          "workbookPdfSheet": 46,
+          "relatedFlipchartSheets": [
+            24,
+            25
+          ],
+          "expectedAnswer": "la"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-40-find-le",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 40,
+          "workbookPdfSheet": 46,
+          "relatedFlipchartSheets": [
+            24,
+            25
+          ],
+          "expectedAnswer": "le"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-40-find-li",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 40,
+          "workbookPdfSheet": 46,
+          "relatedFlipchartSheets": [
+            24,
+            25
+          ],
+          "expectedAnswer": "li"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-40-find-lo",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 40,
+          "workbookPdfSheet": 46,
+          "relatedFlipchartSheets": [
+            24,
+            25
+          ],
+          "expectedAnswer": "lo"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-40-find-lu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 40,
+          "workbookPdfSheet": 46,
+          "relatedFlipchartSheets": [
+            24,
+            25
+          ],
+          "expectedAnswer": "lu"
+        }
+      ]
     },
     {
       "id": "v2-l12-33-word-practice-1",
@@ -2586,7 +3048,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras lima lata aleta maleta lupa sale paloma y pala",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-34-word-practice-2",
@@ -2662,7 +3126,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con estas palabras del cuadro lomo pelusa lilo lola luli tela y tula",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-35-sight-or-vocab",
@@ -2738,7 +3204,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos una palabra nueva muy útil para sumar ideas también",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-36-sentence-or-pair",
@@ -2814,7 +3282,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee siguiendo con tu dedito esta oración del libro la maleta de luli está en la mesa",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-lima",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-lata",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-aleta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-maleta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-lupa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-sale",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-paloma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-pala",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-lomo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-pelusa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-lilo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-lola",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-luli",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-tela",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-41-read-tula",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 41,
+          "workbookPdfSheet": 47,
+          "relatedFlipchartSheets": [
+            25
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l12-37-page-instruction-final",
@@ -2890,7 +3542,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa las palabras con la le li lo lu como en paleta solo pala y lata",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-38-game-intro",
@@ -2969,7 +3623,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva con las sílabas de la ele para reforzar la lectura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-39-game-step",
@@ -3048,7 +3704,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira la palabra incompleta y elige entre la le li lo lu la sílaba que la forma bien",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-40-game-correct",
@@ -3127,7 +3785,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien leída esa palabra la ele sonó clarita en el lugar exacto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-41-game-retry",
@@ -3206,7 +3866,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pronuncia el resto de la palabra y prueba cuál de las cinco sílabas le da sentido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-42-assessment",
@@ -3285,7 +3947,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro lalo tiene una maleta de tela también",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-solo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "lo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-pala",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "la",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-lata",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "la",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-maleta",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "le",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-lupa",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "lu",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l12-43-page-complete",
@@ -3364,7 +4100,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades de la letra ele con mucha soltura y claridad",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-page-39-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 39,
+          "workbookPdfSheet": 45,
+          "relatedFlipchartSheets": [
+            24
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l12-44-closing",
@@ -3443,7 +4196,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué suave y limpia sonó tu lectura con la letra ele cada día lees historias más largas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-45-next-step",
@@ -3522,7 +4277,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección descubriremos el sonido nasal de la letra ene",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l12-46-atlas-flipchart",
+      "text": "¿Qué palabra viene después de «lima»?",
+      "normalizedText": "qué palabra viene después de lima",
+      "batch": "B018",
+      "seq": 46,
+      "file": "B018-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-12-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 12,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          26
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-sheet-26-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 26,
+          "expectedAnswer": "palo"
+        }
+      ]
+    },
+    {
+      "id": "v2-l12-47-atlas-workbook",
+      "text": "Queremos escribir «paleta». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir paleta qué parte falta en el espacio",
+      "batch": "B018",
+      "seq": 47,
+      "file": "B018-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-12-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 12,
+        "sourceStatus": "verified",
+        "printedPages": [
+          42
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          12
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l12-page-42-fill-paleta",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 42,
+          "workbookPdfSheet": 48,
+          "relatedFlipchartSheets": [
+            25
+          ],
+          "expectedAnswer": "le",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

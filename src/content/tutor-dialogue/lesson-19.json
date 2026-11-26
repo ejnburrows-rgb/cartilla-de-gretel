@@ -80,7 +80,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy entramos juntos a una nueva lección para descubrir el sonido suave de la letra ge",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-02-greeting-return",
@@ -157,7 +159,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez para seguir leyendo las aventuras del gato goloso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-03-review-intro",
@@ -233,7 +237,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya dominamos la ere y la doble erre hoy conocemos la letra ge junto a las vocales a o u",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-04-review-check",
@@ -309,7 +315,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo sonaban las palabras con doble erre antes de escuchar el sonido suave de gato",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-05-lesson-objective",
@@ -385,7 +393,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido suave de la ge con a o u en las sílabas ga go gu y la historia de goloso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-06-letter-name",
@@ -461,7 +471,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ge y la minúscula lleva una bolita arriba con su colita curva hacia abajo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-07-phonetic-sound",
@@ -537,7 +549,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando acompaña a las vocales a o y u nace suavecita en la garganta como en gato gorra y gusano",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-08-lesson-focus",
@@ -613,7 +627,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la ge suena suave desde la garganta cuando forma las sílabas ga go y gu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-09-sound-contrast",
@@ -689,7 +705,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en esta lección trabajamos únicamente ga go y gu que mantienen siempre el mismo sonido suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-10-explanation-primary",
@@ -765,7 +783,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al unir la ge con las vocales a o y u leemos las tres sílabas de hoy ga go gu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-11-explanation-simple",
@@ -841,7 +861,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "siente un roce suavecito atrás en la garganta sin raspar cuando dices gato goma y gusano",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-12-flipchart-intro",
@@ -915,7 +937,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para ver los dibujos nuevos y leer el poema el gato enamorado",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-sheet-45-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 45
+        },
+        {
+          "sourceLineId": "dialogue-l19-sheet-46-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 46
+        },
+        {
+          "sourceLineId": "dialogue-l19-sheet-47-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 47
+        }
+      ]
     },
     {
       "id": "v2-l19-13-flipchart-illustration-1",
@@ -989,7 +1039,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una gaveta un gusano el gato goloso una gorra y un mago",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-sheet-45-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 45,
+          "expectedAnswer": "gaveta"
+        },
+        {
+          "sourceLineId": "dialogue-l19-sheet-46-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 46,
+          "expectedAnswer": "gato"
+        }
+      ]
     },
     {
       "id": "v2-l19-14-flipchart-illustration-2",
@@ -1063,7 +1135,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos en el poema al gato goloso coqueteando con la gata gordita musulunga",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-15-reading-order",
@@ -1139,7 +1213,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las tres sílabas en orden luego pasa por las palabras del cuadro y disfruta toda la historia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-16-flipchart-model",
@@ -1213,7 +1289,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas de la lección ga go gu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-17-flipchart-vocab",
@@ -1287,7 +1365,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio gaveta gusano goloso gorra y mago",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-18-flipchart-rhyme-1",
@@ -1361,7 +1441,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de el gato enamorado mi gato goloso se enamoró de musulunga y la engatusó",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-sheet-45-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 45
+        },
+        {
+          "sourceLineId": "dialogue-l19-sheet-46-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 46
+        }
+      ]
     },
     {
       "id": "v2-l19-19-flipchart-rhyme-2",
@@ -1435,7 +1535,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el mensaje tierno del poema gatita gordita gatita mi amor este gusanito es para los dos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-20-comprehension-1",
@@ -1511,7 +1613,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema el gato enamorado qué regalo le lleva goloso a musulunga",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-21-comprehension-2",
@@ -1587,7 +1691,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué le pone magali a su gato goloso en la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-22-comprehension-3",
@@ -1663,7 +1769,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra gorra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-23-common-mistake-1",
@@ -1739,7 +1847,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate bien en la colita de la ge minúscula que baja debajo del renglón y se curva a la izquierda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-24-common-mistake-2",
@@ -1815,7 +1925,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no confundas la letra ge con la letra pe o de la bolita va arriba sobre el renglón",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-25-common-mistake-3",
@@ -1891,7 +2003,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuida las tildes en palabras como góndola y mangú para acentuar la sílaba correcta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-26-hint-1",
@@ -1967,7 +2081,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "siente el sonido suave atrás en la garganta y mira si sigue a o o u",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-sheet-47-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 47
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-aguja-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "gu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-aguja-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-ganas-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "ga",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-ganas-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-mago-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "go",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-mago-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-gato-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "ga",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-gato-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-goma-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "go",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-goma-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-lago-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "go",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-lago-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l19-27-hint-2",
@@ -2043,7 +2325,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara la palabra con gato gorra o gusano para reconocer ga go o gu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-28-hint-3",
@@ -2119,7 +2403,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy gato",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-29-workbook-transition",
@@ -2195,7 +2481,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la ge y leer la historia de magali y gustavo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-30-page-instruction-1",
@@ -2268,7 +2556,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la ge mayúscula y minúscula con paciencia y dibuja algo cuyo nombre empiece con ge",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-page-67-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-67-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l19-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l19-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l19-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l19-31-page-instruction-2",
@@ -2341,7 +2727,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo ga go o gu en palabras como gato goma gorra lago y gusano",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-32-syllable-practice",
@@ -2414,7 +2802,53 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "rodea cada sílaba con cuidado ga en gato y ganas go en goma gorra y lago gu en gusano y aguja",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-page-68-find-ga",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 68,
+          "workbookPdfSheet": 74,
+          "relatedFlipchartSheets": [
+            45,
+            46
+          ],
+          "expectedAnswer": "ga"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-68-find-go",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 68,
+          "workbookPdfSheet": 74,
+          "relatedFlipchartSheets": [
+            45,
+            46
+          ],
+          "expectedAnswer": "go"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-68-find-gu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 68,
+          "workbookPdfSheet": 74,
+          "relatedFlipchartSheets": [
+            45,
+            46
+          ],
+          "expectedAnswer": "gu"
+        }
+      ]
     },
     {
       "id": "v2-l19-33-word-practice-1",
@@ -2487,7 +2921,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras gato gustavo gotero goma mago laguna magali y lago",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-34-word-practice-2",
@@ -2560,7 +2996,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo golosina ganas agua gorra gusta gusano y góndola",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-35-sight-or-vocab",
@@ -2633,7 +3071,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate en las palabras agua y aguja donde la ge suena suave justo en medio de la palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-36-sentence-or-pair",
@@ -2706,7 +3146,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con claridad esta oración del libro el gato de magali bebe agua en el lago",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-gato",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-gustavo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-gotero",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-goma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-mago",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-laguna",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-magali",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-lago",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-golosina",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-ganas",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-agua",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-gorra",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-gusta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-gusano",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-69-read-góndola",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 69,
+          "workbookPdfSheet": 75,
+          "relatedFlipchartSheets": [
+            46
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l19-37-page-instruction-final",
@@ -2779,7 +3403,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con ga go o gu como en aguja ganas mago gato goma y lago",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-38-game-intro",
@@ -2855,7 +3481,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva completando palabras con ga go y gu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-39-game-step",
@@ -2931,7 +3559,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta del libro y elige entre ga go y gu la sílaba que falta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-40-game-correct",
@@ -3007,7 +3637,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien completado elegiste la sílaba suave de la ge en el lugar exacto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-41-game-retry",
@@ -3083,7 +3715,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pronuncia la palabra completa despacio y escucha si necesita ga go o gu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-42-assessment",
@@ -3159,7 +3793,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro magali le pone una gorra a su gato goloso",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-ganas",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "ga",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-mago",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "go",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-gato",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "ga",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-goma",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "go",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-lago",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "go",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l19-43-page-complete",
@@ -3235,7 +3943,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la letra ge con excelente lectura y mucha paciencia",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-page-67-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 67,
+          "workbookPdfSheet": 73,
+          "relatedFlipchartSheets": [
+            45
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l19-44-closing",
@@ -3311,7 +4036,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leíste toda la historia del gato goloso y musulunga con mucha soltura y alegría",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-45-next-step",
@@ -3387,7 +4114,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección practicaremos el soplido suave de la letra efe",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l19-46-atlas-flipchart",
+      "text": "¿De quién se enamoró Goloso?",
+      "normalizedText": "de quién se enamoró goloso",
+      "batch": "B025",
+      "seq": 46,
+      "file": "B025-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-19-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 19,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          47
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          19
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-sheet-47-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 47,
+          "expectedAnswer": "de Musulunga"
+        }
+      ]
+    },
+    {
+      "id": "v2-l19-47-atlas-workbook",
+      "text": "Queremos escribir «aguja». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir aguja qué parte falta en el espacio",
+      "batch": "B025",
+      "seq": 47,
+      "file": "B025-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-19-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 19,
+        "sourceStatus": "verified",
+        "printedPages": [
+          70
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          19
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l19-page-70-fill-aguja",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 70,
+          "workbookPdfSheet": 76,
+          "relatedFlipchartSheets": [
+            46
+          ],
+          "expectedAnswer": "gu",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

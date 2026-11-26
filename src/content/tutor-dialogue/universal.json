@@ -43,7 +43,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hola soy gretel y hoy vamos a descubrir sonidos y palabras juntos",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-first-meeting-01",
+          "sourcePr": "PR#1322",
+          "intent": "first-meeting",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b001-greet-first-02",
@@ -77,7 +87,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría tenerte aquí abramos la cartilla para empezar nuestra lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-03",
@@ -111,7 +123,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenido a tu espacio de lectura iremos paso a paso y sin prisa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-04",
@@ -145,7 +159,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hola qué bueno que viniste prepara tus ojos y tus oídos para leer",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-05",
@@ -179,7 +195,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "empecemos una nueva lección yo te acompaño en cada dibujo y en cada palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-06",
@@ -213,7 +231,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos letras nuevas con calma y alegría empezamos cuando estés listo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-01",
@@ -247,7 +267,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "eso es escuchaste con atención y dijiste la palabra completa",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-first-correct-01",
+          "sourcePr": "PR#1322",
+          "intent": "first-correct",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b001-praise-02",
@@ -281,7 +311,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lo lograste a la primera y tu voz sonó muy clara",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-03",
@@ -315,7 +347,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bien leíste ese sonido cada día avanzas con más seguridad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-04",
@@ -349,7 +383,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "justo esa era la respuesta se nota que miraste bien el dibujo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-05",
@@ -383,7 +419,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "buen trabajo en esta palabra seguimos adelante con la que viene",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-06",
@@ -417,7 +455,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "acertaste enseguida me encanta cómo reconoces cada sonido de la página",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-07",
@@ -451,7 +491,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sí esa es exactamente qué alegría ver cómo lees tan concentrado",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-08",
@@ -485,7 +527,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lo dijiste clarito y sin apuro vamos por buen camino",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-01",
@@ -519,7 +563,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no pasa nada si no salió todavía respira tranquilo e inténtalo otra vez",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-first-error-01",
+          "sourcePr": "PR#1322",
+          "intent": "first-error",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b001-try-again-02",
@@ -553,7 +607,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con calma lo hacemos mejor escucha el modelo y vuelve a decirlo conmigo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-03",
@@ -587,7 +643,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "equivocarse también ayuda a aprender mira el dibujo y prueba de nuevo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-04",
@@ -621,7 +679,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "vamos sin prisa tómate un momento para oír bien antes de responder",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-05",
@@ -655,7 +715,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "tú puedes lograrlo toca el micrófono cuando te sientas listo para probar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-06",
@@ -689,7 +751,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "casi lo tienes en tus manos hagamos un intento más bien despacito",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-01",
@@ -723,7 +787,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "estuviste tan cerquita escucha el final de la palabra y dilo otra vez",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-partial-01",
+          "sourcePr": "PR#1322",
+          "intent": "partial",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b001-close-miss-02",
@@ -757,7 +831,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya casi suena igualito abre un poquito más la boca y prueba de nuevo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-03",
@@ -791,7 +867,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "por poquito aciertas fíjate en cómo empieza el sonido y repítelo despacio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-04",
@@ -825,7 +903,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "te faltó apenas un detalle vamos a escuchar el modelo una vez más",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-05",
@@ -859,7 +939,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "vas muy cerca de la palabra exacta dímela un poco más claro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-01",
@@ -893,7 +975,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no alcancé a escucharte bien acércate un poquito y dime la respuesta",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-silence-01",
+          "sourcePr": "PR#1322",
+          "intent": "silence",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-technical-listening-01",
+          "sourcePr": "PR#1322",
+          "intent": "listening",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-technical-wait-01",
+          "sourcePr": "PR#1322",
+          "intent": "wait",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b001-silence-02",
@@ -927,7 +1031,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "el micrófono quedó en silencio habla con voz clara cuando quieras intentar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-03",
@@ -961,7 +1067,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "aquí estoy esperándote tranquilo quieres repetir la palabra un poco más fuerte",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-04",
@@ -995,7 +1103,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "parece que todavía no hablaste toca el botón y comparte tu respuesta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-05",
@@ -1029,7 +1139,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no te preocupes si estabas pensando cuando estés listo te escucho con gusto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-01",
@@ -1063,7 +1175,23 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste toda la práctica de hoy estoy muy orgullosa de tu esfuerzo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-farewell-01",
+          "sourcePr": "PR#1322",
+          "intent": "farewell",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-technical-closing-01",
+          "sourcePr": "PR#1322",
+          "intent": "closing",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b001-closing-02",
@@ -1097,7 +1225,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bonita sesión tuvimos juntos nos vemos muy pronto en la próxima lección",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-03",
@@ -1131,7 +1261,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste cada palabra de la página descansa un rato y sigue leyendo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-04",
@@ -1165,7 +1297,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprendiste cosas nuevas con mucha paciencia hasta la próxima aventura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-05",
@@ -1199,7 +1333,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "llegamos al final de esta lección puedes sentirte feliz con lo que lograste",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-06",
@@ -1233,7 +1369,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "gracias por leer conmigo hoy guardamos la cartilla y nos vemos luego",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-01",
@@ -1269,7 +1407,23 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez por aquí continuemos justo donde nos quedamos",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-return-01",
+          "sourcePr": "PR#1322",
+          "intent": "return",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-return-02",
+          "sourcePr": "PR#1322",
+          "intent": "return",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b002-return-02",
@@ -1305,7 +1459,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hola de nuevo amigo qué bueno seguir practicando nuestra lectura juntos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-03",
@@ -1341,7 +1497,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "volviste a tu cartilla y eso me alegra mucho vamos a repasar un poquito",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-04",
@@ -1377,7 +1535,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenido otra vez cada vez que regresas tu lectura se hace más fuerte",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-05",
@@ -1413,7 +1573,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya te estaba esperando para leer otro rato abramos la página de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-06",
@@ -1449,7 +1611,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con la misma calma de siempre listo para escuchar la primera palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-01",
@@ -1485,7 +1649,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "llevas varias seguidas sin fallar estás escuchando cada sonido de maravilla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-02",
@@ -1521,7 +1687,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué buena racha llevas hoy una palabra tras otra te sale clarita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-03",
@@ -1557,7 +1725,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigues acertando sin detenerte tus oídos están muy atentos hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-04",
@@ -1593,7 +1763,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "vas volando por esta página se nota cuánto has practicado estas letras",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-05",
@@ -1629,7 +1801,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "otra respuesta correcta seguida mantienes ese ritmo tranquilo y seguro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-06",
@@ -1665,7 +1839,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué racha tan alegre estamos construyendo vamos a ver cuál sigue ahora",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-retry-praise-01",
@@ -1701,7 +1877,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lo intentaste otra vez y al fin salió eso muestra mucha paciencia",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-after-hint-01",
+          "sourcePr": "PR#1322",
+          "intent": "after-hint",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b002-retry-praise-02",
@@ -1737,7 +1923,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no te rendiste cuando costó un poquito y ahora lo dijiste perfecto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-retry-praise-03",
@@ -1773,7 +1961,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a veces hace falta probar dos veces qué bien que seguiste intentando",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-retry-praise-04",
@@ -1809,7 +1999,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta costó trabajo pero la conquistaste con calma bien hecho",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-retry-praise-05",
@@ -1845,7 +2037,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cada intento te acercó un poco más hasta que la dijiste clarita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-retry-praise-06",
@@ -1881,7 +2075,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escuchaste la pista y la atrapaste enseguida qué orgullo me da verte crecer",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-wrong-word-01",
@@ -1915,7 +2111,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esa es otra palabra del dibujo mira el recuadro iluminado e intenta de nuevo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-repeated-error-01",
+          "sourcePr": "PR#1322",
+          "intent": "repeated-error",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b002-wrong-word-02",
@@ -1949,7 +2155,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "uy miraste el dibujo vecino señalemos el que está encendido y probemos otra vez",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-wrong-word-03",
@@ -1983,7 +2191,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esa palabra también está en la página pero ahora buscamos la marcada",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-wrong-word-04",
@@ -2017,7 +2227,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no es esa todavía escucha primero cómo suena y luego repítela conmigo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-wrong-word-05",
@@ -2051,7 +2263,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "se parecen un poco pero fíjate en el primer sonido de este dibujo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-wrong-word-06",
@@ -2085,7 +2299,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "dejemos esa palabra para después y concentrémonos en la que brilla aquí",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-repeat-ack-01",
@@ -2119,7 +2335,41 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "claro que sí la escuchamos otra vez con toda calma",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-repeat-01",
+          "sourcePr": "PR#1322",
+          "intent": "repeat",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-repeat-02",
+          "sourcePr": "PR#1322",
+          "intent": "repeat",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-repeat-03",
+          "sourcePr": "PR#1322",
+          "intent": "repeat",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-repeat-04",
+          "sourcePr": "PR#1322",
+          "intent": "repeat",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-repeat-05",
+          "sourcePr": "PR#1322",
+          "intent": "repeat",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b002-repeat-ack-02",
@@ -2153,7 +2403,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con mucho gusto te la repito pon atención al comienzo de la palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-repeat-ack-03",
@@ -2187,7 +2439,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "aquí va de nuevo bien despacito para que la escuches clarito",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-repeat-ack-04",
@@ -2221,7 +2475,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escuchar dos veces ayuda mucho presta oído que ya te la digo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-repeat-ack-05",
@@ -2255,7 +2511,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "vamos a oírla una vez más y luego la dices tú",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-repeat-ack-06",
@@ -2289,7 +2547,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "te la vuelvo a decir sin apuro fíjate en cada sonido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-dont-know-01",
@@ -2323,7 +2583,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no pasa nada si todavía no la sabes yo la digo primero y me acompañas",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-uncertain-01",
+          "sourcePr": "PR#1322",
+          "intent": "uncertain",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b002-dont-know-02",
@@ -2357,7 +2627,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "está muy bien decir cuando no sabes algo la practicamos juntos paso a paso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-dont-know-03",
@@ -2391,7 +2663,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "tranquilo para eso estoy aquí contigo escúchala primero y luego la repetimos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-dont-know-04",
@@ -2425,7 +2699,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no te preocupes por esa palabra vamos a descubrir cómo suena poco a poco",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-dont-know-05",
@@ -2459,7 +2735,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "aprender es ir conociendo palabras nuevas oye esta conmigo y prueba después",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-dont-know-06",
@@ -2493,7 +2771,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sin miedo ninguno te la muestro otra vez para que la repitas conmigo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-redirect-01",
@@ -2527,7 +2807,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "dejemos esa descansar un momento y pasemos a la siguiente palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-redirect-02",
@@ -2561,7 +2843,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después volvemos a repasarla con calma ahora miremos el dibujo que sigue",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-redirect-03",
@@ -2595,7 +2879,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya practicamos bastante esa palabra sigamos adelante para conocer la próxima",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-redirect-04",
@@ -2629,7 +2915,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "guardamos esa para el repaso del final y avanzamos a la siguiente",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-redirect-05",
@@ -2663,7 +2951,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no pasa nada si esta cuesta hoy seguimos leyendo con el próximo ejemplo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-redirect-06",
@@ -2697,7 +2987,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hiciste un buen intento demos vuelta a la página mental y probemos otra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-01",
@@ -2731,7 +3023,41 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira primero el dibujo completo y piensa cómo se llama en casa",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-help-01",
+          "sourcePr": "PR#1322",
+          "intent": "help",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-help-02",
+          "sourcePr": "PR#1322",
+          "intent": "help",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-help-03",
+          "sourcePr": "PR#1322",
+          "intent": "help",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-help-04",
+          "sourcePr": "PR#1322",
+          "intent": "help",
+          "role": "conversation"
+        },
+        {
+          "sourceLineId": "dialogue-universal-help-05",
+          "sourcePr": "PR#1322",
+          "intent": "help",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b003-help-02",
@@ -2765,7 +3091,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate en la primera letra de la palabra y escucha cómo suena",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-03",
@@ -2799,7 +3127,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "vamos más despacio escucha el comienzo y luego el resto de la palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-04",
@@ -2833,7 +3163,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pon tu dedito debajo del dibujo mientras escuchas el sonido conmigo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-05",
@@ -2867,7 +3199,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "da una palmada suave por cada pedacito que oyes en la palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-06",
@@ -2901,7 +3235,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha mi voz con atención y repite exactamente lo que acabo de decir",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-07",
@@ -2935,7 +3271,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira la forma de mi boca al empezar y haz el mismo sonido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-08",
@@ -2969,7 +3307,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la decimos juntos al mismo tiempo cuando el micrófono esté abierto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-a",
@@ -3004,7 +3344,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ese sonido que dijiste es la vocal a abriendo grande la boca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-e",
@@ -3039,7 +3381,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ese sonido que dijiste es la vocal e con una sonrisa suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-i",
@@ -3074,7 +3418,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ese sonido que dijiste es la vocal i delgadita y bien alegre",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-o",
@@ -3109,7 +3455,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ese sonido que dijiste es la vocal o poniendo la boca redondita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-u",
@@ -3144,7 +3492,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ese sonido que dijiste es la vocal u cerrando los labios hacia adelante",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-review-01",
@@ -3178,7 +3528,17 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "antes de terminar repasemos juntos las palabras que quedaron pendientes",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-more-practice-01",
+          "sourcePr": "PR#1322",
+          "intent": "more-practice",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b003-review-02",
@@ -3212,7 +3572,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos una ronda cortita de repaso para fortalecer lo que practicamos hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-review-03",
@@ -3246,7 +3608,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "volvamos a mirar estas palabras con calma verás que ahora salen más fácil",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-review-04",
@@ -3280,7 +3644,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "es momento de nuestro repaso tranquilo vamos palabra por palabra sin apuro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-review-05",
@@ -3314,7 +3680,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repasar nos ayuda a recordar mejor escucha bien esta primera de la lista",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-review-06",
@@ -3348,7 +3716,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "demos una segunda vuelta a las palabras que pedían un poquito más de práctica",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-idle-01",
@@ -3382,7 +3752,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "vamos a descansar un poco por ahora cuando quieras seguir aquí te espero",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-idle-02",
@@ -3416,7 +3788,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pausamos la lectura para que descanses la vista nos vemos muy pronto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-idle-03",
@@ -3450,7 +3824,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "tu progreso queda guardado aquí mismo puedes volver cuando tengas ganas de leer",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-idle-04",
@@ -3484,7 +3860,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "es buen momento para tomar agua y descansar luego continuamos juntos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-idle-05",
@@ -3518,7 +3896,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cerramos esta pausa con tranquilidad vuelve cuando estés listo para seguir",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-01",
@@ -3552,7 +3932,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bajemos un poco el ritmo para que cada sonido salga bien descansado",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-02",
@@ -3586,7 +3968,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no hay ningún reloj apurándonos respira hondo y seguimos a tu paso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-03",
@@ -3620,7 +4004,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos una pausa cortita en la boca antes de soltar la palabra entera",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-04",
@@ -3654,7 +4040,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando una palabra parece larga léela desde el inicio hasta el final sin saltar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-05",
@@ -3688,7 +4076,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "si estás cansado podemos hacer solo una más antes de descansar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-06",
@@ -3722,7 +4112,449 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerda mirar la forma de los labios primero y luego soltar la voz",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-b003-universal-clarify-01",
+      "text": "¿Te refieres al dibujo o a la palabra que tiene al lado?",
+      "normalizedText": "te refieres al dibujo o a la palabra que tiene al lado",
+      "batch": "B003",
+      "seq": 31,
+      "file": "B003-031.mp3",
+      "intent": "clarify",
+      "role": "atlas-clarify",
+      "variationGroup": "universal-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-clarify-01",
+          "sourcePr": "PR#1322",
+          "intent": "clarify",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-universal-clarify-02",
+      "text": "¿Qué parte quieres que expliquemos de otra manera?",
+      "normalizedText": "qué parte quieres que expliquemos de otra manera",
+      "batch": "B003",
+      "seq": 32,
+      "file": "B003-032.mp3",
+      "intent": "clarify",
+      "role": "atlas-clarify",
+      "variationGroup": "universal-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-clarify-02",
+          "sourcePr": "PR#1322",
+          "intent": "clarify",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-universal-clarify-03",
+      "text": "Hay varias palabras en la página. ¿Con cuál empezamos?",
+      "normalizedText": "hay varias palabras en la página con cuál empezamos",
+      "batch": "B003",
+      "seq": 33,
+      "file": "B003-033.mp3",
+      "intent": "clarify",
+      "role": "atlas-clarify",
+      "variationGroup": "universal-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-clarify-03",
+          "sourcePr": "PR#1322",
+          "intent": "clarify",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-universal-clarify-04",
+      "text": "Señala la fila en la que estás trabajando.",
+      "normalizedText": "señala la fila en la que estás trabajando",
+      "batch": "B003",
+      "seq": 34,
+      "file": "B003-034.mp3",
+      "intent": "clarify",
+      "role": "atlas-clarify",
+      "variationGroup": "universal-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-clarify-04",
+          "sourcePr": "PR#1322",
+          "intent": "clarify",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-universal-clarify-05",
+      "text": "¿Quieres ayuda para leerla o para escribirla?",
+      "normalizedText": "quieres ayuda para leerla o para escribirla",
+      "batch": "B003",
+      "seq": 35,
+      "file": "B003-035.mp3",
+      "intent": "clarify",
+      "role": "atlas-clarify",
+      "variationGroup": "universal-clarify",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-clarify-05",
+          "sourcePr": "PR#1322",
+          "intent": "clarify",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-universal-understanding-check-01",
+      "text": "¿Quieres probar tú o vemos otro ejemplo?",
+      "normalizedText": "quieres probar tú o vemos otro ejemplo",
+      "batch": "B003",
+      "seq": 36,
+      "file": "B003-036.mp3",
+      "intent": "understanding-check",
+      "role": "atlas-understanding-check",
+      "variationGroup": "universal-understanding-check",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-understanding-check-01",
+          "sourcePr": "PR#1322",
+          "intent": "understanding-check",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-technical-understanding-check-01",
+      "text": "¿Cómo se lo explicarías a alguien que empieza hoy?",
+      "normalizedText": "cómo se lo explicarías a alguien que empieza hoy",
+      "batch": "B003",
+      "seq": 37,
+      "file": "B003-037.mp3",
+      "intent": "understanding-check",
+      "role": "atlas-understanding-check",
+      "variationGroup": "universal-understanding-check",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-understanding-check-01",
+          "sourcePr": "PR#1322",
+          "intent": "understanding-check",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-technical-understanding-check-02",
+      "text": "¿Cuál de las dos opciones escogerías ahora?",
+      "normalizedText": "cuál de las dos opciones escogerías ahora",
+      "batch": "B003",
+      "seq": 38,
+      "file": "B003-038.mp3",
+      "intent": "understanding-check",
+      "role": "atlas-understanding-check",
+      "variationGroup": "universal-understanding-check",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-understanding-check-02",
+          "sourcePr": "PR#1322",
+          "intent": "understanding-check",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-technical-understanding-check-03",
+      "text": "¿Te gustaría leerla entera sin mi ayuda?",
+      "normalizedText": "te gustaría leerla entera sin mi ayuda",
+      "batch": "B003",
+      "seq": 39,
+      "file": "B003-039.mp3",
+      "intent": "understanding-check",
+      "role": "atlas-understanding-check",
+      "variationGroup": "universal-understanding-check",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-understanding-check-03",
+          "sourcePr": "PR#1322",
+          "intent": "understanding-check",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b003-technical-understanding-check-04",
+      "text": "¿Qué palabra te gustaría repasar antes de seguir?",
+      "normalizedText": "qué palabra te gustaría repasar antes de seguir",
+      "batch": "B003",
+      "seq": 40,
+      "file": "B003-040.mp3",
+      "intent": "understanding-check",
+      "role": "atlas-understanding-check",
+      "variationGroup": "universal-understanding-check",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-understanding-check-04",
+          "sourcePr": "PR#1322",
+          "intent": "understanding-check",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b004-pron-a-name",
@@ -3759,7 +4591,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta vocal se llama a y para decirla abrimos bien grande la boca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-a-sound",
@@ -3796,7 +4630,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha su sonido limpio y abierto aaa como al empezar abeja y árbol",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-e-name",
@@ -3833,7 +4669,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta vocal se llama e y la decimos con una sonrisa suave y abierta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-e-sound",
@@ -3870,7 +4708,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha su sonido parejo y claro eee como al empezar elefante y estrella",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-i-name",
@@ -3907,7 +4747,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta vocal delgadita con punto arriba se llama i en todo el libro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-i-sound",
@@ -3944,7 +4786,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha su sonido finito y alegre iii como al empezar isla e imán",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-o-name",
@@ -3981,7 +4825,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta vocal redondita como una rueda se llama o y nunca cambia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-o-sound",
@@ -4018,7 +4864,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha su sonido redondo y firme ooo como al empezar oso y ola",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-u-name",
@@ -4055,7 +4903,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta última hermanita se llama u y tiene forma de columpio curvo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-u-sound",
@@ -4092,7 +4942,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha su sonido cerrando los labios hacia adelante uuu como en uvas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-m-name",
@@ -4129,7 +4981,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta primera consonante se llama eme pero al leer escuchamos su sonido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-m-sound",
@@ -4166,7 +5020,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "junta los labios suavemente para hacer su sonido mmm como en mamá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-p-name",
@@ -4203,7 +5059,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama pe y su sonido sale como una burbuja",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-p-sound",
@@ -4240,7 +5098,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "aprieta los labios y suelta un golpecito limpio de aire como en papá",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-s-name",
@@ -4277,7 +5137,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta letra curvada se llama ese igual que el sonido del viento suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-s-sound",
@@ -4314,7 +5176,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "deja salir el aire suavecito entre los dientes sss como en sapo y sopa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-t-name",
@@ -4351,7 +5215,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante alta con sombrero se llama te pero al leer suena cortita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-t-sound",
@@ -4388,7 +5254,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "toca detrás de los dientes de arriba con la lengua como en tomate",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-d-name",
@@ -4425,7 +5293,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama de y su sonido vibra suave en la lengua",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-d-sound",
@@ -4462,7 +5332,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "apoya suavemente la punta de la lengua en los dientes como en dedo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-l-name",
@@ -4499,7 +5371,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta letra alta se llama ele y su sonido sube hasta el cielo de la boca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-l-sound",
@@ -4536,7 +5410,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sube la lengua detrás de los dientes y sostén el sonido lll como en luna",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-n-name",
@@ -4573,7 +5449,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante de una sola montañita se llama ene en nuestro abecedario",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-n-sound",
@@ -4610,7 +5488,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "siente la vibración suave en la nariz al pronunciarla nnn como en nido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-nn-name",
@@ -4647,7 +5527,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la hermana con la olita arriba se llama eñe y es muy especial del español",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-nn-sound",
@@ -4684,7 +5566,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pega el centro de la lengua al paladar para su sonido ñññ como en piñata",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-bv-name",
@@ -4722,7 +5606,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "una se llama be y la otra uve aunque suenan igual de suaves al hablar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-bv-sound",
@@ -4760,7 +5646,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "junta ambos labios con suavidad para las dos como en bebé y en vaso",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-r-soft",
@@ -4797,7 +5685,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la ere suave da un solo toquecito ligero arriba como en aro y pera",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-rr-strong",
@@ -4835,7 +5725,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al principio o con doble erre vibra fuerte rrr como en rana y perro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-g-name",
@@ -4872,7 +5764,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta letra se llama ge y en la lección diecinueve escuchamos su sonido suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-g-sound",
@@ -4909,7 +5803,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "suena suavecito desde la garganta en gato gorra gusano juguete y guitarra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-f-name",
@@ -4946,7 +5842,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta letra se llama efe y suena como cuando soplas despacito una vela",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-f-sound",
@@ -4983,7 +5881,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "apoya los dientes de arriba en el labio inferior fff como en foto y familia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-j-name",
@@ -5020,7 +5920,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante con puntito se llama jota y suena como una risa suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-j-sound",
@@ -5057,7 +5959,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "suelta aire tibio desde el fondo de la garganta como en jugo y jicotea",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-c-name",
@@ -5094,7 +5998,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante curva se llama ce y tiene dos sonidos muy claros según su vocal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-c-sound",
@@ -5131,7 +6037,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "suena fuerte en casa coco y cuna y suave como ese en dulce",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-y-name",
@@ -5168,7 +6076,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta letra se llama ye o i griega y cuando va sola suena i",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-y-sound",
@@ -5205,7 +6115,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con las vocales resbala suave sobre el paladar como en yate yema y yoyo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-z-name",
@@ -5242,7 +6154,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "nuestra última letra de la cartilla se llama zeta y camina en zigzag",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-z-sound",
@@ -5279,7 +6193,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en nuestro español suena suavecita como la ese igual en zapato y zumo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-noise-01",
@@ -5313,7 +6229,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucho bastante ruido alrededor y no distingo bien tu voz",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-noise-02",
@@ -5347,7 +6265,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "si podemos buscar un rinconcito más callado te oiré mucho mejor",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-noise-03",
@@ -5381,7 +6301,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hay otros sonidos cerca del micrófono acércate un poquito y probemos otra vez",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-noise-04",
@@ -5415,7 +6337,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando baje el ruido del salón toca el botón y te escucho",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-noise-05",
@@ -5449,7 +6373,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "el micrófono recogió sonidos del fondo esperemos un segundo tranquilo para hablar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-01",
@@ -5485,7 +6411,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "coloca la página abierta frente a la cámara para poder verla completa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-02",
@@ -5521,7 +6449,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "aleja un poquito el libro para que quepan las dos esquinas en pantalla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-03",
@@ -5557,7 +6487,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sostén la hoja bien quietita un momento mientras terminamos de revisarla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-04",
@@ -5593,7 +6525,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la página se ve un poco oscura busquemos un lugar con buena luz",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-05",
@@ -5629,7 +6563,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuidado que tu sombra tapa el dibujo mueve el libro hacia la luz",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-06",
@@ -5665,7 +6601,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "todavía se ve un poco borroso apoya los codos para mantenerlo firme",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-07",
@@ -5701,7 +6639,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora sí veo clarita tu página de trabajo sigamos con el ejercicio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-08",
@@ -5737,7 +6677,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para ver tu cuaderno necesito permiso de la cámara con un adulto cerca",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-09",
@@ -5773,7 +6715,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "aparta la manita un segundo para que se vean todas las letras escritas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-10",
@@ -5809,7 +6753,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasa la hoja con cuidado y muéstrame la nueva página bien derechita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-11",
@@ -5843,7 +6789,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "si hoy no usamos la cámara seguimos practicando directamente aquí en pantalla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-12",
@@ -5879,7 +6827,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "tienes abierta exactamente la página que aparece ahora en tu pantalla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-mic-01",
@@ -5915,7 +6865,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "el micrófono está apagado todavía pídele a un adulto que lo active arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-mic-02",
@@ -5951,7 +6903,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando estés listo para responder toca el botón grande del micrófono",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-mic-03",
@@ -5987,7 +6941,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no hace falta gritar habla cerca del dispositivo con tu voz normal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-mic-04",
@@ -6023,7 +6979,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "espera a que termine de hablar antes de tocar el micrófono",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-mic-05",
@@ -6057,7 +7015,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "estoy probando el sonido contigo me escuchas claro y sin interrupciones",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-mic-06",
@@ -6091,7 +7051,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "el sonido está en silencio si quieres oírme toca el altavoz arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-offline-01",
@@ -6125,7 +7087,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "todo el material de esta lección ya está guardado para practicar sin internet",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-offline-02",
@@ -6159,7 +7123,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hace falta preparar de nuevo esta lección con ayuda de tu maestra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-offline-03",
@@ -6193,7 +7159,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy el micrófono no responde aquí así que practicaremos tocando en pantalla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-offline-04",
@@ -6227,7 +7195,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hubo un pequeño corte en el micrófono volvamos a intentarlo con calma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-offline-05",
@@ -6261,7 +7231,637 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué interesante lo que contaste pero ahora leamos esta palabra del dibujo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-b005-technical-mic-denied-01",
+      "text": "El micrófono está apagado. Puedes escribir aquí para seguir.",
+      "normalizedText": "el micrófono está apagado puedes escribir aquí para seguir",
+      "batch": "B005",
+      "seq": 29,
+      "file": "B005-029.mp3",
+      "intent": "mic-denied",
+      "role": "technical-mic-denied",
+      "variationGroup": "technical-mic-denied",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-mic-denied-01",
+          "sourcePr": "PR#1322",
+          "intent": "mic-denied",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-mic-start-01",
+      "text": "Cuando estés listo, toca el micrófono y di la palabra una vez.",
+      "normalizedText": "cuando estés listo toca el micrófono y di la palabra una vez",
+      "batch": "B005",
+      "seq": 30,
+      "file": "B005-030.mp3",
+      "intent": "mic-start",
+      "role": "technical-mic-start",
+      "variationGroup": "technical-mic-start",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-mic-start-01",
+          "sourcePr": "PR#1322",
+          "intent": "mic-start",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-camera-preview-01",
+      "text": "Coloca el papel delante de la cámara y comprueba que se vea entero en tu pantalla.",
+      "normalizedText": "coloca el papel delante de la cámara y comprueba que se vea entero en tu pantalla",
+      "batch": "B005",
+      "seq": 31,
+      "file": "B005-031.mp3",
+      "intent": "camera-preview",
+      "role": "technical-camera-preview",
+      "variationGroup": "technical-camera-preview",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-camera-preview-01",
+          "sourcePr": "PR#1322",
+          "intent": "camera-preview",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-camera-off-01",
+      "text": "Podemos trabajar con el cuaderno. ¿Quieres abrirlo?",
+      "normalizedText": "podemos trabajar con el cuaderno quieres abrirlo",
+      "batch": "B005",
+      "seq": 32,
+      "file": "B005-032.mp3",
+      "intent": "camera-off",
+      "role": "technical-camera-off",
+      "variationGroup": "technical-camera-off",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-camera-off-01",
+          "sourcePr": "PR#1322",
+          "intent": "camera-off",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-camera-denied-01",
+      "text": "La cámara sigue apagada. Puedes señalar tu trabajo en el cuaderno.",
+      "normalizedText": "la cámara sigue apagada puedes señalar tu trabajo en el cuaderno",
+      "batch": "B005",
+      "seq": 33,
+      "file": "B005-033.mp3",
+      "intent": "camera-denied",
+      "role": "technical-camera-denied",
+      "variationGroup": "technical-camera-denied",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-camera-denied-01",
+          "sourcePr": "PR#1322",
+          "intent": "camera-denied",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-snapshot-01",
+      "text": "Cuando tengas el papel listo, toca el botón para tomar la foto.",
+      "normalizedText": "cuando tengas el papel listo toca el botón para tomar la foto",
+      "batch": "B005",
+      "seq": 34,
+      "file": "B005-034.mp3",
+      "intent": "snapshot",
+      "role": "technical-snapshot",
+      "variationGroup": "technical-snapshot",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-snapshot-01",
+          "sourcePr": "PR#1322",
+          "intent": "snapshot",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-snapshot-uncertain-01",
+      "text": "¿Quieres escribir la letra que hiciste?",
+      "normalizedText": "quieres escribir la letra que hiciste",
+      "batch": "B005",
+      "seq": 35,
+      "file": "B005-035.mp3",
+      "intent": "snapshot-uncertain",
+      "role": "technical-snapshot-uncertain",
+      "variationGroup": "technical-snapshot-uncertain",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "gentle",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-snapshot-uncertain-01",
+          "sourcePr": "PR#1322",
+          "intent": "snapshot-uncertain",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-snapshot-position-01",
+      "text": "Apoya la hoja en una mesa y acerca la cámara hasta que se vean los trazos.",
+      "normalizedText": "apoya la hoja en una mesa y acerca la cámara hasta que se vean los trazos",
+      "batch": "B005",
+      "seq": 36,
+      "file": "B005-036.mp3",
+      "intent": "snapshot-position",
+      "role": "technical-snapshot-position",
+      "variationGroup": "technical-snapshot-position",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {
+        "requiresCamera": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-snapshot-position-01",
+          "sourcePr": "PR#1322",
+          "intent": "snapshot-position",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-offline-missing-01",
+      "text": "Falta una parte de esta actividad en el aparato. Pide ayuda a una persona adulta.",
+      "normalizedText": "falta una parte de esta actividad en el aparato pide ayuda a una persona adulta",
+      "batch": "B005",
+      "seq": 37,
+      "file": "B005-037.mp3",
+      "intent": "offline-missing",
+      "role": "technical-offline-missing",
+      "variationGroup": "technical-offline-missing",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "gentle",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-offline-missing-01",
+          "sourcePr": "PR#1322",
+          "intent": "offline-missing",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-offline-ready-01",
+      "text": "Esta lección ya está guardada en el aparato. Puedes abrirla sin internet.",
+      "normalizedText": "esta lección ya está guardada en el aparato puedes abrirla sin internet",
+      "batch": "B005",
+      "seq": 38,
+      "file": "B005-038.mp3",
+      "intent": "offline-ready",
+      "role": "technical-offline-ready",
+      "variationGroup": "technical-offline-ready",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-offline-ready-01",
+          "sourcePr": "PR#1322",
+          "intent": "offline-ready",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-recovery-01",
+      "text": "Ya está abierto el ejercicio que elegiste. ¿Quieres volver a leer la indicación?",
+      "normalizedText": "ya está abierto el ejercicio que elegiste quieres volver a leer la indicación",
+      "batch": "B005",
+      "seq": 39,
+      "file": "B005-039.mp3",
+      "intent": "recovery",
+      "role": "technical-recovery",
+      "variationGroup": "technical-recovery",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-recovery-01",
+          "sourcePr": "PR#1322",
+          "intent": "recovery",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-recovery-empty-01",
+      "text": "¿En qué página quieres empezar hoy?",
+      "normalizedText": "en qué página quieres empezar hoy",
+      "batch": "B005",
+      "seq": 40,
+      "file": "B005-040.mp3",
+      "intent": "recovery-empty",
+      "role": "technical-recovery-empty",
+      "variationGroup": "technical-recovery-empty",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "help",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-recovery-empty-01",
+          "sourcePr": "PR#1322",
+          "intent": "recovery-empty",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-privacy-01",
+      "text": "Puedes dejar la cámara apagada mientras practicamos.",
+      "normalizedText": "puedes dejar la cámara apagada mientras practicamos",
+      "batch": "B005",
+      "seq": 41,
+      "file": "B005-041.mp3",
+      "intent": "privacy",
+      "role": "technical-privacy",
+      "variationGroup": "technical-privacy",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-privacy-01",
+          "sourcePr": "PR#1322",
+          "intent": "privacy",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b005-technical-paper-01",
+      "text": "Antes de mostrar la hoja, aparta cualquier papel que tenga tu nombre.",
+      "normalizedText": "antes de mostrar la hoja aparta cualquier papel que tenga tu nombre",
+      "batch": "B005",
+      "seq": 42,
+      "file": "B005-042.mp3",
+      "intent": "paper",
+      "role": "technical-paper",
+      "variationGroup": "technical-paper",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "technical",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-paper-01",
+          "sourcePr": "PR#1322",
+          "intent": "paper",
+          "role": "conversation"
+        }
+      ]
     },
     {
       "id": "v2-b006-wb-picture-grid",
@@ -6295,7 +7895,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa cada fila de dibujos y marca los que empiezan igual",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-vowel-pick",
@@ -6329,7 +7931,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira la vocal del recuadro y rodea el dibujo que comienza con ella",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-line-match",
@@ -6363,7 +7967,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "traza una línea desde la letra hasta cada dibujo que lleve ese sonido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-writing-trace",
@@ -6397,7 +8003,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "toma tu lápiz suavemente y escribe la letra siguiendo el modelo del renglón",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-writing-draw",
@@ -6431,7 +8039,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora haz un dibujo bonito de algo cuyo nombre comience con esta letra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-circle-syllable",
@@ -6465,7 +8075,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "busca en cada palabra la sílaba indicada y enciérrala en un círculo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-syllabary",
@@ -6499,7 +8111,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo cada sílaba en orden y luego repite las palabras de abajo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-sight-words",
@@ -6533,7 +8147,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "estas palabritas cortas nos ayudan a unir ideas para leer oraciones completas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-sentences",
@@ -6567,7 +8183,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigue con tu dedito cada palabra de la oración de izquierda a derecha",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-fill-blank",
@@ -6601,7 +8219,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira la palabra completa y elige la sílaba que falta en la línea",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-page-done",
@@ -6635,7 +8255,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste toda esta página con cuidado pasemos a la hoja que sigue",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-page-perfect",
@@ -6669,7 +8291,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hiciste toda la página sin un solo error qué buen ojo lector tienes",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-chano-01",
@@ -6703,7 +8327,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "chano el payaso maestro nos invita a formar palabras sobre su pizarra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-chano-02",
@@ -6737,7 +8363,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha la palabra coloca las sílabas en orden y toca la sombrilla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-chano-03",
@@ -6771,7 +8399,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "todavía falta acomodar las sílabas toca el resorte y vuelve a intentar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-mariposas-01",
@@ -6805,7 +8435,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completa cada palabra con sus sílabas para que las mariposas vuelvan al jardín",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-mariposas-02",
@@ -6839,7 +8471,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira cómo regresan contentas las mariposas formaste la palabra exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-silabas-01",
@@ -6873,7 +8507,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira el dibujo escucha la palabra y ordena las sílabas en las casillas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-silabas-02",
@@ -6907,7 +8543,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "revisa cuál sílaba suena primero y cámbialas de lugar con tranquilidad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-vocal-a-01",
@@ -6941,7 +8579,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "toca cada tarjeta y dime si el dibujo comienza con la vocal a",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-fonetica-01",
@@ -6975,7 +8615,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige la sílaba que la termina bien",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-rima-01",
@@ -7009,7 +8651,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee la palabra modelo y busca otra que termine con el mismo sonido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-rima-02",
@@ -7043,7 +8687,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esas dos palabras riman al final como una canción pequeña",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-fluency-01",
@@ -7077,7 +8723,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee cada palabra con claridad antes de pasar a la tarjeta siguiente",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-fluency-02",
@@ -7111,7 +8759,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste tu ronda de lectura cada práctica hace tu voz más segura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-dibujos-01",
@@ -7145,7 +8795,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee primero la palabra en silencio y luego toca el dibujo que le corresponde",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-completar-01",
@@ -7179,7 +8831,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa con cuidado dónde falta una sílaba de la familia de eme",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-cow-01",
@@ -7213,7 +8867,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ayuda a cada vaquita a llevar su letrero hasta la cerca que coincide",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-cow-02",
@@ -7247,7 +8903,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esa vaquita encontró su cerca exacta y ya descansa feliz en el corral",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-cow-03",
@@ -7281,7 +8939,361 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira otra vez la sílaba de esa vaquita y busca su pareja en la cerca",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-b006-universal-curiosity-01",
+      "text": "¿Qué te gustaría saber de esta palabra?",
+      "normalizedText": "qué te gustaría saber de esta palabra",
+      "batch": "B006",
+      "seq": 31,
+      "file": "B006-031.mp3",
+      "intent": "curiosity",
+      "role": "atlas-curiosity",
+      "variationGroup": "universal-curiosity",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-curiosity-01",
+          "sourcePr": "PR#1322",
+          "intent": "curiosity",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b006-universal-small-talk-01",
+      "text": "¡Hola! ¿Hay una palabra que tengas ganas de aprender a leer?",
+      "normalizedText": "hola hay una palabra que tengas ganas de aprender a leer",
+      "batch": "B006",
+      "seq": 32,
+      "file": "B006-032.mp3",
+      "intent": "small-talk",
+      "role": "atlas-small-talk",
+      "variationGroup": "universal-small-talk",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-small-talk-01",
+          "sourcePr": "PR#1322",
+          "intent": "small-talk",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b006-universal-interrupt-01",
+      "text": "Hacemos una pausa. ¿Quieres preguntar algo?",
+      "normalizedText": "hacemos una pausa quieres preguntar algo",
+      "batch": "B006",
+      "seq": 33,
+      "file": "B006-033.mp3",
+      "intent": "interrupt",
+      "role": "atlas-interrupt",
+      "variationGroup": "universal-interrupt",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-interrupt-01",
+          "sourcePr": "PR#1322",
+          "intent": "interrupt",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b006-universal-resume-01",
+      "text": "Seguimos donde lo dejamos. Mira de nuevo la palabra.",
+      "normalizedText": "seguimos donde lo dejamos mira de nuevo la palabra",
+      "batch": "B006",
+      "seq": 34,
+      "file": "B006-034.mp3",
+      "intent": "resume",
+      "role": "atlas-resume",
+      "variationGroup": "universal-resume",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-resume-01",
+          "sourcePr": "PR#1322",
+          "intent": "resume",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b006-universal-switch-01",
+      "text": "¿Seguimos con el cuaderno o volvemos a la lámina?",
+      "normalizedText": "seguimos con el cuaderno o volvemos a la lámina",
+      "batch": "B006",
+      "seq": 35,
+      "file": "B006-035.mp3",
+      "intent": "switch",
+      "role": "atlas-switch",
+      "variationGroup": "universal-switch",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-universal-switch-01",
+          "sourcePr": "PR#1322",
+          "intent": "switch",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b006-technical-text-alternative-01",
+      "text": "Escribe tu respuesta y léela antes de enviarla.",
+      "normalizedText": "escribe tu respuesta y léela antes de enviarla",
+      "batch": "B006",
+      "seq": 36,
+      "file": "B006-036.mp3",
+      "intent": "text-alternative",
+      "role": "atlas-text-alternative",
+      "variationGroup": "universal-text-alternative",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-text-alternative-01",
+          "sourcePr": "PR#1322",
+          "intent": "text-alternative",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b006-technical-retry-choice-01",
+      "text": "¿Prefieres escuchar el ejemplo o probar una vez más?",
+      "normalizedText": "prefieres escuchar el ejemplo o probar una vez más",
+      "batch": "B006",
+      "seq": 37,
+      "file": "B006-037.mp3",
+      "intent": "retry-choice",
+      "role": "atlas-retry-choice",
+      "variationGroup": "universal-retry-choice",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-retry-choice-01",
+          "sourcePr": "PR#1322",
+          "intent": "retry-choice",
+          "role": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "v2-b006-technical-harder-01",
+      "text": "¿Quieres probar con una palabra un poco más larga?",
+      "normalizedText": "quieres probar con una palabra un poco más larga",
+      "batch": "B006",
+      "seq": 38,
+      "file": "B006-038.mp3",
+      "intent": "harder",
+      "role": "atlas-harder",
+      "variationGroup": "universal-harder",
+      "curriculumRefs": {
+        "lesson": 0,
+        "sourceStatus": "verified"
+      },
+      "scope": "universal",
+      "eligibility": {},
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 4,
+      "priority": 72,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-technical-harder-01",
+          "sourcePr": "PR#1322",
+          "intent": "harder",
+          "role": "conversation"
+        }
+      ]
     }
   ]
 }

@@ -88,7 +88,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy entramos juntos a una nueva lección para practicar el sonido firme de la letra te",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-02-greeting-return",
@@ -173,7 +175,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué gusto verte de nuevo para seguir leyendo palabras e historias con la letra te",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-03-review-intro",
@@ -257,7 +261,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya manejamos muy bien eme pe y ese hoy sumamos la te para leer palabras como tomate y pato",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-04-review-check",
@@ -341,7 +347,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo suena el aire suave de la ese antes de escuchar el toque firme de la te",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-05-lesson-objective",
@@ -425,7 +433,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido de la letra te sus sílabas ta te ti to tu y tres palabras nuevas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-06-letter-name",
@@ -509,7 +519,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama te y lleva un palito alto cruzado con su sombrerito arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-07-phonetic-sound",
@@ -593,7 +605,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "su sonido nace tocando suavemente detrás de los dientes de arriba con la punta de la lengua",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-08-lesson-focus",
@@ -677,7 +691,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "apoya la punta de la lengua detrás de los dientes superiores como un golpecito limpio de reloj",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-09-sound-contrast",
@@ -761,7 +777,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mientras la ese deja escapar aire continuo la te suelta un toque breve y seco con la lengua",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-10-explanation-primary",
@@ -845,7 +863,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos ese toque de la lengua con las vocales formamos ta te ti to tu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-11-explanation-simple",
@@ -929,7 +949,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "toca detrás de tus dientes de arriba con la lengua y suelta la vocal de golpe ta te ti to tu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-12-flipchart-intro",
@@ -1011,7 +1033,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer las palabras y el poema llamado la sopa de pato",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-sheet-18-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 18
+        },
+        {
+          "sourceLineId": "dialogue-l10-sheet-19-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 19
+        },
+        {
+          "sourceLineId": "dialogue-l10-sheet-20-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 20
+        }
+      ]
     },
     {
       "id": "v2-l10-13-flipchart-illustration-1",
@@ -1093,7 +1143,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio vemos un tomate rojo una tapa un topo un tipi y al niño tuto",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-sheet-18-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 18,
+          "expectedAnswer": "tomate"
+        },
+        {
+          "sourceLineId": "dialogue-l10-sheet-19-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 19,
+          "expectedAnswer": "seta"
+        }
+      ]
     },
     {
       "id": "v2-l10-14-flipchart-illustration-2",
@@ -1175,7 +1247,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos la escena de la mesa en el patio donde tuto tato y uto toman sopa",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-15-reading-order",
@@ -1259,7 +1333,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee primero las cinco sílabas de izquierda a derecha luego las palabras y por último los versos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-16-flipchart-model",
@@ -1341,7 +1417,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas ta te ti to tu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-17-flipchart-vocab",
@@ -1423,7 +1501,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio tomate tapa topo tipi y tuto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-18-flipchart-rhyme-1",
@@ -1505,7 +1585,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos el comienzo de la sopa de pato tuto tato y uto toman sopa de pato",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-sheet-18-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 18
+        },
+        {
+          "sourceLineId": "dialogue-l10-sheet-19-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 19
+        }
+      ]
     },
     {
       "id": "v2-l10-19-flipchart-rhyme-2",
@@ -1587,7 +1687,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con la segunda parte del poema tito toma la sopa de tomate y pato papá toma su sopa en la mesa del patio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-20-comprehension-1",
@@ -1671,7 +1773,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema del rotafolio qué sopa toman tuto tato y uto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-21-comprehension-2",
@@ -1755,7 +1859,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "dónde toma su sopa papá al final del poema",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-22-comprehension-3",
@@ -1839,7 +1945,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra tomate",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-23-common-mistake-1",
@@ -1923,7 +2031,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no olvides trazar el palito horizontal de la te minúscula para que no se confunda con una ele",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-24-common-mistake-2",
@@ -2007,7 +2117,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ten cuidado de no decir no cuando tito tapa el pomo lee despacio los signos de admiración",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-25-common-mistake-3",
@@ -2091,7 +2203,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "distingue bien pata de tapa mirando cuál sílaba aparece primero al leer de izquierda a derecha",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-26-hint-1",
@@ -2175,7 +2289,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "toca detrás de los dientes con la lengua y fíjate en la vocal que sigue",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-sheet-20-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 20
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-toma-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "to",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-toma-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-mata-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "ta",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-mata-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-topo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "to",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-topo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tomate-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "to",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tomate-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tupe-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "tu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tupe-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tipi-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "ti",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tipi-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l10-27-hint-2",
@@ -2259,7 +2541,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el inicio de la palabra con tapa o con tomate para recordar su sílaba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-28-hint-3",
@@ -2343,7 +2627,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy tomate",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-29-workbook-transition",
@@ -2427,7 +2713,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para practicar la te y leer sus nuevas oraciones",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-30-page-instruction-1",
@@ -2508,7 +2796,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la te mayúscula y minúscula con trazo derecho y dibuja algo cuyo nombre empiece con te",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-page-31-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-31-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l10-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l10-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l10-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l10-31-page-instruction-2",
@@ -2589,7 +2975,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después busca y rodea en un círculo la sílaba de la te dentro de cada palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-32-syllable-practice",
@@ -2670,7 +3058,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con calma cada sílaba ta en tapa te en tomate ti en tito to en topo y tu en tupe",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-page-32-find-ta",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 32,
+          "workbookPdfSheet": 38,
+          "relatedFlipchartSheets": [
+            18,
+            19
+          ],
+          "expectedAnswer": "ta"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-32-find-te",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 32,
+          "workbookPdfSheet": 38,
+          "relatedFlipchartSheets": [
+            18,
+            19
+          ],
+          "expectedAnswer": "te"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-32-find-ti",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 32,
+          "workbookPdfSheet": 38,
+          "relatedFlipchartSheets": [
+            18,
+            19
+          ],
+          "expectedAnswer": "ti"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-32-find-to",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 32,
+          "workbookPdfSheet": 38,
+          "relatedFlipchartSheets": [
+            18,
+            19
+          ],
+          "expectedAnswer": "to"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-32-find-tu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 32,
+          "workbookPdfSheet": 38,
+          "relatedFlipchartSheets": [
+            18,
+            19
+          ],
+          "expectedAnswer": "tu"
+        }
+      ]
     },
     {
       "id": "v2-l10-33-word-practice-1",
@@ -2751,7 +3213,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos este grupo de palabras toma teme seta tute titi pata soto y tupe",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-34-word-practice-2",
@@ -2832,7 +3296,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo tapa mete mota piti topo sapito peseta tomate poti y pato",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-35-sight-or-vocab",
@@ -2913,7 +3379,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy sumamos tres palabras nuevas muy útiles para leer historias tiene patio y no",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-36-sentence-or-pair",
@@ -2994,7 +3462,227 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con calma esta oración del libro la mesa está en el patio",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-toma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-teme",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-seta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-tute",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-titi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-pata",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-soto",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-tupe",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-tapa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-mete",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-mota",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-piti",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-topo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-sapito",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-peseta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-tomate",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-poti",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-33-read-pato",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 33,
+          "workbookPdfSheet": 39,
+          "relatedFlipchartSheets": [
+            19
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l10-37-page-instruction-final",
@@ -3075,7 +3763,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con la sílaba que falta como en toma mata topo y tomate",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-38-game-intro",
@@ -3159,7 +3849,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva en pantalla formando palabras con las sílabas de la te",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-39-game-step",
@@ -3243,7 +3935,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha la palabra del ejercicio y elige la sílaba exacta entre ta te ti to tu para completarla",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-40-game-correct",
@@ -3327,7 +4021,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien completado elegiste la sílaba precisa de la te para formar la palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-41-game-retry",
@@ -3411,7 +4107,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite la palabra en voz baja y escucha cuál vocal suena junto al golpe de la te",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-42-assessment",
@@ -3495,7 +4193,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee en voz clara esta oración el pomo tiene sopa",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-mata",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "ta",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-topo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "to",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tomate",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "to",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tupe",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "tu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-tipi",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "ti",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l10-43-page-complete",
@@ -3579,7 +4351,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades de la letra te con orden y excelente lectura",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-page-31-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 31,
+          "workbookPdfSheet": 37,
+          "relatedFlipchartSheets": [
+            18
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l10-44-closing",
@@ -3663,7 +4452,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bien leíste toda la lección de la te y la historia de la sopa en el patio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-45-next-step",
@@ -3747,7 +4538,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos el sonido suave de la letra de",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l10-46-atlas-flipchart",
+      "text": "¿De quién es la sopa que tapa Ita?",
+      "normalizedText": "de quién es la sopa que tapa ita",
+      "batch": "B016",
+      "seq": 46,
+      "file": "B016-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-10-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 10,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          20
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-sheet-20-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 20,
+          "expectedAnswer": "de Tato"
+        }
+      ]
+    },
+    {
+      "id": "v2-l10-47-atlas-workbook",
+      "text": "Queremos escribir «toma». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir toma qué parte falta en el espacio",
+      "batch": "B016",
+      "seq": 47,
+      "file": "B016-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-10-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 10,
+        "sourceStatus": "verified",
+        "printedPages": [
+          34
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          10
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l10-page-34-fill-toma",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 34,
+          "workbookPdfSheet": 40,
+          "relatedFlipchartSheets": [
+            19
+          ],
+          "expectedAnswer": "to",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

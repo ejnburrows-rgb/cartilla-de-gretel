@@ -109,6 +109,31 @@ describe("missed items and the review-round set", () => {
     expect(second.record.missedItemIds).toEqual([]);
   });
 
+  it("isolates misses by learner AND lesson: beginSession clears only the started lesson and preserves all others (Gitar #5)", () => {
+    const store = fakeStore();
+    beginSession(store, "classA:7", 1);
+    noteMissedItem(store, "classA:7", "l1-vowel-a", 1);
+    noteMissedItem(store, "classA:7", "l1-word-ala", 1);
+
+    // Starting Lesson 2 must NOT carry over Lesson 1 misses and must preserve Lesson 1 misses
+    const startL2 = beginSession(store, "classA:7", 2);
+    expect(startL2.previousMissedItemIds).toEqual([]);
+    expect(startL2.record.missesByLesson[1]).toEqual(["l1-vowel-a", "l1-word-ala"]);
+    expect(startL2.record.missesByLesson[2]).toBeUndefined();
+
+    noteMissedItem(store, "classA:7", "l2-word-oso", 2);
+    expect(getTutorMemory(store, "classA:7").missesByLesson).toEqual({
+      1: ["l1-vowel-a", "l1-word-ala"],
+      2: ["l2-word-oso"],
+    });
+
+    // Returning to Lesson 1 hands back Lesson 1 misses and clears ONLY Lesson 1
+    const returnL1 = beginSession(store, "classA:7", 1);
+    expect(returnL1.previousMissedItemIds).toEqual(["l1-vowel-a", "l1-word-ala"]);
+    expect(returnL1.record.missesByLesson[1]).toBeUndefined();
+    expect(returnL1.record.missesByLesson[2]).toEqual(["l2-word-oso"]);
+  });
+
   it("review round = this session's misses + up to 3 from last time, deduped", () => {
     expect(reviewRoundSet(["a", "b"], ["p1", "p2", "p3", "p4"])).toEqual([
       "a",
@@ -216,6 +241,7 @@ describe("privacy: no names, audio, images, or transcripts", () => {
       "bestStreak",
       "lastLesson",
       "missedItemIds",
+      "missesByLesson",
       "sessions",
     ]);
   });
@@ -228,6 +254,7 @@ describe("privacy: no names, audio, images, or transcripts", () => {
       sessions: 0,
       lastLesson: null,
       missedItemIds: [],
+      missesByLesson: {},
       bestStreak: 0,
     });
   });

@@ -63,7 +63,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "llegamos hoy a nuestra siguiente aventura para conocer mejor a la vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-02-greeting-return",
@@ -123,7 +125,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bueno verte de nuevo por aquí para repasar nuestra sonriente vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-03-review-intro",
@@ -182,7 +186,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya practicamos las hermanitas o y a ahora le damos la bienvenida a la tercera vocal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-04-review-check",
@@ -241,7 +247,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "puedes recordar cómo suena la vocal a antes de pasar a la vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-05-lesson-objective",
@@ -300,7 +308,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido claro de la vocal e y encontraremos dibujos y palabras que empiezan con ella",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-06-letter-name",
@@ -359,7 +369,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta letra se llama e con tres bracitos en la mayúscula y una curvita cerrada en la minúscula",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-07-phonetic-sound",
@@ -418,7 +430,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al pronunciarla dibujamos una sonrisa suave y dejamos salir un sonido parejo eee",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-08-lesson-focus",
@@ -477,7 +491,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la vocal e suena siempre limpia y pareja cuando mantenemos la boca ligeramente entreabierta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-09-sound-contrast",
@@ -536,7 +552,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a diferencia de la a bien abierta y la i muy finita la e vive justo en una sonrisa media",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-10-explanation-primary",
@@ -595,7 +613,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando escuchas ese sonido parejo al comienzo de una palabra estás frente a la vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-11-explanation-simple",
@@ -654,7 +674,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sonríe poquito sin cerrar los dientes y di eee como llamando a ema desde lejos",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-12-flipchart-intro",
@@ -713,7 +735,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "miremos juntos en el rotafolio la divertida rima titulada la niña distraída",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-sheet-6-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 6
+        }
+      ]
     },
     {
       "id": "v2-l04-13-flipchart-illustration-1",
@@ -772,7 +806,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en las ilustraciones del rotafolio vemos un gran elefante a ema un espejo y una estrella",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-14-flipchart-illustration-2",
@@ -831,7 +867,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también aparecen una escalera y un erizo simpático acompañando a la distraída vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-15-reading-order",
@@ -890,7 +928,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigue los versos del poema de arriba hacia abajo y lee luego cada dibujo de izquierda a derecha",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-16-flipchart-model",
@@ -949,7 +989,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira el dibujo del elefante mientras dices su nombre alargando el sonido inicial con calma",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-17-flipchart-vocab",
@@ -1008,7 +1050,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos en voz clara las palabras del rotafolio elefante ema espejo estrella escalera y erizo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-18-flipchart-rhyme-1",
@@ -1067,7 +1111,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos los primeros versos distraída es la ee entiende al revés su mamá la llama una y otra vez",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-19-flipchart-rhyme-2",
@@ -1126,7 +1172,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos leyendo el diálogo del poema te oigo muy bajito llámame otra vez",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-20-comprehension-1",
@@ -1185,7 +1233,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en el poema la niña distraída quién llama una y otra vez a la vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-21-comprehension-2",
@@ -1244,7 +1294,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "por qué pide la niña distraída que la llamen otra vez",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-22-comprehension-3",
@@ -1303,7 +1355,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "comienza la palabra estrella con el mismo sonido inicial que la palabra escalera",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-23-common-mistake-1",
@@ -1362,7 +1416,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no confundas la e con la i mantén la boca un poco más abierta y relajada",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-24-common-mistake-2",
@@ -1421,7 +1477,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "evita marcar iglú maíz indio abeja aguja unicornio águila ni uno en tu ejercicio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-25-common-mistake-3",
@@ -1480,7 +1538,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando escribas la e minúscula empieza desde el centro hacia afuera y sube formando su cabecita",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-26-hint-1",
@@ -1539,7 +1599,19 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha el nombre del dibujo despacio y nota si tu boca hace una sonrisa media",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-sheet-6-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 6
+        }
+      ]
     },
     {
       "id": "v2-l04-27-hint-2",
@@ -1598,7 +1670,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el inicio del dibujo con elefante y estrella para ver si suenan igual",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-28-hint-3",
@@ -1657,7 +1731,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo estas palabras verificadas con e elefante escalera erizo y escoba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-29-workbook-transition",
@@ -1716,7 +1792,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para buscar los dibujos de la vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-30-page-instruction-1",
@@ -1773,7 +1851,94 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "marca con una equis solamente los dibujos de las palabras que comienzan con la vocal e",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-page-10-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l04-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l04-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l04-31-page-instruction-2",
@@ -1830,7 +1995,23 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después traza una línea desde la vocal e hasta cada dibujo que empieza con su mismo sonido",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-page-11-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 11,
+          "workbookPdfSheet": 17,
+          "relatedFlipchartSheets": [
+            6
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l04-32-syllable-practice",
@@ -1887,7 +2068,132 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pronuncia con atención el comienzo de cada palabra elefante escalera erizo escoba estrella escuela y espejo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-page-10-initial-escalera-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-10-pair-1",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e"
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-10-initial-escoba-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-10-pair-2",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e"
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-10-initial-escuela-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e"
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-10-pair-3",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e"
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-11-initial-erizo-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 11,
+          "workbookPdfSheet": 17,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e"
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-11-initial-escalera-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 11,
+          "workbookPdfSheet": 17,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-11-initial-estrella-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 11,
+          "workbookPdfSheet": 17,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l04-33-word-practice-1",
@@ -1944,7 +2250,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite despacio estas cuatro palabras del cuaderno elefante escalera erizo y escoba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-34-word-practice-2",
@@ -2001,7 +2309,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con estas palabras también de la lección estrella escuela espejo y ema",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-35-sight-or-vocab",
@@ -2058,7 +2368,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerda que ema se escribe con e mayúscula porque es el nombre propio de una persona",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-36-sentence-or-pair",
@@ -2115,7 +2427,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara este par de dibujos espejo empieza con e mientras que abrigo comienza con a",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-37-page-instruction-final",
@@ -2172,7 +2486,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final practica la escritura de la vocal e con tu mejor letra en los renglones",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-page-12-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 12,
+          "workbookPdfSheet": 18,
+          "relatedFlipchartSheets": [
+            6
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-12-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 12,
+          "workbookPdfSheet": 18,
+          "relatedFlipchartSheets": [
+            6
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l04-38-game-intro",
@@ -2231,7 +2573,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora un reto interactivo de escucha para distinguir las palabras que empiezan con e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-39-game-step",
@@ -2290,7 +2634,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha cada palabra que te presento y dime si su dibujo comienza con e o con otra vocal",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-40-game-correct",
@@ -2349,7 +2695,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien respondido distinguiste con claridad el sonido parejo de la vocal e",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-41-game-retry",
@@ -2408,7 +2756,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "vuelve a decir la palabra en voz baja y comprueba si empieza igual que elefante",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-42-assessment",
@@ -2467,7 +2817,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para cerrar hoy dime qué dibujo de tu cuaderno comienza con e además de elefante",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-43-page-complete",
@@ -2526,7 +2878,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todos tus ejercicios de la vocal e con mucha paciencia y orden",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-page-12-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 12,
+          "workbookPdfSheet": 18,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l04-44-closing",
@@ -2585,7 +2954,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué bien trabajaste hoy la vocal e cada vez tienes el oído más atento para leer",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-45-next-step",
@@ -2644,7 +3015,136 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos la delgadita vocal i y su divertida rima",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l04-46-atlas-flipchart",
+      "text": "¿Quién llama a la niña en el poema?",
+      "normalizedText": "quién llama a la niña en el poema",
+      "batch": "B010",
+      "seq": 46,
+      "file": "B010-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-04-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 4,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          6
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-sheet-6-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 6,
+          "expectedAnswer": "su mamá"
+        }
+      ]
+    },
+    {
+      "id": "v2-l04-47-atlas-workbook",
+      "text": "Di «elefante» muy despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "di elefante muy despacio con qué vocal empieza",
+      "batch": "B010",
+      "seq": 47,
+      "file": "B010-047.mp3",
+      "intent": "identify-initial",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-04-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 4,
+        "sourceStatus": "verified",
+        "printedPages": [
+          10
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          4
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l04-page-10-initial-elefante-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 10,
+          "workbookPdfSheet": 16,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l04-page-11-initial-elefante-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 11,
+          "workbookPdfSheet": 17,
+          "relatedFlipchartSheets": [
+            6
+          ],
+          "expectedAnswer": "e",
+          "sharedClip": true
+        }
+      ]
     }
   ]
 }

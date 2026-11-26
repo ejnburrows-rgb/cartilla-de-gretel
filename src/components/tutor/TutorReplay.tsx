@@ -165,6 +165,7 @@ export function TutorReplay({
   const reconstructed = useMemo(() => {
     let currentPrintedPage: number | null = null;
     let currentPdfSheet: number | null = null;
+    let currentFlipchartSheet: number | null = null;
     let currentSheetSource: "workbook" | "flipchart" | null = null;
     let currentActivity: string | null = null;
     let currentItem: string | null = null;
@@ -173,9 +174,15 @@ export function TutorReplay({
 
     for (let i = 0; i <= currentIndex && i < events.length; i += 1) {
       const evt = events[i];
-      if (typeof evt.printedPage === "number") {
+      if (typeof evt.flipchartSheet === "number") {
+        currentFlipchartSheet = evt.flipchartSheet;
+        currentPrintedPage = null;
+        currentPdfSheet = null;
+        currentSheetSource = "flipchart";
+      } else if (typeof evt.printedPage === "number") {
         currentPrintedPage = evt.printedPage;
         currentPdfSheet = evt.pdfSheet ?? null;
+        currentFlipchartSheet = null;
         currentSheetSource = evt.sheetSource ?? null;
       }
       if (evt.activityId) currentActivity = evt.activityId;
@@ -187,6 +194,7 @@ export function TutorReplay({
     return {
       currentPrintedPage,
       currentPdfSheet,
+      currentFlipchartSheet,
       currentSheetSource,
       currentActivity,
       currentItem,
@@ -296,19 +304,20 @@ export function TutorReplay({
               >
                 {eventBadge(activeEvent).label}
               </span>
-              {reconstructed.currentPrintedPage != null && (
+              {reconstructed.currentSheetSource === "flipchart" &&
+              reconstructed.currentFlipchartSheet != null ? (
                 <span className="rounded-full bg-white border border-stone-200 px-2.5 py-0.5 text-xs font-bold text-stone-700">
-                  {reconstructed.currentSheetSource === "flipchart"
-                    ? "Rotafolio · "
-                    : reconstructed.currentSheetSource === "workbook"
-                      ? "Cuaderno · "
-                      : ""}
-                  Pág. impresa {reconstructed.currentPrintedPage}
+                  Rotafolio · lámina {reconstructed.currentFlipchartSheet}
+                </span>
+              ) : reconstructed.currentPrintedPage != null ? (
+                <span className="rounded-full bg-white border border-stone-200 px-2.5 py-0.5 text-xs font-bold text-stone-700">
+                  {reconstructed.currentSheetSource === "workbook" ? "Cuaderno · " : ""}
+                  pág. impresa {reconstructed.currentPrintedPage}
                   {reconstructed.currentPdfSheet != null
                     ? ` (hoja PDF ${reconstructed.currentPdfSheet})`
                     : ""}
                 </span>
-              )}
+              ) : null}
               {reconstructed.currentActivity && (
                 <span className="rounded-full bg-white border border-stone-200 px-2.5 py-0.5 text-xs font-bold text-stone-700 break-words">
                   Actividad: {reconstructed.currentActivity}

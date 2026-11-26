@@ -128,6 +128,7 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | abanico | `public/audio/voz/vocabulario/abanico.mp3` | `connected-vocab-and-tutor` | 13085 | 2.14 | 24000 | 49 | `bf276de36789171dec29d8483243e1d054e00e801567ae65068becba7b2ecbfe` |
 | abeja | `public/audio/voz/vocabulario/abeja.mp3` | `connected-vocab-and-tutor` | 10229 | 1.66 | 24000 | 49 | `da8c8bddb923a8a45f217920ca3c757fabf941773adbccc13927ecacf566b4a7` |
 | abrigo | `public/audio/voz/vocabulario/abrigo.mp3` | `connected-vocab-and-tutor` | 10709 | 1.73 | 24000 | 49 | `d3025613688f631dcb2a7b4a13b6a54b7254f28cd69d224dfe9a2b138f247ad2` |
+| águila | `public/audio/voz/vocabulario/águila.mp3` | `connected-vocab-approved` | 8597 | 1.37 | 24000 | 50 | `f3cb78ae4abeaff825afe47b7927d8e7913d5922eafbdd1216389f105c26ef18` |
 | aguja | `public/audio/voz/vocabulario/aguja.mp3` | `connected-vocab-and-tutor` | 10589 | 1.73 | 24000 | 49 | `cec6e62a75ea88aadf9851e76b0808968ee103d20d2caad54e3b0793b6bd502d` |
 | ajo | `public/audio/voz/vocabulario/ajo.mp3` | `connected-vocab-approved` | 7853 | 1.34 | 24000 | 46 | `2e6cd8b2b2afc195b08c9f38e5b9a8956e26dbb6299e4cc0786a22bb388c7e6a` |
 | ala | `public/audio/voz/vocabulario/ala.mp3` | `connected-vocab-approved` | 7757 | 1.34 | 24000 | 46 | `cb87fc5dce6b1717dfcd83818587aad3b153a52b4a1bd257ce3c06d088339c01` |
@@ -136,6 +137,7 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | ana | `public/audio/voz/vocabulario/ana.mp3` | `connected-vocab-approved` | 7997 | 1.27 | 24000 | 50 | `1455c1979229376bf00f745cf545f777a9a891196add5fb09b8581711049b778` |
 | anillo | `public/audio/voz/vocabulario/anillo.mp3` | `connected-vocab-and-tutor` | 10685 | 1.73 | 24000 | 49 | `7d2c09d85739a68753429e7ccf2eabfdd90d79b36dcb8fc90480f24e2e74fd18` |
 | araña | `public/audio/voz/vocabulario/araña.mp3` | `connected-vocab-and-tutor` | 9725 | 1.58 | 24000 | 49 | `d35b8529dbb1e1c3c25efbda52866687cd2b075541e06cf08c7c1e841fbe93e8` |
+| árbol | `public/audio/voz/vocabulario/árbol.mp3` | `connected-vocab-and-tutor` | 10061 | 1.68 | 24000 | 48 | `2137cbbc136d54e9a1e32e889997fa056bba03c012bdbf04f661804ef8f7319c` |
 | ardilla | `public/audio/voz/vocabulario/ardilla.mp3` | `connected-vocab-and-tutor` | 11429 | 1.87 | 24000 | 49 | `1cabe368982b6774aa2f160e9c2faa42d614c19e819cb0065202f0126e19eddd` |
 | aro | `public/audio/voz/vocabulario/aro.mp3` | `connected-vocab-and-tutor` | 7949 | 1.34 | 24000 | 47 | `bc9daeee4863af2ef6fbdf728825dea0eb99d0b38f4dae801edf891d686ea2fc` |
 | arre caballito | `public/audio/voz/vocabulario/arre-caballito.mp3` | `connected-vocab-approved` | 24605 | 3.72 | 24000 | 53 | `52b7256696cca7a12f61ed144581d71ab563b9f4c4b31c4dfb44fd2de7bf5f99` |
@@ -143,8 +145,8 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | barril | `public/audio/voz/vocabulario/barril.mp3` | `connected-vocab-approved` | 10805 | 1.78 | 24000 | 48 | `308fdf3909c3891d66b8fdb00b25b468be636e16df263eb46552b54054a2fe43` |
 | bate | `public/audio/voz/vocabulario/bate.mp3` | `connected-vocab-approved` | 8861 | 1.56 | 24000 | 45 | `de0c9eca19cacc581bc814cbbc0e31329499b6ac10b7cbf33122061eb649759f` |
 | beba | `public/audio/voz/vocabulario/beba.mp3` | `connected-vocab-approved` | 11117 | 1.87 | 24000 | 47 | `97dded34197a2ab2d337de232818d79d65895f2e89ca3eabb55711d61a7aa03f` |
-| bebita | `public/audio/voz/vocabulario/bebita.mp3` | `connected-vocab-approved` | 11909 | 1.92 | 24000 | 49 | `b9159ae57089b3e0638c62184e6625bd10be73099b5f2bd83b86851209b6d080` |
 | bebé | `public/audio/voz/vocabulario/bebé.mp3` | `connected-vocab-approved` | 10157 | 1.66 | 24000 | 49 | `3351f87e505abdf96268e6dff37a1290642ecefd597969e147a13fe90712a8fe` |
+| bebita | `public/audio/voz/vocabulario/bebita.mp3` | `connected-vocab-approved` | 11909 | 1.92 | 24000 | 49 | `b9159ae57089b3e0638c62184e6625bd10be73099b5f2bd83b86851209b6d080` |
 | bota | `public/audio/voz/vocabulario/bota.mp3` | `connected-vocab-approved` | 10541 | 1.78 | 24000 | 47 | `794d1687c6299aac227fd00a4c6b680a0bc5cbee91c4b790ea2048054dc01309` |
 | brujita | `public/audio/voz/vocabulario/brujita.mp3` | `connected-vocab-approved` | 11645 | 1.94 | 24000 | 48 | `c273ec9f5fba8fba4c40fbe88d1a3cac38aa941395251ffc3b632e5284384eb9` |
 | bubi | `public/audio/voz/vocabulario/bubi.mp3` | `connected-vocab-approved` | 10733 | 1.78 | 24000 | 48 | `b28a26aee1e87da4c969de1a77ccdfa2eca76bda4bbfe79ed09cb7f4b4a9d1ef` |
@@ -205,11 +207,11 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | loma | `public/audio/voz/vocabulario/loma.mp3` | `connected-vocab-approved` | 8621 | 1.39 | 24000 | 49 | `8c8faa8d7921a273d8ad7f2a5e0c6bedd97c3dd0f51ac24a344725a222b59eec` |
 | luli | `public/audio/voz/vocabulario/luli.mp3` | `connected-vocab-approved` | 9173 | 1.54 | 24000 | 47 | `d12632a0ba8a2f2834874a6fbb9e9c48dd3b6f6c54b93dba980d01f4d57d8b48` |
 | mago | `public/audio/voz/vocabulario/mago.mp3` | `connected-vocab-approved` | 10349 | 1.66 | 24000 | 50 | `b1d4ed438691c32398492f2a693df2962378d0da8ea589d7edfab8c487f16239` |
+| maíz | `public/audio/voz/vocabulario/maíz.mp3` | `connected-vocab-and-tutor` | 11933 | 1.94 | 24000 | 49 | `a6ce00f0844ec304f5b9007aa767f188262772ba3f7ff59d6449c0890292cad5` |
 | maleta | `public/audio/voz/vocabulario/maleta.mp3` | `connected-vocab-approved` | 11645 | 1.94 | 24000 | 48 | `ab3ba71e766b02bde461d197cff1e0c4998d6e667ffd2a444aa6e6984467fff3` |
 | mamá | `public/audio/voz/vocabulario/mamá.mp3` | `connected-vocab-approved` | 9413 | 1.54 | 24000 | 49 | `7d217a14cb11013dd46822a2e2406ee3e48e3705088811957400ae4dfbf3da0c` |
 | manzana | `public/audio/voz/vocabulario/manzana.mp3` | `connected-vocab-and-tutor` | 12989 | 1.97 | 24000 | 52 | `5e470b837e3fc8ae046b5038dbee2988c9848dce9b969c258732300c7e027559` |
 | mayúscula | `public/audio/voz/vocabulario/mayúscula.mp3` | `connected-vocab-approved` | 13253 | 2.06 | 24000 | 51 | `1083d7fa056fb9c416b1b217068a949b2987957b5c5e57542460d9fcd112b115` |
-| maíz | `public/audio/voz/vocabulario/maíz.mp3` | `connected-vocab-and-tutor` | 11933 | 1.94 | 24000 | 49 | `a6ce00f0844ec304f5b9007aa767f188262772ba3f7ff59d6449c0890292cad5` |
 | meme | `public/audio/voz/vocabulario/meme.mp3` | `connected-vocab-approved` | 8477 | 1.46 | 24000 | 46 | `c911b62a7645b024a6feb0506bdd0970b1a12310d623f0761081da0d924d72eb` |
 | meñe | `public/audio/voz/vocabulario/meñe.mp3` | `connected-vocab-approved` | 9629 | 1.56 | 24000 | 49 | `ada4045b0ab3f44624730ce159c5cd4ee354f39fa737dc5e068ea78b79de763f` |
 | mima | `public/audio/voz/vocabulario/mima.mp3` | `connected-vocab-approved` | 11813 | 1.92 | 24000 | 49 | `8ac5273b7a1ece0b34df25e103e31ef108793e06d7f943f2dacf28dedf9b6d92` |
@@ -223,6 +225,7 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | niñito | `public/audio/voz/vocabulario/niñito.mp3` | `connected-vocab-approved` | 10757 | 1.78 | 24000 | 48 | `8a569454091575d615fe38a73bd252070ea3e2c752d76e2441ae52e879ca4a40` |
 | niño | `public/audio/voz/vocabulario/niño.mp3` | `connected-vocab-approved` | 10925 | 1.78 | 24000 | 49 | `e1f619c22708d4f4f33a00c18b46a12b9f56242c41f60c92a956097a24142809` |
 | nudo | `public/audio/voz/vocabulario/nudo.mp3` | `connected-vocab-approved` | 9605 | 1.58 | 24000 | 48 | `5591afb87e3c885c57fce05d50d121e0f5756df89011b6da393d5f223fccd7ac` |
+| ñuno | `public/audio/voz/vocabulario/ñuno.mp3` | `connected-vocab-approved` | 10517 | 1.73 | 24000 | 48 | `78e3aa6d59c2654d7161e1996802c022ce9359f0babd7ae79ed467e020f6dd3a` |
 | ocho | `public/audio/voz/vocabulario/ocho.mp3` | `connected-vocab-and-tutor` | 8741 | 1.46 | 24000 | 47 | `2073854848b32d2935369e13a7c7e2b6a1fb2e3c0a3a73c7ed887b71e88f49e5` |
 | ojos | `public/audio/voz/vocabulario/ojos.mp3` | `connected-vocab-and-tutor` | 10853 | 1.75 | 24000 | 49 | `1217d61f284e79e0d233d49f1d55224ebe98fe56d8514078cb9d5e90a2010941` |
 | ola | `public/audio/voz/vocabulario/ola.mp3` | `connected-vocab-and-tutor` | 18533 | 2.74 | 24000 | 54 | `c872613f0644e657116d86adbf0fa8165afdbc9189827dd09b46bca989655654` |
@@ -232,17 +235,17 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | oso | `public/audio/voz/vocabulario/oso.mp3` | `connected-vocab-and-tutor` | 9821 | 1.58 | 24000 | 49 | `49c2fd2c1336e1992e172d1f4232f68f5df9beb990bff96b38fbab34f9036b3c` |
 | oto | `public/audio/voz/vocabulario/oto.mp3` | `connected-vocab-approved` | 8021 | 1.37 | 24000 | 46 | `67a501609f26325e59325196d38237729f47818789266809745eaeaa245e1ae6` |
 | oveja | `public/audio/voz/vocabulario/oveja.mp3` | `connected-vocab-and-tutor` | 11021 | 1.8 | 24000 | 49 | `504402b0d328c6913b6244b9ea70d6ab3103a300c0699f88de79449f0f3c90e8` |
+| pájaro | `public/audio/voz/vocabulario/pájaro.mp3` | `connected-vocab-and-tutor` | 10421 | 1.75 | 24000 | 47 | `9531324c382de650558d6fac30eec5cfa5134e2b2b9311575b7a988cdfad1af5` |
 | papá | `public/audio/voz/vocabulario/papá.mp3` | `connected-vocab-approved` | 10709 | 1.8 | 24000 | 47 | `c22aca725d76ccb2708d16a2c8dd8e834db9091ec034a230d3fa6244d1ee3a8f` |
 | pavo | `public/audio/voz/vocabulario/pavo.mp3` | `connected-vocab-approved` | 8525 | 1.37 | 24000 | 49 | `f6c51dc52a6544e007fbf8c1ef0a2cd7fe44ff67597426886c480dfa7ee480a7` |
 | pepe | `public/audio/voz/vocabulario/pepe.mp3` | `connected-vocab-approved` | 8189 | 1.39 | 24000 | 47 | `68ed29a0c255516bcd578060dd4c193b5e0b64099375cbe38de1e7d76a4d1f41` |
 | pera | `public/audio/voz/vocabulario/pera.mp3` | `connected-vocab-and-tutor` | 7877 | 1.34 | 24000 | 46 | `8db196c877a12f339785fa243da936a6b9af25bf3b9a1e4b6124266eaa4c5450` |
 | perro | `public/audio/voz/vocabulario/perro.mp3` | `connected-vocab-approved` | 10349 | 1.73 | 24000 | 48 | `7a660c029a5f0fac4efb3ae65931c9daf4ad7027bbde27f5ffb6ab5ab1b1bb61` |
 | pie | `public/audio/voz/vocabulario/pie.mp3` | `connected-vocab-approved` | 7493 | 1.25 | 24000 | 48 | `5a106485e6ab8d75dac71f9ef62ab361e7b6954a0f6ef63bd972e188e83c090a` |
-| pisa | `public/audio/voz/vocabulario/pisa.mp3` | `connected-vocab-approved` | 8453 | 1.39 | 24000 | 48 | `b76b0e9c279440a9c63f2edb159895e23c6d7e6cb4aebb5b8aefa982233053a2` |
 | piñata | `public/audio/voz/vocabulario/piñata.mp3` | `connected-vocab-approved` | 13061 | 2.14 | 24000 | 49 | `8f2c7cb4847ec5d95daf9e12108c875001ea50ad6a4efdb5663e969e387f2396` |
+| pisa | `public/audio/voz/vocabulario/pisa.mp3` | `connected-vocab-approved` | 8453 | 1.39 | 24000 | 48 | `b76b0e9c279440a9c63f2edb159895e23c6d7e6cb4aebb5b8aefa982233053a2` |
 | pomo | `public/audio/voz/vocabulario/pomo.mp3` | `connected-vocab-approved` | 8021 | 1.34 | 24000 | 47 | `d788223b37848cc3527e86ef426685e689d0c4c944d96bc502be0c052a93200f` |
 | puma | `public/audio/voz/vocabulario/puma.mp3` | `connected-vocab-approved` | 10805 | 1.73 | 24000 | 50 | `2542f4432353208c4c33c817762524250434f19b05672418b5fc194eb40a0e50` |
-| pájaro | `public/audio/voz/vocabulario/pájaro.mp3` | `connected-vocab-and-tutor` | 10421 | 1.75 | 24000 | 47 | `9531324c382de650558d6fac30eec5cfa5134e2b2b9311575b7a988cdfad1af5` |
 | rana | `public/audio/voz/vocabulario/rana.mp3` | `connected-vocab-approved` | 10397 | 1.68 | 24000 | 49 | `399f29bbd68bdca16cf3c3c1d1cc6b5fabcb465c7456a16a7e4fdbd7fcf397d1` |
 | remo | `public/audio/voz/vocabulario/remo.mp3` | `connected-vocab-approved` | 9317 | 1.54 | 24000 | 48 | `c63cb89fd0c3e9515065bfe138987efb8695f412870bb376394025974e7e15cb` |
 | remos | `public/audio/voz/vocabulario/remos.mp3` | `connected-vocab-approved` | 12341 | 1.87 | 24000 | 52 | `3b7c73280576cb8ea95779b479bea1158601c4367537614771379bafbc886961` |
@@ -263,13 +266,13 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | torre | `public/audio/voz/vocabulario/torre.mp3` | `connected-vocab-approved` | 10589 | 1.78 | 24000 | 47 | `fea4ca60c2f602ab8f4e6b7a8e5871323c4dd701e50e603746adffbcd7598e93` |
 | tuto | `public/audio/voz/vocabulario/tuto.mp3` | `connected-vocab-approved` | 8501 | 1.44 | 24000 | 47 | `ac8762d00dd35e67e4127f8021973f9ed4652056b692e447cc2852ce08dacc72` |
 | ulises | `public/audio/voz/vocabulario/ulises.mp3` | `connected-vocab-approved` | 12053 | 1.99 | 24000 | 48 | `b2d07accd29b77f186b1ed844db49ae5249822ed2e9d1bf8263eebdac7e3dceb` |
+| uña | `public/audio/voz/vocabulario/uña.mp3` | `connected-vocab-and-tutor` | 8405 | 1.39 | 24000 | 48 | `f777fa6bd863afde4c190c81ec5808e55caf80347765e664fa75c39cd9651235` |
 | unicornio | `public/audio/voz/vocabulario/unicornio.mp3` | `connected-vocab-approved` | 12869 | 2.04 | 24000 | 50 | `d230d1d5a1efc33cf57bfca4bd2350e0478e17f6444ba7cae90cf84c6f159d42` |
 | uniforme | `public/audio/voz/vocabulario/uniforme.mp3` | `connected-vocab-and-tutor` | 12221 | 1.94 | 24000 | 50 | `f9493faee053fe61c6d6e9f24fdb57a5b0d248e7fca2c4a46c618e3f65848da4` |
 | uno | `public/audio/voz/vocabulario/uno.mp3` | `connected-vocab-and-tutor` | 8117 | 1.34 | 24000 | 48 | `9394f8be0d29fa4e55b7411b8d385092e3a1f063490df76912c1ff43b00aae66` |
 | urraca | `public/audio/voz/vocabulario/urraca.mp3` | `connected-vocab-approved` | 12053 | 1.87 | 24000 | 51 | `b8d1ac0f869fd308186ce42b8f4db673e294f3c0fc23a40260e91c6f3e54275c` |
 | uva | `public/audio/voz/vocabulario/uva.mp3` | `connected-vocab-approved` | 8213 | 1.34 | 24000 | 48 | `04feb4599b4fdfe181a255183896aa0324638f1d995499e2017d7fb6ca2f3834` |
 | uvas | `public/audio/voz/vocabulario/uvas.mp3` | `connected-vocab-and-tutor` | 11549 | 1.87 | 24000 | 49 | `86904e566b5ef218808735418e8517df2d41d90e156f663341cd3a4201061c7a` |
-| uña | `public/audio/voz/vocabulario/uña.mp3` | `connected-vocab-and-tutor` | 8405 | 1.39 | 24000 | 48 | `f777fa6bd863afde4c190c81ec5808e55caf80347765e664fa75c39cd9651235` |
 | vaso | `public/audio/voz/vocabulario/vaso.mp3` | `connected-vocab-approved` | 10325 | 1.66 | 24000 | 50 | `76ece959e96c37891d149f48b7d48cf2d6447e52b7ea57e1805d06cba81d0a62` |
 | vela | `public/audio/voz/vocabulario/vela.mp3` | `connected-vocab-approved` | 9293 | 1.54 | 24000 | 48 | `3f822839d19fb340055660e043bfc6bed965f25bb837f2f7deb3ff44a75f99ea` |
 | vita | `public/audio/voz/vocabulario/vita.mp3` | `connected-vocab-approved` | 9293 | 1.54 | 24000 | 48 | `30e1b095a13144bca8627d7e57ad920ffe7524919ed2aebce957ed396d630391` |
@@ -283,9 +286,6 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | zig-zag | `public/audio/voz/vocabulario/zig-zag.mp3` | `connected-vocab-approved` | 12197 | 1.94 | 24000 | 50 | `41e45d8ea25747e3abae3b301bf9be9137acfc8b3823cfd7b0979fbbbec44a0e` |
 | zorro | `public/audio/voz/vocabulario/zorro.mp3` | `connected-vocab-approved` | 9821 | 1.58 | 24000 | 49 | `c4fa339a1a15e4429ef93356fa2929e73e9cde3ebb5c4153884b445bfab6f18a` |
 | zulema | `public/audio/voz/vocabulario/zulema.mp3` | `connected-vocab-approved` | 11237 | 1.75 | 24000 | 51 | `b8af5e9b4bd7589118b9e860d67f8cbe0e87e3a06738988df27af6ffb3800ff1` |
-| águila | `public/audio/voz/vocabulario/águila.mp3` | `connected-vocab-approved` | 8597 | 1.37 | 24000 | 50 | `f3cb78ae4abeaff825afe47b7927d8e7913d5922eafbdd1216389f105c26ef18` |
-| árbol | `public/audio/voz/vocabulario/árbol.mp3` | `connected-vocab-and-tutor` | 10061 | 1.68 | 24000 | 48 | `2137cbbc136d54e9a1e32e889997fa056bba03c012bdbf04f661804ef8f7319c` |
-| ñuno | `public/audio/voz/vocabulario/ñuno.mp3` | `connected-vocab-approved` | 10517 | 1.73 | 24000 | 48 | `78e3aa6d59c2654d7161e1996802c022ce9359f0babd7ae79ed467e020f6dd3a` |
 
 ### 5.3 Tutor Viseme Timelines (`public/audio/voz/tutor/leccion-1..3/*.visemes.json`, 43 files)
 
@@ -296,6 +296,7 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | `l1-model-abrigo` | `public/audio/voz/tutor/leccion-1/l1-model-abrigo.visemes.json` | 1083 | 11 | `c893b314080e1592f769e9db919b239d3b1d3c5c963d29a382484b43a704b3fc` |
 | `l1-model-anillo` | `public/audio/voz/tutor/leccion-1/l1-model-anillo.visemes.json` | 727 | 6 | `44f1a9d69083dcc9126bb8885c8eb5171219c83554e051397bc1e7972654bbf2` |
 | `l1-model-araña` | `public/audio/voz/tutor/leccion-1/l1-model-araña.visemes.json` | 655 | 5 | `035d4c3ff7a37ca87279aca9a3841b027e016ca85cb35ff0361a9f58ae80999a` |
+| `l1-model-árbol` | `public/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json` | 799 | 7 | `09f31ee132130a20971cd7d62ba568225655caefe82357a768c027e6cb61d2a4` |
 | `l1-model-aro` | `public/audio/voz/tutor/leccion-1/l1-model-aro.visemes.json` | 940 | 9 | `c2803f42868cbc4ebd7982ed4fb0cbf1ee79ad436e360e44aaa807a3407ff86c` |
 | `l1-model-avión` | `public/audio/voz/tutor/leccion-1/l1-model-avión.visemes.json` | 1013 | 10 | `666d82d955c5e6fa987faf91ce25fe97d4a72601bc3360cca1e11059eaa6a804` |
 | `l1-model-carro` | `public/audio/voz/tutor/leccion-1/l1-model-carro.visemes.json` | 654 | 5 | `b235f82d2e289e47c37da2c8a0a04b223d4c794b15003271ffbb9ada61926556` |
@@ -312,21 +313,20 @@ Shared universal tutor bank (`lesson 0` in `tutor-lines.json`): **68 pending lin
 | `l1-model-indio` | `public/audio/voz/tutor/leccion-1/l1-model-indio.visemes.json` | 726 | 6 | `24da08e5e25a300d53402c4924999ea811f68a88ac0452c539b8de4642b6160d` |
 | `l1-model-isla` | `public/audio/voz/tutor/leccion-1/l1-model-isla.visemes.json` | 867 | 8 | `12ac974f81452b4e3250dbc0f28a233cea06c0be37a17e92c908637058834be2` |
 | `l1-model-libro` | `public/audio/voz/tutor/leccion-1/l1-model-libro.visemes.json` | 798 | 7 | `7edf97e723d47ec4c0139272e1cf193315dbc12ee514ace1e7ec8257780a372c` |
-| `l1-model-manzana` | `public/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json` | 1008 | 10 | `2c4e7777d7a78c58c51f41053b7b27c35d1d505073e611d60d954a899de430a1` |
 | `l1-model-maíz` | `public/audio/voz/tutor/leccion-1/l1-model-maíz.visemes.json` | 726 | 6 | `5ba150929ed1b40cc61bf24559a7726c927ecd17f871c29e70906c92d8b88cd4` |
+| `l1-model-manzana` | `public/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json` | 1008 | 10 | `2c4e7777d7a78c58c51f41053b7b27c35d1d505073e611d60d954a899de430a1` |
 | `l1-model-ocho` | `public/audio/voz/tutor/leccion-1/l1-model-ocho.visemes.json` | 795 | 7 | `902167bdb437ab45009d28da0fced8771cb5e52354786fb4c3c13489e3787812` |
 | `l1-model-ojos` | `public/audio/voz/tutor/leccion-1/l1-model-ojos.visemes.json` | 869 | 8 | `5b064f59fe661a517335f3ace28fcdc47cabc9fe18044200fc083b596fbb12d2` |
 | `l1-model-olla` | `public/audio/voz/tutor/leccion-1/l1-model-olla.visemes.json` | 939 | 9 | `bd10b29a1d79c58516faa1029db04ca37bd002e667bdbbdbcfc7d17bad1ecfba` |
 | `l1-model-oreja` | `public/audio/voz/tutor/leccion-1/l1-model-oreja.visemes.json` | 870 | 8 | `117c900b7facdc954dc0a67064d3296d200ddada15e079a174364ff1aae6c428` |
 | `l1-model-oso` | `public/audio/voz/tutor/leccion-1/l1-model-oso.visemes.json` | 1004 | 10 | `968ea431ba90d2ae1c997fa6d8f8c84abd44c03d69c85e7c5c428f37dc26fdd5` |
 | `l1-model-oveja` | `public/audio/voz/tutor/leccion-1/l1-model-oveja.visemes.json` | 1010 | 10 | `39425278cc184f303fb82b66cda864fb9efc8a41dc3be42f1bafcec48c19cf90` |
-| `l1-model-pera` | `public/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json` | 869 | 8 | `a6ed04ca120ddb4997e8bbcf550d05e384577472fe8063b2994cf8a2744e68e2` |
 | `l1-model-pájaro` | `public/audio/voz/tutor/leccion-1/l1-model-pájaro.visemes.json` | 872 | 8 | `a45bdfa417ea1cdb34c4ae5bc976764f684a4424d234b7d6c6e6f5158186847d` |
+| `l1-model-pera` | `public/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json` | 869 | 8 | `a6ed04ca120ddb4997e8bbcf550d05e384577472fe8063b2994cf8a2744e68e2` |
 | `l1-model-taza` | `public/audio/voz/tutor/leccion-1/l1-model-taza.visemes.json` | 723 | 6 | `357ed6993d7401ff3229d352bd453e934181fe5570901f98a52a457659112dbe` |
+| `l1-model-uña` | `public/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json` | 797 | 7 | `d5409c24df1bb73dedae0fd070addb779f1905b0e50f23f38a5434e798a7a987` |
 | `l1-model-uniforme` | `public/audio/voz/tutor/leccion-1/l1-model-uniforme.visemes.json` | 1161 | 12 | `6abbc69c211470223f7356cff21c19f9e4de1697e75d74af78cf7d402ec014a6` |
 | `l1-model-uno` | `public/audio/voz/tutor/leccion-1/l1-model-uno.visemes.json` | 794 | 7 | `daaa9579e88b2d8f499d784784d1b1901d0a77fc5cd2606ac5289a554bce722e` |
-| `l1-model-uña` | `public/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json` | 797 | 7 | `d5409c24df1bb73dedae0fd070addb779f1905b0e50f23f38a5434e798a7a987` |
-| `l1-model-árbol` | `public/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json` | 799 | 7 | `09f31ee132130a20971cd7d62ba568225655caefe82357a768c027e6cb61d2a4` |
 | `l2-model-alas` | `public/audio/voz/tutor/leccion-2/l2-model-alas.visemes.json` | 725 | 6 | `ae10db864ebd2999c370a872c9349cfa0e4c6d9335770593f5b8d5d3fa13d4cf` |
 | `l2-model-iglú` | `public/audio/voz/tutor/leccion-2/l2-model-iglú.visemes.json` | 868 | 8 | `6d55e5bfed00ce93f83817eefa8ce1d54d05517b0014dc1dede97092846c624f` |
 | `l2-model-ola` | `public/audio/voz/tutor/leccion-2/l2-model-ola.visemes.json` | 864 | 8 | `81ea52e4aa6bbb92f29da3172648d7fda72848ec0f5fd5688d69e839d352c0c9` |

@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, readdirSync, readFileSync, realpathSync } from "node:fs";
-import { basename, extname, isAbsolute, join, relative, resolve } from "node:path";
+import { chmodSync, existsSync, readdirSync, readFileSync, realpathSync, statSync } from "node:fs";
+import { basename, dirname, extname, isAbsolute, join, relative, resolve } from "node:path";
 import {
   REJECTED_PATH_PATTERNS,
   REJECTED_SHA256S,
@@ -8,6 +8,7 @@ import {
   REQUIRED_GITIGNORE_ENTRIES,
   SUPPORTED_MEDIA_EXTENSIONS,
 } from "./constants.mjs";
+import { resolveFixedSystemBinary } from "./media.mjs";
 
 /**
  * True when a path/filename matches permanently rejected owner-governed sources
@@ -93,6 +94,45 @@ export function assertPrivateDirOutsideRepo(privateDir, repoRoot) {
   return resolvedPrivate;
 }
 
+/**
+ * Enforce owner-only permissions (`0o700` on directories, `0o600` on files) inside
+ * the private voice vault (e.g. `~/GretelVoicePrivate/`), adopted from PR #1323.
+ */
+export function enforcePrivatePermissions(privateDir, filePaths = []) {
+  if (process.platform === "win32") return { applied: false, dirs: [], files: [] };
+  const resolvedPrivate = safeRealpath(privateDir);
+  const dirsToTighten = new Set([resolvedPrivate, join(resolvedPrivate, "originals")]);
+  const filesToTighten = new Set([join(resolvedPrivate, "index.json")]);
+
+  for (const fp of filePaths) {
+    if (!fp) continue;
+    const absFile = resolve(fp);
+    filesToTighten.add(absFile);
+    let cur = dirname(absFile);
+    while (cur && cur.startsWith(resolvedPrivate) && cur !== dirname(cur)) {
+      dirsToTighten.add(cur);
+      if (cur === resolvedPrivate) break;
+      cur = dirname(cur);
+    }
+  }
+
+  const tightenedDirs = [];
+  const tightenedFiles = [];
+  for (const dir of dirsToTighten) {
+    if (existsSync(dir) && statSync(dir).isDirectory()) {
+      chmodSync(dir, 0o700);
+      tightenedDirs.push(dir);
+    }
+  }
+  for (const file of filesToTighten) {
+    if (existsSync(file) && statSync(file).isFile()) {
+      chmodSync(file, 0o600);
+      tightenedFiles.push(file);
+    }
+  }
+  return { applied: true, dirs: tightenedDirs, files: tightenedFiles };
+}
+
 /** Verify `.gitignore` excludes private voice directories. */
 export function verifyGitignorePrivateExclusions(repoRoot) {
   const gitignorePath = join(repoRoot, ".gitignore");
@@ -154,31 +194,36 @@ export function validateIntakeRepositoryGuard(repoRoot) {
   }
 
   // Check tracked git files if inside a git repository
-  try {
-    const tracked = execFileSync("git", ["ls-files", "-z"], {
-      cwd: repoRoot,
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "ignore"],
-    })
-      .split("\0")
-      .filter(Boolean);
+  const gitBin = resolveFixedSystemBinary("git", { repoRoot });
+  if (!gitBin) {
+    warnings.push("git binary not found in fixed system paths; skipped tracked-file check");
+  } else {
+    try {
+      const tracked = execFileSync(gitBin, ["ls-files", "-z"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      })
+        .split("\0")
+        .filter(Boolean);
 
-    for (const file of tracked) {
-      if (/(?:^|\/)(?:GretelVoicePrivate|\.gretel-voice-private)(?:\/|$)/i.test(file)) {
-        errors.push(`Tracked private voice file in git: ${file}`);
-      }
-      if (file.startsWith("public/audio/voz/tutor/")) {
-        if (isRejectedSourcePath(file)) {
-          errors.push(`Tracked rejected audio source under tutor dir: ${file}`);
+      for (const file of tracked) {
+        if (/(?:^|\/)(?:GretelVoicePrivate|\.gretel-voice-private)(?:\/|$)/i.test(file)) {
+          errors.push(`Tracked private voice file in git: ${file}`);
         }
-        const ext = extname(file).toLowerCase();
-        if (ext && ext !== ".mp3" && !file.endsWith(".visemes.json")) {
-          errors.push(`Non-runtime media file tracked under public/audio/voz/tutor/: ${file}`);
+        if (file.startsWith("public/audio/voz/tutor/")) {
+          if (isRejectedSourcePath(file)) {
+            errors.push(`Tracked rejected audio source under tutor dir: ${file}`);
+          }
+          const ext = extname(file).toLowerCase();
+          if (ext && ext !== ".mp3" && !file.endsWith(".visemes.json")) {
+            errors.push(`Non-runtime media file tracked under public/audio/voz/tutor/: ${file}`);
+          }
         }
       }
+    } catch {
+      warnings.push("git ls-files unavailable; skipped tracked-file check");
     }
-  } catch {
-    warnings.push("git ls-files unavailable; skipped tracked-file check");
   }
 
   // Validate v1 manifest if present

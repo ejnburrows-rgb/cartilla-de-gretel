@@ -35,6 +35,7 @@ const TUTOR_SPECS = [
   "**/tutor-native-acceptance.spec.ts",
   "**/tutor-full-lesson.spec.ts",
   "**/tutor-teacher-review.spec.ts",
+  "**/tutor-all-24-lessons.spec.ts",
 ];
 
 export default defineConfig({
@@ -95,6 +96,7 @@ export default defineConfig({
         "**/tutor-native-acceptance.spec.ts",
         "**/tutor-full-lesson.spec.ts",
         "**/tutor-teacher-review.spec.ts",
+        "**/tutor-all-24-lessons.spec.ts",
       ],
       use: {
         browserName: "chromium",

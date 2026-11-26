@@ -83,7 +83,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy entramos juntos a una nueva lección con el sonido alegre de la letra jota",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-02-greeting-return",
@@ -163,7 +165,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo las aventuras de jabela con la letra jota",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-03-review-intro",
@@ -242,7 +246,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya practicamos el soplido suave de la efe hoy conocemos la letra jota con puntito arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-04-review-check",
@@ -321,7 +327,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo suena tu garganta suavecita cuando dices jugo o jabón",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-05-lesson-objective",
@@ -400,7 +408,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido tibio de la jota y leeremos ja je ji jo ju y el cuento de jabela",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-06-letter-name",
@@ -479,7 +489,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama jota y la minúscula baja como un bastoncito curvo con su puntito arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-07-phonetic-sound",
@@ -558,7 +570,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al pronunciarla soltamos aire tibio desde el fondo de la garganta como una risa suave",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-08-lesson-focus",
@@ -637,7 +651,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "la jota lleva siempre un puntito arriba y suena desde la garganta en jugo jabón y jicotea",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-09-sound-contrast",
@@ -716,7 +732,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mientras la ge con a o u vibra suave la jota deja salir aire más fuerte con todas las vocales",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-10-explanation-primary",
@@ -795,7 +813,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos ese sonido tibio de la jota con las vocales leemos ja je ji jo ju",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-11-explanation-simple",
@@ -874,7 +894,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "suelta un aire tibio como riendo despacito ja je ji jo ju y léelo en jicotea y jugo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-12-flipchart-intro",
@@ -951,7 +973,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer los dibujos nuevos y la historia de la jicotea jabela",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-sheet-51-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 51
+        },
+        {
+          "sourceLineId": "dialogue-l21-sheet-52-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 52
+        },
+        {
+          "sourceLineId": "dialogue-l21-sheet-53-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 53
+        }
+      ]
     },
     {
       "id": "v2-l21-13-flipchart-illustration-1",
@@ -1028,7 +1078,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una jicotea un vaso de jugo el niño jesús un ajo y una jarra",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-sheet-51-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 51,
+          "expectedAnswer": "jicotea"
+        },
+        {
+          "sourceLineId": "dialogue-l21-sheet-52-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 52,
+          "expectedAnswer": "jaba"
+        }
+      ]
     },
     {
       "id": "v2-l21-14-flipchart-illustration-2",
@@ -1105,7 +1177,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos a la traviesa jicotea jabela jugando en el agua sin querer acercarse al jabón",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-15-reading-order",
@@ -1184,7 +1258,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee las sílabas de izquierda a derecha pasa por el vocabulario y luego lee la historia de josé y julia",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-16-flipchart-model",
@@ -1261,7 +1337,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas de la jota ja je ji jo ju",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-17-flipchart-vocab",
@@ -1338,7 +1416,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio jicotea jugo jesús ajo y jarra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-18-flipchart-rhyme-1",
@@ -1415,7 +1495,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de la jicotea jabela mi jicotea jabela juega y juega sin parar con espuma de jabón jamás la puedo bañar",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-sheet-51-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 51
+        },
+        {
+          "sourceLineId": "dialogue-l21-sheet-52-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 52
+        }
+      ]
     },
     {
       "id": "v2-l21-19-flipchart-rhyme-2",
@@ -1492,7 +1592,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el final del poema no le gusta el agua pura ni la espuma de jabón a mi jicotea dura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-20-comprehension-1",
@@ -1571,7 +1673,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "según el poema la jicotea jabela qué es lo que jamás le gusta a la jicotea",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-21-comprehension-2",
@@ -1650,7 +1754,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué le gusta tomar a julia en la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-22-comprehension-3",
@@ -1729,7 +1835,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra jugo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-23-common-mistake-1",
@@ -1808,7 +1916,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no olvides bajar el bastoncito de la jota debajo de la línea y ponerle su puntito encima",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-24-common-mistake-2",
@@ -1887,7 +1997,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate muy bien en las tildes de jabón jamón ají jesús josé y jutía al leerlas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-25-common-mistake-3",
@@ -1966,7 +2078,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no confundas la jota minúscula con la i la jota es larga hacia abajo y termina en gancho",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-26-hint-1",
@@ -2045,7 +2159,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "busca el bastoncito con punto arriba y recuerda el sonido tibio desde la garganta",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-sheet-53-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 53
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jaba-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ja",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jaba-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jugo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ju",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jugo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jamón-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ja",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jamón-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jefe-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "je",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jefe-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jugar-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ju",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jugar-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jutía-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ju",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jutía-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l21-27-hint-2",
@@ -2124,7 +2406,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el inicio de la palabra con jarra o con jugo para encontrar la sílaba exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-28-hint-3",
@@ -2203,7 +2487,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy jicotea",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-29-workbook-transition",
@@ -2282,7 +2568,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la jota y leer sobre josé julia y jabela",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-30-page-instruction-1",
@@ -2358,7 +2646,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la jota mayúscula y minúscula bajando bien su bastoncito y haz un dibujo con jota",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-page-75-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-75-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l21-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l21-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l21-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l21-31-page-instruction-2",
@@ -2434,7 +2820,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo ja je ji jo ju en jabón jefe jirafa josé y jugar",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-32-syllable-practice",
@@ -2510,7 +2898,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "rodea cada sílaba con cuidado ja en jabón je en jefe ji en jirafa jo en josé y ju en jugo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-page-76-find-ja",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 76,
+          "workbookPdfSheet": 82,
+          "relatedFlipchartSheets": [
+            51,
+            52
+          ],
+          "expectedAnswer": "ja"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-76-find-je",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 76,
+          "workbookPdfSheet": 82,
+          "relatedFlipchartSheets": [
+            51,
+            52
+          ],
+          "expectedAnswer": "je"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-76-find-ji",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 76,
+          "workbookPdfSheet": 82,
+          "relatedFlipchartSheets": [
+            51,
+            52
+          ],
+          "expectedAnswer": "ji"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-76-find-jo",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 76,
+          "workbookPdfSheet": 82,
+          "relatedFlipchartSheets": [
+            51,
+            52
+          ],
+          "expectedAnswer": "jo"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-76-find-ju",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 76,
+          "workbookPdfSheet": 82,
+          "relatedFlipchartSheets": [
+            51,
+            52
+          ],
+          "expectedAnswer": "ju"
+        }
+      ]
     },
     {
       "id": "v2-l21-33-word-practice-1",
@@ -2586,7 +3048,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras jaba jicotea ají baja jura jinete jabón y vieja",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-34-word-practice-2",
@@ -2662,7 +3126,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo jefe jesús jamón josé julia jarro y joven",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-35-sight-or-vocab",
@@ -2738,7 +3204,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "presta atención también a las palabras del ejercicio final jugar y jutía",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-36-sentence-or-pair",
@@ -2814,7 +3282,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee en voz clara esta oración del libro a josé le gusta el jamón y a julia le gusta el jugo de tomate",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jaba",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jicotea",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-ají",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-baja",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jura",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jinete",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jabón",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-vieja",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jefe",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jesús",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jamón",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-josé",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-julia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-jarro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-77-read-joven",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 77,
+          "workbookPdfSheet": 83,
+          "relatedFlipchartSheets": [
+            52
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l21-37-page-instruction-final",
@@ -2890,7 +3542,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con ja je ji jo ju como en jaba jugo jamón jefe jugar y jutía",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-38-game-intro",
@@ -2969,7 +3623,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva con las palabras de la jota para afirmar cada sílaba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-39-game-step",
@@ -3048,7 +3704,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige la sílaba de la jota que la completa con acierto",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-40-game-correct",
@@ -3127,7 +3785,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien completado leíste la sílaba de la jota con mucha claridad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-41-game-retry",
@@ -3206,7 +3866,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pronuncia el resto de la palabra en voz baja y comprueba cuál sílaba de la jota falta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-42-assessment",
@@ -3285,7 +3947,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro a jabela le gusta la laguna",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jugo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ju",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jamón",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ja",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jefe",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "je",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jugar",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ju",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jutía",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ju",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l21-43-page-complete",
@@ -3364,7 +4100,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la letra jota con alegría y excelente entonación",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-page-75-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 75,
+          "workbookPdfSheet": 81,
+          "relatedFlipchartSheets": [
+            51
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l21-44-closing",
@@ -3443,7 +4196,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leíste toda la aventura de la jicotea jabela con gran soltura qué bien suenas leyendo",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-45-next-step",
@@ -3522,7 +4277,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección estudiaremos el sonido firme de la letra ce con a o y u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l21-46-atlas-flipchart",
+      "text": "¿Con qué intenta bañar a Jabela la voz del poema?",
+      "normalizedText": "con qué intenta bañar a jabela la voz del poema",
+      "batch": "B027",
+      "seq": 46,
+      "file": "B027-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-21-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 21,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          53
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-sheet-53-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 53,
+          "expectedAnswer": "con espuma de jabón"
+        }
+      ]
+    },
+    {
+      "id": "v2-l21-47-atlas-workbook",
+      "text": "Queremos escribir «jaba». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir jaba qué parte falta en el espacio",
+      "batch": "B027",
+      "seq": 47,
+      "file": "B027-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-21-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 21,
+        "sourceStatus": "verified",
+        "printedPages": [
+          78
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          21
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l21-page-78-fill-jaba",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 78,
+          "workbookPdfSheet": 84,
+          "relatedFlipchartSheets": [
+            52
+          ],
+          "expectedAnswer": "ja",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

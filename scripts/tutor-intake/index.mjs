@@ -14,7 +14,11 @@ import {
   RHUBARB_RECOGNIZER,
   RHUBARB_VERSION,
 } from "./constants.mjs";
-import { checkRejectedSource, validateIntakeRepositoryGuard } from "./guard.mjs";
+import {
+  checkRejectedSource,
+  enforcePrivatePermissions,
+  validateIntakeRepositoryGuard,
+} from "./guard.mjs";
 import { applyAuthorizedManifestUpdates, loadManifestCatalog } from "./manifest.mjs";
 import {
   detectSilenceWithFfmpeg,
@@ -40,6 +44,7 @@ export {
   computeTranscriptSimilarity,
   deriveSpeechSegmentsFromSilences,
   detectSilenceWithFfmpeg,
+  enforcePrivatePermissions,
   ingestPrivateOriginal,
   loadManifestCatalog,
   matchBatchByTranscriptSimilarity,
@@ -52,6 +57,42 @@ export {
   syncVisemesForAudio,
   validateIntakeRepositoryGuard,
 };
+
+/**
+ * Build a SHA-256 -> approved entries lookup from `src/content/tutor-lines.json`
+ * so incoming recordings byte-identical to installed approved speech are detected
+ * immediately (adopted from PR #1323).
+ */
+export function buildApprovedSpeechHashIndex(repoRoot) {
+  const index = new Map();
+  const manifestPath = join(resolve(repoRoot), "src/content/tutor-lines.json");
+  if (!existsSync(manifestPath)) return index;
+  try {
+    const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+    for (const entry of manifest.approved ?? []) {
+      if (typeof entry?.src !== "string") continue;
+      const diskPath = join(resolve(repoRoot), "public", entry.src);
+      if (!existsSync(diskPath)) continue;
+      const digest = sha256File(diskPath);
+      if (!index.has(digest)) index.set(digest, []);
+      index.get(digest).push({
+        lineId: entry.lineId,
+        text: entry.text,
+        src: entry.src,
+        visemes: entry.visemes ?? null,
+      });
+    }
+  } catch {
+    // Manifest absent or unreadable in minimal test fixture
+  }
+  return index;
+}
+
+/** Look up installed approved speech entries matching a content SHA-256 digest. */
+export function matchInstalledApprovedBySha256(sha256, approvedHashIndex) {
+  if (!sha256 || !approvedHashIndex) return [];
+  return approvedHashIndex.get(sha256) ?? [];
+}
 
 function sanitizeSlug(value) {
   const replaced = String(value ?? "clip")
@@ -97,9 +138,12 @@ export async function runTutorIntake({
     throw new Error(`Repository guard failed: ${guard.errors.join("; ")}`);
   }
 
-  // Step 2: Checksum, permanent rejection, dedup & private original storage
+  // Step 2: Checksum, permanent rejection, dedup, private original storage,
+  // owner-only permissions (0o700 dirs / 0o600 files), and installed approved content-hash matching
+  const approvedHashIndex = buildApprovedSpeechHashIndex(absRepoRoot);
   const sources = [];
   const acceptedSources = [];
+  const approvedHashMatches = [];
   for (const fileSpec of inputFiles) {
     const filePath = typeof fileSpec === "string" ? fileSpec : fileSpec.path;
     const transcriptHint = typeof fileSpec === "string" ? undefined : fileSpec.text;
@@ -111,17 +155,34 @@ export async function runTutorIntake({
       dryRun,
       transcriptHint,
     });
-    sources.push({
+    if (!dryRun && ingested.accepted) {
+      enforcePrivatePermissions(
+        privateDir,
+        ingested.privateOriginalPath ? [ingested.privateOriginalPath] : [],
+      );
+    }
+    const matchedApprovedEntries = matchInstalledApprovedBySha256(
+      ingested.sha256,
+      approvedHashIndex,
+    );
+    const matchesInstalledApproved = matchedApprovedEntries.length > 0;
+    if (matchesInstalledApproved) {
+      approvedHashMatches.push({
+        sourceName: basename(filePath),
+        sha256: ingested.sha256,
+        matchedApprovedEntries,
+      });
+    }
+    const sourceRecord = {
       ...ingested,
       sourceName: basename(filePath),
       fileSpec: typeof fileSpec === "string" ? { path: filePath } : fileSpec,
-    });
+      matchesInstalledApproved,
+      matchedApprovedEntries,
+    };
+    sources.push(sourceRecord);
     if (ingested.accepted) {
-      acceptedSources.push({
-        ...ingested,
-        sourceName: basename(filePath),
-        fileSpec: typeof fileSpec === "string" ? { path: filePath } : fileSpec,
-      });
+      acceptedSources.push(sourceRecord);
     }
   }
 
@@ -433,6 +494,7 @@ export async function runTutorIntake({
       guard,
       matchedBatch,
       sources,
+      approvedHashMatches,
       alignment,
       items,
       manifestResult,

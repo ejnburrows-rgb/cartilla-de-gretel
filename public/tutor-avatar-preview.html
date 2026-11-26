@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gretel Tutor — Vista de Aprobación de Avatar (Torso-Up y Capas Faciales)</title>
+    <style>
+      :root {
+        --paper: #fbf7ef;
+        --paper-card: #ffffff;
+        --ink: #2b1f16;
+        --ink-muted: #6c5a4c;
+        --border: #e7dccb;
+        --accent: #1d5ca8;
+        --accent-warm: #d64928;
+        --ok: #266b43;
+        --warn-bg: #fff5e5;
+        --warn-border: #e9c27d;
+        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.5;
+      }
+
+      .page {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 24px 16px 64px;
+      }
+
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 20px;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        margin: 0 0 6px;
+        font-size: 1.65rem;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        margin: 32px 0 12px;
+        font-size: 1.25rem;
+        letter-spacing: -0.01em;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--ink-muted);
+        max-width: 74ch;
+      }
+
+      .status-banner {
+        background: var(--warn-bg);
+        border: 1px solid var(--warn-border);
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin-bottom: 24px;
+        font-size: 0.94rem;
+      }
+
+      .status-banner strong {
+        color: #8a4b00;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      button,
+      select {
+        font: inherit;
+        border: 1px solid var(--border);
+        background: var(--paper-card);
+        color: var(--ink);
+        border-radius: 10px;
+        padding: 8px 14px;
+        cursor: pointer;
+        transition: background 150ms var(--ease-out), border-color 150ms var(--ease-out);
+      }
+
+      button:hover,
+      select:hover {
+        border-color: var(--accent);
+      }
+
+      button[aria-pressed="true"],
+      button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      .preview-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 20px;
+        align-items: start;
+      }
+
+      @media (max-width: 860px) {
+        .preview-shell {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: var(--paper-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 4px 18px rgba(43, 31, 22, 0.05);
+      }
+
+      .viewport-frame {
+        margin: 0 auto;
+        border: 2px solid #d5c7b2;
+        border-radius: 20px;
+        background: linear-gradient(180deg, #f4ece0 0%, #efe4d2 100%);
+        overflow: hidden;
+        transition: width 320ms var(--ease-out), height 320ms var(--ease-out);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+      }
+
+      .viewport-frame[data-viewport="desktop"] {
+        width: 100%;
+        height: 480px;
+      }
+
+      .viewport-frame[data-viewport="mobile"] {
+        width: 390px;
+        max-width: 100%;
+        height: 560px;
+      }
+
+      .viewport-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 0.78rem;
+        color: var(--ink-muted);
+        z-index: 5;
+      }
+
+      .telemetry-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(43, 31, 22, 0.84);
+        color: #fff;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 0.78rem;
+        font-variant-numeric: tabular-nums;
+        z-index: 5;
+      }
+
+      .puppet-stage {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 20px 16px 0;
+      }
+
+      .puppet-rig {
+        width: min(360px, 88%);
+        aspect-ratio: 718 / 860;
+        transform-origin: 50% 78%;
+        transition: transform 480ms var(--ease-out);
+        will-change: transform;
+      }
+
+      .puppet-rig[data-framing="full"] {
+        width: min(310px, 78%);
+        aspect-ratio: 1086 / 1448;
+      }
+
+      .puppet-breathe {
+        width: 100%;
+        height: 100%;
+        transform-origin: 50% 92%;
+        animation: gretel-breathe 4s ease-in-out infinite;
+      }
+
+      @keyframes gretel-breathe {
+        0%,
+        100% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(1.007);
+        }
+      }
+
+      .reduced-motion .puppet-rig,
+      .reduced-motion .puppet-breathe {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .puppet-breathe {
+          animation: none !important;
+        }
+        .puppet-rig {
+          transition: none !important;
+        }
+      }
+
+      .puppet-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: drop-shadow(0 10px 8px rgba(45, 32, 20, 0.16));
+      }
+
+      .controls-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .control-group .group-label,
+      .control-group label {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink-muted);
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .pill-row button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+      }
+
+      .scrubber-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .scrubber-row input[type="range"] {
+        flex: 1;
+        min-width: 140px;
+      }
+
+      .audio-meta {
+        font-size: 0.82rem;
+        color: var(--ink-muted);
+        background: #f8f2e8;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 8px 10px;
+        margin-top: 8px;
+      }
+
+      .side-by-side {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      .still-card {
+        background: var(--paper-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .still-thumb {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 718 / 860;
+        background: repeating-conic-gradient(#f5efe5 0% 25%, #fdfaf5 0% 50%) 50% / 16px 16px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      .still-thumb.full-ratio {
+        aspect-ratio: 1086 / 1448;
+      }
+
+      .still-thumb.face-zoom svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .still-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .still-title {
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+
+      .still-meta {
+        font-size: 0.8rem;
+        color: var(--ink-muted);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        background: var(--paper-card);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+      }
+
+      th {
+        background: #f5eee2;
+        font-weight: 600;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .decision-pills {
+        display: inline-flex;
+        gap: 6px;
+      }
+
+      .decision-pills button {
+        padding: 4px 10px;
+        font-size: 0.82rem;
+      }
+
+      .decision-pills button.yes[aria-pressed="true"] {
+        background: var(--ok);
+        border-color: var(--ok);
+      }
+
+      .decision-pills button.no[aria-pressed="true"] {
+        background: var(--accent-warm);
+        border-color: var(--accent-warm);
+      }
+
+      .audit-note {
+        margin-top: 24px;
+        padding: 14px 16px;
+        background: #f5eee2;
+        border-radius: 12px;
+        font-size: 0.88rem;
+        color: var(--ink-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div>
+          <h1>Gretel Tutor — Vista de Aprobación de Avatar</h1>
+          <p class="subtitle">
+            Revisión web (HTTP/HTTPS) del recorte nativo torso-arriba (1:1 desde
+            <code>/cartilla/images/gretel/gretel-approved-master.png</code>, sin estiramiento),
+            piezas faciales candidatas y sincronización labial real con audio aprobado de Gretel y
+            timelines Rhubarb (<code>.visemes.json</code>).
+          </p>
+        </div>
+        <div class="toolbar">
+          <button id="btnDesktop" type="button" aria-pressed="true">Vista Escritorio (1280×800)</button>
+          <button id="btnMobile" type="button" aria-pressed="false">Vista Móvil (390×844)</button>
+          <button id="btnReduced" type="button" aria-pressed="false">Reducir movimiento</button>
+        </div>
+      </header>
+
+      <div class="status-banner">
+        <strong>Estado de producción seguro:</strong>
+        <code>public/cartilla/images/gretel/layers/manifest.json</code> permanece
+        <strong>vacío (<code>{"layers": []}</code>)</strong>. Ninguna pieza facial candidata está
+        activa en producción. Solo las piezas aprobadas explícitamente por el propietario pueden
+        registrarse en el manifiesto.
+      </div>
+
+      <h2>1. Vista previa interactiva con audio aprobado real y visemas Rhubarb A–G / X</h2>
+      <section class="preview-shell">
+        <div class="card">
+          <div id="viewportFrame" class="viewport-frame" data-viewport="desktop">
+            <span id="viewportBadge" class="viewport-badge">Escritorio · Torso-up 718×860 (1:1 nativo)</span>
+            <span id="telemetryBadge" class="telemetry-badge">Visema: X · reposo</span>
+            <div class="puppet-stage">
+              <div id="puppetRig" class="puppet-rig" data-framing="torso-up">
+                <div class="puppet-breathe">
+                  <svg
+                    id="puppetSvg"
+                    class="puppet-svg"
+                    viewBox="184 0 718 860"
+                    role="img"
+                    aria-label="Vista previa animada de Gretel Tutor"
+                  >
+                    <image
+                      href="/cartilla/images/gretel/gretel-approved-master.png"
+                      x="0"
+                      y="0"
+                      width="1086"
+                      height="1448"
+                    />
+                    <image
+                      id="layerBrows"
+                      href="/cartilla/images/gretel/tutor/candidates/brows-soft-lift.png"
+                      x="0"
+                      y="0"
+                      width="1086"
+                      height="1448"
+                      style="visibility: hidden"
+                    />
+                    <image
+                      id="layerBlinkHalf"
+                      href="/cartilla/images/gretel/tutor/candidates/blink-half.png"
+                      x="0"
+                      y="0"
+                      width="1086"
+                      height="1448"
+                      style="visibility: hidden"
+                    />
+                    <image
+                      id="layerBlinkClosed"
+                      href="/cartilla/images/gretel/tutor/candidates/blink-closed.png"
+                      x="0"
+                      y="0"
+                      width="1086"
+                      height="1448"
+                      style="visibility: hidden"
+                    />
+                    <image
+                      id="layerMouth"
+                      href="/cartilla/images/gretel/tutor/candidates/mouth-X.png"
+                      x="0"
+                      y="0"
+                      width="1086"
+                      height="1448"
+                      style="visibility: hidden"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card controls-grid">
+          <div class="control-group">
+            <span class="group-label">Audio aprobado real + visemas Rhubarb (.visemes.json)</span>
+            <div class="pill-row" id="audioSamplePills">
+              <button type="button" data-sample="abeja" aria-pressed="true">«abeja» (1.56 s)</button>
+              <button type="button" data-sample="abanico" aria-pressed="false">«abanico» (2.05 s)</button>
+              <button type="button" data-sample="oso" aria-pressed="false">«oso» (1.49 s)</button>
+            </div>
+            <div class="scrubber-row" style="margin-top: 10px">
+              <button id="btnPlayAudio" type="button" class="primary">Reproducir voz real + labios</button>
+              <button id="btnPauseAudio" type="button">Pausar</button>
+              <button id="btnBlinkNow" type="button">Parpadear</button>
+            </div>
+            <div class="scrubber-row" style="margin-top: 8px">
+              <label for="timeScrubber" class="sr-only">Tiempo del clip aprobado</label>
+              <input id="timeScrubber" type="range" min="0" max="1.56" step="0.01" value="0" />
+              <span id="timeLabel" style="font-variant-numeric: tabular-nums; font-size: 0.85rem">0.00 s</span>
+            </div>
+            <audio id="voiceAudio" preload="metadata" src="/audio/voz/vocabulario/abeja.mp3"></audio>
+            <div id="audioMeta" class="audio-meta">
+              Cargando visemas Rhubarb reales de <code>/audio/voz/tutor/leccion-1/l1-model-abeja.visemes.json</code>…
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="group-label">Encuadre nativo (sin estiramiento)</span>
+            <div class="pill-row">
+              <button type="button" data-framing-btn="torso-up" aria-pressed="true">Torso-up (718×860)</button>
+              <button type="button" data-framing-btn="full" aria-pressed="false">Cuerpo completo (1086×1448)</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="group-label">Prueba manual de visemas Rhubarb A–G / X</span>
+            <div class="pill-row" id="visemePills">
+              <button type="button" data-viseme="X" aria-pressed="true">X (reposo)</button>
+              <button type="button" data-viseme="A" aria-pressed="false">A (M/B/P)</button>
+              <button type="button" data-viseme="B" aria-pressed="false">B</button>
+              <button type="button" data-viseme="C" aria-pressed="false">C (E/A)</button>
+              <button type="button" data-viseme="D" aria-pressed="false">D (A abierta)</button>
+              <button type="button" data-viseme="E" aria-pressed="false">E (O)</button>
+              <button type="button" data-viseme="F" aria-pressed="false">F (U)</button>
+              <button type="button" data-viseme="G" aria-pressed="false">G (F/V)</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="group-label">Canales sutiles (cero rebotes, cero escalado labial)</span>
+            <div class="pill-row" id="expressionPills">
+              <button type="button" data-expr="neutral" aria-pressed="true">Neutral</button>
+              <button type="button" data-expr="listening" aria-pressed="false">Escuchando</button>
+              <button type="button" data-expr="thinking" aria-pressed="false">Pensando</button>
+              <button type="button" data-expr="smiling" aria-pressed="false">Sonriendo</button>
+              <button type="button" data-expr="encouraging" aria-pressed="false">Ánimo</button>
+              <button type="button" data-expr="nodding" aria-pressed="false">Asintiendo</button>
+              <button type="button" data-expr="pointing" aria-pressed="false">Señalando</button>
+              <button type="button" data-expr="farewell" aria-pressed="false">Despedida</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="group-label">Dirección de mirada (sutil)</span>
+            <div class="pill-row" id="gazePills">
+              <button type="button" data-gaze="student" aria-pressed="true">Estudiante</button>
+              <button type="button" data-gaze="board-left" aria-pressed="false">Lámina izq.</button>
+              <button type="button" data-gaze="board-right" aria-pressed="false">Lámina der.</button>
+              <button type="button" data-gaze="down-notes" aria-pressed="false">Cuaderno</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2>2. Comparación lado a lado: Maestro Aprobado vs. Recorte Nativo Torso-Up</h2>
+      <section class="side-by-side">
+        <div class="still-card">
+          <div class="still-thumb full-ratio">
+            <img
+              src="/cartilla/images/gretel/gretel-approved-master.png"
+              alt="Gretel maestro aprobado completo"
+            />
+          </div>
+          <div class="still-title">Maestro aprobado (intacto)</div>
+          <div class="still-meta">1086×1448 PNG · Sin modificaciones · Referencia canónica</div>
+        </div>
+
+        <div class="still-card">
+          <div class="still-thumb">
+            <img
+              src="/cartilla/images/gretel/tutor/gretel-torso-up.png"
+              alt="Gretel recorte nativo torso-arriba"
+            />
+          </div>
+          <div class="still-title">Recorte nativo Torso-Up (1:1)</div>
+          <div class="still-meta">718×860 PNG · Extraído en (184, 0) · 0% estiramiento</div>
+        </div>
+      </section>
+
+      <h2>3. Piezas faciales candidatas (acercamiento sobre el rostro maestro)</h2>
+      <section class="side-by-side" id="candidateGrid"></section>
+
+      <h2>4. Lista de aprobación del propietario (LAYER-PACK-SPEC Paso C)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Pieza</th>
+            <th>Rol / Visema</th>
+            <th>Canvas</th>
+            <th>Decisión (Sí / No)</th>
+            <th>En <code>layers/manifest.json</code></th>
+          </tr>
+        </thead>
+        <tbody id="approvalTableBody"></tbody>
+      </table>
+
+      <div class="audit-note">
+        <strong>Nota de seguridad y activos:</strong> Esta vista utiliza únicamente rutas web
+        relativas (<code>/cartilla/images/gretel/...</code> y <code>/audio/voz/...</code>), nunca
+        rutas locales del sistema de archivos. Ninguna capa candidata está activada en producción
+        mientras <code>public/cartilla/images/gretel/layers/manifest.json</code> permanezca en
+        <code>{"layers": []}</code>.
+      </div>
+    </main>
+
+    <script>
+      const MASTER_SRC = "/cartilla/images/gretel/gretel-approved-master.png";
+      const CAND_BASE = "/cartilla/images/gretel/tutor/candidates/";
+
+      const AUDIO_SAMPLES = {
+        abeja: {
+          label: "abeja",
+          audioSrc: "/audio/voz/vocabulario/abeja.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-abeja.visemes.json",
+          fallbackDuration: 1.56,
+        },
+        abanico: {
+          label: "abanico",
+          audioSrc: "/audio/voz/vocabulario/abanico.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-abanico.visemes.json",
+          fallbackDuration: 2.05,
+        },
+        oso: {
+          label: "oso",
+          audioSrc: "/audio/voz/vocabulario/oso.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-oso.visemes.json",
+          fallbackDuration: 1.49,
+        },
+      };
+
+      const CANDIDATES = [
+        { id: "blink-half", role: "blink", label: "Párpados semicerrados", file: "blink-half.png" },
+        { id: "blink-closed", role: "blink", label: "Párpados cerrados", file: "blink-closed.png" },
+        { id: "brows-soft-lift", role: "brows", label: "Cejas (elevación sutil)", file: "brows-soft-lift.png" },
+        { id: "mouth-X", role: "mouth (X)", label: "Boca X — Sonrisa nativa (reposo)", file: "mouth-X.png" },
+        { id: "mouth-A", role: "mouth (A)", label: "Boca A — Labios cerrados (M/B/P)", file: "mouth-A.png" },
+        { id: "mouth-B", role: "mouth (B)", label: "Boca B — Consonantes suaves", file: "mouth-B.png" },
+        { id: "mouth-C", role: "mouth (C)", label: "Boca C — Vocales abiertas (E/A)", file: "mouth-C.png" },
+        { id: "mouth-D", role: "mouth (D)", label: "Boca D — Vocal amplia (A)", file: "mouth-D.png" },
+        { id: "mouth-E", role: "mouth (E)", label: "Boca E — Vocal redondeada (O)", file: "mouth-E.png" },
+        { id: "mouth-F", role: "mouth (F)", label: "Boca F — Labios fruncidos (U/W)", file: "mouth-F.png" },
+        { id: "mouth-G", role: "mouth (G)", label: "Boca G — Dientes sobre labio (F/V)", file: "mouth-G.png" },
+      ];
+
+      const EXPR_TRANSFORMS = {
+        neutral: { tilt: 0, x: 0, y: 0, brows: false },
+        listening: { tilt: 3.5, x: 0, y: 1, brows: true },
+        thinking: { tilt: -2.4, x: 1.5, y: 0, brows: true },
+        smiling: { tilt: 1.0, x: 0, y: 0, brows: true },
+        encouraging: { tilt: 1.4, x: 0, y: 2.0, brows: true },
+        nodding: { tilt: 0.6, x: 0, y: 2.6, brows: false },
+        pointing: { tilt: -1.2, x: -3.5, y: 0, brows: false },
+        farewell: { tilt: 2.0, x: 0, y: 0, brows: true },
+      };
+
+      const GAZE_X = { student: 0, "board-left": -1.5, "board-right": 1.5, "down-notes": 0.4 };
+
+      let currentSampleKey = "abeja";
+      let activeCues = [];
+      let activeDuration = 1.56;
+      let currentExpr = "neutral";
+      let currentGaze = "student";
+      let reducedMotion = false;
+      let rafId = 0;
+
+      const viewportFrame = document.getElementById("viewportFrame");
+      const viewportBadge = document.getElementById("viewportBadge");
+      const telemetryBadge = document.getElementById("telemetryBadge");
+      const puppetRig = document.getElementById("puppetRig");
+      const puppetSvg = document.getElementById("puppetSvg");
+      const layerMouth = document.getElementById("layerMouth");
+      const layerBrows = document.getElementById("layerBrows");
+      const layerBlinkHalf = document.getElementById("layerBlinkHalf");
+      const layerBlinkClosed = document.getElementById("layerBlinkClosed");
+      const timeScrubber = document.getElementById("timeScrubber");
+      const timeLabel = document.getElementById("timeLabel");
+      const voiceAudio = document.getElementById("voiceAudio");
+      const audioMeta = document.getElementById("audioMeta");
+
+      function applyPose() {
+        const cfg = EXPR_TRANSFORMS[currentExpr] || EXPR_TRANSFORMS.neutral;
+        const gx = GAZE_X[currentGaze] || 0;
+        if (reducedMotion) {
+          puppetRig.style.transform = "none";
+          layerBrows.style.visibility = "hidden";
+          return;
+        }
+        puppetRig.style.transform = `translate3d(${cfg.x + gx}px, ${cfg.y}px, 0) rotate(${cfg.tilt}deg)`;
+        layerBrows.style.visibility = cfg.brows ? "visible" : "hidden";
+      }
+
+      function setViseme(shape, sourceLabel = "manual") {
+        const effective = reducedMotion ? "X" : shape;
+        if (effective === "X") {
+          layerMouth.style.visibility = "hidden";
+        } else {
+          layerMouth.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
+          layerMouth.style.visibility = "visible";
+        }
+        telemetryBadge.textContent = `Visema: ${effective} · ${reducedMotion ? "reducir-movimiento" : sourceLabel}`;
+        document.querySelectorAll("#visemePills button").forEach((btn) => {
+          btn.setAttribute("aria-pressed", String(btn.dataset.viseme === effective));
+        });
+      }
+
+      function resolveCue(t) {
+        for (const cue of activeCues) {
+          if (t >= cue.start && t < cue.end) return cue.value || cue.shape || "X";
+        }
+        return "X";
+      }
+
+      function triggerBlink() {
+        if (reducedMotion) return;
+        layerBlinkHalf.style.visibility = "visible";
+        setTimeout(() => {
+          layerBlinkHalf.style.visibility = "hidden";
+          layerBlinkClosed.style.visibility = "visible";
+        }, 45);
+        setTimeout(() => {
+          layerBlinkClosed.style.visibility = "hidden";
+          layerBlinkHalf.style.visibility = "visible";
+        }, 125);
+        setTimeout(() => {
+          layerBlinkHalf.style.visibility = "hidden";
+        }, 170);
+      }
+
+      function stopAudioSync() {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+
+      function syncFrame() {
+        if (voiceAudio.paused || voiceAudio.ended) {
+          stopAudioSync();
+          return;
+        }
+        const t = voiceAudio.currentTime || 0;
+        timeScrubber.value = Math.min(t, activeDuration).toFixed(2);
+        timeLabel.textContent = `${t.toFixed(2)} s`;
+        setViseme(resolveCue(t), `audio:${currentSampleKey}`);
+        rafId = requestAnimationFrame(syncFrame);
+      }
+
+      async function loadSample(sampleKey) {
+        const sample = AUDIO_SAMPLES[sampleKey];
+        if (!sample) return;
+        currentSampleKey = sampleKey;
+        voiceAudio.pause();
+        stopAudioSync();
+        voiceAudio.src = sample.audioSrc;
+        voiceAudio.currentTime = 0;
+        timeScrubber.value = "0";
+        timeLabel.textContent = "0.00 s";
+        setViseme("X", "reposo");
+
+        document.querySelectorAll("#audioSamplePills button").forEach((btn) => {
+          btn.setAttribute("aria-pressed", String(btn.dataset.sample === sampleKey));
+        });
+
+        try {
+          const response = await fetch(sample.visemeSrc);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          activeCues = Array.isArray(data.mouthCues) ? data.mouthCues : [];
+          activeDuration =
+            typeof data?.metadata?.duration === "number"
+              ? data.metadata.duration
+              : sample.fallbackDuration;
+          timeScrubber.max = activeDuration.toFixed(2);
+          audioMeta.innerHTML =
+            `<strong>Clip aprobado:</strong> <code>${sample.audioSrc}</code> · ` +
+            `<strong>Visemas Rhubarb:</strong> <code>${sample.visemeSrc}</code> ` +
+            `(${activeCues.length} marcas, ${activeDuration.toFixed(2)} s)`;
+          audioMeta.dataset.visemesLoaded = "true";
+        } catch (err) {
+          activeCues = [];
+          activeDuration = sample.fallbackDuration;
+          timeScrubber.max = activeDuration.toFixed(2);
+          audioMeta.textContent = `No se pudieron cargar los visemas (${err.message}).`;
+          audioMeta.dataset.visemesLoaded = "false";
+        }
+      }
+
+      document.querySelectorAll("#audioSamplePills button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          loadSample(btn.dataset.sample);
+        });
+      });
+
+      document.getElementById("btnPlayAudio").addEventListener("click", async () => {
+        if (voiceAudio.currentTime >= activeDuration - 0.02) {
+          voiceAudio.currentTime = 0;
+        }
+        try {
+          await voiceAudio.play();
+          stopAudioSync();
+          rafId = requestAnimationFrame(syncFrame);
+        } catch (err) {
+          audioMeta.textContent = `Reproducción bloqueada por el navegador: ${err.message}`;
+        }
+      });
+
+      document.getElementById("btnPauseAudio").addEventListener("click", () => {
+        voiceAudio.pause();
+        stopAudioSync();
+        setViseme("X", "pausado");
+      });
+
+      voiceAudio.addEventListener("ended", () => {
+        stopAudioSync();
+        timeScrubber.value = "0";
+        timeLabel.textContent = "0.00 s";
+        setViseme("X", "fin");
+      });
+
+      document.getElementById("btnDesktop").addEventListener("click", (e) => {
+        viewportFrame.dataset.viewport = "desktop";
+        e.currentTarget.setAttribute("aria-pressed", "true");
+        document.getElementById("btnMobile").setAttribute("aria-pressed", "false");
+        viewportBadge.textContent = "Escritorio · Torso-up 718×860 (1:1 nativo)";
+      });
+
+      document.getElementById("btnMobile").addEventListener("click", (e) => {
+        viewportFrame.dataset.viewport = "mobile";
+        e.currentTarget.setAttribute("aria-pressed", "true");
+        document.getElementById("btnDesktop").setAttribute("aria-pressed", "false");
+        viewportBadge.textContent = "Móvil 390×844 · Torso-up 718×860 (1:1 nativo)";
+      });
+
+      document.getElementById("btnReduced").addEventListener("click", (e) => {
+        reducedMotion = !reducedMotion;
+        e.currentTarget.setAttribute("aria-pressed", String(reducedMotion));
+        document.body.classList.toggle("reduced-motion", reducedMotion);
+        if (reducedMotion) {
+          setViseme("X", "reducir-movimiento");
+        }
+        applyPose();
+      });
+
+      document.querySelectorAll("[data-framing-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const framing = btn.dataset.framingBtn;
+          puppetRig.dataset.framing = framing;
+          puppetSvg.setAttribute("viewBox", framing === "full" ? "0 0 1086 1448" : "184 0 718 860");
+          document.querySelectorAll("[data-framing-btn]").forEach((b) => {
+            b.setAttribute("aria-pressed", String(b === btn));
+          });
+        });
+      });
+
+      document.querySelectorAll("#visemePills button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          voiceAudio.pause();
+          stopAudioSync();
+          setViseme(btn.dataset.viseme, "manual");
+        });
+      });
+
+      document.querySelectorAll("#expressionPills button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentExpr = btn.dataset.expr;
+          document.querySelectorAll("#expressionPills button").forEach((b) => {
+            b.setAttribute("aria-pressed", String(b === btn));
+          });
+          applyPose();
+        });
+      });
+
+      document.querySelectorAll("#gazePills button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentGaze = btn.dataset.gaze;
+          document.querySelectorAll("#gazePills button").forEach((b) => {
+            b.setAttribute("aria-pressed", String(b === btn));
+          });
+          applyPose();
+        });
+      });
+
+      document.getElementById("btnBlinkNow").addEventListener("click", triggerBlink);
+
+      timeScrubber.addEventListener("input", () => {
+        const t = Number.parseFloat(timeScrubber.value) || 0;
+        voiceAudio.currentTime = t;
+        timeLabel.textContent = `${t.toFixed(2)} s`;
+        setViseme(resolveCue(t), `scrubber:${currentSampleKey}`);
+      });
+
+      // Render candidate face-zoom cards + approval checklist table
+      const grid = document.getElementById("candidateGrid");
+      const tbody = document.getElementById("approvalTableBody");
+
+      for (const c of CANDIDATES) {
+        const card = document.createElement("div");
+        card.className = "still-card";
+        card.innerHTML = `
+          <div class="still-thumb face-zoom" style="aspect-ratio: 4 / 3">
+            <svg viewBox="390 155 370 278" role="img" aria-label="${c.label}">
+              <image href="${MASTER_SRC}" x="0" y="0" width="1086" height="1448" />
+              <image href="${CAND_BASE}${c.file}" x="0" y="0" width="1086" height="1448" />
+            </svg>
+          </div>
+          <div class="still-title">${c.label}</div>
+          <div class="still-meta"><code>${c.file}</code> · 1086×1448 · Pendiente de aprobación</div>
+        `;
+        grid.appendChild(card);
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${c.label}</strong><br><span class="still-meta">${c.id}</span></td>
+          <td>${c.role}</td>
+          <td>1086×1448</td>
+          <td>
+            <div class="decision-pills">
+              <button type="button" class="yes" aria-pressed="false">Sí</button>
+              <button type="button" class="no" aria-pressed="false">No</button>
+            </div>
+          </td>
+          <td class="manifest-cell">No activado (pendiente)</td>
+        `;
+        const yesBtn = tr.querySelector(".yes");
+        const noBtn = tr.querySelector(".no");
+        const cell = tr.querySelector(".manifest-cell");
+        yesBtn.addEventListener("click", () => {
+          yesBtn.setAttribute("aria-pressed", "true");
+          noBtn.setAttribute("aria-pressed", "false");
+          cell.textContent = "Aprobado en vista previa (registrar en manifest)";
+        });
+        noBtn.addEventListener("click", () => {
+          noBtn.setAttribute("aria-pressed", "true");
+          yesBtn.setAttribute("aria-pressed", "false");
+          cell.textContent = "Excluido (mantener pieza quieta)";
+        });
+        tbody.appendChild(tr);
+      }
+
+      loadSample("abeja");
+
+      setInterval(() => {
+        if (!reducedMotion) triggerBlink();
+      }, 4200);
+    </script>
+  </body>
+</html>

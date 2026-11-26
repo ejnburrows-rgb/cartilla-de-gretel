@@ -276,6 +276,57 @@ describe("authorized local JSON export/import and 8-section Spanish teacher repo
     expect(session.teacherNotes).toHaveLength(0);
     expect(session.teacherOverrides).toHaveLength(0);
   });
+
+  it("keeps Flip Chart flipchartSheet separate from Workbook printedPage/pdfSheet and formats both accurately (Gitar #15)", () => {
+    let session = createSessionLog({
+      sessionId: "sess-sheets-separation",
+      learnerId: "learner-slot-2",
+      lesson: 1,
+      startedAt: "2026-11-26T15:00:00.000Z",
+    });
+
+    session = appendSessionEvent(session, {
+      kind: "sheet_opened",
+      summary: "Rotafolio · lámina 2 abierta",
+      flipchartSheet: 2,
+      // Even if a caller mistakenly passed a workbook printedPage on a flipchart event, it must be ignored
+      printedPage: 99,
+      sheetSource: "flipchart",
+      at: "2026-11-26T15:00:05.000Z",
+    });
+
+    session = appendSessionEvent(session, {
+      kind: "sheet_opened",
+      summary: "Cuaderno · página impresa 3 abierta",
+      printedPage: 3,
+      pdfSheet: 5,
+      sheetSource: "workbook",
+      at: "2026-11-26T15:00:15.000Z",
+    });
+
+    const flipchartEvent = session.events.find((e) => e.sheetSource === "flipchart");
+    expect(flipchartEvent?.flipchartSheet).toBe(2);
+    expect(flipchartEvent?.printedPage).toBeUndefined();
+    expect(flipchartEvent?.pdfSheet).toBeUndefined();
+
+    expect(session.sheets).toEqual([
+      { flipchartSheet: 2, source: "flipchart" },
+      { printedPage: 3, pdfSheet: 5, source: "workbook" },
+    ]);
+
+    const report = generateTeacherSessionReport(session);
+    const contentSection = report.sections.find((s) => s.title === "Contenido trabajado");
+    expect(contentSection?.lines[0]).toContain("Rotafolio · lámina 2");
+    expect(contentSection?.lines[0]).toContain("Cuaderno · pág. impresa 3 (hoja PDF 5)");
+    expect(contentSection?.lines[0]).not.toContain("pág. impresa 99");
+
+    // TutorReplay renders Flip Chart as "Rotafolio · lámina 2" on step 1 and Workbook on step 2
+    const { rerender } = render(createElement(TutorReplay, { session, initialIndex: 1 }));
+    expect(screen.getByText("Rotafolio · lámina 2")).toBeTruthy();
+
+    rerender(createElement(TutorReplay, { session, initialIndex: 2 }));
+    expect(screen.getByText("Cuaderno · pág. impresa 3 (hoja PDF 5)")).toBeTruthy();
+  });
 });
 
 describe("TutorReplay & TutorConsentControls UI invariants", () => {

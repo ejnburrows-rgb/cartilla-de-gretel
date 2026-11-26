@@ -176,7 +176,31 @@ function TutorSessionScreen() {
   const { n } = Route.useParams();
   const search = Route.useSearch();
   const lesson = Number(n);
-  const validLesson = (ALL_CURRICULUM_LESSONS as readonly number[]).includes(lesson);
+  const validLesson =
+    Number.isInteger(lesson) && (ALL_CURRICULUM_LESSONS as readonly number[]).includes(lesson);
+
+  if (!validLesson) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#f6efe2] px-6 text-center text-[#2a211b]">
+        <Star className="h-12 w-12 text-[#b88228]" aria-hidden="true" />
+        <h1 className="text-2xl font-black">Esta lección todavía no está lista.</h1>
+        <Link to="/tutor" className="text-lg font-bold text-[#1e4b82] underline">
+          Volver al tutor
+        </Link>
+      </main>
+    );
+  }
+
+  return <ValidTutorSessionScreen lesson={lesson} search={search} />;
+}
+
+function ValidTutorSessionScreen({
+  lesson,
+  search,
+}: {
+  lesson: number;
+  search: TutorSessionSearch;
+}) {
   const lessonRef = useRef(lesson);
   lessonRef.current = lesson;
 
@@ -321,6 +345,19 @@ function TutorSessionScreen() {
     autoLayoutSwitchCountRef.current = snap.layoutSwitchCount + 1;
     controller.setLayoutMode(mode);
   }
+
+  const prevLayoutModeRef = useRef<TutorLayoutMode>(shellSnapshot.layoutMode);
+  useEffect(() => {
+    if (prevLayoutModeRef.current !== shellSnapshot.layoutMode) {
+      prevLayoutModeRef.current = shellSnapshot.layoutMode;
+      appendLogEvent({
+        kind: "presentation_action",
+        summary: `Cambio de modo de vista: ${shellSnapshot.layoutMode}`,
+        presentationAction: `layout:${shellSnapshot.layoutMode}`,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shellSnapshot.layoutMode]);
 
   useEffect(() => {
     if (shellSnapshot.layoutSwitchCount > autoLayoutSwitchCountRef.current) {
@@ -535,7 +572,7 @@ function TutorSessionScreen() {
     if (!state || !state.started || !sessionIdRef.current) return;
     try {
       for (const itemId of state.missedItemIds) {
-        noteMissedItem(window.localStorage, sessionIdRef.current, itemId);
+        noteMissedItem(window.localStorage, sessionIdRef.current, itemId, state.lesson);
       }
       recordStreak(window.localStorage, sessionIdRef.current, state.streak);
     } catch {
@@ -641,12 +678,10 @@ function TutorSessionScreen() {
           case "openFlipchart": {
             syncFlipchartHighlight(effect.sheetNumber, activeItemOf(state));
             applyAutoLayout(effect.layout);
-            const pageNode = lessonGraph?.pages.find((p) => p.pdfSheet !== null) ?? null;
             appendLogEvent({
               kind: "sheet_opened",
-              summary: `Rotafolio · Lámina ${effect.sheetNumber} abierta`,
-              printedPage: pageNode?.printedPage ?? defaultWorkbookPage,
-              pdfSheet: effect.sheetNumber,
+              summary: `Rotafolio · lámina ${effect.sheetNumber} abierta`,
+              flipchartSheet: effect.sheetNumber,
               sheetSource: "flipchart",
             });
             break;
@@ -726,7 +761,7 @@ function TutorSessionScreen() {
                 kind: "presentation_action",
                 summary: effect.summary,
                 presentationAction: "present_flipchart",
-                pdfSheet: effect.sheetNumber ?? null,
+                flipchartSheet: effect.sheetNumber,
                 sheetSource: "flipchart",
               });
             } else if (effect.kind === "question") {
@@ -859,10 +894,15 @@ function TutorSessionScreen() {
 
     const base =
       !current.inReview && current.started
-        ? {
-            ...current,
-            reviewItemIds: reviewRoundSet(current.missedItemIds, prevMissedRef.current),
-          }
+        ? (() => {
+            const validIds = new Set(current.items.map((it) => it.id));
+            return {
+              ...current,
+              reviewItemIds: reviewRoundSet(current.missedItemIds, prevMissedRef.current).filter(
+                (id) => validIds.has(id),
+              ),
+            };
+          })()
         : current;
 
     const { state, effects } = reduce(base, ev, rngRef.current);
@@ -1007,7 +1047,6 @@ function TutorSessionScreen() {
   // ---------------------------------------------------------------------
 
   useEffect(() => {
-    if (!validLesson) return;
     const epoch = ++epochRef.current;
     setUnavailableProblem(null);
     setBrain(null);
@@ -1195,18 +1234,6 @@ function TutorSessionScreen() {
   // ---------------------------------------------------------------------
   // Render
   // ---------------------------------------------------------------------
-
-  if (!validLesson) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#f6efe2] px-6 text-center text-[#2a211b]">
-        <Star className="h-12 w-12 text-[#b88228]" aria-hidden="true" />
-        <h1 className="text-2xl font-black">Esta lección todavía no está lista.</h1>
-        <Link to="/tutor" className="text-lg font-bold text-[#1e4b82] underline">
-          Volver al tutor
-        </Link>
-      </main>
-    );
-  }
 
   if (brain?.phase === "ENDED") {
     return (
@@ -1497,6 +1524,12 @@ function TutorSessionScreen() {
           onSheetChange={(sheet) => {
             controller.setFlipchartPage(sheet);
             syncFlipchartHighlight(sheet, item);
+            appendLogEvent({
+              kind: "sheet_opened",
+              summary: `Rotafolio · lámina ${sheet}`,
+              flipchartSheet: sheet,
+              sheetSource: "flipchart",
+            });
           }}
         />
       }
@@ -1615,13 +1648,13 @@ function TutorSessionScreen() {
       textInputDisabled={!brain}
       onTextSubmit={(text) => {
         resetIdleTimer();
+        const trimmed = text.trim();
+        if (!trimmed) return;
         if (brainRef.current?.phase === "LISTEN") {
           setProcessingTurn(true);
           dispatch({
-            type: "HEARD",
-            transcript: text,
-            alternatives: [],
-            mode: recommendedEarsMode(brainRef.current),
+            type: "TYPED_ANSWER",
+            transcript: trimmed,
           });
         }
       }}

@@ -21,6 +21,23 @@ import { parseFfmpegSilencedetect } from "./silence.mjs";
 
 const DEFAULT_REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 
+/** Hardened ffmpeg flags adopted from PR #1323: disable stdin, fail on decode errors, restrict protocols to local files/pipes. */
+export const FFMPEG_SECURITY_FLAGS = [
+  "-nostdin",
+  "-xerror",
+  "-protocol_whitelist",
+  "file,pipe",
+];
+
+/** Hardened ffprobe protocol restriction preventing network/sub-playlist SSRF. */
+export const FFPROBE_SECURITY_FLAGS = ["-protocol_whitelist", "file,pipe"];
+
+const FIXED_SYSTEM_PATHS = {
+  tar: ["/usr/bin/tar", "/bin/tar", "/opt/homebrew/bin/tar", "/usr/local/bin/tar"],
+  unzip: ["/usr/bin/unzip", "/bin/unzip", "/opt/homebrew/bin/unzip", "/usr/local/bin/unzip"],
+  git: ["/usr/bin/git", "/opt/homebrew/bin/git", "/usr/local/bin/git", "/bin/git"],
+};
+
 function isExecutableFile(filePath) {
   try {
     if (!existsSync(filePath)) return false;
@@ -32,6 +49,36 @@ function isExecutableFile(filePath) {
   } catch {
     return false;
   }
+}
+
+/**
+ * Resolve a system binary strictly from fixed absolute paths and `<repoRoot>/.tools/bin/`
+ * verified with `accessSync(X_OK)` — never relies on untrusted `PATH` lookup (SonarCloud S4036).
+ */
+export function resolveFixedSystemBinary(
+  name,
+  { repoRoot = DEFAULT_REPO_ROOT, extraCandidates = [] } = {},
+) {
+  const candidates = [];
+  if (repoRoot) {
+    if (process.platform === "win32") {
+      candidates.push(join(repoRoot, ".tools", "bin", `${name}.exe`));
+    }
+    candidates.push(join(repoRoot, ".tools", "bin", name));
+  }
+  if (process.platform === "win32") {
+    candidates.push(
+      join(process.env.LOCALAPPDATA ?? "", "Programs", "Git", "cmd", `${name}.exe`),
+      join(process.env.LOCALAPPDATA ?? "", "Programs", "Git", "usr", "bin", `${name}.exe`),
+      join("C:\\Program Files\\Git\\cmd", `${name}.exe`),
+      join("C:\\Program Files\\Git\\usr\\bin", `${name}.exe`),
+    );
+  }
+  candidates.push(...(FIXED_SYSTEM_PATHS[name] ?? []), ...extraCandidates);
+  for (const candidate of candidates) {
+    if (candidate && isExecutableFile(candidate)) return candidate;
+  }
+  return null;
 }
 
 function findInDirTree(dirPath, targetNames, maxDepth = 3) {
@@ -346,6 +393,7 @@ export function probeMedia(inputPath, { tools } = {}) {
       [
         "-v",
         "error",
+        ...FFPROBE_SECURITY_FLAGS,
         "-show_entries",
         "format=duration:stream=codec_type,codec_name,sample_rate,channels,bit_rate",
         "-of",
@@ -425,6 +473,7 @@ export function detectSilenceWithFfmpeg({
     [
       "-hide_banner",
       "-nostats",
+      ...FFMPEG_SECURITY_FLAGS,
       "-i",
       inputPath,
       "-vn",
@@ -468,7 +517,7 @@ export function extractAndResampleWav({
   mkdirSync(dirname(outputWavPath), { recursive: true });
   const ffmpeg = tools?.ffmpeg;
   if (ffmpeg) {
-    const args = ["-hide_banner", "-loglevel", "error", "-y"];
+    const args = ["-hide_banner", "-loglevel", "error", "-y", ...FFMPEG_SECURITY_FLAGS];
     if (typeof startSec === "number" && startSec > 0) {
       args.push("-ss", startSec.toFixed(4));
     }
@@ -535,7 +584,7 @@ export function exportRuntimeMp3({
   }
   mkdirSync(dirname(outputMp3Path), { recursive: true });
 
-  const args = ["-hide_banner", "-loglevel", "error", "-y"];
+  const args = ["-hide_banner", "-loglevel", "error", "-y", ...FFMPEG_SECURITY_FLAGS];
   const isSliced = typeof startSec === "number" && typeof endSec === "number";
   if (isSliced) {
     args.push("-ss", Math.max(0, startSec).toFixed(4), "-to", endSec.toFixed(4));

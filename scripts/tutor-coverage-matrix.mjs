@@ -29,7 +29,6 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSy
 import { createRequire } from "node:module";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import vm from "node:vm";
 
 const require = createRequire(import.meta.url);
 const ts = require("typescript");
@@ -80,14 +79,17 @@ function sha256File(absPath) {
 
 /** Lowercase slug preserving ñ so "uña" never collides with "una". */
 function idSlug(text) {
-  return String(text)
+  const slug = String(text)
     .toLowerCase()
     .normalize("NFD")
     .replace(/\p{M}/gu, (mark) => (mark === "\u0303" ? mark : ""))
     .normalize("NFC")
-    .replace(/[^a-zñ0-9]+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+    .replace(/[^a-zñ0-9]+/g, "-");
+  let start = 0;
+  let end = slug.length;
+  while (start < end && slug[start] === "-") start += 1;
+  while (end > start && slug[end - 1] === "-") end -= 1;
+  return slug.slice(start, end);
 }
 
 function bareLetters(text) {
@@ -97,28 +99,155 @@ function bareLetters(text) {
     .toLowerCase();
 }
 
-/** Transpile and evaluate a pure-data TypeScript module without touching browser globals. */
+/**
+ * Pure static TypeScript AST literal evaluator (zero dynamic code execution).
+ * Supports primitive literals, template strings, arrays (with spread), plain objects
+ * (with shorthand/spread), local const references, and simple `.map(x => ...)` on static arrays.
+ */
+function evalStaticTsNode(node, env, relPath) {
+  if (
+    ts.isParenthesizedExpression(node) ||
+    ts.isAsExpression(node) ||
+    ts.isSatisfiesExpression(node) ||
+    ts.isNonNullExpression(node)
+  ) {
+    return evalStaticTsNode(node.expression, env, relPath);
+  }
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
+    return node.text;
+  }
+  if (ts.isNumericLiteral(node)) {
+    return Number(node.text);
+  }
+  if (node.kind === ts.SyntaxKind.TrueKeyword) return true;
+  if (node.kind === ts.SyntaxKind.FalseKeyword) return false;
+  if (node.kind === ts.SyntaxKind.NullKeyword) return null;
+  if (ts.isPrefixUnaryExpression(node)) {
+    const val = evalStaticTsNode(node.operand, env, relPath);
+    if (node.operator === ts.SyntaxKind.MinusToken) return -val;
+    if (node.operator === ts.SyntaxKind.PlusToken) return +val;
+    throw new Error(`Unsupported unary operator in ${relPath}`);
+  }
+  if (ts.isTemplateExpression(node)) {
+    let out = node.head.text;
+    for (const span of node.templateSpans) {
+      out += String(evalStaticTsNode(span.expression, env, relPath));
+      out += span.literal.text;
+    }
+    return out;
+  }
+  if (ts.isIdentifier(node)) {
+    if (node.text === "undefined") return undefined;
+    if (env.has(node.text)) return env.get(node.text);
+    throw new Error(`Unresolved static identifier "${node.text}" in ${relPath}`);
+  }
+  if (ts.isArrayLiteralExpression(node)) {
+    const result = [];
+    for (const el of node.elements) {
+      if (ts.isSpreadElement(el)) {
+        const spreadVal = evalStaticTsNode(el.expression, env, relPath);
+        if (!Array.isArray(spreadVal)) {
+          throw new Error(`Spread target is not an array in ${relPath}`);
+        }
+        result.push(...spreadVal);
+      } else {
+        result.push(evalStaticTsNode(el, env, relPath));
+      }
+    }
+    return result;
+  }
+  if (ts.isObjectLiteralExpression(node)) {
+    const obj = {};
+    for (const prop of node.properties) {
+      if (ts.isPropertyAssignment(prop)) {
+        const key =
+          ts.isIdentifier(prop.name) ||
+          ts.isStringLiteral(prop.name) ||
+          ts.isNumericLiteral(prop.name)
+            ? prop.name.text
+            : String(evalStaticTsNode(prop.name, env, relPath));
+        obj[key] = evalStaticTsNode(prop.initializer, env, relPath);
+      } else if (ts.isShorthandPropertyAssignment(prop)) {
+        const key = prop.name.text;
+        obj[key] = evalStaticTsNode(prop.name, env, relPath);
+      } else if (ts.isSpreadAssignment(prop)) {
+        const spreadObj = evalStaticTsNode(prop.expression, env, relPath);
+        if (spreadObj && typeof spreadObj === "object") {
+          Object.assign(obj, spreadObj);
+        }
+      } else {
+        throw new Error(`Unsupported object property kind in ${relPath}`);
+      }
+    }
+    return obj;
+  }
+  if (
+    ts.isCallExpression(node) &&
+    ts.isPropertyAccessExpression(node.expression) &&
+    node.expression.name.text === "map" &&
+    node.arguments.length === 1 &&
+    ts.isArrowFunction(node.arguments[0]) &&
+    node.arguments[0].parameters.length === 1 &&
+    ts.isIdentifier(node.arguments[0].parameters[0].name) &&
+    !ts.isBlock(node.arguments[0].body)
+  ) {
+    const targetArr = evalStaticTsNode(node.expression.expression, env, relPath);
+    if (!Array.isArray(targetArr)) {
+      throw new Error(`Static .map() target is not an array in ${relPath}`);
+    }
+    const paramName = node.arguments[0].parameters[0].name.text;
+    const body = node.arguments[0].body;
+    return targetArr.map((item) => {
+      const childEnv = new Map(env);
+      childEnv.set(paramName, item);
+      return evalStaticTsNode(body, childEnv, relPath);
+    });
+  }
+  throw new Error(`Unsupported AST expression (${ts.SyntaxKind[node.kind]}) in ${relPath}`);
+}
+
+/** Extract exported static data declarations from a pure-data TypeScript module via AST only. */
 function loadPureTsModule(relPath) {
   const absPath = join(REPO_ROOT, relPath);
   const source = readFileSync(absPath, "utf8");
-  const { outputText } = ts.transpileModule(source, {
-    compilerOptions: {
-      module: ts.ModuleKind.CommonJS,
-      target: ts.ScriptTarget.ES2022,
-      esModuleInterop: true,
-    },
-    fileName: absPath,
-  });
-  const mod = { exports: {} };
-  const sandbox = {
-    module: mod,
-    exports: mod.exports,
-    require: (id) => {
-      throw new Error(`Unexpected runtime import "${id}" in ${relPath}`);
-    },
-  };
-  vm.runInNewContext(outputText, sandbox, { filename: absPath });
-  return mod.exports;
+  const sf = ts.createSourceFile(absPath, source, ts.ScriptTarget.Latest, true);
+  const env = new Map();
+  const exportsObj = {};
+
+  for (const stmt of sf.statements) {
+    if (!ts.isVariableStatement(stmt)) continue;
+    const isExported = Boolean(
+      stmt.modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword),
+    );
+    for (const decl of stmt.declarationList.declarations) {
+      if (!ts.isIdentifier(decl.name) || !decl.initializer) continue;
+      try {
+        const value = evalStaticTsNode(decl.initializer, env, relPath);
+        env.set(decl.name.text, value);
+        if (isExported) exportsObj[decl.name.text] = value;
+      } catch (err) {
+        if (isExported && !ts.isPropertyAccessExpression(decl.initializer)) {
+          throw err;
+        }
+      }
+    }
+  }
+  return exportsObj;
+}
+
+/** Printed workbook page range for lessons 1..24 (mirrors src/lib/workbook-pages.ts). */
+function workbookPagesForLesson(lesson) {
+  if (!Number.isInteger(lesson) || lesson < 1 || lesson > 24) {
+    throw new RangeError(`lesson ${lesson}`);
+  }
+  if (lesson === 1) return { start: 1, end: 3 };
+  if (lesson <= 6) {
+    const start = 4 + 3 * (lesson - 2);
+    return { start, end: start + 2 };
+  }
+  if (lesson === 7) return { start: 19, end: 22 };
+  const start = 23 + 4 * (lesson - 8);
+  return { start, end: start + 3 };
 }
 
 /** Parse LIVE_GAMES identifiers from src/routes/cartilla/juego.$gameId.tsx using TypeScript AST. */
@@ -808,8 +937,7 @@ function buildCoverageMatrix() {
     });
 
   const { LESSONS: lessonMeta } = loadPureTsModule("src/content/lesson-meta.ts");
-  const { WORKBOOK_PAGE_COUNT, SOURCE_BLOCKED_WORKBOOK_PAGES, workbookPagesForLesson } =
-    loadPureTsModule("src/lib/workbook-pages.ts");
+  const { WORKBOOK_PAGE_COUNT } = loadPureTsModule("src/lib/workbook-pages.ts");
   const kindPriority = readExerciseKindPriority();
   const games = loadLiveGames(lessonMeta);
   const flipchartTextByPage = loadFlipchartTextByPage();

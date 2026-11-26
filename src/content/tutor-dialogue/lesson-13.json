@@ -85,7 +85,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy abrimos juntos una nueva lección para descubrir el sonido nasal de la letra ene",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-02-greeting-return",
@@ -167,7 +169,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez para seguir leyendo las aventuras con la letra ene",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-03-review-intro",
@@ -248,7 +252,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya conocemos la ele de luna y maleta hoy llega la ene de nido mono y tina",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-04-review-check",
@@ -329,7 +335,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo suena tu boca cuando cambias de la ele en luna a la ene en nido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-05-lesson-objective",
@@ -410,7 +418,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido nasal de la ene sus sílabas na ne ni no nu y las palabras esa y a",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-06-letter-name",
@@ -491,7 +501,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ene y en minúscula tiene una sola montañita redonda",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-07-phonetic-sound",
@@ -572,7 +584,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al pronunciarla apoyamos la lengua detrás de los dientes y sentimos vibrar suave la nariz nnn",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-08-lesson-focus",
@@ -653,7 +667,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "siente cómo vibra suavecito tu nariz cuando dices despacio nido mano y luna",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-09-sound-contrast",
@@ -734,7 +750,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "a diferencia de la eme que cierra los labios la ene deja los labios entreabiertos con la lengua arriba",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-10-explanation-primary",
@@ -815,7 +833,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando unimos ese sonido suave de la nariz con las vocales formamos na ne ni no nu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-11-explanation-simple",
@@ -896,7 +916,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "toca con un dedito el lado de tu nariz y di nnn sentirás un cosquilleo suave en nido y mano",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-12-flipchart-intro",
@@ -975,7 +997,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para saludar las palabras nuevas y el poema nino nada",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-sheet-27-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 27
+        },
+        {
+          "sourceLineId": "dialogue-l13-sheet-28-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 28
+        },
+        {
+          "sourceLineId": "dialogue-l13-sheet-29-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 29
+        }
+      ]
     },
     {
       "id": "v2-l13-13-flipchart-illustration-1",
@@ -1054,7 +1104,31 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen un nido un nudo un mono el perrito napi y un tenedor",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-sheet-27-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 27,
+          "expectedAnswer": "nido",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l13-sheet-28-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 28,
+          "expectedAnswer": "nido",
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l13-14-flipchart-illustration-2",
@@ -1133,7 +1207,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos al patito nadador nino chapoteando feliz dentro de su tina",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-15-reading-order",
@@ -1214,7 +1290,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee primero las sílabas de izquierda a derecha luego el cuadro de palabras y después el poema",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-16-flipchart-model",
@@ -1293,7 +1371,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas de la ene na ne ni no nu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-17-flipchart-vocab",
@@ -1372,7 +1452,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio nido nudo mono napi y tenedor",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-18-flipchart-rhyme-1",
@@ -1451,7 +1533,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos el comienzo del poema nino nada esta es la tina de nino mi patito nadador",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-sheet-27-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 27,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l13-sheet-28-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 28,
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l13-19-flipchart-rhyme-2",
@@ -1530,7 +1634,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el resto del poema nino nada nada nino pide nené con amor",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-20-comprehension-1",
@@ -1611,7 +1717,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en el poema del rotafolio quién es el patito nadador que está en la tina",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-21-comprehension-2",
@@ -1692,7 +1800,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "de quién es la tina que aparece en las oraciones de la lectura",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-22-comprehension-3",
@@ -1773,7 +1883,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra nido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-23-common-mistake-1",
@@ -1854,7 +1966,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "no confundas la ene con la eme la eme tiene dos montañitas y la ene tiene una sola",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-24-common-mistake-2",
@@ -1935,7 +2049,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ten cuidado al leer nené y tomás para respetar sus tildes con naturalidad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-25-common-mistake-3",
@@ -2016,7 +2132,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando la ene va en medio como en mano o luna pronúnciala sin cerrar los labios",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-26-hint-1",
@@ -2097,7 +2215,175 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira si la letra tiene una sola montañita y deja la boca entreabierta al decirla",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-sheet-29-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 29
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-nido-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "ni",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-nido-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-tina-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "na",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-tina-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-suena-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "na",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-suena-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-mono-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "no",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-mono-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-sano-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "no",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-sano-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-pone-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "ne",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-pone-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l13-27-hint-2",
@@ -2178,7 +2464,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el comienzo con nido o con mano para recordar la sílaba exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-28-hint-3",
@@ -2259,7 +2547,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy nido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-29-workbook-transition",
@@ -2340,7 +2630,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la ene y leer sobre tono alina y napi",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-30-page-instruction-1",
@@ -2418,7 +2710,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe la ene mayúscula y minúscula cuidando su única montañita y haz un dibujo con ene",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-page-43-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-43-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l13-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l13-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l13-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l13-31-page-instruction-2",
@@ -2496,7 +2886,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo las sílabas correctas en palabras como nariz nido tina y mono",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-32-syllable-practice",
@@ -2574,7 +2966,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "encierra con atención cada sílaba na en nata ne en nena ni en nido no en mono y nu en nudo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-page-44-find-na",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 44,
+          "workbookPdfSheet": 50,
+          "relatedFlipchartSheets": [
+            27,
+            28
+          ],
+          "expectedAnswer": "na"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-44-find-ne",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 44,
+          "workbookPdfSheet": 50,
+          "relatedFlipchartSheets": [
+            27,
+            28
+          ],
+          "expectedAnswer": "ne"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-44-find-ni",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 44,
+          "workbookPdfSheet": 50,
+          "relatedFlipchartSheets": [
+            27,
+            28
+          ],
+          "expectedAnswer": "ni"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-44-find-no",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 44,
+          "workbookPdfSheet": 50,
+          "relatedFlipchartSheets": [
+            27,
+            28
+          ],
+          "expectedAnswer": "no"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-44-find-nu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 44,
+          "workbookPdfSheet": 50,
+          "relatedFlipchartSheets": [
+            27,
+            28
+          ],
+          "expectedAnswer": "nu"
+        }
+      ]
     },
     {
       "id": "v2-l13-33-word-practice-1",
@@ -2652,7 +3118,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras nido tina nada nené mano nulo nono y tono",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-34-word-practice-2",
@@ -2730,7 +3198,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo de palabras alina poni nena nata mono luna y neli",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-35-sight-or-vocab",
@@ -2808,7 +3278,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy practicamos dos palabritas cortas que señalan y unen ideas esa y a",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-36-sentence-or-pair",
@@ -2886,7 +3358,191 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con claridad esta oración del libro tono le pone la tina a napi en el piso",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-nido",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-tina",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-nada",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-nené",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-mano",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-nulo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-nono",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-tono",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-alina",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-poni",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-nena",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-nata",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-mono",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-luna",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-45-read-neli",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 45,
+          "workbookPdfSheet": 51,
+          "relatedFlipchartSheets": [
+            28
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l13-37-page-instruction-final",
@@ -2964,7 +3620,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa las palabras usando na ne ni no nu como en nido tina suena y mono",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-38-game-intro",
@@ -3045,7 +3703,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva formando palabras del libro con las sílabas de la ene",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-39-game-step",
@@ -3126,7 +3786,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa los dibujos y palabras incompletas y elige la sílaba exacta entre na ne ni no nu",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-40-game-correct",
@@ -3207,7 +3869,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "muy bien elegido completaste la palabra de ene con mucha seguridad",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-41-game-retry",
@@ -3288,7 +3952,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee la palabra en voz alta y fíjate cuál sílaba de la ene suena mejor en el espacio",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-42-assessment",
@@ -3369,7 +4035,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro esa tina no tiene nada",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-tina",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "na",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-suena",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "na",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-mono",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "no",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-sano",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "no",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-pone",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "ne",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l13-43-page-complete",
@@ -3450,7 +4190,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la letra ene con excelente cuidado y buena lectura",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-page-43-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 43,
+          "workbookPdfSheet": 49,
+          "relatedFlipchartSheets": [
+            27
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l13-44-closing",
@@ -3531,7 +4288,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste toda la lección de la ene con gran atención cada palabra salió muy clara",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-45-next-step",
@@ -3612,7 +4371,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conocerás a su hermana especial con una olita arriba la letra eñe",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l13-46-atlas-flipchart",
+      "text": "¿Dónde nada el patito Nino?",
+      "normalizedText": "dónde nada el patito nino",
+      "batch": "B019",
+      "seq": 46,
+      "file": "B019-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-13-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 13,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          29
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-sheet-29-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 29,
+          "expectedAnswer": "en la tina"
+        }
+      ]
+    },
+    {
+      "id": "v2-l13-47-atlas-workbook",
+      "text": "Queremos escribir «nido». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir nido qué parte falta en el espacio",
+      "batch": "B019",
+      "seq": 47,
+      "file": "B019-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-13-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 13,
+        "sourceStatus": "verified",
+        "printedPages": [
+          46
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          13
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l13-page-46-fill-nido",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 46,
+          "workbookPdfSheet": 52,
+          "relatedFlipchartSheets": [
+            28
+          ],
+          "expectedAnswer": "ni",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }

@@ -43,8 +43,10 @@ export interface TutorMemoryRecord {
   /** Sessions started, including the current one. */
   sessions: number;
   lastLesson: number | null;
-  /** Item ids missed in the current session (reset at each session start, bounded). */
+  /** Item ids missed in the current session/lesson (reset at each session start, bounded). */
   missedItemIds: string[];
+  /** Missed item ids isolated by lesson (1–24); starting a lesson clears only that lesson. */
+  missesByLesson: Record<number, string[]>;
   /** Best first-try correct streak ever seen for this session_id. */
   bestStreak: number;
 }
@@ -53,6 +55,7 @@ interface StoredSession {
   sessions: number;
   lastLesson: number | null;
   missedItemIds: string[];
+  missesByLesson: Record<number, string[]>;
   bestStreak: number;
 }
 
@@ -128,6 +131,30 @@ function boundLearners<T>(shape: Record<string, T>, activeId?: string): Record<s
   return trimmed;
 }
 
+function sanitizeMissesByLesson(
+  raw: unknown,
+  fallbackLesson: number | null,
+  fallbackMissedItemIds: string[],
+): Record<number, string[]> {
+  const byLesson: Record<number, string[]> = {};
+  if (raw && typeof raw === "object" && !Array.isArray(raw)) {
+    for (const [key, list] of Object.entries(raw as Record<string, unknown>)) {
+      const lessonNum = Number(key);
+      if (!isValidLesson(lessonNum) || !Array.isArray(list)) continue;
+      const validIds = list.filter((id): id is string => isSafeItemId(id));
+      if (validIds.length > 0) {
+        byLesson[lessonNum] = [...new Set(validIds)].slice(-TUTOR_MEMORY_MAX_MISSED_ITEMS);
+      }
+    }
+  } else if (isValidLesson(fallbackLesson) && fallbackMissedItemIds.length > 0) {
+    // Backward-compatible migration for legacy records without missesByLesson.
+    byLesson[fallbackLesson] = [...new Set(fallbackMissedItemIds)].slice(
+      -TUTOR_MEMORY_MAX_MISSED_ITEMS,
+    );
+  }
+  return byLesson;
+}
+
 function readShape(store: TutorMemoryStorage): StoredShape {
   try {
     const raw = store.getItem(TUTOR_MEMORY_KEY);
@@ -150,11 +177,21 @@ function readShape(store: TutorMemoryStorage): StoredShape {
       ) {
         continue;
       }
-      // Strip any unknown/hostile keys so only the 4 canonical fields survive.
+      const lastLesson = record.lastLesson as number | null;
+      const missedItemIds = (record.missedItemIds as string[]).slice(
+        -TUTOR_MEMORY_MAX_MISSED_ITEMS,
+      );
+      const missesByLesson = sanitizeMissesByLesson(
+        record.missesByLesson,
+        lastLesson,
+        missedItemIds,
+      );
+      // Strip any unknown/hostile keys so only the canonical fields survive.
       clean[id] = {
         sessions: record.sessions,
-        lastLesson: record.lastLesson as number | null,
-        missedItemIds: (record.missedItemIds as string[]).slice(-TUTOR_MEMORY_MAX_MISSED_ITEMS),
+        lastLesson,
+        missedItemIds,
+        missesByLesson,
         bestStreak: record.bestStreak,
       };
     }
@@ -174,7 +211,7 @@ function writeShape(store: TutorMemoryStorage, shape: StoredShape, activeId?: st
 }
 
 function emptyRecord(): StoredSession {
-  return { sessions: 0, lastLesson: null, missedItemIds: [], bestStreak: 0 };
+  return { sessions: 0, lastLesson: null, missedItemIds: [], missesByLesson: {}, bestStreak: 0 };
 }
 
 /** Read one session's record without writing. */
@@ -204,8 +241,9 @@ export interface BeginSessionResult {
 
 /**
  * Start a session: bump the sessions count, note the lesson (1–24), snapshot
- * the previous misses, and reset the per-session miss list. Detects a
- * returning child (any earlier session for this session_id).
+ * the previous misses for ONLY this lesson, and reset ONLY this lesson's miss
+ * list while preserving misses from all other lessons. Detects a returning
+ * child (any earlier session for this session_id).
  */
 export function beginSession(
   store: TutorMemoryStorage = defaultStore(),
@@ -215,12 +253,24 @@ export function beginSession(
   const shape = readShape(store);
   const prior = shape[sessionId] ?? emptyRecord();
   const returning = prior.sessions >= 1;
-  const previousMissedItemIds = [...prior.missedItemIds];
   const validLesson = isValidLesson(lesson) ? lesson : prior.lastLesson;
+  const nextMissesByLesson: Record<number, string[]> = {};
+  for (const [k, list] of Object.entries(prior.missesByLesson)) {
+    const lessonNum = Number(k);
+    if (isValidLesson(lessonNum) && list.length > 0) {
+      nextMissesByLesson[lessonNum] = [...list];
+    }
+  }
+  const previousMissedItemIds =
+    validLesson !== null ? [...(nextMissesByLesson[validLesson] ?? [])] : [];
+  if (validLesson !== null) {
+    delete nextMissesByLesson[validLesson];
+  }
   const updated: StoredSession = {
     sessions: prior.sessions + 1,
     lastLesson: validLesson,
     missedItemIds: [],
+    missesByLesson: nextMissesByLesson,
     bestStreak: prior.bestStreak,
   };
   shape[sessionId] = updated;
@@ -237,16 +287,45 @@ export function greetingRole(returning: boolean): "greeting-return" | "greeting-
   return returning ? "greeting-return" : "greeting-first";
 }
 
-/** Record one missed item id for the current session (deduped & bounded). */
+/** Record one missed item id for the current session/lesson (deduped & bounded). */
 export function noteMissedItem(
   store: TutorMemoryStorage = defaultStore(),
   sessionId: string,
   itemId: string,
+  lesson?: number,
 ): TutorMemoryRecord {
   const shape = readShape(store);
   const stored = shape[sessionId] ?? emptyRecord();
-  if (isSafeItemId(itemId) && !stored.missedItemIds.includes(itemId)) {
+  if (!isSafeItemId(itemId)) {
+    return { sessionId, ...stored };
+  }
+  const targetLesson = isValidLesson(lesson) ? lesson : stored.lastLesson;
+  let changed = false;
+
+  if (targetLesson !== null) {
+    const existingLessonMisses = stored.missesByLesson[targetLesson] ?? [];
+    if (!existingLessonMisses.includes(itemId)) {
+      const nextLessonMisses = [...existingLessonMisses, itemId].slice(
+        -TUTOR_MEMORY_MAX_MISSED_ITEMS,
+      );
+      stored.missesByLesson = {
+        ...stored.missesByLesson,
+        [targetLesson]: nextLessonMisses,
+      };
+      changed = true;
+    }
+    if (targetLesson === stored.lastLesson && !stored.missedItemIds.includes(itemId)) {
+      stored.missedItemIds = [...stored.missedItemIds, itemId].slice(
+        -TUTOR_MEMORY_MAX_MISSED_ITEMS,
+      );
+      changed = true;
+    }
+  } else if (!stored.missedItemIds.includes(itemId)) {
     stored.missedItemIds = [...stored.missedItemIds, itemId].slice(-TUTOR_MEMORY_MAX_MISSED_ITEMS);
+    changed = true;
+  }
+
+  if (changed) {
     shape[sessionId] = stored;
     writeShape(store, shape, sessionId);
   }

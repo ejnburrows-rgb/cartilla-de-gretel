@@ -492,6 +492,94 @@ describe("review round (§18.4): one more try before celebrate", () => {
       },
     ]);
   });
+
+  it("filters cross-lesson reviewItemIds at creation and skips unknown IDs in review queue without prematurely celebrating (Gitar #5)", () => {
+    const state = brain(2, {
+      items: [findTutorItem(2, "oso"), findTutorItem(2, "ola")],
+      reviewItemIds: ["l1-vowel-a", "l2-word-oso", "unknown-id", "l2-word-ola"],
+    });
+    expect(state.reviewItemIds).toEqual(["l2-word-oso", "l2-word-ola"]);
+
+    // Even if an unknown ID is injected into reviewItemIds mid-session, review skips it instead of celebrating early
+    const withUnknownMidQueue: BrainState = {
+      ...state,
+      reviewItemIds: ["l1-vowel-a", "l2-word-oso", "ghost-id", "l2-word-ola"],
+    };
+    const afterMain = drive(withUnknownMidQueue, [
+      { type: "START" },
+      { type: "LINE_DONE" },
+      { type: "LINE_DONE" },
+      { type: "MIC_TAP" },
+      { type: "HEARD", transcript: "oso", alternatives: [] },
+      { type: "LINE_DONE" },
+      { type: "LINE_DONE" },
+      { type: "MIC_TAP" },
+      { type: "HEARD", transcript: "ola", alternatives: [] },
+      { type: "LINE_DONE" }, // enters review -> skips "l1-vowel-a" and highlights "l2-word-oso"
+    ]);
+    expect(afterMain.state.inReview).toBe(true);
+    expect(afterMain.state.phase).toBe("MODEL");
+    expect(afterMain.state.reviewIndex).toBe(1);
+    expect(afterMain.effects).toContainEqual({ type: "highlight", itemId: "l2-word-oso" });
+
+    // Passing first review item skips "ghost-id" and advances to "l2-word-ola"
+    const afterFirstReview = drive(afterMain.state, [
+      { type: "LINE_DONE" },
+      { type: "MIC_TAP" },
+      { type: "HEARD", transcript: "oso", alternatives: [] },
+      { type: "LINE_DONE" },
+    ]);
+    expect(afterFirstReview.state.phase).toBe("MODEL");
+    expect(afterFirstReview.state.reviewIndex).toBe(3);
+    expect(afterFirstReview.effects).toContainEqual({ type: "highlight", itemId: "l2-word-ola" });
+
+    // Passing second valid review item finally celebrates
+    const afterSecondReview = drive(afterFirstReview.state, [
+      { type: "LINE_DONE" },
+      { type: "MIC_TAP" },
+      { type: "HEARD", transcript: "ola", alternatives: [] },
+      { type: "LINE_DONE" },
+    ]);
+    expect(afterSecondReview.state.phase).toBe("CELEBRATE");
+  });
+});
+
+describe("TYPED_ANSWER without microphone capture (Gitar #12)", () => {
+  it("accepts typed answers in LISTEN without MIC_TAP or state.capturing === true", () => {
+    const listening = toListen(1);
+    expect(listening.capturing).toBe(false);
+
+    const { state, effects } = reduce(
+      listening,
+      { type: "TYPED_ANSWER", transcript: "a" },
+      rng0,
+    );
+    expect(state.phase).toBe("RESPOND");
+    expect(state.respondKind).toBe("correct");
+    expect(state.capturing).toBe(false);
+    expect(effects[0]).toEqual({ type: "markCorrect" });
+  });
+
+  it("handles wrong typed answers and ignores blank typed submissions without opening the mic", () => {
+    const listening = toListen(1);
+    const blank = reduce(listening, { type: "TYPED_ANSWER", transcript: "   " }, rng0);
+    expect(blank.state).toBe(listening);
+    expect(blank.state.capturing).toBe(false);
+    expect(blank.effects).toEqual([]);
+
+    const wrong = reduce(listening, { type: "TYPED_ANSWER", transcript: "e" }, rng0);
+    expect(wrong.state.phase).toBe("RESPOND");
+    expect(wrong.state.respondKind).toBe("retry");
+    expect(wrong.state.capturing).toBe(false);
+    expect(wrong.effects[0]).toEqual({ type: "markWrongErase" });
+  });
+
+  it("ignores TYPED_ANSWER outside LISTEN phase", () => {
+    const greeted = drive(brain(1), [{ type: "START" }]).state;
+    const step = reduce(greeted, { type: "TYPED_ANSWER", transcript: "a" }, rng0);
+    expect(step.state).toBe(greeted);
+    expect(step.effects).toEqual([]);
+  });
 });
 
 describe("any EARS_PROBLEM → same phase, no voice", () => {

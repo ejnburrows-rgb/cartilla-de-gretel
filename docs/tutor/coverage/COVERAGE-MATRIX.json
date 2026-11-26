@@ -15826,6 +15826,18 @@
         "tutorLineId": "l1-model-araña"
       },
       {
+        "path": "public/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json",
+        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json",
+        "mediaType": "visemes-json",
+        "classification": "connected-tutor-visemes",
+        "status": "approved",
+        "sizeBytes": 799,
+        "sha256": "09f31ee132130a20971cd7d62ba568225655caefe82357a768c027e6cb61d2a4",
+        "cueCount": 7,
+        "durationSec": 1.59,
+        "tutorLineId": "l1-model-árbol"
+      },
+      {
         "path": "public/audio/voz/tutor/leccion-1/l1-model-aro.visemes.json",
         "publicPath": "/audio/voz/tutor/leccion-1/l1-model-aro.visemes.json",
         "mediaType": "visemes-json",
@@ -16018,18 +16030,6 @@
         "tutorLineId": "l1-model-libro"
       },
       {
-        "path": "public/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json",
-        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json",
-        "mediaType": "visemes-json",
-        "classification": "connected-tutor-visemes",
-        "status": "approved",
-        "sizeBytes": 1008,
-        "sha256": "2c4e7777d7a78c58c51f41053b7b27c35d1d505073e611d60d954a899de430a1",
-        "cueCount": 10,
-        "durationSec": 1.89,
-        "tutorLineId": "l1-model-manzana"
-      },
-      {
         "path": "public/audio/voz/tutor/leccion-1/l1-model-maíz.visemes.json",
         "publicPath": "/audio/voz/tutor/leccion-1/l1-model-maíz.visemes.json",
         "mediaType": "visemes-json",
@@ -16040,6 +16040,18 @@
         "cueCount": 6,
         "durationSec": 1.85,
         "tutorLineId": "l1-model-maíz"
+      },
+      {
+        "path": "public/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json",
+        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-manzana.visemes.json",
+        "mediaType": "visemes-json",
+        "classification": "connected-tutor-visemes",
+        "status": "approved",
+        "sizeBytes": 1008,
+        "sha256": "2c4e7777d7a78c58c51f41053b7b27c35d1d505073e611d60d954a899de430a1",
+        "cueCount": 10,
+        "durationSec": 1.89,
+        "tutorLineId": "l1-model-manzana"
       },
       {
         "path": "public/audio/voz/tutor/leccion-1/l1-model-ocho.visemes.json",
@@ -16114,18 +16126,6 @@
         "tutorLineId": "l1-model-oveja"
       },
       {
-        "path": "public/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json",
-        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json",
-        "mediaType": "visemes-json",
-        "classification": "connected-tutor-visemes",
-        "status": "approved",
-        "sizeBytes": 869,
-        "sha256": "a6ed04ca120ddb4997e8bbcf550d05e384577472fe8063b2994cf8a2744e68e2",
-        "cueCount": 8,
-        "durationSec": 1.25,
-        "tutorLineId": "l1-model-pera"
-      },
-      {
         "path": "public/audio/voz/tutor/leccion-1/l1-model-pájaro.visemes.json",
         "publicPath": "/audio/voz/tutor/leccion-1/l1-model-pájaro.visemes.json",
         "mediaType": "visemes-json",
@@ -16138,6 +16138,18 @@
         "tutorLineId": "l1-model-pájaro"
       },
       {
+        "path": "public/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json",
+        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-pera.visemes.json",
+        "mediaType": "visemes-json",
+        "classification": "connected-tutor-visemes",
+        "status": "approved",
+        "sizeBytes": 869,
+        "sha256": "a6ed04ca120ddb4997e8bbcf550d05e384577472fe8063b2994cf8a2744e68e2",
+        "cueCount": 8,
+        "durationSec": 1.25,
+        "tutorLineId": "l1-model-pera"
+      },
+      {
         "path": "public/audio/voz/tutor/leccion-1/l1-model-taza.visemes.json",
         "publicPath": "/audio/voz/tutor/leccion-1/l1-model-taza.visemes.json",
         "mediaType": "visemes-json",
@@ -16148,6 +16160,18 @@
         "cueCount": 6,
         "durationSec": 1.27,
         "tutorLineId": "l1-model-taza"
+      },
+      {
+        "path": "public/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json",
+        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json",
+        "mediaType": "visemes-json",
+        "classification": "connected-tutor-visemes",
+        "status": "approved",
+        "sizeBytes": 797,
+        "sha256": "d5409c24df1bb73dedae0fd070addb779f1905b0e50f23f38a5434e798a7a987",
+        "cueCount": 7,
+        "durationSec": 1.31,
+        "tutorLineId": "l1-model-uña"
       },
       {
         "path": "public/audio/voz/tutor/leccion-1/l1-model-uniforme.visemes.json",
@@ -16172,30 +16196,6 @@
         "cueCount": 7,
         "durationSec": 1.25,
         "tutorLineId": "l1-model-uno"
-      },
-      {
-        "path": "public/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json",
-        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-uña.visemes.json",
-        "mediaType": "visemes-json",
-        "classification": "connected-tutor-visemes",
-        "status": "approved",
-        "sizeBytes": 797,
-        "sha256": "d5409c24df1bb73dedae0fd070addb779f1905b0e50f23f38a5434e798a7a987",
-        "cueCount": 7,
-        "durationSec": 1.31,
-        "tutorLineId": "l1-model-uña"
-      },
-      {
-        "path": "public/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json",
-        "publicPath": "/audio/voz/tutor/leccion-1/l1-model-árbol.visemes.json",
-        "mediaType": "visemes-json",
-        "classification": "connected-tutor-visemes",
-        "status": "approved",
-        "sizeBytes": 799,
-        "sha256": "09f31ee132130a20971cd7d62ba568225655caefe82357a768c027e6cb61d2a4",
-        "cueCount": 7,
-        "durationSec": 1.59,
-        "tutorLineId": "l1-model-árbol"
       },
       {
         "path": "public/audio/voz/tutor/leccion-2/l2-model-alas.visemes.json",
@@ -16340,6 +16340,24 @@
           "l1-model-abrigo"
         ],
         "note": "Candidate B approved; wired in tutor-lines.json (l1-model-abrigo)."
+      },
+      {
+        "path": "public/audio/voz/vocabulario/águila.mp3",
+        "publicPath": "/audio/voz/vocabulario/águila.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-approved",
+        "status": "approved",
+        "sizeBytes": 8597,
+        "sha256": "f3cb78ae4abeaff825afe47b7927d8e7913d5922eafbdd1216389f105c26ef18",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 57,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 50,
+        "durationSec": 1.37,
+        "pictureKey": "águila",
+        "tutorLineIds": [],
+        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
       {
         "path": "public/audio/voz/vocabulario/aguja.mp3",
@@ -16494,6 +16512,26 @@
         "note": "Candidate B approved; wired in tutor-lines.json (l1-model-araña)."
       },
       {
+        "path": "public/audio/voz/vocabulario/árbol.mp3",
+        "publicPath": "/audio/voz/vocabulario/árbol.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-and-tutor",
+        "status": "approved",
+        "sizeBytes": 10061,
+        "sha256": "2137cbbc136d54e9a1e32e889997fa056bba03c012bdbf04f661804ef8f7319c",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 70,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 48,
+        "durationSec": 1.68,
+        "pictureKey": "árbol",
+        "tutorLineIds": [
+          "l1-model-árbol"
+        ],
+        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-árbol)."
+      },
+      {
         "path": "public/audio/voz/vocabulario/ardilla.mp3",
         "publicPath": "/audio/voz/vocabulario/ardilla.mp3",
         "mediaType": "mp3",
@@ -16626,24 +16664,6 @@
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
       {
-        "path": "public/audio/voz/vocabulario/bebita.mp3",
-        "publicPath": "/audio/voz/vocabulario/bebita.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-approved",
-        "status": "approved",
-        "sizeBytes": 11909,
-        "sha256": "b9159ae57089b3e0638c62184e6625bd10be73099b5f2bd83b86851209b6d080",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 80,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 49,
-        "durationSec": 1.92,
-        "pictureKey": "bebita",
-        "tutorLineIds": [],
-        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
-      },
-      {
         "path": "public/audio/voz/vocabulario/bebé.mp3",
         "publicPath": "/audio/voz/vocabulario/bebé.mp3",
         "mediaType": "mp3",
@@ -16658,6 +16678,24 @@
         "bitrateKbps": 49,
         "durationSec": 1.66,
         "pictureKey": "bebé",
+        "tutorLineIds": [],
+        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
+      },
+      {
+        "path": "public/audio/voz/vocabulario/bebita.mp3",
+        "publicPath": "/audio/voz/vocabulario/bebita.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-approved",
+        "status": "approved",
+        "sizeBytes": 11909,
+        "sha256": "b9159ae57089b3e0638c62184e6625bd10be73099b5f2bd83b86851209b6d080",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 80,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 49,
+        "durationSec": 1.92,
+        "pictureKey": "bebita",
         "tutorLineIds": [],
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
@@ -17772,6 +17810,26 @@
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
       {
+        "path": "public/audio/voz/vocabulario/maíz.mp3",
+        "publicPath": "/audio/voz/vocabulario/maíz.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-and-tutor",
+        "status": "approved",
+        "sizeBytes": 11933,
+        "sha256": "a6ce00f0844ec304f5b9007aa767f188262772ba3f7ff59d6449c0890292cad5",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 81,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 49,
+        "durationSec": 1.94,
+        "pictureKey": "maíz",
+        "tutorLineIds": [
+          "l1-model-maíz"
+        ],
+        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-maíz)."
+      },
+      {
         "path": "public/audio/voz/vocabulario/maleta.mp3",
         "publicPath": "/audio/voz/vocabulario/maleta.mp3",
         "mediaType": "mp3",
@@ -17844,26 +17902,6 @@
         "pictureKey": "mayúscula",
         "tutorLineIds": [],
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
-      },
-      {
-        "path": "public/audio/voz/vocabulario/maíz.mp3",
-        "publicPath": "/audio/voz/vocabulario/maíz.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-and-tutor",
-        "status": "approved",
-        "sizeBytes": 11933,
-        "sha256": "a6ce00f0844ec304f5b9007aa767f188262772ba3f7ff59d6449c0890292cad5",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 81,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 49,
-        "durationSec": 1.94,
-        "pictureKey": "maíz",
-        "tutorLineIds": [
-          "l1-model-maíz"
-        ],
-        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-maíz)."
       },
       {
         "path": "public/audio/voz/vocabulario/meme.mp3",
@@ -18118,6 +18156,24 @@
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
       {
+        "path": "public/audio/voz/vocabulario/ñuno.mp3",
+        "publicPath": "/audio/voz/vocabulario/ñuno.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-approved",
+        "status": "approved",
+        "sizeBytes": 10517,
+        "sha256": "78e3aa6d59c2654d7161e1996802c022ce9359f0babd7ae79ed467e020f6dd3a",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 72,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 48,
+        "durationSec": 1.73,
+        "pictureKey": "ñuno",
+        "tutorLineIds": [],
+        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
+      },
+      {
         "path": "public/audio/voz/vocabulario/ocho.mp3",
         "publicPath": "/audio/voz/vocabulario/ocho.mp3",
         "mediaType": "mp3",
@@ -18296,6 +18352,26 @@
         "note": "Candidate B approved; wired in tutor-lines.json (l1-model-oveja)."
       },
       {
+        "path": "public/audio/voz/vocabulario/pájaro.mp3",
+        "publicPath": "/audio/voz/vocabulario/pájaro.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-and-tutor",
+        "status": "approved",
+        "sizeBytes": 10421,
+        "sha256": "9531324c382de650558d6fac30eec5cfa5134e2b2b9311575b7a988cdfad1af5",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 73,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 47,
+        "durationSec": 1.75,
+        "pictureKey": "pájaro",
+        "tutorLineIds": [
+          "l1-model-pájaro"
+        ],
+        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-pájaro)."
+      },
+      {
         "path": "public/audio/voz/vocabulario/papá.mp3",
         "publicPath": "/audio/voz/vocabulario/papá.mp3",
         "mediaType": "mp3",
@@ -18406,24 +18482,6 @@
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
       {
-        "path": "public/audio/voz/vocabulario/pisa.mp3",
-        "publicPath": "/audio/voz/vocabulario/pisa.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-approved",
-        "status": "approved",
-        "sizeBytes": 8453,
-        "sha256": "b76b0e9c279440a9c63f2edb159895e23c6d7e6cb4aebb5b8aefa982233053a2",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 58,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 48,
-        "durationSec": 1.39,
-        "pictureKey": "pisa",
-        "tutorLineIds": [],
-        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
-      },
-      {
         "path": "public/audio/voz/vocabulario/piñata.mp3",
         "publicPath": "/audio/voz/vocabulario/piñata.mp3",
         "mediaType": "mp3",
@@ -18438,6 +18496,24 @@
         "bitrateKbps": 49,
         "durationSec": 2.14,
         "pictureKey": "piñata",
+        "tutorLineIds": [],
+        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
+      },
+      {
+        "path": "public/audio/voz/vocabulario/pisa.mp3",
+        "publicPath": "/audio/voz/vocabulario/pisa.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-approved",
+        "status": "approved",
+        "sizeBytes": 8453,
+        "sha256": "b76b0e9c279440a9c63f2edb159895e23c6d7e6cb4aebb5b8aefa982233053a2",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 58,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 48,
+        "durationSec": 1.39,
+        "pictureKey": "pisa",
         "tutorLineIds": [],
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
@@ -18476,26 +18552,6 @@
         "pictureKey": "puma",
         "tutorLineIds": [],
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
-      },
-      {
-        "path": "public/audio/voz/vocabulario/pájaro.mp3",
-        "publicPath": "/audio/voz/vocabulario/pájaro.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-and-tutor",
-        "status": "approved",
-        "sizeBytes": 10421,
-        "sha256": "9531324c382de650558d6fac30eec5cfa5134e2b2b9311575b7a988cdfad1af5",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 73,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 47,
-        "durationSec": 1.75,
-        "pictureKey": "pájaro",
-        "tutorLineIds": [
-          "l1-model-pájaro"
-        ],
-        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-pájaro)."
       },
       {
         "path": "public/audio/voz/vocabulario/rana.mp3",
@@ -18860,6 +18916,26 @@
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },
       {
+        "path": "public/audio/voz/vocabulario/uña.mp3",
+        "publicPath": "/audio/voz/vocabulario/uña.mp3",
+        "mediaType": "mp3",
+        "classification": "connected-vocab-and-tutor",
+        "status": "approved",
+        "sizeBytes": 8405,
+        "sha256": "f777fa6bd863afde4c190c81ec5808e55caf80347765e664fa75c39cd9651235",
+        "validAudio": true,
+        "encodingKind": "mpeg-audio",
+        "frames": 58,
+        "sampleRateHz": 24000,
+        "bitrateKbps": 48,
+        "durationSec": 1.39,
+        "pictureKey": "uña",
+        "tutorLineIds": [
+          "l1-model-uña"
+        ],
+        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-uña)."
+      },
+      {
         "path": "public/audio/voz/vocabulario/unicornio.mp3",
         "publicPath": "/audio/voz/vocabulario/unicornio.mp3",
         "mediaType": "mp3",
@@ -18972,26 +19048,6 @@
           "l2-model-uvas"
         ],
         "note": "Candidate B approved; wired in tutor-lines.json (l2-model-uvas)."
-      },
-      {
-        "path": "public/audio/voz/vocabulario/uña.mp3",
-        "publicPath": "/audio/voz/vocabulario/uña.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-and-tutor",
-        "status": "approved",
-        "sizeBytes": 8405,
-        "sha256": "f777fa6bd863afde4c190c81ec5808e55caf80347765e664fa75c39cd9651235",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 58,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 48,
-        "durationSec": 1.39,
-        "pictureKey": "uña",
-        "tutorLineIds": [
-          "l1-model-uña"
-        ],
-        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-uña)."
       },
       {
         "path": "public/audio/voz/vocabulario/vaso.mp3",
@@ -19224,62 +19280,6 @@
         "bitrateKbps": 51,
         "durationSec": 1.75,
         "pictureKey": "zulema",
-        "tutorLineIds": [],
-        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
-      },
-      {
-        "path": "public/audio/voz/vocabulario/águila.mp3",
-        "publicPath": "/audio/voz/vocabulario/águila.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-approved",
-        "status": "approved",
-        "sizeBytes": 8597,
-        "sha256": "f3cb78ae4abeaff825afe47b7927d8e7913d5922eafbdd1216389f105c26ef18",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 57,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 50,
-        "durationSec": 1.37,
-        "pictureKey": "águila",
-        "tutorLineIds": [],
-        "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
-      },
-      {
-        "path": "public/audio/voz/vocabulario/árbol.mp3",
-        "publicPath": "/audio/voz/vocabulario/árbol.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-and-tutor",
-        "status": "approved",
-        "sizeBytes": 10061,
-        "sha256": "2137cbbc136d54e9a1e32e889997fa056bba03c012bdbf04f661804ef8f7319c",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 70,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 48,
-        "durationSec": 1.68,
-        "pictureKey": "árbol",
-        "tutorLineIds": [
-          "l1-model-árbol"
-        ],
-        "note": "Candidate B approved; wired in tutor-lines.json (l1-model-árbol)."
-      },
-      {
-        "path": "public/audio/voz/vocabulario/ñuno.mp3",
-        "publicPath": "/audio/voz/vocabulario/ñuno.mp3",
-        "mediaType": "mp3",
-        "classification": "connected-vocab-approved",
-        "status": "approved",
-        "sizeBytes": 10517,
-        "sha256": "78e3aa6d59c2654d7161e1996802c022ce9359f0babd7ae79ed467e020f6dd3a",
-        "validAudio": true,
-        "encodingKind": "mpeg-audio",
-        "frames": 72,
-        "sampleRateHz": 24000,
-        "bitrateKbps": 48,
-        "durationSec": 1.73,
-        "pictureKey": "ñuno",
         "tutorLineIds": [],
         "note": "Candidate B approved in picture-name-recordings.json (available for L4-24 / Flip Chart / Games)."
       },

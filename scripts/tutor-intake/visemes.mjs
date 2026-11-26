@@ -13,7 +13,7 @@ import {
 } from "./constants.mjs";
 import { sha256File } from "./checksum.mjs";
 import { checkRejectedSource } from "./guard.mjs";
-import { extractAndResampleWav, resolveMediaTools } from "./media.mjs";
+import { extractAndResampleWav, resolveFixedSystemBinary, resolveMediaTools } from "./media.mjs";
 
 const DEFAULT_REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -88,7 +88,14 @@ export async function ensureRhubarbBinary({
       );
     }
     writeFileSync(zipPath, bytes);
-    execFileSync("unzip", ["-o", "-q", zipPath, "-d", toolsDir], { stdio: "pipe" });
+    const unzipBin = resolveFixedSystemBinary("unzip", { repoRoot });
+    if (!unzipBin) {
+      rmSync(zipPath, { force: true });
+      throw new Error(
+        "unzip binary not found in fixed system paths (/usr/bin/unzip, /bin/unzip, .tools/bin/unzip)",
+      );
+    }
+    execFileSync(unzipBin, ["-o", "-q", zipPath, "-d", toolsDir], { stdio: "pipe" });
     rmSync(zipPath, { force: true });
     if (existsSync(targetBin)) return targetBin;
   }

@@ -81,7 +81,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "bienvenidos hoy a una lección llena de energía con la fuerza vibrante de la doble erre",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-02-greeting-return",
@@ -159,7 +161,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir practicando la vibrante doble erre",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-03-review-intro",
@@ -236,7 +240,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "ya vimos que una sola erre en medio suena suave hoy aprendemos qué pasa cuando van dos juntas",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-04-review-check",
@@ -313,7 +319,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo cambia el sonido entre pera con una erre y perro con dos erres",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-05-lesson-objective",
@@ -390,7 +398,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos a leer y escribir la doble erre en medio de vocales en rra rre rri rro rru",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-06-letter-name",
@@ -467,7 +477,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "este dígrafo se llama doble erre y siempre se escribe con dos erres juntas entre dos vocales",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-07-phonetic-sound",
@@ -544,7 +556,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando dos erres van juntas entre vocales vibran largo y fuerte como un motor rrr",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-08-lesson-focus",
@@ -621,7 +635,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "dos erres juntas entre vocales suenan fuertes y vibrantes en burro perro torre y carro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-09-sound-contrast",
@@ -698,7 +714,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "una erre entre vocales suena suave como en pero dos erres entre vocales suenan fuertes como en perro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-10-explanation-primary",
@@ -775,7 +793,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "nunca ponemos doble erre al principio de una palabra siempre vive en medio con rra rre rri rro rru",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-11-explanation-simple",
@@ -852,7 +872,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuando veas dos erres juntas en medio de una palabra haz vibrar tu lengua fuerte como en burro y carro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-12-flipchart-intro",
@@ -927,7 +949,35 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para recorrer las palabras nuevas y leer el poema rápido arriba",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-42-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 42
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-43-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 43
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-44-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 44
+        }
+      ]
     },
     {
       "id": "v2-l18-13-flipchart-illustration-1",
@@ -1002,7 +1052,29 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen un burro un carrusel una torre un barril y el planeta tierra",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-42-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 42,
+          "expectedAnswer": "burro"
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-43-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 43,
+          "expectedAnswer": "tarro"
+        }
+      ]
     },
     {
       "id": "v2-l18-14-flipchart-illustration-2",
@@ -1077,7 +1149,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "también observamos en el poema a barri el burrito subiendo a la loma y a perri el perrito",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-15-reading-order",
@@ -1154,7 +1228,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee primero las sílabas compuestas de izquierda a derecha y luego recorre el cuento de rode y su perro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-16-flipchart-model",
@@ -1229,7 +1305,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos juntos en voz clara las sílabas fuertes rra rre rri rro rru",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-17-flipchart-vocab",
@@ -1304,7 +1382,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio burro carrusel torre barril y tierra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-18-flipchart-rhyme-1",
@@ -1379,7 +1459,27 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo del poema rápido arriba barri el burrito sube a la loma perri el perrito roba mi bola",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-42-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 42
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-43-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 43
+        }
+      ]
     },
     {
       "id": "v2-l18-19-flipchart-rhyme-2",
@@ -1454,7 +1554,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "seguimos con el final del poema mi burro lindo muy bien mandado mi perro perri arrebatado",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-20-comprehension-1",
@@ -1531,7 +1633,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en el poema rápido arriba qué hace el burrito barri",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-21-comprehension-2",
@@ -1608,7 +1712,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué animal tiene rode según la lectura de hoy",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-22-comprehension-3",
@@ -1685,7 +1791,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "dónde está la tina de barro del perro de rode",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-23-common-mistake-1",
@@ -1762,7 +1870,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "recuerda que jamás escribimos doble erre al inicio de una palabra al principio basta una sola",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-24-common-mistake-2",
@@ -1839,7 +1949,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "fíjate si hay una o dos erres en medio porque cambia la palabra entera entre caro y carro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-25-common-mistake-3",
@@ -1916,7 +2028,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "cuida las tildes en alemán y arruinó al leer las oraciones del perro tito",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-26-hint-1",
@@ -1993,7 +2107,176 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "mira si hay dos erres juntas en medio de la palabra para hacerlas vibrar con fuerza",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-44-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 44
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-perro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-perro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-barre-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-barre-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-torre-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-torre-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-burro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-burro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-carro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-carro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-amarro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-amarro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        }
+      ]
     },
     {
       "id": "v2-l18-27-hint-2",
@@ -2070,7 +2353,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "compara el sonido con burro o con perro para identificar la sílaba exacta",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-28-hint-3",
@@ -2147,7 +2432,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy burro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-29-workbook-transition",
@@ -2224,7 +2511,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir las dos erres juntas y leer sobre rode",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-30-page-instruction-1",
@@ -2298,7 +2587,105 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "escribe con cuidado dos erres juntitas en el renglón y haz un dibujo de una palabra con doble erre",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-63-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-63-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l18-31-page-instruction-2",
@@ -2372,7 +2759,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo la sílaba con doble erre en pizarra torre arriba carro y arruga",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-32-syllable-practice",
@@ -2446,7 +2835,81 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "rodea con atención cada sílaba rra en barra rre en torre rri en arriba rro en perro y rru en arruga",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rra",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rra"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rre",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rre"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rri",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rri"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rro",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rro"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rru",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rru"
+        }
+      ]
     },
     {
       "id": "v2-l18-33-word-practice-1",
@@ -2520,7 +2983,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras tarro burro tierra perro amarro carrusel barro y arrebato",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-34-word-practice-2",
@@ -2594,7 +3059,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo torre arroba parra burrito arriba arruina y carro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-35-sight-or-vocab",
@@ -2668,7 +3135,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "presta atención también al nombre barri y perri que llevan doble erre en el poema",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-36-sentence-or-pair",
@@ -2742,7 +3211,192 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "lee con claridad esta oración del libro el perro de rode tiene una tina de barro",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-tarro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-burro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-tierra",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-perro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-amarro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-carrusel",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-barro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arrebato",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-torre",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arroba",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-parra",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-burrito",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arriba",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arruina",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-carro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l18-37-page-instruction-final",
@@ -2816,7 +3470,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con rra rre rri rro rru como en perro barre torre y burro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-38-game-intro",
@@ -2893,7 +3549,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva para distinguir y completar palabras con doble erre",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-39-game-step",
@@ -2970,7 +3628,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "observa cada palabra incompleta y elige la sílaba con doble erre que le da sentido",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-40-game-correct",
@@ -3047,7 +3707,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "qué buena vibración elegiste la sílaba exacta de doble erre para completar esa palabra",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-41-game-retry",
@@ -3124,7 +3786,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "pronuncia la palabra completa despacio y escucha cuál vocal viene después de las dos erres",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-42-assessment",
@@ -3201,7 +3865,82 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro tito arruinó el carro de rosas",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-barre",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-torre",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-burro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-carro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-amarro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     },
     {
       "id": "v2-l18-43-page-complete",
@@ -3278,7 +4017,24 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades de la doble erre con mucha energía y buena lectura",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-63-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        }
+      ]
     },
     {
       "id": "v2-l18-44-closing",
@@ -3355,7 +4111,9 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "hiciste vibrar muy bien cada palabra con doble erre qué gran avance llevas en el libro",
+      "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-45-next-step",
@@ -3432,7 +4190,122 @@
         "durationMs": null,
         "visemes": null
       },
-      "status": "scripted"
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos el sonido suave de la letra ge con a o y u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-46-atlas-flipchart",
+      "text": "¿Quién sube a la loma?",
+      "normalizedText": "quién sube a la loma",
+      "batch": "B024",
+      "seq": 46,
+      "file": "B024-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-18-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 18,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          44
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-44-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 44,
+          "expectedAnswer": "Barri el burrito"
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-47-atlas-workbook",
+      "text": "Queremos escribir «perro». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir perro qué parte falta en el espacio",
+      "batch": "B024",
+      "seq": 47,
+      "file": "B024-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-18-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 18,
+        "sourceStatus": "verified",
+        "printedPages": [
+          66
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-perro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        }
+      ]
     }
   ]
 }
