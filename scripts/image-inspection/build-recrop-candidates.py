@@ -58,9 +58,9 @@ def knock_out_paper(rgb, inner, tol=28):
         seen[y, x] = True
         q.extend(((y + 1, x), (y - 1, x), (y, x + 1), (y, x - 1)))
     alpha = np.where(seen, 0, 255).astype(np.uint8)
-    alpha = drop_edge_fragments(alpha, inner)
+    alpha, dropped = drop_edge_fragments(alpha, inner)
     out = np.dstack([a.astype(np.uint8), alpha])
-    return Image.fromarray(out, "RGBA")
+    return Image.fromarray(out, "RGBA"), dropped
 
 def drop_edge_fragments(alpha, inner):
     """Remove opaque islands that touch the crop border (neighbouring printed words or
@@ -68,6 +68,7 @@ def drop_edge_fragments(alpha, inner):
     h, w = alpha.shape
     label = np.zeros((h, w), np.int32)
     keep = np.zeros((h, w), bool)
+    dropped = []  # every removed island, with the reason, for the detail-loss audit
     n = 0
     for sy, sx in zip(*np.nonzero(alpha)):
         if label[sy, sx]:
@@ -88,9 +89,12 @@ def drop_edge_fragments(alpha, inner):
         cy, cx = sum(ys) / len(ys), sum(xs) / len(xs)
         inside = inner[0] <= cx <= inner[2] and inner[1] <= cy <= inner[3]
         if not edge and inside and len(comp) >= 30:
-            ys, xs = zip(*comp)
             keep[list(ys), list(xs)] = True
-    return np.where(keep, 255, 0).astype(np.uint8)
+        else:
+            reason = "touches crop border" if edge else "centre outside recorded crop" if not inside else "speck under 30 px"
+            dropped.append({"reason": reason, "pixels": len(comp), "box": [min(xs), min(ys), max(xs), max(ys)],
+                            "insideDrawingBox": bool(inside), "mask": (list(ys), list(xs))})
+    return np.where(keep, 255, 0).astype(np.uint8), dropped
 
 def on_blue(im, size):
     im = im.convert("RGBA").copy(); im.thumbnail(size)
@@ -111,7 +115,22 @@ for current, key in CANDIDATES.items():
            min(scan.width, round((x + w + px) * s)), min(scan.height, round((y + h + py) * s))]
     region = scan.crop(box)
     inner = [round((x * s) - box[0]), round((y * s) - box[1]), round(((x + w) * s) - box[0]), round(((y + h) * s) - box[1])]
-    cand = knock_out_paper(region, inner)
+    cand, dropped = knock_out_paper(region, inner)
+    # Detail-loss audit: paint every removed island red over the source region.
+    audit_px = np.asarray(region.convert("RGB")).copy()
+    for dpc in dropped:
+        audit_px[dpc["mask"][0], dpc["mask"][1]] = [230, 20, 20]
+    audit_img = Image.fromarray(audit_px)
+    dr = ImageDraw.Draw(audit_img)
+    dr.rectangle(inner, outline=(20, 120, 230), width=3)
+    name0 = os.path.basename(current).replace(".webp", "")
+    audit_img.thumbnail((420, 420)); audit_img.save(os.path.join(OUT, f"{name0}-removed-pixels.jpg"), quality=85)
+    removed_summary = {}
+    for dpc in dropped:
+        r = removed_summary.setdefault(dpc["reason"], {"islands": 0, "pixels": 0, "largestInsideDrawingBox": 0})
+        r["islands"] += 1; r["pixels"] += dpc["pixels"]
+        if dpc["insideDrawingBox"]:
+            r["largestInsideDrawingBox"] = max(r["largestInsideDrawingBox"], dpc["pixels"])
     if current in MIRROR_TO_WORKBOOK:
         cand = ImageOps.mirror(cand)
     name = os.path.basename(current).replace(".webp", "")
@@ -134,11 +153,12 @@ for current, key in CANDIDATES.items():
                    "candidate": os.path.relpath(cand_path, ROOT), "candidateSize": list(cand.size),
                    "source": f"public/cartilla/art/hd/flipchart/page-{page:03d}.jpg", "sourceBoxPx": box,
                    "orientation": "mirrored to printed Workbook orientation" if current in MIRROR_TO_WORKBOOK else "as printed",
+                   "removedIslands": removed_summary,
                    "status": "AWAITING OWNER APPROVAL — not swapped"})
 json.dump(report, open(os.path.join(OUT, "candidates.json"), "w"), indent=1)
 
-# igual has no HD source; the only allowed path is a resolution-only upscale of the exact
-# Workbook crop (two solid bars), shown for approval like the recrops above.
+# igual has no HD source. This is NOT an HD recrop: it is the same 106x61 Workbook crop
+# enlarged 4x (Lanczos) with light sharpening (unsharp mask), shown for approval only.
 from PIL import ImageFilter
 cur_path = os.path.join(ROOT, "public/cartilla/art/faithful/vocal-i/igual.webp")
 cur = Image.open(cur_path).convert("RGBA")
@@ -149,11 +169,12 @@ tile = Image.new("RGB", (900, 300), "white"); dd = ImageDraw.Draw(tile)
 before = cur.resize((424, 244), Image.BILINEAR)  # how the browser enlarges it on a projector
 tile.paste(on_blue(before, (424, 244)), (5, 30)); tile.paste(on_blue(up, (424, 244)), (460, 30))
 dd.text((5, 8), f"BEFORE as enlarged on projector (file {cur.width}x{cur.height})", fill="black")
-dd.text((460, 8), f"CANDIDATE resolution-only {up.width}x{up.height}", fill="black")
+dd.text((460, 8), f"CANDIDATE: same file enlarged 4x + sharpened ({up.width}x{up.height}), NOT an HD source", fill="black")
 tile.save(os.path.join(OUT, "igual-before-after.jpg"), quality=88)
 report.append({"current": "/cartilla/art/faithful/vocal-i/igual.webp", "currentSize": list(cur.size),
                "candidate": os.path.relpath(up_path, ROOT), "candidateSize": list(up.size),
-               "source": "same file, 4x Lanczos resolution-only (no HD source exists)",
+               "source": "NOT an HD source: the same 106x61 file enlarged 4x (Lanczos) and sharpened (unsharp mask r=2, 80%); no HD scan of this drawing exists",
+               "method": "enlargement with sharpening",
                "status": "AWAITING OWNER APPROVAL — not swapped"})
 json.dump(report, open(os.path.join(OUT, "candidates.json"), "w"), indent=1)
 for r in report: print(r["current"], r["status"], r.get("candidateSize"))

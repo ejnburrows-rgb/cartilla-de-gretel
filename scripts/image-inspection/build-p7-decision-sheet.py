@@ -1,4 +1,5 @@
-"""Owner-decision sheet for Workbook p.7 avión and ojos (printed page vs files in use vs
+"""Optional owner-reversal sheet for Workbook p.7 ojo (approved: singular ojo with ojo.png,
+PROJECT_SOURCE_OF_TRUTH.md) and the p.7 avión comparison (printed page vs files in use vs
 existing alternatives). Read-only; writes one comparison image."""
 import os, sys
 from PIL import Image, ImageDraw
@@ -9,8 +10,8 @@ os.makedirs(OUT, exist_ok=True)
 A = os.path.join(ROOT, "public/cartilla/art")
 scan = Image.open(f"{A}/source/workbook/page-007.jpg").convert("RGB")
 rows = [
-    ("ojos", scan.crop((32, 812, 200, 975)), [("in use: approved/lesson-3/ojo.png", f"{A}/approved/lesson-3/ojo.png"),
-                                             ("alternative: faithful/leccion-1/ojos.webp", f"{A}/faithful/leccion-1/ojos.webp")]),
+    ("ojos", scan.crop((32, 812, 200, 975)), [("APPROVED, in use: ojo.png (singular ojo)", f"{A}/approved/lesson-3/ojo.png"),
+                                             ("existing ojos.webp (also ONE eye; no two-eye file exists)", f"{A}/faithful/leccion-1/ojos.webp")]),
     ("avion", scan.crop((214, 812, 394, 975)), [("in use: faithful/vocal-a/avion.webp", f"{A}/faithful/vocal-a/avion.webp"),
                                                ("alternative: faithful/leccion-1/pez.webp", f"{A}/faithful/leccion-1/pez.webp")]),
 ]
@@ -25,5 +26,5 @@ for r, (word, crop, alts) in enumerate(rows):
         bg = Image.new("RGBA", im.size, (205, 230, 255, 255)); bg.alpha_composite(im)
         sheet.paste(bg.convert("RGB"), (c * cell + 10, y))
         d.text((c * cell + 10, y - 18), cap, fill="black")
-sheet.save(os.path.join(OUT, "p007-avion-ojos-owner-decision.jpg"), quality=88)
+sheet.save(os.path.join(OUT, "p007-ojo-approved-avion-comparison.jpg"), quality=88)
 print("ok")

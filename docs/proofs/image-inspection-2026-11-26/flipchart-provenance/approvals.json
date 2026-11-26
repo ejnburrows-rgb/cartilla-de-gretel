@@ -1,0 +1,12 @@
+{
+ "_note": "Approval check (Hoplite, 2026-11-26) for the 6 Flip Chart layers whose pixels differ from the HD sheet scan (visual-review.json 'differs'). Each current file on main 5e1c8378 was traced with `git log -- <file>`; the blob in use is the one installed by the approving commit and has not changed since. Result: all 6 are ALREADY APPROVED AS-IS; no owner decision and no replacement is proposed. The scan difference is expected: these are owner-supplied colour versions, not crops of the scan.",
+ "layers": {
+  "p008-uva.png":   {"blob": "de0a5a1c", "approvedBy": "dc20ffb (2026-10-22)", "record": "Replace uvas with owner-supplied color art (WhatsApp 2026-10-22 00:25 ET, then 01:00 ET)", "status": "APPROVED AS-IS"},
+  "p015-sopa.png":  {"blob": "f63d4b29", "approvedBy": "dc20ffb (2026-10-22)", "record": "Replace sopa with owner-supplied color art (WhatsApp 2026-10-22 01:04 ET)", "status": "APPROVED AS-IS"},
+  "p021-dedo.webp": {"blob": "3ac0b4f2", "approvedBy": "dc20ffb (2026-10-22)", "record": "Replace dedo with owner-supplied color art (WhatsApp 2026-10-22 00:28 ET)", "status": "APPROVED AS-IS"},
+  "p042-burro.png": {"blob": "8dec8ad0", "approvedBy": "dc20ffb (2026-10-22)", "record": "Replace burro with owner-supplied color art (WhatsApp 2026-10-22 01:00 ET)", "status": "APPROVED AS-IS"},
+  "p017-scene.png": {"blob": "21cc516a", "approvedBy": "dc20ffb (2026-10-22)", "record": "Replace scene page 17 with owner-supplied color art (WhatsApp 2026-10-22 01:07 ET)", "status": "APPROVED AS-IS"},
+  "p003-scene.png": {"blob": "5d638024", "approvedBy": "65f30fe / PR #873 (2026-10-16)", "record": "art-swap: merge owner's verdict-approved images (p003-scene, aguja, manzana); also listed in docs/artwork-reconciliation/ARTWORK_AUDIT_2026-10-16.md", "status": "APPROVED AS-IS"}
+ },
+ "notTheseSeven": "The 'seven Flip Chart fixes accepted October 20' in PROJECT_SOURCE_OF_TRUTH.md are different pictures (balloon-p007, calf-p027, chick-p012, horse-p004, jirafa, pumpkin-p062, witch-p008; PR #1159) and are not part of this check."
+}
