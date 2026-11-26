@@ -6,9 +6,9 @@
   "game/desktop": 12,
   "game/phone": 12,
   "game/projector": 12,
-  "workbook/desktop": 86,
-  "workbook/phone": 86,
-  "workbook/projector": 86
+  "workbook/desktop": 88,
+  "workbook/phone": 88,
+  "workbook/projector": 88
  },
  "pictureChecks": {
   "flipchart/desktop": {
@@ -248,18 +248,6 @@
  "notes": [
   {
    "surface": "workbook",
-   "id": "L24-i2",
-   "viewport": "desktop",
-   "note": "resume landed on 1/3"
-  },
-  {
-   "surface": "workbook",
-   "id": "L24-i3",
-   "viewport": "desktop",
-   "note": "resume landed on 2/3"
-  },
-  {
-   "surface": "workbook",
    "id": "L25",
    "viewport": "desktop",
    "note": "no native viewer"
@@ -356,18 +344,6 @@
   },
   {
    "surface": "workbook",
-   "id": "L24-i2",
-   "viewport": "phone",
-   "note": "resume landed on 1/3"
-  },
-  {
-   "surface": "workbook",
-   "id": "L24-i3",
-   "viewport": "phone",
-   "note": "resume landed on 2/3"
-  },
-  {
-   "surface": "workbook",
    "id": "L25",
    "viewport": "phone",
    "note": "no native viewer"
@@ -461,18 +437,6 @@
    "id": "L40",
    "viewport": "phone",
    "note": "no native viewer"
-  },
-  {
-   "surface": "workbook",
-   "id": "L24-i2",
-   "viewport": "projector",
-   "note": "resume landed on 1/3"
-  },
-  {
-   "surface": "workbook",
-   "id": "L24-i3",
-   "viewport": "projector",
-   "note": "resume landed on 2/3"
   },
   {
    "surface": "workbook",
