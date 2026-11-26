@@ -351,6 +351,9 @@ export function ChanoScene({ content }: { content: GameContent }) {
 
   const onBallPointerDown = (syllable: string) => (e: React.PointerEvent<HTMLButtonElement>) => {
     if (e.button !== 0 && e.pointerType === "mouse") return;
+    // A touch drag ends without a click, so the "skip the click after a drag" flag would
+    // otherwise swallow the child's next tap. Every new press starts fresh.
+    suppressClick.current = false;
     e.currentTarget.setPointerCapture(e.pointerId);
     const p = toScene(e.clientX, e.clientY);
     setDrag({
