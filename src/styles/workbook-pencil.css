@@ -21,14 +21,22 @@
   stroke-opacity: 1;
   /* Owner 2026-10-08: a crisp, solid line like the close-up reference. */
   shape-rendering: geometricPrecision;
+  transition: stroke 0.6s ease-in-out, stroke-opacity 0.6s ease-in-out;
 }
-/* Owner 2026-10-06: green from the first line when right, red when wrong. */
-.workbook-pencil-mark[data-mark-result="correct"] .workbook-pencil-mark__stroke,
-.workbook-pencil-mark[data-mark-status="correct"] .workbook-pencil-mark__stroke {
+/* Owner standing rule 2026-10-17 (PR #1000 / PR #903): every pick (right or wrong)
+   is first drawn in ash-pencil color (#46464d), then resolves to green (right)
+   or red-then-erased (wrong). */
+.workbook-pencil-mark[data-mark-status="drawing"] .workbook-pencil-mark__stroke {
+  stroke: #46464d !important;
+}
+.workbook-pencil-mark[data-mark-status="correct"] .workbook-pencil-mark__stroke,
+.workbook-pencil-mark[data-mark-status="holding"][data-mark-result="correct"] .workbook-pencil-mark__stroke {
   stroke: #16a34a;
   stroke-opacity: 1;
 }
-.workbook-pencil-mark[data-mark-result="wrong"] .workbook-pencil-mark__stroke {
+.workbook-pencil-mark[data-mark-status="erasing"] .workbook-pencil-mark__stroke,
+.workbook-pencil-mark[data-mark-status="holding"][data-mark-result="wrong"] .workbook-pencil-mark__stroke,
+.workbook-pencil-mark[data-mark-status="wrong"] .workbook-pencil-mark__stroke {
   stroke: #dc2626;
   stroke-opacity: 1;
 }
