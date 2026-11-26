@@ -7,7 +7,7 @@ usage: python3 scripts/image-inspection/build-recrop-candidates.py OUT_DIR
 import json, os, sys
 from collections import deque
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageOps
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "docs/proofs/image-inspection/recrop-candidates")
@@ -21,8 +21,19 @@ CANDIDATES = {
     "leccion-23-z/zorro.webp": "p060-zorro",
     "leccion-8-p/papa.webp": "p012-papa",
     "leccion-14-n/nino.webp": "p028-nino",
+    "leccion-19-c/casa.webp": "p054-casa",
+    "vocal-a/anillo.webp": "p005-anillo",
+    "vocal-o/olla.webp": "p004-olla",
+    "vocal-o/oreja.webp": "p004-oreja",
+    "vocal-o/oso.webp": "p004-oso",
+    "vocal-u/uno.webp": "p008-uno",
+    "vocal-u/unicornio.webp": "p008-unicornio",
 }
 PAD = 0.06  # extra sheet margin around the recorded crop so nothing touches the edge
+# The Workbook prints these drawings mirrored relative to the Flip Chart; the candidate keeps
+# the printed Workbook orientation (checked against docs/proofs/artwork-coverage-2026-10-14/crops).
+# uno/oso are NOT listed: the files in use are mirrored relative to the printed Workbook.
+MIRROR_TO_WORKBOOK = {"vocal-e/espejo.webp", "vocal-a/anillo.webp", "vocal-o/oreja.webp", "vocal-u/unicornio.webp"}
 
 assets = json.load(open(os.path.join(ROOT, "src/data/flipchart-native-assets.json")))
 by_key = {}
@@ -100,6 +111,8 @@ for current, key in CANDIDATES.items():
     region = scan.crop(box)
     inner = [round((x * s) - box[0]), round((y * s) - box[1]), round(((x + w) * s) - box[0]), round(((y + h) * s) - box[1])]
     cand = knock_out_paper(region, inner)
+    if current in MIRROR_TO_WORKBOOK:
+        cand = ImageOps.mirror(cand)
     name = os.path.basename(current).replace(".webp", "")
     cand_path = os.path.join(OUT, f"{name}-candidate.webp")
     cand.save(cand_path, "WEBP", quality=92, method=6)
@@ -119,6 +132,7 @@ for current, key in CANDIDATES.items():
     report.append({"current": "/cartilla/art/faithful/" + current, "currentSize": list(cur.size),
                    "candidate": os.path.relpath(cand_path, ROOT), "candidateSize": list(cand.size),
                    "source": f"public/cartilla/art/hd/flipchart/page-{page:03d}.jpg", "sourceBoxPx": box,
+                   "orientation": "mirrored to printed Workbook orientation" if current in MIRROR_TO_WORKBOOK else "as printed",
                    "status": "AWAITING OWNER APPROVAL — not swapped"})
 json.dump(report, open(os.path.join(OUT, "candidates.json"), "w"), indent=1)
 
