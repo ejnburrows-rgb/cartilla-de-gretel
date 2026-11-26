@@ -17,6 +17,15 @@ const ART = "/cartilla/art/games/cow/";
 // The owner-supplied drawing is cut into transparent overlapping animation layers.
 type Box = { x: number; y: number; w: number; h: number };
 
+// Every cow layer is a 453×518 cut of the owner's drawing. The mockup boxes were wider
+// than that, which stretched the cows 17–20 %; keep the box height and centre, and take
+// the width from the drawing so the cow keeps its own proportions.
+const COW_ART_ASPECT = 453 / 518;
+function trueCow(b: Box): Box {
+  const w = b.h * COW_ART_ASPECT;
+  return { x: b.x + (b.w - w) / 2, y: b.y, w, h: b.h };
+}
+
 type Layout = {
   W: number;
   H: number;
@@ -50,7 +59,7 @@ const LAND: Layout = {
     { x: 900, y: 170, w: 210, h: 205 },
     { x: 250, y: 330, w: 210, h: 205 },
     { x: 670, y: 330, w: 210, h: 205 },
-  ],
+  ].map(trueCow),
   slots: [
     { x: 79, y: 622, w: 162, h: 126 },
     { x: 304, y: 622, w: 169, h: 126 },
@@ -78,7 +87,7 @@ const PORT: Layout = {
     { x: 610, y: 650, w: 200, h: 190 },
     { x: 170, y: 880, w: 200, h: 190 },
     { x: 490, y: 880, w: 200, h: 190 },
-  ],
+  ].map(trueCow),
   slots: [
     { x: 47, y: 1223, w: 119, h: 156 },
     { x: 208, y: 1223, w: 120, h: 156 },
@@ -108,7 +117,7 @@ const norm = (s: string) =>
     .toLocaleLowerCase("es");
 
 type Pos = { slot: number };
-type Phase = "walk" | "lean" | "drop" | "wrong" | "back";
+type Phase = "walk" | "lean" | "drop" | "wrong";
 
 // Full-size cow standing in the field right behind the fence, in front of
 // the slot it picked. Never scaled; the fence overlay hides its shins.
@@ -231,9 +240,23 @@ export function CowGame({ content }: { content: GameContent }) {
   const finished = doneCount === COW_SYLLABLES.length;
   const busy = active !== null;
 
+  // Cows walking home. The walk home no longer holds the game: the next cow can start
+  // as soon as the card has landed (correct) or the shake is over (wrong).
+  const [returning, setReturning] = useState<Record<number, true>>({});
+  const sendHome = (cow: number, slot: number, clearMessage = false) => {
+    setFlips((f) => f.map((v, i) => (i === cow ? (fieldSpot(slot, cow).x < L.home[cow].x ? -1 : 1) : v)));
+    setReturning((r) => ({ ...r, [cow]: true }));
+    setActive(null);
+    later(WALK_MS, () => {
+      setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
+      setReturning(({ [cow]: _home, ...rest }) => rest);
+      if (clearMessage) setMessage((m) => (m === "Inténtalo otra vez" ? "" : m));
+    });
+  };
+
   const go = useCallback(
     (cow: number, slot: number) => {
-      if (busy || placed[cow]) return;
+      if (busy || placed[cow] || returning[cow]) return;
       const syl = COW_SYLLABLES[cow];
       const right = norm(syl) === COW_SLOTS[slot];
 
@@ -260,32 +283,19 @@ export function CowGame({ content }: { content: GameContent }) {
               later(1500, () => setCheer(null));
               later(1200, () => setMessage(""));
               // The cow walks back to its place; the letters stay in the slot.
-
-              setFlips((f) => f.map((v, i) => i === cow ? (fieldSpot(slot, cow).x < L.home[cow].x ? -1 : 1) : v));
-              setActive({ cow, slot, phase: "back", to: { slot } });
-              later(WALK_MS, () => {
-                setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
-                setActive(null);
-              });
+              sendHome(cow, slot);
             });
           });
         } else {
           if (!muted) playWord(undefined); // moo: silent until recorded
           setActive({ cow, slot, phase: "wrong", to: { slot } });
           setMessage("Inténtalo otra vez");
-          later(900, () => {
-            setFlips((f) => f.map((v, i) => i === cow ? (fieldSpot(slot, cow).x < L.home[cow].x ? -1 : 1) : v));
-              setActive({ cow, slot, phase: "back", to: { slot } });
-            later(WALK_MS, () => {
-              setFlips((f) => f.map((v, i) => (i === cow ? 1 : v)));
-              setActive(null);
-              setMessage("");
-            });
-          });
+          later(900, () => sendHome(cow, slot, true));
         }
       });
     },
-    [busy, placed, muted],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [busy, placed, muted, returning],
   );
 
   useEffect(() => {
@@ -316,10 +326,11 @@ export function CowGame({ content }: { content: GameContent }) {
     setMessage("");
     setCheer(null);
     setFlips(COW_SYLLABLES.map(() => 1));
+    setReturning({});
   };
 
   const tapCow = (i: number) => {
-    if (busy || placed[i]) return;
+    if (busy || placed[i] || returning[i]) return;
     if (selSlot !== null) return go(i, selSlot);
     setSelCow((c) => (c === i ? null : i));
   };
@@ -333,25 +344,14 @@ export function CowGame({ content }: { content: GameContent }) {
 
   return (
     <main className={`cg-root ${guided ? "cg-guided" : ""}`} aria-label="Juego de la vaca">
+      {/* Space beside the stage on wide or tall screens: the same scene, softened, so there
+          are no hard seams and no second (untappable) copy of the fence slots. */}
+      <img className="cg-backdrop" src={`${ART}${L.scene}`} alt="" draggable={false} />
       <div
         className="cg-stage"
         style={{ width: `min(100vw, calc(100vh * ${L.W} / ${L.H}))`, aspectRatio: `${L.W}/${L.H}` }}
       >
-        <img
-          className="cg-scene cg-side-scene"
-          src={`${ART}${L.scene}`}
-          alt=""
-          draggable={false}
-          style={{ left: "-100%" }}
-        />
         <img className="cg-scene" src={`${ART}${L.scene}`} alt="" draggable={false} />
-        <img
-          className="cg-scene cg-side-scene"
-          src={`${ART}${L.scene}`}
-          alt=""
-          draggable={false}
-          style={{ left: "100%" }}
-        />
 
         {/* title bar, baked from the approved mockup; speaker is a real button */}
         <h1 className="sr-only">Coloca cada vaca en su sílaba</h1>
@@ -421,15 +421,16 @@ export function CowGame({ content }: { content: GameContent }) {
           const isActive = active?.cow === i;
           let box = spots[i];
           let slow = false;
-          if (isActive && active.phase !== "back") {
+          if (isActive) {
             box = fieldSpot(active.slot, i);
             slow = true;
           }
-          if (isActive && active.phase === "back") slow = true;
-          const walking = isActive && (active.phase === "walk" || active.phase === "back");
+          const home = !!returning[i];
+          if (home) slow = true;
+          const walking = home || (isActive && active.phase === "walk");
           // The moving cow is painted over resting cows (it used to vanish behind
           // them while its card flew ahead) but stays behind the fence overlay.
-          const z = isActive ? MOVING_COW_Z : restZ(i);
+          const z = isActive || home ? MOVING_COW_Z : restZ(i);
           return (
             <Cow
               key={i}
@@ -454,16 +455,17 @@ export function CowGame({ content }: { content: GameContent }) {
           const moving = active?.cow === i;
           const isDropped = !!placed[i] || (moving && active.phase === "drop");
           const slot = placed[i]?.slot ?? (moving ? active.slot : 0);
-          const box = moving && active.phase !== "back" ? fieldSpot(active.slot, i) : spots[i];
+          const box = moving ? fieldSpot(active.slot, i) : spots[i];
+          const home = !!returning[i] && !placed[i];
           const slotBox = L.slots[slot];
           const x = isDropped ? slotBox.x + slotBox.w / 2 : box.x + box.w * (flips[i] === 1 ? 0.34 : 0.66);
           const y = isDropped ? slotBox.y + slotBox.h * 0.52 : box.y + box.h * 0.48;
           return (
             <span
               key={i}
-              className={`cg-card ${moving && (active.phase === "walk" || active.phase === "back") ? "cg-card-walking" : ""} ${moving && active.phase === "lean" ? "cg-card-lean" : ""} ${moving && active.phase === "wrong" ? "cg-card-hop" : ""}`}
+              className={`cg-card ${home || (moving && active.phase === "walk") ? "cg-card-walking" : ""} ${moving && active.phase === "lean" ? "cg-card-lean" : ""} ${moving && active.phase === "wrong" ? "cg-card-hop" : ""}`}
               style={{
-                zIndex: isDropped ? 65 : moving ? MOVING_COW_Z + 1 : restZ(i) + 1,
+                zIndex: isDropped ? 65 : moving || home ? MOVING_COW_Z + 1 : restZ(i) + 1,
                 left: px(x),
                 top: py(y),
                 width: px(76),
@@ -513,9 +515,9 @@ export function CowGame({ content }: { content: GameContent }) {
 
 const CSS = `
 .cg-root{position:fixed;inset:0;overflow:hidden;background:#7ec850;touch-action:manipulation;user-select:none;-webkit-user-select:none}
-.cg-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);container-type:inline-size;overflow:visible;border-radius:0}
+.cg-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);container-type:inline-size;overflow:visible;border-radius:0;box-shadow:0 0 3vmin 1vmin rgba(30,60,15,.35)}
 .cg-scene{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
-.cg-guided .cg-side-scene{display:none}
+.cg-backdrop{position:absolute;inset:-4vmax;max-width:none;width:calc(100% + 8vmax);height:calc(100% + 8vmax);object-fit:cover;filter:blur(14px) saturate(1.05) brightness(.9);pointer-events:none}
 .cg-guide{position:absolute;z-index:105;left:50%;bottom:1%;transform:translateX(-50%);margin:0;padding:6px 14px;max-width:92%;border:2px solid #8a4a1c;border-radius:12px;background:#fff4d6;color:#3a1a0e;font:700 clamp(14px,2cqw,20px)/1.3 ui-rounded,system-ui,sans-serif;white-space:nowrap}
 .cg-guided .cg-slot:disabled{cursor:default}
 .cg-scene-top{position:absolute;left:0;top:0;width:100%;display:block;pointer-events:none;z-index:1}
