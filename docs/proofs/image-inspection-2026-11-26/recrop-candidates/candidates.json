@@ -1,0 +1,121 @@
+[
+ {
+  "current": "/cartilla/art/faithful/vocal-o/ocho.webp",
+  "currentSize": [
+   727,
+   870
+  ],
+  "candidate": "docs/proofs/image-inspection-2026-11-26/recrop-candidates/ocho-candidate.webp",
+  "candidateSize": [
+   594,
+   743
+  ],
+  "source": "public/cartilla/art/hd/flipchart/page-004.jpg",
+  "sourceBoxPx": [
+   1789,
+   2441,
+   2383,
+   3184
+  ],
+  "status": "AWAITING OWNER APPROVAL \u2014 not swapped"
+ },
+ {
+  "current": "/cartilla/art/faithful/vocal-e/espejo.webp",
+  "currentSize": [
+   870,
+   823
+  ],
+  "candidate": "docs/proofs/image-inspection-2026-11-26/recrop-candidates/espejo-candidate.webp",
+  "candidateSize": [
+   617,
+   639
+  ],
+  "source": "public/cartilla/art/hd/flipchart/page-006.jpg",
+  "sourceBoxPx": [
+   926,
+   1593,
+   1543,
+   2232
+  ],
+  "status": "AWAITING OWNER APPROVAL \u2014 not swapped"
+ },
+ {
+  "current": "/cartilla/art/faithful/vocal-a/alas.webp",
+  "currentSize": [
+   870,
+   636
+  ],
+  "candidate": "docs/proofs/image-inspection-2026-11-26/recrop-candidates/alas-candidate.webp",
+  "candidateSize": [
+   814,
+   620
+  ],
+  "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+  "sourceBoxPx": [
+   56,
+   2591,
+   870,
+   3211
+  ],
+  "status": "AWAITING OWNER APPROVAL \u2014 not swapped"
+ },
+ {
+  "current": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+  "currentSize": [
+   487,
+   540
+  ],
+  "candidate": "docs/proofs/image-inspection-2026-11-26/recrop-candidates/zorro-candidate.webp",
+  "candidateSize": [
+   635,
+   746
+  ],
+  "source": "public/cartilla/art/hd/flipchart/page-060.jpg",
+  "sourceBoxPx": [
+   1794,
+   1286,
+   2429,
+   2032
+  ],
+  "status": "AWAITING OWNER APPROVAL \u2014 not swapped"
+ },
+ {
+  "current": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+  "currentSize": [
+   480,
+   660
+  ],
+  "candidate": "docs/proofs/image-inspection-2026-11-26/recrop-candidates/papa-candidate.webp",
+  "candidateSize": [
+   520,
+   794
+  ],
+  "source": "public/cartilla/art/hd/flipchart/page-012.jpg",
+  "sourceBoxPx": [
+   115,
+   1337,
+   635,
+   2131
+  ],
+  "status": "AWAITING OWNER APPROVAL \u2014 not swapped"
+ },
+ {
+  "current": "leccion-14-n/nino.webp",
+  "status": "NO HD SOURCE ENTRY",
+  "key": "p028-nino"
+ },
+ {
+  "current": "/cartilla/art/faithful/vocal-i/igual.webp",
+  "currentSize": [
+   106,
+   61
+  ],
+  "candidate": "docs/proofs/image-inspection-2026-11-26/recrop-candidates/igual-candidate.webp",
+  "candidateSize": [
+   424,
+   244
+  ],
+  "source": "same file, 4x Lanczos resolution-only (no HD source exists)",
+  "status": "AWAITING OWNER APPROVAL \u2014 not swapped"
+ }
+]
