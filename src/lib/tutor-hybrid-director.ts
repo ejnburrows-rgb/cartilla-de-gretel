@@ -77,14 +77,14 @@ export const HYBRID_SEQUENCE_DURATION_SEC = 11.6;
 
 /** Optional drop-in silent Google Flow clip registry ($0 local override). */
 export const GOOGLE_FLOW_CLIP_SLOTS: Readonly<Record<HybridPhaseId, string>> = {
-  listen_1: "/cartilla/images/gretel/tutor/flow-clips/01-natural-listening.mp4",
-  acknowledge: "/cartilla/images/gretel/tutor/flow-clips/03-gentle-acknowledgment.mp4",
-  turn_to_board: "/cartilla/images/gretel/tutor/flow-clips/04-turning-to-board.mp4",
-  write_demonstrate: "/cartilla/images/gretel/tutor/flow-clips/06-writing-chalkboard.mp4",
-  erase_board: "/cartilla/images/gretel/tutor/flow-clips/08-erasing-chalkboard.mp4",
-  turn_back: "/cartilla/images/gretel/tutor/flow-clips/10-turning-back.mp4",
-  speak_rhubarb: "/cartilla/images/gretel/tutor/flow-clips/01-natural-listening.mp4",
-  listen_feedback: "/cartilla/images/gretel/tutor/flow-clips/01-natural-listening.mp4",
+  listen_1: "/cartilla/images/gretel/tutor/flow-clips/natural-listening.mp4",
+  acknowledge: "/cartilla/images/gretel/tutor/flow-clips/natural-listening.mp4",
+  turn_to_board: "/cartilla/images/gretel/tutor/flow-clips/turn-and-write.mp4",
+  write_demonstrate: "/cartilla/images/gretel/tutor/flow-clips/turn-and-write.mp4",
+  erase_board: "/cartilla/images/gretel/tutor/flow-clips/turn-and-erase.mp4",
+  turn_back: "/cartilla/images/gretel/tutor/flow-clips/turn-and-erase.mp4",
+  speak_rhubarb: "/cartilla/images/gretel/tutor/flow-clips/natural-listening.mp4",
+  listen_feedback: "/cartilla/images/gretel/tutor/flow-clips/natural-listening.mp4",
 };
 
 function clamp01(v: number): number {
@@ -208,13 +208,14 @@ export function evaluateHybridDirectorAtTime(input: {
     };
   }
 
+  // Smooth chalk trajectory across word -> underline -> circle while teacher looks warmly at board
   if (t < 3.3) {
     const p = easeInOutCubic((t - 2.5) / 0.8);
     const firstWritePt: Vec2 = { x: 120, y: 342 };
     return {
       phase: "turn_to_board",
-      phaseLabelEs: "3. Girando hacia la pizarra",
-      turnBlend: p,
+      phaseLabelEs: "3. Enfocando la pizarra",
+      turnBlend: p * 0.35,
       expression: "demonstrating",
       gazeTarget: "chalkboard-teaching",
       armRaise: p,
@@ -292,15 +293,15 @@ export function evaluateHybridDirectorAtTime(input: {
     const fromEraser: Vec2 = { x: 540, y: 245 };
     return {
       phase: "turn_back",
-      phaseLabelEs: "6. Volviendo hacia el estudiante",
-      turnBlend: 1 - p,
+      phaseLabelEs: "6. Mirando al estudiante",
+      turnBlend: (1 - p) * 0.35,
       expression: "smiling",
       gazeTarget: "student",
       armRaise: 1 - p,
       activeTool: p < 0.7 ? "eraser" : "none",
       ikTargetStage: {
-        x: lerp(fromEraser.x, restHand.x, p),
-        y: lerp(fromEraser.y, restHand.y, p),
+        x: lerp(fromEraser.x, 178, p),
+        y: lerp(fromEraser.y, 876, p),
       },
       writeWordProgress: 1,
       underlineProgress: 1,

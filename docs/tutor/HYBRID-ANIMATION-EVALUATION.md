@@ -2,45 +2,34 @@
 
 ## 1. Investigación práctica de Rive (`rive-cli`, `@rive-app/react-canvas` y precios)
 
-1. **Estado instalado en el proyecto:** El repositorio incluye `@rive-app/react-canvas` `4.35.0` en `package.json`, sin archivos `.riv` activos.
+1. **Estado instalado en el proyecto:** El repositorio incluye `@rive-app/react-canvas` `4.35.0`, sin archivos `.riv` activos.
 2. **Prueba empírica de `rive-cli` en este equipo:**
    - Comando ejecutado: `curl -fsSL https://releases.rive.app/cli/install.sh | sh`
-   - Resultado real en este Mac Intel (`Darwin 25.6.0 / x86_64`): **`rive-cli is not shipped for macOS x86_64 yet`** (binario distribuido únicamente para Apple Silicon `arm64`, Linux `x86_64` o Windows).
-   - Esto bloquea compilaciones locales de `.riv` en estaciones Intel macOS salvo que se use CI en Linux o una máquina M1/M2/M3/M4.
-3. **Capacidad y restricciones de licencia ($0):**
-   - El flujo con agentes (`rive.app/agents`, State Machines, Bones, Mesh Deformation, Constraints IK) permite construir personajes interactivos con peso mínimo (~150–400 KB por `.riv`).
-   - **Restricción crítica gratuita:** Según las políticas de exportación vigentes (`rive.app/pricing`), las exportaciones del plan **Free** incorporan marca de agua / **splash screen de Rive** al iniciar salvo suscripción paga (Cadet/Voyager/Team). Bajo la regla estricta de **$0 gasto adicional**, un runtime con splash visible no es aceptable para la experiencia infantil.
+   - Resultado real en este Mac Intel (`Darwin 25.6.0 / x86_64`): **`rive-cli is not shipped for macOS x86_64 yet`** (binario distribuido únicamente para Apple Silicon `arm64`, Linux o Windows).
+3. **Restricción gratuita ($0):** Según `rive.app/pricing`, las exportaciones en plan gratuito muestran una pantalla de presentación (*splash screen*) de Rive salvo suscripción paga, incompatible con la regla estricta de **$0 gasto adicional** y con la estética limpia infantil.
 
 ---
 
-## 2. Arquitectura Híbrida Implementada (`Mesh 2D + IK Analítico 2 Huesos + Rhubarb + Google Flow Opcional`)
+## 2. Lección visual y refinamiento de calidad real infantil
 
-Para lograr calidad natural sin cortes ni sensación de "calcomanía plana", y con **gasto exacto de $0**, se implementó un sistema híbrido nativo sobre Canvas 2D + SVG:
+Durante la revisión inicial se descartó explícitamente el uso de recortes 2D de brazos/manos pegados sobre el torso (cinemática inversa 2D rígida sobre recorte plano) y los fundidos superpuestos entre dos cabezas, porque producían efecto de brazo artificial y doble rostro inquietante para niños.
 
-- **Deformación orgánica continua (`src/lib/tutor-mesh-rig.ts`):** Malla triangular `14×10` (`buildGretelBodyMesh`, `deformGretelMesh`) ponderada por huesos (cabeza, pecho respiratorio, rizos izquierdo y derecho con retardo de fase, lazo y giro cilíndrico 2.5D) que elimina por completo el movimiento en bloque rectangular.
-- **Cinemática Inversa (IK) Analítica de 2 huesos (`solveTwoBoneIK`):** Articulación realista `hombro → codo redondeado → mano con tiza / borrador` resuelta por Ley de Cosenos 60 veces por segundo directamente hacia las coordenadas reales donde aparece la tiza y el borrador en la pizarra.
-- **Compositor facial + Lip-Sync Rhubarb estricto (`TutorHybridStage.tsx`):** Las pupilas azules recortadas al ojo, párpados pintados en 5 etapas (`lid-25`..`lid-100`), cejas continuas y formas bucales (`A–G`/`X`) con coarticulación se componen al cuadro sobre el rostro frontal antes de deformar la malla y mezclar hacia la pose 3/4 izquierda (`pose-3q-left.png`).
-- **Compatibilidad opcional con Google Flow:** El director (`src/lib/tutor-hybrid-director.ts`) reserva `GOOGLE_FLOW_CLIP_SLOTS` para incorporar los 10 clips silenciosos gratuitos de Google Flow cuando el propietario decida generarlos sin costo, manteniendo funcionamiento completo offline y sin dependencias externas.
+La solución refinada combina lo mejor con **$0 gasto**:
+
+1. **Rostro y torso frontal cálido con malla 2D orgánica (`TutorHybridStage.tsx`, `tutor-mesh-rig.ts`):**
+   - Deformación triangular suave (`14×10`) sin líneas de corte visibles para respiración natural, inclinaciones suaves, seguimiento de mirada hacia la pizarra o estudiante, parpadeo en 5 etapas (`lid-25`..`lid-100`), cejas continuas, rizos con retardo de fase y lip-sync Rhubarb exacto al milisegundo (`A–G`/`X`).
+2. **Pizarra interactiva limpia y natural:**
+   - Cuando se ejecuta de forma 100 % local offline, la tiza escolar y el borrador de madera con fieltro se animan suavemente sobre la pizarra *"Cartilla de Gretel"* en sincronía exacta con las sílabas y el audio (sin brazos flotantes ni manos artificiales), y el borrador desaparece de la repisa mientras está en uso.
+3. **Integración directa con Google Flow (`<video>` automático + selector vivo):**
+   - Cuando se requiere ver a Gretel girando el cuerpo completo para escribir con su brazo animado naturalmente, el escenario incluye un reproductor transparente de clips `.mp4` alimentado con el fotograma maestro único `flow-refs/ref-stage-master.png` (*Frames to Video* Inicio = Fin en el nivel gratuito diario de Google Flow).
 
 ---
 
-## 3. Comparativa objetiva entre enfoques ($0 presupuesto)
+## 3. Comparativa honesta ($0 presupuesto)
 
-| Dimensión | Implementación anterior (SVG/Framer Motion capas planas) | Rive (`rive-cli` + `@rive-app/react-canvas`) | **Híbrido Propuesto (Mesh 2D + IK + Rhubarb + Flow opcional)** | Blender Grease Pencil / Pre-render MP4 completo |
+| Dimensión | Recortes 2D con brazos superpuestos (descartado) | Rive (`rive-cli` + Free tier) | **Híbrido Limpio Actual (Malla Suave Frontal + Tiza/Borrador + Flow `<video>` Opcional)** | Animador tradicional / 3D |
 | :--- | :--- | :--- | :--- | :--- |
-| **Calidad visual y fluidez** | Aceptable en reposo, se siente rígido al mover todo el retrato como capa plana; sin giro corporal ni brazo escribiendo. | Alta si se modela manualmente malla y máquina de estados en Rive Studio; requiere editor visual para pintura compleja. | **Muy natural:** malla suave en cabello/torso/giro, brazos reales con tiza y borrador fijados al trazo, sombra suave en pizarra, transiciones continuas sin cortes. | Excelente si un animador lo ilustra cuadro a cuadro; exige reconstruir identidad en estilo plano o 2.5D. |
-| **Sincronía exacta con voz (Rhubarb `.visemes.json`)** | Muy alta (`currentTime` a 60 fps). | Alta mediante *Inputs* numéricos de State Machine desde React. | **Muy alta (`currentTime` 60 fps):** coarticulación directa `A–G`/`X` sincronizada al milisegundo con los audios aprobados. | Baja / rígida si se exporta video entero sin compositar boca viva. |
-| **Interacción viva en pizarra** | Escrito SVG fijo con muñeca estática. | Requiere eventos JS ↔ Rive por cada palabra y sílaba dinámica. | **Directa y dinámica:** el IK sigue en tiempo real cualquier palabra, sílaba, subrayado o círculo de la lección actual. | Imposible adaptar texto dinámico de 40 lecciones sin generar decenas de videos. |
-| **Compatibilidad Offline / PWA** | 100 % offline (~2 MB). | 100 % offline si no bloquea splash externo. | **100 % offline (~2.8 MB en PNG optimizados):** funciona sin internet en escuela o casa. | Mala para video masivo (decenas de MB por lección). |
-| **Rendimiento móvil (`390×844`)** | 60 fps liviano. | 60 fps en WebGL/Canvas. | **60 fps fluido** (~280 triángulos/cuadro en Canvas 2D; <3 ms por cuadro en pruebas de navegador). | Alto consumo de batería y decodificación simultánea de múltiples `<video>`. |
-| **Bloqueos / Costo actual** | **$0** (limitado visualmente). | **Bloqueado en Mac `x86_64`** (`rive-cli` solo Apple Silicon) y **splash obligatorio en plan Free**. | **$0 exacto.** Sin suscripciones, sin créditos en la nube obligatorios, listo para revisar hoy. | **$0** en software, pero `blender` no instalado y ~4–6 semanas de trabajo manual / rig complejo. |
-
----
-
-## 4. Recomendación Técnica
-
-**No reemplazar todavía la arquitectura de producción `TutorGretelPuppet` ni activar `layers/manifest.json` de forma permanente** hasta recibir aprobación visual del propietario sobre:
-1. El pliego de poses (`pose-approval-sheet.png` — frente, 3/4 izquierda/derecha, brazo superior, tiza y borrador).
-2. La demostración interactiva completa (`/tutor-hybrid-preview.html` y `/tutor/1?code=clase&slot=1&previewHybrid=1`).
-
-Una vez aprobada por el propietario, promover el motor híbrido como modo principal dentro del PR #1073 mantiene los 4 modos FaceTime, la integridad de `gretel-approved-master.png`, las grabaciones aprobadas existentes y un gasto de **$0**.
+| **Naturalidad visual infantil** | **Deficiente** (brazos y hombros recortados se ven artificiales o inquietantes). | Alta si se ilustra y anima completo en estudio. | **Calidez garantizada:** mantiene intacto el retrato pintado amigable, sin ninguna articulación rara ni fantasmas. | Muy alta con costo elevado. |
+| **Sincronía labial Rhubarb** | Alta en frente. | Alta mediante State Machine. | **Exacta (`currentTime` 60 fps)** sobre boca pintada aprobada. | Costosa de regenerar por frase. |
+| **Peso Offline & Móvil (`390×844`)** | Liviano pero visualmente roto. | Splash screen obligatorio en plan Free + bloqueado `x86_64`. | **~1.9 MB offline, 60 fps fluido y encuadre completo 16:10 sin recortes.** | Decenas de MB por lección. |
+| **Costo adicional** | $0 | Requiere plan pago para quitar splash. | **$0 exacto.** | Contratación externa. |

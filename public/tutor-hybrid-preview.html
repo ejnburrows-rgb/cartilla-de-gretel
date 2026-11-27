@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gretel Híbrida ($0) — Malla 2D, IK y Pizarra Viva</title>
+    <title>Gretel ($0) — Malla Suave, Pizarra Viva y Voz Rhubarb</title>
     <style>
       @font-face {
         font-family: "Caveat";
@@ -93,7 +93,8 @@
       }
 
       button,
-      select {
+      select,
+      label.file-btn {
         font-family: inherit;
         font-size: 0.88rem;
         border-radius: 10px;
@@ -106,7 +107,8 @@
       }
 
       button:hover,
-      select:hover {
+      select:hover,
+      label.file-btn:hover {
         border-color: var(--accent);
       }
 
@@ -176,18 +178,21 @@
         overflow: hidden;
       }
 
-      .viewport-frame.mobile .stage-canvas-wrap {
-        aspect-ratio: 16 / 10;
-      }
-
       .stage-canvas-wrap svg,
-      .stage-canvas-wrap canvas {
+      .stage-canvas-wrap canvas,
+      .stage-canvas-wrap video {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         display: block;
         object-fit: contain;
+      }
+
+      .stage-canvas-wrap video {
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 280ms var(--ease-out);
       }
 
       .status-bar {
@@ -229,7 +234,7 @@
 
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 14px;
       }
 
@@ -258,12 +263,12 @@
     <div class="page">
       <header>
         <div>
-          <h1>Gretel Híbrida ($0) — Malla Suave + Brazo IK + Pizarra Sincronizada</h1>
+          <h1>Gretel ($0) — Expresión Natural, Pizarra Sincronizada y Voz Rhubarb</h1>
           <p class="subtitle">
-            Demostración interactiva continua: Gretel escucha al estudiante, asiente, gira hacia su
-            pizarra "Cartilla de Gretel", escribe y encierra sílabas con tiza en tiempo real, borra
-            una nota auxiliar con el borrador, vuelve a mirar al niño y pronuncia grabaciones
-            reales con sincronía fonética Rhubarb.
+            Demostración limpia y amigable para niños: Gretel escucha al estudiante con mirada viva,
+            párpados suaves y respiración natural; enfoca su pizarra "Cartilla de Gretel" mientras
+            la tiza escribe y el borrador escolar limpia la pizarra sin extremidades pegadas; y
+            vuelve a pronunciar grabaciones reales con sincronía Rhubarb.
           </p>
         </div>
         <div class="toolbar">
@@ -280,7 +285,7 @@
               ▶ Ejecutar secuencia completa (11.6 s)
             </button>
             <button type="button" data-jump="0.4">1. Escucha</button>
-            <button type="button" data-jump="4.6">2. Tiza e IK</button>
+            <button type="button" data-jump="4.6">2. Tiza</button>
             <button type="button" data-jump="6.6">3. Borrador</button>
             <button type="button" data-jump="8.6">4. Voz Rhubarb</button>
           </div>
@@ -293,6 +298,10 @@
               <option value="elefante">elefante (e · le · fan · te)</option>
               <option value="escuela">escuela (es · cue · la)</option>
             </select>
+            <label class="file-btn" title="Prueba cualquier clip MP4 silencioso descargado gratis de Google Flow">
+              Probar clip Google Flow (.mp4)
+              <input id="flowFileInput" type="file" accept="video/mp4,video/webm" hidden />
+            </label>
           </div>
         </div>
 
@@ -447,7 +456,7 @@
                 <rect x="24" y="896" width="1552" height="16" rx="3" fill="#8b5932" />
                 <rect x="20" y="910" width="1560" height="44" rx="5" fill="#633a1d" stroke="#3f220e" stroke-width="3" />
                 <line x1="26" y1="912" x2="1574" y2="912" stroke="#a67248" stroke-width="2.5" opacity="0.7" />
-                <g transform="translate(110, 868)">
+                <g id="hpLedgeEraser" transform="translate(110, 868)">
                   <rect x="4" y="20" width="128" height="14" rx="2" fill="#2c2e33" />
                   <rect x="0" y="6" width="136" height="16" rx="4" fill="#8d5a34" stroke="#4c2c13" stroke-width="2" />
                   <rect x="6" y="8" width="124" height="5" rx="2" fill="#ad774d" opacity="0.65" />
@@ -464,13 +473,14 @@
               </g>
             </svg>
             <canvas id="hybridCanvas" width="1600" height="1000"></canvas>
+            <video id="flowClipVideo" muted loop playsinline></video>
           </div>
 
           <div class="status-bar">
             <span>
               <span class="badge" id="phaseBadge">1. Escuchando al estudiante</span>
             </span>
-            <span id="telemetryText">Visema: X · Giro: 0 % · Modo: Malla 2D + IK local ($0)</span>
+            <span id="telemetryText">Visema: X · Modo: Malla Suave 2D + Pizarra ($0)</span>
           </div>
         </div>
 
@@ -483,52 +493,33 @@
         <audio id="voiceAudio" preload="auto"></audio>
       </section>
 
-      <h2>Candidatos de Poses, Articulaciones y Referencias para Google Flow (Pendiente de Aprobación)</h2>
+      <h2>Pliego de Poses Limpias y Fotograma Maestro para Google Flow</h2>
       <div class="gallery-grid">
-        <article class="card" style="grid-column: 1 / -1;">
+        <article class="card">
           <img
             src="/cartilla/images/gretel/tutor/hybrid-candidates/poses/pose-approval-sheet.png"
-            alt="Pliego de poses de Gretel: frente, giro 3/4 izquierda y derecha, brazo superior, mano con tiza y borrador"
+            alt="Pliego de poses limpias de Gretel: frente, 3/4 izquierda y 3/4 derecha apoyadas detrás de la repisa"
           />
           <p>
-            Pliego completo de partes articuladas conservando exactamente la identidad aprobada, el
-            vestido overol azul con flores, la blusa naranja a rayas y el lazo rojo.
+            Tres vistas consistentes apoyadas limpiamente detrás de la repisa de roble (cero cortes
+            flotantes ni brazos artificiales).
           </p>
         </article>
         <article class="card">
           <img
-            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-listening.png"
-            alt="Referencia Google Flow: escucha natural frente a la pizarra"
+            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-stage-master.png"
+            alt="Fotograma maestro 1600x1000 para Google Flow con pizarra Cartilla de Gretel"
           />
-          <p>Ref. 1 — Escucha y asentimiento (frente al estudiante)</p>
-        </article>
-        <article class="card">
-          <img
-            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-turn-left.png"
-            alt="Referencia Google Flow: giro 3/4 hacia la pizarra"
-          />
-          <p>Ref. 2 — Giro 3/4 hacia el área de tiza</p>
-        </article>
-        <article class="card">
-          <img
-            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-writing.png"
-            alt="Referencia Google Flow: escribiendo con tiza"
-          />
-          <p>Ref. 3 — Mano escribiendo y subrayando con tiza</p>
-        </article>
-        <article class="card">
-          <img
-            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-erasing.png"
-            alt="Referencia Google Flow: borrando la pizarra"
-          />
-          <p>Ref. 4 — Brazo limpiando con borrador escolar</p>
+          <p>
+            Fotograma maestro (1600×1000) listo para usar en Google Flow ("Frames to Video" Inicio +
+            Fin) cuando desees generar un clip silencioso de cuerpo completo ($0 / 50 créditos al día).
+          </p>
         </article>
       </div>
     </div>
 
     <script>
       const RIG_BASE = "/cartilla/images/gretel/tutor/chalkboard-candidates/";
-      const HYB_BASE = "/cartilla/images/gretel/tutor/hybrid-candidates/poses/";
       const POSE_W = 1024;
       const POSE_H = 662;
       const STAGE_W = 1600;
@@ -592,10 +583,6 @@
         mouthE: RIG_BASE + "mouth-E.png",
         mouthF: RIG_BASE + "mouth-F.png",
         mouthG: RIG_BASE + "mouth-G.png",
-        pose3qLeft: HYB_BASE + "pose-3q-left.png",
-        armUpper: HYB_BASE + "arm-upper.png",
-        armForearmChalk: HYB_BASE + "arm-forearm-chalk.png",
-        armForearmEraser: HYB_BASE + "arm-forearm-eraser.png",
       };
 
       function clamp(v, lo, hi) {
@@ -704,33 +691,6 @@
         return out;
       }
 
-      function solveTwoBoneIK(shoulder, target, upperLen, forearmLen, bendSign) {
-        const dx = target.x - shoulder.x;
-        const dy = target.y - shoulder.y;
-        const rawDist = Math.hypot(dx, dy);
-        const minR = Math.abs(upperLen - forearmLen) + 6;
-        const maxR = (upperLen + forearmLen) * 0.985;
-        const dist = clamp(rawDist, minR, maxR);
-        const base = Math.atan2(dy, dx);
-        const cosA = clamp(
-          (upperLen * upperLen + dist * dist - forearmLen * forearmLen) / (2 * upperLen * dist),
-          -1,
-          1,
-        );
-        const upperAngle = base + bendSign * Math.acos(cosA);
-        const elbow = {
-          x: shoulder.x + Math.cos(upperAngle) * upperLen,
-          y: shoulder.y + Math.sin(upperAngle) * upperLen,
-        };
-        const reachAngle = base;
-        const clampedTarget = {
-          x: shoulder.x + Math.cos(reachAngle) * dist,
-          y: shoulder.y + Math.sin(reachAngle) * dist,
-        };
-        const forearmAngle = Math.atan2(clampedTarget.y - elbow.y, clampedTarget.x - elbow.x);
-        return { shoulder, elbow, hand: clampedTarget, upperAngle, forearmAngle };
-      }
-
       function computeChalkTip(p) {
         const u = clamp01(p);
         if (u < 0.45) {
@@ -754,9 +714,9 @@
             turnBlend: 0,
             expression: "smiling",
             gaze: "student",
-            armRaise: 0,
+            toolAlpha: 0,
             tool: "none",
-            ikTarget: { x: 640, y: 740 },
+            toolPos: { x: 316, y: 892 },
             writeP: 1,
             underlineP: 1,
             circleP: 1,
@@ -766,7 +726,8 @@
           };
         }
         const t = clamp(timeSec, 0, SEQ_DURATION);
-        const rest = { x: 640, y: 740 };
+        const restChalk = { x: 316, y: 892 };
+        const restEraser = { x: 178, y: 876 };
         if (t < 1.7) {
           return {
             phase: "listen_1",
@@ -774,9 +735,9 @@
             turnBlend: 0,
             expression: "listening",
             gaze: "student",
-            armRaise: 0,
+            toolAlpha: 0,
             tool: "none",
-            ikTarget: rest,
+            toolPos: restChalk,
             writeP: 0,
             underlineP: 0,
             circleP: 0,
@@ -792,9 +753,9 @@
             turnBlend: 0,
             expression: "encouraging",
             gaze: "student",
-            armRaise: 0,
+            toolAlpha: 0,
             tool: "none",
-            ikTarget: rest,
+            toolPos: restChalk,
             writeP: 0,
             underlineP: 0,
             circleP: 0,
@@ -807,13 +768,13 @@
           const p = easeInOutCubic((t - 2.5) / 0.8);
           return {
             phase: "turn_to_board",
-            label: "3. Girando hacia la pizarra",
-            turnBlend: p,
+            label: "3. Enfocando la pizarra",
+            turnBlend: p * 0.35,
             expression: "demonstrating",
             gaze: "chalkboard-teaching",
-            armRaise: p,
+            toolAlpha: p,
             tool: p > 0.2 ? "chalk" : "none",
-            ikTarget: { x: lerp(rest.x, 120, p), y: lerp(rest.y, 342, p) },
+            toolPos: { x: lerp(restChalk.x, 120, p), y: lerp(restChalk.y, 342, p) },
             writeP: 0,
             underlineP: 0,
             circleP: 0,
@@ -830,9 +791,9 @@
             turnBlend: 1,
             expression: "demonstrating",
             gaze: "chalkboard-teaching",
-            armRaise: 1,
+            toolAlpha: 1,
             tool: "chalk",
-            ikTarget: computeChalkTip(p),
+            toolPos: computeChalkTip(p),
             writeP: clamp01(p / 0.45),
             underlineP: clamp01((p - 0.45) / 0.23),
             circleP: clamp01((p - 0.68) / 0.32),
@@ -849,9 +810,9 @@
             turnBlend: 1,
             expression: "demonstrating",
             gaze: "chalkboard-teaching",
-            armRaise: 1,
+            toolAlpha: 1,
             tool: "eraser",
-            ikTarget: {
+            toolPos: {
               x: 415 + (0.5 - 0.5 * Math.cos(p * Math.PI * 3)) * 185,
               y: 238 + Math.sin(p * Math.PI * 2) * 18,
             },
@@ -867,13 +828,13 @@
           const p = easeInOutCubic((t - 7.4) / 0.8);
           return {
             phase: "turn_back",
-            label: "6. Volviendo hacia el estudiante",
-            turnBlend: 1 - p,
+            label: "6. Mirando al estudiante",
+            turnBlend: (1 - p) * 0.35,
             expression: "smiling",
             gaze: "student",
-            armRaise: 1 - p,
+            toolAlpha: 1 - p,
             tool: p < 0.7 ? "eraser" : "none",
-            ikTarget: { x: lerp(540, rest.x, p), y: lerp(245, rest.y, p) },
+            toolPos: { x: lerp(540, restEraser.x, p), y: lerp(245, restEraser.y, p) },
             writeP: 1,
             underlineP: 1,
             circleP: 1,
@@ -890,9 +851,9 @@
             turnBlend: 0,
             expression: "speaking",
             gaze: "student",
-            armRaise: 0,
+            toolAlpha: 0,
             tool: "none",
-            ikTarget: rest,
+            toolPos: restChalk,
             writeP: 1,
             underlineP: 1,
             circleP: 1,
@@ -907,9 +868,9 @@
           turnBlend: 0,
           expression: t > 10.8 ? "encouraging" : "listening",
           gaze: "student",
-          armRaise: 0,
+          toolAlpha: 0,
           tool: "none",
-          ikTarget: rest,
+          toolPos: restChalk,
           writeP: 1,
           underlineP: 1,
           circleP: 1,
@@ -991,16 +952,83 @@
         ctx.restore();
       }
 
+      function drawBoardTool(ctx, dir) {
+        if (dir.tool === "none" || dir.toolAlpha <= 0.05) return;
+        const { x, y } = dir.toolPos;
+        const alpha = Math.min(1, dir.toolAlpha * 1.35);
+
+        if (dir.tool === "chalk") {
+          if (dir.phase === "write_demonstrate") {
+            ctx.save();
+            const dg = ctx.createRadialGradient(x, y, 2, x, y, 28);
+            dg.addColorStop(0, "rgba(255, 252, 235, 0.34)");
+            dg.addColorStop(1, "rgba(255, 252, 235, 0)");
+            ctx.fillStyle = dg;
+            ctx.beginPath();
+            ctx.arc(x, y, 28, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.translate(x, y);
+          ctx.rotate(-0.58);
+          ctx.shadowColor = "rgba(8, 20, 14, 0.45)";
+          ctx.shadowBlur = 10;
+          ctx.shadowOffsetX = 4;
+          ctx.shadowOffsetY = 6;
+          ctx.fillStyle = "#f7f5eb";
+          ctx.strokeStyle = "#d5d0be";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(-8, -68, 16, 68, 6);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "#ffffff";
+          ctx.beginPath();
+          ctx.ellipse(0, -3, 6.5, 4, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        } else if (dir.tool === "eraser") {
+          ctx.save();
+          const dg = ctx.createRadialGradient(x, y, 4, x, y, 60);
+          dg.addColorStop(0, "rgba(244, 241, 228, 0.25)");
+          dg.addColorStop(1, "rgba(244, 241, 228, 0)");
+          ctx.fillStyle = dg;
+          ctx.beginPath();
+          ctx.arc(x, y, 60, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.translate(x, y);
+          ctx.rotate(-0.08);
+          ctx.shadowColor = "rgba(8, 20, 14, 0.45)";
+          ctx.shadowBlur = 12;
+          ctx.shadowOffsetX = 4;
+          ctx.shadowOffsetY = 8;
+          ctx.fillStyle = "#2c2e33";
+          ctx.fillRect(-64, 4, 128, 15);
+          ctx.fillStyle = "#8d5a34";
+          ctx.strokeStyle = "#4c2c13";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.roundRect(-68, -14, 136, 20, 5);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "rgba(182, 130, 86, 0.55)";
+          ctx.fillRect(-60, -10, 120, 5);
+          ctx.restore();
+        }
+      }
+
       const canvas = document.getElementById("hybridCanvas");
       const mctx = canvas.getContext("2d");
       const frontCanvas = document.createElement("canvas");
       frontCanvas.width = POSE_W;
       frontCanvas.height = POSE_H;
       const fctx = frontCanvas.getContext("2d");
-      const meshScratch = document.createElement("canvas");
-      meshScratch.width = STAGE_W;
-      meshScratch.height = STAGE_H;
-      const meshCtx = meshScratch.getContext("2d");
       const mesh = buildMesh(POSE_W, POSE_H, 14, 10);
 
       const viewportFrame = document.getElementById("viewportFrame");
@@ -1010,6 +1038,8 @@
       const timeReadout = document.getElementById("timeReadout");
       const wordSelect = document.getElementById("wordSelect");
       const voiceAudio = document.getElementById("voiceAudio");
+      const flowClipVideo = document.getElementById("flowClipVideo");
+      const flowFileInput = document.getElementById("flowFileInput");
       const hpWriteRect = document.getElementById("hpWriteRect");
       const hpScratchRect = document.getElementById("hpScratchRect");
       const hpScratchGroup = document.getElementById("hpScratchGroup");
@@ -1018,9 +1048,9 @@
       const hpUnderline = document.getElementById("hpUnderline");
       const hpSyllableText = document.getElementById("hpSyllableText");
       const hpCircle = document.getElementById("hpCircle");
+      const hpLedgeEraser = document.getElementById("hpLedgeEraser");
 
       let imgs = null;
-      let sampleKey = "abeja";
       let cues = [];
       let speechDuration = 1.56;
       let reducedMotion = false;
@@ -1028,9 +1058,19 @@
       let seqStartMs = 0;
       let currentTimeSec = 0.4;
       let audioStartedForRun = false;
+      let uploadedFlowUrl = null;
+
+      flowFileInput.addEventListener("change", (ev) => {
+        const f = ev.target.files && ev.target.files[0];
+        if (!f) return;
+        if (uploadedFlowUrl) URL.revokeObjectURL(uploadedFlowUrl);
+        uploadedFlowUrl = URL.createObjectURL(f);
+        flowClipVideo.src = uploadedFlowUrl;
+        flowClipVideo.play().catch(() => {});
+        startSequence();
+      });
 
       async function loadSample(key) {
-        sampleKey = key;
         const spec = AUDIO_SAMPLES[key];
         hpWordText.textContent = spec.word;
         hpSyllableText.textContent = spec.syllables.join("   ");
@@ -1145,7 +1185,18 @@
         }
         const vis = resolveVisemeAt(cues, effectiveSpeechT);
 
-        // Update SVG chalkboard elements synced tightly to IK coordinates
+        // Optional uploaded Google Flow clip shows seamlessly during board write/erase phases
+        if (uploadedFlowUrl && !reducedMotion) {
+          const showFlow =
+            dir.phase === "turn_to_board" ||
+            dir.phase === "write_demonstrate" ||
+            dir.phase === "erase_board" ||
+            dir.phase === "turn_back";
+          flowClipVideo.style.opacity = showFlow ? "1" : "0";
+        } else {
+          flowClipVideo.style.opacity = "0";
+        }
+
         hpWriteRect.setAttribute("width", String(470 * dir.writeP));
         hpUnderline.setAttribute("stroke-dashoffset", String(100 * (1 - dir.underlineP)));
         hpCircle.setAttribute("stroke-dashoffset", String(100 * (1 - dir.circleP)));
@@ -1153,20 +1204,21 @@
         hpScratchRect.setAttribute("x", String(405 + 235 * dir.scratchEraseP));
         hpScratchRect.setAttribute("width", String(Math.max(0, 235 * (1 - dir.scratchEraseP))));
         hpScratchGroup.style.display = dir.scratchEraseP >= 0.99 ? "none" : "inline";
+        hpLedgeEraser.style.opacity = dir.tool === "eraser" ? "0" : "1";
 
         phaseBadge.textContent = dir.label;
         telemetryText.textContent =
           "Visema: " +
           vis.primary +
-          " · Giro: " +
-          Math.round(dir.turnBlend * 100) +
-          " % · Fase: " +
+          " · Mirada: " +
+          (dir.gaze === "chalkboard-teaching" ? "Pizarra" : "Estudiante") +
+          " · Fase: " +
           dir.phase;
         viewportFrame.dataset.hybridPhase = dir.phase;
         viewportFrame.dataset.viseme = vis.primary;
 
         if (imgs) {
-          const breathe = reducedMotion ? 0 : Math.sin(clockSec * ((2 * Math.PI) / 4.0));
+          const breathe = reducedMotion ? 0 : Math.sin(clockSec * ((2 * Math.PI) / 4.1));
           const pupilX =
             reducedMotion
               ? 0
@@ -1188,7 +1240,6 @@
                   ? -1.1
                   : -1.4;
 
-          // Composite front face offscreen
           fctx.clearRect(0, 0, POSE_W, POSE_H);
           fctx.drawImage(imgs.faceBase, 0, 0);
 
@@ -1235,13 +1286,9 @@
 
           mctx.clearRect(0, 0, STAGE_W, STAGE_H);
           const scale = 1.12;
-          const leanLeft =
-            dir.armRaise > 0.05
-              ? Math.max(0, 340 - dir.ikTarget.x) * 0.25 * dir.armRaise
-              : 0;
-          const centerX = 1040 - dir.turnBlend * 195 - leanLeft;
+          const centerX = 1040;
           const originX = centerX - (POSE_W * scale) * 0.5;
-          const originY = 900 - POSE_H * scale + 14 - dir.armRaise * 18;
+          const originY = 900 - POSE_H * scale + 14;
 
           const coords = deformMesh(mesh, {
             breathePhase: breathe,
@@ -1253,129 +1300,50 @@
                   : dir.expression === "encouraging"
                     ? 1.4
                     : Math.sin(clockSec * 0.9) * 0.6,
-            headYaw: -dir.turnBlend * 0.85,
+            headYaw: -dir.turnBlend * 0.32,
             headNodPx:
               !reducedMotion && dir.expression === "encouraging"
-                ? Math.sin(clockSec * 5.2) * 3.2
+                ? Math.sin(clockSec * 5.2) * 3.0
                 : 0,
             hairSwayLeftDeg: reducedMotion ? 0 : Math.sin(clockSec * 1.4 - 0.35) * 0.85,
             hairSwayRightDeg: reducedMotion ? 0 : Math.cos(clockSec * 1.3 - 0.35) * 0.75,
           });
 
-          // Drop shadow behind Gretel
           mctx.save();
-          const sg = mctx.createRadialGradient(centerX + 26, 610, 70, centerX + 26, 610, 450);
-          sg.addColorStop(0, "rgba(7, 22, 14, 0.44)");
+          const sg = mctx.createRadialGradient(centerX + 24, 610, 70, centerX + 24, 610, 440);
+          sg.addColorStop(0, "rgba(7, 22, 14, 0.42)");
           sg.addColorStop(1, "rgba(7, 22, 14, 0)");
           mctx.fillStyle = sg;
-          mctx.fillRect(centerX - 440, 150, 920, 760);
+          mctx.fillRect(centerX - 430, 150, 900, 750);
           mctx.restore();
 
-          // 2-bone IK Arm reaching out behind chest strap to chalkboard target
-          if (dir.armRaise > 0.02 && dir.tool !== "none") {
-            const shoulder = {
-              x: originX + 0.355 * POSE_W * scale,
-              y: originY + 0.775 * POSE_H * scale,
-            };
-            const armScale = 1.44;
-            const upperLen = 180.1 * armScale;
-            const isEraser = dir.tool === "eraser";
-            const forearmLen = (isEraser ? 233.6 : 268.9) * armScale;
-            const ik = solveTwoBoneIK(shoulder, dir.ikTarget, upperLen, forearmLen, -1);
-
-            mctx.save();
-            mctx.strokeStyle = "rgba(8, 24, 16, 0.32)";
-            mctx.lineWidth = 76;
-            mctx.lineCap = "round";
-            mctx.lineJoin = "round";
-            mctx.beginPath();
-            mctx.moveTo(shoulder.x + 14, shoulder.y + 18);
-            mctx.lineTo(ik.elbow.x + 14, ik.elbow.y + 18);
-            mctx.lineTo(ik.hand.x + 12, ik.hand.y + 16);
-            mctx.stroke();
-            mctx.restore();
-
-            mctx.save();
-            mctx.globalAlpha = Math.min(1, dir.armRaise * 1.35);
-            mctx.translate(shoulder.x, shoulder.y);
-            mctx.rotate(ik.upperAngle - 1.532);
-            mctx.scale(armScale, armScale);
-            mctx.drawImage(imgs.armUpper, -85, -36);
-            mctx.restore();
-
-            const fImg = isEraser ? imgs.armForearmEraser : imgs.armForearmChalk;
-            const restAng = isEraser ? -2.0041 : -2.1008;
-            mctx.save();
-            mctx.globalAlpha = Math.min(1, dir.armRaise * 1.35);
-            mctx.translate(ik.elbow.x, ik.elbow.y);
-            mctx.rotate(ik.forearmAngle - restAng);
-            mctx.scale(armScale, armScale);
-            mctx.drawImage(fImg, -174, -264);
-            mctx.restore();
-
-            if (dir.phase === "write_demonstrate" || dir.phase === "erase_board") {
-              mctx.save();
-              const dg = mctx.createRadialGradient(
-                ik.hand.x,
-                ik.hand.y,
-                2,
-                ik.hand.x,
-                ik.hand.y,
-                isEraser ? 52 : 24,
-              );
-              dg.addColorStop(
-                0,
-                isEraser ? "rgba(244,241,228,0.22)" : "rgba(255,252,235,0.28)",
-              );
-              dg.addColorStop(1, "rgba(244,241,228,0)");
-              mctx.fillStyle = dg;
-              mctx.beginPath();
-              mctx.arc(ik.hand.x, ik.hand.y, isEraser ? 52 : 24, 0, Math.PI * 2);
-              mctx.fill();
-              mctx.restore();
-            }
+          const { vertices, indices } = mesh;
+          for (let i = 0; i < indices.length; i += 3) {
+            const i0 = indices[i];
+            const i1 = indices[i + 1];
+            const i2 = indices[i + 2];
+            const v0 = vertices[i0];
+            const v1 = vertices[i1];
+            const v2 = vertices[i2];
+            drawTri(
+              mctx,
+              frontCanvas,
+              v0.x0,
+              v0.y0,
+              v1.x0,
+              v1.y0,
+              v2.x0,
+              v2.y0,
+              originX + coords[i0 * 2] * scale,
+              originY + coords[i0 * 2 + 1] * scale,
+              originX + coords[i1 * 2] * scale,
+              originY + coords[i1 * 2 + 1] * scale,
+              originX + coords[i2 * 2] * scale,
+              originY + coords[i2 * 2 + 1] * scale,
+            );
           }
 
-          const drawMesh = (sourceImg, alpha, xOffset) => {
-            if (alpha <= 0.01) return;
-            const target = alpha >= 0.99 ? mctx : meshCtx;
-            if (alpha < 0.99) target.clearRect(0, 0, STAGE_W, STAGE_H);
-            const { vertices, indices } = mesh;
-            for (let i = 0; i < indices.length; i += 3) {
-              const i0 = indices[i];
-              const i1 = indices[i + 1];
-              const i2 = indices[i + 2];
-              const v0 = vertices[i0];
-              const v1 = vertices[i1];
-              const v2 = vertices[i2];
-              drawTri(
-                target,
-                sourceImg,
-                v0.x0,
-                v0.y0,
-                v1.x0,
-                v1.y0,
-                v2.x0,
-                v2.y0,
-                originX + xOffset + coords[i0 * 2] * scale,
-                originY + coords[i0 * 2 + 1] * scale,
-                originX + xOffset + coords[i1 * 2] * scale,
-                originY + coords[i1 * 2 + 1] * scale,
-                originX + xOffset + coords[i2 * 2] * scale,
-                originY + coords[i2 * 2 + 1] * scale,
-              );
-            }
-            if (alpha < 0.99) {
-              mctx.save();
-              mctx.globalAlpha = alpha;
-              mctx.drawImage(meshScratch, 0, 0);
-              mctx.restore();
-            }
-          };
-
-          const turnCross = smoothstep(0.25, 0.75, dir.turnBlend);
-          drawMesh(frontCanvas, 1 - turnCross, -dir.turnBlend * 28);
-          drawMesh(imgs.pose3qLeft, turnCross, (1 - dir.turnBlend) * 34);
+          drawBoardTool(mctx, dir);
         }
 
         requestAnimationFrame(renderFrame);
