@@ -133,7 +133,7 @@
     },
     {
       "id": "v2-l05-03-review-intro",
-      "text": "Ya recorrimos las vocales o, a y e; hoy avanzamos hacia nuestra cuarta vocal.",
+      "text": "Ya vimos las vocales o, a y e. Hoy toca la cuarta vocal.",
       "batch": "B011",
       "seq": 3,
       "file": "B011-003.mp3",
@@ -190,7 +190,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya recorrimos las vocales o a y e hoy avanzamos hacia nuestra cuarta vocal",
+      "normalizedText": "ya vimos las vocales o a y e hoy toca la cuarta vocal",
       "sourcePr": "PR#1073"
     },
     {
@@ -949,7 +949,7 @@
     },
     {
       "id": "v2-l05-16-flipchart-model",
-      "text": "Observa el dibujo del imán mientras pronuncias con claridad su sonido inicial.",
+      "text": "Mira el dibujo del imán y di en voz alta su sonido inicial.",
       "batch": "B011",
       "seq": 16,
       "file": "B011-016.mp3",
@@ -1006,7 +1006,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "observa el dibujo del imán mientras pronuncias con claridad su sonido inicial",
+      "normalizedText": "mira el dibujo del imán y di en voz alta su sonido inicial",
       "sourcePr": "PR#1073"
     },
     {
@@ -1827,7 +1827,7 @@
     },
     {
       "id": "v2-l05-30-page-instruction-1",
-      "text": "Marca con una equis todos los dibujos cuyo nombre comienza con la vocal i.",
+      "text": "Marca con una equis todos los dibujos que empiecen con la vocal i.",
       "batch": "B011",
       "seq": 30,
       "file": "B011-030.mp3",
@@ -1882,7 +1882,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "marca con una equis todos los dibujos cuyo nombre comienza con la vocal i",
+      "normalizedText": "marca con una equis todos los dibujos que empiecen con la vocal i",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2970,7 +2970,7 @@
     },
     {
       "id": "v2-l05-44-closing",
-      "text": "Concluimos las palabras con la vocal i. Ya falta muy poco para completar las cinco vocales.",
+      "text": "Terminamos las palabras con la vocal i. Ya casi tenemos las cinco vocales.",
       "batch": "B011",
       "seq": 44,
       "file": "B011-044.mp3",
@@ -3027,7 +3027,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "concluimos las palabras con la vocal i ya falta muy poco para completar las cinco vocales",
+      "normalizedText": "terminamos las palabras con la vocal i ya casi tenemos las cinco vocales",
       "sourcePr": "PR#1073"
     },
     {

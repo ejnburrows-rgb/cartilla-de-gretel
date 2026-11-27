@@ -2517,7 +2517,7 @@
     },
     {
       "id": "v2-l22-30-page-instruction-1",
-      "text": "Traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo cuyo nombre empiece con ce.",
+      "text": "Traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo de algo que empiece con ce.",
       "batch": "B028",
       "seq": 30,
       "file": "B028-030.mp3",
@@ -2588,7 +2588,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo cuyo nombre empiece con ce",
+      "normalizedText": "traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo de algo que empiece con ce",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

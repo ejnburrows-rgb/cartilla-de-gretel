@@ -1009,7 +1009,7 @@
     },
     {
       "id": "v2-l03-16-flipchart-model",
-      "text": "Observa los dibujos de ala, anillo y avión mientras pronuncias con claridad su primer sonido.",
+      "text": "Mira los dibujos de ala, anillo y avión y di en voz alta su primer sonido.",
       "batch": "B009",
       "seq": 16,
       "file": "B009-016.mp3",
@@ -1070,7 +1070,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "observa los dibujos de ala anillo y avión mientras pronuncias con claridad su primer sonido",
+      "normalizedText": "mira los dibujos de ala anillo y avión y di en voz alta su primer sonido",
       "sourcePr": "PR#1073"
     },
     {
@@ -1943,7 +1943,7 @@
     },
     {
       "id": "v2-l03-30-page-instruction-1",
-      "text": "Marca con una equis cada dibujo de la cuadrícula cuyo nombre comienza con la vocal a.",
+      "text": "Marca con una equis cada dibujo de la cuadrícula que empiece con la vocal a.",
       "batch": "B009",
       "seq": 30,
       "file": "B009-030.mp3",
@@ -2002,7 +2002,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "marca con una equis cada dibujo de la cuadrícula cuyo nombre comienza con la vocal a",
+      "normalizedText": "marca con una equis cada dibujo de la cuadrícula que empiece con la vocal a",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

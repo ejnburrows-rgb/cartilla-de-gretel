@@ -2574,7 +2574,7 @@
     },
     {
       "id": "v2-l12-30-page-instruction-1",
-      "text": "Traza la ele mayúscula y minúscula alta y recta, y dibuja algo cuyo nombre comience con ele.",
+      "text": "Traza la ele mayúscula y minúscula, alta y recta, y dibuja algo que empiece con ele.",
       "batch": "B018",
       "seq": 30,
       "file": "B018-030.mp3",
@@ -2647,7 +2647,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "traza la ele mayúscula y minúscula alta y recta y dibuja algo cuyo nombre comience con ele",
+      "normalizedText": "traza la ele mayúscula y minúscula alta y recta y dibuja algo que empiece con ele",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

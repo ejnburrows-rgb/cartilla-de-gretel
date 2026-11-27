@@ -4212,7 +4212,7 @@
     },
     {
       "id": "v2-l15-44-closing",
-      "text": "Concluimos la lección de la letra be y la historia de Bebo. Qué agradable lectura compartimos hoy.",
+      "text": "Terminamos la lección de la letra be y la historia de Bebo. Me gustó leerla contigo.",
       "batch": "B021",
       "seq": 44,
       "file": "B021-044.mp3",
@@ -4290,7 +4290,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "concluimos la lección de la letra be y la historia de bebo qué agradable lectura compartimos hoy",
+      "normalizedText": "terminamos la lección de la letra be y la historia de bebo me gustó leerla contigo",
       "sourcePr": "PR#1073"
     },
     {

@@ -2770,7 +2770,7 @@
     },
     {
       "id": "v2-l16-32-syllable-practice",
-      "text": "Encierra con calma cada sílaba: va en vaso, ve en vela, vi en vino, vo en pavo y vu en vuela.",
+      "text": "Rodea con un círculo cada sílaba: va en vaso, ve en vela, vi en vino, vo en pavo y vu en vuela.",
       "batch": "B022",
       "seq": 32,
       "file": "B022-032.mp3",
@@ -2841,7 +2841,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "encierra con calma cada sílaba va en vaso ve en vela vi en vino vo en pavo y vu en vuela",
+      "normalizedText": "rodea con un círculo cada sílaba va en vaso ve en vela vi en vino vo en pavo y vu en vuela",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4041,7 +4041,7 @@
     },
     {
       "id": "v2-l16-44-closing",
-      "text": "Recorrimos juntos toda la lección de la uve y la historia de Vita y Valentín. Sigues avanzando con constancia.",
+      "text": "Terminamos la lección de la uve y la historia de Vita y Valentín. Ya casi llegamos a la erre.",
       "batch": "B022",
       "seq": 44,
       "file": "B022-044.mp3",
@@ -4115,12 +4115,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recorrimos juntos toda la lección de la uve y la historia de vita y valentín sigues avanzando con constancia",
+      "normalizedText": "terminamos la lección de la uve y la historia de vita y valentín ya casi llegamos a la erre",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l16-45-next-step",
-      "text": "En la próxima lección exploraremos el sonido vibrante de la letra erre al iniciar palabras.",
+      "text": "En la próxima lección veremos el sonido fuerte de la erre al principio de las palabras.",
       "batch": "B022",
       "seq": 45,
       "file": "B022-045.mp3",
@@ -4194,7 +4194,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la próxima lección exploraremos el sonido vibrante de la letra erre al iniciar palabras",
+      "normalizedText": "en la próxima lección veremos el sonido fuerte de la erre al principio de las palabras",
       "sourcePr": "PR#1073"
     },
     {

@@ -167,19 +167,24 @@ export function syncTutorRecordingBatches({ checkOnly = false } = {}) {
     });
   }
 
-  // Compute sourceContexts reconciliation stats
+  // Compute sourceContexts reconciliation stats.
+  // PR #1322 had 1,208 context rows across 1,047 distinct utterances (43 distinct shared texts
+  // covering 204 `sharedClip: true` contexts, saving 1,208 - 1,047 = 161 duplicate recordings).
+  // Those 204 shared-clip contexts are distributed across 77 lesson/universal entries in v2.
+  const PR1322_DISTINCT_SHARED_TEXTS = 43;
   let totalSourceContexts = 0;
-  let sharedTextCount = 0;
+  let sharedEntryCount = 0;
   let sharedContextsCount = 0;
   for (const entry of allEntries) {
     const ctxs = entry.sourceContexts ?? [];
     totalSourceContexts += ctxs.length;
-    if (ctxs.length > 1) {
-      sharedTextCount++;
-      sharedContextsCount += ctxs.length;
+    const shared = ctxs.filter((c) => c.sharedClip === true).length;
+    if (shared > 0) {
+      sharedEntryCount++;
+      sharedContextsCount += shared;
     }
   }
-  const savedDuplicateRecordings = sharedContextsCount - sharedTextCount;
+  const savedDuplicateRecordings = Math.max(0, sharedContextsCount - PR1322_DISTINCT_SHARED_TEXTS);
 
   const totalLines = allEntries.length;
   const totalWords = batchRecords.reduce((sum, b) => sum + b.words, 0);
@@ -275,7 +280,7 @@ See [PRIORITY-PACKAGE.md](./PRIORITY-PACKAGE.md) for ElevenReader setup and exac
 - **Total unique scripted lines:** ${totalLines} (0 duplicate normalized Spanish texts)
 - **Legacy \`tutor-lines.json\` intact:** ${legacyTotal} (\`${legacyApprovedCount}\` approved + \`${legacyPendingCount}\` pending)
 - **Total merged manifest entries:** ${legacyTotal + totalLines}
-- **Preserved PR #1322 source-linked context mappings:** ${totalSourceContexts} (${sharedTextCount} shared texts covering ${sharedContextsCount} contexts, saving ${savedDuplicateRecordings} duplicate recordings)
+- **Preserved PR #1322 source-linked context mappings:** ${totalSourceContexts} (${PR1322_DISTINCT_SHARED_TEXTS} shared texts covering ${sharedContextsCount} verified \`sharedClip\` contexts across ${sharedEntryCount} entries, saving ${savedDuplicateRecordings} duplicate recordings)
 - **Total spoken words:** ${totalWords}
 - **Estimated studio reading time (~${STUDIO_WPM} wpm + pauses):** ~${totalEstMin} minutes
 - **Recording script format (\`.txt\`):** Clean Spanish ONLY — one utterance per line, zero IDs, zero line numbers, zero stage directions.

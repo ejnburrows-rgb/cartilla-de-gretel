@@ -2719,7 +2719,7 @@
     },
     {
       "id": "v2-l10-30-page-instruction-1",
-      "text": "Escribe la te mayúscula y minúscula con trazo firme y dibuja algo cuyo nombre comience con te.",
+      "text": "Escribe la te mayúscula y minúscula con trazo firme y dibuja algo que empiece con te.",
       "batch": "B016",
       "seq": 30,
       "file": "B016-030.mp3",
@@ -2797,7 +2797,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la te mayúscula y minúscula con trazo firme y dibuja algo cuyo nombre comience con te",
+      "normalizedText": "escribe la te mayúscula y minúscula con trazo firme y dibuja algo que empiece con te",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2981,7 +2981,7 @@
     },
     {
       "id": "v2-l10-32-syllable-practice",
-      "text": "Encierra con calma cada sílaba: ta en tapa, te en tomate, ti en Tito, to en topo y tu en tupe.",
+      "text": "Rodea con un círculo cada sílaba: ta en tapa, te en tomate, ti en Tito, to en topo y tu en tupe.",
       "batch": "B016",
       "seq": 32,
       "file": "B016-032.mp3",
@@ -3059,7 +3059,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "encierra con calma cada sílaba ta en tapa te en tomate ti en tito to en topo y tu en tupe",
+      "normalizedText": "rodea con un círculo cada sílaba ta en tapa te en tomate ti en tito to en topo y tu en tupe",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

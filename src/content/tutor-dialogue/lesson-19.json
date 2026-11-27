@@ -2487,7 +2487,7 @@
     },
     {
       "id": "v2-l19-30-page-instruction-1",
-      "text": "Escribe la ge mayúscula y minúscula con paciencia y dibuja algo cuyo nombre empiece con ge.",
+      "text": "Escribe la ge mayúscula y minúscula con paciencia y dibuja algo que empiece con ge.",
       "batch": "B025",
       "seq": 30,
       "file": "B025-030.mp3",
@@ -2557,7 +2557,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la ge mayúscula y minúscula con paciencia y dibuja algo cuyo nombre empiece con ge",
+      "normalizedText": "escribe la ge mayúscula y minúscula con paciencia y dibuja algo que empiece con ge",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3077,7 +3077,7 @@
     },
     {
       "id": "v2-l19-36-sentence-or-pair",
-      "text": "Lee con claridad esta oración del libro: El gato de Magali bebe agua en el lago.",
+      "text": "Lee esta oración del libro en voz alta: El gato de Magali bebe agua en el lago.",
       "batch": "B025",
       "seq": 36,
       "file": "B025-036.mp3",
@@ -3147,7 +3147,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee con claridad esta oración del libro el gato de magali bebe agua en el lago",
+      "normalizedText": "lee esta oración del libro en voz alta el gato de magali bebe agua en el lago",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

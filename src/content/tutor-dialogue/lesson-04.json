@@ -1798,7 +1798,7 @@
     },
     {
       "id": "v2-l04-30-page-instruction-1",
-      "text": "Marca con una equis únicamente los dibujos cuyos nombres comienzan con la vocal e.",
+      "text": "Marca con una equis solo los dibujos que empiezan con la vocal e.",
       "batch": "B010",
       "seq": 30,
       "file": "B010-030.mp3",
@@ -1852,7 +1852,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "marca con una equis únicamente los dibujos cuyos nombres comienzan con la vocal e",
+      "normalizedText": "marca con una equis solo los dibujos que empiezan con la vocal e",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2762,7 +2762,7 @@
     },
     {
       "id": "v2-l04-42-assessment",
-      "text": "Para cerrar hoy, dime qué dibujo de tu cuaderno comienza con e además de elefante.",
+      "text": "Para cerrar por hoy, ¿qué otro dibujo de tu cuaderno empieza con e, además del elefante?",
       "batch": "B010",
       "seq": 42,
       "file": "B010-042.mp3",
@@ -2818,7 +2818,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para cerrar hoy dime qué dibujo de tu cuaderno comienza con e además de elefante",
+      "normalizedText": "para cerrar por hoy qué otro dibujo de tu cuaderno empieza con e además del elefante",
       "sourcePr": "PR#1073"
     },
     {

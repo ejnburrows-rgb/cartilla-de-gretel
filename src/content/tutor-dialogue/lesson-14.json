@@ -414,7 +414,7 @@
     },
     {
       "id": "v2-l14-06-letter-name",
-      "text": "Esta letra hermana de la ene se llama eñe y lleva encima un trazo ondulado llamado tilde o virgulilla.",
+      "text": "Esta letra, hermana de la ene, se llama eñe y lleva encima un trazo ondulado que se llama tilde.",
       "batch": "B020",
       "seq": 6,
       "file": "B020-006.mp3",
@@ -490,7 +490,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta letra hermana de la ene se llama eñe y lleva encima un trazo ondulado llamado tilde o virgulilla",
+      "normalizedText": "esta letra hermana de la ene se llama eñe y lleva encima un trazo ondulado que se llama tilde",
       "sourcePr": "PR#1073"
     },
     {

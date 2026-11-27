@@ -3284,7 +3284,7 @@
     },
     {
       "id": "v2-l13-36-sentence-or-pair",
-      "text": "Lee con claridad esta oración del libro: Tono le pone la tina a Napi en el piso.",
+      "text": "Lee esta oración del libro en voz alta: Tono le pone la tina a Napi en el piso.",
       "batch": "B019",
       "seq": 36,
       "file": "B019-036.mp3",
@@ -3359,7 +3359,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee con claridad esta oración del libro tono le pone la tina a napi en el piso",
+      "normalizedText": "lee esta oración del libro en voz alta tono le pone la tina a napi en el piso",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

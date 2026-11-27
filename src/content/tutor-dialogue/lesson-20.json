@@ -1863,7 +1863,7 @@
     },
     {
       "id": "v2-l20-23-common-mistake-1",
-      "text": "No olvides la línea horizontal de la efe para distinguirla con claridad de la te.",
+      "text": "No olvides la línea horizontal de la efe; así no se confunde con la te.",
       "batch": "B026",
       "seq": 23,
       "file": "B026-023.mp3",
@@ -1940,7 +1940,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no olvides la línea horizontal de la efe para distinguirla con claridad de la te",
+      "normalizedText": "no olvides la línea horizontal de la efe así no se confunde con la te",
       "sourcePr": "PR#1073"
     },
     {
@@ -2857,7 +2857,7 @@
     },
     {
       "id": "v2-l20-32-syllable-practice",
-      "text": "Encierra con calma cada sílaba: fa en familia, fe en Felo, fi en fila, fo en foto y fu en funda.",
+      "text": "Rodea con un círculo cada sílaba: fa en familia, fe en Felo, fi en fila, fo en foto y fu en funda.",
       "batch": "B026",
       "seq": 32,
       "file": "B026-032.mp3",
@@ -2931,7 +2931,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "encierra con calma cada sílaba fa en familia fe en felo fi en fila fo en foto y fu en funda",
+      "normalizedText": "rodea con un círculo cada sílaba fa en familia fe en felo fi en fila fo en foto y fu en funda",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

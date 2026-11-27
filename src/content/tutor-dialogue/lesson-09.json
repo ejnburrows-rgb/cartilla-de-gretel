@@ -2777,7 +2777,7 @@
     },
     {
       "id": "v2-l09-30-page-instruction-1",
-      "text": "Escribe la ese mayúscula y minúscula con soltura y haz un dibujo cuyo nombre comience con ese.",
+      "text": "Escribe la ese mayúscula y minúscula con calma y haz un dibujo de algo que empiece con ese.",
       "batch": "B015",
       "seq": 30,
       "file": "B015-030.mp3",
@@ -2857,7 +2857,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la ese mayúscula y minúscula con soltura y haz un dibujo cuyo nombre comience con ese",
+      "normalizedText": "escribe la ese mayúscula y minúscula con calma y haz un dibujo de algo que empiece con ese",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

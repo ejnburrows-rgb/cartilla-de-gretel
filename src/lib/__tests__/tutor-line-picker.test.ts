@@ -277,4 +277,48 @@ describe("Milestone 9: 24-lesson pools, chaining & honest text-only fallback", (
     const ids = chain.steps.map((s) => s.lineId).filter(Boolean);
     expect(new Set(ids).size).toBe(ids.length);
   });
+
+  it("gates evidence-dependent lines unless the required runtime evidence is held", () => {
+    // v2-b031-ack-01 ("Te escucho con claridad...") requires "asr-reliable"
+    // v2-b031-ack-02 ("Entendido. Ya sé exactamente a qué parte te refieres.") requires "request-resolved"
+    const rng = seededRng(7);
+    const seenWithoutEvidence = new Set<string>();
+    let st = createLinePickerState();
+    for (let i = 0; i < 30; i++) {
+      const picked = pickLine(st, { role: "conv-ack", includeV2: true }, rng);
+      if (picked) {
+        seenWithoutEvidence.add(picked.lineId);
+        st = picked.state;
+      }
+    }
+    expect(seenWithoutEvidence.has("v2-b031-ack-01")).toBe(false);
+    expect(seenWithoutEvidence.has("v2-b031-ack-02")).toBe(false);
+
+    // With "asr-reliable", v2-b031-ack-01 becomes eligible while v2-b031-ack-02 remains gated
+    const seenWithAsr = new Set<string>();
+    st = createLinePickerState();
+    for (let i = 0; i < 30; i++) {
+      const picked = pickLine(
+        st,
+        { role: "conv-ack", includeV2: true, evidence: new Set(["asr-reliable"]) },
+        rng,
+      );
+      if (picked) {
+        seenWithAsr.add(picked.lineId);
+        st = picked.state;
+      }
+    }
+    expect(seenWithAsr.has("v2-b031-ack-01")).toBe(true);
+    expect(seenWithAsr.has("v2-b031-ack-02")).toBe(false);
+
+    // Camera observation lines stay gated without snapshot evidence
+    const noCam = pickLine(createLinePickerState(), { role: "camera-lighting", includeV2: true }, rng);
+    expect(noCam).toBeNull();
+    const withLowLight = pickLine(
+      createLinePickerState(),
+      { role: "camera-lighting", includeV2: true, evidence: new Set(["snapshot-low-light"]) },
+      rng,
+    );
+    expect(withLowLight?.lineId).toBe("v2-b005-cam-04");
+  });
 });

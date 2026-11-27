@@ -2364,7 +2364,7 @@
     },
     {
       "id": "v2-l23-30-page-instruction-1",
-      "text": "Practica el trazo de la ye mayúscula y minúscula y haz un dibujo cuyo nombre empiece con ye.",
+      "text": "Practica el trazo de la ye mayúscula y minúscula y haz un dibujo de algo que empiece con ye.",
       "batch": "B029",
       "seq": 30,
       "file": "B029-030.mp3",
@@ -2436,7 +2436,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "practica el trazo de la ye mayúscula y minúscula y haz un dibujo cuyo nombre empiece con ye",
+      "normalizedText": "practica el trazo de la ye mayúscula y minúscula y haz un dibujo de algo que empiece con ye",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2614,7 +2614,7 @@
     },
     {
       "id": "v2-l23-32-syllable-practice",
-      "text": "Encierra con calma cada sílaba: ya en yate, ye en yema, yi en Yayita, yo en yoyo y yu en yuca.",
+      "text": "Rodea con un círculo cada sílaba: ya en yate, ye en yema, yi en Yayita, yo en yoyo y yu en yuca.",
       "batch": "B029",
       "seq": 32,
       "file": "B029-032.mp3",
@@ -2686,7 +2686,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "encierra con calma cada sílaba ya en yate ye en yema yi en yayita yo en yoyo y yu en yuca",
+      "normalizedText": "rodea con un círculo cada sílaba ya en yate ye en yema yi en yayita yo en yoyo y yu en yuca",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3805,7 +3805,7 @@
     },
     {
       "id": "v2-l23-44-closing",
-      "text": "Concluimos el viaje del yate de Yayo. Ya nos espera la última lección de toda la cartilla.",
+      "text": "Terminamos el viaje del yate de Yayo. Ya solo nos queda la última lección de la cartilla.",
       "batch": "B029",
       "seq": 44,
       "file": "B029-044.mp3",
@@ -3879,7 +3879,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "concluimos el viaje del yate de yayo ya nos espera la última lección de toda la cartilla",
+      "normalizedText": "terminamos el viaje del yate de yayo ya solo nos queda la última lección de la cartilla",
       "sourcePr": "PR#1073"
     },
     {

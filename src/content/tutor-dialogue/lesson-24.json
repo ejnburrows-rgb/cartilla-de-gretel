@@ -2458,7 +2458,7 @@
     },
     {
       "id": "v2-l24-30-page-instruction-1",
-      "text": "Encierra en un círculo cada sílaba correspondiente en palabras como taza, zapato, zorro y zig-zag.",
+      "text": "Rodea con un círculo esa sílaba en palabras como taza, zapato, zorro y zig-zag.",
       "batch": "B030",
       "seq": 30,
       "file": "B030-030.mp3",
@@ -2528,7 +2528,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "encierra en un círculo cada sílaba correspondiente en palabras como taza zapato zorro y zig zag",
+      "normalizedText": "rodea con un círculo esa sílaba en palabras como taza zapato zorro y zig zag",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

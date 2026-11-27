@@ -1972,7 +1972,7 @@
     },
     {
       "id": "v2-l02-31-page-instruction-2",
-      "text": "Después traza una línea desde la vocal o hasta cada dibujo cuyo nombre comienza con ella.",
+      "text": "Después traza una línea desde la vocal o hasta cada dibujo que empiece con ella.",
       "batch": "B008",
       "seq": 31,
       "file": "B008-031.mp3",
@@ -2027,7 +2027,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después traza una línea desde la vocal o hasta cada dibujo cuyo nombre comienza con ella",
+      "normalizedText": "después traza una línea desde la vocal o hasta cada dibujo que empiece con ella",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2659,7 +2659,7 @@
     },
     {
       "id": "v2-l02-39-game-step",
-      "text": "Escucha la palabra que aparece y selecciona el dibujo correspondiente entre oso, ola y oveja.",
+      "text": "Escucha la palabra y elige su dibujo: oso, ola u oveja.",
       "batch": "B008",
       "seq": 39,
       "file": "B008-039.mp3",
@@ -2716,12 +2716,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha la palabra que aparece y selecciona el dibujo correspondiente entre oso ola y oveja",
+      "normalizedText": "escucha la palabra y elige su dibujo oso ola u oveja",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-40-game-correct",
-      "text": "Acertaste. Reconociste el sonido o al inicio y elegiste el dibujo correspondiente.",
+      "text": "Eso es. Elegiste el dibujo de una palabra que empieza con o.",
       "batch": "B008",
       "seq": 40,
       "file": "B008-040.mp3",
@@ -2758,6 +2758,9 @@
       "eligibility": {
         "lessons": [
           2
+        ],
+        "requiresEvidence": [
+          "answer-matched"
         ]
       },
       "hintLevel": 0,
@@ -2778,12 +2781,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "acertaste reconociste el sonido o al inicio y elegiste el dibujo correspondiente",
+      "normalizedText": "eso es elegiste el dibujo de una palabra que empieza con o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-41-game-retry",
-      "text": "Ese dibujo tiene otro nombre; escucha nuevamente la palabra y selecciona la imagen correcta.",
+      "text": "Ese dibujo tiene otro nombre. Escucha la palabra otra vez y elige de nuevo.",
       "batch": "B008",
       "seq": 41,
       "file": "B008-041.mp3",
@@ -2840,7 +2843,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese dibujo tiene otro nombre escucha nuevamente la palabra y selecciona la imagen correcta",
+      "normalizedText": "ese dibujo tiene otro nombre escucha la palabra otra vez y elige de nuevo",
       "sourcePr": "PR#1073"
     },
     {

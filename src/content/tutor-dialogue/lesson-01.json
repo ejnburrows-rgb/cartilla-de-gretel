@@ -2422,7 +2422,7 @@
     },
     {
       "id": "v2-l01-31-page-instruction-2",
-      "text": "Después revisa la vocal de cada recuadro y rodea el dibujo cuyo nombre comienza con ella.",
+      "text": "Después mira la vocal de cada recuadro y rodea el dibujo que empieza con ella.",
       "batch": "B007",
       "seq": 31,
       "file": "B007-031.mp3",
@@ -2492,7 +2492,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después revisa la vocal de cada recuadro y rodea el dibujo cuyo nombre comienza con ella",
+      "normalizedText": "después mira la vocal de cada recuadro y rodea el dibujo que empieza con ella",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3697,7 +3697,7 @@
     },
     {
       "id": "v2-l01-44-closing",
-      "text": "Recorrimos toda la primera lección de las cinco hermanitas vocales. Es un excelente comienzo en tu cartilla.",
+      "text": "Terminamos la primera lección, la de las cinco hermanitas vocales. Ha sido un buen comienzo.",
       "batch": "B007",
       "seq": 44,
       "file": "B007-044.mp3",
@@ -3769,7 +3769,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recorrimos toda la primera lección de las cinco hermanitas vocales es un excelente comienzo en tu cartilla",
+      "normalizedText": "terminamos la primera lección la de las cinco hermanitas vocales ha sido un buen comienzo",
       "sourcePr": "PR#1073"
     },
     {

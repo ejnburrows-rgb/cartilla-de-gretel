@@ -20,6 +20,7 @@ import {
   countQuestions,
   isRejectedAudioSource,
   type DialogueLineV2,
+  type TutorEvidenceKey,
 } from "../content/tutor-dialogue/schema";
 import { lessonGraphFor, type TutorItem } from "./tutor-content";
 import {
@@ -85,7 +86,10 @@ export type V2TutorLineRole =
   | "game-complete"
   | "adaptive-coaching"
   | "adaptive-pacing"
-  | "off-script-redirect";
+  | "off-script-redirect"
+  | "conv-ack"
+  | "conv-camera"
+  | "camera-lighting";
 
 export type TutorLineRole = LegacyTutorLineRole | V2TutorLineRole;
 
@@ -100,6 +104,19 @@ export interface TutorLineEntry {
   cooldownTurns?: number;
   priority?: number;
   status?: DialogueLineV2["status"];
+  /** Evidence the app must hold before this line may play (see TUTOR_EVIDENCE_KEYS). */
+  requiresEvidence?: readonly TutorEvidenceKey[];
+}
+
+/** A line with no evidence requirement is always eligible; otherwise every key must be held. */
+export function isLineEligibleForEvidence(
+  entry: Pick<TutorLineEntry, "requiresEvidence">,
+  evidence?: ReadonlySet<TutorEvidenceKey>,
+): boolean {
+  const needed = entry.requiresEvidence;
+  if (!needed || needed.length === 0) return true;
+  if (!evidence) return false;
+  return needed.every((key) => evidence.has(key));
 }
 
 export type LineDeliveryMode = "approved-audio" | "text-only-fallback";
@@ -152,6 +169,9 @@ const V2_AS_TUTOR_LINES: readonly TutorLineEntry[] = V2_DIALOGUE_ENTRIES.map((en
   cooldownTurns: entry.cooldownTurns,
   priority: entry.priority,
   status: entry.status,
+  ...(entry.eligibility.requiresEvidence?.length
+    ? { requiresEvidence: entry.eligibility.requiresEvidence }
+    : {}),
 }));
 
 /** Full merged bank across legacy L1–3 and v2 Lessons 1–24. */
@@ -291,6 +311,8 @@ export interface PickLineOptions {
   includeV2?: boolean;
   /** Exclude specific lineIds (e.g., to prevent duplicates within a chain). */
   excludeLineIds?: readonly string[];
+  /** Evidence the app currently holds; lines that require more are not eligible. */
+  evidence?: ReadonlySet<TutorEvidenceKey>;
 }
 
 /**
@@ -310,6 +332,7 @@ export function pickLine(
     const excluded = new Set(opts.excludeLineIds);
     pool = pool.filter((entry) => !excluded.has(entry.lineId));
   }
+  pool = pool.filter((entry) => isLineEligibleForEvidence(entry, opts.evidence));
   if (pool.length === 0) return null;
 
   const recent = state.recent[opts.role] ?? [];

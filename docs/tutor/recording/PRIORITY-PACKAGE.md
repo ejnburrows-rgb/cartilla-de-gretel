@@ -1,7 +1,7 @@
 # Gretel Tutor — Reconciled Priority Recording Package
 
 > **Purpose:** Start small and verify end-to-end before recording all 31 batches (`1,418` lines).
-> Record **just these 3 priority scripts (`133` lines, ~`15.8` minutes)** first: universal core dialogue + ONE complete representative lesson (Lesson 1: *Las hermanitas vocales*) + interactive live-conversation turns (acknowledgments, curiosity, follow-ups, interruptions, screen layout transitions, Flip Chart, Workbook, and honest camera snapshots). Once you hear Gretel speak Lesson 1 and handle live conversation end-to-end and approve the voice, pacing, and intake alignment, proceed to the remaining 28 batches (`B002`–`B006` and `B008`–`B030`).
+> Record **just these 3 priority scripts (`133` lines, ~`15.7` minutes)** first: universal core dialogue + ONE complete representative lesson (Lesson 1: *Las hermanitas vocales*) + interactive live-conversation turns (acknowledgments, curiosity, follow-ups, interruptions, screen layout transitions, Flip Chart, Workbook, and honest camera snapshots). Once you hear Gretel speak Lesson 1 and handle live conversation end-to-end and approve the voice, pacing, and intake alignment, proceed to the remaining 28 batches (`B002`–`B006` and `B008`–`B030`).
 
 ---
 
@@ -9,10 +9,10 @@
 
 | Priority Script | Canonical Batch | Manifest File | Lines | Words | Est. Time (~110 wpm) | Manifest IDs in `RECORDING-INDEX.csv` |
 |---|---|---|---:|---:|---:|---|
-| [`PRIORITY-B001-universal.txt`](./PRIORITY-B001-universal.txt) | `B001` (`B001-universal.txt`) | `src/content/tutor-dialogue/universal.json` | 36 | 426 | ~3.9 min | `v2-b001-greet-first-01` … `v2-b001-closing-06` (`B001-001.mp3`–`B001-036.mp3`) |
-| [`PRIORITY-B002-lesson-01.txt`](./PRIORITY-B002-lesson-01.txt) | `B007` (`B007-lesson-01.txt`) | `src/content/tutor-dialogue/lesson-01.json` | 47 | 680 | ~6.2 min | `v2-l01-01-greeting-first` … `v2-l01-47-atlas-workbook` (`B007-001.mp3`–`B007-047.mp3`) |
-| [`PRIORITY-B003-interactive-conversation.txt`](./PRIORITY-B003-interactive-conversation.txt) | `B031` (`B031-interactive-conversation.txt`) | `src/content/tutor-dialogue/universal.json` | 50 | 634 | ~5.8 min | `v2-b031-ack-01` … `v2-b031-coaching-03` (`B031-001.mp3`–`B031-050.mp3`) |
-| **Total Priority Package** | **3 batches** | **Universal + Lesson 1 + Interactive Conversation** | **133** | **1,740** | **~15.8 min** | Exact 1-to-1 match with [`RECORDING-INDEX.csv`](./RECORDING-INDEX.csv) |
+| [`PRIORITY-B001-universal.txt`](./PRIORITY-B001-universal.txt) | `B001` (`B001-universal.txt`) | `src/content/tutor-dialogue/universal.json` | 36 | 423 | ~3.8 min | `v2-b001-greet-first-01` … `v2-b001-closing-06` (`B001-001.mp3`–`B001-036.mp3`) |
+| [`PRIORITY-B002-lesson-01.txt`](./PRIORITY-B002-lesson-01.txt) | `B007` (`B007-lesson-01.txt`) | `src/content/tutor-dialogue/lesson-01.json` | 47 | 677 | ~6.2 min | `v2-l01-01-greeting-first` … `v2-l01-47-atlas-workbook` (`B007-001.mp3`–`B007-047.mp3`) |
+| [`PRIORITY-B003-interactive-conversation.txt`](./PRIORITY-B003-interactive-conversation.txt) | `B031` (`B031-interactive-conversation.txt`) | `src/content/tutor-dialogue/universal.json` | 50 | 629 | ~5.7 min | `v2-b031-ack-01` … `v2-b031-coaching-03` (`B031-001.mp3`–`B031-050.mp3`) |
+| **Total Priority Package** | **3 batches** | **Universal + Lesson 1 + Interactive Conversation** | **133** | **1,729** | **~15.7 min** | Exact 1-to-1 match with [`RECORDING-INDEX.csv`](./RECORDING-INDEX.csv) |
 
 ### Why These Three Batches First?
 1. **`PRIORITY-B001-universal.txt` (36 lines):** Covers every core conversational beat Gretel uses across all 24 lessons — warm, cultured greetings, grounded praise, gentle retry, close-miss coaching, silence nudges, and closings.

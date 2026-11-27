@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l18-01-greeting-first",
-      "text": "Te doy la bienvenida a esta lección dedicada al sonido vibrante de la doble erre.",
+      "text": "Te doy la bienvenida. Hoy vamos a practicar el sonido fuerte de la doble erre.",
       "batch": "B024",
       "seq": 1,
       "file": "B024-001.mp3",
@@ -82,12 +82,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "te doy la bienvenida a esta lección dedicada al sonido vibrante de la doble erre",
+      "normalizedText": "te doy la bienvenida hoy vamos a practicar el sonido fuerte de la doble erre",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l18-02-greeting-return",
-      "text": "Qué alegría saludarte otra vez para seguir practicando la vibrante doble erre.",
+      "text": "Qué alegría verte otra vez. Seguimos con la doble erre.",
       "batch": "B024",
       "seq": 2,
       "file": "B024-002.mp3",
@@ -162,7 +162,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué alegría saludarte otra vez para seguir practicando la vibrante doble erre",
+      "normalizedText": "qué alegría verte otra vez seguimos con la doble erre",
       "sourcePr": "PR#1073"
     },
     {
@@ -562,7 +562,7 @@
     },
     {
       "id": "v2-l18-08-lesson-focus",
-      "text": "Dos erres juntas entre vocales suenan fuertes y vibrantes en burro, perro, torre y carro.",
+      "text": "Dos erres juntas entre vocales suenan fuerte, como en burro, perro, torre y carro.",
       "batch": "B024",
       "seq": 8,
       "file": "B024-008.mp3",
@@ -636,7 +636,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "dos erres juntas entre vocales suenan fuertes y vibrantes en burro perro torre y carro",
+      "normalizedText": "dos erres juntas entre vocales suenan fuerte como en burro perro torre y carro",
       "sourcePr": "PR#1073"
     },
     {
@@ -3141,7 +3141,7 @@
     },
     {
       "id": "v2-l18-36-sentence-or-pair",
-      "text": "Lee con claridad esta oración del libro: El perro de Rode tiene una tina de barro.",
+      "text": "Lee esta oración del libro en voz alta: El perro de Rode tiene una tina de barro.",
       "batch": "B024",
       "seq": 36,
       "file": "B024-036.mp3",
@@ -3212,7 +3212,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee con claridad esta oración del libro el perro de rode tiene una tina de barro",
+      "normalizedText": "lee esta oración del libro en voz alta el perro de rode tiene una tina de barro",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4038,7 +4038,7 @@
     },
     {
       "id": "v2-l18-44-closing",
-      "text": "Concluimos la lección de la doble erre y sus palabras vibrantes. Sigues avanzando con constancia en la cartilla.",
+      "text": "Terminamos la lección de la doble erre y sus palabras fuertes.",
       "batch": "B024",
       "seq": 44,
       "file": "B024-044.mp3",
@@ -4112,7 +4112,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "concluimos la lección de la doble erre y sus palabras vibrantes sigues avanzando con constancia en la cartilla",
+      "normalizedText": "terminamos la lección de la doble erre y sus palabras fuertes",
       "sourcePr": "PR#1073"
     },
     {

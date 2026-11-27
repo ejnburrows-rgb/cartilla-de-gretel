@@ -562,7 +562,7 @@
     },
     {
       "id": "v2-l08-08-lesson-focus",
-      "text": "Junta los labios con firmeza y suelta un impulso suave de aire, como al empezar papá.",
+      "text": "Junta los labios y deja salir un soplo suave de aire, como al empezar papá.",
       "batch": "B014",
       "seq": 8,
       "file": "B014-008.mp3",
@@ -636,7 +636,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "junta los labios con firmeza y suelta un impulso suave de aire como al empezar papá",
+      "normalizedText": "junta los labios y deja salir un soplo suave de aire como al empezar papá",
       "sourcePr": "PR#1073"
     },
     {
@@ -2520,7 +2520,7 @@
     },
     {
       "id": "v2-l08-30-page-instruction-1",
-      "text": "Escribe la pe mayúscula y minúscula con cuidado y dibuja algo cuyo nombre comience con pe.",
+      "text": "Escribe la pe mayúscula y minúscula con cuidado y dibuja algo que empiece con pe.",
       "batch": "B014",
       "seq": 30,
       "file": "B014-030.mp3",
@@ -2591,7 +2591,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la pe mayúscula y minúscula con cuidado y dibuja algo cuyo nombre comience con pe",
+      "normalizedText": "escribe la pe mayúscula y minúscula con cuidado y dibuja algo que empiece con pe",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2692,7 +2692,7 @@
     },
     {
       "id": "v2-l08-31-page-instruction-2",
-      "text": "Después encierra la sílaba correspondiente en palabras como papá, Pepe, pipo, pomo y puma.",
+      "text": "Después rodea esa sílaba en palabras como papá, Pepe, pipo, pomo y puma.",
       "batch": "B014",
       "seq": 31,
       "file": "B014-031.mp3",
@@ -2763,7 +2763,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después encierra la sílaba correspondiente en palabras como papá pepe pipo pomo y puma",
+      "normalizedText": "después rodea esa sílaba en palabras como papá pepe pipo pomo y puma",
       "sourcePr": "PR#1073"
     },
     {

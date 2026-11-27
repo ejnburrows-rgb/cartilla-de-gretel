@@ -2549,7 +2549,7 @@
     },
     {
       "id": "v2-l07-30-page-instruction-1",
-      "text": "Escribe la letra eme mayúscula y minúscula con cuidado y haz un dibujo cuyo nombre empiece con eme.",
+      "text": "Escribe la eme mayúscula y minúscula con cuidado y haz un dibujo de algo que empiece con eme.",
       "batch": "B013",
       "seq": 30,
       "file": "B013-030.mp3",
@@ -2621,7 +2621,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la letra eme mayúscula y minúscula con cuidado y haz un dibujo cuyo nombre empiece con eme",
+      "normalizedText": "escribe la eme mayúscula y minúscula con cuidado y haz un dibujo de algo que empiece con eme",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2722,7 +2722,7 @@
     },
     {
       "id": "v2-l07-31-page-instruction-2",
-      "text": "Después encierra en un círculo la sílaba correspondiente dentro de cada palabra de la lista.",
+      "text": "Después rodea con un círculo esa sílaba en cada palabra de la lista.",
       "batch": "B013",
       "seq": 31,
       "file": "B013-031.mp3",
@@ -2794,7 +2794,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después encierra en un círculo la sílaba correspondiente dentro de cada palabra de la lista",
+      "normalizedText": "después rodea con un círculo esa sílaba en cada palabra de la lista",
       "sourcePr": "PR#1073"
     },
     {

@@ -4121,7 +4121,7 @@
     },
     {
       "id": "v2-l21-44-closing",
-      "text": "Recorrimos toda la aventura de la jicotea Jabela. ¡Ya falta muy poco para terminar!",
+      "text": "Terminamos la aventura de la jicotea Jabela. Ya falta muy poco para llegar al final.",
       "batch": "B027",
       "seq": 44,
       "file": "B027-044.mp3",
@@ -4197,7 +4197,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recorrimos toda la aventura de la jicotea jabela ya falta muy poco para terminar",
+      "normalizedText": "terminamos la aventura de la jicotea jabela ya falta muy poco para llegar al final",
       "sourcePr": "PR#1073"
     },
     {

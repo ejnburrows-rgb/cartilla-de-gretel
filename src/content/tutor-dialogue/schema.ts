@@ -113,7 +113,26 @@ export const DialogueCurriculumRefsSchema = z.object({
 });
 export type DialogueCurriculumRefs = z.infer<typeof DialogueCurriculumRefsSchema>;
 
+/**
+ * Evidence the application must actually hold before a line may be spoken.
+ * Lines that state what Gretel heard, understood or saw are gated on these keys;
+ * with no evidence supplied they are never eligible.
+ */
+export const TUTOR_EVIDENCE_KEYS = [
+  "asr-reliable", // recognizer returned a transcript above the reliability threshold
+  "request-resolved", // the app resolved what the learner is referring to
+  "answer-matched", // the answer was compared with the expected item and matched
+  "page-completed", // the app recorded the page/activity as completed
+  "snapshot-captured", // a local snapshot exists
+  "snapshot-low-light", // measured: snapshot is too dark
+  "snapshot-shadow", // measured: a shadow covers part of the page
+  "snapshot-blur", // measured: snapshot is out of focus or shaky
+  "snapshot-quality-ok", // measured: brightness, sharpness and framing pass
+] as const;
+export type TutorEvidenceKey = (typeof TUTOR_EVIDENCE_KEYS)[number];
+
 export const DialogueEligibilitySchema = z.object({
+  requiresEvidence: z.array(z.enum(TUTOR_EVIDENCE_KEYS)).optional(),
   lessons: z.array(z.number().int().min(0).max(24)).optional(),
   phases: z.array(z.string().min(1)).optional(),
   attemptMin: z.number().int().min(0).optional(),

@@ -318,7 +318,7 @@
     },
     {
       "id": "v2-b001-praise-03",
-      "text": "¡Exacto! Ese era precisamente el sonido que correspondía aquí.",
+      "text": "¡Exacto! Ese era el sonido que iba aquí.",
       "batch": "B001",
       "seq": 9,
       "file": "B001-009.mp3",
@@ -349,12 +349,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "exacto ese era precisamente el sonido que correspondía aquí",
+      "normalizedText": "exacto ese era el sonido que iba aquí",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-04",
-      "text": "Muy bien. Esa respuesta coincide perfectamente con este dibujo.",
+      "text": "Muy bien. Esa respuesta coincide con este dibujo.",
       "batch": "B001",
       "seq": 10,
       "file": "B001-010.mp3",
@@ -366,7 +366,11 @@
         "sourceStatus": "verified"
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "answer-matched"
+        ]
+      },
       "hintLevel": 0,
       "expression": "warm",
       "gesture": "cheer",
@@ -385,7 +389,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien esa respuesta coincide perfectamente con este dibujo",
+      "normalizedText": "muy bien esa respuesta coincide con este dibujo",
       "sourcePr": "PR#1073"
     },
     {
@@ -426,7 +430,7 @@
     },
     {
       "id": "v2-b001-praise-06",
-      "text": "Acertaste de inmediato. Reconociste la respuesta con mucha seguridad.",
+      "text": "Acertaste a la primera. Sigamos con la siguiente.",
       "batch": "B001",
       "seq": 12,
       "file": "B001-012.mp3",
@@ -438,7 +442,11 @@
         "sourceStatus": "verified"
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "answer-matched"
+        ]
+      },
       "hintLevel": 0,
       "expression": "excited",
       "gesture": "cheer",
@@ -457,7 +465,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "acertaste de inmediato reconociste la respuesta con mucha seguridad",
+      "normalizedText": "acertaste a la primera sigamos con la siguiente",
       "sourcePr": "PR#1073"
     },
     {
@@ -1694,7 +1702,7 @@
     },
     {
       "id": "v2-b002-streak-03",
-      "text": "Sigues acertando sin detenerte. ¡Cada respuesta coincide a la primera!",
+      "text": "Sigues acertando, una respuesta tras otra.",
       "batch": "B002",
       "seq": 9,
       "file": "B002-009.mp3",
@@ -1727,7 +1735,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sigues acertando sin detenerte cada respuesta coincide a la primera",
+      "normalizedText": "sigues acertando una respuesta tras otra",
       "sourcePr": "PR#1073"
     },
     {
@@ -2410,7 +2418,7 @@
     },
     {
       "id": "v2-b002-repeat-ack-03",
-      "text": "Te la repito lentamente para que puedas distinguir cada sonido con claridad.",
+      "text": "Te la repito despacio para que distingas bien cada sonido.",
       "batch": "B002",
       "seq": 27,
       "file": "B002-027.mp3",
@@ -2441,7 +2449,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "te la repito lentamente para que puedas distinguir cada sonido con claridad",
+      "normalizedText": "te la repito despacio para que distingas bien cada sonido",
       "sourcePr": "PR#1073"
     },
     {
@@ -3314,7 +3322,7 @@
     },
     {
       "id": "v2-b003-confusion-a",
-      "text": "Ese sonido que pronunciaste es la vocal a, abriendo bien la boca.",
+      "text": "Eso sonó como la vocal a. Se dice abriendo bien la boca.",
       "batch": "B003",
       "seq": 9,
       "file": "B003-009.mp3",
@@ -3327,7 +3335,11 @@
         ]
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "asr-reliable"
+        ]
+      },
       "hintLevel": 2,
       "expression": "gentle",
       "gesture": "teach",
@@ -3346,12 +3358,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que pronunciaste es la vocal a abriendo bien la boca",
+      "normalizedText": "eso sonó como la vocal a se dice abriendo bien la boca",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-e",
-      "text": "Ese sonido que pronunciaste es la vocal e, con una sonrisa suave.",
+      "text": "Eso sonó como la vocal e. Se dice con una sonrisa suave.",
       "batch": "B003",
       "seq": 10,
       "file": "B003-010.mp3",
@@ -3364,7 +3376,11 @@
         ]
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "asr-reliable"
+        ]
+      },
       "hintLevel": 2,
       "expression": "gentle",
       "gesture": "teach",
@@ -3383,12 +3399,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que pronunciaste es la vocal e con una sonrisa suave",
+      "normalizedText": "eso sonó como la vocal e se dice con una sonrisa suave",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-i",
-      "text": "Ese sonido que pronunciaste es la vocal i, aguda y clara.",
+      "text": "Eso sonó como la vocal i. Es un sonido agudo y delgado.",
       "batch": "B003",
       "seq": 11,
       "file": "B003-011.mp3",
@@ -3401,7 +3417,11 @@
         ]
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "asr-reliable"
+        ]
+      },
       "hintLevel": 2,
       "expression": "gentle",
       "gesture": "teach",
@@ -3420,12 +3440,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que pronunciaste es la vocal i aguda y clara",
+      "normalizedText": "eso sonó como la vocal i es un sonido agudo y delgado",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-o",
-      "text": "Ese sonido que pronunciaste es la vocal o, formando un círculo con los labios.",
+      "text": "Eso sonó como la vocal o. Se dice formando un círculo con los labios.",
       "batch": "B003",
       "seq": 12,
       "file": "B003-012.mp3",
@@ -3438,7 +3458,11 @@
         ]
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "asr-reliable"
+        ]
+      },
       "hintLevel": 2,
       "expression": "gentle",
       "gesture": "teach",
@@ -3457,12 +3481,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que pronunciaste es la vocal o formando un círculo con los labios",
+      "normalizedText": "eso sonó como la vocal o se dice formando un círculo con los labios",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-u",
-      "text": "Ese sonido que pronunciaste es la vocal u, cerrando los labios hacia adelante.",
+      "text": "Eso sonó como la vocal u. Se dice llevando los labios hacia adelante.",
       "batch": "B003",
       "seq": 13,
       "file": "B003-013.mp3",
@@ -3475,7 +3499,11 @@
         ]
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "asr-reliable"
+        ]
+      },
       "hintLevel": 2,
       "expression": "gentle",
       "gesture": "teach",
@@ -3494,7 +3522,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que pronunciaste es la vocal u cerrando los labios hacia adelante",
+      "normalizedText": "eso sonó como la vocal u se dice llevando los labios hacia adelante",
       "sourcePr": "PR#1073"
     },
     {
@@ -3579,7 +3607,7 @@
     },
     {
       "id": "v2-b003-review-03",
-      "text": "Volvamos a observar estas palabras con calma; verás que ahora resultan más fáciles.",
+      "text": "Volvamos a mirar estas palabras con calma. Ahora te van a resultar más fáciles.",
       "batch": "B003",
       "seq": 16,
       "file": "B003-016.mp3",
@@ -3610,7 +3638,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "volvamos a observar estas palabras con calma verás que ahora resultan más fáciles",
+      "normalizedText": "volvamos a mirar estas palabras con calma ahora te van a resultar más fáciles",
       "sourcePr": "PR#1073"
     },
     {
@@ -6456,7 +6484,7 @@
     },
     {
       "id": "v2-b005-cam-03",
-      "text": "Sostén la hoja quieta un momento mientras terminamos de revisarla.",
+      "text": "Sostén la hoja quieta un momento, mientras se enfoca la imagen.",
       "batch": "B005",
       "seq": 8,
       "file": "B005-008.mp3",
@@ -6489,7 +6517,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sostén la hoja quieta un momento mientras terminamos de revisarla",
+      "normalizedText": "sostén la hoja quieta un momento mientras se enfoca la imagen",
       "sourcePr": "PR#1073"
     },
     {
@@ -6507,7 +6535,10 @@
       },
       "scope": "technical",
       "eligibility": {
-        "requiresCamera": true
+        "requiresCamera": true,
+        "requiresEvidence": [
+          "snapshot-low-light"
+        ]
       },
       "hintLevel": 0,
       "expression": "warm",
@@ -6545,7 +6576,10 @@
       },
       "scope": "technical",
       "eligibility": {
-        "requiresCamera": true
+        "requiresCamera": true,
+        "requiresEvidence": [
+          "snapshot-shadow"
+        ]
       },
       "hintLevel": 0,
       "expression": "gentle",
@@ -6583,7 +6617,10 @@
       },
       "scope": "technical",
       "eligibility": {
-        "requiresCamera": true
+        "requiresCamera": true,
+        "requiresEvidence": [
+          "snapshot-blur"
+        ]
       },
       "hintLevel": 0,
       "expression": "patient",
@@ -6608,7 +6645,7 @@
     },
     {
       "id": "v2-b005-cam-07",
-      "text": "¡Perfecto! La vista previa de tu página ya se ve enfocada. Sigamos con el ejercicio.",
+      "text": "Muy bien. La vista previa de tu página se ve enfocada. Sigamos con el ejercicio.",
       "batch": "B005",
       "seq": 12,
       "file": "B005-012.mp3",
@@ -6621,7 +6658,10 @@
       },
       "scope": "technical",
       "eligibility": {
-        "requiresCamera": true
+        "requiresCamera": true,
+        "requiresEvidence": [
+          "snapshot-quality-ok"
+        ]
       },
       "hintLevel": 0,
       "expression": "warm",
@@ -6641,7 +6681,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "perfecto la vista previa de tu página ya se ve enfocada sigamos con el ejercicio",
+      "normalizedText": "muy bien la vista previa de tu página se ve enfocada sigamos con el ejercicio",
       "sourcePr": "PR#1073"
     },
     {
@@ -6986,7 +7026,7 @@
     },
     {
       "id": "v2-b005-mic-05",
-      "text": "Estoy probando el sonido contigo. ¿Me escuchas con claridad y sin interrupciones?",
+      "text": "Vamos a probar el sonido. ¿Me oyes bien?",
       "batch": "B005",
       "seq": 22,
       "file": "B005-022.mp3",
@@ -7017,7 +7057,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "estoy probando el sonido contigo me escuchas con claridad y sin interrupciones",
+      "normalizedText": "vamos a probar el sonido me oyes bien",
       "sourcePr": "PR#1073"
     },
     {
@@ -8010,7 +8050,7 @@
     },
     {
       "id": "v2-b006-wb-writing-draw",
-      "text": "Ahora dibuja algo cuyo nombre comience con esta letra.",
+      "text": "Ahora dibuja algo que empiece con esta letra.",
       "batch": "B006",
       "seq": 5,
       "file": "B006-005.mp3",
@@ -8041,7 +8081,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora dibuja algo cuyo nombre comience con esta letra",
+      "normalizedText": "ahora dibuja algo que empiece con esta letra",
       "sourcePr": "PR#1073"
     },
     {
@@ -8226,7 +8266,7 @@
     },
     {
       "id": "v2-b006-wb-page-done",
-      "text": "Completaste toda esta página con cuidado. Pasemos a la hoja que sigue.",
+      "text": "Completaste toda esta página. Pasemos a la hoja que sigue.",
       "batch": "B006",
       "seq": 11,
       "file": "B006-011.mp3",
@@ -8238,7 +8278,11 @@
         "sourceStatus": "verified"
       },
       "scope": "game",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "page-completed"
+        ]
+      },
       "hintLevel": 0,
       "expression": "proud",
       "gesture": "cheer",
@@ -8257,7 +8301,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste toda esta página con cuidado pasemos a la hoja que sigue",
+      "normalizedText": "completaste toda esta página pasemos a la hoja que sigue",
       "sourcePr": "PR#1073"
     },
     {
@@ -8694,7 +8738,7 @@
     },
     {
       "id": "v2-b006-game-fluency-01",
-      "text": "Lee cada palabra con claridad antes de pasar a la tarjeta siguiente.",
+      "text": "Lee cada palabra antes de pasar a la tarjeta siguiente.",
       "batch": "B006",
       "seq": 24,
       "file": "B006-024.mp3",
@@ -8725,7 +8769,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee cada palabra con claridad antes de pasar a la tarjeta siguiente",
+      "normalizedText": "lee cada palabra antes de pasar a la tarjeta siguiente",
       "sourcePr": "PR#1073"
     },
     {
@@ -9311,7 +9355,11 @@
         "sourceStatus": "verified"
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "asr-reliable"
+        ]
+      },
       "hintLevel": 0,
       "expression": "warm",
       "gesture": "listen",
@@ -9334,7 +9382,7 @@
     },
     {
       "id": "v2-b031-ack-02",
-      "text": "Entendido, ya sé exactamente a qué parte te refieres.",
+      "text": "Entendido. Ya sé exactamente a qué parte te refieres.",
       "normalizedText": "entendido ya sé exactamente a qué parte te refieres",
       "batch": "B031",
       "seq": 2,
@@ -9347,7 +9395,11 @@
         "sourceStatus": "verified"
       },
       "scope": "universal",
-      "eligibility": {},
+      "eligibility": {
+        "requiresEvidence": [
+          "request-resolved"
+        ]
+      },
       "hintLevel": 0,
       "expression": "warm",
       "gesture": "idle",
@@ -10342,8 +10394,8 @@
     },
     {
       "id": "v2-b031-transition-02",
-      "text": "Qué agradable conversación tuvimos. Ahora sigamos con la siguiente palabra.",
-      "normalizedText": "qué agradable conversación tuvimos ahora sigamos con la siguiente palabra",
+      "text": "Qué buena conversación. Ahora sigamos con la palabra que viene.",
+      "normalizedText": "qué buena conversación ahora sigamos con la palabra que viene",
       "batch": "B031",
       "seq": 30,
       "file": "B031-030.mp3",
@@ -10738,8 +10790,8 @@
     },
     {
       "id": "v2-b031-workbook-01",
-      "text": "Abramos el cuaderno en la actividad correspondiente y revisemos juntos el primer ejemplo.",
-      "normalizedText": "abramos el cuaderno en la actividad correspondiente y revisemos juntos el primer ejemplo",
+      "text": "Abramos el cuaderno en esta actividad y miremos juntos el primer ejemplo.",
+      "normalizedText": "abramos el cuaderno en esta actividad y miremos juntos el primer ejemplo",
       "batch": "B031",
       "seq": 41,
       "file": "B031-041.mp3",
@@ -10884,8 +10936,8 @@
     },
     {
       "id": "v2-b031-camera-02",
-      "text": "¡Recibí la foto de tu cuaderno! Déjame revisar la captura antes de seguir.",
-      "normalizedText": "recibí la foto de tu cuaderno déjame revisar la captura antes de seguir",
+      "text": "Recibí la foto. Veamos si se distingue bien antes de seguir.",
+      "normalizedText": "recibí la foto veamos si se distingue bien antes de seguir",
       "batch": "B031",
       "seq": 45,
       "file": "B031-045.mp3",
@@ -10898,7 +10950,10 @@
       },
       "scope": "technical",
       "eligibility": {
-        "requiresCamera": true
+        "requiresCamera": true,
+        "requiresEvidence": [
+          "snapshot-captured"
+        ]
       },
       "hintLevel": 0,
       "expression": "encouraging",
@@ -10936,7 +10991,10 @@
       },
       "scope": "technical",
       "eligibility": {
-        "requiresCamera": true
+        "requiresCamera": true,
+        "requiresEvidence": [
+          "snapshot-blur"
+        ]
       },
       "hintLevel": 0,
       "expression": "patient",
@@ -11068,8 +11126,8 @@
     },
     {
       "id": "v2-b031-coaching-03",
-      "text": "Ya completaste varias palabras seguidas sin dificultad. ¿Probamos ahora una actividad un poco más exigente?",
-      "normalizedText": "ya completaste varias palabras seguidas sin dificultad probamos ahora una actividad un poco más exigente",
+      "text": "Ya completaste varias palabras seguidas. ¿Quieres probar un ejercicio un poco más difícil?",
+      "normalizedText": "ya completaste varias palabras seguidas quieres probar un ejercicio un poco más difícil",
       "batch": "B031",
       "seq": 50,
       "file": "B031-050.mp3",
