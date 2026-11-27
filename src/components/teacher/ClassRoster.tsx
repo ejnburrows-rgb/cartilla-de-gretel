@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef, useDeferredValue } from "react";
 import { GraduationCap, AlertCircle, PlusCircle, CheckCircle, Search, User } from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
@@ -38,6 +38,7 @@ export function ClassRoster() {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ text: string; type: "success" | "error" } | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const deferredSearchQuery = useDeferredValue(searchQuery);
   const [showArchived, setShowArchived] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingName, setEditingName] = useState("");
@@ -131,10 +132,10 @@ export function ClassRoster() {
     [allStudents],
   );
   const studentsList = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
+    const q = deferredSearchQuery.trim().toLowerCase();
     if (!q) return allStudents;
     return searchableStudents.filter(({ name }) => name.includes(q)).map(({ student }) => student);
-  }, [allStudents, searchableStudents, searchQuery]);
+  }, [allStudents, searchableStudents, deferredSearchQuery]);
 
   const loadingStudents = !isSeed && loadingRealStudents;
 
