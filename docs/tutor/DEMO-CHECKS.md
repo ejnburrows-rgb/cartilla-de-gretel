@@ -8,6 +8,15 @@ Run `node scripts/verify-tutor-pages.mjs --sources-only tutor-pages.json` for th
 
 Run `node scripts/verify-tutor-pages.mjs https://PREVIEW tutor-pages.json` from a checkout with the project's Playwright Chromium installed. The browser check walks the actual complete Workbook and teacher presentation at 1366 × 768 and 390 × 844 with reduced motion so all page IDs and navigation can be enumerated. It checks the Workbook bookmark and writes each result to the same row as the expectation. Review both viewports in normal motion separately. The script does not substitute a visible page ID for a visual or listening check.
 
+### November 27 preview record
+
+Runtime: `ca9755d891c0fda87b5d12c2b20c233c2bdc16c4`. [Demo Mode preview](https://cartilla-de-gretel-ngxo623ud-ejn.vercel.app/cartilla/lecciones).
+
+- [Every-page results](coverage/DEMO-PAGES.tsv) record 150/150 available page IDs observed in Chrome on desktop and 150/150 at a simulated 390 × 844. The sweep used reduced motion. Desktop advanced through the Workbook and teacher presentation, and the phone sweep navigated backward. The Workbook jumped from 85 to 88. Reload resumed at 90 and Back reached 89. These results establish page IDs and navigation. Content, audio and teaching gestures still require per-page acceptance.
+- In Demo Mode, selected a demo student and opened Lesson 3 through the picker. Typed the wrong vowel `o`, saw Gretel's correction and hint, then answered `a` and advanced. Walked all eight vocabulary prompts. The `abeja` answer started the existing chalkboard video, and the lesson advanced to `árbol` in the speaking state. Leaving and reopening this student resumed at `aguja`.
+- At simulated phone size, opened Lesson 4 from the real picker and saw the `e` prompt and 365 × 205 classroom frame. The Lesson 3 board video was hidden in Lesson 4. Audible and lip-sync acceptance, full board actions for other targets, and the remaining interruption, permissions and offline checks are open.
+- The recovery delivery contains 40 Workbook instruction cuts and five Lesson 3 cuts. Its `muy-bien.mp3` matches the file from the audio recovery branch by checksum. The supplied notes mark it a candidate pending auditory approval. No isolated vowel take was identified among these cuts. Reconcile the longer voice master and any remaining device delivery before requesting new recordings.
+
 ## Playback walkthrough
 
 - Start at Demo Mode. Open Lesson 3 and check the required target, then submit a wrong answer and a correct answer. Use the transcript's typed input for a reproducible fallback and test microphone permissions independently.

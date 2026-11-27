@@ -67,10 +67,10 @@ function save() {
   writeFileSync(output, `${JSON.stringify({ base, sizes, rows }, null, 2)}\n`);
 }
 
-async function walk(page, available, size, pageSelector, forward, backward) {
+async function walk(available, size, checkPage, forward, backward) {
   for (const [index, row] of available.entries()) {
     try {
-      await expect(pageSelector(row)).toBeVisible({ timeout: 12000 });
+      await checkPage(row, index);
       if (index < available.length - 1) await expect(forward).toBeEnabled();
       if (index > 0) await expect(backward).toBeEnabled();
       row[size] = "visible page and navigation controls checked";
@@ -100,7 +100,11 @@ if (base === "--sources-only") {
             const visible = (row) => book.locator(`[data-native-page="${row.number}"]`);
             const next = book.getByTestId("button-next");
             const previous = book.getByTestId("button-prev");
-            await walk(book, workbook.filter((row) => row.sourceExists), size, visible, next, previous);
+            await walk(
+              workbook.filter((row) => row.sourceExists), size,
+              (row) => expect(visible(row)).toBeVisible({ timeout: 12000 }),
+              next, previous,
+            );
             await expect(visible(workbook.at(-1))).toBeVisible();
             await book.reload();
             await expect(visible(workbook.at(-1))).toBeVisible();
@@ -111,14 +115,21 @@ if (base === "--sources-only") {
             const url = new URL("/cartilla/presentar/1", base);
             url.searchParams.set("sheets", flipchart.map((row) => row.number).join(","));
             await chart.goto(url.href);
-            const visible = (row) => chart.getByTestId("flipchart-counter").getByText(
-              `Lámina ${row.number} · Lección ${row.lesson ?? 0}`,
-              { exact: true },
-            );
-            await walk(chart, flipchart, size, visible,
+            const counter = chart.getByTestId("flipchart-counter");
+            const checkSheet = async (row, index) => {
+              await expect(counter.getByText(
+                `Hoja ${index + 1} de ${flipchart.length}`,
+                { exact: true },
+              )).toBeVisible({ timeout: 12000 });
+              await expect(counter).toContainText(`Lámina ${row.number} · Lección ${row.lesson ?? 0}`);
+            };
+            const previous = chart.getByRole("button", { name: "Lámina anterior", exact: true });
+            await walk(flipchart, size, checkSheet,
               chart.getByRole("button", { name: "Lámina siguiente", exact: true }),
-              chart.getByRole("button", { name: "Lámina anterior", exact: true }),
+              previous,
             );
+            await previous.click();
+            await checkSheet(flipchart.at(-2), flipchart.length - 2);
           })(),
         ]);
       } finally {
