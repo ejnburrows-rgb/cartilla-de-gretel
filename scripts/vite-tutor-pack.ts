@@ -79,6 +79,10 @@ export interface TutorAssetsManifest {
 }
 
 const TUTOR_PACK_VERSION = "v1.1.0";
+const classroomAssets = ["listening.webp", "conversation.webp", "speech.webp", "abeja.webm"].map(
+  (file) => "/cartilla/images/gretel/tutor/classroom-review/" + file,
+);
+
 const ALL_LESSONS = Array.from({ length: 24 }, (_, idx) => idx + 1);
 
 // Includes dirty source contents, so proofs/builds cannot borrow an older identity.
@@ -95,6 +99,7 @@ export function tutorBuildId(): string {
   ];
   const lines = JSON.parse(readFileSync("src/content/tutor-lines.json", "utf8"));
   files.push(
+    ...classroomAssets.map((url) => "public" + url),
     "public/cartilla/images/gretel/gretel-approved-master.png",
     "public/cartilla/images/gretel/layers/manifest.json",
   );
@@ -166,6 +171,7 @@ export function tutorPackPlugin(buildId: string): Plugin {
 
       // 3. Avatar layer pack (master + manifest + any approved layers).
       const avatarUrls = new Set<string>([
+        ...classroomAssets,
         "/cartilla/images/gretel/gretel-approved-master.png",
         "/cartilla/images/gretel/layers/manifest.json",
       ]);

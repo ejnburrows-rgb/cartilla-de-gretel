@@ -211,7 +211,8 @@ function ValidTutorSessionScreen({
   lesson: number;
   search: TutorSessionSearch;
 }) {
-  const classroomEnabled = lesson === 3 && search.previewClassroom === 1;
+  const classroomEnabled = !search.previewRig && !search.previewHybrid;
+  const startOnAbeja = lesson === 3 && search.previewClassroom === 1;
   const classroomVideo = useRef<HTMLVideoElement>(null);
   const classroomRun = useRef<AbortController | null>(null);
   const [showBoardAction, setShowBoardAction] = useState(false);
@@ -1215,7 +1216,7 @@ function ValidTutorSessionScreen({
         pedagogicalFlow: true,
         includePracticeStages: true,
       });
-      if (classroomEnabled) {
+      if (startOnAbeja) {
         const demoIndex = initial.items.findIndex((candidate) => candidate.id === "l3-word-abeja");
         if (demoIndex >= 0) initial.itemIndex = demoIndex;
       }
@@ -1240,7 +1241,7 @@ function ValidTutorSessionScreen({
       disposeVoice();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson, search.code, search.slot, classroomEnabled]);
+  }, [lesson, search.code, search.slot, classroomEnabled, startOnAbeja]);
 
   // Clear the pencil mark whenever the active item changes.
   useEffect(() => {
@@ -1440,7 +1441,8 @@ function ValidTutorSessionScreen({
     if (epoch === epochRef.current) setReplaying(false);
   };
 
-  const showClassroom = classroomEnabled && (showBoardAction || (!linePlaying && !effectsRunning));
+  const room = "/cartilla/images/gretel/tutor/classroom-review";
+  const mouthIndex = "ABCDEFG".indexOf(viseme);
   const activeSheet = shellSnapshot.activeFlipchartPage ?? defaultFlipchartPage;
   const lessonTitle = catalogEntry
     ? `Lección ${lesson} · ${catalogEntry.title}`
@@ -1462,12 +1464,23 @@ function ValidTutorSessionScreen({
       avatar={
         <>
           {classroomEnabled && (
-            <div style={{ display: showClassroom ? "grid" : "none", placeItems: "center", height: "100%", width: "100%", background: "#253c31" }}>
-              <div style={{ position: "relative", width: "100%", maxHeight: "100%", aspectRatio: "16 / 9", overflow: "hidden", containerType: "inline-size" }}>
-                <video ref={classroomVideo} muted playsInline preload="auto"
+            <div data-tutor-puppet="" data-puppet-mode="painted-classroom" data-puppet-viseme={viseme}
+              style={{ display: "grid", placeItems: "center", height: "100%", width: "100%", background: "#253c31", containerType: "size" }}>
+              <div style={{ position: "relative", width: "min(100cqw, 177.7778cqh)", aspectRatio: "16 / 9", overflow: "hidden", containerType: "inline-size" }}>
+                <picture style={{display: linePlaying ? "none" : "block"}}>
+                  <source media="(prefers-reduced-motion: reduce)" srcSet={room + "/conversation.webp"} />
+                  <img src={room + "/listening.webp"} alt="Gretel escucha junto a la pizarra" style={{display:"block", width:"100%"}} />
+                </picture>
+                <img src={room + "/conversation.webp"} alt="Gretel en su aula"
+                  style={{display: linePlaying ? "block" : "none", width:"100%"}} />
+                {linePlaying && mouthIndex >= 0 && (
+                  <span aria-hidden="true" style={{position:"absolute",left:"28.046875%",top:"44.722222%",width:"7.65625%",height:"9.027778%",
+                    backgroundImage: "url(" + room + "/speech.webp)", backgroundSize:"700% 100%", backgroundPosition: (mouthIndex * 100 / 6) + "% center"}} />
+                )}
+                <video ref={classroomVideo} muted playsInline preload="none"
                   aria-label="Gretel escribe la a de abeja y la borra"
-                  src="/cartilla/images/gretel/tutor/classroom-review/abeja.webm"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "contain" }}
+                  src={room + "/abeja.webm"}
+                  style={{ position:"absolute", inset:0, display: showBoardAction ? "block" : "none", width:"100%", height:"100%" }}
                 />
                 <span aria-hidden="true" style={{ position: "absolute", left: "55%", top: "11%", color: "#f3e8cd", fontFamily: '"Snell Roundhand", "Brush Script MT", cursive', fontStyle: "italic", fontSize: "3.3cqw", pointerEvents: "none" }}>
                   Cartilla de Gretel
@@ -1475,7 +1488,7 @@ function ValidTutorSessionScreen({
               </div>
             </div>
           )}
-          <div style={showClassroom ? { display: "none" } : { display: "contents" }}>
+          {!classroomEnabled && (
         <TutorGretelPuppet
           state={puppet.machineState}
           viseme={viseme}
@@ -1489,7 +1502,7 @@ function ValidTutorSessionScreen({
           previewChalkboardRig={search.previewRig === 1}
           previewHybridRig={search.previewHybrid === 1}
         />
-        </div>
+        )}
         </>
       }
       card={
