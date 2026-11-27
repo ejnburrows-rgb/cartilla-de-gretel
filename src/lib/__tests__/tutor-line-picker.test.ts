@@ -203,6 +203,18 @@ describe("fixed line lookups", () => {
     expect(modelLineIdForItem(findTutorItem(3, "abeja"))).toBe("l1-model-abeja");
   });
 
+  it("uses additional approved recordings only for their exact curriculum word", () => {
+    const item = findTutorItem(4, "erizo");
+    const lineId = modelLineIdForItem(item);
+    expect(lineId).toBe("picture-model/erizo.mp3");
+    expect(resolveLineDelivery(lineId!)).toMatchObject({
+      isSpeech: true,
+      audioSrc: "/audio/voz/vocabulario/erizo.mp3",
+    });
+    const otherLine = modelLineIdForItem({ ...item, tutorLineId: null, text: "érico" });
+    expect(otherLine && resolveLineDelivery(otherLine)?.isSpeech).toBeFalsy();
+  });
+
   it("an unknown item has no model line", () => {
     expect(modelLineIdForItem({ id: "x", lesson: 9, text: "zzz", kind: "word", printedPage: 99 })).toBeNull();
   });

@@ -6,8 +6,8 @@
  * loads and active media. Only the real `playing` event starts speaking UI.
  * Unknown/pending recordings remain explicitly silent; there is no TTS path.
  *
- * Audio sources: only entries of src/content/tutor-lines.json whose `src`
- * points at an owner-approved file (today: the 43 picture-name recordings).
+ * Audio comes from approved dialogue entries and exact curriculum matches
+ * to owner-approved picture recordings.
  * Never the 67-clip ZIP / rec_gretel_* material (AGENTS.md 2026-10-15).
  */
 import tutorLinesJson from "../content/tutor-lines.json";
@@ -18,6 +18,9 @@ import {
   type GretelVoiceHandlers,
 } from "./gretel-voice";
 import { claimSpeech, registerSpeechCleanup, releaseSpeech } from "./speech-playback";
+import { getDialogueEntry } from "./tutor-dialogue-manifest";
+import { isRejectedAudioSource } from "../content/tutor-dialogue/schema";
+import { pictureModelById } from "./tutor-picture-models";
 
 export interface TutorViseme {
   /** seconds from playback start */
@@ -37,6 +40,7 @@ export interface TutorLineEntry {
   visemes?: string;
   emotion: string;
   approval?: string;
+  cues?: TutorViseme[];
 }
 
 export interface TutorLinesManifest {
@@ -81,6 +85,29 @@ export function approvedLineIds(): string[] {
   return tutorLines.approved.map((entry) => entry.lineId);
 }
 
+function resolveApprovedRecording(text: string, lineId?: string): TutorLineEntry | undefined {
+  if (!lineId) {
+    const legacy = findTutorLineByText(text);
+    return legacy && tutorLines.approved.includes(legacy) ? legacy : undefined;
+  }
+  const picture = pictureModelById(lineId);
+  if (picture && !isRejectedAudioSource(picture.src)) {
+    return { ...picture, lesson: 0, role: "word-model", emotion: "warm" };
+  }
+  const dialogue = getDialogueEntry(lineId);
+  const src = dialogue?.audio.src;
+  if (dialogue?.status !== "approved" || !src || isRejectedAudioSource(src)) return undefined;
+  return {
+    lineId,
+    lesson: dialogue.curriculumRefs.lesson ?? 0,
+    role: dialogue.role,
+    text: dialogue.text,
+    src,
+    visemes: dialogue.audio.visemes ?? undefined,
+    emotion: dialogue.expression,
+  };
+}
+
 export interface TutorVoiceOptions {
   /**
    * Fired when an approved recording starts playing, with that line's viseme
@@ -101,7 +128,7 @@ export interface TutorPlaybackPosition {
 }
 
 let mountedPlayback:
-  | ((text: string, handlers: GretelVoiceHandlers) => Promise<TutorSpeakResult>)
+  | ((text: string, handlers: GretelVoiceHandlers, lineId?: string) => Promise<TutorSpeakResult>)
   | null = null;
 let mountedProvider: ReturnType<typeof getGretelVoiceProviderConfig> | null = null;
 let stopActive: (() => void) | null = null;
@@ -110,6 +137,7 @@ async function loadVisemeTimeline(
   entry: TutorLineEntry,
   signal: AbortSignal,
 ): Promise<TutorViseme[]> {
+  if (entry.cues) return entry.cues;
   if (!entry.visemes || typeof fetch !== "function") return [];
   try {
     const response = await fetch(entry.visemes, { signal });
@@ -139,7 +167,7 @@ async function loadVisemeTimeline(
 export type TutorSpeakResult = "spoken" | "silent" | "cancelled";
 
 function buildPlayback(options: TutorVoiceOptions) {
-  return (text: string, handlers: GretelVoiceHandlers): Promise<TutorSpeakResult> => {
+  return (text: string, handlers: GretelVoiceHandlers, lineId?: string): Promise<TutorSpeakResult> => {
     stopActive?.();
     const token = claimSpeech("gretel");
     return new Promise((resolve) => {
@@ -149,7 +177,7 @@ function buildPlayback(options: TutorVoiceOptions) {
       let started = false;
       let outcome: TutorSpeakResult = "silent";
       let timer: ReturnType<typeof setTimeout> | undefined;
-      const entry = findTutorLineByText(text);
+      const entry = resolveApprovedRecording(text, lineId);
       let rafId = 0;
       const finish = (result: TutorSpeakResult) => {
         if (settled) return;
@@ -223,7 +251,7 @@ function buildPlayback(options: TutorVoiceOptions) {
         finish("silent");
         return;
       }
-      if (!entry?.src || !tutorLines.approved.includes(entry)) {
+      if (!entry?.src) {
         failed();
         return;
       }
@@ -275,6 +303,7 @@ export function mountTutorVoice(options: TutorVoiceOptions = {}): () => void {
 export async function speakTutorLine(
   text: string,
   handlers: GretelVoiceHandlers = {},
+  lineId?: string,
 ): Promise<TutorSpeakResult> {
   const provider = getGretelVoiceProviderConfig();
   if (
@@ -286,5 +315,5 @@ export async function speakTutorLine(
     handlers.onEnd?.();
     return "silent";
   }
-  return mountedPlayback(text, handlers);
+  return mountedPlayback(text, handlers, lineId);
 }

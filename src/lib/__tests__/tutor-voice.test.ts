@@ -222,6 +222,20 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
     );
     unmount();
   });
+
+  it("plays the curriculum's approved picture with inline Rhubarb cues", async () => {
+    const onVisemeTimeline = vi.fn();
+    const unmount = mountTutorVoice({ onVisemeTimeline });
+    expect(await speakTutorLine("erizo", {}, "picture-model/erizo.mp3")).toBe("spoken");
+    expect(onVisemeTimeline).toHaveBeenCalledWith(
+      expect.arrayContaining([expect.objectContaining({ shape: expect.any(String) })]),
+      "picture-model/erizo.mp3",
+    );
+    expect(await speakTutorLine("a", {}, "l0-vowel-model-a")).toBe("silent");
+    expect(playSpy).toHaveBeenCalledTimes(1);
+    expect(speakSpy).not.toHaveBeenCalled();
+    unmount();
+  });
   it("does not report spoken or start on a rejected play promise", async () => {
     playSpy.mockRejectedValue(new DOMException("autoplay blocked", "NotAllowedError"));
     const unmount = mountTutorVoice();

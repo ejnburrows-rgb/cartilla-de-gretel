@@ -564,7 +564,7 @@ function ValidTutorSessionScreen({
       onEnd: () => {
         setLinePlaying(false);
       },
-    });
+    }, lineId);
     stopVisemePlayer();
     if (result === "silent" && !isGretelVoiceMuted()) {
       setSilentLine(true);

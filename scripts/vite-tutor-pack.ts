@@ -9,6 +9,10 @@ import type { Plugin } from "vite";
 
 const hash = (value: string | Uint8Array) => createHash("sha256").update(value).digest("hex");
 
+function pictureModels(): Record<string, { sourceSha256: string }> {
+  return JSON.parse(readFileSync("src/content/tutor-picture-models.json", "utf8"));
+}
+
 function sourceFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
     entry.isDirectory() ? sourceFiles(path.join(dir, entry.name)) : [path.join(dir, entry.name)],
@@ -107,6 +111,7 @@ export function tutorBuildId(): string {
     if (entry.src) files.push(`public${entry.src}`);
     if (entry.visemes) files.push(`public${entry.visemes}`);
   }
+  files.push(...Object.keys(pictureModels()).map((url) => `public${url}`));
   return hash(
     files
       .sort((a, b) => a.localeCompare(b))
@@ -202,11 +207,13 @@ export function tutorPackPlugin(buildId: string): Plugin {
       const lessonAssetUrls = new Map<number, Set<string>>();
       for (const lesson of ALL_LESSONS) lessonAssetUrls.set(lesson, new Set<string>());
 
+      const legacyByAudio = new Map<string, string[]>();
       for (const entry of lines.approved) {
         const targetLesson = Number(entry.lesson) || 0;
         const urls = [entry.src, entry.visemes].filter(
           (value): value is string => typeof value === "string" && value.length > 0,
         );
+        if (entry.src) legacyByAudio.set(entry.src, urls);
         for (const url of urls) {
           const packed = add(url, readFileSync(`public${url}`));
           if (targetLesson === 0) {
@@ -216,6 +223,7 @@ export function tutorPackPlugin(buildId: string): Plugin {
           }
         }
       }
+      const pictures = pictureModels();
 
       // 6. Per-lesson packs (Lessons 1–24) including lazy dialogue manifest + approved audio/visemes
       const lessonsManifest: Record<string, LessonPackManifest> = {};
@@ -225,6 +233,20 @@ export function tutorPackPlugin(buildId: string): Plugin {
         const dialogueUrl = `/tutor-dialogue/${lessonFileName}`;
         const perLessonEntries = new Map<string, PackAssetEntry>();
         let hasApprovedAudio = false;
+        const graph: { items: Array<{ approvedAudioSrc?: string | null }> } = JSON.parse(
+          readFileSync(`src/content/tutor-graph/lesson-${padLesson(lesson)}.json`, "utf8"),
+        );
+        for (const { approvedAudioSrc: src } of graph.items) {
+          if (!src) continue;
+          const picture = pictures[src];
+          if (picture) {
+            const bytes = readFileSync(`public${src}`);
+            if (hash(bytes) !== picture.sourceSha256) throw new Error(`Stale Tutor mouth cues: ${src}`);
+            perLessonEntries.set(src, add(src, bytes));
+            hasApprovedAudio = true;
+          }
+          for (const url of legacyByAudio.get(src) ?? []) lessonAssetUrls.get(lesson)?.add(url);
+        }
 
         if (existsSync(dialogueSrcPath)) {
           const dialogueBytes = readFileSync(dialogueSrcPath);

@@ -24,11 +24,11 @@ import {
 } from "../content/tutor-dialogue/schema";
 import { lessonGraphFor, type TutorItem } from "./tutor-content";
 import {
-  MERGED_DIALOGUE_MANIFEST,
   V2_DIALOGUE_ENTRIES,
   getDialogueEntry,
 } from "./tutor-dialogue-manifest";
 import { normalize } from "./tutor-match";
+import { pictureModelById, pictureModelForWord } from "./tutor-picture-models";
 
 /** Core legacy line-bank roles (spec §18.5). */
 export type LegacyTutorLineRole =
@@ -379,6 +379,17 @@ export function pickSequence(
  * content is speech.
  */
 export function resolveLineDelivery(lineId: string): ResolvedLineDelivery | null {
+  const picture = pictureModelById(lineId);
+  if (picture && !isRejectedAudioSource(picture.src)) {
+    return {
+      lineId,
+      text: picture.text,
+      deliveryMode: "approved-audio",
+      audioSrc: picture.src,
+      isSpeech: true,
+      fallbackLabel: null,
+    };
+  }
   const entry = getDialogueEntry(lineId);
   if (!entry) return null;
   const hasApprovedAudio =
@@ -557,9 +568,13 @@ export function modelLineIdForItem(item: TutorItem): string | null {
   );
   if (legacyWord) return legacyWord.lineId;
 
-  if (item.tutorLineId && MERGED_DIALOGUE_MANIFEST.byId.has(item.tutorLineId)) {
-    return item.tutorLineId;
-  }
+  const assigned = item.tutorLineId ? getDialogueEntry(item.tutorLineId) : undefined;
+  if (assigned?.status === "approved") return assigned.id;
+  const graphAudio = item.approvedAudioSrc ??
+    lessonGraphFor(item.lesson)?.items.find((candidate) => candidate.id === item.id)?.approvedAudioSrc;
+  const picture = pictureModelForWord(item.text, graphAudio);
+  if (picture) return picture.lineId;
+  if (assigned) return assigned.id;
 
   // Look up lesson-scoped v2 model/practice lines for Lessons 4–24.
   const targetNorm = normalize(item.text);
