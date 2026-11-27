@@ -24,7 +24,8 @@ import {
   TutorFlipchartPresenter,
   getFlipchartImportantRects,
 } from "@/components/tutor/TutorFlipchartPresenter";
-import { playBoardAction } from "@/components/tutor/classroom-review";
+import { playClassroomWriting } from "@/components/tutor/classroom-board-motion";
+import { chalkStrokes, teachingTarget } from "@/components/tutor/classroom-writing";
 import { useLearnerScope } from "@/lib/learner-storage";
 import { TutorGretelPuppet } from "@/components/tutor/TutorGretelPuppet";
 import { TutorMicButton } from "@/components/tutor/TutorMicButton";
@@ -224,16 +225,18 @@ function ValidTutorSessionScreen({
   const classroomEnabled = !search.previewRig && !search.previewHybrid;
   const startOnAbeja = lesson === 3 && search.previewClassroom === 1;
   const classroomVideo = useRef<HTMLVideoElement>(null);
+  const chalkboardCanvas = useRef<HTMLCanvasElement>(null);
   const classroomRun = useRef<AbortController | null>(null);
-  const [showBoardAction, setShowBoardAction] = useState(false);
+  const [writingTarget, setWritingTarget] = useState<string | null>(null);
+  const [boardPhase, setBoardPhase] = useState<string | null>(null);
   function stopBoardAction() {
     classroomRun.current?.abort();
     classroomRun.current = null;
     if (classroomVideo.current) {
       classroomVideo.current.pause();
-      classroomVideo.current.currentTime = 0;
     }
-    setShowBoardAction(false);
+    setWritingTarget(null);
+    setBoardPhase(null);
   }
   useEffect(() => () => {
     classroomRun.current?.abort();
@@ -517,7 +520,38 @@ function ValidTutorSessionScreen({
     stopVisemePlayer();
   }
 
-  async function playLine(lineId: string, demonstrate = false): Promise<void> {
+  async function teachOnBoard(target: string): Promise<boolean> {
+    stopBoardAction();
+    const run = new AbortController();
+    classroomRun.current = run;
+    setWritingTarget(target);
+    setSilentLine(false);
+    setSpokenText(target);
+    let animated = false;
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+        classroomVideo.current && chalkboardCanvas.current) {
+      const video = classroomVideo.current;
+      if (video.readyState === 0) video.load();
+      try {
+        animated = await playClassroomWriting(
+          video, chalkboardCanvas.current, target, run.signal, setBoardPhase,
+        );
+      } catch {
+        // Use the same target with a still board if a browser cannot draw the footage.
+      }
+    }
+    if (!animated && !run.signal.aborted) {
+      setBoardPhase("still");
+      await sleep(SILENT_LINE_HOLD_MS, (cancel) =>
+        run.signal.addEventListener("abort", cancel, { once: true }),
+      );
+    }
+    if (run.signal.aborted) return false;
+    stopBoardAction();
+    return true;
+  }
+
+  async function playLine(lineId: string): Promise<void> {
     const delivery = resolveLineDelivery(lineId);
     const rawText = delivery?.text ?? lineTextById.get(lineId);
     if (!rawText) {
@@ -534,25 +568,6 @@ function ValidTutorSessionScreen({
       return;
     }
 
-    const video =
-      demonstrate && classroomEnabled && lesson === 3 && lineId === "l1-model-abeja" &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? classroomVideo.current
-        : null;
-    if (video) {
-      stopBoardAction();
-      const boardRun = new AbortController();
-      classroomRun.current = boardRun;
-      setShowBoardAction(true);
-      setSilentLine(false);
-      setSpokenText("Observa cómo se escribe la a de abeja.");
-      controller.beginSpeaking(lineId, "", true);
-      await playBoardAction(video, boardRun.signal);
-      if (boardRun.signal.aborted) return;
-      // Switch to the classroom's Rhubarb-driven mouth at the end of the
-      // silent performance. Keeping the paused video here hides those cues.
-      stopBoardAction();
-    }
     setSilentLine(false);
     setSpokenText(cleanedCaption);
     controller.beginSpeaking(lineId, cleanedCaption, false);
@@ -914,10 +929,12 @@ function ValidTutorSessionScreen({
       if (!alive()) return;
 
       const modeledItem = activeItemOf(state);
-      if (classroomEnabled && modeledItem?.id === "l3-word-abeja" &&
-          effects.some((effect) => effect.type === "markCorrect")) {
-        const delivery = modelDeliveryForItem(modeledItem);
-        if (delivery.lineId) await playLine(delivery.lineId, true);
+      if (classroomEnabled && modeledItem && effects.some((effect) => effect.type === "markCorrect")) {
+        const target = teachingTarget(modeledItem, catalogEntry);
+        if (target && await teachOnBoard(target) && alive()) {
+          const delivery = modelDeliveryForItem(modeledItem);
+          if (delivery.lineId && delivery.isSpeech) await playLine(delivery.lineId);
+        }
         if (!alive()) return;
       }
       const after = brainRef.current;
@@ -1283,8 +1300,8 @@ function ValidTutorSessionScreen({
       brainPhase: brain?.phase ?? null,
       micCapturing: capturing,
       linePlaying,
-      presenting:
-        presenting && (linePlaying || brain?.phase === "MODEL" || brain?.stage === "FLIPCHART"),
+      presenting: Boolean(writingTarget) ||
+        (presenting && (linePlaying || brain?.phase === "MODEL" || brain?.stage === "FLIPCHART")),
       thinking: processingTurn,
       analyzing,
       recovering: unavailableProblem !== null,
@@ -1300,6 +1317,7 @@ function ValidTutorSessionScreen({
     analyzing,
     unavailableProblem,
     shellSnapshot.layoutMode,
+    writingTarget,
   ]);
 
   // Focus management on phase change.
@@ -1486,11 +1504,25 @@ function ValidTutorSessionScreen({
                   <span aria-hidden="true" style={{position:"absolute",left:"28.046875%",top:"44.722222%",width:"7.65625%",height:"9.027778%",
                     backgroundImage: "url(" + room + "/speech.webp)", backgroundSize:"700% 100%", backgroundPosition: (mouthIndex * 100 / 6) + "% center"}} />
                 )}
-                <video ref={classroomVideo} muted playsInline preload="none"
-                  aria-label="Gretel escribe la a de abeja y la borra"
-                  src={room + "/abeja.webm"}
-                  style={{ position:"absolute", inset:0, display: showBoardAction ? "block" : "none", width:"100%", height:"100%" }}
+                <video ref={classroomVideo} muted playsInline preload="none" hidden src={room + "/abeja.webm"} />
+                <canvas
+                  ref={chalkboardCanvas}
+                  className="tutor-classroom-board-action"
+                  hidden={!boardPhase || boardPhase === "still"}
+                  data-board-phase={boardPhase ?? undefined}
+                  data-board-target={writingTarget ?? undefined}
+                  aria-label={writingTarget ? `Pizarra: ${writingTarget}` : undefined}
+                  role="img"
                 />
+                {writingTarget && boardPhase === "still" && (
+                  <svg viewBox="0 0 1280 720" className="tutor-classroom-board-action" role="img"
+                    aria-label={`Pizarra: ${writingTarget}`} data-board-target={writingTarget} data-board-phase="still">
+                    {chalkStrokes(writingTarget).map((stroke, index) => (
+                      <polyline key={index} points={stroke.map(({ x, y }) => `${x},${y}`).join(" ")}
+                        fill="none" stroke="#f8f0da" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                    ))}
+                  </svg>
+                )}
                 <span aria-hidden="true" style={{ position: "absolute", left: "55%", top: "11%", color: "#f3e8cd", fontFamily: '"Snell Roundhand", "Brush Script MT", cursive', fontStyle: "italic", fontSize: "3.3cqw", pointerEvents: "none" }}>
                   Cartilla de Gretel
                 </span>
