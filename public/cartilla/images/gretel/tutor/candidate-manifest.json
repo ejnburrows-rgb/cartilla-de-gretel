@@ -7,6 +7,26 @@
     "width": 1086,
     "height": 1448
   },
+  "ownerPortraitReferences": [
+    {
+      "id": "gretel-tutor-portrait-call",
+      "label": "Owner-approved torso-up video-call portrait (landscape, sunlit classroom)",
+      "src": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg",
+      "width": 1024,
+      "height": 662,
+      "sha256": "33c33572ad1fbef3a7ec1d0a2e06ed8c8b367ddd2d36fd61ce76b255d1fd7bdc",
+      "approvedOn": "2026-11-26"
+    },
+    {
+      "id": "gretel-tutor-portrait-presenting",
+      "label": "Owner-approved torso-up presenting portrait (square, welcoming raised hand)",
+      "src": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-presenting.jpg",
+      "width": 1024,
+      "height": 1024,
+      "sha256": "6e216a51c05599da220591bb02727b9180845a12e4202fd43db9ce7eb884415e",
+      "approvedOn": "2026-11-26"
+    }
+  ],
   "torsoUpCrop": {
     "src": "/cartilla/images/gretel/tutor/gretel-torso-up.png",
     "left": 184,
