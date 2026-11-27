@@ -150,11 +150,16 @@ function buildPlayback(options: TutorVoiceOptions) {
       let outcome: TutorSpeakResult = "silent";
       let timer: ReturnType<typeof setTimeout> | undefined;
       const entry = findTutorLineByText(text);
+      let rafId = 0;
       const finish = (result: TutorSpeakResult) => {
         if (settled) return;
         settled = true;
         controller.abort();
         clearTimeout(timer);
+        if (rafId && typeof window !== "undefined" && typeof window.cancelAnimationFrame === "function") {
+          window.cancelAnimationFrame(rafId);
+          rafId = 0;
+        }
         if (audio) {
           audio.removeEventListener("playing", playing);
           audio.removeEventListener("timeupdate", position);
@@ -180,6 +185,16 @@ function buildPlayback(options: TutorVoiceOptions) {
             lineId: entry.lineId,
           });
       };
+      const tickPosition = () => {
+        if (settled || !audio || audio.paused || audio.ended) {
+          rafId = 0;
+          return;
+        }
+        position();
+        if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
+          rafId = window.requestAnimationFrame(tickPosition);
+        }
+      };
       let timeline: TutorViseme[] = [];
       const playing = () => {
         if (settled || started) return;
@@ -192,6 +207,9 @@ function buildPlayback(options: TutorVoiceOptions) {
         window.dispatchEvent(new CustomEvent("gretel:speak_start"));
         handlers.onStart?.();
         position();
+        if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
+          rafId = window.requestAnimationFrame(tickPosition);
+        }
       };
       const ended = () => finish(outcome);
       const failed = () => {

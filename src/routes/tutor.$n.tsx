@@ -111,6 +111,7 @@ export const Route = createFileRoute("/tutor/$n")({
       search.slot <= 40
         ? search.slot
         : 1,
+    previewRig: search.previewRig === 1 || search.previewRig === "1" || search.previewRig === true ? 1 : undefined,
   }),
   component: TutorSessionScreen,
   head: () => ({
@@ -127,6 +128,7 @@ export const Route = createFileRoute("/tutor/$n")({
 interface TutorSessionSearch {
   code: string;
   slot: number;
+  previewRig?: 1;
 }
 
 /** One-shot listen window (spec §18.3: silence at 6 s → gentle nudge). */
@@ -248,6 +250,9 @@ function ValidTutorSessionScreen({
   const silentHoldCancelRef = useRef<(() => void) | null>(null);
   const [silentLine, setSilentLine] = useState(false);
   const [viseme, setViseme] = useState("X");
+  const [activeVisemeTimeline, setActiveVisemeTimeline] = useState<readonly TutorViseme[] | undefined>(
+    undefined,
+  );
   const [highlightedRegionId, setHighlightedRegionId] = useState<string | null>(null);
   const [flipchartCues, setFlipchartCues] = useState<FlipchartChoreographyCue[]>([]);
   const [mark, setMark] = useState<{ isCorrect: boolean; key: number; itemId: string } | null>(
@@ -453,6 +458,7 @@ function ValidTutorSessionScreen({
     silentHoldCancelRef.current?.();
     silentHoldCancelRef.current = null;
     setViseme("X");
+    setActiveVisemeTimeline(undefined);
     setLinePlaying(false);
     setPlaybackPosition(null);
     controller.endSpeaking();
@@ -1058,6 +1064,7 @@ function ValidTutorSessionScreen({
     const disposeVoice = mountTutorVoice({
       onVisemeTimeline: (timeline, lineId) => {
         visemeTimelinesRef.current.set(lineId, timeline);
+        setActiveVisemeTimeline(timeline);
       },
       onPlaybackPosition: (position) => {
         setPlaybackPosition(position);
@@ -1393,9 +1400,14 @@ function ValidTutorSessionScreen({
         <TutorGretelPuppet
           state={puppet.machineState}
           viseme={viseme}
+          visemeTimeline={activeVisemeTimeline}
           playbackTime={playbackPosition?.currentTime ?? null}
           isSpeaking={linePlaying}
           isMuted={shellSnapshot.muted}
+          lessonWord={item?.text ?? ""}
+          focusLetter={lessonGraph?.focus}
+          layoutMode={shellSnapshot.layoutMode}
+          previewChalkboardRig={search.previewRig === 1}
         />
       }
       card={

@@ -392,6 +392,14 @@
   align-items: center;
   justify-content: center;
 }
+.tutor-call-avatar-inner:has([data-tutor-chalkboard-stage]) {
+  padding: 0;
+  background: #14281e;
+}
+.tutor-call-avatar-host:has([data-tutor-chalkboard-stage]) {
+  background: #462611;
+  border-color: rgba(70, 38, 17, 0.72);
+}
 
 .tutor-pip-toolbar {
   display: none;

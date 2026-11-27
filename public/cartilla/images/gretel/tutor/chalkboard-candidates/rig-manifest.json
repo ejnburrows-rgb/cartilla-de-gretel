@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "status": "pending-owner-approval",
+  "approved": false,
+  "sourcePortrait": {
+    "src": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg",
+    "width": 1024,
+    "height": 662
+  },
+  "eyeSocketClips": {
+    "left": "M 442 300 Q 464 282 489 299 Q 467 315 442 300 Z",
+    "right": "M 555 316 Q 579 298 604 314 Q 581 330 555 316 Z"
+  },
+  "parts": [
+    {
+      "id": "gretel-face-base",
+      "role": "base",
+      "description": "Consistent organic cutout with clean sclera & forehead skin underpaint",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/gretel-face-base.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "609fd8b121f6213c9682f091ecc7055ee88e89707c9f8bea979f8e84dfb14502",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "iris-left",
+      "role": "iris-left",
+      "description": "Left painted cobalt iris + catchlight",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/iris-left.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "37bb2c651aa366c4f986e5fd801d25fe56cdf01217da20a03a85132c96876ff5",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "iris-right",
+      "role": "iris-right",
+      "description": "Right painted cobalt iris + catchlight",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/iris-right.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "74672b413083fe5aab358d963ca5bd61acf1447ebc91e59f65cddd86e4507fda",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "eyelashes-frame",
+      "role": "eyelashes",
+      "description": "Crisp upper/lower eyelashes drawn above moving irises",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/eyelashes-frame.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "dc31e8702208174cf3afe5e9399f96c4b7a37ddca83a9f12430ddd46b7c3bb7e",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "brow-left",
+      "role": "brow-left",
+      "description": "Independent left painted eyebrow",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/brow-left.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "5f383b43a72b7cfc5b1d025a4a02a88c97815f72385c4e67adef99cad4c7f62c",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "brow-right",
+      "role": "brow-right",
+      "description": "Independent right painted eyebrow",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/brow-right.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "aa9b01e977d6201966b8e247379a2c13455dd3ceb1237b394ad18c6bdcdf3bcf",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "hair-curl-left",
+      "role": "hair-curl",
+      "description": "Left hanging golden curls (secondary sway)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/hair-curl-left.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "66dafd88a7a31537e5538bc1b80eeb3e2077e04a6196aae0b58658d2478c1d80",
+      "ownerDecision": "pending",
+      "pivot": {
+        "x": 260,
+        "y": 390
+      }
+    },
+    {
+      "id": "hair-curl-right",
+      "role": "hair-curl",
+      "description": "Right hanging golden curls (secondary sway)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/hair-curl-right.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "5359f91c4a05a6d2d2e349504da672318d4a3e9e41b33662ef702dd9da29f78b",
+      "ownerDecision": "pending",
+      "pivot": {
+        "x": 650,
+        "y": 410
+      }
+    },
+    {
+      "id": "lid-50",
+      "role": "lid",
+      "description": "50% eyelid closure (aligned hand-painted eyes-half)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/lid-50.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "51cb34f8b694cb4b538b82ad129787ef8e158d8506809e588073568aa4ba7abe",
+      "ownerDecision": "pending",
+      "stage": 50
+    },
+    {
+      "id": "lid-100",
+      "role": "lid",
+      "description": "100% eyelid closure (aligned hand-painted eyes-closed)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/lid-100.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "aa6c8ed62f15e6b7b7c451b706b56c99623c286223cbd47baa9ff4b13e821e97",
+      "ownerDecision": "pending",
+      "stage": 100
+    },
+    {
+      "id": "lid-25",
+      "role": "lid",
+      "description": "25% eyelid lowering (smooth blink onset)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/lid-25.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "eb6fa8231445e392e8ceb69a944e412b6fbb5f8a720651dd142482a5060a875d",
+      "ownerDecision": "pending",
+      "stage": 25
+    },
+    {
+      "id": "lid-75",
+      "role": "lid",
+      "description": "75% eyelid closing (near-complete blink transition)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/lid-75.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "ba7eb4dc26a2f3f6622c1e5bbd320eaa4c7bff0066de6ea635325287f4e441e7",
+      "ownerDecision": "pending",
+      "stage": 75
+    },
+    {
+      "id": "mouth-X",
+      "role": "mouth",
+      "description": "Warm resting closed smile",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-X.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "8bf3f6c84429e94dc0ab95caff97edd8aaa7ad57f254a5a4d244b5015190a910",
+      "ownerDecision": "pending",
+      "shapes": [
+        "X"
+      ]
+    },
+    {
+      "id": "mouth-A",
+      "role": "mouth",
+      "description": "Closed bilabial (m, b, p)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-A.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "c7ff0a2dd3338f6e7c70867f584a3580cc8aa3bdfaa9dfb8c2dad9749110714d",
+      "ownerDecision": "pending",
+      "shapes": [
+        "A"
+      ]
+    },
+    {
+      "id": "mouth-B",
+      "role": "mouth",
+      "description": "Slightly open wider smile (e, i, s, t, n)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-B.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "5b49e7daecdde43a641bbeb3bc979d81a521ad7e048d322f38f32992ebd93d2f",
+      "ownerDecision": "pending",
+      "shapes": [
+        "B"
+      ]
+    },
+    {
+      "id": "mouth-C",
+      "role": "mouth",
+      "description": "Native open speaking smile (exact approved pixels)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-C.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "c413c1abf1b0149e2f3628852b19708a508cde7cdf520d4fd839443071626692",
+      "ownerDecision": "pending",
+      "shapes": [
+        "C"
+      ]
+    },
+    {
+      "id": "mouth-D",
+      "role": "mouth",
+      "description": "Open wide vowel (a)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-D.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "96cf0bda5ccf63cbe7ebe40715107deca973ceb8d6c3fa5382e4b449e14ed30a",
+      "ownerDecision": "pending",
+      "shapes": [
+        "D"
+      ]
+    },
+    {
+      "id": "mouth-E",
+      "role": "mouth",
+      "description": "Rounded open vowel (o)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-E.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "325e532c7e3d96b7e2e301aaa0221d7a3f44a521d58624a44bc0daee0732bb6b",
+      "ownerDecision": "pending",
+      "shapes": [
+        "E"
+      ]
+    },
+    {
+      "id": "mouth-F",
+      "role": "mouth",
+      "description": "Small pursed rounded vowel (u)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-F.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "16fcddfde5767151bd7aa29adcff50a29fcb41488ed3a5a7badfbf790d950ef5",
+      "ownerDecision": "pending",
+      "shapes": [
+        "F"
+      ]
+    },
+    {
+      "id": "mouth-G",
+      "role": "mouth",
+      "description": "Soft labiodental / coronal (f, v, l, d)",
+      "src": "/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-G.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "02bf0490aafa7fd89a3b4453ade4441971484fa0527b4fdf8dde780ab381ce9f",
+      "ownerDecision": "pending",
+      "shapes": [
+        "G"
+      ]
+    }
+  ]
+}

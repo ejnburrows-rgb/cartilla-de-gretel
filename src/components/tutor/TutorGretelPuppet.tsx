@@ -24,7 +24,9 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
+import { TutorChalkboardStage } from "@/components/tutor/TutorChalkboardStage";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import type { TutorLayoutMode } from "@/lib/tutor-session";
 import {
   computePuppetChannels,
   expressionFromState,
@@ -82,6 +84,14 @@ export interface TutorGretelPuppetProps {
   gazeTarget?: TutorGazeTarget;
   /** Optional container className. */
   className?: string;
+  /** Preview opt-in ONLY: renders decomposed chalkboard stage before manifest activation. */
+  previewChalkboardRig?: boolean;
+  /** Active Cartilla target word displayed/demonstrated on the chalkboard. */
+  lessonWord?: string;
+  /** Focus letter or phoneme to underline/circle on the chalkboard. */
+  focusLetter?: string;
+  /** Active presentation mode (`call`, `split`, `flipchart-pip`, `practice`). */
+  layoutMode?: TutorLayoutMode;
   onError?: () => void;
 }
 
@@ -133,6 +143,10 @@ export function TutorGretelPuppet({
   expression,
   gazeTarget = "student",
   className,
+  previewChalkboardRig = false,
+  lessonWord = "",
+  focusLetter,
+  layoutMode = "call",
   onError,
 }: TutorGretelPuppetProps) {
   const reducedMotion = useReducedMotion();
@@ -359,6 +373,47 @@ export function TutorGretelPuppet({
   const viewBoxAttr = `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`;
 
   const yAnimation = channels.nodSequenceY ? [...channels.nodSequenceY] : channels.headShiftY;
+
+  if (previewChalkboardRig) {
+    return (
+      <div
+        data-tutor-puppet=""
+        data-puppet-mode="chalkboard-rig-preview"
+        data-puppet-framing={framing}
+        data-puppet-state={state}
+        data-puppet-expression={resolvedExpression}
+        data-puppet-gaze={gazeTarget}
+        data-puppet-viseme={lipSync.shape}
+        data-lipsync-source={lipSync.source}
+        data-lipsync-fallback={lipSync.isFallback ? "true" : "false"}
+        data-reduced-motion={reducedMotion ? "true" : "false"}
+        className={className ? `relative h-full w-full ${className}` : "relative h-full w-full"}
+      >
+        <TutorChalkboardStage
+          state={state}
+          playbackTime={effectiveTime}
+          isSpeaking={effectiveSpeaking}
+          isPaused={effectivePaused}
+          isMuted={effectiveMuted}
+          visemeTimeline={visemeTimeline}
+          propViseme={viseme}
+          lessonWord={lessonWord}
+          focusLetter={focusLetter}
+          chalkboardMode={
+            state === "cheering"
+              ? "celebrate"
+              : state === "gentle-error"
+                ? "correction"
+                : state === "help"
+                  ? "hint"
+                  : "model"
+          }
+          layoutMode={layoutMode}
+          onError={onError}
+        />
+      </div>
+    );
+  }
 
   return (
     <motion.div

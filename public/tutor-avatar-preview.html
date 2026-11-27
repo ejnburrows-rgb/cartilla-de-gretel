@@ -1,22 +1,41 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gretel Tutor — Vista de Aprobación de Avatar (Torso-Up y Capas Faciales)</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gretel Tutor — Vista de Aprobación de Avatar y Pizarra</title>
     <style>
+      @font-face {
+        font-family: "Caveat";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("/fonts/caveat-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Andika";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/andika-400-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Andika";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("/fonts/andika-700-latin.woff2") format("woff2");
+      }
+
       :root {
-        --paper: #fbf7ef;
+        --paper: #eef2ee;
         --paper-card: #ffffff;
         --ink: #2b1f16;
-        --ink-muted: #6c5a4c;
-        --border: #e7dccb;
-        --accent: #1d5ca8;
-        --accent-warm: #d64928;
-        --ok: #266b43;
-        --warn-bg: #fff5e5;
-        --warn-border: #e9c27d;
-        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+        --ink-muted: #59483a;
+        --accent: #1d4e89;
+        --accent-soft: #e6eef7;
+        --border: #d5ded5;
+        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
       }
 
       * {
@@ -25,7 +44,7 @@
 
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: "Andika", system-ui, -apple-system, sans-serif;
         background: var(--paper);
         color: var(--ink);
         line-height: 1.5;
@@ -34,229 +53,174 @@
       .page {
         max-width: 1240px;
         margin: 0 auto;
-        padding: 24px 16px 64px;
+        padding: 20px 16px 64px;
       }
 
       header {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 12px 20px;
         align-items: flex-start;
         justify-content: space-between;
         border-bottom: 1px solid var(--border);
-        padding-bottom: 20px;
-        margin-bottom: 24px;
+        padding-bottom: 14px;
+        margin-bottom: 18px;
       }
 
       h1 {
-        margin: 0 0 6px;
-        font-size: 1.65rem;
-        letter-spacing: -0.02em;
+        margin: 0;
+        font-size: 1.45rem;
+        line-height: 1.25;
       }
 
       h2 {
-        margin: 32px 0 12px;
-        font-size: 1.25rem;
-        letter-spacing: -0.01em;
+        margin: 26px 0 12px;
+        font-size: 1.12rem;
       }
 
       .subtitle {
-        margin: 0;
+        margin: 4px 0 0;
         color: var(--ink-muted);
-        max-width: 74ch;
-      }
-
-      .status-banner {
-        background: var(--warn-bg);
-        border: 1px solid var(--warn-border);
-        border-radius: 12px;
-        padding: 14px 18px;
-        margin-bottom: 24px;
-        font-size: 0.94rem;
-      }
-
-      .status-banner strong {
-        color: #8a4b00;
+        font-size: 0.92rem;
+        max-width: 68ch;
       }
 
       .toolbar {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
+        gap: 8px;
       }
 
-      button,
-      select {
+      button {
         font: inherit;
+        cursor: pointer;
+        border-radius: 10px;
         border: 1px solid var(--border);
         background: var(--paper-card);
         color: var(--ink);
-        border-radius: 10px;
-        padding: 8px 14px;
-        cursor: pointer;
-        transition: background 150ms var(--ease-out), border-color 150ms var(--ease-out);
+        padding: 8px 13px;
+        min-height: 38px;
+        font-weight: 600;
+        transition:
+          background-color 140ms var(--ease-out),
+          border-color 140ms var(--ease-out),
+          transform 130ms var(--ease-out);
       }
 
-      button:hover,
-      select:hover {
-        border-color: var(--accent);
+      button:active {
+        transform: scale(0.97);
       }
 
       button[aria-pressed="true"],
       button.primary {
         background: var(--accent);
-        border-color: var(--accent);
         color: #fff;
+        border-color: var(--accent);
+      }
+
+      .status-banner {
+        background: #fff9ea;
+        border: 1px solid #e7cd84;
+        border-radius: 12px;
+        padding: 10px 14px;
+        margin-bottom: 16px;
+        font-size: 0.9rem;
       }
 
       .preview-shell {
         display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-        gap: 20px;
+        grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
+        gap: 18px;
         align-items: start;
       }
 
-      @media (max-width: 860px) {
+      @media (max-width: 900px) {
         .preview-shell {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr);
         }
       }
 
       .card {
+        min-width: 0;
         background: var(--paper-card);
         border: 1px solid var(--border);
         border-radius: 16px;
-        padding: 18px;
-        box-shadow: 0 4px 18px rgba(43, 31, 22, 0.05);
+        padding: 14px;
+        box-shadow: 0 2px 10px rgba(43, 31, 22, 0.04);
+      }
+
+      code {
+        overflow-wrap: anywhere;
       }
 
       .viewport-frame {
-        margin: 0 auto;
-        border: 2px solid #d5c7b2;
-        border-radius: 20px;
-        background: linear-gradient(180deg, #f4ece0 0%, #efe4d2 100%);
-        overflow: hidden;
-        transition: width 320ms var(--ease-out), height 320ms var(--ease-out);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
         position: relative;
-      }
-
-      .viewport-frame[data-viewport="desktop"] {
         width: 100%;
-        height: 480px;
+        aspect-ratio: 16 / 10;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #12241a;
+        color: #f4efe2;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        transition: width 220ms var(--ease-out), aspect-ratio 220ms var(--ease-out);
       }
 
       .viewport-frame[data-viewport="mobile"] {
-        width: 390px;
-        max-width: 100%;
-        height: 560px;
+        width: min(376px, 100%);
+        aspect-ratio: 4 / 3.3;
+      }
+
+      .viewport-frame[data-viewport="mobile"] .viewport-badge {
+        display: none;
       }
 
       .viewport-badge {
         position: absolute;
-        top: 12px;
-        left: 12px;
-        background: rgba(255, 255, 255, 0.92);
-        border: 1px solid var(--border);
+        top: 14px;
+        left: 14px;
+        background: rgba(18, 28, 22, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 999px;
-        padding: 4px 10px;
-        font-size: 0.78rem;
-        color: var(--ink-muted);
-        z-index: 5;
+        padding: 4px 12px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        color: #f4efe2;
+        z-index: 6;
       }
 
       .telemetry-badge {
         position: absolute;
-        top: 12px;
-        right: 12px;
-        background: rgba(43, 31, 22, 0.84);
-        color: #fff;
+        top: 14px;
+        right: 14px;
+        background: rgba(18, 28, 22, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: #f4efe2;
         border-radius: 999px;
-        padding: 4px 10px;
-        font-size: 0.78rem;
+        padding: 4px 12px;
+        font-size: 0.74rem;
         font-variant-numeric: tabular-nums;
-        z-index: 5;
+        z-index: 6;
       }
 
-      .puppet-stage {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 44px 16px 20px;
-      }
-
-      .puppet-rig {
-        width: min(520px, 96%);
-        aspect-ratio: 1024 / 662;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 12px 24px rgba(45, 32, 20, 0.14);
-        transform-origin: 50% 78%;
-        transition: transform 480ms var(--ease-out);
-        will-change: transform;
-      }
-
-      .puppet-rig[data-framing="face-closeup"] {
-        width: min(360px, 88%);
-        aspect-ratio: 664 / 662;
-      }
-
-      .puppet-breathe {
-        width: 100%;
-        height: 100%;
-        transform-origin: 50% 92%;
-        animation: gretel-breathe 4s ease-in-out infinite;
-      }
-
-      @keyframes gretel-breathe {
-        0%,
-        100% {
-          transform: scaleY(1);
-        }
-        50% {
-          transform: scaleY(1.007);
-        }
-      }
-
-      .reduced-motion .puppet-rig,
-      .reduced-motion .puppet-breathe {
-        animation: none !important;
-        transition: none !important;
-        transform: none !important;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .puppet-breathe {
-          animation: none !important;
-        }
-        .puppet-rig {
-          transition: none !important;
-        }
-      }
-
-      .puppet-svg {
+      .chalkboard-svg {
         width: 100%;
         height: 100%;
         display: block;
-        filter: drop-shadow(0 10px 8px rgba(45, 32, 20, 0.16));
       }
 
       .controls-grid {
         display: grid;
-        gap: 16px;
+        gap: 14px;
       }
 
-      .control-group .group-label,
-      .control-group label {
+      .control-group .group-label {
         display: block;
-        font-size: 0.82rem;
-        font-weight: 600;
+        font-size: 0.78rem;
+        font-weight: 700;
         color: var(--ink-muted);
         margin-bottom: 6px;
         text-transform: uppercase;
@@ -267,12 +231,9 @@
         position: absolute;
         width: 1px;
         height: 1px;
-        padding: 0;
-        margin: -1px;
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
         white-space: nowrap;
-        border: 0;
       }
 
       .pill-row {
@@ -283,23 +244,24 @@
 
       .pill-row button {
         padding: 6px 10px;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
+        min-height: 34px;
       }
 
       .scrubber-row {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         flex-wrap: wrap;
       }
 
       .scrubber-row input[type="range"] {
         flex: 1;
-        min-width: 140px;
+        min-width: 130px;
       }
 
       .audio-meta {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         color: var(--ink-muted);
         background: #f8f2e8;
         border: 1px solid var(--border);
@@ -311,7 +273,7 @@
       .side-by-side {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 16px;
+        gap: 14px;
       }
 
       .still-card {
@@ -327,21 +289,11 @@
       .still-thumb {
         position: relative;
         width: 100%;
-        aspect-ratio: 718 / 860;
-        background: repeating-conic-gradient(#f5efe5 0% 25%, #fdfaf5 0% 50%) 50% / 16px 16px;
+        aspect-ratio: 1024 / 662;
+        background: #1a3527;
         border-radius: 10px;
         overflow: hidden;
         border: 1px solid var(--border);
-      }
-
-      .still-thumb.full-ratio {
-        aspect-ratio: 1086 / 1448;
-      }
-
-      .still-thumb.face-zoom svg {
-        width: 100%;
-        height: 100%;
-        display: block;
       }
 
       .still-thumb img {
@@ -352,67 +304,36 @@
       }
 
       .still-title {
-        font-weight: 600;
-        font-size: 0.92rem;
+        font-weight: 700;
+        font-size: 0.9rem;
       }
 
       .still-meta {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         color: var(--ink-muted);
       }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-        background: var(--paper-card);
-        border-radius: 12px;
-        overflow: hidden;
+      .split-demo-preview {
+        margin-top: 12px;
+        display: none;
+        gap: 10px;
+        align-items: stretch;
+        background: #f3ebdc;
         border: 1px solid var(--border);
-      }
-
-      th,
-      td {
-        padding: 10px 12px;
-        border-bottom: 1px solid var(--border);
-        text-align: left;
-      }
-
-      th {
-        background: #f5eee2;
-        font-weight: 600;
-        font-size: 0.82rem;
-        text-transform: uppercase;
-        letter-spacing: 0.03em;
-      }
-
-      .decision-pills {
-        display: inline-flex;
-        gap: 6px;
-      }
-
-      .decision-pills button {
-        padding: 4px 10px;
-        font-size: 0.82rem;
-      }
-
-      .decision-pills button.yes[aria-pressed="true"] {
-        background: var(--ok);
-        border-color: var(--ok);
-      }
-
-      .decision-pills button.no[aria-pressed="true"] {
-        background: var(--accent-warm);
-        border-color: var(--accent-warm);
-      }
-
-      .audit-note {
-        margin-top: 24px;
-        padding: 14px 16px;
-        background: #f5eee2;
         border-radius: 12px;
-        font-size: 0.88rem;
-        color: var(--ink-muted);
+        padding: 10px;
+      }
+
+      .split-demo-preview[data-active="true"] {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
       }
     </style>
   </head>
@@ -422,123 +343,252 @@
         <div>
           <h1>Gretel Tutor — Vista de Aprobación de Avatar</h1>
           <p class="subtitle">
-            Revisión web (HTTP/HTTPS) del retrato de videollamada aprobado
-            (<code>1024×662</code>, sin estiramiento), piezas faciales candidatas (parpadeo, cejas y
-            visemas Rhubarb A–G / X) y sincronización labial real con audio aprobado de Gretel
-            (<code>.visemes.json</code>).
+            Escenario clásico de pizarra verde («Cartilla de Gretel», tizas y borrador en la repisa)
+            con Gretel articulada por capas reales (ojos con pupilas móviles, 5 etapas de parpadeo,
+            cejas continuas, mechones con inercia y visemas Rhubarb sincronizados con audio real).
           </p>
         </div>
         <div class="toolbar">
-          <button id="btnDesktop" type="button" aria-pressed="true">Vista Escritorio (1280×800)</button>
-          <button id="btnMobile" type="button" aria-pressed="false">Vista Móvil (390×844)</button>
+          <button id="btnModeListening" type="button" aria-pressed="false">Vista Previa A · Escuchando</button>
+          <button id="btnModeSpeaking" type="button" aria-pressed="true">Vista Previa B · Hablando + Pizarra</button>
+          <button id="btnDesktop" type="button" aria-pressed="true">Escritorio (1366×768)</button>
+          <button id="btnMobile" type="button" aria-pressed="false">Móvil (390×844)</button>
           <button id="btnReduced" type="button" aria-pressed="false">Reducir movimiento</button>
         </div>
       </header>
 
       <div class="status-banner">
         <strong>Estado de producción seguro:</strong>
-        <code>public/cartilla/images/gretel/layers/manifest.json</code> permanece
-        <strong>vacío (<code>{"layers": []}</code>)</strong>. Ninguna pieza facial candidata está
-        activa en producción. Solo las piezas aprobadas explícitamente por el propietario pueden
-        registrarse en el manifiesto.
+        <code>public/cartilla/images/gretel/layers/manifest.json</code> permanece en
+        <code>{"layers": []}</code> hasta su aprobación visual explícita. Todo funciona de forma
+        local y sin costos adicionales sobre el retrato aprobado recuperado.
       </div>
 
-      <h2>1. Vista previa interactiva con audio aprobado real y visemas Rhubarb A–G / X</h2>
       <section class="preview-shell">
         <div class="card">
           <div id="viewportFrame" class="viewport-frame" data-viewport="desktop">
-            <span id="viewportBadge" class="viewport-badge">Escritorio · Retrato videollamada 1024×662</span>
-            <span id="telemetryBadge" class="telemetry-badge">Visema: X · reposo</span>
-            <div class="puppet-stage">
-              <div id="puppetRig" class="puppet-rig" data-framing="call-portrait">
-                <div class="puppet-breathe">
-                  <svg
-                    id="puppetSvg"
-                    class="puppet-svg"
-                    viewBox="0 0 1024 662"
-                    role="img"
-                    aria-label="Vista previa animada de Gretel Tutor"
-                  >
-                    <image
-                      id="layerBasePortrait"
-                      href="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                    />
-                    <image
-                      id="layerExprThinking"
-                      href="/cartilla/images/gretel/tutor/call-candidates/expr-thinking.png"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                      style="opacity: 0; transition: opacity 240ms ease-out"
-                    />
-                    <image
-                      id="layerBrows"
-                      href="/cartilla/images/gretel/tutor/call-candidates/brows-soft-lift.png"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                      style="opacity: 0; transition: opacity 220ms ease-out"
-                    />
-                    <image
-                      id="layerMouthA"
-                      href="/cartilla/images/gretel/tutor/call-candidates/mouth-X.png"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                      style="opacity: 1; transition: opacity 75ms linear"
-                    />
-                    <image
-                      id="layerMouthB"
-                      href="/cartilla/images/gretel/tutor/call-candidates/mouth-C.png"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                      style="opacity: 0; transition: opacity 75ms linear"
-                    />
-                    <image
-                      id="layerBlinkHalf"
-                      href="/cartilla/images/gretel/tutor/call-candidates/blink-half.png"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                      style="opacity: 0; transition: opacity 42ms ease-out"
-                    />
-                    <image
-                      id="layerBlinkClosed"
-                      href="/cartilla/images/gretel/tutor/call-candidates/blink-closed.png"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                      style="opacity: 0; transition: opacity 42ms ease-out"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
+            <span id="viewportBadge" class="viewport-badge">Escritorio · Pizarra clásica + Gretel</span>
+            <span id="telemetryBadge" class="telemetry-badge">Visema: X · pupilas (0, 0)</span>
+
+            <svg
+              id="chalkboardSvg"
+              class="chalkboard-svg"
+              viewBox="0 0 1600 1000"
+              role="img"
+              aria-label="Gretel frente a su pizarra verde clásica de Cartilla de Gretel"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <defs>
+                <radialGradient id="slateGrad" cx="42%" cy="44%" r="68%">
+                  <stop offset="0%" stop-color="#234735" />
+                  <stop offset="62%" stop-color="#193426" />
+                  <stop offset="100%" stop-color="#11241a" />
+                </radialGradient>
+
+                <filter id="chalkTexture" x="-6%" y="-6%" width="112%" height="112%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="2" seed="7" result="noise" />
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.1" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+
+                <filter id="slateDust" x="0" y="0" width="100%" height="100%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="12" />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.92  0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0.055 0"
+                  />
+                </filter>
+
+                <clipPath id="chalkWriteClip">
+                  <rect id="chalkWriteRect" x="95" y="220" width="0" height="360" />
+                </clipPath>
+
+                <clipPath id="chalkEraseClip">
+                  <rect id="chalkEraseRect" x="95" y="210" width="620" height="390" />
+                </clipPath>
+
+                <clipPath id="eyeLeftClip">
+                  <path d="M 442 300 Q 464 282 489 299 Q 467 315 442 300 Z" />
+                </clipPath>
+                <clipPath id="eyeRightClip">
+                  <path d="M 555 316 Q 579 298 604 314 Q 581 330 555 316 Z" />
+                </clipPath>
+              </defs>
+
+              <!-- Vintage Oak Wood Outer Frame -->
+              <rect x="0" y="0" width="1600" height="1000" rx="22" fill="#5e371b" />
+              <rect x="10" y="10" width="1580" height="980" rx="16" fill="none" stroke="#8a5630" stroke-width="18" />
+              <rect x="22" y="22" width="1556" height="956" rx="10" fill="none" stroke="#462611" stroke-width="8" />
+
+              <!-- Deep-Green Slate + Natural Chalk Dust -->
+              <rect x="28" y="28" width="1544" height="872" rx="6" fill="url(#slateGrad)" />
+              <rect x="28" y="28" width="1544" height="872" rx="6" filter="url(#slateDust)" />
+              <ellipse cx="360" cy="430" rx="260" ry="120" fill="rgba(235, 240, 228, 0.032)" />
+              <ellipse cx="260" cy="790" rx="180" ry="45" fill="rgba(235, 240, 228, 0.04)" />
+              <line x1="96" y1="520" x2="680" y2="520" stroke="rgba(238, 242, 228, 0.09)" stroke-width="2" stroke-dasharray="10 10" />
+
+              <!-- Permanent Upper-Left "Cartilla de Gretel" Handwritten Title -->
+              <g filter="url(#chalkTexture)">
+                <text
+                  x="92"
+                  y="124"
+                  fill="#f4f1e4"
+                  fill-opacity="0.94"
+                  font-family="'Caveat', cursive"
+                  font-size="74"
+                  font-weight="700"
+                >Cartilla de Gretel</text>
+                <path
+                  d="M 94 146 Q 275 138 518 148"
+                  fill="none"
+                  stroke="#f0d98b"
+                  stroke-opacity="0.72"
+                  stroke-width="4.5"
+                  stroke-linecap="round"
+                />
+              </g>
+
+              <!-- Synchronized Interactive Teaching Chalk Area (Left Side) -->
+              <g id="chalkTeachGroup" clip-path="url(#chalkEraseClip)" filter="url(#chalkTexture)">
+                <g clip-path="url(#chalkWriteClip)">
+                  <text
+                    id="chalkWordText"
+                    x="110"
+                    y="362"
+                    fill="#faf7ed"
+                    fill-opacity="0.96"
+                    font-family="'Andika', sans-serif"
+                    font-size="82"
+                    font-weight="700"
+                  ></text>
+                  <text
+                    id="chalkSyllablesText"
+                    x="112"
+                    y="458"
+                    fill="#d9efe2"
+                    fill-opacity="0.9"
+                    font-family="'Caveat', cursive"
+                    font-size="58"
+                    font-weight="700"
+                  ></text>
+                </g>
+
+                <path
+                  id="chalkUnderlinePath"
+                  d="M 108 384 Q 240 392 380 382"
+                  fill="none"
+                  stroke="#f5db7f"
+                  stroke-width="5.5"
+                  stroke-linecap="round"
+                  pathLength="100"
+                  stroke-dasharray="100"
+                  stroke-dashoffset="100"
+                />
+
+                <ellipse
+                  id="chalkCirclePath"
+                  cx="132"
+                  cy="442"
+                  rx="46"
+                  ry="34"
+                  fill="none"
+                  stroke="#f7b79c"
+                  stroke-opacity="0.88"
+                  stroke-width="4.5"
+                  stroke-linecap="round"
+                  pathLength="100"
+                  stroke-dasharray="100"
+                  stroke-dashoffset="100"
+                />
+
+                <g id="chalkSyllableArcs"></g>
+              </g>
+
+              <!-- Animated Moving School Eraser During Wipe -->
+              <g id="movingEraser" opacity="0" transform="translate(88, 295) rotate(-8)">
+                <rect x="0" y="0" width="96" height="44" rx="6" fill="#6f4324" stroke="#422510" stroke-width="2" />
+                <rect x="4" y="34" width="88" height="14" rx="3" fill="#2c2d30" />
+                <ellipse cx="48" cy="52" rx="52" ry="8" fill="rgba(244, 241, 228, 0.25)" />
+              </g>
+
+              <!-- Prominent Right-of-Center Anatomical Torso-Up Gretel Rig -->
+              <g transform="translate(612, 34) scale(1.34)">
+                <g id="rigBreathe" style="transform-origin: 512px 620px">
+                  <g id="rigHead" style="transform-origin: 512px 510px">
+                    <image href="/cartilla/images/gretel/tutor/chalkboard-candidates/gretel-face-base.png" x="0" y="0" width="1024" height="662" />
+                    <image id="rigHairLeft" href="/cartilla/images/gretel/tutor/chalkboard-candidates/hair-curl-left.png" x="0" y="0" width="1024" height="662" style="transform-origin: 260px 390px" />
+                    <image id="rigHairRight" href="/cartilla/images/gretel/tutor/chalkboard-candidates/hair-curl-right.png" x="0" y="0" width="1024" height="662" style="transform-origin: 650px 410px" />
+
+                    <g clip-path="url(#eyeLeftClip)">
+                      <image id="rigIrisLeft" href="/cartilla/images/gretel/tutor/chalkboard-candidates/iris-left.png" x="0" y="0" width="1024" height="662" />
+                    </g>
+                    <g clip-path="url(#eyeRightClip)">
+                      <image id="rigIrisRight" href="/cartilla/images/gretel/tutor/chalkboard-candidates/iris-right.png" x="0" y="0" width="1024" height="662" />
+                    </g>
+
+                    <image href="/cartilla/images/gretel/tutor/chalkboard-candidates/eyelashes-frame.png" x="0" y="0" width="1024" height="662" />
+                    <image id="rigLid" href="/cartilla/images/gretel/tutor/chalkboard-candidates/lid-50.png" x="0" y="0" width="1024" height="662" style="visibility: hidden" />
+
+                    <image id="rigBrowLeft" href="/cartilla/images/gretel/tutor/chalkboard-candidates/brow-left.png" x="0" y="0" width="1024" height="662" style="transform-origin: 474px 232px" />
+                    <image id="rigBrowRight" href="/cartilla/images/gretel/tutor/chalkboard-candidates/brow-right.png" x="0" y="0" width="1024" height="662" style="transform-origin: 598px 248px" />
+
+                    <image id="rigMouthPrimary" href="/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-X.png" x="0" y="0" width="1024" height="662" opacity="1" />
+                    <image id="rigMouthSecondary" href="/cartilla/images/gretel/tutor/chalkboard-candidates/mouth-C.png" x="0" y="0" width="1024" height="662" opacity="0" />
+                  </g>
+                </g>
+              </g>
+
+              <!-- Lower Wooden Chalk Ledge with Chalk Sticks & Traditional Felt Eraser -->
+              <g>
+                <rect x="24" y="896" width="1552" height="16" rx="3" fill="#8b5932" />
+                <rect x="20" y="910" width="1560" height="44" rx="5" fill="#633a1d" stroke="#3f220e" stroke-width="3" />
+                <line x1="26" y1="912" x2="1574" y2="912" stroke="#a67248" stroke-width="2.5" opacity="0.7" />
+                <line x1="26" y1="950" x2="1574" y2="950" stroke="#381d0a" stroke-width="3" />
+
+                <g transform="translate(110, 868)">
+                  <rect x="4" y="20" width="128" height="14" rx="2" fill="#2c2e33" />
+                  <rect x="0" y="6" width="136" height="16" rx="4" fill="#8d5a34" stroke="#4c2c13" stroke-width="2" />
+                  <rect x="6" y="8" width="124" height="5" rx="2" fill="#ad774d" opacity="0.65" />
+                  <ellipse cx="68" cy="24" rx="54" ry="3" fill="rgba(244, 241, 228, 0.25)" />
+                </g>
+
+                <g transform="translate(278, 886) rotate(-2)">
+                  <rect x="0" y="0" width="76" height="12" rx="5" fill="#f7f5eb" stroke="#d5d1c0" stroke-width="1.5" />
+                  <ellipse cx="73" cy="6" rx="3.5" ry="5.5" fill="#e2ded0" />
+                </g>
+                <g transform="translate(368, 888) rotate(3.5)">
+                  <rect x="0" y="0" width="52" height="11" rx="4.5" fill="#f4e08e" stroke="#cfba67" stroke-width="1.5" />
+                </g>
+                <g transform="translate(436, 885) rotate(-5)">
+                  <rect x="0" y="0" width="60" height="11" rx="4.5" fill="#f5b8a4" stroke="#cf937e" stroke-width="1.5" />
+                </g>
+                <g transform="translate(508, 888) rotate(1.5)">
+                  <rect x="0" y="0" width="46" height="11" rx="4.5" fill="#b7deec" stroke="#8cb6c7" stroke-width="1.5" />
+                </g>
+              </g>
+            </svg>
           </div>
         </div>
 
         <div class="card controls-grid">
+          <div class="control-group">
+            <span class="group-label">Demostraciones funcionales (A y B)</span>
+            <div class="scrubber-row">
+              <button id="btnDemoListening" type="button">A · Escucha natural</button>
+              <button id="btnDemoSpeakingChalkboard" type="button" class="primary">B · Hablar + pizarra</button>
+            </div>
+          </div>
+
           <div class="control-group">
             <span class="group-label">Audio aprobado real + visemas Rhubarb (.visemes.json)</span>
             <div class="pill-row" id="audioSamplePills">
               <button type="button" data-sample="abeja" aria-pressed="true">«abeja» (1.56 s)</button>
               <button type="button" data-sample="abanico" aria-pressed="false">«abanico» (2.05 s)</button>
               <button type="button" data-sample="oso" aria-pressed="false">«oso» (1.49 s)</button>
+              <button type="button" data-sample="elefante" aria-pressed="false">«elefante»</button>
+              <button type="button" data-sample="escuela" aria-pressed="false">«escuela»</button>
             </div>
-            <div class="scrubber-row" style="margin-top: 10px">
-              <button id="btnPlayAudio" type="button" class="primary">Reproducir voz real + labios</button>
-              <button id="btnDemoInteraction" type="button">Demo: Hablar y escuchar al niño</button>
+            <div class="scrubber-row" style="margin-top: 8px">
+              <button id="btnPlayAudio" type="button" class="primary">Reproducir voz real + tiza</button>
               <button id="btnPauseAudio" type="button">Pausar</button>
               <button id="btnBlinkNow" type="button">Parpadear</button>
             </div>
@@ -554,329 +604,423 @@
           </div>
 
           <div class="control-group">
-            <span class="group-label">Encuadre nativo (sin estiramiento)</span>
-            <div class="pill-row">
-              <button type="button" data-framing-btn="call-portrait" aria-pressed="true">Retrato videollamada (1024×662)</button>
-              <button type="button" data-framing-btn="face-closeup" aria-pressed="false">Primer plano cuadrado (664×662)</button>
+            <span class="group-label">Modos de presentación FaceTime</span>
+            <div class="pill-row" id="layoutPills">
+              <button type="button" data-layout="call" aria-pressed="true">Llamada completa</button>
+              <button type="button" data-layout="split" aria-pressed="false">Dividida (Rotafolio)</button>
+              <button type="button" data-layout="flipchart-pip" aria-pressed="false">PiP móvil</button>
             </div>
           </div>
 
           <div class="control-group">
-            <span class="group-label">Prueba manual de visemas Rhubarb A–G / X</span>
-            <div class="pill-row" id="visemePills">
-              <button type="button" data-viseme="X" aria-pressed="true">X (reposo)</button>
-              <button type="button" data-viseme="A" aria-pressed="false">A (M/B/P)</button>
-              <button type="button" data-viseme="B" aria-pressed="false">B</button>
-              <button type="button" data-viseme="C" aria-pressed="false">C (E/A)</button>
-              <button type="button" data-viseme="D" aria-pressed="false">D (A abierta)</button>
-              <button type="button" data-viseme="E" aria-pressed="false">E (O)</button>
-              <button type="button" data-viseme="F" aria-pressed="false">F (U)</button>
-              <button type="button" data-viseme="G" aria-pressed="false">G (F/V)</button>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <span class="group-label">Canales sutiles (cero rebotes, cero escalado labial)</span>
+            <span class="group-label">Expresión facial y mirada independiente</span>
             <div class="pill-row" id="expressionPills">
-              <button type="button" data-expr="neutral" aria-pressed="true">Neutral</button>
               <button type="button" data-expr="listening" aria-pressed="false">Escuchando</button>
               <button type="button" data-expr="thinking" aria-pressed="false">Pensando</button>
+              <button type="button" data-expr="speaking" aria-pressed="true">Hablando</button>
               <button type="button" data-expr="smiling" aria-pressed="false">Sonriendo</button>
               <button type="button" data-expr="encouraging" aria-pressed="false">Ánimo</button>
-              <button type="button" data-expr="nodding" aria-pressed="false">Asintiendo</button>
-              <button type="button" data-expr="pointing" aria-pressed="false">Señalando</button>
-              <button type="button" data-expr="farewell" aria-pressed="false">Despedida</button>
             </div>
-          </div>
-
-          <div class="control-group">
-            <span class="group-label">Dirección de mirada (sutil)</span>
-            <div class="pill-row" id="gazePills">
-              <button type="button" data-gaze="student" aria-pressed="true">Estudiante</button>
-              <button type="button" data-gaze="board-left" aria-pressed="false">Lámina izq.</button>
-              <button type="button" data-gaze="board-right" aria-pressed="false">Lámina der.</button>
-              <button type="button" data-gaze="down-notes" aria-pressed="false">Cuaderno</button>
+            <div class="pill-row" id="gazePills" style="margin-top: 6px">
+              <button type="button" data-gaze="student" aria-pressed="true">Mirar al niño</button>
+              <button type="button" data-gaze="chalkboard-teaching" aria-pressed="false">Mirar a la pizarra</button>
+              <button type="button" data-gaze="thinking-up" aria-pressed="false">Mirada pensativa</button>
             </div>
           </div>
         </div>
       </section>
 
-      <h2>2. Comparación lado a lado: Retratos Aprobados de Gretel Tutor vs. Maestro Completo</h2>
+      <h2>Referencia recuperada intacta (sin re-subir ni alterar originales)</h2>
       <section class="side-by-side">
         <div class="still-card">
-          <div class="still-thumb" style="aspect-ratio: 1024 / 662">
-            <img
-              src="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg"
-              alt="Gretel retrato aprobado de videollamada"
-            />
+          <div class="still-thumb">
+            <img src="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg" alt="Retrato aprobado recuperado" />
           </div>
-          <div class="still-title">Retrato de videollamada (base Tutor)</div>
-          <div class="still-meta">1024×662 JPG · Aprobado 2026-11-26 · Base para capas faciales</div>
+          <div class="still-title">Retrato aprobado recuperado</div>
+          <div class="still-meta">1024×662 JPG · Fuente de las capas anatómicas</div>
         </div>
-
         <div class="still-card">
           <div class="still-thumb" style="aspect-ratio: 1 / 1">
-            <img
-              src="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-presenting.jpg"
-              alt="Gretel retrato aprobado de presentación"
-            />
+            <img src="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-presenting.jpg" alt="Retrato aprobado presentando" />
           </div>
           <div class="still-title">Retrato de saludo y presentación</div>
-          <div class="still-meta">1024×1024 JPG · Aprobado 2026-11-26 · Saludo y énfasis</div>
+          <div class="still-meta">1024×1024 JPG · Reservado para saludos y logros</div>
         </div>
-
         <div class="still-card">
-          <div class="still-thumb full-ratio">
-            <img
-              src="/cartilla/images/gretel/gretel-approved-master.png"
-              alt="Gretel maestro aprobado completo"
-            />
+          <div class="still-thumb" style="aspect-ratio: 1086 / 1448">
+            <img src="/cartilla/images/gretel/gretel-approved-master.png" alt="Gretel cuerpo completo intacto" />
           </div>
           <div class="still-title">Maestro cuerpo completo (intacto)</div>
-          <div class="still-meta">1086×1448 PNG · Sin modificaciones en el resto de la app</div>
+          <div class="still-meta">1086×1448 PNG · Intacto en toda la Cartilla</div>
         </div>
       </section>
-
-      <h2>3. Piezas faciales candidatas (acercamiento sobre el rostro maestro)</h2>
-      <section class="side-by-side" id="candidateGrid"></section>
-
-      <h2>4. Lista de aprobación del propietario (LAYER-PACK-SPEC Paso C)</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Pieza</th>
-            <th>Rol / Visema</th>
-            <th>Canvas</th>
-            <th>Decisión (Sí / No)</th>
-            <th>En <code>layers/manifest.json</code></th>
-          </tr>
-        </thead>
-        <tbody id="approvalTableBody"></tbody>
-      </table>
-
-      <div class="audit-note">
-        <strong>Nota de seguridad y activos:</strong> Esta vista utiliza únicamente rutas web
-        relativas (<code>/cartilla/images/gretel/...</code> y <code>/audio/voz/...</code>), nunca
-        rutas locales del sistema de archivos. Ninguna capa candidata está activada en producción
-        mientras <code>public/cartilla/images/gretel/layers/manifest.json</code> permanezca en
-        <code>{"layers": []}</code>.
-      </div>
     </main>
 
     <script>
-      const MASTER_SRC = "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg";
-      const CAND_BASE = "/cartilla/images/gretel/tutor/call-candidates/";
-
+      const RIG_BASE = "/cartilla/images/gretel/tutor/chalkboard-candidates/";
       const AUDIO_SAMPLES = {
         abeja: {
-          label: "abeja",
+          word: "abeja",
+          syllables: ["a", "be", "ja"],
           audioSrc: "/audio/voz/vocabulario/abeja.mp3",
           visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-abeja.visemes.json",
           fallbackDuration: 1.56,
         },
         abanico: {
-          label: "abanico",
+          word: "abanico",
+          syllables: ["a", "ba", "ni", "co"],
           audioSrc: "/audio/voz/vocabulario/abanico.mp3",
           visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-abanico.visemes.json",
           fallbackDuration: 2.05,
         },
         oso: {
-          label: "oso",
+          word: "oso",
+          syllables: ["o", "so"],
           audioSrc: "/audio/voz/vocabulario/oso.mp3",
           visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-oso.visemes.json",
           fallbackDuration: 1.49,
         },
+        elefante: {
+          word: "elefante",
+          syllables: ["e", "le", "fan", "te"],
+          audioSrc: "/audio/voz/vocabulario/elefante.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-elefante.visemes.json",
+          fallbackDuration: 1.72,
+        },
+        escuela: {
+          word: "escuela",
+          syllables: ["es", "cue", "la"],
+          audioSrc: "/audio/voz/vocabulario/escuela.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-escuela.visemes.json",
+          fallbackDuration: 1.65,
+        },
       };
 
-      const CANDIDATES = [
-        { id: "blink-half", role: "blink", label: "Párpados semicerrados (pintado a mano)", file: "blink-half.png" },
-        { id: "blink-closed", role: "blink", label: "Párpados cerrados (parpadeo natural)", file: "blink-closed.png" },
-        { id: "brows-soft-lift", role: "brows", label: "Cejas (atención afectuosa)", file: "brows-soft-lift.png" },
-        { id: "expr-listening", role: "expression", label: "Expresión — Escuchando al niño con atención", file: "expr-listening.png" },
-        { id: "expr-thinking", role: "expression", label: "Expresión — Pensando / recordando con curiosidad", file: "expr-thinking.png" },
-        { id: "mouth-X", role: "mouth (X)", label: "Boca X — Sonrisa suave de reposo", file: "mouth-X.png" },
-        { id: "mouth-A", role: "mouth (A)", label: "Boca A — Bilabial cerrada (M/B/P)", file: "mouth-A.png" },
-        { id: "mouth-B", role: "mouth (B)", label: "Boca B — Sonrisa media (E/I/S/T/N)", file: "mouth-B.png" },
-        { id: "mouth-C", role: "mouth (C)", label: "Boca C — Habla abierta natural", file: "mouth-C.png" },
-        { id: "mouth-D", role: "mouth (D)", label: "Boca D — Vocal abierta amplia (A)", file: "mouth-D.png" },
-        { id: "mouth-E", role: "mouth (E)", label: "Boca E — Vocal redondeada (O)", file: "mouth-E.png" },
-        { id: "mouth-F", role: "mouth (F)", label: "Boca F — Vocal cerrada redondeada (U)", file: "mouth-F.png" },
-        { id: "mouth-G", role: "mouth (G)", label: "Boca G — Labiodental suave (F/V/L/D)", file: "mouth-G.png" },
-      ];
-
-      const EXPR_TRANSFORMS = {
-        neutral: { tilt: 0, x: 0, y: 0, brows: false, thinking: false },
-        listening: { tilt: 2.6, x: 0, y: 1.2, brows: true, thinking: false },
-        thinking: { tilt: -2.2, x: 1.4, y: -0.6, brows: true, thinking: true },
-        smiling: { tilt: 1.1, x: 0, y: 0, brows: true, thinking: false },
-        encouraging: { tilt: 1.5, x: 0, y: 1.8, brows: true, thinking: false },
-        nodding: { tilt: 0.7, x: 0, y: 2.4, brows: true, thinking: false },
-        pointing: { tilt: -1.2, x: -3.2, y: 0, brows: false, thinking: false },
-        farewell: { tilt: 1.8, x: 0, y: 0, brows: true, thinking: false },
+      const EXPR_CFG = {
+        listening: { browY: -1.9, browTilt: 0.9, tilt: 2.1, x: 0.3, y: 1.0 },
+        thinking: { browY: -2.2, browTilt: 1.4, tilt: -2.0, x: 1.4, y: -0.4 },
+        speaking: { browY: -1.1, browTilt: 0.4, tilt: 0.4, x: 0, y: 0 },
+        smiling: { browY: -1.4, browTilt: 0.6, tilt: 1.0, x: 0, y: 0 },
+        encouraging: { browY: -2.2, browTilt: 1.0, tilt: 1.4, x: 0, y: 1.3 },
       };
 
-      const GAZE_X = { student: 0, "board-left": -1.5, "board-right": 1.5, "down-notes": 0.4 };
+      const GAZE_CFG = {
+        student: { x: 0, y: 0 },
+        "chalkboard-teaching": { x: -3.8, y: -0.4 },
+        "thinking-up": { x: -2.1, y: -2.3 },
+      };
 
       let currentSampleKey = "abeja";
       let activeCues = [];
       let activeDuration = 1.56;
-      let currentExpr = "neutral";
+      let currentExpr = "speaking";
       let currentGaze = "student";
       let reducedMotion = false;
-      let rafId = 0;
-      let lifeRafId = 0;
-      let demoTimeoutIds = [];
+      let isPlayingAudio = false;
+      let manualBoardTime = 1.3;
+      let blinkStartMs = -1;
+      let demoTimers = [];
+      let demoPhase = "idle";
+
+      const params = new URLSearchParams(window.location.search);
+      const urlMode = params.get("mode");
+      if (urlMode === "listening") currentExpr = "listening";
 
       const viewportFrame = document.getElementById("viewportFrame");
       const viewportBadge = document.getElementById("viewportBadge");
       const telemetryBadge = document.getElementById("telemetryBadge");
-      const puppetRig = document.getElementById("puppetRig");
-      const puppetSvg = document.getElementById("puppetSvg");
-      const layerMouthA = document.getElementById("layerMouthA");
-      const layerMouthB = document.getElementById("layerMouthB");
-      const layerExprThinking = document.getElementById("layerExprThinking");
-      const layerBrows = document.getElementById("layerBrows");
-      const layerBlinkHalf = document.getElementById("layerBlinkHalf");
-      const layerBlinkClosed = document.getElementById("layerBlinkClosed");
+      const chalkboardSvg = document.getElementById("chalkboardSvg");
+      const rigHead = document.getElementById("rigHead");
+      const rigBreathe = document.getElementById("rigBreathe");
+      const rigHairLeft = document.getElementById("rigHairLeft");
+      const rigHairRight = document.getElementById("rigHairRight");
+      const rigIrisLeft = document.getElementById("rigIrisLeft");
+      const rigIrisRight = document.getElementById("rigIrisRight");
+      const rigLid = document.getElementById("rigLid");
+      const rigBrowLeft = document.getElementById("rigBrowLeft");
+      const rigBrowRight = document.getElementById("rigBrowRight");
+      const rigMouthPrimary = document.getElementById("rigMouthPrimary");
+      const rigMouthSecondary = document.getElementById("rigMouthSecondary");
+      const chalkWriteRect = document.getElementById("chalkWriteRect");
+      const chalkEraseRect = document.getElementById("chalkEraseRect");
+      const chalkWordText = document.getElementById("chalkWordText");
+      const chalkSyllablesText = document.getElementById("chalkSyllablesText");
+      const chalkUnderlinePath = document.getElementById("chalkUnderlinePath");
+      const chalkCirclePath = document.getElementById("chalkCirclePath");
+      const chalkSyllableArcs = document.getElementById("chalkSyllableArcs");
+      const movingEraser = document.getElementById("movingEraser");
+      const voiceAudio = document.getElementById("voiceAudio");
       const timeScrubber = document.getElementById("timeScrubber");
       const timeLabel = document.getElementById("timeLabel");
-      const voiceAudio = document.getElementById("voiceAudio");
       const audioMeta = document.getElementById("audioMeta");
 
-      let activeMouthSlot = "A";
-      let currentVisemeShape = "X";
+      // Preload all 20 parts cleanly
+      [
+        "gretel-face-base.png",
+        "iris-left.png",
+        "iris-right.png",
+        "eyelashes-frame.png",
+        "lid-25.png",
+        "lid-50.png",
+        "lid-75.png",
+        "lid-100.png",
+        "brow-left.png",
+        "brow-right.png",
+        "hair-curl-left.png",
+        "hair-curl-right.png",
+        "mouth-X.png",
+        "mouth-A.png",
+        "mouth-B.png",
+        "mouth-C.png",
+        "mouth-D.png",
+        "mouth-E.png",
+        "mouth-F.png",
+        "mouth-G.png",
+      ].forEach((f) => {
+        const im = new Image();
+        im.src = RIG_BASE + f;
+      });
 
-      function applyPose(nowMs = performance.now()) {
-        const cfg = EXPR_TRANSFORMS[currentExpr] || EXPR_TRANSFORMS.neutral;
-        const gx = GAZE_X[currentGaze] || 0;
-        if (reducedMotion) {
-          puppetRig.style.transform = "none";
-          layerBrows.style.opacity = "0";
-          layerExprThinking.style.opacity = "0";
-          return;
-        }
-        const t = nowMs * 0.001;
-        const isSpeakingNow = !voiceAudio.paused && !voiceAudio.ended;
-        // Organic multi-sine micro-motion: warm speaking cadence or attentive listening nods
-        let swayX = Math.sin(t * 0.85) * 1.1 + Math.sin(t * 1.7) * 0.45;
-        let swayY = Math.cos(t * 0.95) * 0.8;
-        let swayTilt = Math.sin(t * 0.72) * 0.55;
-
-        if (isSpeakingNow) {
-          swayY += Math.sin(t * 5.2) * 0.95;
-          swayTilt += Math.sin(t * 3.4) * 0.65;
-        } else if (currentExpr === "listening" || currentExpr === "encouraging" || currentExpr === "nodding") {
-          // Gentle affirmative listening nods when the child is speaking
-          const nodWave = Math.max(0, Math.sin(t * 2.4));
-          swayY += Math.pow(nodWave, 2) * 2.6;
-        }
-
-        const totalX = (cfg.x + gx + swayX).toFixed(2);
-        const totalY = (cfg.y + swayY).toFixed(2);
-        const totalTilt = (cfg.tilt + swayTilt).toFixed(2);
-        puppetRig.style.transform = `translate3d(${totalX}px, ${totalY}px, 0) rotate(${totalTilt}deg)`;
-        layerBrows.style.opacity = cfg.brows || isSpeakingNow ? "1" : "0";
-        layerExprThinking.style.opacity = cfg.thinking && !isSpeakingNow ? "1" : "0";
+      function clamp(v, lo, hi) {
+        return Math.max(lo, Math.min(hi, v));
       }
 
-      function startLifeLoop() {
-        function tick(now) {
-          applyPose(now);
-          lifeRafId = requestAnimationFrame(tick);
-        }
-        if (!lifeRafId) lifeRafId = requestAnimationFrame(tick);
-      }
-
-      /**
-       * Smoothly cross-fades between dual mouth layers (layerMouthA / layerMouthB)
-       * so phoneme transitions never snap abruptly.
-       */
-      function setViseme(shape, sourceLabel = "manual", blendWeight = 1.0, nextShape = null) {
-        const effective = reducedMotion ? "X" : shape;
-        if (nextShape && !reducedMotion && nextShape !== effective && blendWeight < 0.98) {
-          // Coarticulated dual-layer blend across phoneme boundary
-          layerMouthA.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
-          layerMouthB.setAttribute("href", `${CAND_BASE}mouth-${nextShape}.png`);
-          layerMouthA.style.opacity = blendWeight.toFixed(2);
-          layerMouthB.style.opacity = (1 - blendWeight).toFixed(2);
-        } else if (effective !== currentVisemeShape) {
-          currentVisemeShape = effective;
-          if (activeMouthSlot === "A") {
-            layerMouthB.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
-            layerMouthB.style.opacity = "1";
-            layerMouthA.style.opacity = "0";
-            activeMouthSlot = "B";
-          } else {
-            layerMouthA.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
-            layerMouthA.style.opacity = "1";
-            layerMouthB.style.opacity = "0";
-            activeMouthSlot = "A";
-          }
-        }
-        telemetryBadge.textContent = `Visema: ${effective} · ${reducedMotion ? "reducir-movimiento" : sourceLabel}`;
-        document.querySelectorAll("#visemePills button").forEach((btn) => {
-          btn.setAttribute("aria-pressed", String(btn.dataset.viseme === effective));
+      function renderSyllableArcsDOM(syllables) {
+        chalkSyllableArcs.innerHTML = "";
+        syllables.forEach((_, i) => {
+          const ax0 = 115 + i * 92;
+          const ax1 = ax0 + 74;
+          const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          p.setAttribute("d", `M ${ax0} 488 Q ${(ax0 + ax1) / 2} 516 ${ax1} 488`);
+          p.setAttribute("fill", "none");
+          p.setAttribute("stroke", "#b8e2cb");
+          p.setAttribute("stroke-width", "4");
+          p.setAttribute("stroke-linecap", "round");
+          p.setAttribute("pathLength", "100");
+          p.setAttribute("stroke-dasharray", "100");
+          p.setAttribute("stroke-dashoffset", "100");
+          p.dataset.arcIdx = String(i);
+          chalkSyllableArcs.appendChild(p);
         });
       }
 
-      /**
-       * Resolves current Rhubarb viseme PLUS smooth coarticulation lookahead
-       * (55ms cross-fade window before the next phoneme cue).
-       */
+      function updateChalkboardVisual(word, syllables, t, durationSec, eraseFlag = false, eraseProg = 0) {
+        if (demoPhase === "listening") {
+          chalkWordText.textContent = "Te escucho…";
+          chalkWordText.setAttribute("font-size", "72");
+          chalkSyllablesText.textContent = "Te toca leer";
+          chalkWriteRect.setAttribute("width", "580");
+          chalkUnderlinePath.setAttribute("stroke-dashoffset", "0");
+          chalkCirclePath.setAttribute("stroke-dashoffset", "100");
+          chalkSyllableArcs.innerHTML = "";
+          chalkEraseRect.setAttribute("x", "95");
+          chalkEraseRect.setAttribute("width", "580");
+          movingEraser.setAttribute("opacity", "0");
+          return null;
+        }
+
+        chalkWordText.textContent = word;
+        chalkWordText.setAttribute("font-size", word.length > 10 ? "58" : "82");
+        chalkSyllablesText.textContent = syllables.length > 1 ? syllables.join(" · ") : "";
+        if (chalkSyllableArcs.childElementCount !== syllables.length) {
+          renderSyllableArcsDOM(syllables);
+        }
+
+        if (reducedMotion) {
+          chalkWriteRect.setAttribute("width", "620");
+          chalkUnderlinePath.setAttribute("stroke-dashoffset", "0");
+          chalkCirclePath.setAttribute("stroke-dashoffset", "0");
+          chalkSyllableArcs.querySelectorAll("path").forEach((el) => el.setAttribute("stroke-dashoffset", "0"));
+          chalkEraseRect.setAttribute("x", "95");
+          chalkEraseRect.setAttribute("width", "620");
+          movingEraser.setAttribute("opacity", "0");
+          return "student";
+        }
+
+        const writeEnd = Math.min(durationSec * 0.28, 0.48);
+        const wp = clamp(t / Math.max(0.01, writeEnd), 0, 1);
+        const wEase = 1 - Math.pow(1 - wp, 3);
+        chalkWriteRect.setAttribute("width", (620 * wEase).toFixed(1));
+
+        const ulP = clamp((t - writeEnd * 0.6) / 0.42, 0, 1);
+        chalkUnderlinePath.setAttribute("stroke-dashoffset", String((1 - (1 - Math.pow(1 - ulP, 3))) * 100));
+
+        const cirP = clamp((t - writeEnd * 0.85) / 0.46, 0, 1);
+        chalkCirclePath.setAttribute("stroke-dashoffset", String((1 - (1 - Math.pow(1 - cirP, 3))) * 100));
+
+        const arcStart = writeEnd * 0.65;
+        const arcSpan = Math.max(0.25, durationSec * 0.88 - arcStart) / Math.max(1, syllables.length);
+        chalkSyllableArcs.querySelectorAll("path").forEach((el, idx) => {
+          const ap = clamp((t - (arcStart + idx * arcSpan)) / arcSpan, 0, 1);
+          el.setAttribute("stroke-dashoffset", String((1 - (1 - Math.pow(1 - ap, 3))) * 100));
+          const isCur = t >= arcStart + idx * arcSpan && t < arcStart + (idx + 1) * arcSpan;
+          el.setAttribute("stroke", isCur ? "#f7de83" : "#b8e2cb");
+          el.setAttribute("stroke-width", isCur ? "5" : "3.5");
+        });
+
+        if (eraseFlag) {
+          chalkEraseRect.setAttribute("x", String(95 + 620 * eraseProg));
+          chalkEraseRect.setAttribute("width", String(Math.max(0, 620 * (1 - eraseProg))));
+          movingEraser.setAttribute("opacity", eraseProg > 0.02 && eraseProg < 0.98 ? "0.94" : "0");
+          movingEraser.setAttribute("transform", `translate(${88 + 560 * eraseProg}, 295) rotate(-8)`);
+        } else {
+          chalkEraseRect.setAttribute("x", "95");
+          chalkEraseRect.setAttribute("width", "620");
+          movingEraser.setAttribute("opacity", "0");
+        }
+
+        return wp > 0.02 && wp < 0.98 || cirP > 0.05 && cirP < 0.85 ? "chalkboard-teaching" : null;
+      }
+
       function resolveCueWithCoarticulation(t) {
         for (let i = 0; i < activeCues.length; i++) {
           const cue = activeCues[i];
           if (t >= cue.start && t < cue.end) {
             const cur = cue.value || cue.shape || "X";
-            const nextCue = activeCues[i + 1];
-            const windowSec = 0.055;
-            if (nextCue && cue.end - t < windowSec) {
-              const nxt = nextCue.value || nextCue.shape || "X";
-              const w = Math.max(0, Math.min(1, (cue.end - t) / windowSec));
-              return { shape: cur, nextShape: nxt, weight: w };
+            const next = activeCues[i + 1];
+            const nxt = next ? next.value || next.shape || "X" : cur;
+            const win = nxt === "A" || nxt === "X" ? 0.038 : 0.055;
+            const rem = cue.end - t;
+            if (nxt !== cur && rem < win) {
+              const w = clamp(rem / win, 0, 1);
+              return { p: cur, s: nxt, po: w, so: 1 - w };
             }
-            return { shape: cur, nextShape: null, weight: 1.0 };
+            return { p: cur, s: null, po: 1, so: 0 };
           }
         }
-        return { shape: "X", nextShape: null, weight: 1.0 };
-      }
-
-      function resolveCue(t) {
-        return resolveCueWithCoarticulation(t).shape;
+        return { p: "X", s: null, po: 1, so: 0 };
       }
 
       function triggerBlink() {
         if (reducedMotion) return;
-        layerBlinkHalf.style.opacity = "1";
-        setTimeout(() => {
-          layerBlinkClosed.style.opacity = "1";
-          layerBlinkHalf.style.opacity = "0";
-        }, 48);
-        setTimeout(() => {
-          layerBlinkHalf.style.opacity = "1";
-          layerBlinkClosed.style.opacity = "0";
-        }, 130);
-        setTimeout(() => {
-          layerBlinkHalf.style.opacity = "0";
-        }, 185);
+        blinkStartMs = performance.now();
       }
 
-      function stopAudioSync() {
-        cancelAnimationFrame(rafId);
-        rafId = 0;
+      function stepBlink(nowMs) {
+        if (blinkStartMs < 0) {
+          rigLid.style.visibility = "hidden";
+          return 0;
+        }
+        const el = nowMs - blinkStartMs;
+        if (el >= 190) {
+          blinkStartMs = -1;
+          rigLid.style.visibility = "hidden";
+          return 0;
+        }
+        let stage = 0;
+        if (el < 55) stage = el < 19 ? 25 : el < 38 ? 50 : 75;
+        else if (el < 95) stage = 100;
+        else {
+          const op = (el - 95) / 95;
+          stage = op < 0.33 ? 75 : op < 0.67 ? 50 : 25;
+        }
+        if (stage > 0) {
+          rigLid.setAttribute("href", `${RIG_BASE}lid-${stage}.png`);
+          rigLid.style.visibility = "visible";
+        }
+        return stage;
       }
 
-      function syncFrame() {
-        if (voiceAudio.paused || voiceAudio.ended) {
-          stopAudioSync();
+      function tickFrame(nowMs) {
+        const t = nowMs * 0.001;
+        const sample = AUDIO_SAMPLES[currentSampleKey];
+
+        // Media time
+        const mediaPlaying = !voiceAudio.paused && !voiceAudio.ended;
+        const speechTime = mediaPlaying ? voiceAudio.currentTime || 0 : manualBoardTime;
+        if (mediaPlaying) {
+          timeScrubber.value = Math.min(speechTime, activeDuration).toFixed(2);
+          timeLabel.textContent = `${speechTime.toFixed(2)} s`;
+        }
+
+        const boardGaze = updateChalkboardVisual(
+          sample.word,
+          sample.syllables,
+          speechTime,
+          activeDuration,
+          demoPhase === "erasing",
+          demoPhase === "erasing" ? clamp((nowMs - eraseStartMs) / 420, 0, 1) : 0,
+        );
+
+        const exprKey = mediaPlaying ? "speaking" : currentExpr;
+        const expr = EXPR_CFG[exprKey] || EXPR_CFG.speaking;
+        const effectiveGaze = reducedMotion ? "student" : (boardGaze || currentGaze);
+        const gaze = GAZE_CFG[effectiveGaze] || GAZE_CFG.student;
+
+        if (reducedMotion) {
+          rigBreathe.style.transform = "scaleY(1)";
+          rigHead.style.transform = "none";
+          rigHairLeft.style.transform = "none";
+          rigHairRight.style.transform = "none";
+          rigIrisLeft.style.transform = "none";
+          rigIrisRight.style.transform = "none";
+          rigBrowLeft.style.transform = "none";
+          rigBrowRight.style.transform = "none";
+          rigLid.style.visibility = "hidden";
+          rigMouthPrimary.setAttribute("href", `${RIG_BASE}mouth-X.png`);
+          rigMouthPrimary.setAttribute("opacity", "1");
+          rigMouthSecondary.setAttribute("opacity", "0");
+          telemetryBadge.textContent = "Visema: X · reducir-movimiento";
+          requestAnimationFrame(tickFrame);
           return;
         }
-        const t = voiceAudio.currentTime || 0;
-        timeScrubber.value = Math.min(t, activeDuration).toFixed(2);
-        timeLabel.textContent = `${t.toFixed(2)} s`;
-        const co = resolveCueWithCoarticulation(t);
-        setViseme(co.shape, `audio:${currentSampleKey}`, co.weight, co.nextShape);
-        rafId = requestAnimationFrame(syncFrame);
+
+        // Independent pupil movement + micro-saccades
+        const saccX = Math.sin(t * 1.15) * 0.35 + Math.sin(t * 2.9) * 0.18;
+        const saccY = Math.cos(t * 0.95) * 0.22;
+        const px = clamp(gaze.x + saccX, -4.5, 4.5);
+        const py = clamp(gaze.y + saccY, -2.8, 2.8);
+        rigIrisLeft.style.transform = `translate3d(${px.toFixed(2)}px, ${py.toFixed(2)}px, 0)`;
+        rigIrisRight.style.transform = `translate3d(${px.toFixed(2)}px, ${py.toFixed(2)}px, 0)`;
+
+        // 5-stage smooth blink
+        stepBlink(nowMs);
+
+        // Continuous eyebrows
+        const browDrift = mediaPlaying ? Math.sin(t * 2.4) * 0.55 : Math.sin(t * 0.9) * 0.25;
+        const bY = clamp(expr.browY + browDrift, -3.5, 3.5);
+        rigBrowLeft.style.transform = `translate3d(0px, ${bY.toFixed(2)}px, 0) rotate(${-expr.browTilt}deg)`;
+        rigBrowRight.style.transform = `translate3d(0px, ${(bY * 0.95).toFixed(2)}px, 0) rotate(${expr.browTilt}deg)`;
+
+        // Calm head movement + nodding (zero bounce)
+        let hx = expr.x + Math.sin(t * 0.78) * 1.1 + gaze.x * 0.22;
+        let hy = expr.y + Math.cos(t * 0.92) * 0.65;
+        let ht = expr.tilt + Math.sin(t * 0.68) * 0.55;
+        if (mediaPlaying) {
+          hy += Math.sin(t * 4.6) * 0.85;
+          ht += Math.sin(t * 3.1) * 0.55;
+        } else if (exprKey === "listening" || exprKey === "encouraging") {
+          const nod = Math.max(0, Math.sin(t * 2.35));
+          hy += nod * nod * 1.6;
+        }
+        rigHead.style.transform = `translate3d(${hx.toFixed(2)}px, ${hy.toFixed(2)}px, 0) rotate(${ht.toFixed(2)}deg)`;
+
+        // 4.1s calm breathing + lagged hair curl follow-through
+        const br = 1 + (Math.sin((t / 4.1) * Math.PI * 2) * 0.5 + 0.5) * 0.006;
+        rigBreathe.style.transform = `scaleY(${br.toFixed(5)})`;
+
+        const lagT = t - 0.32;
+        const lagTilt = expr.tilt + Math.sin(lagT * 0.68) * 0.55;
+        const hl = clamp(-lagTilt * 0.34 + Math.sin(lagT * 0.88) * 0.25, -1.1, 1.1);
+        const hr = clamp(-lagTilt * 0.32 + Math.sin(lagT * 0.88 - 0.18) * 0.25, -1.1, 1.1);
+        rigHairLeft.style.transform = `rotate(${hl.toFixed(2)}deg)`;
+        rigHairRight.style.transform = `rotate(${hr.toFixed(2)}deg)`;
+
+        // Coarticulated Rhubarb mouth shapes
+        const co = mediaPlaying
+          ? resolveCueWithCoarticulation(speechTime)
+          : { p: "X", s: null, po: 1, so: 0 };
+        rigMouthPrimary.setAttribute("href", `${RIG_BASE}mouth-${co.p}.png`);
+        rigMouthPrimary.setAttribute("opacity", String(co.po.toFixed(2)));
+        if (co.s) {
+          rigMouthSecondary.setAttribute("href", `${RIG_BASE}mouth-${co.s}.png`);
+          rigMouthSecondary.setAttribute("opacity", String(co.so.toFixed(2)));
+        } else {
+          rigMouthSecondary.setAttribute("opacity", "0");
+        }
+
+        telemetryBadge.textContent = `Visema: ${co.p} · pupilas (${px.toFixed(1)}, ${py.toFixed(1)})`;
+        requestAnimationFrame(tickFrame);
       }
 
       async function loadSample(sampleKey) {
@@ -884,21 +1028,18 @@
         if (!sample) return;
         currentSampleKey = sampleKey;
         voiceAudio.pause();
-        stopAudioSync();
         voiceAudio.src = sample.audioSrc;
         voiceAudio.currentTime = 0;
+        manualBoardTime = sample.fallbackDuration;
         timeScrubber.value = "0";
         timeLabel.textContent = "0.00 s";
-        setViseme("X", "reposo");
-
-        document.querySelectorAll("#audioSamplePills button").forEach((btn) => {
-          btn.setAttribute("aria-pressed", String(btn.dataset.sample === sampleKey));
+        document.querySelectorAll("#audioSamplePills button").forEach((b) => {
+          b.setAttribute("aria-pressed", String(b.dataset.sample === sampleKey));
         });
-
         try {
-          const response = await fetch(sample.visemeSrc);
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const data = await response.json();
+          const res = await fetch(sample.visemeSrc);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
           activeCues = Array.isArray(data.mouthCues) ? data.mouthCues : [];
           activeDuration =
             typeof data?.metadata?.duration === "number"
@@ -907,252 +1048,202 @@
           timeScrubber.max = activeDuration.toFixed(2);
           audioMeta.innerHTML =
             `<strong>Clip aprobado:</strong> <code>${sample.audioSrc}</code> · ` +
-            `<strong>Visemas Rhubarb:</strong> <code>${sample.visemeSrc}</code> ` +
-            `(${activeCues.length} marcas, ${activeDuration.toFixed(2)} s)`;
+            `<strong>Visemas Rhubarb:</strong> <code>${sample.visemeSrc}</code> (${activeCues.length} marcas, ${activeDuration.toFixed(2)} s)`;
           audioMeta.dataset.visemesLoaded = "true";
         } catch (err) {
           activeCues = [];
           activeDuration = sample.fallbackDuration;
-          timeScrubber.max = activeDuration.toFixed(2);
-          audioMeta.textContent = `No se pudieron cargar los visemas (${err.message}).`;
+          audioMeta.textContent = `Error al cargar visemas (${err.message})`;
           audioMeta.dataset.visemesLoaded = "false";
         }
       }
 
-      document.querySelectorAll("#audioSamplePills button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          loadSample(btn.dataset.sample);
-        });
-      });
+      let eraseStartMs = 0;
+      function clearDemoTimers() {
+        while (demoTimers.length) clearTimeout(demoTimers.pop());
+      }
 
-      document.getElementById("btnPlayAudio").addEventListener("click", async () => {
-        if (voiceAudio.currentTime >= activeDuration - 0.02) {
-          voiceAudio.currentTime = 0;
-        }
-        try {
-          await voiceAudio.play();
-          stopAudioSync();
-          rafId = requestAnimationFrame(syncFrame);
-        } catch (err) {
-          audioMeta.textContent = `Reproducción bloqueada por el navegador: ${err.message}`;
-        }
-      });
-
-      document.getElementById("btnPauseAudio").addEventListener("click", () => {
-        voiceAudio.pause();
-        stopAudioSync();
-        setViseme("X", "pausado");
-      });
-
-      voiceAudio.addEventListener("ended", () => {
-        stopAudioSync();
-        timeScrubber.value = "0";
-        timeLabel.textContent = "0.00 s";
-        setViseme("X", "fin");
-        triggerBlink();
-      });
-
-      function setExpressionChoice(expr) {
+      function setExpr(expr) {
         currentExpr = expr;
         document.querySelectorAll("#expressionPills button").forEach((b) => {
           b.setAttribute("aria-pressed", String(b.dataset.expr === expr));
         });
-        applyPose();
       }
 
-      function clearDemoTimers() {
-        while (demoTimeoutIds.length) clearTimeout(demoTimeoutIds.pop());
+      function setGaze(g) {
+        currentGaze = g;
+        document.querySelectorAll("#gazePills button").forEach((b) => {
+          b.setAttribute("aria-pressed", String(b.dataset.gaze === g));
+        });
       }
 
-      document.getElementById("btnDemoInteraction").addEventListener("click", async () => {
+      function runPreviewAListening() {
         clearDemoTimers();
-        // Phase 1: Gretel speaks «abeja» warmly with coarticulated lip-sync
-        setExpressionChoice("smiling");
+        voiceAudio.pause();
+        demoPhase = "listening";
+        setExpr("listening");
+        setGaze("student");
+        document.getElementById("btnModeListening").setAttribute("aria-pressed", "true");
+        document.getElementById("btnModeSpeaking").setAttribute("aria-pressed", "false");
+        triggerBlink();
+        demoTimers.push(setTimeout(() => setExpr("smiling"), 1900));
+        demoTimers.push(
+          setTimeout(() => {
+            setExpr("thinking");
+            setGaze("thinking-up");
+          }, 3200),
+        );
+        demoTimers.push(
+          setTimeout(() => {
+            setExpr("encouraging");
+            setGaze("student");
+            triggerBlink();
+          }, 4700),
+        );
+        demoTimers.push(setTimeout(() => setExpr("listening"), 6100));
+      }
+
+      async function runPreviewBSpeaking() {
+        clearDemoTimers();
+        demoPhase = "speaking";
+        setExpr("speaking");
+        setGaze("student");
+        document.getElementById("btnModeListening").setAttribute("aria-pressed", "false");
+        document.getElementById("btnModeSpeaking").setAttribute("aria-pressed", "true");
         await loadSample("abeja");
         try {
           await voiceAudio.play();
-          stopAudioSync();
-          rafId = requestAnimationFrame(syncFrame);
         } catch {}
 
-        // Phase 2: Gretel listens attentively to the child reading (soft smile, lifted brows, gentle nods)
-        demoTimeoutIds.push(
+        // Trigger eraser wipe after "abeja", then speak "abanico"
+        demoTimers.push(
           setTimeout(() => {
-            setViseme("X", "escuchando-al-niño");
-            setExpressionChoice("listening");
-            triggerBlink();
-          }, 1750),
+            demoPhase = "erasing";
+            eraseStartMs = performance.now();
+            setExpr("smiling");
+          }, 1950),
         );
-
-        // Phase 3: Curious thinking glance before responding
-        demoTimeoutIds.push(
-          setTimeout(() => {
-            setExpressionChoice("thinking");
-          }, 3700),
-        );
-
-        // Phase 4: Warm encouraging nod + speaks «abanico»
-        demoTimeoutIds.push(
+        demoTimers.push(
           setTimeout(async () => {
-            setExpressionChoice("encouraging");
-            triggerBlink();
+            demoPhase = "speaking";
+            setExpr("speaking");
             await loadSample("abanico");
             try {
               await voiceAudio.play();
-              stopAudioSync();
-              rafId = requestAnimationFrame(syncFrame);
             } catch {}
-          }, 4800),
+          }, 2500),
         );
-
-        // Phase 5: Settle back into warm attentive listening
-        demoTimeoutIds.push(
+        demoTimers.push(
           setTimeout(() => {
-            setViseme("X", "escuchando-al-niño");
-            setExpressionChoice("listening");
-          }, 7100),
+            setExpr("encouraging");
+            triggerBlink();
+          }, 4900),
         );
+      }
+
+      document.getElementById("btnModeListening").addEventListener("click", runPreviewAListening);
+      document.getElementById("btnDemoListening").addEventListener("click", runPreviewAListening);
+      document.getElementById("btnModeSpeaking").addEventListener("click", runPreviewBSpeaking);
+      document.getElementById("btnDemoSpeakingChalkboard").addEventListener("click", runPreviewBSpeaking);
+
+      document.getElementById("btnPlayAudio").addEventListener("click", async () => {
+        clearDemoTimers();
+        demoPhase = "speaking";
+        manualBoardTime = 0;
+        if (voiceAudio.currentTime >= activeDuration - 0.02) voiceAudio.currentTime = 0;
+        try {
+          await voiceAudio.play();
+        } catch {}
       });
+      document.getElementById("btnPauseAudio").addEventListener("click", () => {
+        voiceAudio.pause();
+      });
+      document.getElementById("btnBlinkNow").addEventListener("click", triggerBlink);
+
+      document.querySelectorAll("#audioSamplePills button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          demoPhase = "idle";
+          loadSample(btn.dataset.sample);
+        });
+      });
+
+      document.querySelectorAll("#expressionPills button").forEach((b) =>
+        b.addEventListener("click", () => {
+          demoPhase = "idle";
+          setExpr(b.dataset.expr);
+        }),
+      );
+      document.querySelectorAll("#gazePills button").forEach((b) =>
+        b.addEventListener("click", () => setGaze(b.dataset.gaze)),
+      );
+
+      document.querySelectorAll("#layoutPills button").forEach((b) =>
+        b.addEventListener("click", () => {
+          const lay = b.dataset.layout;
+          document.querySelectorAll("#layoutPills button").forEach((x) => {
+            x.setAttribute("aria-pressed", String(x === b));
+          });
+          chalkboardSvg.setAttribute("viewBox", lay === "flipchart-pip" ? "620 18 920 880" : "0 0 1600 1000");
+        }),
+      );
 
       document.getElementById("btnDesktop").addEventListener("click", (e) => {
         viewportFrame.dataset.viewport = "desktop";
         e.currentTarget.setAttribute("aria-pressed", "true");
         document.getElementById("btnMobile").setAttribute("aria-pressed", "false");
-        viewportBadge.textContent = "Escritorio · Retrato videollamada 1024×662";
+        viewportBadge.textContent = "Escritorio · Pizarra clásica + Gretel";
       });
-
       document.getElementById("btnMobile").addEventListener("click", (e) => {
         viewportFrame.dataset.viewport = "mobile";
         e.currentTarget.setAttribute("aria-pressed", "true");
         document.getElementById("btnDesktop").setAttribute("aria-pressed", "false");
-        viewportBadge.textContent = "Móvil 390×844 · Retrato videollamada 1024×662";
+        viewportBadge.textContent = "Móvil 390×844 · Pizarra clásica + Gretel";
       });
-
       document.getElementById("btnReduced").addEventListener("click", (e) => {
         reducedMotion = !reducedMotion;
         e.currentTarget.setAttribute("aria-pressed", String(reducedMotion));
-        document.body.classList.toggle("reduced-motion", reducedMotion);
-        if (reducedMotion) {
-          setViseme("X", "reducir-movimiento");
-        }
-        applyPose();
       });
-
-      document.querySelectorAll("[data-framing-btn]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const framing = btn.dataset.framingBtn;
-          puppetRig.dataset.framing = framing;
-          puppetSvg.setAttribute("viewBox", framing === "call-portrait" ? "0 0 1024 662" : "180 0 664 662");
-          document.querySelectorAll("[data-framing-btn]").forEach((b) => {
-            b.setAttribute("aria-pressed", String(b === btn));
-          });
-        });
-      });
-
-      document.querySelectorAll("#visemePills button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          voiceAudio.pause();
-          stopAudioSync();
-          setViseme(btn.dataset.viseme, "manual");
-        });
-      });
-
-      document.querySelectorAll("#expressionPills button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          currentExpr = btn.dataset.expr;
-          document.querySelectorAll("#expressionPills button").forEach((b) => {
-            b.setAttribute("aria-pressed", String(b === btn));
-          });
-          applyPose();
-        });
-      });
-
-      document.querySelectorAll("#gazePills button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          currentGaze = btn.dataset.gaze;
-          document.querySelectorAll("#gazePills button").forEach((b) => {
-            b.setAttribute("aria-pressed", String(b === btn));
-          });
-          applyPose();
-        });
-      });
-
-      document.getElementById("btnBlinkNow").addEventListener("click", triggerBlink);
 
       timeScrubber.addEventListener("input", () => {
         const t = Number.parseFloat(timeScrubber.value) || 0;
         voiceAudio.currentTime = t;
+        manualBoardTime = t;
         timeLabel.textContent = `${t.toFixed(2)} s`;
-        setViseme(resolveCue(t), `scrubber:${currentSampleKey}`);
       });
 
-      // Render candidate face-zoom cards + approval checklist table
-      const grid = document.getElementById("candidateGrid");
-      const tbody = document.getElementById("approvalTableBody");
-
-      for (const c of CANDIDATES) {
-        const card = document.createElement("div");
-        card.className = "still-card";
-        card.innerHTML = `
-          <div class="still-thumb face-zoom" style="aspect-ratio: 4 / 3">
-            <svg viewBox="360 200 304 260" role="img" aria-label="${c.label}">
-              <image href="${MASTER_SRC}" x="0" y="0" width="1024" height="662" />
-              <image href="${CAND_BASE}${c.file}" x="0" y="0" width="1024" height="662" />
-            </svg>
-          </div>
-          <div class="still-title">${c.label}</div>
-          <div class="still-meta"><code>${c.file}</code> · 1024×662 · Pendiente de aprobación</div>
-        `;
-        grid.appendChild(card);
-
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td><strong>${c.label}</strong><br><span class="still-meta">${c.id}</span></td>
-          <td>${c.role}</td>
-          <td>1024×662</td>
-          <td>
-            <div class="decision-pills">
-              <button type="button" class="yes" aria-pressed="false">Sí</button>
-              <button type="button" class="no" aria-pressed="false">No</button>
-            </div>
-          </td>
-          <td class="manifest-cell">No activado (pendiente)</td>
-        `;
-        const yesBtn = tr.querySelector(".yes");
-        const noBtn = tr.querySelector(".no");
-        const cell = tr.querySelector(".manifest-cell");
-        yesBtn.addEventListener("click", () => {
-          yesBtn.setAttribute("aria-pressed", "true");
-          noBtn.setAttribute("aria-pressed", "false");
-          cell.textContent = "Aprobado en vista previa (registrar en manifest)";
-        });
-        noBtn.addEventListener("click", () => {
-          noBtn.setAttribute("aria-pressed", "true");
-          yesBtn.setAttribute("aria-pressed", "false");
-          cell.textContent = "Excluido (mantener pieza quieta)";
-        });
-        tbody.appendChild(tr);
-      }
-
-      loadSample("abeja");
-      startLifeLoop();
-
-      // Natural irregular Poisson-like blink schedule (2.4s–5.2s + occasional double-blink)
-      function scheduleNaturalBlink() {
-        const nextMs = 2400 + Math.random() * 2800;
+      function scheduleBlink() {
         setTimeout(() => {
           if (!reducedMotion) {
             triggerBlink();
-            if (Math.random() < 0.18) {
-              setTimeout(() => {
-                if (!reducedMotion) triggerBlink();
-              }, 260);
-            }
+            if (Math.random() < 0.14) setTimeout(triggerBlink, 210);
           }
-          scheduleNaturalBlink();
-        }, nextMs);
+          scheduleBlink();
+        }, 2600 + Math.random() * 2800);
       }
-      scheduleNaturalBlink();
+
+      if (params.get("viewport") === "mobile") {
+        viewportFrame.dataset.viewport = "mobile";
+        document.getElementById("btnMobile").setAttribute("aria-pressed", "true");
+        document.getElementById("btnDesktop").setAttribute("aria-pressed", "false");
+        viewportBadge.textContent = "Móvil 390×844 · Pizarra clásica + Gretel";
+      }
+      if (urlMode === "listening") {
+        demoPhase = "listening";
+        setExpr("listening");
+        setGaze("student");
+        document.getElementById("btnModeListening").setAttribute("aria-pressed", "true");
+        document.getElementById("btnModeSpeaking").setAttribute("aria-pressed", "false");
+      }
+
+      loadSample("abeja").then(() => {
+        if (urlMode === "listening") {
+          runPreviewAListening();
+        } else if (urlMode === "speaking" && params.get("autostart") === "1") {
+          runPreviewBSpeaking();
+        }
+      });
+      scheduleBlink();
+      requestAnimationFrame(tickFrame);
     </script>
   </body>
 </html>
