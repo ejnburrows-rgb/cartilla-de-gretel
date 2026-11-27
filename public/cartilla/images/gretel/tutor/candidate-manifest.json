@@ -198,48 +198,56 @@
       {
         "id": "blink-half",
         "role": "blink",
-        "label": "Eyelids half-closed",
+        "label": "Eyelids half-closed (hand-painted mid-blink)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/blink-half.png",
         "width": 1024,
         "height": 662,
-        "sha256": "a67dbbef6d205efc4edcbfbfaa1cc37e5cf151b4c6243499479f23f16b6ca1c6",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "becc09e106229b3d8ed6b95e5ce80ba793de5cdee9f16fa2871a00202efa8619",
+        "source": "storybook-painted-variant:eyes-half.jpg",
         "ownerDecision": "pending"
       },
       {
         "id": "blink-closed",
         "role": "blink",
-        "label": "Eyelids fully closed",
+        "label": "Eyelids fully closed (hand-painted natural blink)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/blink-closed.png",
         "width": 1024,
         "height": 662,
-        "sha256": "d35255a03bbaf219fdceb84422bc567eb50857cbe3dad5bb02a3324f3929c1e6",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "8356ddca0eb2afb66fbb761ab1c17443a2edc270941ae276edd9b09a7d1437df",
+        "source": "storybook-painted-variant:eyes-closed.jpg",
         "ownerDecision": "pending"
       },
       {
         "id": "brows-soft-lift",
         "role": "brows",
-        "label": "Eyebrows gently lifted",
+        "label": "Eyebrows gently lifted (attentive listening arch)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/brows-soft-lift.png",
         "width": 1024,
         "height": 662,
-        "sha256": "9c64735eb9e0d2f34cace1f6f7149bbcad23c3f65c6506aa814d1308e4a6f9f6",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "a76bbff1a00b74dff7ca8e9158187b0254fe2627bb4eef546cc5fdf7e0eecba3",
+        "source": "storybook-painted-variant:thinking.jpg",
         "ownerDecision": "pending"
       },
       {
-        "id": "mouth-C",
-        "role": "mouth",
-        "shapes": [
-          "C"
-        ],
-        "label": "Mouth C — Native open smile (exact owner portrait pixels)",
-        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-C.png",
+        "id": "expr-listening",
+        "role": "expression",
+        "label": "Attentive listening face (warm closed smile + soft lifted brows)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/expr-listening.png",
         "width": 1024,
         "height": 662,
-        "sha256": "b148271def6720f2027f26417a6f5a66582ab08465af38249bbf8cedd55788c3",
-        "source": "native-extract-from-owner-call-portrait",
+        "sha256": "50f7902f17f05f366e9a8f07ed3eed522c095f9a23ab7e5d7be475ac9cdbadf0",
+        "source": "storybook-painted-variant:listening+thinking-brows",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "expr-thinking",
+        "role": "expression",
+        "label": "Curious thinking face (upward reflective gaze + gentle closed smile)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/expr-thinking.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "ea4659016d2653bfafaee1f157f78769ba6fd39ac759cd9e1eda8cc9f3af718d",
+        "source": "storybook-painted-variant:thinking.jpg",
         "ownerDecision": "pending"
       },
       {
@@ -248,12 +256,12 @@
         "shapes": [
           "X"
         ],
-        "label": "Mouth X — Resting closed smile",
+        "label": "Mouth X — Warm closed-mouth resting smile",
         "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-X.png",
         "width": 1024,
         "height": 662,
-        "sha256": "686ed018691fe28076c85e7b09bab1e94200b96130e11363f1a0dcd155806a8d",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "b15524b3ed93877e33403f326d022ebcff72fe9724ffd0d71e2d605906e70327",
+        "source": "storybook-painted-variant:rest-smile.jpg",
         "ownerDecision": "pending"
       },
       {
@@ -262,12 +270,12 @@
         "shapes": [
           "A"
         ],
-        "label": "Mouth A — Closed bilabial (p, b, m)",
+        "label": "Mouth A — Closed bilabial (m, b, p)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-A.png",
         "width": 1024,
         "height": 662,
-        "sha256": "1c82e461c91646f07b96e518344d64910a4ec29707e89da574d5fbd5c9d4d086",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "74a19574e5b6db005838bcdeaa2be958d6b0dabcd062f90ebc78504e43281b14",
+        "source": "storybook-painted-variant:speak-mbp.jpg",
         "ownerDecision": "pending"
       },
       {
@@ -276,12 +284,26 @@
         "shapes": [
           "B"
         ],
-        "label": "Mouth B — Narrow smile (s, t, k, n, i, e)",
+        "label": "Mouth B — Slightly open wider smile (e, i, s, t, n)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-B.png",
         "width": 1024,
         "height": 662,
-        "sha256": "3b6cab66f52e48fda03d435a727925193947c43aac2dfe95eedb8cb40f1bbe19",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "a05113086aeaecce352c2b1dae8a5af7a52f9ec89114a247ab25e1cec3970467",
+        "source": "storybook-painted-variant:speak-e.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-C",
+        "role": "mouth",
+        "shapes": [
+          "C"
+        ],
+        "label": "Mouth C — Natural open speaking smile (exact approved portrait mouth)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-C.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "484d100c1da3fe786b090784ea1bbd3a039e30a69c8663fdf752740b9eac94d5",
+        "source": "native-extract-from-owner-call-portrait",
         "ownerDecision": "pending"
       },
       {
@@ -290,12 +312,12 @@
         "shapes": [
           "D"
         ],
-        "label": "Mouth D — Wide open (a)",
+        "label": "Mouth D — Open vowel (a)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-D.png",
         "width": 1024,
         "height": 662,
-        "sha256": "3d14c5a87a0f5a84fc9eeb46d0db583c14d4d4326030cae0d40c36ab6b05c34f",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "0df2cbfc7248b700acf3d73cfa73260b619ac5423ccfbdb2f38f8f60b7fb7c7a",
+        "source": "storybook-painted-variant:speak-ah.jpg",
         "ownerDecision": "pending"
       },
       {
@@ -304,12 +326,12 @@
         "shapes": [
           "E"
         ],
-        "label": "Mouth E — Rounded medium (o, e)",
+        "label": "Mouth E — Rounded open vowel (o)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-E.png",
         "width": 1024,
         "height": 662,
-        "sha256": "64f9f7e762955c94b6d52013c46d4b9b46090ee325c27221a1e4644ca690f8b7",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "d8c2c2be60720b9c11c186057a0a1ef4437e0201f275b18330bbbdc6577bfdb5",
+        "source": "storybook-painted-variant:speak-o.jpg",
         "ownerDecision": "pending"
       },
       {
@@ -318,12 +340,12 @@
         "shapes": [
           "F"
         ],
-        "label": "Mouth F — Upper teeth over lower lip (f, v)",
+        "label": "Mouth F — Small pursed rounded vowel (u)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-F.png",
         "width": 1024,
         "height": 662,
-        "sha256": "b4b7595132dedb26a6fd76cedbb7cfc3429c39ae0b039ca11e3fc74e95bd88f9",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "cbf8b613ec0fb3728f946be6b297cbaeb6dec879b8206a3529d933cb517a1156",
+        "source": "storybook-painted-variant:speak-u.jpg",
         "ownerDecision": "pending"
       },
       {
@@ -332,12 +354,12 @@
         "shapes": [
           "G"
         ],
-        "label": "Mouth G — Tongue behind upper teeth (l, d)",
+        "label": "Mouth G — Soft labiodental / coronal (f, v, l, d)",
         "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-G.png",
         "width": 1024,
         "height": 662,
-        "sha256": "b08464c47b3334aee47c2d1f6c31b7d8916e894e13ae33f082b1dc1fc6b2e74d",
-        "source": "pixel-registered-on-owner-call-portrait",
+        "sha256": "4d5b43caeca18206a2b80114a7f12685d3e229370c9d53a82dcf30c2333e229e",
+        "source": "storybook-painted-variant:speak-fv.jpg",
         "ownerDecision": "pending"
       }
     ]

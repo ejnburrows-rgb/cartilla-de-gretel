@@ -244,6 +244,24 @@ test.describe("All-24-Lessons Tutor E2E Sweep (StubEars scripted fixtures, not l
       fullPage: false,
     });
 
+    // Trigger the full Speaking + Listening interaction demo and capture key frames
+    await page.locator("#btnDemoInteraction").click();
+    await page.waitForTimeout(800);
+    await page.screenshot({
+      path: path.join(ARTIFACT_DIR, "tutor-avatar-speaking.png"),
+      fullPage: false,
+    });
+    await page.waitForTimeout(1400);
+    await page.screenshot({
+      path: path.join(ARTIFACT_DIR, "tutor-avatar-listening.png"),
+      fullPage: false,
+    });
+    await page.waitForTimeout(1800);
+    await page.screenshot({
+      path: path.join(ARTIFACT_DIR, "tutor-avatar-thinking.png"),
+      fullPage: false,
+    });
+
     expectSameOriginOnly(requests.urls(), ORIGIN);
     expect(consoleErrors.errors()).toEqual([]);
   });

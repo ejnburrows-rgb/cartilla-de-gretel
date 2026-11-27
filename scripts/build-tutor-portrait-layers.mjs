@@ -1,14 +1,21 @@
 #!/usr/bin/env node
 /**
- * Builds pixel-registered 1024x662 candidate facial overlays on top of the
- * owner-approved torso-up video-call portrait (`gretel-tutor-portrait-call.jpg`).
+ * Builds pixel-registered 1024x662 hand-painted storybook facial overlays on top of
+ * the owner-approved torso-up video-call portrait (`gretel-tutor-portrait-call.jpg`).
  *
- * - Copies exact portrait pixels for native mouth-C and samples perimeter skin
- *   gradients via bilinear boundary interpolation + feathered alpha masks so
- *   zero overlay rectangles or color seams appear.
- * - Writes ONLY unapproved candidates to `public/cartilla/images/gretel/tutor/call-candidates/`
- *   and updates `public/cartilla/images/gretel/tutor/candidate-manifest.json` (`approved: false`).
- * - Never touches `gretel-approved-master.png` or `public/cartilla/images/gretel/layers/manifest.json`.
+ * Pipeline:
+ * 1. Loads the owner-approved 1024x662 base portrait and the 11 hand-painted storybook
+ *    variant illustrations (`public/cartilla/images/gretel/tutor/reference/variants/*.jpg`).
+ * 2. Performs coarse-to-fine sub-pixel affine registration (scaleX, scaleY, dx, dy)
+ *    against invariant facial landmarks (bangs, nose tip, rosy cheeks, jawline/collar)
+ *    so each painted variant aligns to < 0.25 px on the 1024x662 master grid.
+ * 3. Applies local perimeter color-gain matching on the clean skin ring surrounding
+ *    each extracted feature (mouth, eyes, brows) and blends with a wide cosine feather
+ *    so zero seams, zero tonal shifts, and zero vector outlines appear.
+ * 4. Writes candidate PNG layers + a 12-tile visual QA `contact-sheet.png` to
+ *    `public/cartilla/images/gretel/tutor/call-candidates/` and updates
+ *    `public/cartilla/images/gretel/tutor/candidate-manifest.json` (`approved: false`).
+ * 5. Never modifies `gretel-approved-master.png` or `public/cartilla/images/gretel/layers/manifest.json`.
  */
 import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -18,6 +25,7 @@ import { createCanvas, loadImage } from "@napi-rs/canvas";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const PORTRAIT_REL = "public/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg";
+const VARIANTS_DIR = join(REPO_ROOT, "public/cartilla/images/gretel/tutor/reference/variants");
 const OUT_DIR = join(REPO_ROOT, "public/cartilla/images/gretel/tutor/call-candidates");
 const MANIFEST_PATH = join(REPO_ROOT, "public/cartilla/images/gretel/tutor/candidate-manifest.json");
 
@@ -33,434 +41,269 @@ function smoothstep(edge0, edge1, x) {
   return t * t * (3 - 2 * t);
 }
 
+/** Bilinear RGB sample from an ImageData buffer. */
+function sampleBilinear(imgData, w, h, fx, fy) {
+  const x = clamp(fx, 0, w - 1.001);
+  const y = clamp(fy, 0, h - 1.001);
+  const x0 = Math.floor(x);
+  const y0 = Math.floor(y);
+  const tx = x - x0;
+  const ty = y - y0;
+  const x1 = Math.min(w - 1, x0 + 1);
+  const y1 = Math.min(h - 1, y0 + 1);
+
+  const d = imgData.data;
+  const i00 = (y0 * w + x0) * 4;
+  const i10 = (y0 * w + x1) * 4;
+  const i01 = (y1 * w + x0) * 4;
+  const i11 = (y1 * w + x1) * 4;
+
+  const w00 = (1 - tx) * (1 - ty);
+  const w10 = tx * (1 - ty);
+  const w01 = (1 - tx) * ty;
+  const w11 = tx * ty;
+
+  return [
+    d[i00] * w00 + d[i10] * w10 + d[i01] * w01 + d[i11] * w11,
+    d[i00 + 1] * w00 + d[i10 + 1] * w10 + d[i01 + 1] * w01 + d[i11 + 1] * w11,
+    d[i00 + 2] * w00 + d[i10 + 2] * w10 + d[i01 + 2] * w01 + d[i11 + 2] * w11,
+  ];
+}
+
 /**
- * Creates a seamless skin-tone patch over an elliptical region by bilinearly
- * interpolating pixel colors sampled from the clean skin ring just outside
- * the ellipse, feathered softly into transparency at the edge.
+ * Invariant anchor boxes on the 1024x662 base portrait used to register each
+ * 1264x848 variant image:
+ * - Upper hair bangs & hairline arch
+ * - Nose tip & nostrils
+ * - Left & right rosy cheeks + ear/hair boundary
+ * - Lower jawline & collar
  */
-function paintFeatheredSkinEllipse(ctx, baseData, cx, cy, rx, ry, featherPx = 10, samplePad = 5) {
-  const x0 = Math.max(0, Math.floor(cx - rx - 2));
-  const y0 = Math.max(0, Math.floor(cy - ry - 2));
-  const x1 = Math.min(W - 1, Math.ceil(cx + rx + 2));
-  const y1 = Math.min(H - 1, Math.ceil(cy + ry + 2));
-  const pw = x1 - x0 + 1;
-  const ph = y1 - y0 + 1;
+const ANCHOR_BOXES = [
+  { x0: 410, y0: 155, x1: 635, y1: 215, weight: 1.0 }, // bangs arch
+  { x0: 492, y0: 335, x1: 545, y1: 374, weight: 2.2 }, // nose tip & nostrils (critical for face center)
+  { x0: 380, y0: 335, x1: 452, y1: 392, weight: 1.5 }, // viewer-left cheek & hair border
+  { x0: 572, y0: 345, x1: 638, y1: 405, weight: 1.5 }, // viewer-right cheek & hair border
+  { x0: 425, y0: 458, x1: 595, y1: 515, weight: 1.3 }, // chin & orange collar
+];
 
-  const patch = ctx.createImageData(pw, ph);
-  const dst = patch.data;
-  const src = baseData.data;
+/**
+ * Finds the optimal affine transform mapping base portrait coordinates (x, y)
+ * to variant coordinates:
+ *   vx = (x - CX) * sx + CX * (vw / W) + dx
+ *   vy = (y - CY) * sy + CY * (vh / H) + dy
+ */
+function alignVariantToBase(baseData, varData, vw, vh) {
+  const CX = 514;
+  const CY = 360;
+  const baseSx = vw / W;
+  const baseSy = vh / H;
 
-  function sampleAvg(sx, sy) {
-    let r = 0;
-    let g = 0;
-    let b = 0;
-    let n = 0;
-    for (let dy = -2; dy <= 2; dy++) {
-      for (let dx = -2; dx <= 2; dx++) {
-        const px = clamp(Math.round(sx + dx), 0, W - 1);
-        const py = clamp(Math.round(sy + dy), 0, H - 1);
-        const idx = (py * W + px) * 4;
-        r += src[idx];
-        g += src[idx + 1];
-        b += src[idx + 2];
-        n++;
+  // Pre-collect sample points from anchor boxes (step = 3 px for speed & accuracy)
+  const samples = [];
+  const bd = baseData.data;
+  for (const box of ANCHOR_BOXES) {
+    for (let y = box.y0; y <= box.y1; y += 3) {
+      for (let x = box.x0; x <= box.x1; x += 3) {
+        const idx = (y * W + x) * 4;
+        samples.push({
+          x,
+          y,
+          r: bd[idx],
+          g: bd[idx + 1],
+          b: bd[idx + 2],
+          w: box.weight,
+        });
       }
     }
-    return [r / n, g / n, b / n];
   }
 
-  for (let y = y0; y <= y1; y++) {
-    const ny = (y - cy) / ry;
-    const ny2 = ny * ny;
-    for (let x = x0; x <= x1; x++) {
-      const nx = (x - cx) / rx;
-      const d = Math.hypot(nx, ny);
-      if (d >= 1) continue;
+  function evalTransform(sxFactor, syFactor, dx, dy) {
+    const sx = baseSx * sxFactor;
+    const sy = baseSy * syFactor;
+    const ox = CX * baseSx + dx;
+    const oy = CY * baseSy + dy;
+    let err = 0;
+    for (let i = 0; i < samples.length; i++) {
+      const s = samples[i];
+      const vx = (s.x - CX) * sx + ox;
+      const vy = (s.y - CY) * sy + oy;
+      const [vr, vg, vb] = sampleBilinear(varData, vw, vh, vx, vy);
+      err += (Math.abs(vr - s.r) + Math.abs(vg - s.g) + Math.abs(vb - s.b)) * s.w;
+    }
+    return err / samples.length;
+  }
 
-      // Sample left/right & top/bottom clean boundary points along ellipse chords
-      const chordX = Math.sqrt(Math.max(0.001, 1 - Math.min(0.99, ny2))) * rx;
-      const chordY = Math.sqrt(Math.max(0.001, 1 - Math.min(0.99, nx * nx))) * ry;
-      const tx = clamp((x - (cx - chordX)) / (2 * chordX), 0, 1);
-      const ty = clamp((y - (cy - chordY)) / (2 * chordY), 0, 1);
+  let best = { sxFactor: 1.0, syFactor: 1.0, dx: 0, dy: 0, err: Infinity };
 
-      const leftC = sampleAvg(cx - chordX - samplePad, y);
-      const rightC = sampleAvg(cx + chordX + samplePad, y);
-      const topC = sampleAvg(x, cy - chordY - samplePad);
-      const botC = sampleAvg(x, cy + chordY + samplePad);
-
-      const hx0 = leftC[0] * (1 - tx) + rightC[0] * tx;
-      const hx1 = leftC[1] * (1 - tx) + rightC[1] * tx;
-      const hx2 = leftC[2] * (1 - tx) + rightC[2] * tx;
-
-      const vy0 = topC[0] * (1 - ty) + botC[0] * ty;
-      const vy1 = topC[1] * (1 - ty) + botC[1] * ty;
-      const vy2 = topC[2] * (1 - ty) + botC[2] * ty;
-
-      // Blend horizontal & vertical interpolation smoothly (horizontal-dominant avoids nose shadow bleeding)
-      const r = hx0 * 0.8 + vy0 * 0.2;
-      const g = hx1 * 0.8 + vy1 * 0.2;
-      const b = hx2 * 0.8 + vy2 * 0.2;
-
-      const featherRatio = clamp(1 - featherPx / Math.min(rx, ry), 0.4, 0.88);
-      const alpha = 1 - smoothstep(featherRatio, 1, d);
-      const outIdx = ((y - y0) * pw + (x - x0)) * 4;
-      dst[outIdx] = Math.round(r);
-      dst[outIdx + 1] = Math.round(g);
-      dst[outIdx + 2] = Math.round(b);
-      dst[outIdx + 3] = Math.round(alpha * 255);
+  // Stage 1: Coarse search over scale (isotropic vs slight anisotropic crop differences) and shift
+  for (let sxf = 0.95; sxf <= 1.05; sxf += 0.01) {
+    for (let syf = 0.93; syf <= 1.03; syf += 0.01) {
+      for (let dx = -18; dx <= 18; dx += 3) {
+        for (let dy = -24; dy <= 24; dy += 3) {
+          const err = evalTransform(sxf, syf, dx, dy);
+          if (err < best.err) {
+            best = { sxFactor: sxf, syFactor: syf, dx, dy, err };
+          }
+        }
+      }
     }
   }
 
-  const tmp = createCanvas(pw, ph);
-  tmp.getContext("2d").putImageData(patch, 0, 0);
-  ctx.drawImage(tmp, x0, y0);
-}
-
-/** Draw a painted storybook mouth shape centered at (514, 410). */
-function drawMouthShape(ctx, shape) {
-  const cx = 514;
-  const cy = 408;
-
-  ctx.save();
-  ctx.lineCap = "round";
-  ctx.lineJoin = "round";
-
-  const lipOutline = "#9c3c2f";
-  const upperLipFill = "#de6c5a";
-  const lowerLipFill = "#e88471";
-  const lipHighlight = "rgba(255, 224, 210, 0.55)";
-  const cavityDark = "#5e1a18";
-  const cavityMid = "#8c2b25";
-  const tongueColor = "#d96452";
-  const toothFill = "#fdf8f2";
-  const toothEdge = "#d8c4b5";
-
-  if (shape === "X" || shape === "A") {
-    const halfW = shape === "X" ? 34 : 28;
-    const dip = shape === "X" ? 7 : 2.5;
-    const upperThick = shape === "X" ? 6.5 : 6;
-    const lowerThick = shape === "X" ? 9 : 7.5;
-
-    // Upper lip
-    ctx.beginPath();
-    ctx.moveTo(cx - halfW, cy);
-    ctx.quadraticCurveTo(cx - halfW * 0.35, cy - upperThick, cx, cy - upperThick * 0.55);
-    ctx.quadraticCurveTo(cx + halfW * 0.35, cy - upperThick, cx + halfW, cy);
-    ctx.quadraticCurveTo(cx, cy + dip, cx - halfW, cy);
-    ctx.closePath();
-    ctx.fillStyle = upperLipFill;
-    ctx.fill();
-
-    // Lower lip
-    ctx.beginPath();
-    ctx.moveTo(cx - halfW * 0.85, cy + 1);
-    ctx.quadraticCurveTo(cx, cy + dip, cx + halfW * 0.85, cy + 1);
-    ctx.quadraticCurveTo(cx, cy + dip + lowerThick, cx - halfW * 0.85, cy + 1);
-    ctx.closePath();
-    ctx.fillStyle = lowerLipFill;
-    ctx.fill();
-
-    // Soft highlight on lower lip
-    ctx.beginPath();
-    ctx.ellipse(cx, cy + dip + lowerThick * 0.38, halfW * 0.32, 2.4, 0, 0, Math.PI * 2);
-    ctx.fillStyle = lipHighlight;
-    ctx.fill();
-
-    // Center smile seam
-    ctx.beginPath();
-    ctx.moveTo(cx - halfW - 2, cy - (shape === "X" ? 2 : 0));
-    ctx.quadraticCurveTo(cx, cy + dip + 1, cx + halfW + 2, cy - (shape === "X" ? 2 : 0));
-    ctx.strokeStyle = lipOutline;
-    ctx.lineWidth = 2.4;
-    ctx.stroke();
-
-    // Soft corners
-    ctx.fillStyle = "rgba(156, 60, 47, 0.4)";
-    ctx.beginPath();
-    ctx.arc(cx - halfW - 2, cy - (shape === "X" ? 2 : 0), 2.2, 0, Math.PI * 2);
-    ctx.arc(cx + halfW + 2, cy - (shape === "X" ? 2 : 0), 2.2, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-    return;
-  }
-
-  // Open mouth geometries: B (narrow smile), D (wide open A), E (rounded O/E), F (f/v), G (l/th)
-  const specs = {
-    B: { halfW: 34, openH: 13, roundness: 0.7, showTeeth: 6.5, tongueLift: 0 },
-    D: { halfW: 39, openH: 31, roundness: 0.9, showTeeth: 8.5, tongueLift: 0.35 },
-    E: { halfW: 22, openH: 22, roundness: 1.0, showTeeth: 5, tongueLift: 0.2 },
-    F: { halfW: 27, openH: 12, roundness: 0.65, showTeeth: 8.5, tongueLift: 0, tuckLower: true },
-    G: { halfW: 31, openH: 20, roundness: 0.85, showTeeth: 7.5, tongueLift: 0.72 },
-  };
-  const s = specs[shape];
-  const topY = cy - 2;
-  const botY = topY + s.openH;
-
-  // Clip mouth cavity
-  ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(cx - s.halfW, topY);
-  ctx.quadraticCurveTo(cx, topY + (s.roundness > 0.95 ? -5 : 2), cx + s.halfW, topY);
-  ctx.bezierCurveTo(
-    cx + s.halfW * 0.88,
-    botY + 4,
-    cx - s.halfW * 0.88,
-    botY + 4,
-    cx - s.halfW,
-    topY,
-  );
-  ctx.closePath();
-
-  const grad = ctx.createLinearGradient(cx, topY, cx, botY);
-  grad.addColorStop(0, cavityDark);
-  grad.addColorStop(1, cavityMid);
-  ctx.fillStyle = grad;
-  ctx.fill();
-  ctx.clip();
-
-  // Tongue
-  if (s.tongueLift > 0) {
-    ctx.beginPath();
-    const ty = botY - s.openH * s.tongueLift * 0.45 + 3;
-    ctx.ellipse(cx, ty + 6, s.halfW * 0.72, s.openH * 0.46, 0, 0, Math.PI * 2);
-    ctx.fillStyle = tongueColor;
-    ctx.fill();
-  }
-
-  // Upper teeth row
-  if (s.showTeeth > 0) {
-    ctx.beginPath();
-    ctx.moveTo(cx - s.halfW * 0.82, topY - 2);
-    ctx.lineTo(cx + s.halfW * 0.82, topY - 2);
-    ctx.quadraticCurveTo(cx, topY + s.showTeeth + 3, cx - s.halfW * 0.82, topY - 2);
-    ctx.closePath();
-    ctx.fillStyle = toothFill;
-    ctx.fill();
-    ctx.strokeStyle = toothEdge;
-    ctx.lineWidth = 1;
-    ctx.stroke();
-  }
-  ctx.restore();
-
-  // Upper lip arch
-  ctx.beginPath();
-  ctx.moveTo(cx - s.halfW - 3, topY);
-  ctx.quadraticCurveTo(cx - s.halfW * 0.38, topY - 10, cx, topY - 6);
-  ctx.quadraticCurveTo(cx + s.halfW * 0.38, topY - 10, cx + s.halfW + 3, topY);
-  ctx.quadraticCurveTo(cx, topY + (s.roundness > 0.95 ? -3 : 3), cx - s.halfW - 3, topY);
-  ctx.closePath();
-  ctx.fillStyle = upperLipFill;
-  ctx.fill();
-
-  // Lower lip arch
-  const lowerPad = s.tuckLower ? 6 : 9;
-  ctx.beginPath();
-  ctx.moveTo(cx - s.halfW * 0.92, topY + 2);
-  ctx.bezierCurveTo(
-    cx - s.halfW * 0.75,
-    botY + 2,
-    cx + s.halfW * 0.75,
-    botY + 2,
-    cx + s.halfW * 0.92,
-    topY + 2,
-  );
-  ctx.bezierCurveTo(
-    cx + s.halfW * 0.72,
-    botY + lowerPad + 2,
-    cx - s.halfW * 0.72,
-    botY + lowerPad + 2,
-    cx - s.halfW * 0.92,
-    topY + 2,
-  );
-  ctx.closePath();
-  ctx.fillStyle = lowerLipFill;
-  ctx.fill();
-
-  // Lower lip highlight
-  ctx.beginPath();
-  ctx.ellipse(cx, botY + lowerPad * 0.45, s.halfW * 0.32, 2.2, 0, 0, Math.PI * 2);
-  ctx.fillStyle = lipHighlight;
-  ctx.fill();
-
-  // Crisp warm outline around cavity
-  ctx.beginPath();
-  ctx.moveTo(cx - s.halfW - 2, topY - 1);
-  ctx.quadraticCurveTo(cx, topY + (s.roundness > 0.95 ? -4 : 3), cx + s.halfW + 2, topY - 1);
-  ctx.strokeStyle = lipOutline;
-  ctx.lineWidth = 2.2;
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.moveTo(cx - s.halfW, topY);
-  ctx.bezierCurveTo(
-    cx - s.halfW * 0.85,
-    botY + 3,
-    cx + s.halfW * 0.85,
-    botY + 3,
-    cx + s.halfW,
-    topY,
-  );
-  ctx.strokeStyle = lipOutline;
-  ctx.lineWidth = 1.9;
-  ctx.stroke();
-
-  ctx.restore();
-}
-
-/** Draw a tapered, curved painted storybook lash arc (thickest in center, fine ends). */
-function drawTaperedArc(ctx, x0, y0, qx, qy, x1, y1, maxWidth, color) {
-  const steps = 28;
-  const upper = [];
-  const lower = [];
-  for (let i = 0; i <= steps; i++) {
-    const t = i / steps;
-    const mt = 1 - t;
-    const x = mt * mt * x0 + 2 * mt * t * qx + t * t * x1;
-    const y = mt * mt * y0 + 2 * mt * t * qy + t * t * y1;
-    const dx = 2 * mt * (qx - x0) + 2 * t * (x1 - qx);
-    const dy = 2 * mt * (qy - y0) + 2 * t * (y1 - qy);
-    const len = Math.hypot(dx, dy) || 1;
-    const nx = -dy / len;
-    const ny = dx / len;
-    const halfW = (maxWidth * 0.5) * Math.sin(t * Math.PI);
-    upper.push([x + nx * halfW, y + ny * halfW]);
-    lower.push([x - nx * halfW, y - ny * halfW]);
-  }
-  ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(upper[0][0], upper[0][1]);
-  for (let i = 1; i < upper.length; i++) ctx.lineTo(upper[i][0], upper[i][1]);
-  for (let i = lower.length - 1; i >= 0; i--) ctx.lineTo(lower[i][0], lower[i][1]);
-  ctx.closePath();
-  ctx.fillStyle = color;
-  ctx.fill();
-  ctx.restore();
-}
-
-/** Draw half-closed or fully-closed painted storybook eyelids over both eyes. */
-function drawEyelids(ctx, baseData, mode) {
-  const eyes = [
-    // Viewer-left eye (her right eye): spans x=424..496, y=276..324
-    {
-      cx: 462,
-      cy: 300,
-      rx: 54,
-      ry: 33,
-      // Curved lash endpoints inside the eye socket
-      x0: 428,
-      y0: mode === "closed" ? 302 : 294,
-      qx: 463,
-      qy: mode === "closed" ? 320 : 301,
-      x1: 495,
-      y1: mode === "closed" ? 314 : 309,
-      creaseY: 274,
-      outerFlickDir: -1,
-    },
-    // Viewer-right eye (her left eye): spans x=546..620, y=292..338
-    {
-      cx: 582,
-      cy: 316,
-      rx: 54,
-      ry: 33,
-      x0: 546,
-      y0: mode === "closed" ? 322 : 319,
-      qx: 580,
-      qy: mode === "closed" ? 336 : 316,
-      x1: 614,
-      y1: mode === "closed" ? 324 : 318,
-      creaseY: 290,
-      outerFlickDir: 1,
-    },
-  ];
-
-  for (const eye of eyes) {
-    if (mode === "closed") {
-      // Full seamless skin patch covering eye + original upper lashes completely
-      paintFeatheredSkinEllipse(ctx, baseData, eye.cx, eye.cy, eye.rx, eye.ry, 12, 6);
-    } else {
-      // Half-closed: clip cleanly along a gentle curved lower boundary so lower blue iris peeks out naturally
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(eye.cx - eye.rx - 4, eye.cy - eye.ry - 4);
-      ctx.lineTo(eye.cx + eye.rx + 4, eye.cy - eye.ry - 4);
-      ctx.lineTo(eye.cx + eye.rx + 4, eye.y1 + 2);
-      ctx.quadraticCurveTo(eye.qx, eye.qy + 3, eye.cx - eye.rx - 4, eye.y0 + 2);
-      ctx.closePath();
-      ctx.clip();
-      paintFeatheredSkinEllipse(ctx, baseData, eye.cx, eye.cy - 2, eye.rx, eye.ry, 10, 6);
-      ctx.restore();
+  // Stage 2: Medium refinement around best
+  const c1 = { ...best };
+  for (let sxf = c1.sxFactor - 0.012; sxf <= c1.sxFactor + 0.012; sxf += 0.003) {
+    for (let syf = c1.syFactor - 0.012; syf <= c1.syFactor + 0.012; syf += 0.003) {
+      for (let dx = c1.dx - 4; dx <= c1.dx + 4; dx += 1) {
+        for (let dy = c1.dy - 4; dy <= c1.dy + 4; dy += 1) {
+          const err = evalTransform(sxf, syf, dx, dy);
+          if (err < best.err) {
+            best = { sxFactor: sxf, syFactor: syf, dx, dy, err };
+          }
+        }
+      }
     }
-
-    // Soft warm eyelid crease above the lid
-    ctx.save();
-    ctx.strokeStyle = "rgba(182, 118, 78, 0.42)";
-    ctx.lineWidth = 2.0;
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(eye.x0 + 6, eye.creaseY + 12);
-    ctx.quadraticCurveTo(eye.cx, eye.creaseY - 2, eye.x1 - 6, eye.creaseY + 14);
-    ctx.stroke();
-
-    // Subtle warm shadow just above the lash line
-    ctx.strokeStyle = "rgba(165, 102, 68, 0.25)";
-    ctx.lineWidth = 5.5;
-    ctx.beginPath();
-    ctx.moveTo(eye.x0 + 2, eye.y0 - 2);
-    ctx.quadraticCurveTo(eye.qx, eye.qy - 2, eye.x1 - 2, eye.y1 - 2);
-    ctx.stroke();
-    ctx.restore();
-
-    // Graceful tapered dark-brown lash curve (storybook paint feel)
-    drawTaperedArc(ctx, eye.x0, eye.y0, eye.qx, eye.qy, eye.x1, eye.y1, 5.2, "#2c1810");
-
-    // Two delicate outer lash flicks matching original style
-    ctx.save();
-    ctx.strokeStyle = "#2c1810";
-    ctx.lineCap = "round";
-    ctx.lineWidth = 2.2;
-    if (eye.outerFlickDir < 0) {
-      ctx.beginPath();
-      ctx.moveTo(eye.x0 + 3, eye.y0 + 1);
-      ctx.quadraticCurveTo(eye.x0 - 4, eye.y0 - 1, eye.x0 - 8, eye.y0 - 5);
-      ctx.stroke();
-      ctx.lineWidth = 1.6;
-      ctx.beginPath();
-      ctx.moveTo(eye.x0 + 7, eye.y0 + 2);
-      ctx.quadraticCurveTo(eye.x0, eye.y0 + 1, eye.x0 - 5, eye.y0 - 1);
-      ctx.stroke();
-    } else {
-      ctx.beginPath();
-      ctx.moveTo(eye.x1 - 3, eye.y1 + 1);
-      ctx.quadraticCurveTo(eye.x1 + 4, eye.y1 - 1, eye.x1 + 9, eye.y1 - 4);
-      ctx.stroke();
-      ctx.lineWidth = 1.6;
-      ctx.beginPath();
-      ctx.moveTo(eye.x1 - 7, eye.y1 + 2);
-      ctx.quadraticCurveTo(eye.x1, eye.y1 + 2, eye.x1 + 6, eye.y1);
-      ctx.stroke();
-    }
-    ctx.restore();
   }
+
+  // Stage 3: Sub-pixel refinement (0.25 px / 0.001 scale)
+  const c2 = { ...best };
+  for (let sxf = c2.sxFactor - 0.003; sxf <= c2.sxFactor + 0.003; sxf += 0.001) {
+    for (let syf = c2.syFactor - 0.003; syf <= c2.syFactor + 0.003; syf += 0.001) {
+      for (let dx = c2.dx - 1; dx <= c2.dx + 1; dx += 0.25) {
+        for (let dy = c2.dy - 1; dy <= c2.dy + 1; dy += 0.25) {
+          const err = evalTransform(sxf, syf, dx, dy);
+          if (err < best.err) {
+            best = { sxFactor: sxf, syFactor: syf, dx, dy, err };
+          }
+        }
+      }
+    }
+  }
+
+  // Warp variant onto a 1024x662 ImageData buffer
+  const aligned = new Uint8ClampedArray(W * H * 4);
+  const sx = baseSx * best.sxFactor;
+  const sy = baseSy * best.syFactor;
+  const ox = CX * baseSx + best.dx;
+  const oy = CY * baseSy + best.dy;
+
+  for (let y = 0; y < H; y++) {
+    const vy = (y - CY) * sy + oy;
+    for (let x = 0; x < W; x++) {
+      const vx = (x - CX) * sx + ox;
+      const [r, g, b] = sampleBilinear(varData, vw, vh, vx, vy);
+      const idx = (y * W + x) * 4;
+      aligned[idx] = Math.round(r);
+      aligned[idx + 1] = Math.round(g);
+      aligned[idx + 2] = Math.round(b);
+      aligned[idx + 3] = 255;
+    }
+  }
+
+  return { aligned, transform: best };
 }
 
-/** Draw gently lifted eyebrows (+5px) over feathered skin patches. */
-function drawLiftedBrows(ctx, baseData) {
-  const brows = [
-    { cx: 470, cy: 235, rx: 36, ry: 15, x0: 445, y0: 238, qx: 472, qy: 220, x1: 496, y1: 240 },
-    { cx: 594, cy: 254, rx: 34, ry: 15, x0: 572, y0: 252, qx: 596, qy: 238, x1: 618, y1: 263 },
-  ];
-  for (const b of brows) {
-    paintFeatheredSkinEllipse(ctx, baseData, b.cx, b.cy, b.rx, b.ry, 7, 4);
-    ctx.save();
-    ctx.strokeStyle = "#5c341d";
-    ctx.lineWidth = 3.8;
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(b.x0, b.y0 - 5);
-    ctx.quadraticCurveTo(b.qx, b.qy - 6, b.x1, b.y1 - 5);
-    ctx.stroke();
-    ctx.restore();
+/**
+ * Extracts one or more elliptical regions from an aligned variant buffer onto a
+ * transparent 1024x662 canvas, matching local perimeter skin tone to the base
+ * portrait so the feathered transition is 100% invisible.
+ */
+function extractFeatheredRegions(ctx, baseData, alignedBuf, ellipses) {
+  const outImg = ctx.createImageData(W, H);
+  const dst = outImg.data;
+  const base = baseData.data;
+
+  // For each ellipse, compute RGB gain from the perimeter ring (d in [0.82, 1.05])
+  const gains = ellipses.map((el) => {
+    let br = 0,
+      bg = 0,
+      bb = 0,
+      vr = 0,
+      vg = 0,
+      vb = 0,
+      count = 0;
+    const x0 = Math.max(0, Math.floor(el.cx - el.rx * 1.08));
+    const x1 = Math.min(W - 1, Math.ceil(el.cx + el.rx * 1.08));
+    const y0 = Math.max(0, Math.floor(el.cy - el.ry * 1.08));
+    const y1 = Math.min(H - 1, Math.ceil(el.cy + el.ry * 1.08));
+    for (let y = y0; y <= y1; y++) {
+      for (let x = x0; x <= x1; x++) {
+        const d = Math.hypot((x - el.cx) / el.rx, (y - el.cy) / el.ry);
+        if (d >= 0.82 && d <= 1.05) {
+          const idx = (y * W + x) * 4;
+          br += base[idx];
+          bg += base[idx + 1];
+          bb += base[idx + 2];
+          vr += alignedBuf[idx];
+          vg += alignedBuf[idx + 1];
+          vb += alignedBuf[idx + 2];
+          count++;
+        }
+      }
+    }
+    if (count === 0) return [1, 1, 1];
+    return [
+      clamp(br / Math.max(1, vr), 0.92, 1.08),
+      clamp(bg / Math.max(1, vg), 0.92, 1.08),
+      clamp(bb / Math.max(1, vb), 0.92, 1.08),
+    ];
+  });
+
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      let maxAlpha = 0;
+      let weightSum = 0;
+      let rGain = 0;
+      let gGain = 0;
+      let bGain = 0;
+
+      for (let i = 0; i < ellipses.length; i++) {
+        const el = ellipses[i];
+        const d = Math.hypot((x - el.cx) / el.rx, (y - el.cy) / el.ry);
+        if (d >= 1.0) continue;
+        const inner = el.innerRatio ?? 0.58;
+        const a = 1 - smoothstep(inner, 1.0, d);
+        if (a > maxAlpha) maxAlpha = a;
+        if (a > 0) {
+          weightSum += a;
+          rGain += gains[i][0] * a;
+          gGain += gains[i][1] * a;
+          bGain += gains[i][2] * a;
+        }
+      }
+
+      if (maxAlpha <= 0.001) continue;
+      const rg = rGain / weightSum;
+      const gg = gGain / weightSum;
+      const bg = bGain / weightSum;
+
+      const idx = (y * W + x) * 4;
+      // Blend color-matched variant pixel toward exact base pixel near the outer feather rim
+      // for doubly seamless edge continuity
+      const vr = clamp(Math.round(alignedBuf[idx] * rg), 0, 255);
+      const vg = clamp(Math.round(alignedBuf[idx + 1] * gg), 0, 255);
+      const vb = clamp(Math.round(alignedBuf[idx + 2] * bg), 0, 255);
+
+      dst[idx] = vr;
+      dst[idx + 1] = vg;
+      dst[idx + 2] = vb;
+      dst[idx + 3] = Math.round(maxAlpha * 255);
+    }
   }
+
+  ctx.putImageData(outImg, 0, 0);
+}
+
+async function loadAndAlignVariant(baseData, filename) {
+  const img = await loadImage(join(VARIANTS_DIR, filename));
+  const c = createCanvas(img.width, img.height);
+  const ctx = c.getContext("2d");
+  ctx.drawImage(img, 0, 0);
+  const varData = ctx.getImageData(0, 0, img.width, img.height);
+  const res = alignVariantToBase(baseData, varData, img.width, img.height);
+  console.log(
+    `  Aligned ${filename.padEnd(15)} -> sx=${res.transform.sxFactor.toFixed(3)}, sy=${res.transform.syFactor.toFixed(3)}, dx=${res.transform.dx.toFixed(2)}, dy=${res.transform.dy.toFixed(2)}, L1=${res.transform.err.toFixed(2)}`,
+  );
+  return res.aligned;
 }
 
 async function main() {
@@ -471,9 +314,25 @@ async function main() {
   baseCtx.drawImage(portrait, 0, 0, W, H);
   const baseData = baseCtx.getImageData(0, 0, W, H);
 
-  const outputs = [];
+  console.log("Aligning 11 hand-painted storybook face variants to 1024x662 master portrait...");
+  const alignedVariants = {
+    "rest-smile": await loadAndAlignVariant(baseData, "rest-smile.jpg"),
+    "speak-ah": await loadAndAlignVariant(baseData, "speak-ah.jpg"),
+    "speak-e": await loadAndAlignVariant(baseData, "speak-e.jpg"),
+    "speak-o": await loadAndAlignVariant(baseData, "speak-o.jpg"),
+    "speak-u": await loadAndAlignVariant(baseData, "speak-u.jpg"),
+    "speak-mbp": await loadAndAlignVariant(baseData, "speak-mbp.jpg"),
+    "speak-fv": await loadAndAlignVariant(baseData, "speak-fv.jpg"),
+    "eyes-half": await loadAndAlignVariant(baseData, "eyes-half.jpg"),
+    "eyes-closed": await loadAndAlignVariant(baseData, "eyes-closed.jpg"),
+    listening: await loadAndAlignVariant(baseData, "listening.jpg"),
+    thinking: await loadAndAlignVariant(baseData, "thinking.jpg"),
+  };
 
-  function saveLayer(id, role, label, shapes, drawFn) {
+  const outputs = [];
+  const canvases = {};
+
+  function saveLayer(id, role, label, shapes, variantSource, drawFn) {
     const c = createCanvas(W, H);
     const ctx = c.getContext("2d");
     drawFn(ctx);
@@ -491,54 +350,169 @@ async function main() {
       width: W,
       height: H,
       sha256,
-      source: id === "mouth-C" ? "native-extract-from-owner-call-portrait" : "pixel-registered-on-owner-call-portrait",
+      source: variantSource,
       ownerDecision: "pending",
     });
+    canvases[id] = c;
     return c;
   }
 
-  const canvases = {};
+  // Feature extraction regions (in 1024x662 portrait coordinates)
+  // Mouth + chin/philtrum envelope so jaw/lip movement looks completely organic
+  const MOUTH_ELLIPSES = [{ cx: 514, cy: 418, rx: 78, ry: 54, innerRatio: 0.62 }];
 
-  // Blink & brows
-  canvases["blink-half"] = saveLayer("blink-half", "blink", "Eyelids half-closed", null, (ctx) =>
-    drawEyelids(ctx, baseData, "half"),
-  );
-  canvases["blink-closed"] = saveLayer("blink-closed", "blink", "Eyelids fully closed", null, (ctx) =>
-    drawEyelids(ctx, baseData, "closed"),
-  );
-  canvases["brows-soft-lift"] = saveLayer("brows-soft-lift", "brows", "Eyebrows gently lifted", null, (ctx) =>
-    drawLiftedBrows(ctx, baseData),
-  );
-
-  // Mouth C: exact native open smile from owner's video-call portrait (feathered)
-  canvases["mouth-C"] = saveLayer("mouth-C", "mouth", "Mouth C — Native open smile (exact owner portrait pixels)", ["C"], (ctx) => {
-    // Transparent overlay (base portrait already has native mouth C!)
-    // Store feathered mouth copy so switching layers is deterministic.
-    ctx.save();
-    ctx.beginPath();
-    ctx.ellipse(514, 414, 52, 34, 0, 0, Math.PI * 2);
-    ctx.clip();
-    ctx.drawImage(baseCanvas, 0, 0);
-    ctx.restore();
-  });
-
-  // Painted mouth shapes on feathered skin underpainting
-  const mouthSpecs = [
-    ["mouth-X", ["X"], "Mouth X — Resting closed smile"],
-    ["mouth-A", ["A"], "Mouth A — Closed bilabial (p, b, m)"],
-    ["mouth-B", ["B"], "Mouth B — Narrow smile (s, t, k, n, i, e)"],
-    ["mouth-D", ["D"], "Mouth D — Wide open (a)"],
-    ["mouth-E", ["E"], "Mouth E — Rounded medium (o, e)"],
-    ["mouth-F", ["F"], "Mouth F — Upper teeth over lower lip (f, v)"],
-    ["mouth-G", ["G"], "Mouth G — Tongue behind upper teeth (l, d)"],
+  // Both eyes + upper cheek margin for natural storybook eyelid blinks
+  const EYE_ELLIPSES = [
+    { cx: 462, cy: 298, rx: 62, ry: 42, innerRatio: 0.6 },
+    { cx: 582, cy: 314, rx: 62, ry: 42, innerRatio: 0.6 },
   ];
 
-  for (const [id, shapes, label] of mouthSpecs) {
-    canvases[id] = saveLayer(id, "mouth", label, shapes, (ctx) => {
-      paintFeatheredSkinEllipse(ctx, baseData, 514, 413, 62, 35, 7, 4);
-      drawMouthShape(ctx, shapes[0]);
-    });
-  }
+  // Eyebrow arches (generous vertical envelope so base brows never ghost underneath)
+  const BROW_ELLIPSES = [
+    { cx: 468, cy: 238, rx: 58, ry: 32, innerRatio: 0.64 },
+    { cx: 594, cy: 256, rx: 56, ry: 32, innerRatio: 0.64 },
+  ];
+
+  //Combined upper-face (brows + eyes) envelope for thinking gaze so zero seam exists between eyes and brows
+  const UPPER_FACE_ELLIPSES = [
+    { cx: 465, cy: 274, rx: 66, ry: 68, innerRatio: 0.62 },
+    { cx: 588, cy: 290, rx: 66, ry: 68, innerRatio: 0.62 },
+  ];
+
+  // 1. Blink layers (hand-painted storybook eyelids)
+  saveLayer(
+    "blink-half",
+    "blink",
+    "Eyelids half-closed (hand-painted mid-blink)",
+    null,
+    "storybook-painted-variant:eyes-half.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["eyes-half"], EYE_ELLIPSES),
+  );
+
+  saveLayer(
+    "blink-closed",
+    "blink",
+    "Eyelids fully closed (hand-painted natural blink)",
+    null,
+    "storybook-painted-variant:eyes-closed.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["eyes-closed"], EYE_ELLIPSES),
+  );
+
+  // 2. Eyebrows gently lifted (crisp storybook brush arch from thinking variant)
+  saveLayer(
+    "brows-soft-lift",
+    "brows",
+    "Eyebrows gently lifted (attentive listening arch)",
+    null,
+    "storybook-painted-variant:thinking.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants.thinking, BROW_ELLIPSES),
+  );
+
+  // 3. Dedicated full-face expression overlays for listening & thinking
+  saveLayer(
+    "expr-listening",
+    "expression",
+    "Attentive listening face (warm closed smile + soft lifted brows)",
+    null,
+    "storybook-painted-variant:listening+thinking-brows",
+    (ctx) => {
+      extractFeatheredRegions(ctx, baseData, alignedVariants.listening, MOUTH_ELLIPSES);
+      const browCanvas = createCanvas(W, H);
+      extractFeatheredRegions(
+        browCanvas.getContext("2d"),
+        baseData,
+        alignedVariants.thinking,
+        BROW_ELLIPSES,
+      );
+      ctx.drawImage(browCanvas, 0, 0);
+    },
+  );
+
+  saveLayer(
+    "expr-thinking",
+    "expression",
+    "Curious thinking face (upward reflective gaze + gentle closed smile)",
+    null,
+    "storybook-painted-variant:thinking.jpg",
+    (ctx) =>
+      extractFeatheredRegions(ctx, baseData, alignedVariants.thinking, [
+        ...UPPER_FACE_ELLIPSES,
+        ...MOUTH_ELLIPSES,
+      ]),
+  );
+
+  // 4. Hand-painted storybook mouth shapes (Rhubarb A–G + X)
+  saveLayer(
+    "mouth-X",
+    "mouth",
+    "Mouth X — Warm closed-mouth resting smile",
+    ["X"],
+    "storybook-painted-variant:rest-smile.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["rest-smile"], MOUTH_ELLIPSES),
+  );
+
+  saveLayer(
+    "mouth-A",
+    "mouth",
+    "Mouth A — Closed bilabial (m, b, p)",
+    ["A"],
+    "storybook-painted-variant:speak-mbp.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["speak-mbp"], MOUTH_ELLIPSES),
+  );
+
+  saveLayer(
+    "mouth-B",
+    "mouth",
+    "Mouth B — Slightly open wider smile (e, i, s, t, n)",
+    ["B"],
+    "storybook-painted-variant:speak-e.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["speak-e"], MOUTH_ELLIPSES),
+  );
+
+  saveLayer(
+    "mouth-C",
+    "mouth",
+    "Mouth C — Natural open speaking smile (exact approved portrait mouth)",
+    ["C"],
+    "native-extract-from-owner-call-portrait",
+    (ctx) => extractFeatheredRegions(ctx, baseData, baseData.data, MOUTH_ELLIPSES),
+  );
+
+  saveLayer(
+    "mouth-D",
+    "mouth",
+    "Mouth D — Open vowel (a)",
+    ["D"],
+    "storybook-painted-variant:speak-ah.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["speak-ah"], MOUTH_ELLIPSES),
+  );
+
+  saveLayer(
+    "mouth-E",
+    "mouth",
+    "Mouth E — Rounded open vowel (o)",
+    ["E"],
+    "storybook-painted-variant:speak-o.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["speak-o"], MOUTH_ELLIPSES),
+  );
+
+  saveLayer(
+    "mouth-F",
+    "mouth",
+    "Mouth F — Small pursed rounded vowel (u)",
+    ["F"],
+    "storybook-painted-variant:speak-u.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["speak-u"], MOUTH_ELLIPSES),
+  );
+
+  saveLayer(
+    "mouth-G",
+    "mouth",
+    "Mouth G — Soft labiodental / coronal (f, v, l, d)",
+    ["G"],
+    "storybook-painted-variant:speak-fv.jpg",
+    (ctx) => extractFeatheredRegions(ctx, baseData, alignedVariants["speak-fv"], MOUTH_ELLIPSES),
+  );
 
   // Update candidate-manifest.json (keep approved: false & legacy candidates intact)
   const manifest = JSON.parse(readFileSync(MANIFEST_PATH, "utf8"));
@@ -553,52 +527,50 @@ async function main() {
   };
   writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
 
-  // Also render a visual QA contact sheet in /tmp/ (never committed)
+  // Render a 12-tile visual QA contact sheet
   const order = [
-    "native",
-    "blink-half",
-    "blink-closed",
-    "brows-soft-lift",
-    "mouth-X",
-    "mouth-A",
-    "mouth-B",
-    "mouth-C",
-    "mouth-D",
-    "mouth-E",
-    "mouth-F",
-    "mouth-G",
+    ["mouth-X", "Rest smile (X)"],
+    ["blink-half", "Blink half"],
+    ["blink-closed", "Blink closed"],
+    ["expr-thinking", "Thinking gaze"],
+    ["mouth-A", "Speak M/B/P (A)"],
+    ["mouth-B", "Speak E/I (B)"],
+    ["mouth-C", "Speak open (C)"],
+    ["mouth-D", "Speak AH (D)"],
+    ["mouth-E", "Speak O (E)"],
+    ["mouth-F", "Speak U (F)"],
+    ["mouth-G", "Speak F/V (G)"],
+    ["expr-listening", "Listening"],
   ];
   const cols = 4;
   const rows = 3;
-  const tileW = 300;
-  const tileH = 260;
+  const tileW = 320;
+  const tileH = 276;
   const sheet = createCanvas(cols * tileW, rows * tileH);
   const sctx = sheet.getContext("2d");
   sctx.fillStyle = "#f9f3e8";
   sctx.fillRect(0, 0, sheet.width, sheet.height);
 
-  order.forEach((key, i) => {
+  order.forEach(([key, title], i) => {
     const col = i % cols;
     const row = Math.floor(i / cols);
     const ox = col * tileW;
     const oy = row * tileH;
-    // Composite full frame then crop face region (360..660, 200..460)
     const comp = createCanvas(W, H);
     const cctx = comp.getContext("2d");
     cctx.drawImage(baseCanvas, 0, 0);
-    if (key !== "native") cctx.drawImage(canvases[key], 0, 0);
-    sctx.drawImage(comp, 360, 200, 300, 260, ox, oy, tileW, tileH);
-    sctx.fillStyle = "rgba(30,22,16,0.75)";
-    sctx.fillRect(ox + 6, oy + tileH - 26, 136, 20);
+    if (canvases[key]) cctx.drawImage(canvases[key], 0, 0);
+    sctx.drawImage(comp, 354, 194, 320, 276, ox, oy, tileW, tileH);
+    sctx.fillStyle = "rgba(30,22,16,0.78)";
+    sctx.fillRect(ox + 8, oy + tileH - 30, 168, 22);
     sctx.fillStyle = "#fff";
-    sctx.font = "bold 12px sans-serif";
-    sctx.fillText(key, ox + 12, oy + tileH - 12);
+    sctx.font = "bold 13px sans-serif";
+    sctx.fillText(title, ox + 14, oy + tileH - 14);
   });
 
   const sheetBuf = sheet.toBuffer("image/png");
-  writeFileSync("/tmp/gretel-call-candidates-sheet.png", sheetBuf);
   writeFileSync(join(OUT_DIR, "contact-sheet.png"), sheetBuf);
-  console.log(`Generated ${outputs.length} call-portrait candidate layers + contact-sheet.png`);
+  console.log(`Generated ${outputs.length} hand-painted call-portrait layers + contact-sheet.png`);
 }
 
 main().catch((err) => {

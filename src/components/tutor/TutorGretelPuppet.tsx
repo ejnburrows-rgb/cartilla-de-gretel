@@ -465,7 +465,15 @@ export function TutorGretelPuppet({
                     preserveAspectRatio="xMidYMid meet"
                     transform={browTransform}
                     style={{
-                      visibility: visible ? "visible" : "hidden",
+                      opacity: visible ? 1 : 0,
+                      transition: reducedMotion
+                        ? "none"
+                        : layer.role === "mouth"
+                          ? "opacity 75ms linear"
+                          : layer.role === "blink"
+                            ? "opacity 42ms ease-out"
+                            : "opacity 220ms ease-out",
+                      pointerEvents: "none",
                     }}
                     onError={() => {
                       // Any layer that fails to load: back to the intact master.

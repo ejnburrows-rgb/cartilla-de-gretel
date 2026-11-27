@@ -468,13 +468,40 @@
                       height="662"
                     />
                     <image
+                      id="layerExprThinking"
+                      href="/cartilla/images/gretel/tutor/call-candidates/expr-thinking.png"
+                      x="0"
+                      y="0"
+                      width="1024"
+                      height="662"
+                      style="opacity: 0; transition: opacity 240ms ease-out"
+                    />
+                    <image
                       id="layerBrows"
                       href="/cartilla/images/gretel/tutor/call-candidates/brows-soft-lift.png"
                       x="0"
                       y="0"
                       width="1024"
                       height="662"
-                      style="visibility: hidden"
+                      style="opacity: 0; transition: opacity 220ms ease-out"
+                    />
+                    <image
+                      id="layerMouthA"
+                      href="/cartilla/images/gretel/tutor/call-candidates/mouth-X.png"
+                      x="0"
+                      y="0"
+                      width="1024"
+                      height="662"
+                      style="opacity: 1; transition: opacity 75ms linear"
+                    />
+                    <image
+                      id="layerMouthB"
+                      href="/cartilla/images/gretel/tutor/call-candidates/mouth-C.png"
+                      x="0"
+                      y="0"
+                      width="1024"
+                      height="662"
+                      style="opacity: 0; transition: opacity 75ms linear"
                     />
                     <image
                       id="layerBlinkHalf"
@@ -483,7 +510,7 @@
                       y="0"
                       width="1024"
                       height="662"
-                      style="visibility: hidden"
+                      style="opacity: 0; transition: opacity 42ms ease-out"
                     />
                     <image
                       id="layerBlinkClosed"
@@ -492,16 +519,7 @@
                       y="0"
                       width="1024"
                       height="662"
-                      style="visibility: hidden"
-                    />
-                    <image
-                      id="layerMouth"
-                      href="/cartilla/images/gretel/tutor/call-candidates/mouth-X.png"
-                      x="0"
-                      y="0"
-                      width="1024"
-                      height="662"
-                      style="visibility: hidden"
+                      style="opacity: 0; transition: opacity 42ms ease-out"
                     />
                   </svg>
                 </div>
@@ -520,6 +538,7 @@
             </div>
             <div class="scrubber-row" style="margin-top: 10px">
               <button id="btnPlayAudio" type="button" class="primary">Reproducir voz real + labios</button>
+              <button id="btnDemoInteraction" type="button">Demo: Hablar y escuchar al niño</button>
               <button id="btnPauseAudio" type="button">Pausar</button>
               <button id="btnBlinkNow" type="button">Parpadear</button>
             </div>
@@ -670,28 +689,30 @@
       };
 
       const CANDIDATES = [
-        { id: "blink-half", role: "blink", label: "Párpados semicerrados", file: "blink-half.png" },
-        { id: "blink-closed", role: "blink", label: "Párpados cerrados", file: "blink-closed.png" },
-        { id: "brows-soft-lift", role: "brows", label: "Cejas (elevación sutil)", file: "brows-soft-lift.png" },
-        { id: "mouth-X", role: "mouth (X)", label: "Boca X — Sonrisa nativa (reposo)", file: "mouth-X.png" },
-        { id: "mouth-A", role: "mouth (A)", label: "Boca A — Labios cerrados (M/B/P)", file: "mouth-A.png" },
-        { id: "mouth-B", role: "mouth (B)", label: "Boca B — Consonantes suaves", file: "mouth-B.png" },
-        { id: "mouth-C", role: "mouth (C)", label: "Boca C — Vocales abiertas (E/A)", file: "mouth-C.png" },
-        { id: "mouth-D", role: "mouth (D)", label: "Boca D — Vocal amplia (A)", file: "mouth-D.png" },
+        { id: "blink-half", role: "blink", label: "Párpados semicerrados (pintado a mano)", file: "blink-half.png" },
+        { id: "blink-closed", role: "blink", label: "Párpados cerrados (parpadeo natural)", file: "blink-closed.png" },
+        { id: "brows-soft-lift", role: "brows", label: "Cejas (atención afectuosa)", file: "brows-soft-lift.png" },
+        { id: "expr-listening", role: "expression", label: "Expresión — Escuchando al niño con atención", file: "expr-listening.png" },
+        { id: "expr-thinking", role: "expression", label: "Expresión — Pensando / recordando con curiosidad", file: "expr-thinking.png" },
+        { id: "mouth-X", role: "mouth (X)", label: "Boca X — Sonrisa suave de reposo", file: "mouth-X.png" },
+        { id: "mouth-A", role: "mouth (A)", label: "Boca A — Bilabial cerrada (M/B/P)", file: "mouth-A.png" },
+        { id: "mouth-B", role: "mouth (B)", label: "Boca B — Sonrisa media (E/I/S/T/N)", file: "mouth-B.png" },
+        { id: "mouth-C", role: "mouth (C)", label: "Boca C — Habla abierta natural", file: "mouth-C.png" },
+        { id: "mouth-D", role: "mouth (D)", label: "Boca D — Vocal abierta amplia (A)", file: "mouth-D.png" },
         { id: "mouth-E", role: "mouth (E)", label: "Boca E — Vocal redondeada (O)", file: "mouth-E.png" },
-        { id: "mouth-F", role: "mouth (F)", label: "Boca F — Labios fruncidos (U/W)", file: "mouth-F.png" },
-        { id: "mouth-G", role: "mouth (G)", label: "Boca G — Dientes sobre labio (F/V)", file: "mouth-G.png" },
+        { id: "mouth-F", role: "mouth (F)", label: "Boca F — Vocal cerrada redondeada (U)", file: "mouth-F.png" },
+        { id: "mouth-G", role: "mouth (G)", label: "Boca G — Labiodental suave (F/V/L/D)", file: "mouth-G.png" },
       ];
 
       const EXPR_TRANSFORMS = {
-        neutral: { tilt: 0, x: 0, y: 0, brows: false },
-        listening: { tilt: 3.5, x: 0, y: 1, brows: true },
-        thinking: { tilt: -2.4, x: 1.5, y: 0, brows: true },
-        smiling: { tilt: 1.0, x: 0, y: 0, brows: true },
-        encouraging: { tilt: 1.4, x: 0, y: 2.0, brows: true },
-        nodding: { tilt: 0.6, x: 0, y: 2.6, brows: false },
-        pointing: { tilt: -1.2, x: -3.5, y: 0, brows: false },
-        farewell: { tilt: 2.0, x: 0, y: 0, brows: true },
+        neutral: { tilt: 0, x: 0, y: 0, brows: false, thinking: false },
+        listening: { tilt: 2.6, x: 0, y: 1.2, brows: true, thinking: false },
+        thinking: { tilt: -2.2, x: 1.4, y: -0.6, brows: true, thinking: true },
+        smiling: { tilt: 1.1, x: 0, y: 0, brows: true, thinking: false },
+        encouraging: { tilt: 1.5, x: 0, y: 1.8, brows: true, thinking: false },
+        nodding: { tilt: 0.7, x: 0, y: 2.4, brows: true, thinking: false },
+        pointing: { tilt: -1.2, x: -3.2, y: 0, brows: false, thinking: false },
+        farewell: { tilt: 1.8, x: 0, y: 0, brows: true, thinking: false },
       };
 
       const GAZE_X = { student: 0, "board-left": -1.5, "board-right": 1.5, "down-notes": 0.4 };
@@ -703,13 +724,17 @@
       let currentGaze = "student";
       let reducedMotion = false;
       let rafId = 0;
+      let lifeRafId = 0;
+      let demoTimeoutIds = [];
 
       const viewportFrame = document.getElementById("viewportFrame");
       const viewportBadge = document.getElementById("viewportBadge");
       const telemetryBadge = document.getElementById("telemetryBadge");
       const puppetRig = document.getElementById("puppetRig");
       const puppetSvg = document.getElementById("puppetSvg");
-      const layerMouth = document.getElementById("layerMouth");
+      const layerMouthA = document.getElementById("layerMouthA");
+      const layerMouthB = document.getElementById("layerMouthB");
+      const layerExprThinking = document.getElementById("layerExprThinking");
       const layerBrows = document.getElementById("layerBrows");
       const layerBlinkHalf = document.getElementById("layerBlinkHalf");
       const layerBlinkClosed = document.getElementById("layerBlinkClosed");
@@ -718,49 +743,122 @@
       const voiceAudio = document.getElementById("voiceAudio");
       const audioMeta = document.getElementById("audioMeta");
 
-      function applyPose() {
+      let activeMouthSlot = "A";
+      let currentVisemeShape = "X";
+
+      function applyPose(nowMs = performance.now()) {
         const cfg = EXPR_TRANSFORMS[currentExpr] || EXPR_TRANSFORMS.neutral;
         const gx = GAZE_X[currentGaze] || 0;
         if (reducedMotion) {
           puppetRig.style.transform = "none";
-          layerBrows.style.visibility = "hidden";
+          layerBrows.style.opacity = "0";
+          layerExprThinking.style.opacity = "0";
           return;
         }
-        puppetRig.style.transform = `translate3d(${cfg.x + gx}px, ${cfg.y}px, 0) rotate(${cfg.tilt}deg)`;
-        layerBrows.style.visibility = cfg.brows ? "visible" : "hidden";
+        const t = nowMs * 0.001;
+        const isSpeakingNow = !voiceAudio.paused && !voiceAudio.ended;
+        // Organic multi-sine micro-motion: warm speaking cadence or attentive listening nods
+        let swayX = Math.sin(t * 0.85) * 1.1 + Math.sin(t * 1.7) * 0.45;
+        let swayY = Math.cos(t * 0.95) * 0.8;
+        let swayTilt = Math.sin(t * 0.72) * 0.55;
+
+        if (isSpeakingNow) {
+          swayY += Math.sin(t * 5.2) * 0.95;
+          swayTilt += Math.sin(t * 3.4) * 0.65;
+        } else if (currentExpr === "listening" || currentExpr === "encouraging" || currentExpr === "nodding") {
+          // Gentle affirmative listening nods when the child is speaking
+          const nodWave = Math.max(0, Math.sin(t * 2.4));
+          swayY += Math.pow(nodWave, 2) * 2.6;
+        }
+
+        const totalX = (cfg.x + gx + swayX).toFixed(2);
+        const totalY = (cfg.y + swayY).toFixed(2);
+        const totalTilt = (cfg.tilt + swayTilt).toFixed(2);
+        puppetRig.style.transform = `translate3d(${totalX}px, ${totalY}px, 0) rotate(${totalTilt}deg)`;
+        layerBrows.style.opacity = cfg.brows || isSpeakingNow ? "1" : "0";
+        layerExprThinking.style.opacity = cfg.thinking && !isSpeakingNow ? "1" : "0";
       }
 
-      function setViseme(shape, sourceLabel = "manual") {
+      function startLifeLoop() {
+        function tick(now) {
+          applyPose(now);
+          lifeRafId = requestAnimationFrame(tick);
+        }
+        if (!lifeRafId) lifeRafId = requestAnimationFrame(tick);
+      }
+
+      /**
+       * Smoothly cross-fades between dual mouth layers (layerMouthA / layerMouthB)
+       * so phoneme transitions never snap abruptly.
+       */
+      function setViseme(shape, sourceLabel = "manual", blendWeight = 1.0, nextShape = null) {
         const effective = reducedMotion ? "X" : shape;
-        layerMouth.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
-        layerMouth.style.visibility = "visible";
+        if (nextShape && !reducedMotion && nextShape !== effective && blendWeight < 0.98) {
+          // Coarticulated dual-layer blend across phoneme boundary
+          layerMouthA.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
+          layerMouthB.setAttribute("href", `${CAND_BASE}mouth-${nextShape}.png`);
+          layerMouthA.style.opacity = blendWeight.toFixed(2);
+          layerMouthB.style.opacity = (1 - blendWeight).toFixed(2);
+        } else if (effective !== currentVisemeShape) {
+          currentVisemeShape = effective;
+          if (activeMouthSlot === "A") {
+            layerMouthB.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
+            layerMouthB.style.opacity = "1";
+            layerMouthA.style.opacity = "0";
+            activeMouthSlot = "B";
+          } else {
+            layerMouthA.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
+            layerMouthA.style.opacity = "1";
+            layerMouthB.style.opacity = "0";
+            activeMouthSlot = "A";
+          }
+        }
         telemetryBadge.textContent = `Visema: ${effective} · ${reducedMotion ? "reducir-movimiento" : sourceLabel}`;
         document.querySelectorAll("#visemePills button").forEach((btn) => {
           btn.setAttribute("aria-pressed", String(btn.dataset.viseme === effective));
         });
       }
 
-      function resolveCue(t) {
-        for (const cue of activeCues) {
-          if (t >= cue.start && t < cue.end) return cue.value || cue.shape || "X";
+      /**
+       * Resolves current Rhubarb viseme PLUS smooth coarticulation lookahead
+       * (55ms cross-fade window before the next phoneme cue).
+       */
+      function resolveCueWithCoarticulation(t) {
+        for (let i = 0; i < activeCues.length; i++) {
+          const cue = activeCues[i];
+          if (t >= cue.start && t < cue.end) {
+            const cur = cue.value || cue.shape || "X";
+            const nextCue = activeCues[i + 1];
+            const windowSec = 0.055;
+            if (nextCue && cue.end - t < windowSec) {
+              const nxt = nextCue.value || nextCue.shape || "X";
+              const w = Math.max(0, Math.min(1, (cue.end - t) / windowSec));
+              return { shape: cur, nextShape: nxt, weight: w };
+            }
+            return { shape: cur, nextShape: null, weight: 1.0 };
+          }
         }
-        return "X";
+        return { shape: "X", nextShape: null, weight: 1.0 };
+      }
+
+      function resolveCue(t) {
+        return resolveCueWithCoarticulation(t).shape;
       }
 
       function triggerBlink() {
         if (reducedMotion) return;
-        layerBlinkHalf.style.visibility = "visible";
+        layerBlinkHalf.style.opacity = "1";
         setTimeout(() => {
-          layerBlinkHalf.style.visibility = "hidden";
-          layerBlinkClosed.style.visibility = "visible";
-        }, 45);
+          layerBlinkClosed.style.opacity = "1";
+          layerBlinkHalf.style.opacity = "0";
+        }, 48);
         setTimeout(() => {
-          layerBlinkClosed.style.visibility = "hidden";
-          layerBlinkHalf.style.visibility = "visible";
-        }, 125);
+          layerBlinkHalf.style.opacity = "1";
+          layerBlinkClosed.style.opacity = "0";
+        }, 130);
         setTimeout(() => {
-          layerBlinkHalf.style.visibility = "hidden";
-        }, 170);
+          layerBlinkHalf.style.opacity = "0";
+        }, 185);
       }
 
       function stopAudioSync() {
@@ -776,7 +874,8 @@
         const t = voiceAudio.currentTime || 0;
         timeScrubber.value = Math.min(t, activeDuration).toFixed(2);
         timeLabel.textContent = `${t.toFixed(2)} s`;
-        setViseme(resolveCue(t), `audio:${currentSampleKey}`);
+        const co = resolveCueWithCoarticulation(t);
+        setViseme(co.shape, `audio:${currentSampleKey}`, co.weight, co.nextShape);
         rafId = requestAnimationFrame(syncFrame);
       }
 
@@ -850,6 +949,69 @@
         timeScrubber.value = "0";
         timeLabel.textContent = "0.00 s";
         setViseme("X", "fin");
+        triggerBlink();
+      });
+
+      function setExpressionChoice(expr) {
+        currentExpr = expr;
+        document.querySelectorAll("#expressionPills button").forEach((b) => {
+          b.setAttribute("aria-pressed", String(b.dataset.expr === expr));
+        });
+        applyPose();
+      }
+
+      function clearDemoTimers() {
+        while (demoTimeoutIds.length) clearTimeout(demoTimeoutIds.pop());
+      }
+
+      document.getElementById("btnDemoInteraction").addEventListener("click", async () => {
+        clearDemoTimers();
+        // Phase 1: Gretel speaks «abeja» warmly with coarticulated lip-sync
+        setExpressionChoice("smiling");
+        await loadSample("abeja");
+        try {
+          await voiceAudio.play();
+          stopAudioSync();
+          rafId = requestAnimationFrame(syncFrame);
+        } catch {}
+
+        // Phase 2: Gretel listens attentively to the child reading (soft smile, lifted brows, gentle nods)
+        demoTimeoutIds.push(
+          setTimeout(() => {
+            setViseme("X", "escuchando-al-niño");
+            setExpressionChoice("listening");
+            triggerBlink();
+          }, 1750),
+        );
+
+        // Phase 3: Curious thinking glance before responding
+        demoTimeoutIds.push(
+          setTimeout(() => {
+            setExpressionChoice("thinking");
+          }, 3700),
+        );
+
+        // Phase 4: Warm encouraging nod + speaks «abanico»
+        demoTimeoutIds.push(
+          setTimeout(async () => {
+            setExpressionChoice("encouraging");
+            triggerBlink();
+            await loadSample("abanico");
+            try {
+              await voiceAudio.play();
+              stopAudioSync();
+              rafId = requestAnimationFrame(syncFrame);
+            } catch {}
+          }, 4800),
+        );
+
+        // Phase 5: Settle back into warm attentive listening
+        demoTimeoutIds.push(
+          setTimeout(() => {
+            setViseme("X", "escuchando-al-niño");
+            setExpressionChoice("listening");
+          }, 7100),
+        );
       });
 
       document.getElementById("btnDesktop").addEventListener("click", (e) => {
@@ -973,10 +1135,24 @@
       }
 
       loadSample("abeja");
+      startLifeLoop();
 
-      setInterval(() => {
-        if (!reducedMotion) triggerBlink();
-      }, 4200);
+      // Natural irregular Poisson-like blink schedule (2.4s–5.2s + occasional double-blink)
+      function scheduleNaturalBlink() {
+        const nextMs = 2400 + Math.random() * 2800;
+        setTimeout(() => {
+          if (!reducedMotion) {
+            triggerBlink();
+            if (Math.random() < 0.18) {
+              setTimeout(() => {
+                if (!reducedMotion) triggerBlink();
+              }, 260);
+            }
+          }
+          scheduleNaturalBlink();
+        }, nextMs);
+      }
+      scheduleNaturalBlink();
     </script>
   </body>
 </html>
