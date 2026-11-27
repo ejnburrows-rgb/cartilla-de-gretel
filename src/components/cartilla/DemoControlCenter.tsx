@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   MonitorPlay,
   ClipboardList,
+  Video,
 } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import * as seedData from "@/lib/seed-data";
@@ -87,8 +88,9 @@ export function DemoControlCenter({
   const [statusMsg, setStatusMsg] = useState<string | null>(null);
 
   const pathMatch = location.pathname.match(/\/(?:leccion|presentar|guia)\/(\d+)/);
-  const activeLessonNum =
-    currentLesson ?? (pathMatch ? Math.min(24, Math.max(1, Number(pathMatch[1]))) : 1);
+  const selectedLesson =
+    currentLesson ?? (pathMatch ? Math.min(24, Math.max(1, Number(pathMatch[1]))) : undefined);
+  const activeLessonNum = selectedLesson ?? 1;
   const isPresentarMode = location.pathname.includes("/cartilla/presentar/");
   const isGuiaMode = location.pathname.includes("/cartilla/teacher/guia/");
   const isStudentBookMode = location.pathname.includes("/cartilla/leccion/");
@@ -338,6 +340,18 @@ export function DemoControlCenter({
           >
             <ClipboardList size={14} /> Guía Docente (L{activeLessonNum})
           </Link>
+
+          {import.meta.env.VITE_CRM_REVIEW === "true" && (
+            <Link
+              {...(selectedLesson
+                ? { to: "/tutor/$n" as const, params: { n: String(selectedLesson) } }
+                : { to: "/tutor" as const })}
+              search={{ demo: true, code: "clase", slot: 1 }}
+              className="inline-flex items-center gap-1 rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-bold text-amber-950 hover:bg-amber-100"
+            >
+              <Video size={14} /> Aprender con Gretel
+            </Link>
+          )}
 
           <Link
             to="/cartilla/teacher"

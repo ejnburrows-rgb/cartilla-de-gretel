@@ -24,7 +24,8 @@ import {
   TutorFlipchartPresenter,
   getFlipchartImportantRects,
 } from "@/components/tutor/TutorFlipchartPresenter";
-import { CLASSROOM_SPEECH_START, playBoardAction } from "@/components/tutor/classroom-review";
+import { playBoardAction } from "@/components/tutor/classroom-review";
+import { useLearnerScope } from "@/lib/learner-storage";
 import { TutorGretelPuppet } from "@/components/tutor/TutorGretelPuppet";
 import { TutorMicButton } from "@/components/tutor/TutorMicButton";
 import { TutorPracticeHost, type TutorPracticeTarget } from "@/components/tutor/TutorPracticeHost";
@@ -134,6 +135,7 @@ export const Route = createFileRoute("/tutor/$n")({
 interface TutorSessionSearch {
   code: string;
   slot: number;
+  demo?: boolean;
   previewRig?: 1;
   previewHybrid?: 1;
   previewClassroom?: 1;
@@ -185,6 +187,7 @@ function activeItemOf(state: BrainState) {
 function TutorSessionScreen() {
   const { n } = Route.useParams();
   const search = Route.useSearch();
+  const learner = useLearnerScope();
   const lesson = Number(n);
   const validLesson =
     Number.isInteger(lesson) && (ALL_CURRICULUM_LESSONS as readonly number[]).includes(lesson);
@@ -201,7 +204,14 @@ function TutorSessionScreen() {
     );
   }
 
-  return <ValidTutorSessionScreen lesson={lesson} search={search} />;
+  const identity = search.demo ? { ...search, code: `tutor-demo/${learner}`, slot: 1 } : search;
+  return (
+    <ValidTutorSessionScreen
+      key={`${lesson}/${identity.code}/${identity.slot}`}
+      lesson={lesson}
+      search={identity}
+    />
+  );
 }
 
 function ValidTutorSessionScreen({
@@ -524,23 +534,24 @@ function ValidTutorSessionScreen({
       return;
     }
 
-    const video = classroomEnabled && lineId === "l1-model-abeja" ? classroomVideo.current : null;
-    let boardRun: AbortController | undefined;
+    const video =
+      demonstrate && classroomEnabled && lesson === 3 && lineId === "l1-model-abeja" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? classroomVideo.current
+        : null;
     if (video) {
       stopBoardAction();
-      boardRun = new AbortController();
+      const boardRun = new AbortController();
       classroomRun.current = boardRun;
       setShowBoardAction(true);
-      if (demonstrate) {
-        setSilentLine(false);
-        setSpokenText("Observa cómo se escribe la a de abeja.");
-        controller.beginSpeaking(lineId, "", true);
-        await playBoardAction(video, boardRun.signal);
-        if (boardRun.signal.aborted) return;
-        if (video.error || video.currentTime < CLASSROOM_SPEECH_START) stopBoardAction();
-      } else {
-        video.currentTime = CLASSROOM_SPEECH_START;
-      }
+      setSilentLine(false);
+      setSpokenText("Observa cómo se escribe la a de abeja.");
+      controller.beginSpeaking(lineId, "", true);
+      await playBoardAction(video, boardRun.signal);
+      if (boardRun.signal.aborted) return;
+      // Switch to the classroom's Rhubarb-driven mouth at the end of the
+      // silent performance. Keeping the paused video here hides those cues.
+      stopBoardAction();
     }
     setSilentLine(false);
     setSpokenText(cleanedCaption);
@@ -555,7 +566,6 @@ function ValidTutorSessionScreen({
       },
     });
     stopVisemePlayer();
-    if (boardRun && classroomRun.current === boardRun) stopBoardAction();
     if (result === "silent" && !isGretelVoiceMuted()) {
       setSilentLine(true);
       await sleep(SILENT_LINE_HOLD_MS, (cancel) => {
@@ -1120,12 +1130,6 @@ function ValidTutorSessionScreen({
         setActiveVisemeTimeline(timeline);
       },
       onPlaybackPosition: (position) => {
-        if (classroomRun.current && position?.lineId === "l1-model-abeja" && classroomVideo.current) {
-          const video = classroomVideo.current;
-          const target = CLASSROOM_SPEECH_START + position.currentTime;
-          if (Math.abs(video.currentTime - target) > 0.09) video.currentTime = target;
-          if (video.paused) void video.play().catch(() => {});
-        }
         setPlaybackPosition(position);
         if (!position) {
           setViseme("X");
@@ -1219,6 +1223,10 @@ function ValidTutorSessionScreen({
       if (startOnAbeja) {
         const demoIndex = initial.items.findIndex((candidate) => candidate.id === "l3-word-abeja");
         if (demoIndex >= 0) initial.itemIndex = demoIndex;
+      } else if (search.demo && priorEvents.length > 0) {
+        const completedItems = new Set(priorEvents.map((event) => event.item_id));
+        const nextItem = initial.items.findIndex((candidate) => !completedItems.has(candidate.id));
+        initial.itemIndex = nextItem >= 0 ? nextItem : initial.items.length;
       }
       brainRef.current = initial;
       setBrain(initial);
@@ -1241,7 +1249,7 @@ function ValidTutorSessionScreen({
       disposeVoice();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson, search.code, search.slot, classroomEnabled, startOnAbeja]);
+  }, [lesson, search.code, search.slot, search.demo, classroomEnabled, startOnAbeja]);
 
   // Clear the pencil mark whenever the active item changes.
   useEffect(() => {
@@ -1326,6 +1334,7 @@ function ValidTutorSessionScreen({
 
         <Link
           to="/tutor"
+          search={{ demo: search.demo }}
           className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[#5c3d28]/20 bg-[#fffaf0] px-6 py-3 text-lg font-black text-[#2a211b]"
           style={{ boxShadow: "0 6px 18px rgba(42, 33, 27, 0.1)" }}
         >
@@ -1430,7 +1439,7 @@ function ValidTutorSessionScreen({
     setReplaying(true);
     const delivery = modelDeliveryForItem(item);
     if (delivery.lineId) {
-      await playLine(delivery.lineId, true);
+      await playLine(delivery.lineId);
     } else {
       await playTextFallback(
         delivery.text,
@@ -1456,7 +1465,7 @@ function ValidTutorSessionScreen({
       lessonTitle={lessonTitle}
       lessonSubtitle={catalogEntry?.subtitle ?? lessonGraph?.focus}
       backLink={
-        <Link to="/tutor" onClick={finishSession} className="tutor-call-back">
+        <Link to="/tutor" search={{ demo: search.demo }} onClick={finishSession} className="tutor-call-back">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           <span>Lecciones</span>
         </Link>
@@ -1465,8 +1474,8 @@ function ValidTutorSessionScreen({
         <>
           {classroomEnabled && (
             <div data-tutor-puppet="" data-puppet-mode="painted-classroom" data-puppet-viseme={viseme}
-              style={{ display: "grid", placeItems: "center", height: "100%", width: "100%", background: "#253c31", containerType: "size" }}>
-              <div style={{ position: "relative", width: "min(100cqw, 177.7778cqh)", aspectRatio: "16 / 9", overflow: "hidden", containerType: "inline-size" }}>
+              className="tutor-painted-classroom">
+              <div className="tutor-painted-classroom-frame">
                 <picture style={{display: linePlaying ? "none" : "block"}}>
                   <source media="(prefers-reduced-motion: reduce)" srcSet={room + "/conversation.webp"} />
                   <img src={room + "/listening.webp"} alt="Gretel escucha junto a la pizarra" style={{display:"block", width:"100%"}} />

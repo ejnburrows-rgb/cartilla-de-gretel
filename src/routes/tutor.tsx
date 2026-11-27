@@ -18,6 +18,9 @@ import { CATALOG } from "@/lib/lesson-catalog";
 import { ALL_CURRICULUM_LESSONS, lessonGraphFor } from "@/lib/tutor-content";
 
 export const Route = createFileRoute("/tutor")({
+  validateSearch: (search: Record<string, unknown>): { demo?: boolean } => ({
+    demo: import.meta.env.VITE_CRM_REVIEW === "true" && search.demo === true ? true : undefined,
+  }),
   component: TutorLayout,
   head: () => ({
     meta: [
@@ -45,6 +48,7 @@ function TutorLayout() {
 }
 
 function TutorPicker() {
+  const { demo } = Route.useSearch();
   const [classCode, setClassCode] = useState("clase");
   const [slot, setSlot] = useState(1);
   const [memoryCleared, setMemoryCleared] = useState(false);
@@ -72,7 +76,7 @@ function TutorPicker() {
         key={n}
         to="/tutor/$n"
         params={{ n: String(n) }}
-        search={{ code: classCode, slot }}
+        search={{ code: classCode, slot, demo }}
         data-tutor-lesson-card={n}
         className="group flex flex-col justify-between gap-2 rounded-2xl border border-[#5c3d28]/15 bg-[#fffaf0] p-5 text-left shadow-[0_2px_8px_rgba(42,33,27,0.06)] transition-[transform,box-shadow,border-color] duration-150 hover:-translate-y-0.5 hover:border-[#1e4b82]/40 hover:shadow-[0_8px_20px_rgba(42,33,27,0.1)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#1e4b82]"
       >
@@ -111,11 +115,11 @@ function TutorPicker() {
     <main className="min-h-screen bg-[#f6efe2] px-4 py-8 text-[#2a211b]">
       <div className="mx-auto max-w-5xl">
         <Link
-          to="/"
+          to={demo ? "/cartilla/lecciones" : "/"}
           className="inline-flex min-h-11 items-center gap-2 rounded-xl px-3 text-sm font-bold text-[#635145] hover:bg-[#efe5d3] hover:text-[#2a211b]"
-          aria-label="Volver al inicio"
+          aria-label={demo ? "Volver al modo demo" : "Volver al inicio"}
         >
-          <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Inicio
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" /> {demo ? "Modo Demo" : "Inicio"}
         </Link>
 
         <header className="mt-6 text-center">
@@ -142,7 +146,7 @@ function TutorPicker() {
 
         {/* Class code + seat slot — anonymous progress ids (spec §10).
             No names, no storage: they travel in the link to the session. */}
-        <section
+        {!demo && <section
           className="mt-6 rounded-2xl border border-[#5c3d28]/15 bg-[#fffaf0] p-6 shadow-[0_2px_10px_rgba(42,33,27,0.06)]"
           aria-label="Identificación de la sesión"
         >
@@ -176,7 +180,7 @@ function TutorPicker() {
               </select>
             </label>
           </div>
-        </section>
+        </section>}
 
         <section aria-label="Lecciones del tutor" className="mt-8 space-y-8">
           <div>
@@ -206,7 +210,7 @@ function TutorPicker() {
           <p>
             El progreso se guarda únicamente en este navegador, mientras se conserven sus datos.
           </p>
-          <button
+          {!demo && <button
             type="button"
             className="mt-3 min-h-11 rounded-xl border border-[#5c3d28]/25 bg-[#fffaf0] px-4 font-bold text-[#2a211b] hover:bg-[#efe5d3]"
             onClick={() => {
@@ -226,7 +230,7 @@ function TutorPicker() {
             }}
           >
             Borrar progreso y memoria
-          </button>
+          </button>}
           <p role="status" className="mt-2 font-bold text-[#0f766e]">
             {memoryCleared ? "Memoria borrada. El material sin internet se conserva." : ""}
           </p>

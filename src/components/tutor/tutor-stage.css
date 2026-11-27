@@ -401,6 +401,31 @@
   border-color: rgba(70, 38, 17, 0.72);
 }
 
+.tutor-call-avatar-inner:has(.tutor-painted-classroom) {
+  padding: 0;
+}
+
+.tutor-call-avatar-host:has(.tutor-painted-classroom) {
+  background: #253c31;
+  border-color: #624126;
+}
+
+.tutor-painted-classroom {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  container-type: size;
+}
+
+.tutor-painted-classroom-frame {
+  position: relative;
+  width: min(100cqw, 177.7778cqh);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
 .tutor-pip-toolbar {
   display: none;
   align-items: center;
@@ -476,6 +501,20 @@
 .tutor-call-shell[data-layout-mode="call"] .tutor-call-primary-surface {
   grid-column: 2;
   grid-row: 1;
+}
+
+/* The classroom is filmed in 16:9. Size the call tile to that frame so it
+   can keep both Gretel and the board at their intended scale. */
+.tutor-call-shell[data-layout-mode="call"] .tutor-call-canvas:has(.tutor-painted-classroom) {
+  grid-template-columns: minmax(0, 2.5fr) minmax(260px, 1fr);
+}
+
+.tutor-call-shell[data-layout-mode="call"] .tutor-call-avatar-host:has(.tutor-painted-classroom) {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, calc((100dvh - 180px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
 }
 
 /* MODE B: Split screen — Gretel beside Flip Chart, pointer resizable */
@@ -1094,6 +1133,15 @@
   .tutor-call-shell[data-layout-mode="call"] .tutor-call-primary-surface {
     grid-column: 1;
     grid-row: 2;
+  }
+
+  .tutor-call-shell[data-layout-mode="call"] .tutor-call-canvas:has(.tutor-painted-classroom) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .tutor-call-shell[data-layout-mode="call"] .tutor-call-avatar-host:has(.tutor-painted-classroom) {
+    width: 100%;
   }
 
   /* Mode B stacks vertically on portrait phone with horizontal splitter */
