@@ -24,6 +24,7 @@ import {
   TutorFlipchartPresenter,
   getFlipchartImportantRects,
 } from "@/components/tutor/TutorFlipchartPresenter";
+import { CLASSROOM_SPEECH_START, playBoardAction } from "@/components/tutor/classroom-review";
 import { TutorGretelPuppet } from "@/components/tutor/TutorGretelPuppet";
 import { TutorMicButton } from "@/components/tutor/TutorMicButton";
 import { TutorPracticeHost, type TutorPracticeTarget } from "@/components/tutor/TutorPracticeHost";
@@ -112,6 +113,7 @@ export const Route = createFileRoute("/tutor/$n")({
         ? search.slot
         : 1,
     previewRig: search.previewRig === 1 || search.previewRig === "1" || search.previewRig === true ? 1 : undefined,
+    previewClassroom: String(search.previewClassroom) === "1" ? 1 : undefined,
     previewHybrid:
       search.previewHybrid === 1 || search.previewHybrid === "1" || search.previewHybrid === true
         ? 1
@@ -134,6 +136,7 @@ interface TutorSessionSearch {
   slot: number;
   previewRig?: 1;
   previewHybrid?: 1;
+  previewClassroom?: 1;
 }
 
 /** One-shot listen window (spec §18.3: silence at 6 s → gentle nudge). */
@@ -208,6 +211,19 @@ function ValidTutorSessionScreen({
   lesson: number;
   search: TutorSessionSearch;
 }) {
+  const classroomEnabled = lesson === 3 && search.previewClassroom === 1;
+  const classroomVideo = useRef<HTMLVideoElement>(null);
+  const classroomRun = useRef<AbortController | null>(null);
+  const [showBoardAction, setShowBoardAction] = useState(false);
+  function stopBoardAction() {
+    classroomRun.current?.abort();
+    classroomRun.current = null;
+    classroomVideo.current?.pause();
+    setShowBoardAction(false);
+  }
+  useEffect(() => () => {
+    classroomRun.current?.abort();
+  }, [classroomEnabled]);
   const lessonRef = useRef(lesson);
   lessonRef.current = lesson;
 
@@ -504,6 +520,17 @@ function ValidTutorSessionScreen({
       return;
     }
 
+    const video = classroomEnabled && lineId === "l1-model-abeja" ? classroomVideo.current : null;
+    let boardRun: AbortController | undefined;
+    if (video) {
+      stopBoardAction();
+      boardRun = new AbortController();
+      classroomRun.current = boardRun;
+      setShowBoardAction(true);
+      await playBoardAction(video, boardRun.signal);
+      if (boardRun.signal.aborted) return;
+      if (video.error || video.currentTime < CLASSROOM_SPEECH_START) stopBoardAction();
+    }
     setSilentLine(false);
     setSpokenText(cleanedCaption);
     controller.beginSpeaking(lineId, cleanedCaption, false);
@@ -517,6 +544,7 @@ function ValidTutorSessionScreen({
       },
     });
     stopVisemePlayer();
+    if (boardRun && classroomRun.current === boardRun) stopBoardAction();
     if (result === "silent" && !isGretelVoiceMuted()) {
       setSilentLine(true);
       await sleep(SILENT_LINE_HOLD_MS, (cancel) => {
@@ -1017,6 +1045,7 @@ function ValidTutorSessionScreen({
   }
 
   function finishSession(): void {
+    stopBoardAction();
     stopMic();
     cancelGretelSpeech();
     stopVisemePlayer();
@@ -1036,6 +1065,7 @@ function ValidTutorSessionScreen({
         if (brainRef.current?.capturing) dispatchRef.current({ type: "MIC_CANCEL" });
       },
       onInterrupt: () => {
+        stopBoardAction();
         resetIdleTimer();
         cancelGretelSpeech();
         stopVisemePlayer();
@@ -1072,6 +1102,9 @@ function ValidTutorSessionScreen({
         setActiveVisemeTimeline(timeline);
       },
       onPlaybackPosition: (position) => {
+        if (classroomRun.current && position?.lineId === "l1-model-abeja" && classroomVideo.current) {
+          classroomVideo.current.currentTime = CLASSROOM_SPEECH_START + position.currentTime;
+        }
         setPlaybackPosition(position);
         if (!position) {
           setViseme("X");
@@ -1402,6 +1435,15 @@ function ValidTutorSessionScreen({
         </Link>
       }
       avatar={
+        <>
+        {classroomEnabled && (
+          <video ref={classroomVideo} muted playsInline preload="metadata"
+            aria-label="Gretel escribe la a de abeja y la borra"
+            src="/cartilla/images/gretel/tutor/classroom-review/abeja.webm"
+            style={{ display: showBoardAction ? "block" : "none", width: "100%", height: "100%", objectFit: "contain" }}
+          />
+        )}
+        <div style={showBoardAction ? { display: "none" } : { display: "contents" }}>
         <TutorGretelPuppet
           state={puppet.machineState}
           viseme={viseme}
@@ -1415,6 +1457,8 @@ function ValidTutorSessionScreen({
           previewChalkboardRig={search.previewRig === 1}
           previewHybridRig={search.previewHybrid === 1}
         />
+        </div>
+        </>
       }
       card={
         <div
