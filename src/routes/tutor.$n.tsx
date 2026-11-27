@@ -218,7 +218,10 @@ function ValidTutorSessionScreen({
   function stopBoardAction() {
     classroomRun.current?.abort();
     classroomRun.current = null;
-    classroomVideo.current?.pause();
+    if (classroomVideo.current) {
+      classroomVideo.current.pause();
+      classroomVideo.current.currentTime = 0;
+    }
     setShowBoardAction(false);
   }
   useEffect(() => () => {
@@ -1103,7 +1106,10 @@ function ValidTutorSessionScreen({
       },
       onPlaybackPosition: (position) => {
         if (classroomRun.current && position?.lineId === "l1-model-abeja" && classroomVideo.current) {
-          classroomVideo.current.currentTime = CLASSROOM_SPEECH_START + position.currentTime;
+          const video = classroomVideo.current;
+          const target = CLASSROOM_SPEECH_START + position.currentTime;
+          if (Math.abs(video.currentTime - target) > 0.09) video.currentTime = target;
+          if (video.paused) void video.play().catch(() => {});
         }
         setPlaybackPosition(position);
         if (!position) {
@@ -1195,6 +1201,10 @@ function ValidTutorSessionScreen({
         pedagogicalFlow: true,
         includePracticeStages: true,
       });
+      if (classroomEnabled) {
+        const demoIndex = initial.items.findIndex((candidate) => candidate.id === "l3-word-abeja");
+        if (demoIndex >= 0) initial.itemIndex = demoIndex;
+      }
       brainRef.current = initial;
       setBrain(initial);
       resetIdleTimer();
@@ -1216,7 +1226,7 @@ function ValidTutorSessionScreen({
       disposeVoice();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson, search.code, search.slot]);
+  }, [lesson, search.code, search.slot, classroomEnabled]);
 
   // Clear the pencil mark whenever the active item changes.
   useEffect(() => {
@@ -1416,6 +1426,7 @@ function ValidTutorSessionScreen({
     if (epoch === epochRef.current) setReplaying(false);
   };
 
+  const showClassroom = classroomEnabled && (showBoardAction || (!linePlaying && !effectsRunning));
   const activeSheet = shellSnapshot.activeFlipchartPage ?? defaultFlipchartPage;
   const lessonTitle = catalogEntry
     ? `Lección ${lesson} · ${catalogEntry.title}`
@@ -1436,14 +1447,21 @@ function ValidTutorSessionScreen({
       }
       avatar={
         <>
-        {classroomEnabled && (
-          <video ref={classroomVideo} muted playsInline preload="metadata"
-            aria-label="Gretel escribe la a de abeja y la borra"
-            src="/cartilla/images/gretel/tutor/classroom-review/abeja.webm"
-            style={{ display: showBoardAction ? "block" : "none", width: "100%", height: "100%", objectFit: "contain" }}
-          />
-        )}
-        <div style={showBoardAction ? { display: "none" } : { display: "contents" }}>
+          {classroomEnabled && (
+            <div style={{ display: showClassroom ? "grid" : "none", placeItems: "center", height: "100%", width: "100%", background: "#253c31" }}>
+              <div style={{ position: "relative", width: "100%", maxHeight: "100%", aspectRatio: "16 / 9", overflow: "hidden", containerType: "inline-size" }}>
+                <video ref={classroomVideo} muted playsInline preload="auto"
+                  aria-label="Gretel escribe la a de abeja y la borra"
+                  src="/cartilla/images/gretel/tutor/classroom-review/abeja.webm"
+                  style={{ display: "block", width: "100%", height: "100%", objectFit: "contain" }}
+                />
+                <span aria-hidden="true" style={{ position: "absolute", left: "55%", top: "11%", color: "#f3e8cd", fontFamily: '"Snell Roundhand", "Brush Script MT", cursive', fontStyle: "italic", fontSize: "3.3cqw", pointerEvents: "none" }}>
+                  Cartilla de Gretel
+                </span>
+              </div>
+            </div>
+          )}
+          <div style={showClassroom ? { display: "none" } : { display: "contents" }}>
         <TutorGretelPuppet
           state={puppet.machineState}
           viseme={viseme}
