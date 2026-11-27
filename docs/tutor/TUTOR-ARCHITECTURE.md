@@ -46,6 +46,12 @@ spec §0 for the full decision table.
   approves.
 - Viseme JSON (Rhubarb, offline) times the "talking" state; amplitude
   fallback when absent.
+- **Permanent linguistic standard:** All Gretel dialogue, captions,
+  instructions, explanations, and teacher reports follow
+  [`docs/tutor/GRETEL-LINGUISTIC-STANDARD.md`](./GRETEL-LINGUISTIC-STANDARD.md)
+  (codified in `AGENTS.md` §8b), enforced by
+  `scripts/validate-tutor-book-fidelity.mjs` and synchronized to clean
+  Spanish recording scripts via `scripts/sync-tutor-recording-batches.mjs`.
 
 ## Face
 

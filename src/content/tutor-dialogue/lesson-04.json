@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l04-01-greeting-first",
-      "text": "Llegamos hoy a nuestra siguiente aventura para conocer mejor a la vocal e.",
+      "text": "Llegamos a una nueva lección para conocer con calma el sonido y la forma de la vocal e.",
       "batch": "B010",
       "seq": 1,
       "file": "B010-001.mp3",
@@ -64,12 +64,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "llegamos hoy a nuestra siguiente aventura para conocer mejor a la vocal e",
+      "normalizedText": "llegamos a una nueva lección para conocer con calma el sonido y la forma de la vocal e",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-02-greeting-return",
-      "text": "Qué bueno verte de nuevo por aquí para repasar nuestra sonriente vocal e.",
+      "text": "Qué alegría encontrarte de nuevo para repasar juntos la vocal e.",
       "batch": "B010",
       "seq": 2,
       "file": "B010-002.mp3",
@@ -126,12 +126,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bueno verte de nuevo por aquí para repasar nuestra sonriente vocal e",
+      "normalizedText": "qué alegría encontrarte de nuevo para repasar juntos la vocal e",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-03-review-intro",
-      "text": "Ya practicamos las hermanitas o y a; ahora le damos la bienvenida a la tercera vocal.",
+      "text": "Ya practicamos las hermanitas o y a; hoy recibimos a la tercera vocal de la cartilla.",
       "batch": "B010",
       "seq": 3,
       "file": "B010-003.mp3",
@@ -187,12 +187,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya practicamos las hermanitas o y a ahora le damos la bienvenida a la tercera vocal",
+      "normalizedText": "ya practicamos las hermanitas o y a hoy recibimos a la tercera vocal de la cartilla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-04-review-check",
-      "text": "¿Puedes recordar cómo suena la vocal a antes de pasar a la vocal e?",
+      "text": "¿Recuerdas cómo suena la vocal a antes de pasar a la vocal e?",
       "batch": "B010",
       "seq": 4,
       "file": "B010-004.mp3",
@@ -248,12 +248,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "puedes recordar cómo suena la vocal a antes de pasar a la vocal e",
+      "normalizedText": "recuerdas cómo suena la vocal a antes de pasar a la vocal e",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-05-lesson-objective",
-      "text": "Hoy aprenderemos el sonido claro de la vocal e y encontraremos dibujos y palabras que empiezan con ella.",
+      "text": "Hoy aprenderemos el sonido claro de la vocal e y encontraremos dibujos y palabras que comienzan con ella.",
       "batch": "B010",
       "seq": 5,
       "file": "B010-005.mp3",
@@ -309,12 +309,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprenderemos el sonido claro de la vocal e y encontraremos dibujos y palabras que empiezan con ella",
+      "normalizedText": "hoy aprenderemos el sonido claro de la vocal e y encontraremos dibujos y palabras que comienzan con ella",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-06-letter-name",
-      "text": "Esta letra se llama e, con tres bracitos en la mayúscula y una curvita cerrada en la minúscula.",
+      "text": "Esta letra se llama e; la mayúscula tiene tres líneas horizontales y la minúscula forma una curva cerrada.",
       "batch": "B010",
       "seq": 6,
       "file": "B010-006.mp3",
@@ -370,7 +370,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta letra se llama e con tres bracitos en la mayúscula y una curvita cerrada en la minúscula",
+      "normalizedText": "esta letra se llama e la mayúscula tiene tres líneas horizontales y la minúscula forma una curva cerrada",
       "sourcePr": "PR#1073"
     },
     {
@@ -436,7 +436,7 @@
     },
     {
       "id": "v2-l04-08-lesson-focus",
-      "text": "La vocal e suena siempre limpia y pareja cuando mantenemos la boca ligeramente entreabierta.",
+      "text": "La vocal e suena limpia y pareja cuando mantenemos la boca ligeramente entreabierta.",
       "batch": "B010",
       "seq": 8,
       "file": "B010-008.mp3",
@@ -492,12 +492,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "la vocal e suena siempre limpia y pareja cuando mantenemos la boca ligeramente entreabierta",
+      "normalizedText": "la vocal e suena limpia y pareja cuando mantenemos la boca ligeramente entreabierta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-09-sound-contrast",
-      "text": "A diferencia de la a bien abierta y la i muy finita, la e vive justo en una sonrisa media.",
+      "text": "A diferencia de la a abierta y la i más cerrada, la e nace en una sonrisa media y relajada.",
       "batch": "B010",
       "seq": 9,
       "file": "B010-009.mp3",
@@ -553,7 +553,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "a diferencia de la a bien abierta y la i muy finita la e vive justo en una sonrisa media",
+      "normalizedText": "a diferencia de la a abierta y la i más cerrada la e nace en una sonrisa media y relajada",
       "sourcePr": "PR#1073"
     },
     {
@@ -619,7 +619,7 @@
     },
     {
       "id": "v2-l04-11-explanation-simple",
-      "text": "Sonríe poquito sin cerrar los dientes y di eee como llamando a Ema desde lejos.",
+      "text": "Dibuja una sonrisa suave sin cerrar los dientes y di eee, como al llamar a Ema desde lejos.",
       "batch": "B010",
       "seq": 11,
       "file": "B010-011.mp3",
@@ -675,12 +675,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sonríe poquito sin cerrar los dientes y di eee como llamando a ema desde lejos",
+      "normalizedText": "dibuja una sonrisa suave sin cerrar los dientes y di eee como al llamar a ema desde lejos",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-12-flipchart-intro",
-      "text": "Miremos juntos en el rotafolio la divertida rima titulada La niña distraída.",
+      "text": "Observemos en el rotafolio la rima titulada La niña distraída.",
       "batch": "B010",
       "seq": 12,
       "file": "B010-012.mp3",
@@ -736,7 +736,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "miremos juntos en el rotafolio la divertida rima titulada la niña distraída",
+      "normalizedText": "observemos en el rotafolio la rima titulada la niña distraída",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -751,7 +751,7 @@
     },
     {
       "id": "v2-l04-13-flipchart-illustration-1",
-      "text": "En las ilustraciones del rotafolio vemos un gran elefante, a Ema, un espejo y una estrella.",
+      "text": "En las ilustraciones del rotafolio vemos un elefante, a Ema, un espejo y una estrella.",
       "batch": "B010",
       "seq": 13,
       "file": "B010-013.mp3",
@@ -807,12 +807,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en las ilustraciones del rotafolio vemos un gran elefante a ema un espejo y una estrella",
+      "normalizedText": "en las ilustraciones del rotafolio vemos un elefante a ema un espejo y una estrella",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-14-flipchart-illustration-2",
-      "text": "También aparecen una escalera y un erizo simpático acompañando a la distraída vocal e.",
+      "text": "También aparecen una escalera y un erizo acompañando a la distraída vocal e.",
       "batch": "B010",
       "seq": 14,
       "file": "B010-014.mp3",
@@ -868,7 +868,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "también aparecen una escalera y un erizo simpático acompañando a la distraída vocal e",
+      "normalizedText": "también aparecen una escalera y un erizo acompañando a la distraída vocal e",
       "sourcePr": "PR#1073"
     },
     {
@@ -934,7 +934,7 @@
     },
     {
       "id": "v2-l04-16-flipchart-model",
-      "text": "Mira el dibujo del elefante mientras dices su nombre alargando el sonido inicial con calma.",
+      "text": "Observa el dibujo del elefante mientras dices su nombre alargando con calma el sonido inicial.",
       "batch": "B010",
       "seq": 16,
       "file": "B010-016.mp3",
@@ -990,12 +990,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira el dibujo del elefante mientras dices su nombre alargando el sonido inicial con calma",
+      "normalizedText": "observa el dibujo del elefante mientras dices su nombre alargando con calma el sonido inicial",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-17-flipchart-vocab",
-      "text": "Leemos en voz clara las palabras del rotafolio: elefante, Ema, espejo, estrella, escalera y erizo.",
+      "text": "Leamos en voz clara las palabras del rotafolio: elefante, Ema, espejo, estrella, escalera y erizo.",
       "batch": "B010",
       "seq": 17,
       "file": "B010-017.mp3",
@@ -1051,12 +1051,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos en voz clara las palabras del rotafolio elefante ema espejo estrella escalera y erizo",
+      "normalizedText": "leamos en voz clara las palabras del rotafolio elefante ema espejo estrella escalera y erizo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-18-flipchart-rhyme-1",
-      "text": "Leemos juntos los primeros versos: Distraída es la Ee, entiende al revés, su mamá la llama una y otra vez.",
+      "text": "Leamos juntos los primeros versos: Distraída es la Ee, entiende al revés, su mamá la llama una y otra vez.",
       "batch": "B010",
       "seq": 18,
       "file": "B010-018.mp3",
@@ -1112,7 +1112,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos los primeros versos distraída es la ee entiende al revés su mamá la llama una y otra vez",
+      "normalizedText": "leamos juntos los primeros versos distraída es la ee entiende al revés su mamá la llama una y otra vez",
       "sourcePr": "PR#1073"
     },
     {
@@ -1361,7 +1361,7 @@
     },
     {
       "id": "v2-l04-23-common-mistake-1",
-      "text": "No confundas la e con la i; mantén la boca un poco más abierta y relajada.",
+      "text": "Para distinguir la e de la i, mantén la boca un poco más abierta y relajada.",
       "batch": "B010",
       "seq": 23,
       "file": "B010-023.mp3",
@@ -1417,7 +1417,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no confundas la e con la i mantén la boca un poco más abierta y relajada",
+      "normalizedText": "para distinguir la e de la i mantén la boca un poco más abierta y relajada",
       "sourcePr": "PR#1073"
     },
     {
@@ -1483,7 +1483,7 @@
     },
     {
       "id": "v2-l04-25-common-mistake-3",
-      "text": "Cuando escribas la e minúscula, empieza desde el centro hacia afuera y sube formando su cabecita.",
+      "text": "Al escribir la e minúscula, comienza desde el centro hacia afuera y sube formando una curva redonda.",
       "batch": "B010",
       "seq": 25,
       "file": "B010-025.mp3",
@@ -1539,12 +1539,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando escribas la e minúscula empieza desde el centro hacia afuera y sube formando su cabecita",
+      "normalizedText": "al escribir la e minúscula comienza desde el centro hacia afuera y sube formando una curva redonda",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-26-hint-1",
-      "text": "Escucha el nombre del dibujo despacio y nota si tu boca hace una sonrisa media.",
+      "text": "Escucha el nombre del dibujo despacio y nota si tu boca forma una sonrisa media.",
       "batch": "B010",
       "seq": 26,
       "file": "B010-026.mp3",
@@ -1600,7 +1600,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha el nombre del dibujo despacio y nota si tu boca hace una sonrisa media",
+      "normalizedText": "escucha el nombre del dibujo despacio y nota si tu boca forma una sonrisa media",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1615,7 +1615,7 @@
     },
     {
       "id": "v2-l04-27-hint-2",
-      "text": "Compara el inicio del dibujo con elefante y estrella para ver si suenan igual.",
+      "text": "Compara el inicio del dibujo con elefante y estrella para comprobar si suenan igual.",
       "batch": "B010",
       "seq": 27,
       "file": "B010-027.mp3",
@@ -1671,12 +1671,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "compara el inicio del dibujo con elefante y estrella para ver si suenan igual",
+      "normalizedText": "compara el inicio del dibujo con elefante y estrella para comprobar si suenan igual",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-28-hint-3",
-      "text": "Repite conmigo estas palabras verificadas con e: elefante, escalera, erizo y escoba.",
+      "text": "Repite conmigo estas palabras de la lección: elefante, escalera, erizo y escoba.",
       "batch": "B010",
       "seq": 28,
       "file": "B010-028.mp3",
@@ -1732,12 +1732,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite conmigo estas palabras verificadas con e elefante escalera erizo y escoba",
+      "normalizedText": "repite conmigo estas palabras de la lección elefante escalera erizo y escoba",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-29-workbook-transition",
-      "text": "Ahora pasamos a tu cuaderno de trabajo para buscar los dibujos de la vocal e.",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para buscar los dibujos de la vocal e.",
       "batch": "B010",
       "seq": 29,
       "file": "B010-029.mp3",
@@ -1793,12 +1793,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para buscar los dibujos de la vocal e",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para buscar los dibujos de la vocal e",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-30-page-instruction-1",
-      "text": "Marca con una equis solamente los dibujos de las palabras que comienzan con la vocal e.",
+      "text": "Marca con una equis únicamente los dibujos cuyos nombres comienzan con la vocal e.",
       "batch": "B010",
       "seq": 30,
       "file": "B010-030.mp3",
@@ -1852,7 +1852,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "marca con una equis solamente los dibujos de las palabras que comienzan con la vocal e",
+      "normalizedText": "marca con una equis únicamente los dibujos cuyos nombres comienzan con la vocal e",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1942,7 +1942,7 @@
     },
     {
       "id": "v2-l04-31-page-instruction-2",
-      "text": "Después traza una línea desde la vocal e hasta cada dibujo que empieza con su mismo sonido.",
+      "text": "Después traza una línea desde la vocal e hasta cada dibujo que empieza con ese mismo sonido.",
       "batch": "B010",
       "seq": 31,
       "file": "B010-031.mp3",
@@ -1996,7 +1996,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después traza una línea desde la vocal e hasta cada dibujo que empieza con su mismo sonido",
+      "normalizedText": "después traza una línea desde la vocal e hasta cada dibujo que empieza con ese mismo sonido",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2197,7 +2197,7 @@
     },
     {
       "id": "v2-l04-33-word-practice-1",
-      "text": "Repite despacio estas cuatro palabras del cuaderno: elefante, escalera, erizo y escoba.",
+      "text": "Repite con calma estas cuatro palabras del cuaderno: elefante, escalera, erizo y escoba.",
       "batch": "B010",
       "seq": 33,
       "file": "B010-033.mp3",
@@ -2251,12 +2251,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite despacio estas cuatro palabras del cuaderno elefante escalera erizo y escoba",
+      "normalizedText": "repite con calma estas cuatro palabras del cuaderno elefante escalera erizo y escoba",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-34-word-practice-2",
-      "text": "Sigamos con estas palabras también de la lección: estrella, escuela, espejo y Ema.",
+      "text": "Sigamos con estas palabras de la lección: estrella, escuela, espejo y Ema.",
       "batch": "B010",
       "seq": 34,
       "file": "B010-034.mp3",
@@ -2310,7 +2310,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sigamos con estas palabras también de la lección estrella escuela espejo y ema",
+      "normalizedText": "sigamos con estas palabras de la lección estrella escuela espejo y ema",
       "sourcePr": "PR#1073"
     },
     {
@@ -2433,7 +2433,7 @@
     },
     {
       "id": "v2-l04-37-page-instruction-final",
-      "text": "Al final practica la escritura de la vocal e con tu mejor letra en los renglones.",
+      "text": "Para finalizar, practica la escritura de la vocal e con cuidado sobre los renglones.",
       "batch": "B010",
       "seq": 37,
       "file": "B010-037.mp3",
@@ -2487,7 +2487,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al final practica la escritura de la vocal e con tu mejor letra en los renglones",
+      "normalizedText": "para finalizar practica la escritura de la vocal e con cuidado sobre los renglones",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2518,7 +2518,7 @@
     },
     {
       "id": "v2-l04-38-game-intro",
-      "text": "Hagamos ahora un reto interactivo de escucha para distinguir las palabras que empiezan con e.",
+      "text": "Hagamos ahora una actividad de escucha para distinguir las palabras que comienzan con e.",
       "batch": "B010",
       "seq": 38,
       "file": "B010-038.mp3",
@@ -2574,12 +2574,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos ahora un reto interactivo de escucha para distinguir las palabras que empiezan con e",
+      "normalizedText": "hagamos ahora una actividad de escucha para distinguir las palabras que comienzan con e",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-39-game-step",
-      "text": "Escucha cada palabra que te presento y dime si su dibujo comienza con e o con otra vocal.",
+      "text": "Escucha cada palabra que te presento y decide si su dibujo comienza con e o con otra vocal.",
       "batch": "B010",
       "seq": 39,
       "file": "B010-039.mp3",
@@ -2635,12 +2635,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha cada palabra que te presento y dime si su dibujo comienza con e o con otra vocal",
+      "normalizedText": "escucha cada palabra que te presento y decide si su dibujo comienza con e o con otra vocal",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-40-game-correct",
-      "text": "¡Muy bien respondido! Elegiste justo el sonido de la vocal e.",
+      "text": "¡Muy bien! Elegiste el sonido correcto de la vocal e.",
       "batch": "B010",
       "seq": 40,
       "file": "B010-040.mp3",
@@ -2696,12 +2696,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien respondido elegiste justo el sonido de la vocal e",
+      "normalizedText": "muy bien elegiste el sonido correcto de la vocal e",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-41-game-retry",
-      "text": "Vuelve a decir la palabra en voz baja y comprueba si empieza igual que elefante.",
+      "text": "Vuelve a decir la palabra despacio y comprueba si empieza igual que elefante.",
       "batch": "B010",
       "seq": 41,
       "file": "B010-041.mp3",
@@ -2757,7 +2757,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "vuelve a decir la palabra en voz baja y comprueba si empieza igual que elefante",
+      "normalizedText": "vuelve a decir la palabra despacio y comprueba si empieza igual que elefante",
       "sourcePr": "PR#1073"
     },
     {
@@ -2823,7 +2823,7 @@
     },
     {
       "id": "v2-l04-43-page-complete",
-      "text": "Terminaste todos tus ejercicios de la vocal e. ¡Vamos avanzando genial!",
+      "text": "Has terminado todos tus ejercicios de la vocal e. ¡Qué buen progreso!",
       "batch": "B010",
       "seq": 43,
       "file": "B010-043.mp3",
@@ -2879,7 +2879,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todos tus ejercicios de la vocal e vamos avanzando genial",
+      "normalizedText": "has terminado todos tus ejercicios de la vocal e qué buen progreso",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2899,7 +2899,7 @@
     },
     {
       "id": "v2-l04-44-closing",
-      "text": "Qué bien trabajaste hoy la vocal e. Cada vez tienes el oído más atento para leer.",
+      "text": "Completaste la lección de la vocal e, con su poema, sus dibujos y su trazo.",
       "batch": "B010",
       "seq": 44,
       "file": "B010-044.mp3",
@@ -2955,12 +2955,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bien trabajaste hoy la vocal e cada vez tienes el oído más atento para leer",
+      "normalizedText": "completaste la lección de la vocal e con su poema sus dibujos y su trazo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l04-45-next-step",
-      "text": "En la próxima lección conoceremos la delgadita vocal i y su divertida rima.",
+      "text": "En la próxima lección conoceremos la vocal i y su rima en el rotafolio.",
       "batch": "B010",
       "seq": 45,
       "file": "B010-045.mp3",
@@ -3016,7 +3016,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la próxima lección conoceremos la delgadita vocal i y su divertida rima",
+      "normalizedText": "en la próxima lección conoceremos la vocal i y su rima en el rotafolio",
       "sourcePr": "PR#1073"
     },
     {
@@ -3075,8 +3075,8 @@
     },
     {
       "id": "v2-l04-47-atlas-workbook",
-      "text": "Di «elefante» muy despacio. ¿Con qué vocal empieza?",
-      "normalizedText": "di elefante muy despacio con qué vocal empieza",
+      "text": "Pronuncia «elefante» despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "pronuncia elefante despacio con qué vocal empieza",
       "batch": "B010",
       "seq": 47,
       "file": "B010-047.mp3",

@@ -471,7 +471,7 @@
     },
     {
       "id": "v2-l24-07-phonetic-sound",
-      "text": "En nuestro español suena suavecita igual que la ese, dejando salir el aire entre los dientes.",
+      "text": "En nuestro español suena suave, igual que la ese, dejando salir el aire entre los dientes.",
       "batch": "B030",
       "seq": 7,
       "file": "B030-007.mp3",
@@ -543,7 +543,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en nuestro español suena suavecita igual que la ese dejando salir el aire entre los dientes",
+      "normalizedText": "en nuestro español suena suave igual que la ese dejando salir el aire entre los dientes",
       "sourcePr": "PR#1073"
     },
     {
@@ -779,7 +779,7 @@
     },
     {
       "id": "v2-l24-11-explanation-simple",
-      "text": "Dibuja un caminito en zigzag con el lápiz y léelo suavecito como en zapato y azul.",
+      "text": "Traza un recorrido en zigzag con el lápiz y pronúnciala suavemente, como en zapato y azul.",
       "batch": "B030",
       "seq": 11,
       "file": "B030-011.mp3",
@@ -851,7 +851,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "dibuja un caminito en zigzag con el lápiz y léelo suavecito como en zapato y azul",
+      "normalizedText": "traza un recorrido en zigzag con el lápiz y pronúnciala suavemente como en zapato y azul",
       "sourcePr": "PR#1073"
     },
     {
@@ -1204,7 +1204,7 @@
     },
     {
       "id": "v2-l24-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la zeta: za, ze, zi, zo, zu.",
+      "text": "Leamos juntos con voz clara las sílabas de la zeta: za, ze, zi, zo, zu.",
       "batch": "B030",
       "seq": 16,
       "file": "B030-016.mp3",
@@ -1274,7 +1274,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la zeta za ze zi zo zu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la zeta za ze zi zo zu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1907,7 +1907,7 @@
     },
     {
       "id": "v2-l24-25-common-mistake-3",
-      "text": "Presta atención a palabras que llevan zeta al final de la sílaba como azul y calabaza.",
+      "text": "Presta atención a las palabras que llevan la zeta en medio, como azul y calabaza.",
       "batch": "B030",
       "seq": 25,
       "file": "B030-025.mp3",
@@ -1979,7 +1979,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "presta atención a palabras que llevan zeta al final de la sílaba como azul y calabaza",
+      "normalizedText": "presta atención a las palabras que llevan la zeta en medio como azul y calabaza",
       "sourcePr": "PR#1073"
     },
     {
@@ -3621,7 +3621,7 @@
     },
     {
       "id": "v2-l24-41-game-retry",
-      "text": "Repite el resto de la palabra en voz alta y busca cuál sílaba de la zeta falta.",
+      "text": "Repite el resto de la palabra en voz alta y busca qué sílaba de la zeta falta.",
       "batch": "B030",
       "seq": 41,
       "file": "B030-041.mp3",
@@ -3693,7 +3693,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite el resto de la palabra en voz alta y busca cuál sílaba de la zeta falta",
+      "normalizedText": "repite el resto de la palabra en voz alta y busca qué sílaba de la zeta falta",
       "sourcePr": "PR#1073"
     },
     {
@@ -4001,7 +4001,7 @@
     },
     {
       "id": "v2-l24-45-next-step",
-      "text": "Ya eres un lector valiente; ahora puedes releer tus cuentos favoritos y descubrir libros nuevos cada día.",
+      "text": "Ya puedes leer con confianza; ahora disfruta releyendo tus cuentos favoritos y descubriendo libros nuevos cada día.",
       "batch": "B030",
       "seq": 45,
       "file": "B030-045.mp3",
@@ -4073,7 +4073,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya eres un lector valiente ahora puedes releer tus cuentos favoritos y descubrir libros nuevos cada día",
+      "normalizedText": "ya puedes leer con confianza ahora disfruta releyendo tus cuentos favoritos y descubriendo libros nuevos cada día",
       "sourcePr": "PR#1073"
     },
     {

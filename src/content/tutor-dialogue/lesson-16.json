@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l16-01-greeting-first",
-      "text": "Bienvenidos hoy a una lección muy marinera dedicada a nuestra letra uve.",
+      "text": "Hoy comenzamos una nueva lección dedicada a la letra uve y a las aventuras en el mar.",
       "batch": "B022",
       "seq": 1,
       "file": "B022-001.mp3",
@@ -82,7 +82,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos hoy a una lección muy marinera dedicada a nuestra letra uve",
+      "normalizedText": "hoy comenzamos una nueva lección dedicada a la letra uve y a las aventuras en el mar",
       "sourcePr": "PR#1073"
     },
     {
@@ -404,7 +404,7 @@
     },
     {
       "id": "v2-l16-06-letter-name",
-      "text": "Esta consonante se llama uve, y se dibuja como un pequeño valle con dos bracitos abiertos.",
+      "text": "Esta consonante se llama uve y se traza con dos líneas inclinadas que se unen abajo en punta.",
       "batch": "B022",
       "seq": 6,
       "file": "B022-006.mp3",
@@ -478,7 +478,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama uve y se dibuja como un pequeño valle con dos bracitos abiertos",
+      "normalizedText": "esta consonante se llama uve y se traza con dos líneas inclinadas que se unen abajo en punta",
       "sourcePr": "PR#1073"
     },
     {
@@ -799,7 +799,7 @@
     },
     {
       "id": "v2-l16-11-explanation-simple",
-      "text": "Abre los dos bracitos de la uve con la mirada y léela suave como en vaso y vela.",
+      "text": "Sigue con la mirada los dos trazos abiertos de la uve y pronúnciala suave, como en vaso y vela.",
       "batch": "B022",
       "seq": 11,
       "file": "B022-011.mp3",
@@ -873,7 +873,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abre los dos bracitos de la uve con la mirada y léela suave como en vaso y vela",
+      "normalizedText": "sigue con la mirada los dos trazos abiertos de la uve y pronúnciala suave como en vaso y vela",
       "sourcePr": "PR#1073"
     },
     {
@@ -1238,7 +1238,7 @@
     },
     {
       "id": "v2-l16-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la uve: va, ve, vi, vo, vu.",
+      "text": "Leamos juntos con voz clara las sílabas de la uve: va, ve, vi, vo, vu.",
       "batch": "B022",
       "seq": 16,
       "file": "B022-016.mp3",
@@ -1310,7 +1310,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la uve va ve vi vo vu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la uve va ve vi vo vu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1961,7 +1961,7 @@
     },
     {
       "id": "v2-l16-25-common-mistake-3",
-      "text": "Lee despacito palabras largas como lavamanos y papalote dividiéndolas en voz natural.",
+      "text": "Lee despacio palabras largas como lavamanos y papalote, separando sus sílabas con naturalidad.",
       "batch": "B022",
       "seq": 25,
       "file": "B022-025.mp3",
@@ -2035,7 +2035,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee despacito palabras largas como lavamanos y papalote dividiéndolas en voz natural",
+      "normalizedText": "lee despacio palabras largas como lavamanos y papalote separando sus sílabas con naturalidad",
       "sourcePr": "PR#1073"
     },
     {
@@ -2522,7 +2522,7 @@
     },
     {
       "id": "v2-l16-30-page-instruction-1",
-      "text": "Traza los dos bracitos rectos de la uve mayúscula y minúscula y haz un dibujo con uve.",
+      "text": "Traza las dos líneas rectas de la uve mayúscula y minúscula y haz un dibujo de una palabra con uve.",
       "batch": "B022",
       "seq": 30,
       "file": "B022-030.mp3",
@@ -2593,7 +2593,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "traza los dos bracitos rectos de la uve mayúscula y minúscula y haz un dibujo con uve",
+      "normalizedText": "traza las dos líneas rectas de la uve mayúscula y minúscula y haz un dibujo de una palabra con uve",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2694,7 +2694,7 @@
     },
     {
       "id": "v2-l16-31-page-instruction-2",
-      "text": "Después circula las sílabas de la uve en palabras como vaso, ave, vela, vino, pavo y vuela.",
+      "text": "Después encierra en un círculo las sílabas de la uve en palabras como vaso, ave, vela, vino, pavo y vuela.",
       "batch": "B022",
       "seq": 31,
       "file": "B022-031.mp3",
@@ -2765,7 +2765,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después circula las sílabas de la uve en palabras como vaso ave vela vino pavo y vuela",
+      "normalizedText": "después encierra en un círculo las sílabas de la uve en palabras como vaso ave vela vino pavo y vuela",
       "sourcePr": "PR#1073"
     },
     {
@@ -3638,7 +3638,7 @@
     },
     {
       "id": "v2-l16-40-game-correct",
-      "text": "Muy bien navegado. Completaste la palabra con la sílaba correcta de la uve.",
+      "text": "Muy bien, completaste la palabra con la sílaba correcta de la uve.",
       "batch": "B022",
       "seq": 40,
       "file": "B022-040.mp3",
@@ -3712,7 +3712,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien navegado completaste la palabra con la sílaba correcta de la uve",
+      "normalizedText": "muy bien completaste la palabra con la sílaba correcta de la uve",
       "sourcePr": "PR#1073"
     },
     {
@@ -4041,7 +4041,7 @@
     },
     {
       "id": "v2-l16-44-closing",
-      "text": "Navegaste muy bien por toda la lección de la uve. Tu lectura es cada vez más fluida.",
+      "text": "Recorrimos juntos toda la lección de la uve y la historia de Vita y Valentín. Sigues avanzando con constancia.",
       "batch": "B022",
       "seq": 44,
       "file": "B022-044.mp3",
@@ -4115,7 +4115,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "navegaste muy bien por toda la lección de la uve tu lectura es cada vez más fluida",
+      "normalizedText": "recorrimos juntos toda la lección de la uve y la historia de vita y valentín sigues avanzando con constancia",
       "sourcePr": "PR#1073"
     },
     {

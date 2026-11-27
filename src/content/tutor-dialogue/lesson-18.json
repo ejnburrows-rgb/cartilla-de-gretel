@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l18-01-greeting-first",
-      "text": "Bienvenidos hoy a una lección llena de energía con la fuerza vibrante de la doble erre.",
+      "text": "Te doy la bienvenida a esta lección dedicada al sonido vibrante de la doble erre.",
       "batch": "B024",
       "seq": 1,
       "file": "B024-001.mp3",
@@ -82,7 +82,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos hoy a una lección llena de energía con la fuerza vibrante de la doble erre",
+      "normalizedText": "te doy la bienvenida a esta lección dedicada al sonido vibrante de la doble erre",
       "sourcePr": "PR#1073"
     },
     {
@@ -1234,7 +1234,7 @@
     },
     {
       "id": "v2-l18-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas fuertes: rra, rre, rri, rro, rru.",
+      "text": "Leamos juntos con voz clara las sílabas fuertes: rra, rre, rri, rro, rru.",
       "batch": "B024",
       "seq": 16,
       "file": "B024-016.mp3",
@@ -1306,7 +1306,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas fuertes rra rre rri rro rru",
+      "normalizedText": "leamos juntos con voz clara las sílabas fuertes rra rre rri rro rru",
       "sourcePr": "PR#1073"
     },
     {
@@ -2517,7 +2517,7 @@
     },
     {
       "id": "v2-l18-30-page-instruction-1",
-      "text": "Escribe con cuidado dos erres juntitas en el renglón y haz un dibujo de una palabra con doble erre.",
+      "text": "Escribe con cuidado las dos erres juntas en el renglón y haz un dibujo de una palabra con doble erre.",
       "batch": "B024",
       "seq": 30,
       "file": "B024-030.mp3",
@@ -2588,7 +2588,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe con cuidado dos erres juntitas en el renglón y haz un dibujo de una palabra con doble erre",
+      "normalizedText": "escribe con cuidado las dos erres juntas en el renglón y haz un dibujo de una palabra con doble erre",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3713,7 +3713,7 @@
     },
     {
       "id": "v2-l18-41-game-retry",
-      "text": "Pronuncia la palabra completa despacio y escucha cuál vocal viene después de las dos erres.",
+      "text": "Pronuncia la palabra completa despacio y fíjate qué vocal sigue después de las dos erres.",
       "batch": "B024",
       "seq": 41,
       "file": "B024-041.mp3",
@@ -3787,7 +3787,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pronuncia la palabra completa despacio y escucha cuál vocal viene después de las dos erres",
+      "normalizedText": "pronuncia la palabra completa despacio y fíjate qué vocal sigue después de las dos erres",
       "sourcePr": "PR#1073"
     },
     {
@@ -4038,7 +4038,7 @@
     },
     {
       "id": "v2-l18-44-closing",
-      "text": "Hiciste vibrar muy bien cada palabra con doble erre. Qué gran avance llevas en el libro.",
+      "text": "Concluimos la lección de la doble erre y sus palabras vibrantes. Sigues avanzando con constancia en la cartilla.",
       "batch": "B024",
       "seq": 44,
       "file": "B024-044.mp3",
@@ -4112,7 +4112,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hiciste vibrar muy bien cada palabra con doble erre qué gran avance llevas en el libro",
+      "normalizedText": "concluimos la lección de la doble erre y sus palabras vibrantes sigues avanzando con constancia en la cartilla",
       "sourcePr": "PR#1073"
     },
     {

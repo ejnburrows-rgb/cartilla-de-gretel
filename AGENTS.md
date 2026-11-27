@@ -104,6 +104,24 @@ Never invent art, voice or educational content; use only owner files. Mark unava
   - **Teacher Flip Chart:** Candidate A (`2000 ms` top-bound spiral flip) is the sole production default.
 - Any commit that violates these locks must fail `pnpm verify:policy` and be rejected.
 
+### 8b. Permanent Gretel Linguistic Standard (Never Revert)
+- **Voice & Register:** Gretel speaks elegant, natural, grammatically correct Spanish suitable for teaching children to read and write — conveying warmth, intelligence, patience, curiosity, and educational authority, like a cultured, affectionate, experienced teacher who never speaks down to children. Use consistent feminine self-reference (`tranquila`, `lista`, `contenta`, `segura`).
+- **Permanently Prohibited:** Colloquialisms, regional slang, exaggerated enthusiasm, unnecessary diminutives, artificially childish language, repetitive compliments, excessive exclamation marks (maximum **1** `!` per line), filler, and unsupported claims about concentration, pronunciation accuracy, or understanding.
+- **Concrete Owner Guidance (Unacceptable → Preferred):**
+  - `¡Bingo!` → `¡Exactamente!`
+  - `¡Buenísimo!` → `¡Muy bien!`
+  - `Buena onda` → `Con alegría`
+  - `¡Arranquemos!` → `Comencemos`
+  - `Estuviste súper cerca` → `Estuviste muy cerca`
+  - `Platiquemos` → `Conversemos`
+  - `Igualito` → `De la misma manera`
+  - `Un detallito` → `Un pequeño detalle`
+  - `Un reto` → `Un ejercicio un poco más difícil`
+  - `Hoy avanzamos un montón` → `Hoy has progresado mucho`
+  - `Truco rápido` → `Te voy a dar una pista`
+  - `Me perdí un pedacito` → `No he comprendido bien esa parte`
+- **Permanent Scope & Literary Preservation:** This standard applies permanently to all future Gretel dialogue, captions, instructions, explanations, and teacher reports, while preserving the original literary and educational language of *La Cartilla de Gretel* (for example, authentic book vocabulary such as `hermanitas` in *Las hermanitas vocales* or `caballito` in the book rhyme). See `docs/tutor/GRETEL-LINGUISTIC-STANDARD.md`, enforced by `scripts/validate-tutor-book-fidelity.mjs` and `src/lib/__tests__/tutor-dialogue-manifest.test.ts`.
+
 ## 9. Focused verification
 Test affected behavior and source fidelity; reuse valid proof. Visual claims need actual rendered screenshots; motion, audio, navigation and gameplay need recordings or observed runs. Use real product routes, not /dev-* substitutes. Record exact revision, changed files, actual counts, proof, gaps and next action in #877. Phone 390x844 and desktop 1366x768 are required where relevant; final verification also covers tablet/projector and both student and teacher paths. SonarCloud/SonarQube is advisory and non-blocking; independently confirmed serious defects, missing required proof and protections remain gates. A merge or passing build never establishes live delivery.
 

@@ -91,7 +91,7 @@
     },
     {
       "id": "v2-l13-02-greeting-return",
-      "text": "Qué alegría verte otra vez para seguir leyendo las aventuras con la letra ene.",
+      "text": "Qué alegría verte de nuevo para seguir leyendo las historias de la letra ene.",
       "batch": "B019",
       "seq": 2,
       "file": "B019-002.mp3",
@@ -170,7 +170,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué alegría verte otra vez para seguir leyendo las aventuras con la letra ene",
+      "normalizedText": "qué alegría verte de nuevo para seguir leyendo las historias de la letra ene",
       "sourcePr": "PR#1073"
     },
     {
@@ -258,7 +258,7 @@
     },
     {
       "id": "v2-l13-04-review-check",
-      "text": "¿Recuerdas cómo suena tu boca cuando cambias de la ele en luna a la ene en nido?",
+      "text": "¿Notas cómo cambia el sonido cuando pasas de la ele en luna a la ene en nido?",
       "batch": "B019",
       "seq": 4,
       "file": "B019-004.mp3",
@@ -336,7 +336,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo suena tu boca cuando cambias de la ele en luna a la ene en nido",
+      "normalizedText": "notas cómo cambia el sonido cuando pasas de la ele en luna a la ene en nido",
       "sourcePr": "PR#1073"
     },
     {
@@ -424,7 +424,7 @@
     },
     {
       "id": "v2-l13-06-letter-name",
-      "text": "Esta consonante se llama ene, y en minúscula tiene una sola montañita redonda.",
+      "text": "Esta consonante se llama ene; en minúscula se forma con un trazo recto y un solo arco.",
       "batch": "B019",
       "seq": 6,
       "file": "B019-006.mp3",
@@ -502,12 +502,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama ene y en minúscula tiene una sola montañita redonda",
+      "normalizedText": "esta consonante se llama ene en minúscula se forma con un trazo recto y un solo arco",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-07-phonetic-sound",
-      "text": "Al pronunciarla apoyamos la lengua detrás de los dientes y sentimos vibrar suave la nariz: nnn.",
+      "text": "Al pronunciarla apoyamos la lengua detrás de los dientes superiores y sentimos una vibración suave en la nariz: nnn.",
       "batch": "B019",
       "seq": 7,
       "file": "B019-007.mp3",
@@ -585,12 +585,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al pronunciarla apoyamos la lengua detrás de los dientes y sentimos vibrar suave la nariz nnn",
+      "normalizedText": "al pronunciarla apoyamos la lengua detrás de los dientes superiores y sentimos una vibración suave en la nariz nnn",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-08-lesson-focus",
-      "text": "Siente cómo vibra suavecito tu nariz cuando dices despacio nido, mano y luna.",
+      "text": "Siente cómo vibra suavemente tu nariz cuando dices despacio nido, mano y luna.",
       "batch": "B019",
       "seq": 8,
       "file": "B019-008.mp3",
@@ -668,7 +668,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "siente cómo vibra suavecito tu nariz cuando dices despacio nido mano y luna",
+      "normalizedText": "siente cómo vibra suavemente tu nariz cuando dices despacio nido mano y luna",
       "sourcePr": "PR#1073"
     },
     {
@@ -756,7 +756,7 @@
     },
     {
       "id": "v2-l13-10-explanation-primary",
-      "text": "Cuando unimos ese sonido suave de la nariz con las vocales formamos na, ne, ni, no, nu.",
+      "text": "Cuando unimos este sonido nasal con las vocales formamos las sílabas na, ne, ni, no, nu.",
       "batch": "B019",
       "seq": 10,
       "file": "B019-010.mp3",
@@ -834,12 +834,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando unimos ese sonido suave de la nariz con las vocales formamos na ne ni no nu",
+      "normalizedText": "cuando unimos este sonido nasal con las vocales formamos las sílabas na ne ni no nu",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-11-explanation-simple",
-      "text": "Toca con un dedito el lado de tu nariz y di nnn; sentirás un cosquilleo suave en nido y mano.",
+      "text": "Apoya un dedo suavemente al lado de tu nariz y pronuncia nnn; sentirás una ligera vibración en nido y mano.",
       "batch": "B019",
       "seq": 11,
       "file": "B019-011.mp3",
@@ -917,12 +917,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "toca con un dedito el lado de tu nariz y di nnn sentirás un cosquilleo suave en nido y mano",
+      "normalizedText": "apoya un dedo suavemente al lado de tu nariz y pronuncia nnn sentirás una ligera vibración en nido y mano",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para saludar las palabras nuevas y el poema ¡Nino nada!",
+      "text": "Abramos nuestro rotafolio para conocer las palabras nuevas y el poema ¡Nino nada!",
       "batch": "B019",
       "seq": 12,
       "file": "B019-012.mp3",
@@ -998,7 +998,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para saludar las palabras nuevas y el poema nino nada",
+      "normalizedText": "abramos nuestro rotafolio para conocer las palabras nuevas y el poema nino nada",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1029,7 +1029,7 @@
     },
     {
       "id": "v2-l13-13-flipchart-illustration-1",
-      "text": "En los dibujos del rotafolio aparecen un nido, un nudo, un mono, el perrito Napi y un tenedor.",
+      "text": "En las ilustraciones del rotafolio aparecen un nido, un nudo, un mono, el perro Napi y un tenedor.",
       "batch": "B019",
       "seq": 13,
       "file": "B019-013.mp3",
@@ -1105,7 +1105,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en los dibujos del rotafolio aparecen un nido un nudo un mono el perrito napi y un tenedor",
+      "normalizedText": "en las ilustraciones del rotafolio aparecen un nido un nudo un mono el perro napi y un tenedor",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1296,7 +1296,7 @@
     },
     {
       "id": "v2-l13-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la ene: na, ne, ni, no, nu.",
+      "text": "Leamos juntos con voz clara las sílabas de la ene: na, ne, ni, no, nu.",
       "batch": "B019",
       "seq": 16,
       "file": "B019-016.mp3",
@@ -1372,7 +1372,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la ene na ne ni no nu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la ene na ne ni no nu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1889,7 +1889,7 @@
     },
     {
       "id": "v2-l13-23-common-mistake-1",
-      "text": "No confundas la ene con la eme; la eme tiene dos montañitas y la ene tiene una sola.",
+      "text": "No confundas la ene con la eme; la eme tiene dos arcos y la ene tiene uno solo.",
       "batch": "B019",
       "seq": 23,
       "file": "B019-023.mp3",
@@ -1967,7 +1967,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no confundas la ene con la eme la eme tiene dos montañitas y la ene tiene una sola",
+      "normalizedText": "no confundas la ene con la eme la eme tiene dos arcos y la ene tiene uno solo",
       "sourcePr": "PR#1073"
     },
     {
@@ -2138,7 +2138,7 @@
     },
     {
       "id": "v2-l13-26-hint-1",
-      "text": "Mira si la letra tiene una sola montañita y deja la boca entreabierta al decirla.",
+      "text": "Fíjate si la letra tiene un solo arco y deja los labios entreabiertos al pronunciarla.",
       "batch": "B019",
       "seq": 26,
       "file": "B019-026.mp3",
@@ -2216,7 +2216,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira si la letra tiene una sola montañita y deja la boca entreabierta al decirla",
+      "normalizedText": "fíjate si la letra tiene un solo arco y deja los labios entreabiertos al pronunciarla",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2636,7 +2636,7 @@
     },
     {
       "id": "v2-l13-30-page-instruction-1",
-      "text": "Escribe la ene mayúscula y minúscula cuidando su única montañita y haz un dibujo con ene.",
+      "text": "Escribe la ene mayúscula y minúscula cuidando su único arco y haz un dibujo de una palabra con ene.",
       "batch": "B019",
       "seq": 30,
       "file": "B019-030.mp3",
@@ -2711,7 +2711,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la ene mayúscula y minúscula cuidando su única montañita y haz un dibujo con ene",
+      "normalizedText": "escribe la ene mayúscula y minúscula cuidando su único arco y haz un dibujo de una palabra con ene",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3204,7 +3204,7 @@
     },
     {
       "id": "v2-l13-35-sight-or-vocab",
-      "text": "Hoy practicamos dos palabritas cortas que señalan y unen ideas: esa y a.",
+      "text": "Hoy practicamos dos palabras cortas que señalan y unen ideas: esa y a.",
       "batch": "B019",
       "seq": 35,
       "file": "B019-035.mp3",
@@ -3279,7 +3279,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy practicamos dos palabritas cortas que señalan y unen ideas esa y a",
+      "normalizedText": "hoy practicamos dos palabras cortas que señalan y unen ideas esa y a",
       "sourcePr": "PR#1073"
     },
     {
@@ -3792,7 +3792,7 @@
     },
     {
       "id": "v2-l13-40-game-correct",
-      "text": "Muy bien elegido. Completaste la palabra de ene con mucha seguridad.",
+      "text": "Muy bien, completaste con acierto la palabra con la letra ene.",
       "batch": "B019",
       "seq": 40,
       "file": "B019-040.mp3",
@@ -3870,12 +3870,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien elegido completaste la palabra de ene con mucha seguridad",
+      "normalizedText": "muy bien completaste con acierto la palabra con la letra ene",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-41-game-retry",
-      "text": "Lee la palabra en voz alta y fíjate cuál sílaba de la ene suena mejor en el espacio.",
+      "text": "Lee la palabra en voz alta y fíjate qué sílaba de la ene completa mejor el espacio.",
       "batch": "B019",
       "seq": 41,
       "file": "B019-041.mp3",
@@ -3953,7 +3953,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee la palabra en voz alta y fíjate cuál sílaba de la ene suena mejor en el espacio",
+      "normalizedText": "lee la palabra en voz alta y fíjate qué sílaba de la ene completa mejor el espacio",
       "sourcePr": "PR#1073"
     },
     {
@@ -4211,7 +4211,7 @@
     },
     {
       "id": "v2-l13-44-closing",
-      "text": "Completaste toda la lección de la letra ene. ¡Lista para el próximo paso!",
+      "text": "Completaste toda la lección de la letra ene y ya puedes dar el próximo paso.",
       "batch": "B019",
       "seq": 44,
       "file": "B019-044.mp3",
@@ -4289,12 +4289,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste toda la lección de la letra ene lista para el próximo paso",
+      "normalizedText": "completaste toda la lección de la letra ene y ya puedes dar el próximo paso",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l13-45-next-step",
-      "text": "En la próxima lección conocerás a su hermana especial con una olita arriba: la letra eñe.",
+      "text": "En la próxima lección conocerás a su letra hermana, que lleva una tilde ondulada arriba: la eñe.",
       "batch": "B019",
       "seq": 45,
       "file": "B019-045.mp3",
@@ -4372,7 +4372,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la próxima lección conocerás a su hermana especial con una olita arriba la letra eñe",
+      "normalizedText": "en la próxima lección conocerás a su letra hermana que lleva una tilde ondulada arriba la eñe",
       "sourcePr": "PR#1073"
     },
     {

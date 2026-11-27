@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l10-01-greeting-first",
-      "text": "Hoy entramos juntos a una nueva lección para practicar el sonido firme de la letra te.",
+      "text": "Iniciamos hoy una nueva lección para descubrir el sonido firme de la letra te.",
       "batch": "B016",
       "seq": 1,
       "file": "B016-001.mp3",
@@ -89,12 +89,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy entramos juntos a una nueva lección para practicar el sonido firme de la letra te",
+      "normalizedText": "iniciamos hoy una nueva lección para descubrir el sonido firme de la letra te",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-02-greeting-return",
-      "text": "Qué gusto verte de nuevo para seguir leyendo palabras e historias con la letra te.",
+      "text": "Qué gusto saludarte de nuevo para seguir leyendo palabras e historias con la letra te.",
       "batch": "B016",
       "seq": 2,
       "file": "B016-002.mp3",
@@ -176,12 +176,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué gusto verte de nuevo para seguir leyendo palabras e historias con la letra te",
+      "normalizedText": "qué gusto saludarte de nuevo para seguir leyendo palabras e historias con la letra te",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-03-review-intro",
-      "text": "Ya manejamos muy bien eme, pe y ese; hoy sumamos la te para leer palabras como tomate y pato.",
+      "text": "Ya trabajamos con eme, pe y ese; hoy sumamos la te para leer palabras como tomate y pato.",
       "batch": "B016",
       "seq": 3,
       "file": "B016-003.mp3",
@@ -262,12 +262,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya manejamos muy bien eme pe y ese hoy sumamos la te para leer palabras como tomate y pato",
+      "normalizedText": "ya trabajamos con eme pe y ese hoy sumamos la te para leer palabras como tomate y pato",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-04-review-check",
-      "text": "¿Recuerdas cómo suena el aire suave de la ese antes de escuchar el toque firme de la te?",
+      "text": "¿Recuerdas el aire suave de la ese antes de escuchar el toque firme de la te?",
       "batch": "B016",
       "seq": 4,
       "file": "B016-004.mp3",
@@ -348,7 +348,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo suena el aire suave de la ese antes de escuchar el toque firme de la te",
+      "normalizedText": "recuerdas el aire suave de la ese antes de escuchar el toque firme de la te",
       "sourcePr": "PR#1073"
     },
     {
@@ -439,7 +439,7 @@
     },
     {
       "id": "v2-l10-06-letter-name",
-      "text": "Esta consonante se llama te, y lleva un palito alto cruzado con su sombrerito arriba.",
+      "text": "Esta consonante se llama te, y se forma con una línea vertical cruzada por un trazo horizontal.",
       "batch": "B016",
       "seq": 6,
       "file": "B016-006.mp3",
@@ -520,12 +520,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama te y lleva un palito alto cruzado con su sombrerito arriba",
+      "normalizedText": "esta consonante se llama te y se forma con una línea vertical cruzada por un trazo horizontal",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-07-phonetic-sound",
-      "text": "Su sonido nace tocando suavemente detrás de los dientes de arriba con la punta de la lengua.",
+      "text": "Su sonido nace al apoyar suavemente la punta de la lengua detrás de los dientes superiores.",
       "batch": "B016",
       "seq": 7,
       "file": "B016-007.mp3",
@@ -606,12 +606,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "su sonido nace tocando suavemente detrás de los dientes de arriba con la punta de la lengua",
+      "normalizedText": "su sonido nace al apoyar suavemente la punta de la lengua detrás de los dientes superiores",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-08-lesson-focus",
-      "text": "Apoya la punta de la lengua detrás de los dientes superiores como un golpecito limpio de reloj.",
+      "text": "Apoya la punta de la lengua detrás de los dientes superiores en un toque limpio, como el compás de un reloj.",
       "batch": "B016",
       "seq": 8,
       "file": "B016-008.mp3",
@@ -692,7 +692,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "apoya la punta de la lengua detrás de los dientes superiores como un golpecito limpio de reloj",
+      "normalizedText": "apoya la punta de la lengua detrás de los dientes superiores en un toque limpio como el compás de un reloj",
       "sourcePr": "PR#1073"
     },
     {
@@ -869,7 +869,7 @@
     },
     {
       "id": "v2-l10-11-explanation-simple",
-      "text": "Toca detrás de tus dientes de arriba con la lengua y suelta la vocal de golpe: ta, te, ti, to, tu.",
+      "text": "Toca detrás de los dientes superiores con la lengua y suelta la vocal de inmediato: ta, te, ti, to, tu.",
       "batch": "B016",
       "seq": 11,
       "file": "B016-011.mp3",
@@ -950,12 +950,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "toca detrás de tus dientes de arriba con la lengua y suelta la vocal de golpe ta te ti to tu",
+      "normalizedText": "toca detrás de los dientes superiores con la lengua y suelta la vocal de inmediato ta te ti to tu",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para conocer las palabras y el poema llamado La sopa de pato.",
+      "text": "Abramos el rotafolio para conocer las palabras y el poema llamado La sopa de pato.",
       "batch": "B016",
       "seq": 12,
       "file": "B016-012.mp3",
@@ -1034,7 +1034,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para conocer las palabras y el poema llamado la sopa de pato",
+      "normalizedText": "abramos el rotafolio para conocer las palabras y el poema llamado la sopa de pato",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1339,7 +1339,7 @@
     },
     {
       "id": "v2-l10-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas: ta, te, ti, to, tu.",
+      "text": "Leamos juntos en voz clara las sílabas: ta, te, ti, to, tu.",
       "batch": "B016",
       "seq": 16,
       "file": "B016-016.mp3",
@@ -1418,7 +1418,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas ta te ti to tu",
+      "normalizedText": "leamos juntos en voz clara las sílabas ta te ti to tu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1507,7 +1507,7 @@
     },
     {
       "id": "v2-l10-18-flipchart-rhyme-1",
-      "text": "Leemos juntos el comienzo de La sopa de pato: Tuto, Tato y Uto toman sopa de pato.",
+      "text": "Leamos juntos el comienzo de La sopa de pato: Tuto, Tato y Uto toman sopa de pato.",
       "batch": "B016",
       "seq": 18,
       "file": "B016-018.mp3",
@@ -1586,7 +1586,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos el comienzo de la sopa de pato tuto tato y uto toman sopa de pato",
+      "normalizedText": "leamos juntos el comienzo de la sopa de pato tuto tato y uto toman sopa de pato",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1951,7 +1951,7 @@
     },
     {
       "id": "v2-l10-23-common-mistake-1",
-      "text": "No olvides trazar el palito horizontal de la te minúscula para que no se confunda con una ele.",
+      "text": "Recuerda trazar la línea horizontal de la te minúscula para que no se confunda con una ele.",
       "batch": "B016",
       "seq": 23,
       "file": "B016-023.mp3",
@@ -2032,12 +2032,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no olvides trazar el palito horizontal de la te minúscula para que no se confunda con una ele",
+      "normalizedText": "recuerda trazar la línea horizontal de la te minúscula para que no se confunda con una ele",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-24-common-mistake-2",
-      "text": "Ten cuidado de no decir no cuando Tito tapa el pomo; lee despacio los signos de admiración.",
+      "text": "Al leer las exclamaciones de la historia, observa con calma los signos de admiración para darles expresión.",
       "batch": "B016",
       "seq": 24,
       "file": "B016-024.mp3",
@@ -2118,12 +2118,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ten cuidado de no decir no cuando tito tapa el pomo lee despacio los signos de admiración",
+      "normalizedText": "al leer las exclamaciones de la historia observa con calma los signos de admiración para darles expresión",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-25-common-mistake-3",
-      "text": "Distingue bien pata de tapa mirando cuál sílaba aparece primero al leer de izquierda a derecha.",
+      "text": "Distingue bien pata de tapa observando qué sílaba aparece primero al leer de izquierda a derecha.",
       "batch": "B016",
       "seq": 25,
       "file": "B016-025.mp3",
@@ -2204,12 +2204,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "distingue bien pata de tapa mirando cuál sílaba aparece primero al leer de izquierda a derecha",
+      "normalizedText": "distingue bien pata de tapa observando qué sílaba aparece primero al leer de izquierda a derecha",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-26-hint-1",
-      "text": "Toca detrás de los dientes con la lengua y fíjate en la vocal que sigue.",
+      "text": "Apoya la lengua detrás de los dientes superiores y observa qué vocal viene después.",
       "batch": "B016",
       "seq": 26,
       "file": "B016-026.mp3",
@@ -2290,7 +2290,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "toca detrás de los dientes con la lengua y fíjate en la vocal que sigue",
+      "normalizedText": "apoya la lengua detrás de los dientes superiores y observa qué vocal viene después",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2719,7 +2719,7 @@
     },
     {
       "id": "v2-l10-30-page-instruction-1",
-      "text": "Escribe la te mayúscula y minúscula con trazo derecho y dibuja algo cuyo nombre empiece con te.",
+      "text": "Escribe la te mayúscula y minúscula con trazo firme y dibuja algo cuyo nombre comience con te.",
       "batch": "B016",
       "seq": 30,
       "file": "B016-030.mp3",
@@ -2797,7 +2797,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la te mayúscula y minúscula con trazo derecho y dibuja algo cuyo nombre empiece con te",
+      "normalizedText": "escribe la te mayúscula y minúscula con trazo firme y dibuja algo cuyo nombre comience con te",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2898,7 +2898,7 @@
     },
     {
       "id": "v2-l10-31-page-instruction-2",
-      "text": "Después busca y rodea en un círculo la sílaba de la te dentro de cada palabra.",
+      "text": "Después busca y encierra en un círculo la sílaba de la te dentro de cada palabra.",
       "batch": "B016",
       "seq": 31,
       "file": "B016-031.mp3",
@@ -2976,7 +2976,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después busca y rodea en un círculo la sílaba de la te dentro de cada palabra",
+      "normalizedText": "después busca y encierra en un círculo la sílaba de la te dentro de cada palabra",
       "sourcePr": "PR#1073"
     },
     {
@@ -3136,7 +3136,7 @@
     },
     {
       "id": "v2-l10-33-word-practice-1",
-      "text": "Leemos juntos este grupo de palabras: toma, teme, seta, tute, Titi, pata, Soto y tupe.",
+      "text": "Leamos juntos este grupo de palabras: toma, teme, seta, tute, Titi, pata, Soto y tupe.",
       "batch": "B016",
       "seq": 33,
       "file": "B016-033.mp3",
@@ -3214,7 +3214,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos este grupo de palabras toma teme seta tute titi pata soto y tupe",
+      "normalizedText": "leamos juntos este grupo de palabras toma teme seta tute titi pata soto y tupe",
       "sourcePr": "PR#1073"
     },
     {
@@ -3686,7 +3686,7 @@
     },
     {
       "id": "v2-l10-37-page-instruction-final",
-      "text": "Al final completa cada palabra con la sílaba que falta, como en toma, mata, topo y tomate.",
+      "text": "Para concluir, completa cada palabra con la sílaba que falta, como en toma, mata, topo y tomate.",
       "batch": "B016",
       "seq": 37,
       "file": "B016-037.mp3",
@@ -3764,7 +3764,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al final completa cada palabra con la sílaba que falta como en toma mata topo y tomate",
+      "normalizedText": "para concluir completa cada palabra con la sílaba que falta como en toma mata topo y tomate",
       "sourcePr": "PR#1073"
     },
     {
@@ -3941,7 +3941,7 @@
     },
     {
       "id": "v2-l10-40-game-correct",
-      "text": "Muy bien completado. Elegiste la sílaba precisa de la te para formar la palabra.",
+      "text": "Muy bien. Elegiste la sílaba precisa de la te para formar la palabra.",
       "batch": "B016",
       "seq": 40,
       "file": "B016-040.mp3",
@@ -4022,12 +4022,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien completado elegiste la sílaba precisa de la te para formar la palabra",
+      "normalizedText": "muy bien elegiste la sílaba precisa de la te para formar la palabra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-41-game-retry",
-      "text": "Repite la palabra en voz baja y escucha cuál vocal suena junto al golpe de la te.",
+      "text": "Repite la palabra despacio y escucha qué vocal suena junto al toque de la te.",
       "batch": "B016",
       "seq": 41,
       "file": "B016-041.mp3",
@@ -4108,12 +4108,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite la palabra en voz baja y escucha cuál vocal suena junto al golpe de la te",
+      "normalizedText": "repite la palabra despacio y escucha qué vocal suena junto al toque de la te",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l10-42-assessment",
-      "text": "Para comprobar lo aprendido hoy, lee en voz clara esta oración: El pomo tiene sopa.",
+      "text": "Para cerrar esta práctica, lee en voz clara esta oración: El pomo tiene sopa.",
       "batch": "B016",
       "seq": 42,
       "file": "B016-042.mp3",
@@ -4194,7 +4194,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para comprobar lo aprendido hoy lee en voz clara esta oración el pomo tiene sopa",
+      "normalizedText": "para cerrar esta práctica lee en voz clara esta oración el pomo tiene sopa",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4271,7 +4271,7 @@
     },
     {
       "id": "v2-l10-43-page-complete",
-      "text": "Completaste todas las actividades de la letra te. ¡Muy buen paso!",
+      "text": "Has completado todas las actividades de la letra te. ¡Muy buen paso!",
       "batch": "B016",
       "seq": 43,
       "file": "B016-043.mp3",
@@ -4352,7 +4352,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades de la letra te muy buen paso",
+      "normalizedText": "has completado todas las actividades de la letra te muy buen paso",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {

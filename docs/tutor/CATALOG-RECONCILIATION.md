@@ -26,8 +26,8 @@ This reconciliation merges PR #1073, PR #1322, and `B031` into **ONE authoritati
 | **PR #1322 Source-Linked Context Mappings** | 0 | 1,208 | **1,208** (100% preserved in `sourceContexts`) |
 | **Shared-Clip Deduplicated Contexts** | 0 | 204 contexts across 43 texts (161 dupes saved) | **204** contexts flagged `sharedClip: true` (**161** duplicate recordings prevented) |
 | **Total Recording Batches** | 30 (`B001`–`B030`) | Variable | **31** (`B001`–`B031`, 25–50 lines each) |
-| **Total Spoken Words (v2)** | 19,410 | — | **20,624** (~187.5 min at 110 wpm + pauses) |
-| **Priority Starter Package** | — | — | **3 batches / 133 lines** (`PRIORITY-B001` + `PRIORITY-B002` + `PRIORITY-B003`, ~15.7 min) |
+| **Total Spoken Words (v2)** | 19,410 | — | **20,723** (~188.4 min at 110 wpm + pauses) |
+| **Priority Starter Package** | — | — | **3 batches / 133 lines** (`PRIORITY-B001` + `PRIORITY-B002` + `PRIORITY-B003`, 1,740 words, ~15.8 min) |
 | **Active Unapproved Audio** | 0 | 0 | **0** (all 1,418 v2 lines `status: "scripted"`) |
 | **Unsupported Observation / Clarity Claims** | — | — | **0** (enforced in validator + tests) |
 | **References to Absent Workbook pp. 86–87** | 0 | 0 | **0** (blocked in schema + validator + tests) |
@@ -66,10 +66,10 @@ Every single one of PR #1322's **1,208** verified context rows is preserved in `
 ## 3. Recording Workflow & Priority Package
 
 1. **Start with the 3-Batch Priority Recording Package** ([`recording/PRIORITY-PACKAGE.md`](./recording/PRIORITY-PACKAGE.md)):
-   - [`recording/PRIORITY-B001-universal.txt`](./recording/PRIORITY-B001-universal.txt) (`B001`, 36 lines, 433 words, ~3.9 min)
-   - [`recording/PRIORITY-B002-lesson-01.txt`](./recording/PRIORITY-B002-lesson-01.txt) (`B007`, 47 lines, 669 words, ~6.1 min)
-   - [`recording/PRIORITY-B003-interactive-conversation.txt`](./recording/PRIORITY-B003-interactive-conversation.txt) (`B031`, 50 lines, 630 words, ~5.7 min)
-   - Total starter session: **133 lines (~15.7 min)** — clean Spanish only, ready for ElevenReader, matching `RECORDING-INDEX.csv` 1-to-1.
+   - [`recording/PRIORITY-B001-universal.txt`](./recording/PRIORITY-B001-universal.txt) (`B001`, 36 lines, 426 words, ~3.9 min)
+   - [`recording/PRIORITY-B002-lesson-01.txt`](./recording/PRIORITY-B002-lesson-01.txt) (`B007`, 47 lines, 680 words, ~6.2 min)
+   - [`recording/PRIORITY-B003-interactive-conversation.txt`](./recording/PRIORITY-B003-interactive-conversation.txt) (`B031`, 50 lines, 634 words, ~5.8 min)
+   - Total starter session: **133 lines (1,740 words, ~15.8 min)** — clean Spanish only, ready for ElevenReader, matching `RECORDING-INDEX.csv` 1-to-1.
 2. **Private Master Vault & Local Intake:**
    - Raw takes live outside Git in `~/GretelVoicePrivate/`.
    - Alignment, checksum verification, clipping checks, and review extraction run locally via `scripts/tutor-intake/` before any clip is marked `status: "approved"`.

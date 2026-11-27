@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l12-01-greeting-first",
-      "text": "Llegamos hoy a una nueva lección para cantar y leer con el sonido claro de la ele.",
+      "text": "Llegamos a una nueva lección para leer y disfrutar el sonido claro de la letra ele.",
       "batch": "B018",
       "seq": 1,
       "file": "B018-001.mp3",
@@ -84,7 +84,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "llegamos hoy a una nueva lección para cantar y leer con el sonido claro de la ele",
+      "normalizedText": "llegamos a una nueva lección para leer y disfrutar el sonido claro de la letra ele",
       "sourcePr": "PR#1073"
     },
     {
@@ -171,7 +171,7 @@
     },
     {
       "id": "v2-l12-03-review-intro",
-      "text": "Ya leemos con eme, pe, ese, te y de; hoy la ele nos trae muchas palabras alegres.",
+      "text": "Ya leemos con eme, pe, ese, te y de; hoy la ele nos abre muchas palabras nuevas.",
       "batch": "B018",
       "seq": 3,
       "file": "B018-003.mp3",
@@ -247,12 +247,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya leemos con eme pe ese te y de hoy la ele nos trae muchas palabras alegres",
+      "normalizedText": "ya leemos con eme pe ese te y de hoy la ele nos abre muchas palabras nuevas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-04-review-check",
-      "text": "¿Recuerdas dónde apoyas la lengua cuando pasas de decir dedo a decir luna?",
+      "text": "¿Notas cómo cambia la posición de la lengua cuando pasas de decir dedo a decir luna?",
       "batch": "B018",
       "seq": 4,
       "file": "B018-004.mp3",
@@ -328,7 +328,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas dónde apoyas la lengua cuando pasas de decir dedo a decir luna",
+      "normalizedText": "notas cómo cambia la posición de la lengua cuando pasas de decir dedo a decir luna",
       "sourcePr": "PR#1073"
     },
     {
@@ -414,7 +414,7 @@
     },
     {
       "id": "v2-l12-06-letter-name",
-      "text": "Esta consonante se llama ele, y la minúscula es un palito alto y derecho como una torre.",
+      "text": "Esta consonante se llama ele, y su minúscula es una línea vertical alta y recta como una torre.",
       "batch": "B018",
       "seq": 6,
       "file": "B018-006.mp3",
@@ -490,12 +490,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama ele y la minúscula es un palito alto y derecho como una torre",
+      "normalizedText": "esta consonante se llama ele y su minúscula es una línea vertical alta y recta como una torre",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-07-phonetic-sound",
-      "text": "Para pronunciarla subimos la punta de la lengua detrás de los dientes de arriba: lll.",
+      "text": "Para pronunciarla elevamos la punta de la lengua detrás de los dientes superiores: lll.",
       "batch": "B018",
       "seq": 7,
       "file": "B018-007.mp3",
@@ -571,12 +571,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para pronunciarla subimos la punta de la lengua detrás de los dientes de arriba lll",
+      "normalizedText": "para pronunciarla elevamos la punta de la lengua detrás de los dientes superiores lll",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-08-lesson-focus",
-      "text": "Sube la punta de la lengua hasta el cielo de la boca detrás de los dientes como en luna y maleta.",
+      "text": "Sube la punta de la lengua hacia el paladar detrás de los dientes, como al pronunciar luna y maleta.",
       "batch": "B018",
       "seq": 8,
       "file": "B018-008.mp3",
@@ -652,12 +652,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sube la punta de la lengua hasta el cielo de la boca detrás de los dientes como en luna y maleta",
+      "normalizedText": "sube la punta de la lengua hacia el paladar detrás de los dientes como al pronunciar luna y maleta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-09-sound-contrast",
-      "text": "A diferencia de la de que vibra al soltar el aire, la ele deja escapar el aire por los lados.",
+      "text": "A diferencia de la de, que vibra al frente, la ele deja pasar el aire suavemente por los lados de la lengua.",
       "batch": "B018",
       "seq": 9,
       "file": "B018-009.mp3",
@@ -733,7 +733,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "a diferencia de la de que vibra al soltar el aire la ele deja escapar el aire por los lados",
+      "normalizedText": "a diferencia de la de que vibra al frente la ele deja pasar el aire suavemente por los lados de la lengua",
       "sourcePr": "PR#1073"
     },
     {
@@ -819,7 +819,7 @@
     },
     {
       "id": "v2-l12-11-explanation-simple",
-      "text": "Pega la puntita de la lengua detrás de los dientes de arriba y canta lll antes de cada vocal.",
+      "text": "Apoya la punta de la lengua detrás de los dientes superiores y deja sonar lll antes de cada vocal.",
       "batch": "B018",
       "seq": 11,
       "file": "B018-011.mp3",
@@ -895,12 +895,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pega la puntita de la lengua detrás de los dientes de arriba y canta lll antes de cada vocal",
+      "normalizedText": "apoya la punta de la lengua detrás de los dientes superiores y deja sonar lll antes de cada vocal",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para conocer las palabras nuevas y leer el poema rítmico Leo lee.",
+      "text": "Abramos el rotafolio para conocer las palabras nuevas y leer el poema rítmico Leo lee.",
       "batch": "B018",
       "seq": 12,
       "file": "B018-012.mp3",
@@ -974,7 +974,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para conocer las palabras nuevas y leer el poema rítmico leo lee",
+      "normalizedText": "abramos el rotafolio para conocer las palabras nuevas y leer el poema rítmico leo lee",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1104,7 +1104,7 @@
     },
     {
       "id": "v2-l12-14-flipchart-illustration-2",
-      "text": "También vemos a Leo leyendo feliz rodeado de palabras con tela, lana y maleta.",
+      "text": "También vemos a Leo leyendo con entusiasmo, rodeado de palabras como tela, lana y maleta.",
       "batch": "B018",
       "seq": 14,
       "file": "B018-014.mp3",
@@ -1178,12 +1178,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "también vemos a leo leyendo feliz rodeado de palabras con tela lana y maleta",
+      "normalizedText": "también vemos a leo leyendo con entusiasmo rodeado de palabras como tela lana y maleta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-15-reading-order",
-      "text": "Lee las sílabas de izquierda a derecha y sigue los versos repetidos del poema sin saltarte ninguno.",
+      "text": "Lee las sílabas de izquierda a derecha y sigue los versos repetidos del poema sin omitir ninguno.",
       "batch": "B018",
       "seq": 15,
       "file": "B018-015.mp3",
@@ -1259,12 +1259,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee las sílabas de izquierda a derecha y sigue los versos repetidos del poema sin saltarte ninguno",
+      "normalizedText": "lee las sílabas de izquierda a derecha y sigue los versos repetidos del poema sin omitir ninguno",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las cinco sílabas: la, le, li, lo, lu.",
+      "text": "Leamos juntos en voz clara las cinco sílabas: la, le, li, lo, lu.",
       "batch": "B018",
       "seq": 16,
       "file": "B018-016.mp3",
@@ -1338,7 +1338,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las cinco sílabas la le li lo lu",
+      "normalizedText": "leamos juntos en voz clara las cinco sílabas la le li lo lu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1422,7 +1422,7 @@
     },
     {
       "id": "v2-l12-18-flipchart-rhyme-1",
-      "text": "Leemos el comienzo alegre del poema Leo lee: Leo, leo, leo, leo, lima, palo, tela, Tula.",
+      "text": "Leamos el comienzo del poema Leo lee: Leo, leo, leo, leo, lima, palo, tela, Tula.",
       "batch": "B018",
       "seq": 18,
       "file": "B018-018.mp3",
@@ -1496,7 +1496,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos el comienzo alegre del poema leo lee leo leo leo leo lima palo tela tula",
+      "normalizedText": "leamos el comienzo del poema leo lee leo leo leo leo lima palo tela tula",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1841,7 +1841,7 @@
     },
     {
       "id": "v2-l12-23-common-mistake-1",
-      "text": "No confundas la ele minúscula con una i sin punto ni con una te; es un palito alto sin rayita.",
+      "text": "Distingue la ele minúscula de la i y de la te: es una línea alta y recta, sin punto ni trazo horizontal.",
       "batch": "B018",
       "seq": 23,
       "file": "B018-023.mp3",
@@ -1917,12 +1917,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no confundas la ele minúscula con una i sin punto ni con una te es un palito alto sin rayita",
+      "normalizedText": "distingue la ele minúscula de la i y de la te es una línea alta y recta sin punto ni trazo horizontal",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-24-common-mistake-2",
-      "text": "Cuando leas maleta o paloma, pasa sin prisa por la sílaba de en medio que lleva ele.",
+      "text": "Al leer maleta o paloma, pronuncia sin prisa la sílaba intermedia que lleva ele.",
       "batch": "B018",
       "seq": 24,
       "file": "B018-024.mp3",
@@ -1998,12 +1998,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando leas maleta o paloma pasa sin prisa por la sílaba de en medio que lleva ele",
+      "normalizedText": "al leer maleta o paloma pronuncia sin prisa la sílaba intermedia que lleva ele",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-25-common-mistake-3",
-      "text": "No cortes la sílaba en dos trozos; junta la ele y la vocal en una sola voz limpia.",
+      "text": "Evita dividir la sílaba en dos partes; une la ele y la vocal en una sola emisión de voz.",
       "batch": "B018",
       "seq": 25,
       "file": "B018-025.mp3",
@@ -2079,12 +2079,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no cortes la sílaba en dos trozos junta la ele y la vocal en una sola voz limpia",
+      "normalizedText": "evita dividir la sílaba en dos partes une la ele y la vocal en una sola emisión de voz",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-26-hint-1",
-      "text": "Sube la lengua detrás de los dientes de arriba y fíjate en la vocal siguiente.",
+      "text": "Eleva la lengua detrás de los dientes superiores y observa qué vocal viene después.",
       "batch": "B018",
       "seq": 26,
       "file": "B018-026.mp3",
@@ -2160,7 +2160,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sube la lengua detrás de los dientes de arriba y fíjate en la vocal siguiente",
+      "normalizedText": "eleva la lengua detrás de los dientes superiores y observa qué vocal viene después",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2574,7 +2574,7 @@
     },
     {
       "id": "v2-l12-30-page-instruction-1",
-      "text": "Traza la ele mayúscula y minúscula alta y derechita y dibuja algo cuyo nombre empiece con ele.",
+      "text": "Traza la ele mayúscula y minúscula alta y recta, y dibuja algo cuyo nombre comience con ele.",
       "batch": "B018",
       "seq": 30,
       "file": "B018-030.mp3",
@@ -2647,7 +2647,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "traza la ele mayúscula y minúscula alta y derechita y dibuja algo cuyo nombre empiece con ele",
+      "normalizedText": "traza la ele mayúscula y minúscula alta y recta y dibuja algo cuyo nombre comience con ele",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2748,7 +2748,7 @@
     },
     {
       "id": "v2-l12-31-page-instruction-2",
-      "text": "Después circula la sílaba correcta dentro de las palabras como lata, maleta, lima y lupa.",
+      "text": "Después encierra en un círculo la sílaba correcta dentro de palabras como lata, maleta, lima y lupa.",
       "batch": "B018",
       "seq": 31,
       "file": "B018-031.mp3",
@@ -2821,7 +2821,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después circula la sílaba correcta dentro de las palabras como lata maleta lima y lupa",
+      "normalizedText": "después encierra en un círculo la sílaba correcta dentro de palabras como lata maleta lima y lupa",
       "sourcePr": "PR#1073"
     },
     {
@@ -3210,7 +3210,7 @@
     },
     {
       "id": "v2-l12-36-sentence-or-pair",
-      "text": "Lee siguiendo con tu dedito esta oración del libro: La maleta de Luli está en la mesa.",
+      "text": "Lee siguiendo con tu dedo esta oración del libro: La maleta de Luli está en la mesa.",
       "batch": "B018",
       "seq": 36,
       "file": "B018-036.mp3",
@@ -3283,7 +3283,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee siguiendo con tu dedito esta oración del libro la maleta de luli está en la mesa",
+      "normalizedText": "lee siguiendo con tu dedo esta oración del libro la maleta de luli está en la mesa",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3470,7 +3470,7 @@
     },
     {
       "id": "v2-l12-37-page-instruction-final",
-      "text": "Al final completa las palabras con la, le, li, lo, lu, como en paleta, solo, pala y lata.",
+      "text": "Para finalizar, completa las palabras con la, le, li, lo, lu, como en paleta, solo, pala y lata.",
       "batch": "B018",
       "seq": 37,
       "file": "B018-037.mp3",
@@ -3543,12 +3543,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al final completa las palabras con la le li lo lu como en paleta solo pala y lata",
+      "normalizedText": "para finalizar completa las palabras con la le li lo lu como en paleta solo pala y lata",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-38-game-intro",
-      "text": "Hagamos ahora una práctica interactiva con las sílabas de la ele para reforzar la lectura.",
+      "text": "Hagamos ahora una práctica interactiva con las sílabas de la ele para afianzar la lectura.",
       "batch": "B018",
       "seq": 38,
       "file": "B018-038.mp3",
@@ -3624,12 +3624,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos ahora una práctica interactiva con las sílabas de la ele para reforzar la lectura",
+      "normalizedText": "hagamos ahora una práctica interactiva con las sílabas de la ele para afianzar la lectura",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l12-39-game-step",
-      "text": "Mira la palabra incompleta y elige entre la, le, li, lo, lu la sílaba que la forma bien.",
+      "text": "Observa la palabra incompleta y elige entre la, le, li, lo, lu la sílaba que la completa bien.",
       "batch": "B018",
       "seq": 39,
       "file": "B018-039.mp3",
@@ -3705,7 +3705,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira la palabra incompleta y elige entre la le li lo lu la sílaba que la forma bien",
+      "normalizedText": "observa la palabra incompleta y elige entre la le li lo lu la sílaba que la completa bien",
       "sourcePr": "PR#1073"
     },
     {
@@ -3872,7 +3872,7 @@
     },
     {
       "id": "v2-l12-42-assessment",
-      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Lalo tiene una maleta de tela también.",
+      "text": "Para cerrar esta práctica, lee esta oración del libro: Lalo tiene una maleta de tela también.",
       "batch": "B018",
       "seq": 42,
       "file": "B018-042.mp3",
@@ -3948,7 +3948,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro lalo tiene una maleta de tela también",
+      "normalizedText": "para cerrar esta práctica lee esta oración del libro lalo tiene una maleta de tela también",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4025,7 +4025,7 @@
     },
     {
       "id": "v2-l12-43-page-complete",
-      "text": "Completaste todas las actividades de la letra ele. ¡Muy bien!",
+      "text": "Has completado todas las actividades de la letra ele. ¡Muy bien!",
       "batch": "B018",
       "seq": 43,
       "file": "B018-043.mp3",
@@ -4101,7 +4101,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades de la letra ele muy bien",
+      "normalizedText": "has completado todas las actividades de la letra ele muy bien",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4121,7 +4121,7 @@
     },
     {
       "id": "v2-l12-44-closing",
-      "text": "Llegamos al final de la lección de la letra ele. Cada vez exploramos historias más largas.",
+      "text": "Llegamos al final de la lección de la letra ele. Cada vez exploramos historias más amplias.",
       "batch": "B018",
       "seq": 44,
       "file": "B018-044.mp3",
@@ -4197,7 +4197,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "llegamos al final de la lección de la letra ele cada vez exploramos historias más largas",
+      "normalizedText": "llegamos al final de la lección de la letra ele cada vez exploramos historias más amplias",
       "sourcePr": "PR#1073"
     },
     {

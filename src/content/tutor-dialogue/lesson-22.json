@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l22-01-greeting-first",
-      "text": "Bienvenidos hoy a nuestra lección para estudiar el sonido firme de la letra ce.",
+      "text": "Te doy la bienvenida a esta lección para estudiar el sonido firme de la letra ce.",
       "batch": "B028",
       "seq": 1,
       "file": "B028-001.mp3",
@@ -82,7 +82,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos hoy a nuestra lección para estudiar el sonido firme de la letra ce",
+      "normalizedText": "te doy la bienvenida a esta lección para estudiar el sonido firme de la letra ce",
       "sourcePr": "PR#1073"
     },
     {
@@ -799,7 +799,7 @@
     },
     {
       "id": "v2-l22-11-explanation-simple",
-      "text": "Da un golpecito firme atrás con la lengua al soltar la vocal, igual que en cuna y conejo.",
+      "text": "Haz un toque breve y firme con la parte posterior de la lengua al soltar la vocal, como en cuna y conejo.",
       "batch": "B028",
       "seq": 11,
       "file": "B028-011.mp3",
@@ -873,7 +873,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "da un golpecito firme atrás con la lengua al soltar la vocal igual que en cuna y conejo",
+      "normalizedText": "haz un toque breve y firme con la parte posterior de la lengua al soltar la vocal como en cuna y conejo",
       "sourcePr": "PR#1073"
     },
     {
@@ -1234,7 +1234,7 @@
     },
     {
       "id": "v2-l22-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la lección: ca, co, cu.",
+      "text": "Leamos juntos con voz clara las sílabas de la lección: ca, co, cu.",
       "batch": "B028",
       "seq": 16,
       "file": "B028-016.mp3",
@@ -1306,7 +1306,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la lección ca co cu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la lección ca co cu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1797,7 +1797,7 @@
     },
     {
       "id": "v2-l22-23-common-mistake-1",
-      "text": "No dejes demasiado abierta ni cerrada la curva de la ce; dibújala como media luna redondita.",
+      "text": "Cuida el trazo de la ce para que forme una curva abierta y proporcionada, como una media luna.",
       "batch": "B028",
       "seq": 23,
       "file": "B028-023.mp3",
@@ -1871,7 +1871,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no dejes demasiado abierta ni cerrada la curva de la ce dibújala como media luna redondita",
+      "normalizedText": "cuida el trazo de la ce para que forme una curva abierta y proporcionada como una media luna",
       "sourcePr": "PR#1073"
     },
     {
@@ -2517,7 +2517,7 @@
     },
     {
       "id": "v2-l22-30-page-instruction-1",
-      "text": "Traza la ce mayúscula y minúscula bien redondita y haz un dibujo cuyo nombre empiece con ce.",
+      "text": "Traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo cuyo nombre empiece con ce.",
       "batch": "B028",
       "seq": 30,
       "file": "B028-030.mp3",
@@ -2588,7 +2588,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "traza la ce mayúscula y minúscula bien redondita y haz un dibujo cuyo nombre empiece con ce",
+      "normalizedText": "traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo cuyo nombre empiece con ce",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2689,7 +2689,7 @@
     },
     {
       "id": "v2-l22-31-page-instruction-2",
-      "text": "Después circula ca, co y cu en palabras como cama, casa, copa, cola y cuna.",
+      "text": "Después encierra en un círculo ca, co y cu en palabras como cama, casa, copa, cola y cuna.",
       "batch": "B028",
       "seq": 31,
       "file": "B028-031.mp3",
@@ -2760,7 +2760,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después circula ca co y cu en palabras como cama casa copa cola y cuna",
+      "normalizedText": "después encierra en un círculo ca co y cu en palabras como cama casa copa cola y cuna",
       "sourcePr": "PR#1073"
     },
     {

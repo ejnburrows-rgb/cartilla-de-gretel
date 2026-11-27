@@ -165,7 +165,7 @@
     },
     {
       "id": "v2-l19-03-review-intro",
-      "text": "Ya dominamos la ere y la doble erre; hoy conocemos la letra ge junto a las vocales a, o, u.",
+      "text": "Ya practicamos la ere y la doble erre; hoy conocemos la letra ge junto a las vocales a, o y u.",
       "batch": "B025",
       "seq": 3,
       "file": "B025-003.mp3",
@@ -238,7 +238,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya dominamos la ere y la doble erre hoy conocemos la letra ge junto a las vocales a o u",
+      "normalizedText": "ya practicamos la ere y la doble erre hoy conocemos la letra ge junto a las vocales a o y u",
       "sourcePr": "PR#1073"
     },
     {
@@ -399,7 +399,7 @@
     },
     {
       "id": "v2-l19-06-letter-name",
-      "text": "Esta consonante se llama ge, y la minúscula lleva una bolita arriba con su colita curva hacia abajo.",
+      "text": "Esta consonante se llama ge; la minúscula se forma con un círculo sobre el renglón y un trazo curvo que baja.",
       "batch": "B025",
       "seq": 6,
       "file": "B025-006.mp3",
@@ -472,12 +472,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama ge y la minúscula lleva una bolita arriba con su colita curva hacia abajo",
+      "normalizedText": "esta consonante se llama ge la minúscula se forma con un círculo sobre el renglón y un trazo curvo que baja",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-07-phonetic-sound",
-      "text": "Cuando acompaña a las vocales a, o y u nace suavecita en la garganta como en gato, gorra y gusano.",
+      "text": "Cuando acompaña a las vocales a, o y u suena suave desde la garganta, como en gato, gorra y gusano.",
       "batch": "B025",
       "seq": 7,
       "file": "B025-007.mp3",
@@ -550,7 +550,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando acompaña a las vocales a o y u nace suavecita en la garganta como en gato gorra y gusano",
+      "normalizedText": "cuando acompaña a las vocales a o y u suena suave desde la garganta como en gato gorra y gusano",
       "sourcePr": "PR#1073"
     },
     {
@@ -789,7 +789,7 @@
     },
     {
       "id": "v2-l19-11-explanation-simple",
-      "text": "Siente un roce suavecito atrás en la garganta, sin raspar, cuando dices gato, goma y gusano.",
+      "text": "Siente un roce suave al fondo de la garganta, sin raspar, cuando dices gato, goma y gusano.",
       "batch": "B025",
       "seq": 11,
       "file": "B025-011.mp3",
@@ -862,7 +862,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "siente un roce suavecito atrás en la garganta sin raspar cuando dices gato goma y gusano",
+      "normalizedText": "siente un roce suave al fondo de la garganta sin raspar cuando dices gato goma y gusano",
       "sourcePr": "PR#1073"
     },
     {
@@ -1219,7 +1219,7 @@
     },
     {
       "id": "v2-l19-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la lección: ga, go, gu.",
+      "text": "Leamos juntos con voz clara las sílabas de la lección: ga, go, gu.",
       "batch": "B025",
       "seq": 16,
       "file": "B025-016.mp3",
@@ -1290,7 +1290,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la lección ga go gu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la lección ga go gu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1775,7 +1775,7 @@
     },
     {
       "id": "v2-l19-23-common-mistake-1",
-      "text": "Fíjate bien en la colita de la ge minúscula que baja debajo del renglón y se curva a la izquierda.",
+      "text": "Fíjate bien en el trazo curvo de la ge minúscula que baja del renglón y gira hacia la izquierda.",
       "batch": "B025",
       "seq": 23,
       "file": "B025-023.mp3",
@@ -1848,12 +1848,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate bien en la colita de la ge minúscula que baja debajo del renglón y se curva a la izquierda",
+      "normalizedText": "fíjate bien en el trazo curvo de la ge minúscula que baja del renglón y gira hacia la izquierda",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l19-24-common-mistake-2",
-      "text": "No confundas la letra ge con la letra pe o de; la bolita va arriba sobre el renglón.",
+      "text": "No confundas la letra ge con la pe o la de; su círculo va sobre el renglón y su curva desciende.",
       "batch": "B025",
       "seq": 24,
       "file": "B025-024.mp3",
@@ -1926,7 +1926,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no confundas la letra ge con la letra pe o de la bolita va arriba sobre el renglón",
+      "normalizedText": "no confundas la letra ge con la pe o la de su círculo va sobre el renglón y su curva desciende",
       "sourcePr": "PR#1073"
     },
     {

@@ -23,6 +23,20 @@ import {
   validateAllDialogueManifests,
 } from "../tutor-dialogue-manifest";
 
+const FORBIDDEN_SLANG_OR_DIMINUTIVE_RE =
+  /(?<![\p{L}\p{N}_])(?:bingo|buen[ií]sim[oa]s?|buena\s+onda|arranquemos|s[uú]per|platiquemos|igualit[oa]s?|detallitos?|un\s+mont[oó]n|truco\s+r[aá]pido|pedacitos?|un\s+reto|amiguit[oa]s?|cerquita|poquit[oa]s?|despacito|ratitos?|solit[oa]s?|genial(?:es)?|ch[eé]veres?|qu[eé]\s+padre|olitas?|sombreritos?|rapidito|chiquit[oa]s?|cositas?)(?![\p{L}\p{N}_])/giu;
+
+function countExclamations(text: string): number {
+  const close = (text.match(/!/g) ?? []).length;
+  const open = (text.match(/¡/g) ?? []).length;
+  return Math.max(close, open);
+}
+
+function findSlangOrDiminutiveViolations(text: string, canonicalBookWords?: Set<string>): string[] {
+  const matches = text.match(FORBIDDEN_SLANG_OR_DIMINUTIVE_RE) ?? [];
+  return matches.filter((m) => !canonicalBookWords?.has(m.toLowerCase()));
+}
+
 const REPO_ROOT = process.cwd();
 const RECORDING_DIR = join(REPO_ROOT, "docs/tutor/recording");
 
@@ -124,7 +138,7 @@ describe("tutor-dialogue-manifest v2 schema & loader", () => {
       [join(REPO_ROOT, "scripts/validate-tutor-book-fidelity.mjs")],
       { encoding: "utf8" },
     );
-    expect(out).toMatch(/Book-fidelity validated:/);
+    expect(out).toMatch(/Book-fidelity.*validated:/);
     for (const entry of V2_DIALOGUE_ENTRIES) {
       expect(entry.text).not.toMatch(/La niña sueña con el pañuelo de Noña/i);
       expect(entry.text).not.toMatch(/\b(?:láminas?|páginas?)\s+(?:uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce|trece|catorce|quince|dieci|veint|treint|cuarent|cincuent|sesent|setent|ochent|novent|\d+)/i);
@@ -162,7 +176,52 @@ describe("writing & pedagogical quality gates across all v2 scripts", () => {
       expect(entry.text, `${entry.id} masculine self-reference`).not.toMatch(
         /\b(?:esper[aá]ndote\s+tranquilo|estoy\s+(?:muy\s+)?(?:tranquilo|listo|contento|orgulloso|seguro))\b/i,
       );
+      // Permanent Gretel Linguistic Standard: max 1 exclamation mark per line, zero slang/colloquialisms/unnecessary diminutives
+      expect(countExclamations(entry.text), `${entry.id} exclamation count`).toBeLessThanOrEqual(1);
+      const lessonVocab =
+        entry.scope === "lesson" && entry.curriculumRefs.lesson === 9
+          ? new Set(["cosita"])
+          : undefined;
+      expect(
+        findSlangOrDiminutiveViolations(entry.text, lessonVocab),
+        `${entry.id} linguistic standard`,
+      ).toEqual([]);
     }
+  });
+
+  it("enforces Gretel's permanent linguistic gate while preserving authentic La Cartilla de Gretel book vocabulary", () => {
+    // Rejects colloquialisms, regional slang, unnecessary diminutives, and excessive exclamation marks
+    expect(findSlangOrDiminutiveViolations("¡Bingo! Estuviste súper cerca.")).toEqual([
+      "Bingo",
+      "súper",
+    ]);
+    expect(findSlangOrDiminutiveViolations("¡Buenísimo! Arranquemos con buena onda.")).toEqual([
+      "Buenísimo",
+      "Arranquemos",
+      "buena onda",
+    ]);
+    expect(
+      findSlangOrDiminutiveViolations(
+        "Platiquemos un ratito, amiguito, te faltó un detallito y un pedacito.",
+      ),
+    ).toEqual(["Platiquemos", "ratito", "amiguito", "detallito", "pedacito"]);
+    expect(
+      findSlangOrDiminutiveViolations(
+        "Hoy avanzamos un montón con un reto genial y un truco rápido.",
+      ),
+    ).toEqual(["un montón", "un reto", "genial", "truco rápido"]);
+    expect(countExclamations("¡Muy bien! ¡Excelente!")).toBe(2);
+
+    // Never rejects authentic verbatim La Cartilla de Gretel book vocabulary
+    expect(
+      findSlangOrDiminutiveViolations(
+        "Hoy conocemos a las cinco hermanitas vocales y al caballito blanco.",
+      ),
+    ).toEqual([]);
+    expect(
+      findSlangOrDiminutiveViolations("Lee la palabra cosita con la letra ese.", new Set(["cosita"])),
+    ).toEqual([]);
+    expect(countExclamations("¡Exactamente! Estuviste muy cerca de la respuesta.")).toBe(1);
   });
 
   it("provides 5-12 distinct variations for frequent universal coaching intents", () => {

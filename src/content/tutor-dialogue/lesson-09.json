@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l09-01-greeting-first",
-      "text": "Bienvenidos a esta lección para descubrir el sonido suave y silbante de la letra ese.",
+      "text": "Hoy iniciamos una nueva lección para descubrir el sonido suave y silbante de la letra ese.",
       "batch": "B015",
       "seq": 1,
       "file": "B015-001.mp3",
@@ -91,12 +91,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos a esta lección para descubrir el sonido suave y silbante de la letra ese",
+      "normalizedText": "hoy iniciamos una nueva lección para descubrir el sonido suave y silbante de la letra ese",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-02-greeting-return",
-      "text": "Qué gusto verte de nuevo para seguir leyendo historias con las sílabas de la ese.",
+      "text": "Qué gusto verte de nuevo para continuar leyendo historias con las sílabas de la ese.",
       "batch": "B015",
       "seq": 2,
       "file": "B015-002.mp3",
@@ -180,12 +180,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué gusto verte de nuevo para seguir leyendo historias con las sílabas de la ese",
+      "normalizedText": "qué gusto verte de nuevo para continuar leyendo historias con las sílabas de la ese",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-03-review-intro",
-      "text": "Ya leemos con eme y con pe; hoy agregamos la ese y muchas palabritas que unen oraciones.",
+      "text": "Ya leemos con eme y con pe; hoy sumamos la ese y varias palabras breves que enlazan oraciones.",
       "batch": "B015",
       "seq": 3,
       "file": "B015-003.mp3",
@@ -268,12 +268,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya leemos con eme y con pe hoy agregamos la ese y muchas palabritas que unen oraciones",
+      "normalizedText": "ya leemos con eme y con pe hoy sumamos la ese y varias palabras breves que enlazan oraciones",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-04-review-check",
-      "text": "¿Recuerdas cómo suena una palabra con eme y pe como mapa antes de probar la ese?",
+      "text": "¿Recuerdas cómo suena una palabra con eme y pe, como mapa, antes de escuchar la ese?",
       "batch": "B015",
       "seq": 4,
       "file": "B015-004.mp3",
@@ -356,7 +356,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo suena una palabra con eme y pe como mapa antes de probar la ese",
+      "normalizedText": "recuerdas cómo suena una palabra con eme y pe como mapa antes de escuchar la ese",
       "sourcePr": "PR#1073"
     },
     {
@@ -449,7 +449,7 @@
     },
     {
       "id": "v2-l09-06-letter-name",
-      "text": "Esta consonante se llama ese, y tiene la forma curva de un caminito o una culebrita.",
+      "text": "Esta consonante se llama ese, y tiene la forma curva de un sendero ondulado.",
       "batch": "B015",
       "seq": 6,
       "file": "B015-006.mp3",
@@ -532,12 +532,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama ese y tiene la forma curva de un caminito o una culebrita",
+      "normalizedText": "esta consonante se llama ese y tiene la forma curva de un sendero ondulado",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-07-phonetic-sound",
-      "text": "Al pronunciarla dejamos salir aire suavecito entre los dientes cerrados: sss, como viento suave.",
+      "text": "Al pronunciarla dejamos salir aire suavemente entre los dientes casi juntos: sss, como una brisa.",
       "batch": "B015",
       "seq": 7,
       "file": "B015-007.mp3",
@@ -620,12 +620,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al pronunciarla dejamos salir aire suavecito entre los dientes cerrados sss como viento suave",
+      "normalizedText": "al pronunciarla dejamos salir aire suavemente entre los dientes casi juntos sss como una brisa",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-08-lesson-focus",
-      "text": "Deja salir un hilo suave de aire por entre los dientes para formar las sílabas de sopa y sapo.",
+      "text": "Deja escapar un hilo suave de aire entre los dientes para formar las sílabas de sopa y sapo.",
       "batch": "B015",
       "seq": 8,
       "file": "B015-008.mp3",
@@ -708,12 +708,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "deja salir un hilo suave de aire por entre los dientes para formar las sílabas de sopa y sapo",
+      "normalizedText": "deja escapar un hilo suave de aire entre los dientes para formar las sílabas de sopa y sapo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-09-sound-contrast",
-      "text": "A diferencia de la pe que suena de golpe, la ese puede alargarse suave como sss.",
+      "text": "A diferencia de la pe, que sale en un golpe breve, la ese puede alargarse con suavidad: sss.",
       "batch": "B015",
       "seq": 9,
       "file": "B015-009.mp3",
@@ -796,7 +796,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "a diferencia de la pe que suena de golpe la ese puede alargarse suave como sss",
+      "normalizedText": "a diferencia de la pe que sale en un golpe breve la ese puede alargarse con suavidad sss",
       "sourcePr": "PR#1073"
     },
     {
@@ -889,7 +889,7 @@
     },
     {
       "id": "v2-l09-11-explanation-simple",
-      "text": "Sopla suavecito con los dientes casi juntos, como pidiendo silencio, y luego di la vocal: sa, se, si, so, su.",
+      "text": "Sopla suavemente con los dientes casi juntos, como al pedir silencio, y luego pronuncia la vocal: sa, se, si, so, su.",
       "batch": "B015",
       "seq": 11,
       "file": "B015-011.mp3",
@@ -972,12 +972,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sopla suavecito con los dientes casi juntos como pidiendo silencio y luego di la vocal sa se si so su",
+      "normalizedText": "sopla suavemente con los dientes casi juntos como al pedir silencio y luego pronuncia la vocal sa se si so su",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para conocer las palabras y la rima divertida del Sapo Samapo.",
+      "text": "Abramos el rotafolio para conocer las palabras y la rima del Sapo Samapo.",
       "batch": "B015",
       "seq": 12,
       "file": "B015-012.mp3",
@@ -1058,7 +1058,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para conocer las palabras y la rima divertida del sapo samapo",
+      "normalizedText": "abramos el rotafolio para conocer las palabras y la rima del sapo samapo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1195,7 +1195,7 @@
     },
     {
       "id": "v2-l09-14-flipchart-illustration-2",
-      "text": "También vemos al simpático sapo Samapo saltando sobre la mesa en la ilustración del poema.",
+      "text": "También vemos al sapo Samapo sobre la mesa en la ilustración que acompaña al poema.",
       "batch": "B015",
       "seq": 14,
       "file": "B015-014.mp3",
@@ -1276,7 +1276,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "también vemos al simpático sapo samapo saltando sobre la mesa en la ilustración del poema",
+      "normalizedText": "también vemos al sapo samapo sobre la mesa en la ilustración que acompaña al poema",
       "sourcePr": "PR#1073"
     },
     {
@@ -1369,7 +1369,7 @@
     },
     {
       "id": "v2-l09-16-flipchart-model",
-      "text": "Leemos juntos las cinco sílabas de la ese: sa, se, si, so, su.",
+      "text": "Leamos juntos las cinco sílabas de la ese: sa, se, si, so, su.",
       "batch": "B015",
       "seq": 16,
       "file": "B015-016.mp3",
@@ -1450,7 +1450,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos las cinco sílabas de la ese sa se si so su",
+      "normalizedText": "leamos juntos las cinco sílabas de la ese sa se si so su",
       "sourcePr": "PR#1073"
     },
     {
@@ -1541,7 +1541,7 @@
     },
     {
       "id": "v2-l09-18-flipchart-rhyme-1",
-      "text": "Leemos los versos de nuestra rima: Sapo Samapo, en la mesa está, sapo Samapo.",
+      "text": "Leamos los versos de nuestra rima: Sapo Samapo, en la mesa está, sapo Samapo.",
       "batch": "B015",
       "seq": 18,
       "file": "B015-018.mp3",
@@ -1622,7 +1622,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos los versos de nuestra rima sapo samapo en la mesa está sapo samapo",
+      "normalizedText": "leamos los versos de nuestra rima sapo samapo en la mesa está sapo samapo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1645,7 +1645,7 @@
     },
     {
       "id": "v2-l09-19-flipchart-rhyme-2",
-      "text": "Fíjate cómo el poema repite el nombre del personaje: Sapo Samapo en la mesa está.",
+      "text": "Observa cómo el poema repite el nombre del personaje: Sapo Samapo en la mesa está.",
       "batch": "B015",
       "seq": 19,
       "file": "B015-019.mp3",
@@ -1726,12 +1726,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate cómo el poema repite el nombre del personaje sapo samapo en la mesa está",
+      "normalizedText": "observa cómo el poema repite el nombre del personaje sapo samapo en la mesa está",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-20-comprehension-1",
-      "text": "Según la rima del rotafolio, ¿dónde está sentado el sapo Samapo?",
+      "text": "Según la rima del rotafolio, ¿dónde se encuentra el sapo Samapo?",
       "batch": "B015",
       "seq": 20,
       "file": "B015-020.mp3",
@@ -1814,7 +1814,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "según la rima del rotafolio dónde está sentado el sapo samapo",
+      "normalizedText": "según la rima del rotafolio dónde se encuentra el sapo samapo",
       "sourcePr": "PR#1073"
     },
     {
@@ -1995,7 +1995,7 @@
     },
     {
       "id": "v2-l09-23-common-mistake-1",
-      "text": "Traza la ese siguiendo su curva suave sin invertir la dirección al empezar arriba.",
+      "text": "Traza la ese siguiendo su curva suave desde arriba, cuidando de no invertir su dirección.",
       "batch": "B015",
       "seq": 23,
       "file": "B015-023.mp3",
@@ -2078,12 +2078,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "traza la ese siguiendo su curva suave sin invertir la dirección al empezar arriba",
+      "normalizedText": "traza la ese siguiendo su curva suave desde arriba cuidando de no invertir su dirección",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-24-common-mistake-2",
-      "text": "No agregues una e antes de la ese; empieza directo con el aire suave sss.",
+      "text": "Evita añadir una e antes de la ese; comienza directamente con el sonido suave sss.",
       "batch": "B015",
       "seq": 24,
       "file": "B015-024.mp3",
@@ -2166,12 +2166,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no agregues una e antes de la ese empieza directo con el aire suave sss",
+      "normalizedText": "evita añadir una e antes de la ese comienza directamente con el sonido suave sss",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-25-common-mistake-3",
-      "text": "Fíjate bien dónde va la ese dentro de palabras como masa, mesa y puso para no saltarla.",
+      "text": "Observa bien el lugar de la ese dentro de palabras como masa, mesa y puso para no omitirla.",
       "batch": "B015",
       "seq": 25,
       "file": "B015-025.mp3",
@@ -2254,12 +2254,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate bien dónde va la ese dentro de palabras como masa mesa y puso para no saltarla",
+      "normalizedText": "observa bien el lugar de la ese dentro de palabras como masa mesa y puso para no omitirla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-26-hint-1",
-      "text": "Deja salir primero un aire suavecito entre los dientes y mira qué vocal viene después.",
+      "text": "Deja salir primero un aire suave entre los dientes y observa qué vocal viene después.",
       "batch": "B015",
       "seq": 26,
       "file": "B015-026.mp3",
@@ -2342,7 +2342,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "deja salir primero un aire suavecito entre los dientes y mira qué vocal viene después",
+      "normalizedText": "deja salir primero un aire suave entre los dientes y observa qué vocal viene después",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2513,7 +2513,7 @@
     },
     {
       "id": "v2-l09-27-hint-2",
-      "text": "Compara el comienzo de la palabra con sopa o con sapo para recordar la sílaba.",
+      "text": "Compara el comienzo de la palabra con sopa o con sapo para reconocer la sílaba.",
       "batch": "B015",
       "seq": 27,
       "file": "B015-027.mp3",
@@ -2596,7 +2596,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "compara el comienzo de la palabra con sopa o con sapo para recordar la sílaba",
+      "normalizedText": "compara el comienzo de la palabra con sopa o con sapo para reconocer la sílaba",
       "sourcePr": "PR#1073"
     },
     {
@@ -2689,7 +2689,7 @@
     },
     {
       "id": "v2-l09-29-workbook-transition",
-      "text": "Ahora pasamos a tu cuaderno de trabajo para trazar la ese y leer historias completas.",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para trazar la ese y leer historias completas.",
       "batch": "B015",
       "seq": 29,
       "file": "B015-029.mp3",
@@ -2772,12 +2772,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para trazar la ese y leer historias completas",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para trazar la ese y leer historias completas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-30-page-instruction-1",
-      "text": "Escribe la ese mayúscula y minúscula con soltura y haz un dibujo de algo que empiece con ese.",
+      "text": "Escribe la ese mayúscula y minúscula con soltura y haz un dibujo cuyo nombre comience con ese.",
       "batch": "B015",
       "seq": 30,
       "file": "B015-030.mp3",
@@ -2857,7 +2857,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la ese mayúscula y minúscula con soltura y haz un dibujo de algo que empiece con ese",
+      "normalizedText": "escribe la ese mayúscula y minúscula con soltura y haz un dibujo cuyo nombre comience con ese",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3370,7 +3370,7 @@
     },
     {
       "id": "v2-l09-35-sight-or-vocab",
-      "text": "Hoy aprendemos siete palabritas clave para armar oraciones: es, de, un, está, en, la, el.",
+      "text": "Hoy aprendemos siete palabras breves muy útiles para formar oraciones: es, de, un, está, en, la, el.",
       "batch": "B015",
       "seq": 35,
       "file": "B015-035.mp3",
@@ -3450,12 +3450,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprendemos siete palabritas clave para armar oraciones es de un está en la el",
+      "normalizedText": "hoy aprendemos siete palabras breves muy útiles para formar oraciones es de un está en la el",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l09-36-sentence-or-pair",
-      "text": "Lee siguiendo con tu dedito esta oración del libro: La sopa está en la mesa.",
+      "text": "Lee siguiendo con tu dedo esta oración del libro: La sopa está en la mesa.",
       "batch": "B015",
       "seq": 36,
       "file": "B015-036.mp3",
@@ -3535,7 +3535,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee siguiendo con tu dedito esta oración del libro la sopa está en la mesa",
+      "normalizedText": "lee siguiendo con tu dedo esta oración del libro la sopa está en la mesa",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3722,7 +3722,7 @@
     },
     {
       "id": "v2-l09-37-page-instruction-final",
-      "text": "Al final completa las palabras con sa, se, si, so, su, como en sapo, puso, masa y pase.",
+      "text": "Para finalizar, completa las palabras con sa, se, si, so, su, como en sapo, puso, masa y pase.",
       "batch": "B015",
       "seq": 37,
       "file": "B015-037.mp3",
@@ -3802,7 +3802,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al final completa las palabras con sa se si so su como en sapo puso masa y pase",
+      "normalizedText": "para finalizar completa las palabras con sa se si so su como en sapo puso masa y pase",
       "sourcePr": "PR#1073"
     },
     {
@@ -3983,7 +3983,7 @@
     },
     {
       "id": "v2-l09-40-game-correct",
-      "text": "Muy bien armado. La sombrilla celebró que formaste la palabra exacta en la pizarra de Chano.",
+      "text": "Excelente. La sombrilla celebró que formaste la palabra exacta en la pizarra de Chano.",
       "batch": "B015",
       "seq": 40,
       "file": "B015-040.mp3",
@@ -4066,7 +4066,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien armado la sombrilla celebró que formaste la palabra exacta en la pizarra de chano",
+      "normalizedText": "excelente la sombrilla celebró que formaste la palabra exacta en la pizarra de chano",
       "sourcePr": "PR#1073"
     },
     {
@@ -4159,7 +4159,7 @@
     },
     {
       "id": "v2-l09-42-assessment",
-      "text": "Para comprobar lo aprendido hoy, lee esta oración completa: Papá pasa la sopa a Susi.",
+      "text": "Para cerrar esta práctica, lee esta oración completa: Papá pasa la sopa a Susi.",
       "batch": "B015",
       "seq": 42,
       "file": "B015-042.mp3",
@@ -4242,7 +4242,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para comprobar lo aprendido hoy lee esta oración completa papá pasa la sopa a susi",
+      "normalizedText": "para cerrar esta práctica lee esta oración completa papá pasa la sopa a susi",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4319,7 +4319,7 @@
     },
     {
       "id": "v2-l09-43-page-complete",
-      "text": "Completaste todas las actividades y el juego de la letra ese. ¡Excelente!",
+      "text": "Has completado todas las actividades y el juego de la letra ese. ¡Excelente!",
       "batch": "B015",
       "seq": 43,
       "file": "B015-043.mp3",
@@ -4402,7 +4402,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades y el juego de la letra ese excelente",
+      "normalizedText": "has completado todas las actividades y el juego de la letra ese excelente",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4422,7 +4422,7 @@
     },
     {
       "id": "v2-l09-44-closing",
-      "text": "Con la ese y sus palabritas cortas ya lees historias enteras sobre Susi y la sopa.",
+      "text": "Con la ese y sus palabras de enlace ya recorres historias completas sobre Susi y la sopa.",
       "batch": "B015",
       "seq": 44,
       "file": "B015-044.mp3",
@@ -4505,7 +4505,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "con la ese y sus palabritas cortas ya lees historias enteras sobre susi y la sopa",
+      "normalizedText": "con la ese y sus palabras de enlace ya recorres historias completas sobre susi y la sopa",
       "sourcePr": "PR#1073"
     },
     {

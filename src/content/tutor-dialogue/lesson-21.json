@@ -171,7 +171,7 @@
     },
     {
       "id": "v2-l21-03-review-intro",
-      "text": "Ya practicamos el soplido suave de la efe; hoy conocemos la letra jota con puntito arriba.",
+      "text": "Ya practicamos el sonido suave de la efe; hoy conocemos la letra jota, que lleva un punto arriba.",
       "batch": "B027",
       "seq": 3,
       "file": "B027-003.mp3",
@@ -247,12 +247,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya practicamos el soplido suave de la efe hoy conocemos la letra jota con puntito arriba",
+      "normalizedText": "ya practicamos el sonido suave de la efe hoy conocemos la letra jota que lleva un punto arriba",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l21-04-review-check",
-      "text": "¿Recuerdas cómo suena tu garganta suavecita cuando dices jugo o jabón?",
+      "text": "¿Notas el aire tibio que sale desde la garganta cuando pronuncias jugo o jabón?",
       "batch": "B027",
       "seq": 4,
       "file": "B027-004.mp3",
@@ -328,7 +328,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo suena tu garganta suavecita cuando dices jugo o jabón",
+      "normalizedText": "notas el aire tibio que sale desde la garganta cuando pronuncias jugo o jabón",
       "sourcePr": "PR#1073"
     },
     {
@@ -414,7 +414,7 @@
     },
     {
       "id": "v2-l21-06-letter-name",
-      "text": "Esta consonante se llama jota, y la minúscula baja como un bastoncito curvo con su puntito arriba.",
+      "text": "Esta consonante se llama jota; la minúscula desciende en una curva hacia la izquierda y lleva un punto arriba.",
       "batch": "B027",
       "seq": 6,
       "file": "B027-006.mp3",
@@ -490,7 +490,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama jota y la minúscula baja como un bastoncito curvo con su puntito arriba",
+      "normalizedText": "esta consonante se llama jota la minúscula desciende en una curva hacia la izquierda y lleva un punto arriba",
       "sourcePr": "PR#1073"
     },
     {
@@ -576,7 +576,7 @@
     },
     {
       "id": "v2-l21-08-lesson-focus",
-      "text": "La jota lleva siempre un puntito arriba y suena desde la garganta en jugo, jabón y jicotea.",
+      "text": "La jota lleva un punto arriba y suena desde la garganta en palabras como jugo, jabón y jicotea.",
       "batch": "B027",
       "seq": 8,
       "file": "B027-008.mp3",
@@ -652,7 +652,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "la jota lleva siempre un puntito arriba y suena desde la garganta en jugo jabón y jicotea",
+      "normalizedText": "la jota lleva un punto arriba y suena desde la garganta en palabras como jugo jabón y jicotea",
       "sourcePr": "PR#1073"
     },
     {
@@ -819,7 +819,7 @@
     },
     {
       "id": "v2-l21-11-explanation-simple",
-      "text": "Suelta un aire tibio como riendo despacito ja, je, ji, jo, ju y léelo en jicotea y jugo.",
+      "text": "Deja salir un aire tibio desde la garganta al decir ja, je, ji, jo, ju, como en jicotea y jugo.",
       "batch": "B027",
       "seq": 11,
       "file": "B027-011.mp3",
@@ -895,7 +895,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "suelta un aire tibio como riendo despacito ja je ji jo ju y léelo en jicotea y jugo",
+      "normalizedText": "deja salir un aire tibio desde la garganta al decir ja je ji jo ju como en jicotea y jugo",
       "sourcePr": "PR#1073"
     },
     {
@@ -1264,7 +1264,7 @@
     },
     {
       "id": "v2-l21-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la jota: ja, je, ji, jo, ju.",
+      "text": "Leamos juntos con voz clara las sílabas de la jota: ja, je, ji, jo, ju.",
       "batch": "B027",
       "seq": 16,
       "file": "B027-016.mp3",
@@ -1338,7 +1338,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la jota ja je ji jo ju",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la jota ja je ji jo ju",
       "sourcePr": "PR#1073"
     },
     {
@@ -1841,7 +1841,7 @@
     },
     {
       "id": "v2-l21-23-common-mistake-1",
-      "text": "No olvides bajar el bastoncito de la jota debajo de la línea y ponerle su puntito encima.",
+      "text": "No olvides prolongar el trazo curvo de la jota debajo del renglón y escribir su punto encima.",
       "batch": "B027",
       "seq": 23,
       "file": "B027-023.mp3",
@@ -1917,7 +1917,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no olvides bajar el bastoncito de la jota debajo de la línea y ponerle su puntito encima",
+      "normalizedText": "no olvides prolongar el trazo curvo de la jota debajo del renglón y escribir su punto encima",
       "sourcePr": "PR#1073"
     },
     {
@@ -2084,7 +2084,7 @@
     },
     {
       "id": "v2-l21-26-hint-1",
-      "text": "Busca el bastoncito con punto arriba y recuerda el sonido tibio desde la garganta.",
+      "text": "Busca el trazo curvo con punto arriba y recuerda el sonido tibio desde la garganta.",
       "batch": "B027",
       "seq": 26,
       "file": "B027-026.mp3",
@@ -2160,7 +2160,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "busca el bastoncito con punto arriba y recuerda el sonido tibio desde la garganta",
+      "normalizedText": "busca el trazo curvo con punto arriba y recuerda el sonido tibio desde la garganta",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2574,7 +2574,7 @@
     },
     {
       "id": "v2-l21-30-page-instruction-1",
-      "text": "Escribe la jota mayúscula y minúscula bajando bien su bastoncito y haz un dibujo con jota.",
+      "text": "Escribe la jota mayúscula y minúscula cuidando su trazo curvo inferior y haz un dibujo de una palabra con jota.",
       "batch": "B027",
       "seq": 30,
       "file": "B027-030.mp3",
@@ -2647,7 +2647,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la jota mayúscula y minúscula bajando bien su bastoncito y haz un dibujo con jota",
+      "normalizedText": "escribe la jota mayúscula y minúscula cuidando su trazo curvo inferior y haz un dibujo de una palabra con jota",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3210,7 +3210,7 @@
     },
     {
       "id": "v2-l21-36-sentence-or-pair",
-      "text": "Lee en voz clara esta oración del libro: A José le gusta el jamón y a Julia le gusta el jugo de tomate.",
+      "text": "Lee con voz clara esta oración del libro: A José le gusta el jamón y a Julia le gusta el jugo de tomate.",
       "batch": "B027",
       "seq": 36,
       "file": "B027-036.mp3",
@@ -3283,7 +3283,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee en voz clara esta oración del libro a josé le gusta el jamón y a julia le gusta el jugo de tomate",
+      "normalizedText": "lee con voz clara esta oración del libro a josé le gusta el jamón y a julia le gusta el jugo de tomate",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3791,7 +3791,7 @@
     },
     {
       "id": "v2-l21-41-game-retry",
-      "text": "Pronuncia el resto de la palabra en voz baja y comprueba cuál sílaba de la jota falta.",
+      "text": "Pronuncia el resto de la palabra en voz alta y comprueba qué sílaba de la jota falta.",
       "batch": "B027",
       "seq": 41,
       "file": "B027-041.mp3",
@@ -3867,7 +3867,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pronuncia el resto de la palabra en voz baja y comprueba cuál sílaba de la jota falta",
+      "normalizedText": "pronuncia el resto de la palabra en voz alta y comprueba qué sílaba de la jota falta",
       "sourcePr": "PR#1073"
     },
     {

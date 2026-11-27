@@ -2,7 +2,7 @@
 
 - **Branch:** `feat/gretel-tutor-l1-3` (draft PR #1073 — NOT merged to `main`, NOT deployed)
 - **Date:** 2026-11-26
-- **Scope:** Finish-plan Wave 3 + Final Correction & Completion Wave + Post-Review Correction & Priority Batch 3 Expansion Pass (17th GitHub Review Thread Fix, PR #1322/#1323 100% Feature Parity Hardening, Priority Script Refinement & Batch 3 `B031` Expansion, and Independent Final Verification)
+- **Scope:** Finish-plan Wave 3 + Final Correction & Completion Wave + Post-Review Correction & Priority Batch 3 Expansion Pass + Permanent Gretel Linguistic Standard Overhaul (Permanent Standard & Automated Gate, Full 1,418-Line Natural Spanish Refinement, 31-Batch Clean Sync, and Independent Verification)
 
 ## 1. Audited Deliverables
 
@@ -65,29 +65,34 @@
     - **Expanded 3-Batch Priority Recording Package:** `B001` (36 lines) + `B007` Lesson 1 (47 lines) + `B031` Interactive Conversation (50 lines) = **133 clean Spanish-only lines (`1,732` words, ~`15.7` min)**; zero unapproved audio activated.
     - Hardened `scripts/validate-tutor-book-fidelity.mjs` and `src/lib/__tests__/tutor-dialogue-manifest.test.ts` (14/14 passed) to reject unsupported observation/pronunciation/vision claims, masculine Gretel self-references, `¿` count `> 1`, word count `>= 75`, duplicate normalized texts across all batches, and out-of-sync `PRIORITY-B001..B003` scripts.
 
-## 2. Independent Final Verification Results (`@final-check`)
+### Permanent Gretel Linguistic Standard Overhaul (Audited on Current Head)
+11. **Permanent Linguistic Standard, Automated Gate & Full 1,418-Line Natural Spanish Refinement (`@policy-validator`, `@universal-editor`, `@lessons-a-editor`, `@lessons-b-editor`, `@linguistics-qa`)**:
+    - **Permanent Standard:** Added `§8b. Permanent Gretel Linguistic Standard (Never Revert)` in `AGENTS.md`, created `docs/tutor/GRETEL-LINGUISTIC-STANDARD.md`, and cross-referenced it in `docs/tutor/TUTOR-ARCHITECTURE.md`.
+    - **Automated Linguistic Gate & Sync Tool:** Hardened `scripts/validate-tutor-book-fidelity.mjs` and `src/lib/__tests__/tutor-dialogue-manifest.test.ts` (15/15 passed) to enforce the linguistic standard across both manifests and `.txt` recording scripts (rejecting slang, colloquialisms, unnecessary diminutives, and `>= 2` `!` per line while preserving authentic verbatim *La Cartilla de Gretel* vocabulary). Added `scripts/sync-tutor-recording-batches.mjs` (`--check` verified) to regenerate all 37 managed recording files directly from `src/content/tutor-dialogue/*.json`.
+    - **Full 1,418-Line Refinement:** Reviewed and naturally refined all `290` universal/interactive/technical lines (`B001`–`B006`, `B031`) and all `1,128` lesson lines (`lesson-01..24.json`, `B007`–`B030`) with `0` duplicate normalized Spanish texts, `5`–`26` words per line, max `1` `¿` and max `1` `!` per line, all `status: "scripted"`, and `100%` of stable `id`, `batch`, `seq`, `file`, `curriculumRefs`, and `1,208` PR #1322 `sourceContexts` preserved.
+    - **Synchronized Catalog Totals:** **1,418 unique v2 scripted utterances** across **31 batches (`B001`–`B031`, `20,723` words, ~`188.4` min)** + **120 legacy `tutor-lines.json` `lineId`s intact** (`43` approved + `77` pending = **1,538 total merged entries**). Priority Package (`PRIORITY-B001` 426 words + `PRIORITY-B002` 680 words + `PRIORITY-B003` 634 words) = **133 clean Spanish-only lines (`1,740` words, ~`15.8` min)**.
+
+## 2. Independent Final Verification Results (`@linguistics-qa`)
 
 - **Workspace & Repository Invariants:**
   - `/Users/ejn/Desktop/Gretel/cartilla-main`: untouched (`03f09d21`, `?? work/`)
   - `origin` backup branch preserved: `03f09d21490fdf7992a9fdb317d0f56a1426f339 refs/heads/backup/local-main-workbook-polish-20261126`
   - `vercel.json`: `"git": { "deploymentEnabled": false }` unchanged
   - `public/cartilla/images/gretel/layers/manifest.json`: `{"layers": []}` unchanged
-- **Typecheck, Validators, Policy & Build:**
-  - `pnpm typecheck`: **PASS** (`0` errors repo-wide)
+- **Sync, Typecheck, Validators, Policy & Build:**
+  - `node scripts/sync-tutor-recording-batches.mjs` & `--check`: **PASS** (`31` batches, `1,418` lines, `20,723` words, ~`188.4` min + Priority Package `133` lines, `1,740` words, ~`15.8` min; `37/37` managed files in sync)
+  - `node scripts/validate-tutor-book-fidelity.mjs`: **PASS** (`1,418` v2 lines: `290` universal + `1,128` across Lessons 1–24 across `31` batches + `120` legacy lineIds intact — `0` slang/diminutive/exclamation violations, `0` invented sentences, `0` sheet/page numbers read aloud, `0` absent pp. 86–87, `0` quarantined audio)
   - `node scripts/validate-tutor-lines.mjs`: **PASS** (`43` approved, `77` pending)
   - `node scripts/validate-tutor-visemes.mjs`: **PASS** (`43/43` valid visemes, shapes in `{A..H, X}`, monotonic cues)
-  - `node scripts/validate-tutor-book-fidelity.mjs`: **PASS** (`1,418` v2 lines: `290` universal + `1,128` across Lessons 1–24 across `31` batches + `120` legacy lineIds intact — `0` invented sentences, `0` sheet/page numbers read aloud, `0` absent pp. 86–87, `0` quarantined audio)
-  - `pnpm verify:policy`: **PASS**
-  - `pnpm exec vite build`: **PASS** (production build succeeded; `vite build` inside perf budget `39.51s`)
+  - `pnpm verify:policy`: **PASS** (`95/95`, `ok: true`, `lockedVisualAuthority: true`)
+  - `pnpm typecheck`: **PASS** (`0` errors repo-wide)
+  - `pnpm exec vite build`: **PASS** (`38.14s`)
 - **Unit & Budget Test Suite (`pnpm vitest run`):**
+  - `src/lib/__tests__/tutor-dialogue-manifest.test.ts` (15 tests)
+  - `src/lib/__tests__/tutor-lines-manifest.test.ts` (15 tests)
+  - `src/lib/__tests__/tutor-line-picker.test.ts` (22 tests)
   - `tests/performance-budget.test.mjs` (8 tests)
-  - `src/lib/__tests__/tutor-session-log.test.ts` (9 tests)
-  - `src/lib/__tests__/tutor-dialogue-manifest.test.ts` (14 tests)
-  - `scripts/__tests__/tutor-intake.test.mjs` (20 tests)
-  - `src/lib/__tests__/tutor-brain.test.ts`
-  - `src/lib/__tests__/tutor-memory.test.ts`
-  - `src/lib/__tests__/tutor-no-tts.test.ts`
-  - **Result:** **PASS** (`7/7` test files, **130/130** tests passed in `46.82s`, Entry CSS under 300 KB)
+  - **Result:** **PASS** (`4/4` test files, **60/60** tests passed; Entry CSS under 300 KB)
 - **Prior Playwright E2E Suites (`--project=chromium-tutor`, scripted `StubEars` fixtures, unchanged UI/E2E runtime):**
   - `tests/e2e/tutor-full-lesson.spec.ts`, `tests/e2e/tutor-teacher-review.spec.ts`, `tests/e2e/tutor-all-24-lessons.spec.ts`: **PASS** (**11/11** passed in `5.2m`)
 

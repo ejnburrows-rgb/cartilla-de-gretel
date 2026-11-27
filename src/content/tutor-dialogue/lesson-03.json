@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l03-01-greeting-first",
-      "text": "Hoy nos reunimos para descubrir juntos la sonrisa abierta de la vocal a.",
+      "text": "Hoy nos reunimos para descubrir el sonido abierto y luminoso de la vocal a.",
       "batch": "B009",
       "seq": 1,
       "file": "B009-001.mp3",
@@ -69,12 +69,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy nos reunimos para descubrir juntos la sonrisa abierta de la vocal a",
+      "normalizedText": "hoy nos reunimos para descubrir el sonido abierto y luminoso de la vocal a",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-02-greeting-return",
-      "text": "Qué alegría saludarte otra vez para seguir jugando y leyendo con la vocal a.",
+      "text": "Qué alegría saludarte otra vez para seguir practicando y leyendo con la vocal a.",
       "batch": "B009",
       "seq": 2,
       "file": "B009-002.mp3",
@@ -136,12 +136,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué alegría saludarte otra vez para seguir jugando y leyendo con la vocal a",
+      "normalizedText": "qué alegría saludarte otra vez para seguir practicando y leyendo con la vocal a",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-03-review-intro",
-      "text": "Ya conocemos la redonda vocal o; ahora pasamos a la segunda hermanita vocal de nuestra cartilla.",
+      "text": "Ya conocemos la redonda vocal o; hoy avanzamos hacia la segunda hermanita vocal de nuestra cartilla.",
       "batch": "B009",
       "seq": 3,
       "file": "B009-003.mp3",
@@ -202,12 +202,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya conocemos la redonda vocal o ahora pasamos a la segunda hermanita vocal de nuestra cartilla",
+      "normalizedText": "ya conocemos la redonda vocal o hoy avanzamos hacia la segunda hermanita vocal de nuestra cartilla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-04-review-check",
-      "text": "¿Recuerdas cómo abrimos la boca cuando decimos a frente al espejo o al doctor?",
+      "text": "¿Recuerdas cómo abrimos la boca cuando decimos a frente al espejo o en la consulta del doctor?",
       "batch": "B009",
       "seq": 4,
       "file": "B009-004.mp3",
@@ -268,12 +268,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo abrimos la boca cuando decimos a frente al espejo o al doctor",
+      "normalizedText": "recuerdas cómo abrimos la boca cuando decimos a frente al espejo o en la consulta del doctor",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-05-lesson-objective",
-      "text": "Hoy vamos a reconocer la vocal a por su sonido abierto y a leer y trazar palabras que empiezan con ella.",
+      "text": "Hoy reconoceremos la vocal a por su sonido abierto y practicaremos su lectura y su trazo.",
       "batch": "B009",
       "seq": 5,
       "file": "B009-005.mp3",
@@ -334,12 +334,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy vamos a reconocer la vocal a por su sonido abierto y a leer y trazar palabras que empiezan con ella",
+      "normalizedText": "hoy reconoceremos la vocal a por su sonido abierto y practicaremos su lectura y su trazo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-06-letter-name",
-      "text": "Esta vocal se llama a, y podemos verla en mayúscula puntiaguda y en minúscula redondita.",
+      "text": "Esta vocal se llama a; su mayúscula termina en punta y su minúscula tiene forma redonda con un trazo al lado.",
       "batch": "B009",
       "seq": 6,
       "file": "B009-006.mp3",
@@ -400,12 +400,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta vocal se llama a y podemos verla en mayúscula puntiaguda y en minúscula redondita",
+      "normalizedText": "esta vocal se llama a su mayúscula termina en punta y su minúscula tiene forma redonda con un trazo al lado",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-07-phonetic-sound",
-      "text": "Al pronunciarla abrimos bien grande la boca y dejamos salir un sonido limpio y brillante: aaa.",
+      "text": "Al pronunciarla abrimos ampliamente la boca y dejamos salir un sonido limpio y claro: aaa.",
       "batch": "B009",
       "seq": 7,
       "file": "B009-007.mp3",
@@ -466,12 +466,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al pronunciarla abrimos bien grande la boca y dejamos salir un sonido limpio y brillante aaa",
+      "normalizedText": "al pronunciarla abrimos ampliamente la boca y dejamos salir un sonido limpio y claro aaa",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-08-lesson-focus",
-      "text": "Para decir la vocal a abrimos la boca con naturalidad, tal como enseña la niña del poema.",
+      "text": "Para decir la vocal a abrimos la boca con naturalidad, tal como muestra la niña del poema.",
       "batch": "B009",
       "seq": 8,
       "file": "B009-008.mp3",
@@ -532,12 +532,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para decir la vocal a abrimos la boca con naturalidad tal como enseña la niña del poema",
+      "normalizedText": "para decir la vocal a abrimos la boca con naturalidad tal como muestra la niña del poema",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-09-sound-contrast",
-      "text": "Mientras la o redondea los labios, la a abre toda la boca con alegría y claridad.",
+      "text": "Mientras la o redondea los labios, la a abre la boca con amplitud y claridad.",
       "batch": "B009",
       "seq": 9,
       "file": "B009-009.mp3",
@@ -598,12 +598,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mientras la o redondea los labios la a abre toda la boca con alegría y claridad",
+      "normalizedText": "mientras la o redondea los labios la a abre la boca con amplitud y claridad",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-10-explanation-primary",
-      "text": "Siempre que una palabra inicia con la boca bien abierta y sonido claro, empieza con la vocal a.",
+      "text": "Cuando una palabra comienza con la boca abierta y un sonido amplio, sabemos que empieza con la vocal a.",
       "batch": "B009",
       "seq": 10,
       "file": "B009-010.mp3",
@@ -664,12 +664,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "siempre que una palabra inicia con la boca bien abierta y sonido claro empieza con la vocal a",
+      "normalizedText": "cuando una palabra comienza con la boca abierta y un sonido amplio sabemos que empieza con la vocal a",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-11-explanation-simple",
-      "text": "Piensa en el sonido que haces cuando el doctor revisa tu garganta: aaa, ese mismo es el de la a.",
+      "text": "Recuerda el sonido que hacemos cuando el doctor revisa la garganta: aaa, ese mismo es el de la a.",
       "batch": "B009",
       "seq": 11,
       "file": "B009-011.mp3",
@@ -730,7 +730,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "piensa en el sonido que haces cuando el doctor revisa tu garganta aaa ese mismo es el de la a",
+      "normalizedText": "recuerda el sonido que hacemos cuando el doctor revisa la garganta aaa ese mismo es el de la a",
       "sourcePr": "PR#1073"
     },
     {
@@ -811,7 +811,7 @@
     },
     {
       "id": "v2-l03-13-flipchart-illustration-1",
-      "text": "En los dibujos del rotafolio aparecen una niña con el doctor, un abanico, un anillo y una araña.",
+      "text": "En las ilustraciones del rotafolio aparecen una niña con el doctor, un abanico, un anillo y una araña.",
       "batch": "B009",
       "seq": 13,
       "file": "B009-013.mp3",
@@ -872,12 +872,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en los dibujos del rotafolio aparecen una niña con el doctor un abanico un anillo y una araña",
+      "normalizedText": "en las ilustraciones del rotafolio aparecen una niña con el doctor un abanico un anillo y una araña",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-14-flipchart-illustration-2",
-      "text": "También observamos un ala, un aro y a la niña Ana señalando las palabras de su lámina.",
+      "text": "También vemos un ala, un aro y a la niña Ana señalando las palabras de la lámina.",
       "batch": "B009",
       "seq": 14,
       "file": "B009-014.mp3",
@@ -938,7 +938,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "también observamos un ala un aro y a la niña ana señalando las palabras de su lámina",
+      "normalizedText": "también vemos un ala un aro y a la niña ana señalando las palabras de la lámina",
       "sourcePr": "PR#1073"
     },
     {
@@ -1009,7 +1009,7 @@
     },
     {
       "id": "v2-l03-16-flipchart-model",
-      "text": "Mira los dibujos de ala, anillo y avión mientras pronuncias con fuerza su primer sonido.",
+      "text": "Observa los dibujos de ala, anillo y avión mientras pronuncias con claridad su primer sonido.",
       "batch": "B009",
       "seq": 16,
       "file": "B009-016.mp3",
@@ -1070,12 +1070,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira los dibujos de ala anillo y avión mientras pronuncias con fuerza su primer sonido",
+      "normalizedText": "observa los dibujos de ala anillo y avión mientras pronuncias con claridad su primer sonido",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-17-flipchart-vocab",
-      "text": "Leemos juntos las palabras ilustradas del rotafolio: abanico, anillo, araña, ala, aro y Ana.",
+      "text": "Leamos juntos las palabras ilustradas del rotafolio: abanico, anillo, araña, ala, aro y Ana.",
       "batch": "B009",
       "seq": 17,
       "file": "B009-017.mp3",
@@ -1136,12 +1136,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos las palabras ilustradas del rotafolio abanico anillo araña ala aro y ana",
+      "normalizedText": "leamos juntos las palabras ilustradas del rotafolio abanico anillo araña ala aro y ana",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-18-flipchart-rhyme-1",
-      "text": "Leemos estos versos de La niña enfermita: La niña bonita visitó al doctor. Abre bien la boca si tienes dolor.",
+      "text": "Leamos estos versos de La niña enfermita: La niña bonita visitó al doctor. Abre bien la boca si tienes dolor.",
       "batch": "B009",
       "seq": 18,
       "file": "B009-018.mp3",
@@ -1202,7 +1202,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos estos versos de la niña enfermita la niña bonita visitó al doctor abre bien la boca si tienes dolor",
+      "normalizedText": "leamos estos versos de la niña enfermita la niña bonita visitó al doctor abre bien la boca si tienes dolor",
       "sourcePr": "PR#1073"
     },
     {
@@ -1339,7 +1339,7 @@
     },
     {
       "id": "v2-l03-21-comprehension-2",
-      "text": "¿Qué palabra del poema menciona algo que vuela por el cielo y empieza con a?",
+      "text": "¿Qué palabra del poema nombra algo que vuela por el cielo y comienza con a?",
       "batch": "B009",
       "seq": 21,
       "file": "B009-021.mp3",
@@ -1400,12 +1400,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué palabra del poema menciona algo que vuela por el cielo y empieza con a",
+      "normalizedText": "qué palabra del poema nombra algo que vuela por el cielo y comienza con a",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-22-comprehension-3",
-      "text": "¿Empieza la palabra abanico con el mismo sonido abierto que la palabra amor?",
+      "text": "¿Comienza la palabra abanico con el mismo sonido abierto que la palabra amor?",
       "batch": "B009",
       "seq": 22,
       "file": "B009-022.mp3",
@@ -1466,12 +1466,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "empieza la palabra abanico con el mismo sonido abierto que la palabra amor",
+      "normalizedText": "comienza la palabra abanico con el mismo sonido abierto que la palabra amor",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-23-common-mistake-1",
-      "text": "No marques oruga, imán, oveja, elefante, uno, estrella, ojos ni oso, porque no empiezan con a.",
+      "text": "Evita marcar oruga, imán, oveja, elefante, uno, estrella, ojos ni oso, porque no comienzan con a.",
       "batch": "B009",
       "seq": 23,
       "file": "B009-023.mp3",
@@ -1532,12 +1532,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no marques oruga imán oveja elefante uno estrella ojos ni oso porque no empiezan con a",
+      "normalizedText": "evita marcar oruga imán oveja elefante uno estrella ojos ni oso porque no comienzan con a",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-24-common-mistake-2",
-      "text": "Si confundes la a con la e, abre un poquito más la boca para que suene brillante desde el inicio.",
+      "text": "Si dudas entre la a y la e, abre un poco más la boca para que suene abierta desde el inicio.",
       "batch": "B009",
       "seq": 24,
       "file": "B009-024.mp3",
@@ -1598,12 +1598,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "si confundes la a con la e abre un poquito más la boca para que suene brillante desde el inicio",
+      "normalizedText": "si dudas entre la a y la e abre un poco más la boca para que suene abierta desde el inicio",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-25-common-mistake-3",
-      "text": "Al escribir la a minúscula, traza primero su bolita y luego baja derechito su palito lateral.",
+      "text": "Al escribir la a minúscula, traza primero el círculo y luego baja una línea recta a su lado derecho.",
       "batch": "B009",
       "seq": 25,
       "file": "B009-025.mp3",
@@ -1664,12 +1664,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al escribir la a minúscula traza primero su bolita y luego baja derechito su palito lateral",
+      "normalizedText": "al escribir la a minúscula traza primero el círculo y luego baja una línea recta a su lado derecho",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-26-hint-1",
-      "text": "Di en voz alta el nombre del dibujo y observa si abres bien la boca al empezar.",
+      "text": "Pronuncia en voz alta el nombre del dibujo y nota si abres ampliamente la boca al empezar.",
       "batch": "B009",
       "seq": 26,
       "file": "B009-026.mp3",
@@ -1730,7 +1730,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "di en voz alta el nombre del dibujo y observa si abres bien la boca al empezar",
+      "normalizedText": "pronuncia en voz alta el nombre del dibujo y nota si abres ampliamente la boca al empezar",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1745,7 +1745,7 @@
     },
     {
       "id": "v2-l03-27-hint-2",
-      "text": "Compara el primer sonido con abanico y anillo para comprobar si comienza igual.",
+      "text": "Compara el primer sonido con abanico y anillo para comprobar si comienzan igual.",
       "batch": "B009",
       "seq": 27,
       "file": "B009-027.mp3",
@@ -1806,7 +1806,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "compara el primer sonido con abanico y anillo para comprobar si comienza igual",
+      "normalizedText": "compara el primer sonido con abanico y anillo para comprobar si comienzan igual",
       "sourcePr": "PR#1073"
     },
     {
@@ -1877,7 +1877,7 @@
     },
     {
       "id": "v2-l03-29-workbook-transition",
-      "text": "Pasemos ahora a tu cuaderno de trabajo para marcar dibujos y trazar la vocal a.",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para señalar dibujos y trazar la vocal a.",
       "batch": "B009",
       "seq": 29,
       "file": "B009-029.mp3",
@@ -1938,7 +1938,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para marcar dibujos y trazar la vocal a",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para señalar dibujos y trazar la vocal a",
       "sourcePr": "PR#1073"
     },
     {
@@ -2092,7 +2092,7 @@
     },
     {
       "id": "v2-l03-31-page-instruction-2",
-      "text": "Después traza una línea desde la vocal a hasta los dibujos que llevan su sonido al principio.",
+      "text": "Después traza una línea desde la vocal a hasta los dibujos que llevan ese sonido al principio.",
       "batch": "B009",
       "seq": 31,
       "file": "B009-031.mp3",
@@ -2151,7 +2151,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después traza una línea desde la vocal a hasta los dibujos que llevan su sonido al principio",
+      "normalizedText": "después traza una línea desde la vocal a hasta los dibujos que llevan ese sonido al principio",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2170,7 +2170,7 @@
     },
     {
       "id": "v2-l03-32-syllable-practice",
-      "text": "Escucha cómo suenan al comenzar todas estas palabras: abanico, aro, abeja, árbol, alas, ardilla, avión y aguja.",
+      "text": "Escucha cómo comienzan todas estas palabras: abanico, aro, abeja, árbol, alas, ardilla, avión y aguja.",
       "batch": "B009",
       "seq": 32,
       "file": "B009-032.mp3",
@@ -2229,7 +2229,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha cómo suenan al comenzar todas estas palabras abanico aro abeja árbol alas ardilla avión y aguja",
+      "normalizedText": "escucha cómo comienzan todas estas palabras abanico aro abeja árbol alas ardilla avión y aguja",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2398,7 +2398,7 @@
     },
     {
       "id": "v2-l03-33-word-practice-1",
-      "text": "Repite despacio el primer grupo de palabras: abanico, aro, abeja y árbol.",
+      "text": "Repite con calma el primer grupo de palabras: abanico, aro, abeja y árbol.",
       "batch": "B009",
       "seq": 33,
       "file": "B009-033.mp3",
@@ -2457,7 +2457,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite despacio el primer grupo de palabras abanico aro abeja y árbol",
+      "normalizedText": "repite con calma el primer grupo de palabras abanico aro abeja y árbol",
       "sourcePr": "PR#1073"
     },
     {
@@ -2526,7 +2526,7 @@
     },
     {
       "id": "v2-l03-35-sight-or-vocab",
-      "text": "Recuerda que el nombre Ana también empieza con a y por eso se escribe con mayúscula.",
+      "text": "Recuerda que el nombre Ana también comienza con a y por eso se escribe con mayúscula.",
       "batch": "B009",
       "seq": 35,
       "file": "B009-035.mp3",
@@ -2585,7 +2585,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerda que el nombre ana también empieza con a y por eso se escribe con mayúscula",
+      "normalizedText": "recuerda que el nombre ana también comienza con a y por eso se escribe con mayúscula",
       "sourcePr": "PR#1073"
     },
     {
@@ -2654,7 +2654,7 @@
     },
     {
       "id": "v2-l03-37-page-instruction-final",
-      "text": "Para terminar el cuaderno, escribe la vocal a con tu mejor letra en los renglones.",
+      "text": "Para concluir el cuaderno, escribe la vocal a con cuidado sobre los renglones.",
       "batch": "B009",
       "seq": 37,
       "file": "B009-037.mp3",
@@ -2713,7 +2713,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para terminar el cuaderno escribe la vocal a con tu mejor letra en los renglones",
+      "normalizedText": "para concluir el cuaderno escribe la vocal a con cuidado sobre los renglones",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2744,7 +2744,7 @@
     },
     {
       "id": "v2-l03-38-game-intro",
-      "text": "Vamos a jugar con el juego de la vocal a para clasificar dibujos en pantalla.",
+      "text": "Vamos a practicar con el juego de la vocal a para clasificar los dibujos en pantalla.",
       "batch": "B009",
       "seq": 38,
       "file": "B009-038.mp3",
@@ -2805,12 +2805,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "vamos a jugar con el juego de la vocal a para clasificar dibujos en pantalla",
+      "normalizedText": "vamos a practicar con el juego de la vocal a para clasificar los dibujos en pantalla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-39-game-step",
-      "text": "Presiona cada tarjeta, observa el dibujo y decide si su palabra comienza con la vocal a.",
+      "text": "Observa cada dibujo de las tarjetas y decide si su nombre comienza con la vocal a.",
       "batch": "B009",
       "seq": 39,
       "file": "B009-039.mp3",
@@ -2871,12 +2871,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "presiona cada tarjeta observa el dibujo y decide si su palabra comienza con la vocal a",
+      "normalizedText": "observa cada dibujo de las tarjetas y decide si su nombre comienza con la vocal a",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-40-game-correct",
-      "text": "Excelente elección. Identificaste enseguida que ese dibujo comienza con la vocal a.",
+      "text": "Excelente elección. Identificaste que ese dibujo comienza con la vocal a.",
       "batch": "B009",
       "seq": 40,
       "file": "B009-040.mp3",
@@ -2937,12 +2937,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "excelente elección identificaste enseguida que ese dibujo comienza con la vocal a",
+      "normalizedText": "excelente elección identificaste que ese dibujo comienza con la vocal a",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-41-game-retry",
-      "text": "Fíjate otra vez en cómo empieza el nombre de ese dibujo antes de tocar la respuesta.",
+      "text": "Observa de nuevo cómo comienza el nombre de ese dibujo antes de elegir la respuesta.",
       "batch": "B009",
       "seq": 41,
       "file": "B009-041.mp3",
@@ -3003,7 +3003,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate otra vez en cómo empieza el nombre de ese dibujo antes de tocar la respuesta",
+      "normalizedText": "observa de nuevo cómo comienza el nombre de ese dibujo antes de elegir la respuesta",
       "sourcePr": "PR#1073"
     },
     {
@@ -3074,7 +3074,7 @@
     },
     {
       "id": "v2-l03-43-page-complete",
-      "text": "Completaste todas las actividades y juegos de la vocal a. ¡Excelente trabajo!",
+      "text": "Has completado todas las actividades y juegos de la vocal a. ¡Excelente trabajo!",
       "batch": "B009",
       "seq": 43,
       "file": "B009-043.mp3",
@@ -3135,7 +3135,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las actividades y juegos de la vocal a excelente trabajo",
+      "normalizedText": "has completado todas las actividades y juegos de la vocal a excelente trabajo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3155,7 +3155,7 @@
     },
     {
       "id": "v2-l03-44-closing",
-      "text": "Lo hiciste de maravilla con la vocal a. Cada vez distingues mejor los sonidos iniciales.",
+      "text": "Terminamos la lección de la vocal a con todas sus palabras, su poema y su escritura.",
       "batch": "B009",
       "seq": 44,
       "file": "B009-044.mp3",
@@ -3216,12 +3216,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lo hiciste de maravilla con la vocal a cada vez distingues mejor los sonidos iniciales",
+      "normalizedText": "terminamos la lección de la vocal a con todas sus palabras su poema y su escritura",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-45-next-step",
-      "text": "En la próxima lección conoceremos la historia divertida de la vocal e.",
+      "text": "En la próxima lección conoceremos la historia de la vocal e.",
       "batch": "B009",
       "seq": 45,
       "file": "B009-045.mp3",
@@ -3282,13 +3282,13 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la próxima lección conoceremos la historia divertida de la vocal e",
+      "normalizedText": "en la próxima lección conoceremos la historia de la vocal e",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l03-46-atlas-flipchart",
-      "text": "¿A quién visitó la niña?",
-      "normalizedText": "a quién visitó la niña",
+      "text": "¿A quién visitó la niña en el poema?",
+      "normalizedText": "a quién visitó la niña en el poema",
       "batch": "B009",
       "seq": 46,
       "file": "B009-046.mp3",
@@ -3341,8 +3341,8 @@
     },
     {
       "id": "v2-l03-47-atlas-workbook",
-      "text": "Di «abanico» muy despacio. ¿Con qué vocal empieza?",
-      "normalizedText": "di abanico muy despacio con qué vocal empieza",
+      "text": "Pronuncia «abanico» despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "pronuncia abanico despacio con qué vocal empieza",
       "batch": "B009",
       "seq": 47,
       "file": "B009-047.mp3",

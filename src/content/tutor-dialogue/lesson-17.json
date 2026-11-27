@@ -252,7 +252,7 @@
     },
     {
       "id": "v2-l17-04-review-check",
-      "text": "¿Has escuchado cómo vibra la lengua al imitar una ranita o el motor en la palabra rana?",
+      "text": "¿Has sentido cómo vibra la lengua al pronunciar el comienzo de la palabra rana?",
       "batch": "B023",
       "seq": 4,
       "file": "B023-004.mp3",
@@ -328,7 +328,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "has escuchado cómo vibra la lengua al imitar una ranita o el motor en la palabra rana",
+      "normalizedText": "has sentido cómo vibra la lengua al pronunciar el comienzo de la palabra rana",
       "sourcePr": "PR#1073"
     },
     {
@@ -819,7 +819,7 @@
     },
     {
       "id": "v2-l17-11-explanation-simple",
-      "text": "Sube la punta de la lengua arriba y déjala temblar suavecito como un motorcito al decir rana y remo.",
+      "text": "Eleva la punta de la lengua hacia el paladar y déjala vibrar con firmeza al decir rana y remo.",
       "batch": "B023",
       "seq": 11,
       "file": "B023-011.mp3",
@@ -895,7 +895,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sube la punta de la lengua arriba y déjala temblar suavecito como un motorcito al decir rana y remo",
+      "normalizedText": "eleva la punta de la lengua hacia el paladar y déjala vibrar con firmeza al decir rana y remo",
       "sourcePr": "PR#1073"
     },
     {
@@ -1264,7 +1264,7 @@
     },
     {
       "id": "v2-l17-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas: ra, re, ri, ro, ru.",
+      "text": "Leamos juntos con voz clara las sílabas: ra, re, ri, ro, ru.",
       "batch": "B023",
       "seq": 16,
       "file": "B023-016.mp3",
@@ -1338,7 +1338,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas ra re ri ro ru",
+      "normalizedText": "leamos juntos con voz clara las sílabas ra re ri ro ru",
       "sourcePr": "PR#1073"
     },
     {
@@ -2748,7 +2748,7 @@
     },
     {
       "id": "v2-l17-31-page-instruction-2",
-      "text": "Después circula las sílabas en palabras como rana, reloj, risa, rosa, Rolo y ruta.",
+      "text": "Después encierra en un círculo las sílabas en palabras como rana, reloj, risa, rosa, Rolo y ruta.",
       "batch": "B023",
       "seq": 31,
       "file": "B023-031.mp3",
@@ -2821,7 +2821,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después circula las sílabas en palabras como rana reloj risa rosa rolo y ruta",
+      "normalizedText": "después encierra en un círculo las sílabas en palabras como rana reloj risa rosa rolo y ruta",
       "sourcePr": "PR#1073"
     },
     {
@@ -3548,7 +3548,7 @@
     },
     {
       "id": "v2-l17-38-game-intro",
-      "text": "Hagamos ahora una práctica interactiva para dominar las sílabas ra, re, ri, ro, ru.",
+      "text": "Hagamos ahora una práctica interactiva para afianzar las sílabas ra, re, ri, ro, ru.",
       "batch": "B023",
       "seq": 38,
       "file": "B023-038.mp3",
@@ -3624,7 +3624,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos ahora una práctica interactiva para dominar las sílabas ra re ri ro ru",
+      "normalizedText": "hagamos ahora una práctica interactiva para afianzar las sílabas ra re ri ro ru",
       "sourcePr": "PR#1073"
     },
     {

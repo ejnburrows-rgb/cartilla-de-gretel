@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l11-01-greeting-first",
-      "text": "Bienvenidos a esta nueva lección para descubrir y practicar el sonido suave de la letra de.",
+      "text": "Hoy comenzamos una nueva lección para descubrir y practicar el sonido suave de la letra de.",
       "batch": "B017",
       "seq": 1,
       "file": "B017-001.mp3",
@@ -86,7 +86,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos a esta nueva lección para descubrir y practicar el sonido suave de la letra de",
+      "normalizedText": "hoy comenzamos una nueva lección para descubrir y practicar el sonido suave de la letra de",
       "sourcePr": "PR#1073"
     },
     {
@@ -175,7 +175,7 @@
     },
     {
       "id": "v2-l11-03-review-intro",
-      "text": "Ya conocemos el golpe limpio de la te; hoy aprendemos su compañera suave, la letra de.",
+      "text": "Ya conocemos el toque firme de la te; hoy aprendemos su compañera más suave, la letra de.",
       "batch": "B017",
       "seq": 3,
       "file": "B017-003.mp3",
@@ -253,12 +253,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya conocemos el golpe limpio de la te hoy aprendemos su compañera suave la letra de",
+      "normalizedText": "ya conocemos el toque firme de la te hoy aprendemos su compañera más suave la letra de",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-04-review-check",
-      "text": "¿Recuerdas cómo leíamos palabras con te como toma y pato antes de ver la de?",
+      "text": "¿Recuerdas cómo leíamos palabras con te, como toma y pato, antes de conocer la de?",
       "batch": "B017",
       "seq": 4,
       "file": "B017-004.mp3",
@@ -336,12 +336,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo leíamos palabras con te como toma y pato antes de ver la de",
+      "normalizedText": "recuerdas cómo leíamos palabras con te como toma y pato antes de conocer la de",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-05-lesson-objective",
-      "text": "Hoy aprenderemos el sonido vibrante de la de, sus sílabas da, de, di, do, du y son y están.",
+      "text": "Hoy aprenderemos el sonido vibrante de la de, sus sílabas da, de, di, do, du y las palabras son y están.",
       "batch": "B017",
       "seq": 5,
       "file": "B017-005.mp3",
@@ -419,12 +419,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprenderemos el sonido vibrante de la de sus sílabas da de di do du y son y están",
+      "normalizedText": "hoy aprenderemos el sonido vibrante de la de sus sílabas da de di do du y las palabras son y están",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-06-letter-name",
-      "text": "Esta consonante se llama de, y lleva una pancita redonda mirando hacia la izquierda en minúscula.",
+      "text": "Esta consonante se llama de, y en minúscula lleva una curva redonda hacia la izquierda junto a una línea alta.",
       "batch": "B017",
       "seq": 6,
       "file": "B017-006.mp3",
@@ -502,12 +502,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama de y lleva una pancita redonda mirando hacia la izquierda en minúscula",
+      "normalizedText": "esta consonante se llama de y en minúscula lleva una curva redonda hacia la izquierda junto a una línea alta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-07-phonetic-sound",
-      "text": "Al pronunciarla apoyamos suavemente la punta de la lengua entre o detrás de los dientes.",
+      "text": "Al pronunciarla apoyamos con suavidad la punta de la lengua entre o detrás de los dientes.",
       "batch": "B017",
       "seq": 7,
       "file": "B017-007.mp3",
@@ -585,12 +585,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al pronunciarla apoyamos suavemente la punta de la lengua entre o detrás de los dientes",
+      "normalizedText": "al pronunciarla apoyamos con suavidad la punta de la lengua entre o detrás de los dientes",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-08-lesson-focus",
-      "text": "La letra de vibra suavecito en la punta de la lengua cuando decimos dedo y dados.",
+      "text": "La letra de vibra suavemente en la punta de la lengua cuando decimos dedo y dados.",
       "batch": "B017",
       "seq": 8,
       "file": "B017-008.mp3",
@@ -668,12 +668,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "la letra de vibra suavecito en la punta de la lengua cuando decimos dedo y dados",
+      "normalizedText": "la letra de vibra suavemente en la punta de la lengua cuando decimos dedo y dados",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-09-sound-contrast",
-      "text": "A diferencia de la te que es seca y sin vibración, la de hace vibrar suavemente la garganta.",
+      "text": "A diferencia de la te, que es seca y sin vibración, la de hace vibrar suavemente la garganta.",
       "batch": "B017",
       "seq": 9,
       "file": "B017-009.mp3",
@@ -756,7 +756,7 @@
     },
     {
       "id": "v2-l11-10-explanation-primary",
-      "text": "Cuando juntamos esa vibración suave con las vocales formamos da, de, di, do, du.",
+      "text": "Cuando unimos esa vibración suave con las vocales formamos da, de, di, do, du.",
       "batch": "B017",
       "seq": 10,
       "file": "B017-010.mp3",
@@ -834,12 +834,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando juntamos esa vibración suave con las vocales formamos da de di do du",
+      "normalizedText": "cuando unimos esa vibración suave con las vocales formamos da de di do du",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-11-explanation-simple",
-      "text": "Saca un poquito la punta de la lengua entre los dientes con voz suave y di dedo y dado.",
+      "text": "Acerca suavemente la punta de la lengua a los dientes con voz serena y pronuncia dedo y dado.",
       "batch": "B017",
       "seq": 11,
       "file": "B017-011.mp3",
@@ -917,12 +917,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "saca un poquito la punta de la lengua entre los dientes con voz suave y di dedo y dado",
+      "normalizedText": "acerca suavemente la punta de la lengua a los dientes con voz serena y pronuncia dedo y dado",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para practicar las palabras y buscar a Made en el poema Made y papá.",
+      "text": "Abramos el rotafolio para practicar las palabras y buscar a Made en el poema Made y papá.",
       "batch": "B017",
       "seq": 12,
       "file": "B017-012.mp3",
@@ -998,7 +998,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para practicar las palabras y buscar a made en el poema made y papá",
+      "normalizedText": "abramos el rotafolio para practicar las palabras y buscar a made en el poema made y papá",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1132,7 +1132,7 @@
     },
     {
       "id": "v2-l11-14-flipchart-illustration-2",
-      "text": "También observamos en el poema a Made colocada justo en medio y delante de mamá y papá.",
+      "text": "También observamos en el poema a Made situada en medio y delante de mamá y papá.",
       "batch": "B017",
       "seq": 14,
       "file": "B017-014.mp3",
@@ -1208,12 +1208,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "también observamos en el poema a made colocada justo en medio y delante de mamá y papá",
+      "normalizedText": "también observamos en el poema a made situada en medio y delante de mamá y papá",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-15-reading-order",
-      "text": "Lee las sílabas de izquierda a derecha, pasa por las palabras y luego lee las preguntas del poema.",
+      "text": "Lee las sílabas de izquierda a derecha, continúa con las palabras y luego lee las preguntas del poema.",
       "batch": "B017",
       "seq": 15,
       "file": "B017-015.mp3",
@@ -1291,7 +1291,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee las sílabas de izquierda a derecha pasa por las palabras y luego lee las preguntas del poema",
+      "normalizedText": "lee las sílabas de izquierda a derecha continúa con las palabras y luego lee las preguntas del poema",
       "sourcePr": "PR#1073"
     },
     {
@@ -1377,7 +1377,7 @@
     },
     {
       "id": "v2-l11-17-flipchart-vocab",
-      "text": "Leemos juntos las palabras del rotafolio: dedo, Didi, dados, doce y Dunia.",
+      "text": "Leamos juntos las palabras del rotafolio: dedo, Didi, dados, doce y Dunia.",
       "batch": "B017",
       "seq": 17,
       "file": "B017-017.mp3",
@@ -1453,12 +1453,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos las palabras del rotafolio dedo didi dados doce y dunia",
+      "normalizedText": "leamos juntos las palabras del rotafolio dedo didi dados doce y dunia",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-18-flipchart-rhyme-1",
-      "text": "Leemos del poema Made y papá: ¿Dónde está? Está en el medio de mamá y papá.",
+      "text": "Leamos del poema Made y papá: ¿Dónde está? Está en el medio de mamá y papá.",
       "batch": "B017",
       "seq": 18,
       "file": "B017-018.mp3",
@@ -1534,7 +1534,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos del poema made y papá dónde está está en el medio de mamá y papá",
+      "normalizedText": "leamos del poema made y papá dónde está está en el medio de mamá y papá",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1640,7 +1640,7 @@
     },
     {
       "id": "v2-l11-20-comprehension-1",
-      "text": "En el poema del rotafolio, ¿dónde está ubicada Made respecto a mamá y papá?",
+      "text": "En el poema del rotafolio, ¿dónde se encuentra Made respecto a mamá y papá?",
       "batch": "B017",
       "seq": 20,
       "file": "B017-020.mp3",
@@ -1718,12 +1718,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en el poema del rotafolio dónde está ubicada made respecto a mamá y papá",
+      "normalizedText": "en el poema del rotafolio dónde se encuentra made respecto a mamá y papá",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-21-comprehension-2",
-      "text": "¿Dónde pone Dunia los dados según la lectura de hoy?",
+      "text": "¿Dónde coloca Dunia los dados según la lectura de hoy?",
       "batch": "B017",
       "seq": 21,
       "file": "B017-021.mp3",
@@ -1801,7 +1801,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "dónde pone dunia los dados según la lectura de hoy",
+      "normalizedText": "dónde coloca dunia los dados según la lectura de hoy",
       "sourcePr": "PR#1073"
     },
     {
@@ -1889,7 +1889,7 @@
     },
     {
       "id": "v2-l11-23-common-mistake-1",
-      "text": "Cuida la pancita de la de minúscula hacia la izquierda antes de subir su palito derecho.",
+      "text": "Traza primero la curva de la de minúscula hacia la izquierda antes de subir su línea vertical.",
       "batch": "B017",
       "seq": 23,
       "file": "B017-023.mp3",
@@ -1967,12 +1967,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuida la pancita de la de minúscula hacia la izquierda antes de subir su palito derecho",
+      "normalizedText": "traza primero la curva de la de minúscula hacia la izquierda antes de subir su línea vertical",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-24-common-mistake-2",
-      "text": "Fíjate bien en las tildes de dónde y día al leer las preguntas con entonación curiosa.",
+      "text": "Observa las tildes de dónde y día al leer las preguntas con entonación curiosa.",
       "batch": "B017",
       "seq": 24,
       "file": "B017-024.mp3",
@@ -2050,12 +2050,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate bien en las tildes de dónde y día al leer las preguntas con entonación curiosa",
+      "normalizedText": "observa las tildes de dónde y día al leer las preguntas con entonación curiosa",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-25-common-mistake-3",
-      "text": "No pronuncies la de tan fuerte como la te; déjala vibrar suave en la punta de la lengua.",
+      "text": "Evita pronunciar la de tan seca como la te; déjala vibrar suavemente en la punta de la lengua.",
       "batch": "B017",
       "seq": 25,
       "file": "B017-025.mp3",
@@ -2133,12 +2133,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no pronuncies la de tan fuerte como la te déjala vibrar suave en la punta de la lengua",
+      "normalizedText": "evita pronunciar la de tan seca como la te déjala vibrar suavemente en la punta de la lengua",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-26-hint-1",
-      "text": "Apoya la lengua suave en los dientes y escucha qué vocal suena después.",
+      "text": "Apoya la lengua con suavidad en los dientes y escucha qué vocal suena después.",
       "batch": "B017",
       "seq": 26,
       "file": "B017-026.mp3",
@@ -2216,7 +2216,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "apoya la lengua suave en los dientes y escucha qué vocal suena después",
+      "normalizedText": "apoya la lengua con suavidad en los dientes y escucha qué vocal suena después",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2387,7 +2387,7 @@
     },
     {
       "id": "v2-l11-27-hint-2",
-      "text": "Compara el comienzo de la palabra con dedo o con dados para encontrar la sílaba.",
+      "text": "Compara el comienzo de la palabra con dedo o con dados para descubrir la sílaba.",
       "batch": "B017",
       "seq": 27,
       "file": "B017-027.mp3",
@@ -2465,7 +2465,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "compara el comienzo de la palabra con dedo o con dados para encontrar la sílaba",
+      "normalizedText": "compara el comienzo de la palabra con dedo o con dados para descubrir la sílaba",
       "sourcePr": "PR#1073"
     },
     {
@@ -2553,7 +2553,7 @@
     },
     {
       "id": "v2-l11-29-workbook-transition",
-      "text": "Ahora pasamos a tu cuaderno de trabajo para escribir la de y leer preguntas en plural.",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la de y leer preguntas en plural.",
       "batch": "B017",
       "seq": 29,
       "file": "B017-029.mp3",
@@ -2631,12 +2631,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para escribir la de y leer preguntas en plural",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la de y leer preguntas en plural",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-30-page-instruction-1",
-      "text": "Escribe la de mayúscula y minúscula con cuidado y haz un dibujo que empiece con de.",
+      "text": "Escribe la de mayúscula y minúscula con cuidado y haz un dibujo cuyo nombre comience con de.",
       "batch": "B017",
       "seq": 30,
       "file": "B017-030.mp3",
@@ -2711,7 +2711,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la de mayúscula y minúscula con cuidado y haz un dibujo que empiece con de",
+      "normalizedText": "escribe la de mayúscula y minúscula con cuidado y haz un dibujo cuyo nombre comience con de",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2812,7 +2812,7 @@
     },
     {
       "id": "v2-l11-31-page-instruction-2",
-      "text": "Después rodea en un círculo la sílaba correspondiente en palabras como dado, dedo, dime y duda.",
+      "text": "Después encierra en un círculo la sílaba correspondiente en palabras como dado, dedo, dime y duda.",
       "batch": "B017",
       "seq": 31,
       "file": "B017-031.mp3",
@@ -2887,7 +2887,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después rodea en un círculo la sílaba correspondiente en palabras como dado dedo dime y duda",
+      "normalizedText": "después encierra en un círculo la sílaba correspondiente en palabras como dado dedo dime y duda",
       "sourcePr": "PR#1073"
     },
     {
@@ -3204,7 +3204,7 @@
     },
     {
       "id": "v2-l11-35-sight-or-vocab",
-      "text": "Hoy aprendemos las palabras son y están, que usamos cuando hablamos de varias cosas.",
+      "text": "Hoy aprendemos las palabras son y están, que empleamos cuando hablamos de varias cosas.",
       "batch": "B017",
       "seq": 35,
       "file": "B017-035.mp3",
@@ -3279,12 +3279,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprendemos las palabras son y están que usamos cuando hablamos de varias cosas",
+      "normalizedText": "hoy aprendemos las palabras son y están que empleamos cuando hablamos de varias cosas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l11-36-sentence-or-pair",
-      "text": "Lee con tono curioso esta oración del libro: Los dados son de Dunia.",
+      "text": "Lee con calma esta oración del libro: Los dados son de Dunia.",
       "batch": "B017",
       "seq": 36,
       "file": "B017-036.mp3",
@@ -3359,7 +3359,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee con tono curioso esta oración del libro los dados son de dunia",
+      "normalizedText": "lee con calma esta oración del libro los dados son de dunia",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3546,7 +3546,7 @@
     },
     {
       "id": "v2-l11-37-page-instruction-final",
-      "text": "Para cerrar el cuaderno completa cada palabra con su sílaba, como en dedo, mide, mudo y Ada.",
+      "text": "Para cerrar el cuaderno, completa cada palabra con su sílaba, como en dedo, mide, mudo y Ada.",
       "batch": "B017",
       "seq": 37,
       "file": "B017-037.mp3",
@@ -3626,7 +3626,7 @@
     },
     {
       "id": "v2-l11-38-game-intro",
-      "text": "Hagamos ahora una práctica interactiva para usar bien da, de, di, do, du en palabras del libro.",
+      "text": "Hagamos ahora una práctica interactiva para usar da, de, di, do, du en palabras del libro.",
       "batch": "B017",
       "seq": 38,
       "file": "B017-038.mp3",
@@ -3704,7 +3704,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos ahora una práctica interactiva para usar bien da de di do du en palabras del libro",
+      "normalizedText": "hagamos ahora una práctica interactiva para usar da de di do du en palabras del libro",
       "sourcePr": "PR#1073"
     },
     {
@@ -3958,7 +3958,7 @@
     },
     {
       "id": "v2-l11-42-assessment",
-      "text": "Para comprobar lo aprendido hoy, lee esta pregunta del libro: –¿Dónde están los dados?",
+      "text": "Para cerrar esta práctica, lee esta pregunta del libro: –¿Dónde están los dados?",
       "batch": "B017",
       "seq": 42,
       "file": "B017-042.mp3",
@@ -4036,7 +4036,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para comprobar lo aprendido hoy lee esta pregunta del libro dónde están los dados",
+      "normalizedText": "para cerrar esta práctica lee esta pregunta del libro dónde están los dados",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4113,7 +4113,7 @@
     },
     {
       "id": "v2-l11-43-page-complete",
-      "text": "Terminaste todas las actividades de la letra de. ¡Excelente avance!",
+      "text": "Has terminado todas las actividades de la letra de. ¡Excelente avance!",
       "batch": "B017",
       "seq": 43,
       "file": "B017-043.mp3",
@@ -4191,7 +4191,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la letra de excelente avance",
+      "normalizedText": "has terminado todas las actividades de la letra de excelente avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -4294,7 +4294,7 @@
     },
     {
       "id": "v2-l11-45-next-step",
-      "text": "En la siguiente lección conoceremos el sonido claro y alto de la letra ele.",
+      "text": "En la siguiente lección conoceremos el sonido claro de la letra ele.",
       "batch": "B017",
       "seq": 45,
       "file": "B017-045.mp3",
@@ -4372,7 +4372,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la siguiente lección conoceremos el sonido claro y alto de la letra ele",
+      "normalizedText": "en la siguiente lección conoceremos el sonido claro de la letra ele",
       "sourcePr": "PR#1073"
     },
     {

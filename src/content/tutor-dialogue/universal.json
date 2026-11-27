@@ -14,7 +14,7 @@
   "entries": [
     {
       "id": "v2-b001-greet-first-01",
-      "text": "¡Hola! Soy Gretel. Qué gusto conocerte, hoy vamos a descubrir sonidos y palabras juntos.",
+      "text": "¡Hola! Soy Gretel. Qué gusto conocerte; hoy vamos a descubrir sonidos y palabras juntos.",
       "batch": "B001",
       "seq": 1,
       "file": "B001-001.mp3",
@@ -58,7 +58,7 @@
     },
     {
       "id": "v2-b001-greet-first-02",
-      "text": "¡Qué alegría que estés aquí! Abramos la cartilla para empezar a leer hoy.",
+      "text": "¡Qué alegría que estés aquí! Abramos la cartilla para comenzar a leer hoy.",
       "batch": "B001",
       "seq": 2,
       "file": "B001-002.mp3",
@@ -89,12 +89,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué alegría que estés aquí abramos la cartilla para empezar a leer hoy",
+      "normalizedText": "qué alegría que estés aquí abramos la cartilla para comenzar a leer hoy",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-03",
-      "text": "¡Qué bueno tenerte por aquí! Vamos paso a paso, a tu ritmo y sin prisa.",
+      "text": "Me da mucho gusto recibirte hoy. Avanzaremos paso a paso, a tu ritmo y sin prisa.",
       "batch": "B001",
       "seq": 3,
       "file": "B001-003.mp3",
@@ -125,12 +125,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué bueno tenerte por aquí vamos paso a paso a tu ritmo y sin prisa",
+      "normalizedText": "me da mucho gusto recibirte hoy avanzaremos paso a paso a tu ritmo y sin prisa",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-04",
-      "text": "¡Hola! Me da mucho gusto verte hoy. ¿Listo para empezar con la lectura?",
+      "text": "¡Hola! Me alegra mucho encontrarnos hoy. ¿Comenzamos nuestra lectura?",
       "batch": "B001",
       "seq": 4,
       "file": "B001-004.mp3",
@@ -161,12 +161,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hola me da mucho gusto verte hoy listo para empezar con la lectura",
+      "normalizedText": "hola me alegra mucho encontrarnos hoy comenzamos nuestra lectura",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-05",
-      "text": "¡Arranquemos una nueva lección! Voy contigo en cada dibujo y en cada palabra.",
+      "text": "Comencemos una nueva lección. Te acompaño en cada dibujo y en cada palabra.",
       "batch": "B001",
       "seq": 5,
       "file": "B001-005.mp3",
@@ -197,12 +197,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "arranquemos una nueva lección voy contigo en cada dibujo y en cada palabra",
+      "normalizedText": "comencemos una nueva lección te acompaño en cada dibujo y en cada palabra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-greet-first-06",
-      "text": "Hoy vamos a explorar letras nuevas con calma y buena onda. ¿Empezamos ahora?",
+      "text": "Hoy vamos a explorar letras nuevas con calma y curiosidad. ¿Empezamos ahora?",
       "batch": "B001",
       "seq": 6,
       "file": "B001-006.mp3",
@@ -233,12 +233,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy vamos a explorar letras nuevas con calma y buena onda empezamos ahora",
+      "normalizedText": "hoy vamos a explorar letras nuevas con calma y curiosidad empezamos ahora",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-01",
-      "text": "¡Sí, esa es! Encontraste justo la palabra que estábamos buscando.",
+      "text": "¡Sí, esa es! Encontraste exactamente la palabra que estábamos buscando.",
       "batch": "B001",
       "seq": 7,
       "file": "B001-007.mp3",
@@ -269,7 +269,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sí esa es encontraste justo la palabra que estábamos buscando",
+      "normalizedText": "sí esa es encontraste exactamente la palabra que estábamos buscando",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -282,7 +282,7 @@
     },
     {
       "id": "v2-b001-praise-02",
-      "text": "¡A la primera! Le diste directo a la respuesta correcta.",
+      "text": "Acertaste en el primer intento. Esa es la respuesta correcta.",
       "batch": "B001",
       "seq": 8,
       "file": "B001-008.mp3",
@@ -313,12 +313,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "a la primera le diste directo a la respuesta correcta",
+      "normalizedText": "acertaste en el primer intento esa es la respuesta correcta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-03",
-      "text": "¡Bingo! Ese era exactamente el sonido que tocaba aquí.",
+      "text": "¡Exacto! Ese era precisamente el sonido que correspondía aquí.",
       "batch": "B001",
       "seq": 9,
       "file": "B001-009.mp3",
@@ -349,12 +349,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bingo ese era exactamente el sonido que tocaba aquí",
+      "normalizedText": "exacto ese era precisamente el sonido que correspondía aquí",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-04",
-      "text": "¡Exacto! Esa respuesta coincide perfecto con este dibujo.",
+      "text": "Muy bien. Esa respuesta coincide perfectamente con este dibujo.",
       "batch": "B001",
       "seq": 10,
       "file": "B001-010.mp3",
@@ -385,12 +385,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "exacto esa respuesta coincide perfecto con este dibujo",
+      "normalizedText": "muy bien esa respuesta coincide perfectamente con este dibujo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-05",
-      "text": "¡Buenísimo! Ya tenemos esta palabra lista, pasemos a la que sigue.",
+      "text": "Excelente trabajo. Ya completamos esta palabra; pasemos a la siguiente.",
       "batch": "B001",
       "seq": 11,
       "file": "B001-011.mp3",
@@ -421,12 +421,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "buenísimo ya tenemos esta palabra lista pasemos a la que sigue",
+      "normalizedText": "excelente trabajo ya completamos esta palabra pasemos a la siguiente",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-06",
-      "text": "¡Acertaste enseguida! Me encanta cuando damos con la respuesta así.",
+      "text": "Acertaste de inmediato. Reconociste la respuesta con mucha seguridad.",
       "batch": "B001",
       "seq": 12,
       "file": "B001-012.mp3",
@@ -457,12 +457,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "acertaste enseguida me encanta cuando damos con la respuesta así",
+      "normalizedText": "acertaste de inmediato reconociste la respuesta con mucha seguridad",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-07",
-      "text": "¡Sí, justo esa! Me pone muy contenta cuando avanzamos así.",
+      "text": "Esa es la respuesta correcta. Me alegra mucho ver cómo avanzamos.",
       "batch": "B001",
       "seq": 13,
       "file": "B001-013.mp3",
@@ -493,12 +493,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sí justo esa me pone muy contenta cuando avanzamos así",
+      "normalizedText": "esa es la respuesta correcta me alegra mucho ver cómo avanzamos",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-praise-08",
-      "text": "¡Muy bien! Esa era la opción correcta, vamos por súper buen camino.",
+      "text": "¡Muy bien! Esa era la opción correcta; vamos por excelente camino.",
       "batch": "B001",
       "seq": 14,
       "file": "B001-014.mp3",
@@ -529,12 +529,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien esa era la opción correcta vamos por súper buen camino",
+      "normalizedText": "muy bien esa era la opción correcta vamos por excelente camino",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-01",
-      "text": "No pasa nada si todavía no salió. Respira hondo y lo intentamos otra vez.",
+      "text": "No pasa nada si todavía no acertaste. Respira hondo e inténtalo una vez más.",
       "batch": "B001",
       "seq": 15,
       "file": "B001-015.mp3",
@@ -565,7 +565,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no pasa nada si todavía no salió respira hondo y lo intentamos otra vez",
+      "normalizedText": "no pasa nada si todavía no acertaste respira hondo e inténtalo una vez más",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -578,7 +578,7 @@
     },
     {
       "id": "v2-b001-try-again-02",
-      "text": "Con calma siempre sale mejor. Escucha el ejemplo y lo decimos juntos.",
+      "text": "Con calma siempre aprendemos mejor. Escucha el ejemplo y digámoslo juntos.",
       "batch": "B001",
       "seq": 16,
       "file": "B001-016.mp3",
@@ -609,7 +609,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "con calma siempre sale mejor escucha el ejemplo y lo decimos juntos",
+      "normalizedText": "con calma siempre aprendemos mejor escucha el ejemplo y digámoslo juntos",
       "sourcePr": "PR#1073"
     },
     {
@@ -650,7 +650,7 @@
     },
     {
       "id": "v2-b001-try-again-04",
-      "text": "Sin apuro ninguno. Escuchemos de nuevo y luego pruebas otra vez.",
+      "text": "Sin ninguna prisa. Escuchemos de nuevo y luego vuelves a intentarlo.",
       "batch": "B001",
       "seq": 18,
       "file": "B001-018.mp3",
@@ -681,12 +681,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sin apuro ninguno escuchemos de nuevo y luego pruebas otra vez",
+      "normalizedText": "sin ninguna prisa escuchemos de nuevo y luego vuelves a intentarlo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-05",
-      "text": "¡Tú puedes! Toca el micrófono cuando quieras hacer otro intento.",
+      "text": "Tú puedes lograrlo. Toca el micrófono cuando desees hacer otro intento.",
       "batch": "B001",
       "seq": 19,
       "file": "B001-019.mp3",
@@ -717,12 +717,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "tú puedes toca el micrófono cuando quieras hacer otro intento",
+      "normalizedText": "tú puedes lograrlo toca el micrófono cuando desees hacer otro intento",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-try-again-06",
-      "text": "Ya casi la tienes. Hagamos un intento más, bien despacito.",
+      "text": "Estás muy cerca de lograrlo. Hagamos otro intento con más calma.",
       "batch": "B001",
       "seq": 20,
       "file": "B001-020.mp3",
@@ -753,12 +753,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya casi la tienes hagamos un intento más bien despacito",
+      "normalizedText": "estás muy cerca de lograrlo hagamos otro intento con más calma",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-close-miss-01",
-      "text": "¡Uy, estuviste súper cerca! Fíjate en el final de la palabra y probemos de nuevo.",
+      "text": "Estuviste muy cerca. Observa el final de la palabra y probemos de nuevo.",
       "batch": "B001",
       "seq": 21,
       "file": "B001-021.mp3",
@@ -789,7 +789,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "uy estuviste súper cerca fíjate en el final de la palabra y probemos de nuevo",
+      "normalizedText": "estuviste muy cerca observa el final de la palabra y probemos de nuevo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -802,7 +802,7 @@
     },
     {
       "id": "v2-b001-close-miss-02",
-      "text": "¡Por poquito! Probemos una vez más abriendo un poco más la boca al decirla.",
+      "text": "Faltó muy poco. Probemos una vez más articulando cada sonido con calma.",
       "batch": "B001",
       "seq": 22,
       "file": "B001-022.mp3",
@@ -833,7 +833,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "por poquito probemos una vez más abriendo un poco más la boca al decirla",
+      "normalizedText": "faltó muy poco probemos una vez más articulando cada sonido con calma",
       "sourcePr": "PR#1073"
     },
     {
@@ -874,7 +874,7 @@
     },
     {
       "id": "v2-b001-close-miss-04",
-      "text": "Te faltó apenas un detallito. Escuchemos el modelo una vez más.",
+      "text": "Te faltó apenas un pequeño detalle. Escuchemos el modelo una vez más.",
       "batch": "B001",
       "seq": 24,
       "file": "B001-024.mp3",
@@ -905,7 +905,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "te faltó apenas un detallito escuchemos el modelo una vez más",
+      "normalizedText": "te faltó apenas un pequeño detalle escuchemos el modelo una vez más",
       "sourcePr": "PR#1073"
     },
     {
@@ -946,7 +946,7 @@
     },
     {
       "id": "v2-b001-silence-01",
-      "text": "No alcancé a escucharte bien. Acércate un poquito al micrófono y prueba de nuevo.",
+      "text": "No alcancé a escucharte bien. Acércate un poco más al micrófono e intenta de nuevo.",
       "batch": "B001",
       "seq": 26,
       "file": "B001-026.mp3",
@@ -977,7 +977,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no alcancé a escucharte bien acércate un poquito al micrófono y prueba de nuevo",
+      "normalizedText": "no alcancé a escucharte bien acércate un poco más al micrófono e intenta de nuevo",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1002,7 +1002,7 @@
     },
     {
       "id": "v2-b001-silence-02",
-      "text": "El micrófono se quedó en silencio. Cuando quieras intentar, te escucho.",
+      "text": "El micrófono quedó en silencio. Cuando quieras intentarlo, aquí te escucho.",
       "batch": "B001",
       "seq": 27,
       "file": "B001-027.mp3",
@@ -1033,12 +1033,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "el micrófono se quedó en silencio cuando quieras intentar te escucho",
+      "normalizedText": "el micrófono quedó en silencio cuando quieras intentarlo aquí te escucho",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-silence-03",
-      "text": "Aquí sigo contigo, tranquila y sin prisa. ¿Quieres intentarlo un poquito más cerca?",
+      "text": "Aquí sigo contigo, tranquila y sin prisa. ¿Quieres intentarlo un poco más cerca?",
       "batch": "B001",
       "seq": 28,
       "file": "B001-028.mp3",
@@ -1069,7 +1069,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "aquí sigo contigo tranquila y sin prisa quieres intentarlo un poquito más cerca",
+      "normalizedText": "aquí sigo contigo tranquila y sin prisa quieres intentarlo un poco más cerca",
       "sourcePr": "PR#1073"
     },
     {
@@ -1232,7 +1232,7 @@
     },
     {
       "id": "v2-b001-closing-03",
-      "text": "Completaste todas las palabras de esta práctica. Descansa un rato y seguimos luego.",
+      "text": "Completaste todas las palabras de esta práctica. Descansa un momento y continuamos después.",
       "batch": "B001",
       "seq": 33,
       "file": "B001-033.mp3",
@@ -1263,12 +1263,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste todas las palabras de esta práctica descansa un rato y seguimos luego",
+      "normalizedText": "completaste todas las palabras de esta práctica descansa un momento y continuamos después",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b001-closing-04",
-      "text": "Hoy avanzamos un montón paso a paso. ¡Nos vemos en la próxima sesión!",
+      "text": "Hoy avanzamos mucho, paso a paso. ¡Nos vemos en la próxima sesión!",
       "batch": "B001",
       "seq": 34,
       "file": "B001-034.mp3",
@@ -1299,7 +1299,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy avanzamos un montón paso a paso nos vemos en la próxima sesión",
+      "normalizedText": "hoy avanzamos mucho paso a paso nos vemos en la próxima sesión",
       "sourcePr": "PR#1073"
     },
     {
@@ -1428,7 +1428,7 @@
     },
     {
       "id": "v2-b002-return-02",
-      "text": "Hola de nuevo, amigo. Qué bueno seguir practicando nuestra lectura juntos.",
+      "text": "¡Hola de nuevo! Me da mucha alegría seguir practicando la lectura contigo.",
       "batch": "B002",
       "seq": 2,
       "file": "B002-002.mp3",
@@ -1461,12 +1461,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hola de nuevo amigo qué bueno seguir practicando nuestra lectura juntos",
+      "normalizedText": "hola de nuevo me da mucha alegría seguir practicando la lectura contigo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-03",
-      "text": "Volviste a tu cartilla y eso me alegra mucho. Vamos a repasar un poquito.",
+      "text": "Qué alegría verte de vuelta en tu cartilla. Comencemos con un breve repaso.",
       "batch": "B002",
       "seq": 3,
       "file": "B002-003.mp3",
@@ -1499,12 +1499,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "volviste a tu cartilla y eso me alegra mucho vamos a repasar un poquito",
+      "normalizedText": "qué alegría verte de vuelta en tu cartilla comencemos con un breve repaso",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-04",
-      "text": "Bienvenido otra vez. Cada vez que regresas tu lectura se hace más fuerte.",
+      "text": "Qué gusto recibirte otra vez. Cada sesión de práctica nos ayuda a leer con mayor soltura.",
       "batch": "B002",
       "seq": 4,
       "file": "B002-004.mp3",
@@ -1537,12 +1537,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenido otra vez cada vez que regresas tu lectura se hace más fuerte",
+      "normalizedText": "qué gusto recibirte otra vez cada sesión de práctica nos ayuda a leer con mayor soltura",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-05",
-      "text": "Ya te estaba esperando para leer otro rato. Abramos la página de hoy.",
+      "text": "Ya te esperaba para continuar nuestra lectura. Abramos la página de hoy.",
       "batch": "B002",
       "seq": 5,
       "file": "B002-005.mp3",
@@ -1575,12 +1575,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya te estaba esperando para leer otro rato abramos la página de hoy",
+      "normalizedText": "ya te esperaba para continuar nuestra lectura abramos la página de hoy",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-return-06",
-      "text": "Seguimos con la misma calma de siempre. ¿Listo para escuchar la primera palabra?",
+      "text": "Seguimos con la misma calma de siempre. ¿Escuchamos la primera palabra?",
       "batch": "B002",
       "seq": 6,
       "file": "B002-006.mp3",
@@ -1613,12 +1613,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "seguimos con la misma calma de siempre listo para escuchar la primera palabra",
+      "normalizedText": "seguimos con la misma calma de siempre escuchamos la primera palabra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-01",
-      "text": "Llevas varias seguidas sin fallar. ¡Qué buena racha estamos armando!",
+      "text": "Llevas varias respuestas correctas seguidas. ¡Qué excelente serie has logrado!",
       "batch": "B002",
       "seq": 7,
       "file": "B002-007.mp3",
@@ -1651,12 +1651,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "llevas varias seguidas sin fallar qué buena racha estamos armando",
+      "normalizedText": "llevas varias respuestas correctas seguidas qué excelente serie has logrado",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-02",
-      "text": "Qué buena racha llevas hoy. ¡Una respuesta correcta tras otra!",
+      "text": "Llevas una excelente serie hoy: una respuesta correcta tras otra.",
       "batch": "B002",
       "seq": 8,
       "file": "B002-008.mp3",
@@ -1689,7 +1689,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué buena racha llevas hoy una respuesta correcta tras otra",
+      "normalizedText": "llevas una excelente serie hoy una respuesta correcta tras otra",
       "sourcePr": "PR#1073"
     },
     {
@@ -1732,7 +1732,7 @@
     },
     {
       "id": "v2-b002-streak-04",
-      "text": "Vas volando por esta página. ¡Qué seguidilla tan buena llevas hoy!",
+      "text": "Avanzas con gran soltura por esta página. Llevas varios aciertos consecutivos.",
       "batch": "B002",
       "seq": 10,
       "file": "B002-010.mp3",
@@ -1765,12 +1765,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "vas volando por esta página qué seguidilla tan buena llevas hoy",
+      "normalizedText": "avanzas con gran soltura por esta página llevas varios aciertos consecutivos",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-05",
-      "text": "Otra respuesta correcta seguida. Mantienes un ritmo súper constante.",
+      "text": "Otra respuesta correcta seguida. Mantienes un ritmo muy constante.",
       "batch": "B002",
       "seq": 11,
       "file": "B002-011.mp3",
@@ -1803,12 +1803,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "otra respuesta correcta seguida mantienes un ritmo súper constante",
+      "normalizedText": "otra respuesta correcta seguida mantienes un ritmo muy constante",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-streak-06",
-      "text": "Qué racha tan alegre estamos construyendo. Vamos a ver cuál sigue ahora.",
+      "text": "Has encadenado varios aciertos seguidos. Veamos cuál palabra sigue ahora.",
       "batch": "B002",
       "seq": 12,
       "file": "B002-012.mp3",
@@ -1841,12 +1841,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué racha tan alegre estamos construyendo vamos a ver cuál sigue ahora",
+      "normalizedText": "has encadenado varios aciertos seguidos veamos cuál palabra sigue ahora",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-retry-praise-01",
-      "text": "Lo intentaste otra vez y al fin salió. Eso muestra mucha paciencia.",
+      "text": "Lo intentaste de nuevo y acertaste. Esa paciencia ayuda mucho al aprender.",
       "batch": "B002",
       "seq": 13,
       "file": "B002-013.mp3",
@@ -1879,7 +1879,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lo intentaste otra vez y al fin salió eso muestra mucha paciencia",
+      "normalizedText": "lo intentaste de nuevo y acertaste esa paciencia ayuda mucho al aprender",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1892,7 +1892,7 @@
     },
     {
       "id": "v2-b002-retry-praise-02",
-      "text": "No te rendiste cuando costó un poquito, y ahora sí acertaste.",
+      "text": "No te rendiste cuando resultó difícil, y ahora encontraste la respuesta correcta.",
       "batch": "B002",
       "seq": 14,
       "file": "B002-014.mp3",
@@ -1925,7 +1925,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no te rendiste cuando costó un poquito y ahora sí acertaste",
+      "normalizedText": "no te rendiste cuando resultó difícil y ahora encontraste la respuesta correcta",
       "sourcePr": "PR#1073"
     },
     {
@@ -2044,7 +2044,7 @@
     },
     {
       "id": "v2-b002-retry-praise-06",
-      "text": "Escuchaste la pista y la atrapaste enseguida. Qué orgullo me da verte crecer.",
+      "text": "Aprovechaste la pista y diste con la respuesta de inmediato. Muy buen trabajo.",
       "batch": "B002",
       "seq": 18,
       "file": "B002-018.mp3",
@@ -2077,7 +2077,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escuchaste la pista y la atrapaste enseguida qué orgullo me da verte crecer",
+      "normalizedText": "aprovechaste la pista y diste con la respuesta de inmediato muy buen trabajo",
       "sourcePr": "PR#1073"
     },
     {
@@ -2126,7 +2126,7 @@
     },
     {
       "id": "v2-b002-wrong-word-02",
-      "text": "Uy, elegiste el dibujo vecino. Señalemos el que está encendido y probemos otra vez.",
+      "text": "Elegiste el dibujo vecino. Observemos el que está resaltado y probemos otra vez.",
       "batch": "B002",
       "seq": 20,
       "file": "B002-020.mp3",
@@ -2157,7 +2157,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "uy elegiste el dibujo vecino señalemos el que está encendido y probemos otra vez",
+      "normalizedText": "elegiste el dibujo vecino observemos el que está resaltado y probemos otra vez",
       "sourcePr": "PR#1073"
     },
     {
@@ -2270,7 +2270,7 @@
     },
     {
       "id": "v2-b002-wrong-word-06",
-      "text": "Dejemos esa palabra para después y concentrémonos en la que brilla aquí.",
+      "text": "Dejemos esa palabra para después y fijémonos en la que está señalada aquí.",
       "batch": "B002",
       "seq": 24,
       "file": "B002-024.mp3",
@@ -2301,7 +2301,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "dejemos esa palabra para después y concentrémonos en la que brilla aquí",
+      "normalizedText": "dejemos esa palabra para después y fijémonos en la que está señalada aquí",
       "sourcePr": "PR#1073"
     },
     {
@@ -2410,7 +2410,7 @@
     },
     {
       "id": "v2-b002-repeat-ack-03",
-      "text": "Aquí va de nuevo, bien despacito para que la escuches clarito.",
+      "text": "Te la repito lentamente para que puedas distinguir cada sonido con claridad.",
       "batch": "B002",
       "seq": 27,
       "file": "B002-027.mp3",
@@ -2441,12 +2441,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "aquí va de nuevo bien despacito para que la escuches clarito",
+      "normalizedText": "te la repito lentamente para que puedas distinguir cada sonido con claridad",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-repeat-ack-04",
-      "text": "Escuchar dos veces ayuda mucho. Presta oído que ya te la digo.",
+      "text": "Escuchar dos veces ayuda mucho. Presta atención mientras la pronuncio de nuevo.",
       "batch": "B002",
       "seq": 28,
       "file": "B002-028.mp3",
@@ -2477,7 +2477,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escuchar dos veces ayuda mucho presta oído que ya te la digo",
+      "normalizedText": "escuchar dos veces ayuda mucho presta atención mientras la pronuncio de nuevo",
       "sourcePr": "PR#1073"
     },
     {
@@ -2518,7 +2518,7 @@
     },
     {
       "id": "v2-b002-repeat-ack-06",
-      "text": "Te la vuelvo a decir sin apuro. Fíjate en cada sonido.",
+      "text": "Te la vuelvo a decir sin prisa. Presta atención a cada sonido.",
       "batch": "B002",
       "seq": 30,
       "file": "B002-030.mp3",
@@ -2549,7 +2549,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "te la vuelvo a decir sin apuro fíjate en cada sonido",
+      "normalizedText": "te la vuelvo a decir sin prisa presta atención a cada sonido",
       "sourcePr": "PR#1073"
     },
     {
@@ -2706,7 +2706,7 @@
     },
     {
       "id": "v2-b002-dont-know-05",
-      "text": "Aprender es ir conociendo palabras nuevas. Oye esta conmigo y prueba después.",
+      "text": "Aprender consiste en conocer palabras nuevas. Escucha esta conmigo y pruébala después.",
       "batch": "B002",
       "seq": 35,
       "file": "B002-035.mp3",
@@ -2737,12 +2737,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "aprender es ir conociendo palabras nuevas oye esta conmigo y prueba después",
+      "normalizedText": "aprender consiste en conocer palabras nuevas escucha esta conmigo y pruébala después",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-dont-know-06",
-      "text": "Sin miedo ninguno. Te la muestro otra vez para que la repitas conmigo.",
+      "text": "Con toda confianza. Te la muestro otra vez para que la repitas conmigo.",
       "batch": "B002",
       "seq": 36,
       "file": "B002-036.mp3",
@@ -2773,12 +2773,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sin miedo ninguno te la muestro otra vez para que la repitas conmigo",
+      "normalizedText": "con toda confianza te la muestro otra vez para que la repitas conmigo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b002-redirect-01",
-      "text": "Dejemos esa descansar un momento y pasemos a la siguiente palabra.",
+      "text": "Dejemos descansar esta palabra un momento y pasemos a la siguiente.",
       "batch": "B002",
       "seq": 37,
       "file": "B002-037.mp3",
@@ -2809,7 +2809,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "dejemos esa descansar un momento y pasemos a la siguiente palabra",
+      "normalizedText": "dejemos descansar esta palabra un momento y pasemos a la siguiente",
       "sourcePr": "PR#1073"
     },
     {
@@ -2958,7 +2958,7 @@
     },
     {
       "id": "v2-b002-redirect-06",
-      "text": "Hiciste un buen intento. Demos vuelta a la página mental y probemos otra.",
+      "text": "Hiciste un buen intento. Pasemos a otro ejemplo para seguir avanzando.",
       "batch": "B002",
       "seq": 42,
       "file": "B002-042.mp3",
@@ -2989,7 +2989,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hiciste un buen intento demos vuelta a la página mental y probemos otra",
+      "normalizedText": "hiciste un buen intento pasemos a otro ejemplo para seguir avanzando",
       "sourcePr": "PR#1073"
     },
     {
@@ -3134,7 +3134,7 @@
     },
     {
       "id": "v2-b003-help-04",
-      "text": "Pon tu dedito debajo del dibujo mientras escuchas el sonido conmigo.",
+      "text": "Coloca tu dedo debajo del dibujo mientras escuchas el sonido conmigo.",
       "batch": "B003",
       "seq": 4,
       "file": "B003-004.mp3",
@@ -3165,12 +3165,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pon tu dedito debajo del dibujo mientras escuchas el sonido conmigo",
+      "normalizedText": "coloca tu dedo debajo del dibujo mientras escuchas el sonido conmigo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-help-05",
-      "text": "Da una palmada suave por cada pedacito que oyes en la palabra.",
+      "text": "Da una palmada suave por cada sílaba que escuchas en la palabra.",
       "batch": "B003",
       "seq": 5,
       "file": "B003-005.mp3",
@@ -3201,7 +3201,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "da una palmada suave por cada pedacito que oyes en la palabra",
+      "normalizedText": "da una palmada suave por cada sílaba que escuchas en la palabra",
       "sourcePr": "PR#1073"
     },
     {
@@ -3314,7 +3314,7 @@
     },
     {
       "id": "v2-b003-confusion-a",
-      "text": "Ese sonido que dijiste es la vocal a, abriendo grande la boca.",
+      "text": "Ese sonido que pronunciaste es la vocal a, abriendo bien la boca.",
       "batch": "B003",
       "seq": 9,
       "file": "B003-009.mp3",
@@ -3346,12 +3346,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que dijiste es la vocal a abriendo grande la boca",
+      "normalizedText": "ese sonido que pronunciaste es la vocal a abriendo bien la boca",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-e",
-      "text": "Ese sonido que dijiste es la vocal e, con una sonrisa suave.",
+      "text": "Ese sonido que pronunciaste es la vocal e, con una sonrisa suave.",
       "batch": "B003",
       "seq": 10,
       "file": "B003-010.mp3",
@@ -3383,12 +3383,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que dijiste es la vocal e con una sonrisa suave",
+      "normalizedText": "ese sonido que pronunciaste es la vocal e con una sonrisa suave",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-i",
-      "text": "Ese sonido que dijiste es la vocal i, delgadita y bien alegre.",
+      "text": "Ese sonido que pronunciaste es la vocal i, aguda y clara.",
       "batch": "B003",
       "seq": 11,
       "file": "B003-011.mp3",
@@ -3420,12 +3420,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que dijiste es la vocal i delgadita y bien alegre",
+      "normalizedText": "ese sonido que pronunciaste es la vocal i aguda y clara",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-o",
-      "text": "Ese sonido que dijiste es la vocal o, poniendo la boca redondita.",
+      "text": "Ese sonido que pronunciaste es la vocal o, formando un círculo con los labios.",
       "batch": "B003",
       "seq": 12,
       "file": "B003-012.mp3",
@@ -3457,12 +3457,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que dijiste es la vocal o poniendo la boca redondita",
+      "normalizedText": "ese sonido que pronunciaste es la vocal o formando un círculo con los labios",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-confusion-u",
-      "text": "Ese sonido que dijiste es la vocal u, cerrando los labios hacia adelante.",
+      "text": "Ese sonido que pronunciaste es la vocal u, cerrando los labios hacia adelante.",
       "batch": "B003",
       "seq": 13,
       "file": "B003-013.mp3",
@@ -3494,7 +3494,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese sonido que dijiste es la vocal u cerrando los labios hacia adelante",
+      "normalizedText": "ese sonido que pronunciaste es la vocal u cerrando los labios hacia adelante",
       "sourcePr": "PR#1073"
     },
     {
@@ -3543,7 +3543,7 @@
     },
     {
       "id": "v2-b003-review-02",
-      "text": "Hagamos una ronda cortita de repaso para fortalecer lo que practicamos hoy.",
+      "text": "Hagamos una breve ronda de repaso para afianzar lo que practicamos hoy.",
       "batch": "B003",
       "seq": 15,
       "file": "B003-015.mp3",
@@ -3574,12 +3574,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos una ronda cortita de repaso para fortalecer lo que practicamos hoy",
+      "normalizedText": "hagamos una breve ronda de repaso para afianzar lo que practicamos hoy",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-review-03",
-      "text": "Volvamos a mirar estas palabras con calma; verás que ahora salen más fácil.",
+      "text": "Volvamos a observar estas palabras con calma; verás que ahora resultan más fáciles.",
       "batch": "B003",
       "seq": 16,
       "file": "B003-016.mp3",
@@ -3610,12 +3610,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "volvamos a mirar estas palabras con calma verás que ahora salen más fácil",
+      "normalizedText": "volvamos a observar estas palabras con calma verás que ahora resultan más fáciles",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-review-04",
-      "text": "Es momento de nuestro repaso tranquilo. Vamos palabra por palabra sin apuro.",
+      "text": "Es momento de nuestro repaso tranquilo. Vamos palabra por palabra, sin prisa.",
       "batch": "B003",
       "seq": 17,
       "file": "B003-017.mp3",
@@ -3646,7 +3646,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "es momento de nuestro repaso tranquilo vamos palabra por palabra sin apuro",
+      "normalizedText": "es momento de nuestro repaso tranquilo vamos palabra por palabra sin prisa",
       "sourcePr": "PR#1073"
     },
     {
@@ -3687,7 +3687,7 @@
     },
     {
       "id": "v2-b003-review-06",
-      "text": "Demos una segunda vuelta a las palabras que pedían un poquito más de práctica.",
+      "text": "Repasemos una vez más las palabras que necesitaban algo más de práctica.",
       "batch": "B003",
       "seq": 19,
       "file": "B003-019.mp3",
@@ -3718,7 +3718,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "demos una segunda vuelta a las palabras que pedían un poquito más de práctica",
+      "normalizedText": "repasemos una vez más las palabras que necesitaban algo más de práctica",
       "sourcePr": "PR#1073"
     },
     {
@@ -3867,7 +3867,7 @@
     },
     {
       "id": "v2-b003-idle-05",
-      "text": "Cerramos esta pausa con tranquilidad. Vuelve cuando estés listo para seguir.",
+      "text": "Hacemos esta pausa con tranquilidad. Vuelve cuando quieras retomar la lectura.",
       "batch": "B003",
       "seq": 24,
       "file": "B003-024.mp3",
@@ -3898,12 +3898,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cerramos esta pausa con tranquilidad vuelve cuando estés listo para seguir",
+      "normalizedText": "hacemos esta pausa con tranquilidad vuelve cuando quieras retomar la lectura",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-01",
-      "text": "Bajemos un poco el ritmo para que cada sonido salga bien descansado.",
+      "text": "Bajemos un poco el ritmo para pronunciar cada sonido con serenidad.",
       "batch": "B003",
       "seq": 25,
       "file": "B003-025.mp3",
@@ -3934,12 +3934,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bajemos un poco el ritmo para que cada sonido salga bien descansado",
+      "normalizedText": "bajemos un poco el ritmo para pronunciar cada sonido con serenidad",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-02",
-      "text": "No hay ningún reloj apurándonos. Respira hondo y seguimos a tu paso.",
+      "text": "No hay ningún reloj que nos apresure. Respira hondo y seguimos a tu ritmo.",
       "batch": "B003",
       "seq": 26,
       "file": "B003-026.mp3",
@@ -3970,12 +3970,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no hay ningún reloj apurándonos respira hondo y seguimos a tu paso",
+      "normalizedText": "no hay ningún reloj que nos apresure respira hondo y seguimos a tu ritmo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-03",
-      "text": "Hagamos una pausa cortita en la boca antes de soltar la palabra entera.",
+      "text": "Hagamos una breve pausa antes de pronunciar la palabra completa.",
       "batch": "B003",
       "seq": 27,
       "file": "B003-027.mp3",
@@ -4006,12 +4006,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos una pausa cortita en la boca antes de soltar la palabra entera",
+      "normalizedText": "hagamos una breve pausa antes de pronunciar la palabra completa",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-04",
-      "text": "Cuando una palabra parece larga, léela desde el inicio hasta el final sin saltar.",
+      "text": "Cuando una palabra parezca larga, léela desde el inicio hasta el final sin omitir ninguna letra.",
       "batch": "B003",
       "seq": 28,
       "file": "B003-028.mp3",
@@ -4042,12 +4042,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando una palabra parece larga léela desde el inicio hasta el final sin saltar",
+      "normalizedText": "cuando una palabra parezca larga léela desde el inicio hasta el final sin omitir ninguna letra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-05",
-      "text": "Si estás cansado, podemos hacer solo una más antes de descansar.",
+      "text": "Si sientes cansancio, podemos practicar solo una palabra más antes de descansar.",
       "batch": "B003",
       "seq": 29,
       "file": "B003-029.mp3",
@@ -4078,12 +4078,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "si estás cansado podemos hacer solo una más antes de descansar",
+      "normalizedText": "si sientes cansancio podemos practicar solo una palabra más antes de descansar",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b003-pace-06",
-      "text": "Recuerda mirar la forma de los labios primero y luego soltar la voz.",
+      "text": "Recuerda observar primero la forma de los labios y luego pronunciar el sonido.",
       "batch": "B003",
       "seq": 30,
       "file": "B003-030.mp3",
@@ -4114,7 +4114,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerda mirar la forma de los labios primero y luego soltar la voz",
+      "normalizedText": "recuerda observar primero la forma de los labios y luego pronunciar el sonido",
       "sourcePr": "PR#1073"
     },
     {
@@ -4471,8 +4471,8 @@
     },
     {
       "id": "v2-b003-technical-understanding-check-03",
-      "text": "¿Te gustaría leerla entera sin mi ayuda?",
-      "normalizedText": "te gustaría leerla entera sin mi ayuda",
+      "text": "¿Te gustaría leerla completa sin mi ayuda?",
+      "normalizedText": "te gustaría leerla completa sin mi ayuda",
       "batch": "B003",
       "seq": 39,
       "file": "B003-039.mp3",
@@ -4559,7 +4559,7 @@
     },
     {
       "id": "v2-b004-pron-a-name",
-      "text": "Esta vocal se llama a, y para decirla abrimos bien grande la boca.",
+      "text": "Esta vocal se llama a, y para pronunciarla abrimos ampliamente la boca.",
       "batch": "B004",
       "seq": 1,
       "file": "B004-001.mp3",
@@ -4593,7 +4593,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta vocal se llama a y para decirla abrimos bien grande la boca",
+      "normalizedText": "esta vocal se llama a y para pronunciarla abrimos ampliamente la boca",
       "sourcePr": "PR#1073"
     },
     {
@@ -4637,7 +4637,7 @@
     },
     {
       "id": "v2-b004-pron-e-name",
-      "text": "Esta vocal se llama e, y la decimos con una sonrisa suave y abierta.",
+      "text": "Esta vocal se llama e, y la pronunciamos con una sonrisa suave y abierta.",
       "batch": "B004",
       "seq": 3,
       "file": "B004-003.mp3",
@@ -4671,12 +4671,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta vocal se llama e y la decimos con una sonrisa suave y abierta",
+      "normalizedText": "esta vocal se llama e y la pronunciamos con una sonrisa suave y abierta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-e-sound",
-      "text": "Escucha su sonido parejo y claro: eee, como al empezar elefante y estrella.",
+      "text": "Escucha su sonido firme y claro: eee, como al empezar elefante y estrella.",
       "batch": "B004",
       "seq": 4,
       "file": "B004-004.mp3",
@@ -4710,12 +4710,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha su sonido parejo y claro eee como al empezar elefante y estrella",
+      "normalizedText": "escucha su sonido firme y claro eee como al empezar elefante y estrella",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-i-name",
-      "text": "Esta vocal delgadita con punto arriba se llama i en todo el libro.",
+      "text": "Esta vocal esbelta con un punto arriba se llama i.",
       "batch": "B004",
       "seq": 5,
       "file": "B004-005.mp3",
@@ -4749,12 +4749,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta vocal delgadita con punto arriba se llama i en todo el libro",
+      "normalizedText": "esta vocal esbelta con un punto arriba se llama i",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-i-sound",
-      "text": "Escucha su sonido finito y alegre: iii, como al empezar isla e imán.",
+      "text": "Escucha su sonido agudo y claro: iii, como al empezar isla e imán.",
       "batch": "B004",
       "seq": 6,
       "file": "B004-006.mp3",
@@ -4788,12 +4788,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha su sonido finito y alegre iii como al empezar isla e imán",
+      "normalizedText": "escucha su sonido agudo y claro iii como al empezar isla e imán",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-o-name",
-      "text": "Esta vocal redondita como una rueda se llama o y nunca cambia.",
+      "text": "Esta vocal redonda como una rueda se llama o y mantiene siempre su sonido.",
       "batch": "B004",
       "seq": 7,
       "file": "B004-007.mp3",
@@ -4827,7 +4827,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta vocal redondita como una rueda se llama o y nunca cambia",
+      "normalizedText": "esta vocal redonda como una rueda se llama o y mantiene siempre su sonido",
       "sourcePr": "PR#1073"
     },
     {
@@ -4871,7 +4871,7 @@
     },
     {
       "id": "v2-b004-pron-u-name",
-      "text": "Esta última hermanita se llama u y tiene forma de columpio curvo.",
+      "text": "Esta última vocal se llama u y tiene forma de curva abierta hacia arriba.",
       "batch": "B004",
       "seq": 9,
       "file": "B004-009.mp3",
@@ -4905,7 +4905,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta última hermanita se llama u y tiene forma de columpio curvo",
+      "normalizedText": "esta última vocal se llama u y tiene forma de curva abierta hacia arriba",
       "sourcePr": "PR#1073"
     },
     {
@@ -5066,7 +5066,7 @@
     },
     {
       "id": "v2-b004-pron-p-sound",
-      "text": "Aprieta los labios y suelta un golpecito limpio de aire, como en papá.",
+      "text": "Junta los labios y suelta un impulso breve de aire, como en papá.",
       "batch": "B004",
       "seq": 14,
       "file": "B004-014.mp3",
@@ -5100,7 +5100,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "aprieta los labios y suelta un golpecito limpio de aire como en papá",
+      "normalizedText": "junta los labios y suelta un impulso breve de aire como en papá",
       "sourcePr": "PR#1073"
     },
     {
@@ -5144,7 +5144,7 @@
     },
     {
       "id": "v2-b004-pron-s-sound",
-      "text": "Deja salir el aire suavecito entre los dientes: sss, como en sapo y sopa.",
+      "text": "Deja salir el aire suavemente entre los dientes: sss, como en sapo y sopa.",
       "batch": "B004",
       "seq": 16,
       "file": "B004-016.mp3",
@@ -5178,12 +5178,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "deja salir el aire suavecito entre los dientes sss como en sapo y sopa",
+      "normalizedText": "deja salir el aire suavemente entre los dientes sss como en sapo y sopa",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-t-name",
-      "text": "Esta consonante alta con sombrero se llama te, pero al leer suena cortita.",
+      "text": "Esta consonante alta con barra superior se llama te, y su sonido es breve y preciso.",
       "batch": "B004",
       "seq": 17,
       "file": "B004-017.mp3",
@@ -5217,7 +5217,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante alta con sombrero se llama te pero al leer suena cortita",
+      "normalizedText": "esta consonante alta con barra superior se llama te y su sonido es breve y preciso",
       "sourcePr": "PR#1073"
     },
     {
@@ -5261,7 +5261,7 @@
     },
     {
       "id": "v2-b004-pron-d-name",
-      "text": "Esta consonante se llama de, y su sonido vibra suave en la lengua.",
+      "text": "Esta consonante se llama de, y su sonido vibra suavemente en la lengua.",
       "batch": "B004",
       "seq": 19,
       "file": "B004-019.mp3",
@@ -5295,7 +5295,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama de y su sonido vibra suave en la lengua",
+      "normalizedText": "esta consonante se llama de y su sonido vibra suavemente en la lengua",
       "sourcePr": "PR#1073"
     },
     {
@@ -5417,7 +5417,7 @@
     },
     {
       "id": "v2-b004-pron-n-name",
-      "text": "Esta consonante de una sola montañita se llama ene en nuestro abecedario.",
+      "text": "Esta consonante de un solo arco se llama ene en nuestro abecedario.",
       "batch": "B004",
       "seq": 23,
       "file": "B004-023.mp3",
@@ -5451,7 +5451,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante de una sola montañita se llama ene en nuestro abecedario",
+      "normalizedText": "esta consonante de un solo arco se llama ene en nuestro abecedario",
       "sourcePr": "PR#1073"
     },
     {
@@ -5495,7 +5495,7 @@
     },
     {
       "id": "v2-b004-pron-nn-name",
-      "text": "La hermana con la olita arriba se llama eñe y es muy especial del español.",
+      "text": "Esta letra con una onda arriba se llama eñe y es muy especial en español.",
       "batch": "B004",
       "seq": 25,
       "file": "B004-025.mp3",
@@ -5529,12 +5529,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "la hermana con la olita arriba se llama eñe y es muy especial del español",
+      "normalizedText": "esta letra con una onda arriba se llama eñe y es muy especial en español",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-nn-sound",
-      "text": "Pega el centro de la lengua al paladar para su sonido: ñññ, como en piñata.",
+      "text": "Apoya el centro de la lengua contra el paladar para su sonido: ñññ, como en piñata.",
       "batch": "B004",
       "seq": 26,
       "file": "B004-026.mp3",
@@ -5568,7 +5568,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pega el centro de la lengua al paladar para su sonido ñññ como en piñata",
+      "normalizedText": "apoya el centro de la lengua contra el paladar para su sonido ñññ como en piñata",
       "sourcePr": "PR#1073"
     },
     {
@@ -5653,7 +5653,7 @@
     },
     {
       "id": "v2-b004-pron-r-soft",
-      "text": "La ere suave da un solo toquecito ligero arriba, como en aro y pera.",
+      "text": "La erre suave da un solo toque ligero en el paladar, como en aro y pera.",
       "batch": "B004",
       "seq": 29,
       "file": "B004-029.mp3",
@@ -5687,7 +5687,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "la ere suave da un solo toquecito ligero arriba como en aro y pera",
+      "normalizedText": "la erre suave da un solo toque ligero en el paladar como en aro y pera",
       "sourcePr": "PR#1073"
     },
     {
@@ -5771,7 +5771,7 @@
     },
     {
       "id": "v2-b004-pron-g-sound",
-      "text": "Suena suavecito desde la garganta en gato, gorra, gusano, juguete y guitarra.",
+      "text": "Suena con suavidad desde la garganta en gato, gorra, gusano, juguete y guitarra.",
       "batch": "B004",
       "seq": 32,
       "file": "B004-032.mp3",
@@ -5805,12 +5805,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "suena suavecito desde la garganta en gato gorra gusano juguete y guitarra",
+      "normalizedText": "suena con suavidad desde la garganta en gato gorra gusano juguete y guitarra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b004-pron-f-name",
-      "text": "Esta letra se llama efe, y suena como cuando soplas despacito una vela.",
+      "text": "Esta letra se llama efe, y suena como cuando soplas suavemente una vela.",
       "batch": "B004",
       "seq": 33,
       "file": "B004-033.mp3",
@@ -5844,7 +5844,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta letra se llama efe y suena como cuando soplas despacito una vela",
+      "normalizedText": "esta letra se llama efe y suena como cuando soplas suavemente una vela",
       "sourcePr": "PR#1073"
     },
     {
@@ -5888,7 +5888,7 @@
     },
     {
       "id": "v2-b004-pron-j-name",
-      "text": "Esta consonante con puntito se llama jota y suena como una risa suave.",
+      "text": "Esta consonante con punto arriba se llama jota y tiene un sonido suave de aire.",
       "batch": "B004",
       "seq": 35,
       "file": "B004-035.mp3",
@@ -5922,7 +5922,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante con puntito se llama jota y suena como una risa suave",
+      "normalizedText": "esta consonante con punto arriba se llama jota y tiene un sonido suave de aire",
       "sourcePr": "PR#1073"
     },
     {
@@ -6083,7 +6083,7 @@
     },
     {
       "id": "v2-b004-pron-y-sound",
-      "text": "Con las vocales resbala suave sobre el paladar, como en yate, yema y yoyo.",
+      "text": "Con las vocales se desliza suavemente sobre el paladar, como en yate, yema y yoyo.",
       "batch": "B004",
       "seq": 40,
       "file": "B004-040.mp3",
@@ -6117,7 +6117,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "con las vocales resbala suave sobre el paladar como en yate yema y yoyo",
+      "normalizedText": "con las vocales se desliza suavemente sobre el paladar como en yate yema y yoyo",
       "sourcePr": "PR#1073"
     },
     {
@@ -6161,7 +6161,7 @@
     },
     {
       "id": "v2-b004-pron-z-sound",
-      "text": "En nuestro español suena suavecita como la ese, igual en zapato y zumo.",
+      "text": "En nuestro español suena suave como la ese, igual en zapato y en zumo.",
       "batch": "B004",
       "seq": 42,
       "file": "B004-042.mp3",
@@ -6195,7 +6195,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en nuestro español suena suavecita como la ese igual en zapato y zumo",
+      "normalizedText": "en nuestro español suena suave como la ese igual en zapato y en zumo",
       "sourcePr": "PR#1073"
     },
     {
@@ -6236,7 +6236,7 @@
     },
     {
       "id": "v2-b005-noise-02",
-      "text": "Si podemos buscar un rinconcito más callado, te oiré mucho mejor.",
+      "text": "Si podemos buscar un lugar más silencioso, te escucharé mucho mejor.",
       "batch": "B005",
       "seq": 2,
       "file": "B005-002.mp3",
@@ -6267,12 +6267,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "si podemos buscar un rinconcito más callado te oiré mucho mejor",
+      "normalizedText": "si podemos buscar un lugar más silencioso te escucharé mucho mejor",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-noise-03",
-      "text": "Hay otros sonidos cerca del micrófono. Acércate un poquito y probemos otra vez.",
+      "text": "Hay otros sonidos cerca del micrófono. Acércate un poco más y probemos otra vez.",
       "batch": "B005",
       "seq": 3,
       "file": "B005-003.mp3",
@@ -6303,7 +6303,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hay otros sonidos cerca del micrófono acércate un poquito y probemos otra vez",
+      "normalizedText": "hay otros sonidos cerca del micrófono acércate un poco más y probemos otra vez",
       "sourcePr": "PR#1073"
     },
     {
@@ -6344,7 +6344,7 @@
     },
     {
       "id": "v2-b005-noise-05",
-      "text": "El micrófono recogió sonidos del fondo. Esperemos un segundo tranquilo para hablar.",
+      "text": "El micrófono recogió sonidos del fondo. Esperemos un momento de silencio para hablar.",
       "batch": "B005",
       "seq": 5,
       "file": "B005-005.mp3",
@@ -6375,7 +6375,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "el micrófono recogió sonidos del fondo esperemos un segundo tranquilo para hablar",
+      "normalizedText": "el micrófono recogió sonidos del fondo esperemos un momento de silencio para hablar",
       "sourcePr": "PR#1073"
     },
     {
@@ -6418,7 +6418,7 @@
     },
     {
       "id": "v2-b005-cam-02",
-      "text": "Aleja un poquito el libro para que quepan las dos esquinas en pantalla.",
+      "text": "Aleja un poco el libro para que quepan las dos esquinas en pantalla.",
       "batch": "B005",
       "seq": 7,
       "file": "B005-007.mp3",
@@ -6451,12 +6451,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "aleja un poquito el libro para que quepan las dos esquinas en pantalla",
+      "normalizedText": "aleja un poco el libro para que quepan las dos esquinas en pantalla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-03",
-      "text": "Sostén la hoja bien quietita un momento mientras terminamos de revisarla.",
+      "text": "Sostén la hoja quieta un momento mientras terminamos de revisarla.",
       "batch": "B005",
       "seq": 8,
       "file": "B005-008.mp3",
@@ -6489,7 +6489,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sostén la hoja bien quietita un momento mientras terminamos de revisarla",
+      "normalizedText": "sostén la hoja quieta un momento mientras terminamos de revisarla",
       "sourcePr": "PR#1073"
     },
     {
@@ -6532,7 +6532,7 @@
     },
     {
       "id": "v2-b005-cam-05",
-      "text": "Cuidado que tu sombra tapa el dibujo. Mueve el libro hacia la luz.",
+      "text": "Tu sombra está cubriendo el dibujo. Mueve el libro hacia la luz.",
       "batch": "B005",
       "seq": 10,
       "file": "B005-010.mp3",
@@ -6565,7 +6565,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuidado que tu sombra tapa el dibujo mueve el libro hacia la luz",
+      "normalizedText": "tu sombra está cubriendo el dibujo mueve el libro hacia la luz",
       "sourcePr": "PR#1073"
     },
     {
@@ -6684,7 +6684,7 @@
     },
     {
       "id": "v2-b005-cam-09",
-      "text": "Aparta la manita un segundo para que se vean todas las letras escritas.",
+      "text": "Aparta tu mano un momento para que se vean todas las letras escritas.",
       "batch": "B005",
       "seq": 14,
       "file": "B005-014.mp3",
@@ -6717,12 +6717,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "aparta la manita un segundo para que se vean todas las letras escritas",
+      "normalizedText": "aparta tu mano un momento para que se vean todas las letras escritas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b005-cam-10",
-      "text": "Pasa la hoja con cuidado y muéstrame la nueva página bien derechita.",
+      "text": "Pasa la hoja con cuidado y muéstrame la nueva página bien alineada.",
       "batch": "B005",
       "seq": 15,
       "file": "B005-015.mp3",
@@ -6755,7 +6755,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pasa la hoja con cuidado y muéstrame la nueva página bien derechita",
+      "normalizedText": "pasa la hoja con cuidado y muéstrame la nueva página bien alineada",
       "sourcePr": "PR#1073"
     },
     {
@@ -6872,7 +6872,7 @@
     },
     {
       "id": "v2-b005-mic-02",
-      "text": "Cuando estés listo para responder, toca el botón grande del micrófono.",
+      "text": "Cuando quieras responder, toca el botón grande del micrófono.",
       "batch": "B005",
       "seq": 19,
       "file": "B005-019.mp3",
@@ -6905,7 +6905,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando estés listo para responder toca el botón grande del micrófono",
+      "normalizedText": "cuando quieras responder toca el botón grande del micrófono",
       "sourcePr": "PR#1073"
     },
     {
@@ -6986,7 +6986,7 @@
     },
     {
       "id": "v2-b005-mic-05",
-      "text": "Estoy probando el sonido contigo. ¿Me escuchas claro y sin interrupciones?",
+      "text": "Estoy probando el sonido contigo. ¿Me escuchas con claridad y sin interrupciones?",
       "batch": "B005",
       "seq": 22,
       "file": "B005-022.mp3",
@@ -7017,7 +7017,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "estoy probando el sonido contigo me escuchas claro y sin interrupciones",
+      "normalizedText": "estoy probando el sonido contigo me escuchas con claridad y sin interrupciones",
       "sourcePr": "PR#1073"
     },
     {
@@ -7282,8 +7282,8 @@
     },
     {
       "id": "v2-b005-technical-mic-start-01",
-      "text": "Cuando estés listo, toca el micrófono y di la palabra una vez.",
-      "normalizedText": "cuando estés listo toca el micrófono y di la palabra una vez",
+      "text": "Cuando quieras empezar, toca el micrófono y pronuncia la palabra una vez.",
+      "normalizedText": "cuando quieras empezar toca el micrófono y pronuncia la palabra una vez",
       "batch": "B005",
       "seq": 30,
       "file": "B005-030.mp3",
@@ -7510,8 +7510,8 @@
     },
     {
       "id": "v2-b005-technical-snapshot-uncertain-01",
-      "text": "¿Quieres escribir la letra que hiciste?",
-      "normalizedText": "quieres escribir la letra que hiciste",
+      "text": "¿Quieres escribir aquí la letra que trazaste?",
+      "normalizedText": "quieres escribir aquí la letra que trazaste",
       "batch": "B005",
       "seq": 35,
       "file": "B005-035.mp3",
@@ -7602,8 +7602,8 @@
     },
     {
       "id": "v2-b005-technical-offline-missing-01",
-      "text": "Falta una parte de esta actividad en el aparato. Pide ayuda a una persona adulta.",
-      "normalizedText": "falta una parte de esta actividad en el aparato pide ayuda a una persona adulta",
+      "text": "Falta una parte de esta actividad en el dispositivo. Pide ayuda a una persona adulta.",
+      "normalizedText": "falta una parte de esta actividad en el dispositivo pide ayuda a una persona adulta",
       "batch": "B005",
       "seq": 37,
       "file": "B005-037.mp3",
@@ -7646,8 +7646,8 @@
     },
     {
       "id": "v2-b005-technical-offline-ready-01",
-      "text": "Esta lección ya está guardada en el aparato. Puedes abrirla sin internet.",
-      "normalizedText": "esta lección ya está guardada en el aparato puedes abrirla sin internet",
+      "text": "Esta lección ya está guardada en el dispositivo. Puedes abrirla sin internet.",
+      "normalizedText": "esta lección ya está guardada en el dispositivo puedes abrirla sin internet",
       "batch": "B005",
       "seq": 38,
       "file": "B005-038.mp3",
@@ -8010,7 +8010,7 @@
     },
     {
       "id": "v2-b006-wb-writing-draw",
-      "text": "Ahora haz un dibujo bonito de algo cuyo nombre comience con esta letra.",
+      "text": "Ahora dibuja algo cuyo nombre comience con esta letra.",
       "batch": "B006",
       "seq": 5,
       "file": "B006-005.mp3",
@@ -8041,7 +8041,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora haz un dibujo bonito de algo cuyo nombre comience con esta letra",
+      "normalizedText": "ahora dibuja algo cuyo nombre comience con esta letra",
       "sourcePr": "PR#1073"
     },
     {
@@ -8118,7 +8118,7 @@
     },
     {
       "id": "v2-b006-wb-sight-words",
-      "text": "Estas palabritas cortas nos ayudan a unir ideas para leer oraciones completas.",
+      "text": "Estas palabras breves nos ayudan a unir ideas para leer oraciones completas.",
       "batch": "B006",
       "seq": 8,
       "file": "B006-008.mp3",
@@ -8149,12 +8149,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "estas palabritas cortas nos ayudan a unir ideas para leer oraciones completas",
+      "normalizedText": "estas palabras breves nos ayudan a unir ideas para leer oraciones completas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-wb-sentences",
-      "text": "Sigue con tu dedito cada palabra de la oración de izquierda a derecha.",
+      "text": "Sigue con tu dedo cada palabra de la oración, de izquierda a derecha.",
       "batch": "B006",
       "seq": 9,
       "file": "B006-009.mp3",
@@ -8185,7 +8185,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sigue con tu dedito cada palabra de la oración de izquierda a derecha",
+      "normalizedText": "sigue con tu dedo cada palabra de la oración de izquierda a derecha",
       "sourcePr": "PR#1073"
     },
     {
@@ -8262,7 +8262,7 @@
     },
     {
       "id": "v2-b006-wb-page-perfect",
-      "text": "Hiciste toda la página sin un solo error. Qué buen ojo lector tienes.",
+      "text": "Completaste toda la página sin un solo error. Has hecho un trabajo admirable.",
       "batch": "B006",
       "seq": 12,
       "file": "B006-012.mp3",
@@ -8293,7 +8293,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hiciste toda la página sin un solo error qué buen ojo lector tienes",
+      "normalizedText": "completaste toda la página sin un solo error has hecho un trabajo admirable",
       "sourcePr": "PR#1073"
     },
     {
@@ -8586,7 +8586,7 @@
     },
     {
       "id": "v2-b006-game-fonetica-01",
-      "text": "Observa la palabra incompleta y elige la sílaba que la termina bien.",
+      "text": "Observa la palabra incompleta y elige la sílaba final que la completa.",
       "batch": "B006",
       "seq": 21,
       "file": "B006-021.mp3",
@@ -8617,7 +8617,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "observa la palabra incompleta y elige la sílaba que la termina bien",
+      "normalizedText": "observa la palabra incompleta y elige la sílaba final que la completa",
       "sourcePr": "PR#1073"
     },
     {
@@ -8658,7 +8658,7 @@
     },
     {
       "id": "v2-b006-game-rima-02",
-      "text": "Esas dos palabras riman al final como una canción pequeña.",
+      "text": "Esas dos palabras riman al final, como en una pequeña canción.",
       "batch": "B006",
       "seq": 23,
       "file": "B006-023.mp3",
@@ -8689,7 +8689,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esas dos palabras riman al final como una canción pequeña",
+      "normalizedText": "esas dos palabras riman al final como en una pequeña canción",
       "sourcePr": "PR#1073"
     },
     {
@@ -8838,7 +8838,7 @@
     },
     {
       "id": "v2-b006-game-cow-01",
-      "text": "Ayuda a cada vaquita a llevar su letrero hasta la cerca que coincide.",
+      "text": "Ayuda a cada vaca a llevar su letrero hasta la cerca que corresponde.",
       "batch": "B006",
       "seq": 28,
       "file": "B006-028.mp3",
@@ -8869,12 +8869,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ayuda a cada vaquita a llevar su letrero hasta la cerca que coincide",
+      "normalizedText": "ayuda a cada vaca a llevar su letrero hasta la cerca que corresponde",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-cow-02",
-      "text": "Esa vaquita encontró su cerca exacta y ya descansa feliz en el corral.",
+      "text": "Esa vaca encontró su cerca exacta y ya descansa en el corral.",
       "batch": "B006",
       "seq": 29,
       "file": "B006-029.mp3",
@@ -8905,12 +8905,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esa vaquita encontró su cerca exacta y ya descansa feliz en el corral",
+      "normalizedText": "esa vaca encontró su cerca exacta y ya descansa en el corral",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-b006-game-cow-03",
-      "text": "Mira otra vez la sílaba de esa vaquita y busca su pareja en la cerca.",
+      "text": "Observa otra vez la sílaba de esa vaca y busca su pareja en la cerca.",
       "batch": "B006",
       "seq": 30,
       "file": "B006-030.mp3",
@@ -8941,7 +8941,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira otra vez la sílaba de esa vaquita y busca su pareja en la cerca",
+      "normalizedText": "observa otra vez la sílaba de esa vaca y busca su pareja en la cerca",
       "sourcePr": "PR#1073"
     },
     {
@@ -8990,8 +8990,8 @@
     },
     {
       "id": "v2-b006-universal-small-talk-01",
-      "text": "¡Hola! ¿Hay una palabra que tengas ganas de aprender a leer?",
-      "normalizedText": "hola hay una palabra que tengas ganas de aprender a leer",
+      "text": "¡Hola! ¿Hay alguna palabra que te gustaría aprender a leer hoy?",
+      "normalizedText": "hola hay alguna palabra que te gustaría aprender a leer hoy",
       "batch": "B006",
       "seq": 32,
       "file": "B006-032.mp3",
@@ -9298,8 +9298,8 @@
     },
     {
       "id": "v2-b031-ack-01",
-      "text": "Ajá, te escucho perfecto. Cuéntame un poquito más sobre eso.",
-      "normalizedText": "ajá te escucho perfecto cuéntame un poquito más sobre eso",
+      "text": "Te escucho con claridad. Cuéntame un poco más sobre eso.",
+      "normalizedText": "te escucho con claridad cuéntame un poco más sobre eso",
       "batch": "B031",
       "seq": 1,
       "file": "B031-001.mp3",
@@ -9370,8 +9370,8 @@
     },
     {
       "id": "v2-b031-ack-03",
-      "text": "¡Qué buena idea tuviste! Me parece súper bien probarlo así.",
-      "normalizedText": "qué buena idea tuviste me parece súper bien probarlo así",
+      "text": "Qué buena idea tuviste. Me parece muy bien probarlo de esa manera.",
+      "normalizedText": "qué buena idea tuviste me parece muy bien probarlo de esa manera",
       "batch": "B031",
       "seq": 3,
       "file": "B031-003.mp3",
@@ -9442,8 +9442,8 @@
     },
     {
       "id": "v2-b031-curiosity-01",
-      "text": "¡Oh, mira qué interesante! Esa palabra tiene un sonido muy divertido.",
-      "normalizedText": "oh mira qué interesante esa palabra tiene un sonido muy divertido",
+      "text": "Qué interesante observación. Esa palabra tiene un sonido muy particular.",
+      "normalizedText": "qué interesante observación esa palabra tiene un sonido muy particular",
       "batch": "B031",
       "seq": 5,
       "file": "B031-005.mp3",
@@ -9478,8 +9478,8 @@
     },
     {
       "id": "v2-b031-curiosity-02",
-      "text": "¡Oye, qué buena pregunta hiciste! Me encanta cuando exploramos así.",
-      "normalizedText": "oye qué buena pregunta hiciste me encanta cuando exploramos así",
+      "text": "Qué excelente pregunta hiciste. Me alegra mucho explorar estas dudas contigo.",
+      "normalizedText": "qué excelente pregunta hiciste me alegra mucho explorar estas dudas contigo",
       "batch": "B031",
       "seq": 6,
       "file": "B031-006.mp3",
@@ -9730,8 +9730,8 @@
     },
     {
       "id": "v2-b031-alt-01",
-      "text": "Déjame explicártelo de otra manera más sencilla para que se sienta más fácil.",
-      "normalizedText": "déjame explicártelo de otra manera más sencilla para que se sienta más fácil",
+      "text": "Permíteme explicártelo de otra manera más sencilla para que resulte más claro.",
+      "normalizedText": "permíteme explicártelo de otra manera más sencilla para que resulte más claro",
       "batch": "B031",
       "seq": 13,
       "file": "B031-013.mp3",
@@ -9766,8 +9766,8 @@
     },
     {
       "id": "v2-b031-alt-02",
-      "text": "Probemos otro camino: primero escuchamos el inicio y luego armamos el resto.",
-      "normalizedText": "probemos otro camino primero escuchamos el inicio y luego armamos el resto",
+      "text": "Probemos otro camino: primero escuchamos el comienzo y luego completamos el resto.",
+      "normalizedText": "probemos otro camino primero escuchamos el comienzo y luego completamos el resto",
       "batch": "B031",
       "seq": 14,
       "file": "B031-014.mp3",
@@ -9838,8 +9838,8 @@
     },
     {
       "id": "v2-b031-alt-04",
-      "text": "Si esa pista no ayudó mucho, cambiemos de truco y comparemos dos dibujos juntos.",
-      "normalizedText": "si esa pista no ayudó mucho cambiemos de truco y comparemos dos dibujos juntos",
+      "text": "Si esa pista no resultó suficiente, probemos otra estrategia y comparemos dos dibujos juntos.",
+      "normalizedText": "si esa pista no resultó suficiente probemos otra estrategia y comparemos dos dibujos juntos",
       "batch": "B031",
       "seq": 16,
       "file": "B031-016.mp3",
@@ -9910,8 +9910,8 @@
     },
     {
       "id": "v2-b031-clarify-02",
-      "text": "Creo que me perdí un pedacito. ¿Me repites cuál palabra querías revisar?",
-      "normalizedText": "creo que me perdí un pedacito me repites cuál palabra querías revisar",
+      "text": "No alcancé a captar esa última parte. ¿Me repites qué palabra querías revisar?",
+      "normalizedText": "no alcancé a captar esa última parte me repites qué palabra querías revisar",
       "batch": "B031",
       "seq": 18,
       "file": "B031-018.mp3",
@@ -10018,8 +10018,8 @@
     },
     {
       "id": "v2-b031-interrupt-01",
-      "text": "¡Espera, te escucho! Dime qué querías comentar antes de que sigamos.",
-      "normalizedText": "espera te escucho dime qué querías comentar antes de que sigamos",
+      "text": "Te escucho con atención. Dime qué querías comentar antes de continuar.",
+      "normalizedText": "te escucho con atención dime qué querías comentar antes de continuar",
       "batch": "B031",
       "seq": 21,
       "file": "B031-021.mp3",
@@ -10090,8 +10090,8 @@
     },
     {
       "id": "v2-b031-interrupt-03",
-      "text": "Perfecto, paramos un segundo. ¿Prefieres preguntar algo o repetir esta parte?",
-      "normalizedText": "perfecto paramos un segundo prefieres preguntar algo o repetir esta parte",
+      "text": "De acuerdo, nos detenemos un momento. ¿Prefieres preguntar algo o repetir esta parte?",
+      "normalizedText": "de acuerdo nos detenemos un momento prefieres preguntar algo o repetir esta parte",
       "batch": "B031",
       "seq": 23,
       "file": "B031-023.mp3",
@@ -10162,8 +10162,8 @@
     },
     {
       "id": "v2-b031-help-01",
-      "text": "¡Aquí estoy para ayudarte! Vamos a resolverlo paso a paso entre los dos.",
-      "normalizedText": "aquí estoy para ayudarte vamos a resolverlo paso a paso entre los dos",
+      "text": "Aquí estoy para ayudarte. Vamos a resolverlo juntos, paso a paso.",
+      "normalizedText": "aquí estoy para ayudarte vamos a resolverlo juntos paso a paso",
       "batch": "B031",
       "seq": 25,
       "file": "B031-025.mp3",
@@ -10198,8 +10198,8 @@
     },
     {
       "id": "v2-b031-help-02",
-      "text": "Qué bueno que pediste ayuda. Te doy una pista cortita para arrancar.",
-      "normalizedText": "qué bueno que pediste ayuda te doy una pista cortita para arrancar",
+      "text": "Hiciste muy bien en pedir ayuda. Te daré una breve pista para comenzar.",
+      "normalizedText": "hiciste muy bien en pedir ayuda te daré una breve pista para comenzar",
       "batch": "B031",
       "seq": 26,
       "file": "B031-026.mp3",
@@ -10234,8 +10234,8 @@
     },
     {
       "id": "v2-b031-help-03",
-      "text": "No tienes que hacerlo solo. Yo empiezo la primera parte y tú sigues conmigo.",
-      "normalizedText": "no tienes que hacerlo solo yo empiezo la primera parte y tú sigues conmigo",
+      "text": "No tienes que resolverlo por tu cuenta. Yo comienzo la primera parte y tú sigues conmigo.",
+      "normalizedText": "no tienes que resolverlo por tu cuenta yo comienzo la primera parte y tú sigues conmigo",
       "batch": "B031",
       "seq": 27,
       "file": "B031-027.mp3",
@@ -10270,8 +10270,8 @@
     },
     {
       "id": "v2-b031-help-04",
-      "text": "Si esta parte se siente difícil, ¿quieres que la hagamos primero con un ejemplo?",
-      "normalizedText": "si esta parte se siente difícil quieres que la hagamos primero con un ejemplo",
+      "text": "Si esta parte parece difícil, ¿quieres que la practiquemos primero con un ejemplo?",
+      "normalizedText": "si esta parte parece difícil quieres que la practiquemos primero con un ejemplo",
       "batch": "B031",
       "seq": 28,
       "file": "B031-028.mp3",
@@ -10306,8 +10306,8 @@
     },
     {
       "id": "v2-b031-transition-01",
-      "text": "Me encantó charlar un poquito contigo. Ahora sí, volvamos a nuestra actividad.",
-      "normalizedText": "me encantó charlar un poquito contigo ahora sí volvamos a nuestra actividad",
+      "text": "Me alegró mucho conversar contigo. Ahora volvamos a nuestra actividad.",
+      "normalizedText": "me alegró mucho conversar contigo ahora volvamos a nuestra actividad",
       "batch": "B031",
       "seq": 29,
       "file": "B031-029.mp3",
@@ -10342,8 +10342,8 @@
     },
     {
       "id": "v2-b031-transition-02",
-      "text": "Qué buena charla. Ahora usemos esa misma energía en la siguiente palabra.",
-      "normalizedText": "qué buena charla ahora usemos esa misma energía en la siguiente palabra",
+      "text": "Qué agradable conversación tuvimos. Ahora sigamos con la siguiente palabra.",
+      "normalizedText": "qué agradable conversación tuvimos ahora sigamos con la siguiente palabra",
       "batch": "B031",
       "seq": 30,
       "file": "B031-030.mp3",
@@ -10414,8 +10414,8 @@
     },
     {
       "id": "v2-b031-transition-04",
-      "text": "¡Listo el descanso corto! Sigamos con el próximo reto de la lección.",
-      "normalizedText": "listo el descanso corto sigamos con el próximo reto de la lección",
+      "text": "Terminamos nuestra breve pausa. Continuemos con la siguiente parte de la lección.",
+      "normalizedText": "terminamos nuestra breve pausa continuemos con la siguiente parte de la lección",
       "batch": "B031",
       "seq": 32,
       "file": "B031-032.mp3",
@@ -10522,8 +10522,8 @@
     },
     {
       "id": "v2-b031-flipchart-03",
-      "text": "En esta lámina del rotafolio hay una pista escondida. ¿La ubicaste ya?",
-      "normalizedText": "en esta lámina del rotafolio hay una pista escondida la ubicaste ya",
+      "text": "En esta lámina del rotafolio hay una pista escondida. ¿Ya la encontraste?",
+      "normalizedText": "en esta lámina del rotafolio hay una pista escondida ya la encontraste",
       "batch": "B031",
       "seq": 35,
       "file": "B031-035.mp3",
@@ -10558,8 +10558,8 @@
     },
     {
       "id": "v2-b031-flipchart-04",
-      "text": "Ya que miramos bien el rotafolio, pasemos a practicar con esas mismas palabras.",
-      "normalizedText": "ya que miramos bien el rotafolio pasemos a practicar con esas mismas palabras",
+      "text": "Ya que observamos la lámina del rotafolio, pasemos a practicar con esas mismas palabras.",
+      "normalizedText": "ya que observamos la lámina del rotafolio pasemos a practicar con esas mismas palabras",
       "batch": "B031",
       "seq": 36,
       "file": "B031-036.mp3",
@@ -10630,8 +10630,8 @@
     },
     {
       "id": "v2-b031-layout-02",
-      "text": "Me paso a una ventanita pequeña en la esquina para dejarte todo el espacio libre.",
-      "normalizedText": "me paso a una ventanita pequeña en la esquina para dejarte todo el espacio libre",
+      "text": "Me ubico en una pequeña ventana en la esquina para dejarte todo el espacio libre.",
+      "normalizedText": "me ubico en una pequeña ventana en la esquina para dejarte todo el espacio libre",
       "batch": "B031",
       "seq": 38,
       "file": "B031-038.mp3",
@@ -10666,8 +10666,8 @@
     },
     {
       "id": "v2-b031-layout-03",
-      "text": "Regreso en pantalla completa para que platiquemos frente a frente un momento.",
-      "normalizedText": "regreso en pantalla completa para que platiquemos frente a frente un momento",
+      "text": "Regreso a pantalla completa para que conversemos frente a frente un momento.",
+      "normalizedText": "regreso a pantalla completa para que conversemos frente a frente un momento",
       "batch": "B031",
       "seq": 39,
       "file": "B031-039.mp3",
@@ -10702,8 +10702,8 @@
     },
     {
       "id": "v2-b031-layout-04",
-      "text": "Agrando la hoja para que cada letra y dibujo se vea mucho más cómodo.",
-      "normalizedText": "agrando la hoja para que cada letra y dibujo se vea mucho más cómodo",
+      "text": "Amplío la hoja para que cada letra y cada dibujo se distingan con mayor claridad.",
+      "normalizedText": "amplío la hoja para que cada letra y cada dibujo se distingan con mayor claridad",
       "batch": "B031",
       "seq": 40,
       "file": "B031-040.mp3",
@@ -10738,8 +10738,8 @@
     },
     {
       "id": "v2-b031-workbook-01",
-      "text": "Abramos el cuaderno en la actividad que toca y revisemos juntos el primer ejemplo.",
-      "normalizedText": "abramos el cuaderno en la actividad que toca y revisemos juntos el primer ejemplo",
+      "text": "Abramos el cuaderno en la actividad correspondiente y revisemos juntos el primer ejemplo.",
+      "normalizedText": "abramos el cuaderno en la actividad correspondiente y revisemos juntos el primer ejemplo",
       "batch": "B031",
       "seq": 41,
       "file": "B031-041.mp3",
@@ -10960,8 +10960,8 @@
     },
     {
       "id": "v2-b031-camera-04",
-      "text": "Sin foto no puedo ver tu papel, pero podemos seguir igualito aquí en pantalla.",
-      "normalizedText": "sin foto no puedo ver tu papel pero podemos seguir igualito aquí en pantalla",
+      "text": "Sin fotografía no puedo ver tu papel, pero podemos continuar sin problema aquí en pantalla.",
+      "normalizedText": "sin fotografía no puedo ver tu papel pero podemos continuar sin problema aquí en pantalla",
       "batch": "B031",
       "seq": 47,
       "file": "B031-047.mp3",
@@ -10996,8 +10996,8 @@
     },
     {
       "id": "v2-b031-coaching-01",
-      "text": "Como esta palabra nos costó un poquito antes, ¿la repasamos una vez más juntos?",
-      "normalizedText": "como esta palabra nos costó un poquito antes la repasamos una vez más juntos",
+      "text": "Como esta palabra nos resultó un poco difícil antes, ¿la repasamos una vez más juntos?",
+      "normalizedText": "como esta palabra nos resultó un poco difícil antes la repasamos una vez más juntos",
       "batch": "B031",
       "seq": 48,
       "file": "B031-048.mp3",
@@ -11032,8 +11032,8 @@
     },
     {
       "id": "v2-b031-coaching-02",
-      "text": "Cada quien aprende a su propio paso, y lo importante es que seguimos avanzando juntos.",
-      "normalizedText": "cada quien aprende a su propio paso y lo importante es que seguimos avanzando juntos",
+      "text": "Cada persona aprende a su propio ritmo, y lo importante es seguir avanzando juntos.",
+      "normalizedText": "cada persona aprende a su propio ritmo y lo importante es seguir avanzando juntos",
       "batch": "B031",
       "seq": 49,
       "file": "B031-049.mp3",
@@ -11068,8 +11068,8 @@
     },
     {
       "id": "v2-b031-coaching-03",
-      "text": "Ya completaste varias seguidas sin problema. ¿Probamos ahora un reto un poquito mayor?",
-      "normalizedText": "ya completaste varias seguidas sin problema probamos ahora un reto un poquito mayor",
+      "text": "Ya completaste varias palabras seguidas sin dificultad. ¿Probamos ahora una actividad un poco más exigente?",
+      "normalizedText": "ya completaste varias palabras seguidas sin dificultad probamos ahora una actividad un poco más exigente",
       "batch": "B031",
       "seq": 50,
       "file": "B031-050.mp3",

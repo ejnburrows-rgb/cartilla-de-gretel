@@ -424,7 +424,7 @@
     },
     {
       "id": "v2-l15-06-letter-name",
-      "text": "Esta consonante se llama be, y la minúscula tiene su palito alto arriba y su pancita abajo.",
+      "text": "Esta consonante se llama be; en minúscula se forma con un trazo vertical alto y una curva cerrada a la derecha.",
       "batch": "B021",
       "seq": 6,
       "file": "B021-006.mp3",
@@ -502,7 +502,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama be y la minúscula tiene su palito alto arriba y su pancita abajo",
+      "normalizedText": "esta consonante se llama be en minúscula se forma con un trazo vertical alto y una curva cerrada a la derecha",
       "sourcePr": "PR#1073"
     },
     {
@@ -1029,7 +1029,7 @@
     },
     {
       "id": "v2-l15-13-flipchart-illustration-1",
-      "text": "En los dibujos del rotafolio aparecen Beba, el perrito Bubi, un bate, una bota y una bebita.",
+      "text": "En las ilustraciones del rotafolio aparecen Beba, el perro Bubi, un bate, una bota y una bebita.",
       "batch": "B021",
       "seq": 13,
       "file": "B021-013.mp3",
@@ -1105,7 +1105,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en los dibujos del rotafolio aparecen beba el perrito bubi un bate una bota y una bebita",
+      "normalizedText": "en las ilustraciones del rotafolio aparecen beba el perro bubi un bate una bota y una bebita",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1285,7 +1285,7 @@
     },
     {
       "id": "v2-l15-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la be: ba, be, bi, bo, bu.",
+      "text": "Leamos juntos con voz clara las sílabas de la be: ba, be, bi, bo, bu.",
       "batch": "B021",
       "seq": 16,
       "file": "B021-016.mp3",
@@ -1361,7 +1361,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la be ba be bi bo bu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la be ba be bi bo bu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1887,7 +1887,7 @@
     },
     {
       "id": "v2-l15-23-common-mistake-1",
-      "text": "No confundas la be minúscula con la de; la pancita de la be mira hacia la derecha.",
+      "text": "No confundas la be minúscula con la de; la curva de la be se abre hacia la derecha.",
       "batch": "B021",
       "seq": 23,
       "file": "B021-023.mp3",
@@ -1965,7 +1965,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no confundas la be minúscula con la de la pancita de la be mira hacia la derecha",
+      "normalizedText": "no confundas la be minúscula con la de la curva de la be se abre hacia la derecha",
       "sourcePr": "PR#1073"
     },
     {
@@ -3284,7 +3284,7 @@
     },
     {
       "id": "v2-l15-36-sentence-or-pair",
-      "text": "Lee siguiendo con tu dedito esta oración del libro: La nube sube y sube. Es una nube bonita.",
+      "text": "Lee siguiendo con el dedo esta oración del libro: La nube sube y sube. Es una nube bonita.",
       "batch": "B021",
       "seq": 36,
       "file": "B021-036.mp3",
@@ -3359,7 +3359,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee siguiendo con tu dedito esta oración del libro la nube sube y sube es una nube bonita",
+      "normalizedText": "lee siguiendo con el dedo esta oración del libro la nube sube y sube es una nube bonita",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3792,7 +3792,7 @@
     },
     {
       "id": "v2-l15-40-game-correct",
-      "text": "¡Muy bien bateado! Completaste la palabra de la letra be.",
+      "text": "Muy bien, completaste con acierto esta palabra con la letra be.",
       "batch": "B021",
       "seq": 40,
       "file": "B021-040.mp3",
@@ -3870,12 +3870,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien bateado completaste la palabra de la letra be",
+      "normalizedText": "muy bien completaste con acierto esta palabra con la letra be",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l15-41-game-retry",
-      "text": "Vuelve a leer los sonidos que ya están en la palabra y prueba cuál sílaba de la be encaja.",
+      "text": "Vuelve a leer las letras que ya están en la palabra y prueba qué sílaba de la be la completa.",
       "batch": "B021",
       "seq": 41,
       "file": "B021-041.mp3",
@@ -3953,7 +3953,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "vuelve a leer los sonidos que ya están en la palabra y prueba cuál sílaba de la be encaja",
+      "normalizedText": "vuelve a leer las letras que ya están en la palabra y prueba qué sílaba de la be la completa",
       "sourcePr": "PR#1073"
     },
     {
@@ -4212,7 +4212,7 @@
     },
     {
       "id": "v2-l15-44-closing",
-      "text": "Bateaste todas las palabras de la be hasta las nubes. Qué alegre lectura tuvimos hoy.",
+      "text": "Concluimos la lección de la letra be y la historia de Bebo. Qué agradable lectura compartimos hoy.",
       "batch": "B021",
       "seq": 44,
       "file": "B021-044.mp3",
@@ -4290,7 +4290,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bateaste todas las palabras de la be hasta las nubes qué alegre lectura tuvimos hoy",
+      "normalizedText": "concluimos la lección de la letra be y la historia de bebo qué agradable lectura compartimos hoy",
       "sourcePr": "PR#1073"
     },
     {

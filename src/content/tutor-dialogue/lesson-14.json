@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l14-01-greeting-first",
-      "text": "Bienvenidos a esta nueva lección para celebrar juntos nuestra querida letra eñe.",
+      "text": "Te doy la bienvenida a esta nueva lección para conocer juntos nuestra querida letra eñe.",
       "batch": "B020",
       "seq": 1,
       "file": "B020-001.mp3",
@@ -84,7 +84,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos a esta nueva lección para celebrar juntos nuestra querida letra eñe",
+      "normalizedText": "te doy la bienvenida a esta nueva lección para conocer juntos nuestra querida letra eñe",
       "sourcePr": "PR#1073"
     },
     {
@@ -171,7 +171,7 @@
     },
     {
       "id": "v2-l14-03-review-intro",
-      "text": "Ya conocemos la ene de nido y mano; hoy conocemos a su hermana que lleva una olita arriba.",
+      "text": "Ya conocemos la ene de nido y mano; hoy descubrimos a su hermana, que lleva una tilde ondulada arriba.",
       "batch": "B020",
       "seq": 3,
       "file": "B020-003.mp3",
@@ -247,7 +247,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya conocemos la ene de nido y mano hoy conocemos a su hermana que lleva una olita arriba",
+      "normalizedText": "ya conocemos la ene de nido y mano hoy descubrimos a su hermana que lleva una tilde ondulada arriba",
       "sourcePr": "PR#1073"
     },
     {
@@ -414,7 +414,7 @@
     },
     {
       "id": "v2-l14-06-letter-name",
-      "text": "Esta letra hermana de la ene se llama eñe, y lleva una olita alegre arriba llamada tilde.",
+      "text": "Esta letra hermana de la ene se llama eñe y lleva encima un trazo ondulado llamado tilde o virgulilla.",
       "batch": "B020",
       "seq": 6,
       "file": "B020-006.mp3",
@@ -490,12 +490,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta letra hermana de la ene se llama eñe y lleva una olita alegre arriba llamada tilde",
+      "normalizedText": "esta letra hermana de la ene se llama eñe y lleva encima un trazo ondulado llamado tilde o virgulilla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l14-07-phonetic-sound",
-      "text": "Al pronunciarla pegamos el centro de la lengua al paladar para lograr su sonido festivo: ñññ.",
+      "text": "Al pronunciarla apoyamos el centro de la lengua en el paladar para lograr su sonido característico: ñññ.",
       "batch": "B020",
       "seq": 7,
       "file": "B020-007.mp3",
@@ -571,12 +571,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al pronunciarla pegamos el centro de la lengua al paladar para lograr su sonido festivo ñññ",
+      "normalizedText": "al pronunciarla apoyamos el centro de la lengua en el paladar para lograr su sonido característico ñññ",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l14-08-lesson-focus",
-      "text": "La eñe lleva una olita ondulada arriba y suena suave desde el centro del paladar como en piñata.",
+      "text": "La eñe lleva una tilde ondulada arriba y suena suave desde el centro del paladar, como en piñata.",
       "batch": "B020",
       "seq": 8,
       "file": "B020-008.mp3",
@@ -652,7 +652,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "la eñe lleva una olita ondulada arriba y suena suave desde el centro del paladar como en piñata",
+      "normalizedText": "la eñe lleva una tilde ondulada arriba y suena suave desde el centro del paladar como en piñata",
       "sourcePr": "PR#1073"
     },
     {
@@ -819,7 +819,7 @@
     },
     {
       "id": "v2-l14-11-explanation-simple",
-      "text": "Sonríe poquito, pega el medio de la lengua al techo de la boca y di piñata y moño.",
+      "text": "Con una leve sonrisa, apoya el centro de la lengua en el paladar y pronuncia piñata y moño.",
       "batch": "B020",
       "seq": 11,
       "file": "B020-011.mp3",
@@ -895,7 +895,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sonríe poquito pega el medio de la lengua al techo de la boca y di piñata y moño",
+      "normalizedText": "con una leve sonrisa apoya el centro de la lengua en el paladar y pronuncia piñata y moño",
       "sourcePr": "PR#1073"
     },
     {
@@ -1264,7 +1264,7 @@
     },
     {
       "id": "v2-l14-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la eñe: ña, ñe, ñi, ño, ñu.",
+      "text": "Leamos juntos con voz clara las sílabas de la eñe: ña, ñe, ñi, ño, ñu.",
       "batch": "B020",
       "seq": 16,
       "file": "B020-016.mp3",
@@ -1338,7 +1338,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la eñe ña ñe ñi ño ñu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la eñe ña ñe ñi ño ñu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1841,7 +1841,7 @@
     },
     {
       "id": "v2-l14-23-common-mistake-1",
-      "text": "Nunca olvides la olita encima de la eñe; si falta, diría nido en vez de ñame o una en vez de uña.",
+      "text": "Nunca olvides la tilde ondulada sobre la eñe; sin ella, una palabra como uña se leería una.",
       "batch": "B020",
       "seq": 23,
       "file": "B020-023.mp3",
@@ -1917,7 +1917,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "nunca olvides la olita encima de la eñe si falta diría nido en vez de ñame o una en vez de uña",
+      "normalizedText": "nunca olvides la tilde ondulada sobre la eñe sin ella una palabra como uña se leería una",
       "sourcePr": "PR#1073"
     },
     {
@@ -2084,7 +2084,7 @@
     },
     {
       "id": "v2-l14-26-hint-1",
-      "text": "Busca la olita ondulada encima de la letra y escucha qué vocal va pegada a ella.",
+      "text": "Busca la tilde ondulada sobre la letra y fíjate qué vocal la acompaña.",
       "batch": "B020",
       "seq": 26,
       "file": "B020-026.mp3",
@@ -2160,7 +2160,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "busca la olita ondulada encima de la letra y escucha qué vocal va pegada a ella",
+      "normalizedText": "busca la tilde ondulada sobre la letra y fíjate qué vocal la acompaña",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2574,7 +2574,7 @@
     },
     {
       "id": "v2-l14-30-page-instruction-1",
-      "text": "Escribe la eñe mayúscula y minúscula sin olvidar su sombrerito ondulado y haz un dibujo con eñe.",
+      "text": "Escribe la eñe mayúscula y minúscula sin olvidar su tilde ondulada y haz un dibujo de una palabra con eñe.",
       "batch": "B020",
       "seq": 30,
       "file": "B020-030.mp3",
@@ -2647,7 +2647,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escribe la eñe mayúscula y minúscula sin olvidar su sombrerito ondulado y haz un dibujo con eñe",
+      "normalizedText": "escribe la eñe mayúscula y minúscula sin olvidar su tilde ondulada y haz un dibujo de una palabra con eñe",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3210,7 +3210,7 @@
     },
     {
       "id": "v2-l14-36-sentence-or-pair",
-      "text": "Lee en voz clara esta oración del libro: Meñe es dueña de esa piñata.",
+      "text": "Lee con voz clara esta oración del libro: Meñe es dueña de esa piñata.",
       "batch": "B020",
       "seq": 36,
       "file": "B020-036.mp3",
@@ -3283,7 +3283,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee en voz clara esta oración del libro meñe es dueña de esa piñata",
+      "normalizedText": "lee con voz clara esta oración del libro meñe es dueña de esa piñata",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -3710,7 +3710,7 @@
     },
     {
       "id": "v2-l14-40-game-correct",
-      "text": "Excelente oído. Colocaste la sílaba de la eñe en el lugar justo de la palabra.",
+      "text": "Muy bien, colocaste la sílaba de la eñe en el lugar justo de la palabra.",
       "batch": "B020",
       "seq": 40,
       "file": "B020-040.mp3",
@@ -3786,7 +3786,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "excelente oído colocaste la sílaba de la eñe en el lugar justo de la palabra",
+      "normalizedText": "muy bien colocaste la sílaba de la eñe en el lugar justo de la palabra",
       "sourcePr": "PR#1073"
     },
     {

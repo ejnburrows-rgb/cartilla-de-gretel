@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l20-01-greeting-first",
-      "text": "Bienvenidos hoy a una nueva lección para practicar el soplido suave de la letra efe.",
+      "text": "Hoy comenzamos una nueva lección para practicar el sonido suave de la letra efe.",
       "batch": "B026",
       "seq": 1,
       "file": "B026-001.mp3",
@@ -85,7 +85,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos hoy a una nueva lección para practicar el soplido suave de la letra efe",
+      "normalizedText": "hoy comenzamos una nueva lección para practicar el sonido suave de la letra efe",
       "sourcePr": "PR#1073"
     },
     {
@@ -255,7 +255,7 @@
     },
     {
       "id": "v2-l20-04-review-check",
-      "text": "¿Recuerdas cómo soplamos suavemente una velita de fiesta antes de probar la letra efe?",
+      "text": "¿Recuerdas cómo soplamos suavemente una vela antes de practicar el sonido de la letra efe?",
       "batch": "B026",
       "seq": 4,
       "file": "B026-004.mp3",
@@ -332,7 +332,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo soplamos suavemente una velita de fiesta antes de probar la letra efe",
+      "normalizedText": "recuerdas cómo soplamos suavemente una vela antes de practicar el sonido de la letra efe",
       "sourcePr": "PR#1073"
     },
     {
@@ -419,7 +419,7 @@
     },
     {
       "id": "v2-l20-06-letter-name",
-      "text": "Esta consonante se llama efe, y la minúscula sube formando un bastoncito curvo con su rayita.",
+      "text": "Esta consonante se llama efe; la minúscula sube en una curva alta y lleva una línea horizontal.",
       "batch": "B026",
       "seq": 6,
       "file": "B026-006.mp3",
@@ -496,7 +496,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta consonante se llama efe y la minúscula sube formando un bastoncito curvo con su rayita",
+      "normalizedText": "esta consonante se llama efe la minúscula sube en una curva alta y lleva una línea horizontal",
       "sourcePr": "PR#1073"
     },
     {
@@ -583,7 +583,7 @@
     },
     {
       "id": "v2-l20-08-lesson-focus",
-      "text": "Sopla suavecito apoyando los dientes de arriba sobre el labio inferior como en foto y familia.",
+      "text": "Sopla suavemente apoyando los dientes superiores sobre el labio inferior, como en foto y familia.",
       "batch": "B026",
       "seq": 8,
       "file": "B026-008.mp3",
@@ -660,7 +660,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "sopla suavecito apoyando los dientes de arriba sobre el labio inferior como en foto y familia",
+      "normalizedText": "sopla suavemente apoyando los dientes superiores sobre el labio inferior como en foto y familia",
       "sourcePr": "PR#1073"
     },
     {
@@ -829,7 +829,7 @@
     },
     {
       "id": "v2-l20-11-explanation-simple",
-      "text": "Imagina que apagas las velitas del pastel de Fefita soplando despacito: así sale la efe.",
+      "text": "Imagina que apagas las velitas del pastel de Fefita soplando despacio: así nace el sonido de la efe.",
       "batch": "B026",
       "seq": 11,
       "file": "B026-011.mp3",
@@ -906,7 +906,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "imagina que apagas las velitas del pastel de fefita soplando despacito así sale la efe",
+      "normalizedText": "imagina que apagas las velitas del pastel de fefita soplando despacio así nace el sonido de la efe",
       "sourcePr": "PR#1073"
     },
     {
@@ -1279,7 +1279,7 @@
     },
     {
       "id": "v2-l20-16-flipchart-model",
-      "text": "Leemos juntos en voz clara las sílabas de la efe: fa, fe, fi, fo, fu.",
+      "text": "Leamos juntos con voz clara las sílabas de la efe: fa, fe, fi, fo, fu.",
       "batch": "B026",
       "seq": 16,
       "file": "B026-016.mp3",
@@ -1354,7 +1354,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos en voz clara las sílabas de la efe fa fe fi fo fu",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la efe fa fe fi fo fu",
       "sourcePr": "PR#1073"
     },
     {
@@ -1863,7 +1863,7 @@
     },
     {
       "id": "v2-l20-23-common-mistake-1",
-      "text": "No olvides la rayita horizontal de la efe para distinguirla bien de la te.",
+      "text": "No olvides la línea horizontal de la efe para distinguirla con claridad de la te.",
       "batch": "B026",
       "seq": 23,
       "file": "B026-023.mp3",
@@ -1940,7 +1940,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "no olvides la rayita horizontal de la efe para distinguirla bien de la te",
+      "normalizedText": "no olvides la línea horizontal de la efe para distinguirla con claridad de la te",
       "sourcePr": "PR#1073"
     },
     {
@@ -3749,7 +3749,7 @@
     },
     {
       "id": "v2-l20-40-game-correct",
-      "text": "Muy bien apagada esa vela. Elegiste la sílaba exacta de la efe.",
+      "text": "Muy bien, elegiste la sílaba exacta de la letra efe.",
       "batch": "B026",
       "seq": 40,
       "file": "B026-040.mp3",
@@ -3826,12 +3826,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien apagada esa vela elegiste la sílaba exacta de la efe",
+      "normalizedText": "muy bien elegiste la sílaba exacta de la letra efe",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l20-41-game-retry",
-      "text": "Lee el resto de la palabra y prueba cuál sílaba entre fa, fe, fi, fo, fu la forma bien.",
+      "text": "Lee el resto de la palabra y prueba qué sílaba entre fa, fe, fi, fo y fu la completa.",
       "batch": "B026",
       "seq": 41,
       "file": "B026-041.mp3",
@@ -3908,7 +3908,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee el resto de la palabra y prueba cuál sílaba entre fa fe fi fo fu la forma bien",
+      "normalizedText": "lee el resto de la palabra y prueba qué sílaba entre fa fe fi fo y fu la completa",
       "sourcePr": "PR#1073"
     },
     {

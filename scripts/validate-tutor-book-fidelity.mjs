@@ -44,6 +44,36 @@ function countQuestions(text) {
   return Math.max(closeMatches ? closeMatches.length : 0, openMatches ? openMatches.length : 0);
 }
 
+export function countExclamations(text) {
+  const closeMatches = String(text ?? "").match(/!/g);
+  const openMatches = String(text ?? "").match(/¡/g);
+  return Math.max(closeMatches ? closeMatches.length : 0, openMatches ? openMatches.length : 0);
+}
+
+// Permanent Gretel Linguistic Standard gate (docs/tutor/GRETEL-LINGUISTIC-STANDARD.md).
+// Rejects colloquialisms, regional slang, and unnecessary diminutives while never
+// rejecting authentic verbatim La Cartilla de Gretel book vocabulary (e.g. "hermanitas",
+// "caballito", or canonical lesson vocabulary present in canonicalWords).
+export const FORBIDDEN_SLANG_OR_DIMINUTIVE_RE =
+  /(?<![\p{L}\p{N}_])(?:bingo|buen[ií]sim[oa]s?|buena\s+onda|arranquemos|s[uú]per|platiquemos|igualit[oa]s?|detallitos?|un\s+mont[oó]n|truco\s+r[aá]pido|pedacitos?|un\s+reto|amiguit[oa]s?|cerquita|poquit[oa]s?|despacito|ratitos?|solit[oa]s?|genial(?:es)?|ch[eé]veres?|qu[eé]\s+padre|olitas?|sombreritos?|rapidito|chiquit[oa]s?|cositas?)(?![\p{L}\p{N}_])/giu;
+
+export function findLinguisticViolations(text, canonicalWords) {
+  const violations = [];
+  const str = String(text ?? "");
+  const matches = str.match(FORBIDDEN_SLANG_OR_DIMINUTIVE_RE) ?? [];
+  for (const m of matches) {
+    const lower = m.toLowerCase();
+    // Preserve authentic verbatim La Cartilla de Gretel vocabulary for this lesson
+    if (canonicalWords && canonicalWords.has(lower)) continue;
+    violations.push(`forbidden slang/colloquialism/diminutive "${m}"`);
+  }
+  const exclCount = countExclamations(str);
+  if (exclCount >= 2) {
+    violations.push(`excessive exclamation marks (${exclCount} "!" — max 1 per line)`);
+  }
+  return violations;
+}
+
 // Rejects unsupported observation, concentration, pronunciation-accuracy, unseen-vision,
 // and masculine self-reference claims for Gretel (female tutor).
 export const UNSUPPORTED_CONCENTRATION_RE =
@@ -346,6 +376,12 @@ export function validateTutorBookFidelity() {
         errors.push(`${entry.id}: uses masculine self-reference for Gretel ("${entry.text}")`);
       }
 
+      // Permanent Gretel Linguistic Standard gate (slang/colloquialisms/unnecessary diminutives + max 1 "!")
+      const lessonCanonWords = isLesson ? corpusByLesson.get(lesson)?.words : undefined;
+      for (const violation of findLinguisticViolations(entry.text, lessonCanonWords)) {
+        errors.push(`${entry.id}: violates Gretel Linguistic Standard — ${violation} ("${entry.text}")`);
+      }
+
       // Deduplication across all batches by normalized Spanish text
       const normKey = normalizeText(entry.text);
       if (seenNormalizedTexts.has(normKey)) {
@@ -535,12 +571,19 @@ export function validateTutorBookFidelity() {
       if (actualLines.length !== expectedLines.length || actualLines.some((l, i) => l !== expectedLines[i])) {
         errors.push(`Recording script ${txtFile} is out of sync with JSON manifests`);
       }
-      for (const l of actualLines) {
+      for (let idx = 0; idx < actualLines.length; idx++) {
+        const l = actualLines[idx];
+        const entry = dense[idx];
         if (/^(B\d+|v2-|\d+[.)\s]|#|-|\*|\[)/i.test(l)) {
           errors.push(`${txtFile}: contains ID, number, or stage direction ("${l}")`);
         }
         if (MECHANICAL_SHEET_RE.test(l) || MECHANICAL_PAGE_RE.test(l) || ABSENT_PAGE_TEXT_RE.test(l)) {
           errors.push(`${txtFile}: contains forbidden page/sheet number ("${l}")`);
+        }
+        const entryLesson = entry?.scope === "lesson" ? entry.curriculumRefs?.lesson : 0;
+        const txtCanonWords = entryLesson >= 1 ? corpusByLesson.get(entryLesson)?.words : undefined;
+        for (const violation of findLinguisticViolations(l, txtCanonWords)) {
+          errors.push(`${txtFile}: violates Gretel Linguistic Standard — ${violation} ("${l}")`);
         }
       }
     }
@@ -600,6 +643,6 @@ if (
     process.exit(1);
   }
   console.log(
-    `✓ Book-fidelity validated: ${result.counts.totalV2Lines} v2 lines (${result.counts.universalLines} universal + ${result.counts.lessonLines} across Lessons 1–24) across ${result.counts.batches} batches + ${result.counts.legacyLinesIntact} legacy lineIds intact — 0 invented sentences, 0 page/sheet numbers read aloud, 0 absent pp. 86–87, 0 quarantined audio.`,
+    `✓ Book-fidelity & linguistic standard validated: ${result.counts.totalV2Lines} v2 lines (${result.counts.universalLines} universal + ${result.counts.lessonLines} across Lessons 1–24) across ${result.counts.batches} batches + ${result.counts.legacyLinesIntact} legacy lineIds intact — 0 slang/diminutive/exclamation violations, 0 invented sentences, 0 page/sheet numbers read aloud, 0 absent pp. 86–87, 0 quarantined audio.`,
   );
 }

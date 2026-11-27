@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l06-01-greeting-first",
-      "text": "Hoy completamos juntas las cinco hermanitas con la última vocal, la traviesa u.",
+      "text": "Hoy completamos las cinco hermanitas con la última vocal de la cartilla, la traviesa u.",
       "batch": "B012",
       "seq": 1,
       "file": "B012-001.mp3",
@@ -64,12 +64,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy completamos juntas las cinco hermanitas con la última vocal la traviesa u",
+      "normalizedText": "hoy completamos las cinco hermanitas con la última vocal de la cartilla la traviesa u",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-02-greeting-return",
-      "text": "Qué alegría saludarte de nuevo para repasar la vocal u y cerrar las vocales.",
+      "text": "Qué alegría saludarte de nuevo para repasar la vocal u y cerrar el ciclo de las vocales.",
       "batch": "B012",
       "seq": 2,
       "file": "B012-002.mp3",
@@ -126,12 +126,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué alegría saludarte de nuevo para repasar la vocal u y cerrar las vocales",
+      "normalizedText": "qué alegría saludarte de nuevo para repasar la vocal u y cerrar el ciclo de las vocales",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-03-review-intro",
-      "text": "Ya conocemos cuatro hermanitas vocales: o, a, e, i; hoy nos visita la quinta hermana.",
+      "text": "Ya conocemos cuatro hermanitas vocales: o, a, e, i; hoy recibimos a la quinta hermana.",
       "batch": "B012",
       "seq": 3,
       "file": "B012-003.mp3",
@@ -187,12 +187,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ya conocemos cuatro hermanitas vocales o a e i hoy nos visita la quinta hermana",
+      "normalizedText": "ya conocemos cuatro hermanitas vocales o a e i hoy recibimos a la quinta hermana",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-04-review-check",
-      "text": "¿Puedes recordar en orden las cuatro vocales que ya hemos practicado juntos?",
+      "text": "¿Puedes recordar en orden las cuatro vocales que ya hemos practicado?",
       "batch": "B012",
       "seq": 4,
       "file": "B012-004.mp3",
@@ -248,12 +248,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "puedes recordar en orden las cuatro vocales que ya hemos practicado juntos",
+      "normalizedText": "puedes recordar en orden las cuatro vocales que ya hemos practicado",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-05-lesson-objective",
-      "text": "Hoy aprenderemos el sonido cerrado de la vocal u y reuniremos todas las vocales para empezar a leer sílabas.",
+      "text": "Hoy aprenderemos el sonido cerrado de la vocal u y reuniremos las cinco vocales para empezar a leer sílabas.",
       "batch": "B012",
       "seq": 5,
       "file": "B012-005.mp3",
@@ -309,12 +309,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hoy aprenderemos el sonido cerrado de la vocal u y reuniremos todas las vocales para empezar a leer sílabas",
+      "normalizedText": "hoy aprenderemos el sonido cerrado de la vocal u y reuniremos las cinco vocales para empezar a leer sílabas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-06-letter-name",
-      "text": "Esta quinta vocal se llama u, y tiene forma de columpio o sonrisa curva abierta hacia arriba.",
+      "text": "Esta quinta vocal se llama u, y tiene forma de curva abierta hacia arriba, como un columpio.",
       "batch": "B012",
       "seq": 6,
       "file": "B012-006.mp3",
@@ -370,12 +370,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta quinta vocal se llama u y tiene forma de columpio o sonrisa curva abierta hacia arriba",
+      "normalizedText": "esta quinta vocal se llama u y tiene forma de curva abierta hacia arriba como un columpio",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-07-phonetic-sound",
-      "text": "Para pronunciarla fruncimos los labios hacia adelante y dejamos salir un sonido suave: uuu.",
+      "text": "Para pronunciarla proyectamos los labios hacia adelante y dejamos salir un sonido suave: uuu.",
       "batch": "B012",
       "seq": 7,
       "file": "B012-007.mp3",
@@ -431,12 +431,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para pronunciarla fruncimos los labios hacia adelante y dejamos salir un sonido suave uuu",
+      "normalizedText": "para pronunciarla proyectamos los labios hacia adelante y dejamos salir un sonido suave uuu",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-08-lesson-focus",
-      "text": "La vocal u tiene forma de herradura o columpio y suena cerrando los labios con suavidad.",
+      "text": "La vocal u tiene forma de herradura y suena acercando los labios hacia adelante con suavidad.",
       "batch": "B012",
       "seq": 8,
       "file": "B012-008.mp3",
@@ -492,7 +492,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "la vocal u tiene forma de herradura o columpio y suena cerrando los labios con suavidad",
+      "normalizedText": "la vocal u tiene forma de herradura y suena acercando los labios hacia adelante con suavidad",
       "sourcePr": "PR#1073"
     },
     {
@@ -558,7 +558,7 @@
     },
     {
       "id": "v2-l06-10-explanation-primary",
-      "text": "Cuando una palabra empieza con los labios bien fruncidos hacia adelante, comienza con la vocal u.",
+      "text": "Cuando una palabra empieza con los labios redondeados hacia adelante, comienza con la vocal u.",
       "batch": "B012",
       "seq": 10,
       "file": "B012-010.mp3",
@@ -614,12 +614,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando una palabra empieza con los labios bien fruncidos hacia adelante comienza con la vocal u",
+      "normalizedText": "cuando una palabra empieza con los labios redondeados hacia adelante comienza con la vocal u",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-11-explanation-simple",
-      "text": "Imagina que soplas despacito por un pitillo invisible y sueltas el sonido uuu, igual que en uvas.",
+      "text": "Imagina que soplas con suavidad hacia adelante y dejas salir el sonido uuu, igual que en uvas.",
       "batch": "B012",
       "seq": 11,
       "file": "B012-011.mp3",
@@ -675,12 +675,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "imagina que soplas despacito por un pitillo invisible y sueltas el sonido uuu igual que en uvas",
+      "normalizedText": "imagina que soplas con suavidad hacia adelante y dejas salir el sonido uuu igual que en uvas",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para reír un rato con la rima llamada La brujita.",
+      "text": "Abramos el rotafolio para disfrutar juntos la rima llamada La brujita.",
       "batch": "B012",
       "seq": 12,
       "file": "B012-012.mp3",
@@ -736,7 +736,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para reír un rato con la rima llamada la brujita",
+      "normalizedText": "abramos el rotafolio para disfrutar juntos la rima llamada la brujita",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -934,7 +934,7 @@
     },
     {
       "id": "v2-l06-16-flipchart-model",
-      "text": "Mira el número uno en el rotafolio mientras pronuncias el sonido inicial con labios cerraditos.",
+      "text": "Observa el número uno en el rotafolio mientras pronuncias su sonido inicial con los labios redondeados.",
       "batch": "B012",
       "seq": 16,
       "file": "B012-016.mp3",
@@ -990,12 +990,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira el número uno en el rotafolio mientras pronuncias el sonido inicial con labios cerraditos",
+      "normalizedText": "observa el número uno en el rotafolio mientras pronuncias su sonido inicial con los labios redondeados",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-17-flipchart-vocab",
-      "text": "Leemos juntos las palabras del rotafolio: uno, uva, urraca, Ulises, unicornio y uniforme.",
+      "text": "Leamos juntos las palabras del rotafolio: uno, uva, urraca, Ulises, unicornio y uniforme.",
       "batch": "B012",
       "seq": 17,
       "file": "B012-017.mp3",
@@ -1051,12 +1051,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos las palabras del rotafolio uno uva urraca ulises unicornio y uniforme",
+      "normalizedText": "leamos juntos las palabras del rotafolio uno uva urraca ulises unicornio y uniforme",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-18-flipchart-rhyme-1",
-      "text": "Leemos el comienzo divertido de La brujita: Una, no tengo ninguna, dos, asustando voy, tres, me escondo otra vez, cuatro, asusto a los gatos.",
+      "text": "Leamos el comienzo de La brujita: Una, no tengo ninguna, dos, asustando voy, tres, me escondo otra vez, cuatro, asusto a los gatos.",
       "batch": "B012",
       "seq": 18,
       "file": "B012-018.mp3",
@@ -1112,7 +1112,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos el comienzo divertido de la brujita una no tengo ninguna dos asustando voy tres me escondo otra vez cuatro asusto a los gatos",
+      "normalizedText": "leamos el comienzo de la brujita una no tengo ninguna dos asustando voy tres me escondo otra vez cuatro asusto a los gatos",
       "sourcePr": "PR#1073"
     },
     {
@@ -1361,7 +1361,7 @@
     },
     {
       "id": "v2-l06-23-common-mistake-1",
-      "text": "Ten cuidado con la palabra uña; pronuncia bien la u al inicio y también la eñe después.",
+      "text": "Presta atención a la palabra uña; pronuncia claramente la u al inicio y luego la eñe.",
       "batch": "B012",
       "seq": 23,
       "file": "B012-023.mp3",
@@ -1417,12 +1417,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ten cuidado con la palabra uña pronuncia bien la u al inicio y también la eñe después",
+      "normalizedText": "presta atención a la palabra uña pronuncia claramente la u al inicio y luego la eñe",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-24-common-mistake-2",
-      "text": "Evita marcar oveja, avión, estrella, elefante, árbol, águila, abeja o imán, porque no empiezan con u.",
+      "text": "Evita marcar oveja, avión, estrella, elefante, árbol, águila, abeja o imán, porque no comienzan con u.",
       "batch": "B012",
       "seq": 24,
       "file": "B012-024.mp3",
@@ -1478,12 +1478,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "evita marcar oveja avión estrella elefante árbol águila abeja o imán porque no empiezan con u",
+      "normalizedText": "evita marcar oveja avión estrella elefante árbol águila abeja o imán porque no comienzan con u",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-25-common-mistake-3",
-      "text": "Cuando confundas u con o, junta un poco más los labios hacia adelante como para dar un besito.",
+      "text": "Si dudas entre u y o, acerca un poco más los labios hacia adelante, como al soplar suavemente.",
       "batch": "B012",
       "seq": 25,
       "file": "B012-025.mp3",
@@ -1539,12 +1539,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando confundas u con o junta un poco más los labios hacia adelante como para dar un besito",
+      "normalizedText": "si dudas entre u y o acerca un poco más los labios hacia adelante como al soplar suavemente",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-26-hint-1",
-      "text": "Di el nombre del dibujo despacio y fíjate si tus labios se van hacia adelante al empezar.",
+      "text": "Di el nombre del dibujo despacio y nota si tus labios se proyectan hacia adelante al empezar.",
       "batch": "B012",
       "seq": 26,
       "file": "B012-026.mp3",
@@ -1600,7 +1600,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "di el nombre del dibujo despacio y fíjate si tus labios se van hacia adelante al empezar",
+      "normalizedText": "di el nombre del dibujo despacio y nota si tus labios se proyectan hacia adelante al empezar",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1615,7 +1615,7 @@
     },
     {
       "id": "v2-l06-27-hint-2",
-      "text": "Compara el inicio de la palabra con uno y uvas para confirmar si empiezan igual.",
+      "text": "Compara el inicio de la palabra con uno y uvas para confirmar si comienzan igual.",
       "batch": "B012",
       "seq": 27,
       "file": "B012-027.mp3",
@@ -1671,12 +1671,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "compara el inicio de la palabra con uno y uvas para confirmar si empiezan igual",
+      "normalizedText": "compara el inicio de la palabra con uno y uvas para confirmar si comienzan igual",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-28-hint-3",
-      "text": "Repite conmigo estas palabras verificadas con u: unicornio, uña, uvas, uniforme y uno.",
+      "text": "Repite conmigo estas palabras de la lección: unicornio, uña, uvas, uniforme y uno.",
       "batch": "B012",
       "seq": 28,
       "file": "B012-028.mp3",
@@ -1732,7 +1732,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite conmigo estas palabras verificadas con u unicornio uña uvas uniforme y uno",
+      "normalizedText": "repite conmigo estas palabras de la lección unicornio uña uvas uniforme y uno",
       "sourcePr": "PR#1073"
     },
     {
@@ -1942,7 +1942,7 @@
     },
     {
       "id": "v2-l06-31-page-instruction-2",
-      "text": "Después traza una línea desde la vocal u hasta cada dibujo que lleva su sonido al inicio.",
+      "text": "Después traza una línea desde la vocal u hasta cada dibujo que lleva ese sonido al principio.",
       "batch": "B012",
       "seq": 31,
       "file": "B012-031.mp3",
@@ -1996,7 +1996,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "después traza una línea desde la vocal u hasta cada dibujo que lleva su sonido al inicio",
+      "normalizedText": "después traza una línea desde la vocal u hasta cada dibujo que lleva ese sonido al principio",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2330,7 +2330,7 @@
     },
     {
       "id": "v2-l06-35-sight-or-vocab",
-      "text": "Recuerda que Ulises empieza con la u mayúscula porque es el nombre de un niño.",
+      "text": "Recuerda que Ulises empieza con u mayúscula porque es el nombre propio de un niño.",
       "batch": "B012",
       "seq": 35,
       "file": "B012-035.mp3",
@@ -2384,7 +2384,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerda que ulises empieza con la u mayúscula porque es el nombre de un niño",
+      "normalizedText": "recuerda que ulises empieza con u mayúscula porque es el nombre propio de un niño",
       "sourcePr": "PR#1073"
     },
     {
@@ -2448,7 +2448,7 @@
     },
     {
       "id": "v2-l06-37-page-instruction-final",
-      "text": "Al final escribe la vocal u con tu mejor letra sobre los renglones del cuaderno.",
+      "text": "Para finalizar, escribe la vocal u con cuidado sobre los renglones del cuaderno.",
       "batch": "B012",
       "seq": 37,
       "file": "B012-037.mp3",
@@ -2502,7 +2502,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al final escribe la vocal u con tu mejor letra sobre los renglones del cuaderno",
+      "normalizedText": "para finalizar escribe la vocal u con cuidado sobre los renglones del cuaderno",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2533,7 +2533,7 @@
     },
     {
       "id": "v2-l06-38-game-intro",
-      "text": "Hagamos ahora un juego de cierre con todas las vocales juntas para celebrar lo aprendido.",
+      "text": "Hagamos ahora un juego de cierre con las cinco vocales juntas para repasar lo aprendido.",
       "batch": "B012",
       "seq": 38,
       "file": "B012-038.mp3",
@@ -2589,12 +2589,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "hagamos ahora un juego de cierre con todas las vocales juntas para celebrar lo aprendido",
+      "normalizedText": "hagamos ahora un juego de cierre con las cinco vocales juntas para repasar lo aprendido",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-39-game-step",
-      "text": "Escucha cada palabra que te digo y dime cuál de las cinco hermanitas vocales suena al inicio.",
+      "text": "Escucha cada palabra que te digo y elige cuál de las cinco hermanitas vocales suena al inicio.",
       "batch": "B012",
       "seq": 39,
       "file": "B012-039.mp3",
@@ -2650,12 +2650,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "escucha cada palabra que te digo y dime cuál de las cinco hermanitas vocales suena al inicio",
+      "normalizedText": "escucha cada palabra que te digo y elige cuál de las cinco hermanitas vocales suena al inicio",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-40-game-correct",
-      "text": "Acertaste con mucha seguridad. Ya reconoces las cinco hermanitas vocales apenas comienzan.",
+      "text": "Acertaste. Identificaste con acierto la vocal inicial de esa palabra.",
       "batch": "B012",
       "seq": 40,
       "file": "B012-040.mp3",
@@ -2711,12 +2711,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "acertaste con mucha seguridad ya reconoces las cinco hermanitas vocales apenas comienzan",
+      "normalizedText": "acertaste identificaste con acierto la vocal inicial de esa palabra",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-41-game-retry",
-      "text": "Repite la palabra bien despacio y escucha si abre la boca como a o se cierra como u.",
+      "text": "Repite la palabra despacio y escucha si abres la boca como en a o la cierras como en u.",
       "batch": "B012",
       "seq": 41,
       "file": "B012-041.mp3",
@@ -2772,12 +2772,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite la palabra bien despacio y escucha si abre la boca como a o se cierra como u",
+      "normalizedText": "repite la palabra despacio y escucha si abres la boca como en a o la cierras como en u",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-42-assessment",
-      "text": "Para cerrar el grupo de vocales, dime en orden las cinco vocales que aprendimos hasta hoy.",
+      "text": "Para cerrar el grupo de vocales, dime en orden las cinco vocales que hemos estudiado.",
       "batch": "B012",
       "seq": 42,
       "file": "B012-042.mp3",
@@ -2833,12 +2833,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para cerrar el grupo de vocales dime en orden las cinco vocales que aprendimos hasta hoy",
+      "normalizedText": "para cerrar el grupo de vocales dime en orden las cinco vocales que hemos estudiado",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l06-43-page-complete",
-      "text": "Completaste las actividades de la vocal u y recorriste las cinco hermanitas vocales.",
+      "text": "Has completado las actividades de la vocal u y recorrido las cinco hermanitas vocales.",
       "batch": "B012",
       "seq": 43,
       "file": "B012-043.mp3",
@@ -2894,7 +2894,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "completaste las actividades de la vocal u y recorriste las cinco hermanitas vocales",
+      "normalizedText": "has completado las actividades de la vocal u y recorrido las cinco hermanitas vocales",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2914,7 +2914,7 @@
     },
     {
       "id": "v2-l06-44-closing",
-      "text": "Felicidades por completar todas las vocales de la cartilla. Ya estás listo para leer sílabas.",
+      "text": "Felicidades por concluir las cinco vocales de la cartilla. Ahora comienza la etapa de leer sílabas.",
       "batch": "B012",
       "seq": 44,
       "file": "B012-044.mp3",
@@ -2970,7 +2970,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "felicidades por completar todas las vocales de la cartilla ya estás listo para leer sílabas",
+      "normalizedText": "felicidades por concluir las cinco vocales de la cartilla ahora comienza la etapa de leer sílabas",
       "sourcePr": "PR#1073"
     },
     {
@@ -3036,8 +3036,8 @@
     },
     {
       "id": "v2-l06-46-atlas-flipchart",
-      "text": "¿Con qué se disfraza la vocal?",
-      "normalizedText": "con qué se disfraza la vocal",
+      "text": "¿Con qué se disfraza la vocal u en el poema?",
+      "normalizedText": "con qué se disfraza la vocal u en el poema",
       "batch": "B012",
       "seq": 46,
       "file": "B012-046.mp3",
@@ -3090,8 +3090,8 @@
     },
     {
       "id": "v2-l06-47-atlas-workbook",
-      "text": "Di «unicornio» muy despacio. ¿Con qué vocal empieza?",
-      "normalizedText": "di unicornio muy despacio con qué vocal empieza",
+      "text": "Pronuncia «unicornio» despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "pronuncia unicornio despacio con qué vocal empieza",
       "batch": "B012",
       "seq": 47,
       "file": "B012-047.mp3",

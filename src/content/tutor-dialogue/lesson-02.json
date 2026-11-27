@@ -8,7 +8,7 @@
   "entries": [
     {
       "id": "v2-l02-01-greeting-first",
-      "text": "Bienvenidos a esta lección nueva para jugar, escuchar y leer con la vocal o.",
+      "text": "Hoy iniciamos una nueva lección para escuchar, reconocer y leer con la vocal o.",
       "batch": "B008",
       "seq": 1,
       "file": "B008-001.mp3",
@@ -65,12 +65,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "bienvenidos a esta lección nueva para jugar escuchar y leer con la vocal o",
+      "normalizedText": "hoy iniciamos una nueva lección para escuchar reconocer y leer con la vocal o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-02-greeting-return",
-      "text": "Qué gusto verte de nuevo para seguir practicando juntos nuestra redonda vocal o.",
+      "text": "Me alegra verte de nuevo para continuar practicando nuestra redonda vocal o.",
       "batch": "B008",
       "seq": 2,
       "file": "B008-002.mp3",
@@ -128,12 +128,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué gusto verte de nuevo para seguir practicando juntos nuestra redonda vocal o",
+      "normalizedText": "me alegra verte de nuevo para continuar practicando nuestra redonda vocal o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-03-review-intro",
-      "text": "Recordemos las cinco hermanitas vocales que conocimos antes, y hoy saludamos primero a la vocal o.",
+      "text": "Ya conocimos a las cinco hermanitas vocales; hoy dedicamos toda la lección a la vocal o.",
       "batch": "B008",
       "seq": 3,
       "file": "B008-003.mp3",
@@ -190,12 +190,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recordemos las cinco hermanitas vocales que conocimos antes y hoy saludamos primero a la vocal o",
+      "normalizedText": "ya conocimos a las cinco hermanitas vocales hoy dedicamos toda la lección a la vocal o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-04-review-check",
-      "text": "¿Recuerdas cómo pones los labios cuando pronuncias la vocal o?",
+      "text": "¿Recuerdas qué forma toman tus labios cuando pronuncias la vocal o?",
       "batch": "B008",
       "seq": 4,
       "file": "B008-004.mp3",
@@ -252,7 +252,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recuerdas cómo pones los labios cuando pronuncias la vocal o",
+      "normalizedText": "recuerdas qué forma toman tus labios cuando pronuncias la vocal o",
       "sourcePr": "PR#1073"
     },
     {
@@ -319,7 +319,7 @@
     },
     {
       "id": "v2-l02-06-letter-name",
-      "text": "Esta letra se llama o, y tanto la mayúscula como la minúscula tienen forma redondita.",
+      "text": "Esta letra se llama o, y tanto la mayúscula como la minúscula tienen forma redonda.",
       "batch": "B008",
       "seq": 6,
       "file": "B008-006.mp3",
@@ -376,12 +376,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "esta letra se llama o y tanto la mayúscula como la minúscula tienen forma redondita",
+      "normalizedText": "esta letra se llama o y tanto la mayúscula como la minúscula tienen forma redonda",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-07-phonetic-sound",
-      "text": "Al pronunciarla, redondeamos los labios como un aro y dejamos salir el sonido limpio: ooo.",
+      "text": "Al pronunciarla, redondeamos los labios como un aro y dejamos salir un sonido limpio: ooo.",
       "batch": "B008",
       "seq": 7,
       "file": "B008-007.mp3",
@@ -438,12 +438,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al pronunciarla redondeamos los labios como un aro y dejamos salir el sonido limpio ooo",
+      "normalizedText": "al pronunciarla redondeamos los labios como un aro y dejamos salir un sonido limpio ooo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-08-lesson-focus",
-      "text": "Mira qué redonda es esta vocal y pon tu boca en círculo cada vez que la digas.",
+      "text": "Observa qué redonda es esta vocal y forma un círculo con tus labios cada vez que la pronuncies.",
       "batch": "B008",
       "seq": 8,
       "file": "B008-008.mp3",
@@ -500,12 +500,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "mira qué redonda es esta vocal y pon tu boca en círculo cada vez que la digas",
+      "normalizedText": "observa qué redonda es esta vocal y forma un círculo con tus labios cada vez que la pronuncies",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-09-sound-contrast",
-      "text": "A diferencia de la a bien abierta, la o mantiene los labios suaves y en forma de rueda.",
+      "text": "A diferencia de la a abierta, la o mantiene los labios suaves y en forma de círculo.",
       "batch": "B008",
       "seq": 9,
       "file": "B008-009.mp3",
@@ -562,7 +562,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "a diferencia de la a bien abierta la o mantiene los labios suaves y en forma de rueda",
+      "normalizedText": "a diferencia de la a abierta la o mantiene los labios suaves y en forma de círculo",
       "sourcePr": "PR#1073"
     },
     {
@@ -629,7 +629,7 @@
     },
     {
       "id": "v2-l02-11-explanation-simple",
-      "text": "Imagina que tu boca dibuja una pequeña rueda en el aire; ese sonido redondo es la o.",
+      "text": "Imagina que tus labios dibujan un aro en el aire; ese sonido redondo es la o.",
       "batch": "B008",
       "seq": 11,
       "file": "B008-011.mp3",
@@ -686,12 +686,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "imagina que tu boca dibuja una pequeña rueda en el aire ese sonido redondo es la o",
+      "normalizedText": "imagina que tus labios dibujan un aro en el aire ese sonido redondo es la o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-12-flipchart-intro",
-      "text": "Abramos nuestro rotafolio para disfrutar juntos la rima alegre llamada Arre caballito.",
+      "text": "Abramos el rotafolio para disfrutar juntos la rima llamada Arre caballito.",
       "batch": "B008",
       "seq": 12,
       "file": "B008-012.mp3",
@@ -748,7 +748,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abramos nuestro rotafolio para disfrutar juntos la rima alegre llamada arre caballito",
+      "normalizedText": "abramos el rotafolio para disfrutar juntos la rima llamada arre caballito",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -825,7 +825,7 @@
     },
     {
       "id": "v2-l02-14-flipchart-illustration-2",
-      "text": "También aparecen en el rotafolio el niño Oto, una oreja y el número ocho bien dibujados.",
+      "text": "También aparecen en el rotafolio el niño Oto, una oreja y el número ocho.",
       "batch": "B008",
       "seq": 14,
       "file": "B008-014.mp3",
@@ -882,12 +882,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "también aparecen en el rotafolio el niño oto una oreja y el número ocho bien dibujados",
+      "normalizedText": "también aparecen en el rotafolio el niño oto una oreja y el número ocho",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-15-reading-order",
-      "text": "Recorre con la vista cada verso del poema desde arriba hacia abajo y luego las palabras de izquierda a derecha.",
+      "text": "Recorre con la vista cada verso del poema de arriba hacia abajo y luego las palabras de izquierda a derecha.",
       "batch": "B008",
       "seq": 15,
       "file": "B008-015.mp3",
@@ -944,12 +944,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "recorre con la vista cada verso del poema desde arriba hacia abajo y luego las palabras de izquierda a derecha",
+      "normalizedText": "recorre con la vista cada verso del poema de arriba hacia abajo y luego las palabras de izquierda a derecha",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-16-flipchart-model",
-      "text": "Fíjate en la palabra clave olla mientras miras el dibujo y escuchas el sonido inicial redondo.",
+      "text": "Observa la palabra clave olla mientras miras el dibujo y escuchas su sonido inicial redondo.",
       "batch": "B008",
       "seq": 16,
       "file": "B008-016.mp3",
@@ -1006,12 +1006,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate en la palabra clave olla mientras miras el dibujo y escuchas el sonido inicial redondo",
+      "normalizedText": "observa la palabra clave olla mientras miras el dibujo y escuchas su sonido inicial redondo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-17-flipchart-vocab",
-      "text": "Leemos en voz clara las palabras del rotafolio: olla, Oto, oveja, oso, oreja y ocho.",
+      "text": "Leamos en voz clara las palabras del rotafolio: olla, Oto, oveja, oso, oreja y ocho.",
       "batch": "B008",
       "seq": 17,
       "file": "B008-017.mp3",
@@ -1068,12 +1068,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos en voz clara las palabras del rotafolio olla oto oveja oso oreja y ocho",
+      "normalizedText": "leamos en voz clara las palabras del rotafolio olla oto oveja oso oreja y ocho",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-18-flipchart-rhyme-1",
-      "text": "Leemos juntos el comienzo del poema: Arre caballito, llévame a pasear, yo soy redondita y puedo rodar.",
+      "text": "Leamos juntos el comienzo del poema: Arre caballito, llévame a pasear, yo soy redondita y puedo rodar.",
       "batch": "B008",
       "seq": 18,
       "file": "B008-018.mp3",
@@ -1130,12 +1130,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "leemos juntos el comienzo del poema arre caballito llévame a pasear yo soy redondita y puedo rodar",
+      "normalizedText": "leamos juntos el comienzo del poema arre caballito llévame a pasear yo soy redondita y puedo rodar",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-19-flipchart-rhyme-2",
-      "text": "Seguimos con la segunda parte del poema: ¡Oh, oh caballito yo quiero parar! ¡Oh, oh caballito ya no ruedes más!",
+      "text": "Seguimos con la segunda parte del poema: ¡Oh, oh caballito yo quiero parar, oh, oh caballito ya no ruedes más!",
       "batch": "B008",
       "seq": 19,
       "file": "B008-019.mp3",
@@ -1197,7 +1197,7 @@
     },
     {
       "id": "v2-l02-20-comprehension-1",
-      "text": "En el poema Arre caballito, ¿qué puede hacer la vocal o por ser tan redondita?",
+      "text": "En el poema Arre caballito, ¿qué puede hacer la vocal o gracias a su forma redonda?",
       "batch": "B008",
       "seq": 20,
       "file": "B008-020.mp3",
@@ -1254,12 +1254,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en el poema arre caballito qué puede hacer la vocal o por ser tan redondita",
+      "normalizedText": "en el poema arre caballito qué puede hacer la vocal o gracias a su forma redonda",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-21-comprehension-2",
-      "text": "¿Quién aparece montado o jugando junto al caballito en nuestra escena del rotafolio?",
+      "text": "¿Quién acompaña al caballito en nuestra escena del rotafolio?",
       "batch": "B008",
       "seq": 21,
       "file": "B008-021.mp3",
@@ -1316,7 +1316,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "quién aparece montado o jugando junto al caballito en nuestra escena del rotafolio",
+      "normalizedText": "quién acompaña al caballito en nuestra escena del rotafolio",
       "sourcePr": "PR#1073"
     },
     {
@@ -1383,7 +1383,7 @@
     },
     {
       "id": "v2-l02-23-common-mistake-1",
-      "text": "Si confundes la o con la u, abre un poquito más el círculo de tus labios al hablar.",
+      "text": "Si dudas entre la o y la u, abre un poco más el círculo de tus labios al pronunciarla.",
       "batch": "B008",
       "seq": 23,
       "file": "B008-023.mp3",
@@ -1440,12 +1440,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "si confundes la o con la u abre un poquito más el círculo de tus labios al hablar",
+      "normalizedText": "si dudas entre la o y la u abre un poco más el círculo de tus labios al pronunciarla",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-24-common-mistake-2",
-      "text": "Ten cuidado de no marcar iglú, maíz, uña, alas, uvas ni uno, porque no empiezan con o.",
+      "text": "Presta atención para no marcar iglú, maíz, uña, alas, uvas ni uno, pues no comienzan con o.",
       "batch": "B008",
       "seq": 24,
       "file": "B008-024.mp3",
@@ -1502,12 +1502,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ten cuidado de no marcar iglú maíz uña alas uvas ni uno porque no empiezan con o",
+      "normalizedText": "presta atención para no marcar iglú maíz uña alas uvas ni uno pues no comienzan con o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-25-common-mistake-3",
-      "text": "Cuando traces la letra o, cierra bien el círculo para que no parezca abierta por arriba.",
+      "text": "Al trazar la letra o, cierra bien el círculo para que no quede abierta en la parte superior.",
       "batch": "B008",
       "seq": 25,
       "file": "B008-025.mp3",
@@ -1564,12 +1564,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "cuando traces la letra o cierra bien el círculo para que no parezca abierta por arriba",
+      "normalizedText": "al trazar la letra o cierra bien el círculo para que no quede abierta en la parte superior",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-26-hint-1",
-      "text": "Observa el dibujo y pronuncia su nombre despacio para oír cómo empieza.",
+      "text": "Observa el dibujo y pronuncia su nombre con calma para distinguir cómo comienza.",
       "batch": "B008",
       "seq": 26,
       "file": "B008-026.mp3",
@@ -1626,7 +1626,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "observa el dibujo y pronuncia su nombre despacio para oír cómo empieza",
+      "normalizedText": "observa el dibujo y pronuncia su nombre con calma para distinguir cómo comienza",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -1641,7 +1641,7 @@
     },
     {
       "id": "v2-l02-27-hint-2",
-      "text": "Pon tu boca bien redondita y comprueba si el primer sonido suena igual que en oso.",
+      "text": "Coloca los labios en círculo y comprueba si el primer sonido suena igual que en oso.",
       "batch": "B008",
       "seq": 27,
       "file": "B008-027.mp3",
@@ -1698,12 +1698,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "pon tu boca bien redondita y comprueba si el primer sonido suena igual que en oso",
+      "normalizedText": "coloca los labios en círculo y comprueba si el primer sonido suena igual que en oso",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-28-hint-3",
-      "text": "Repite conmigo estas palabras seguras que empiezan con o: ola, oso y oveja.",
+      "text": "Repite conmigo estas palabras que comienzan con o: ola, oso y oveja.",
       "batch": "B008",
       "seq": 28,
       "file": "B008-028.mp3",
@@ -1760,12 +1760,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "repite conmigo estas palabras seguras que empiezan con o ola oso y oveja",
+      "normalizedText": "repite conmigo estas palabras que comienzan con o ola oso y oveja",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-29-workbook-transition",
-      "text": "Ahora pasamos a tu cuaderno de trabajo para buscar dibujos y practicar el trazo de la o.",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para identificar dibujos y practicar el trazo de la o.",
       "batch": "B008",
       "seq": 29,
       "file": "B008-029.mp3",
@@ -1822,12 +1822,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora pasamos a tu cuaderno de trabajo para buscar dibujos y practicar el trazo de la o",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para identificar dibujos y practicar el trazo de la o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-30-page-instruction-1",
-      "text": "En la cuadrícula de dibujos marca con una equis solamente los que comienzan con el sonido o.",
+      "text": "En la cuadrícula de dibujos marca con una equis únicamente los que comienzan con el sonido o.",
       "batch": "B008",
       "seq": 30,
       "file": "B008-030.mp3",
@@ -1882,7 +1882,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la cuadrícula de dibujos marca con una equis solamente los que comienzan con el sonido o",
+      "normalizedText": "en la cuadrícula de dibujos marca con una equis únicamente los que comienzan con el sonido o",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2331,7 +2331,7 @@
     },
     {
       "id": "v2-l02-34-word-practice-2",
-      "text": "Ahora practica las demás palabras que comienzan con o: olla, ocho y ojos.",
+      "text": "Practiquemos ahora las demás palabras que comienzan con o: olla, ocho y ojos.",
       "batch": "B008",
       "seq": 34,
       "file": "B008-034.mp3",
@@ -2386,12 +2386,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ahora practica las demás palabras que comienzan con o olla ocho y ojos",
+      "normalizedText": "practiquemos ahora las demás palabras que comienzan con o olla ocho y ojos",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-35-sight-or-vocab",
-      "text": "Fíjate también en Oto, que lleva la o mayúscula por ser el nombre propio de un niño.",
+      "text": "Observa también el nombre Oto, que lleva o mayúscula por ser el nombre propio de un niño.",
       "batch": "B008",
       "seq": 35,
       "file": "B008-035.mp3",
@@ -2446,7 +2446,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "fíjate también en oto que lleva la o mayúscula por ser el nombre propio de un niño",
+      "normalizedText": "observa también el nombre oto que lleva o mayúscula por ser el nombre propio de un niño",
       "sourcePr": "PR#1073"
     },
     {
@@ -2511,7 +2511,7 @@
     },
     {
       "id": "v2-l02-37-page-instruction-final",
-      "text": "Al final escribe con tu mejor letra la vocal o mayúscula y minúscula sobre los renglones.",
+      "text": "Para concluir, escribe la vocal o mayúscula y minúscula con cuidado sobre los renglones.",
       "batch": "B008",
       "seq": 37,
       "file": "B008-037.mp3",
@@ -2566,7 +2566,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "al final escribe con tu mejor letra la vocal o mayúscula y minúscula sobre los renglones",
+      "normalizedText": "para concluir escribe la vocal o mayúscula y minúscula con cuidado sobre los renglones",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2597,7 +2597,7 @@
     },
     {
       "id": "v2-l02-38-game-intro",
-      "text": "Abrimos el juego de dibujos con la vocal o para que señales cada imagen que corresponde.",
+      "text": "Abrimos el juego de dibujos con la vocal o para señalar cada imagen que corresponde.",
       "batch": "B008",
       "seq": 38,
       "file": "B008-038.mp3",
@@ -2654,12 +2654,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "abrimos el juego de dibujos con la vocal o para que señales cada imagen que corresponde",
+      "normalizedText": "abrimos el juego de dibujos con la vocal o para señalar cada imagen que corresponde",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-39-game-step",
-      "text": "Lee o escucha la palabra que aparece y toca el dibujo exacto entre oso, ola y oveja.",
+      "text": "Escucha la palabra que aparece y selecciona el dibujo correspondiente entre oso, ola y oveja.",
       "batch": "B008",
       "seq": 39,
       "file": "B008-039.mp3",
@@ -2716,12 +2716,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "lee o escucha la palabra que aparece y toca el dibujo exacto entre oso ola y oveja",
+      "normalizedText": "escucha la palabra que aparece y selecciona el dibujo correspondiente entre oso ola y oveja",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-40-game-correct",
-      "text": "Muy bien tocado. Escuchaste el sonido o al inicio y elegiste el dibujo exacto.",
+      "text": "Acertaste. Reconociste el sonido o al inicio y elegiste el dibujo correspondiente.",
       "batch": "B008",
       "seq": 40,
       "file": "B008-040.mp3",
@@ -2778,12 +2778,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "muy bien tocado escuchaste el sonido o al inicio y elegiste el dibujo exacto",
+      "normalizedText": "acertaste reconociste el sonido o al inicio y elegiste el dibujo correspondiente",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-41-game-retry",
-      "text": "Ese dibujo tiene otro nombre; escucha de nuevo la palabra y vuelve a tocar la imagen correcta.",
+      "text": "Ese dibujo tiene otro nombre; escucha nuevamente la palabra y selecciona la imagen correcta.",
       "batch": "B008",
       "seq": 41,
       "file": "B008-041.mp3",
@@ -2840,12 +2840,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "ese dibujo tiene otro nombre escucha de nuevo la palabra y vuelve a tocar la imagen correcta",
+      "normalizedText": "ese dibujo tiene otro nombre escucha nuevamente la palabra y selecciona la imagen correcta",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-42-assessment",
-      "text": "Para comprobar lo aprendido hoy, dime dos palabras de tu cuaderno que comiencen con o.",
+      "text": "Para cerrar la lección de hoy, dime dos palabras de tu cuaderno que comiencen con o.",
       "batch": "B008",
       "seq": 42,
       "file": "B008-042.mp3",
@@ -2902,12 +2902,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "para comprobar lo aprendido hoy dime dos palabras de tu cuaderno que comiencen con o",
+      "normalizedText": "para cerrar la lección de hoy dime dos palabras de tu cuaderno que comiencen con o",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-43-page-complete",
-      "text": "Terminaste todas las actividades de la vocal o. ¡Qué buen avance!",
+      "text": "Has terminado todas las actividades de la vocal o. ¡Qué buen avance!",
       "batch": "B008",
       "seq": 43,
       "file": "B008-043.mp3",
@@ -2964,7 +2964,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "terminaste todas las actividades de la vocal o qué buen avance",
+      "normalizedText": "has terminado todas las actividades de la vocal o qué buen avance",
       "sourcePr": "reconciled",
       "sourceContexts": [
         {
@@ -2984,7 +2984,7 @@
     },
     {
       "id": "v2-l02-44-closing",
-      "text": "Qué gran trabajo hiciste con la redonda vocal o. Cantaste, leíste y trazaste muy bien.",
+      "text": "Realizaste un trabajo cuidadoso con la vocal o, recorriendo su poema, sus palabras y su trazo.",
       "batch": "B008",
       "seq": 44,
       "file": "B008-044.mp3",
@@ -3041,12 +3041,12 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "qué gran trabajo hiciste con la redonda vocal o cantaste leíste y trazaste muy bien",
+      "normalizedText": "realizaste un trabajo cuidadoso con la vocal o recorriendo su poema sus palabras y su trazo",
       "sourcePr": "PR#1073"
     },
     {
       "id": "v2-l02-45-next-step",
-      "text": "En la siguiente lección te espera nuestra segunda hermanita, la alegre vocal a.",
+      "text": "En la siguiente lección conoceremos a nuestra segunda hermanita, la vocal a.",
       "batch": "B008",
       "seq": 45,
       "file": "B008-045.mp3",
@@ -3103,7 +3103,7 @@
         "visemes": null
       },
       "status": "scripted",
-      "normalizedText": "en la siguiente lección te espera nuestra segunda hermanita la alegre vocal a",
+      "normalizedText": "en la siguiente lección conoceremos a nuestra segunda hermanita la vocal a",
       "sourcePr": "PR#1073"
     },
     {
@@ -3162,8 +3162,8 @@
     },
     {
       "id": "v2-l02-47-atlas-workbook",
-      "text": "Di «ola» muy despacio. ¿Con qué vocal empieza?",
-      "normalizedText": "di ola muy despacio con qué vocal empieza",
+      "text": "Pronuncia «ola» despacio. ¿Con qué vocal comienza?",
+      "normalizedText": "pronuncia ola despacio con qué vocal comienza",
       "batch": "B008",
       "seq": 47,
       "file": "B008-047.mp3",
