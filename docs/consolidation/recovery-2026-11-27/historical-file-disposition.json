@@ -1,0 +1,707 @@
+[
+  {
+    "historical_pr": 1058,
+    "historical_state": "OPEN",
+    "merged_at": null,
+    "historical_head": "deb326fc90fd193bb47aa7fa1310551e2a1864aa",
+    "current_pr": 1325,
+    "current_head": "4605cdaa95b774b2e7ff2c0b04b0320e1b621464",
+    "files": [
+      {
+        "path": "PROOF.md",
+        "historical_blob": "86f47ca12d62b5f56ad3bb32028c91ba70ef4552",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "RECORDING_SHEET.md",
+        "historical_blob": "51e99cef3b4fd3b1bb2d503ac909d35be128fc3f",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "docs/audio/INSTRUCTION-CUT-MEASUREMENTS.json",
+        "historical_blob": "60e10c49fe7e91f276c8f654beb03b74083ea2be",
+        "lane_blob": "60e10c49fe7e91f276c8f654beb03b74083ea2be",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "docs/audio/INSTRUCTION-LINES.csv",
+        "historical_blob": "407d12795050d6bba997a66dd7c141d87684e9e6",
+        "lane_blob": "407d12795050d6bba997a66dd7c141d87684e9e6",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "docs/audio/OWNER-INSTRUCTION-RECOVERY.md",
+        "historical_blob": "f15d4b5d71ea6b0cec67a317fc980592302620cd",
+        "lane_blob": "f15d4b5d71ea6b0cec67a317fc980592302620cd",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-01.mp3",
+        "historical_blob": "198046ecfabd96b43f110eef29d8b2d3c5dd1b12",
+        "lane_blob": "198046ecfabd96b43f110eef29d8b2d3c5dd1b12",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-02.mp3",
+        "historical_blob": "eb9589f06b9ed7a44254e930c8aab64aebf31c19",
+        "lane_blob": "eb9589f06b9ed7a44254e930c8aab64aebf31c19",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-03.mp3",
+        "historical_blob": "1f6aa580bd526b036a76b16fea123946cd70b8a2",
+        "lane_blob": "1f6aa580bd526b036a76b16fea123946cd70b8a2",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-04.mp3",
+        "historical_blob": "196a98f18a6f36dabd3e6c57801c7a81eb968709",
+        "lane_blob": "196a98f18a6f36dabd3e6c57801c7a81eb968709",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-05.mp3",
+        "historical_blob": "56b8030b4e5ba20b064de887b6965d04603acc1b",
+        "lane_blob": "56b8030b4e5ba20b064de887b6965d04603acc1b",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-06.mp3",
+        "historical_blob": "6e6cc6e6c11142a0c5f3f16da54a716ce470d814",
+        "lane_blob": "6e6cc6e6c11142a0c5f3f16da54a716ce470d814",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-07.mp3",
+        "historical_blob": "a6de1d73b36ef5f7b69b5be689e0579d6c2a6c24",
+        "lane_blob": "a6de1d73b36ef5f7b69b5be689e0579d6c2a6c24",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-08.mp3",
+        "historical_blob": "e744747c2f1b6f8e32f1668c0adf9f0524b22edf",
+        "lane_blob": "e744747c2f1b6f8e32f1668c0adf9f0524b22edf",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-09.mp3",
+        "historical_blob": "16fa946e648c84726b9560b01fac0082beda1ed9",
+        "lane_blob": "16fa946e648c84726b9560b01fac0082beda1ed9",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-10.mp3",
+        "historical_blob": "9ce5b4ecdd11963219758686fd933d9e76704f68",
+        "lane_blob": "9ce5b4ecdd11963219758686fd933d9e76704f68",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-11.mp3",
+        "historical_blob": "9fb6a4fdab3698a350dbbeaf905bc161873cdf29",
+        "lane_blob": "9fb6a4fdab3698a350dbbeaf905bc161873cdf29",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-12.mp3",
+        "historical_blob": "e7d7ceb4a8cc10cbef3076c26ffe54731b16d6d8",
+        "lane_blob": "e7d7ceb4a8cc10cbef3076c26ffe54731b16d6d8",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-13.mp3",
+        "historical_blob": "0c45bebed883924db7116c6e32def4bdfdffb6ec",
+        "lane_blob": "0c45bebed883924db7116c6e32def4bdfdffb6ec",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-14.mp3",
+        "historical_blob": "240769c8ab5f346c0b1771d389cc662a99c4122f",
+        "lane_blob": "240769c8ab5f346c0b1771d389cc662a99c4122f",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-15.mp3",
+        "historical_blob": "25f6002ac7cb71702194704a1ef396772b09d828",
+        "lane_blob": "25f6002ac7cb71702194704a1ef396772b09d828",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-16.mp3",
+        "historical_blob": "40ef28c544319c92d1406244d2427a54548c323b",
+        "lane_blob": "40ef28c544319c92d1406244d2427a54548c323b",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-17.mp3",
+        "historical_blob": "fab676f849659f622d2d9ca1f26077cb429dc5d3",
+        "lane_blob": "fab676f849659f622d2d9ca1f26077cb429dc5d3",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-18.mp3",
+        "historical_blob": "97a8dfe15fcb96fd5c3c0d58d79300f06a9a95a0",
+        "lane_blob": "97a8dfe15fcb96fd5c3c0d58d79300f06a9a95a0",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-19.mp3",
+        "historical_blob": "b2852ec596f2bf8eb31bd25acb13a0388270185d",
+        "lane_blob": "b2852ec596f2bf8eb31bd25acb13a0388270185d",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-20.mp3",
+        "historical_blob": "fb3e0de8d3f2e56837f72f8dbb00691c22319394",
+        "lane_blob": "fb3e0de8d3f2e56837f72f8dbb00691c22319394",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-21.mp3",
+        "historical_blob": "fdfb284c68ae5236b7b90a37d4692bc77a5d8774",
+        "lane_blob": "fdfb284c68ae5236b7b90a37d4692bc77a5d8774",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-22.mp3",
+        "historical_blob": "52510d131441640b6b1ef656f590cba9f8c45dbe",
+        "lane_blob": "52510d131441640b6b1ef656f590cba9f8c45dbe",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-23.mp3",
+        "historical_blob": "fd9be464af6776bd60b8d12c16ec4dd80fb1f361",
+        "lane_blob": "fd9be464af6776bd60b8d12c16ec4dd80fb1f361",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-24.mp3",
+        "historical_blob": "9bc491c059090713a89fa0a16c9fdd4c4789b6fa",
+        "lane_blob": "9bc491c059090713a89fa0a16c9fdd4c4789b6fa",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-25.mp3",
+        "historical_blob": "c47a7ce82e89c619d4c425bff38c4ed585c5bec8",
+        "lane_blob": "c47a7ce82e89c619d4c425bff38c4ed585c5bec8",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-26.mp3",
+        "historical_blob": "727ba740d53a03547bc20cde44cbc4ff69986fe8",
+        "lane_blob": "727ba740d53a03547bc20cde44cbc4ff69986fe8",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-27.mp3",
+        "historical_blob": "aada52c3fc2fb0ee55be0ef78c747a6445c4766d",
+        "lane_blob": "aada52c3fc2fb0ee55be0ef78c747a6445c4766d",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-28.mp3",
+        "historical_blob": "2181c1367510a07b6618290dd23204f8e0a7289f",
+        "lane_blob": "2181c1367510a07b6618290dd23204f8e0a7289f",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-29.mp3",
+        "historical_blob": "87db9dd666fc6f330a274143df828e4e91047bf2",
+        "lane_blob": "87db9dd666fc6f330a274143df828e4e91047bf2",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-30.mp3",
+        "historical_blob": "b6262ce459e4714ad2532bcda4889862aa49254c",
+        "lane_blob": "b6262ce459e4714ad2532bcda4889862aa49254c",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-31.mp3",
+        "historical_blob": "c451e2d6325b3b3df62992abc60bd97c47cdced1",
+        "lane_blob": "c451e2d6325b3b3df62992abc60bd97c47cdced1",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-32.mp3",
+        "historical_blob": "8145eb2110242a2e7624659a06900d0ca8e5c537",
+        "lane_blob": "8145eb2110242a2e7624659a06900d0ca8e5c537",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-33.mp3",
+        "historical_blob": "594c05b79734ceb5e31e911744e8a1ce26e5601d",
+        "lane_blob": "594c05b79734ceb5e31e911744e8a1ce26e5601d",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-34.mp3",
+        "historical_blob": "c57558f6c43e018f69ba84876df932d198ad3c25",
+        "lane_blob": "c57558f6c43e018f69ba84876df932d198ad3c25",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-35.mp3",
+        "historical_blob": "3b225e8257de06ff01ac8f3a851bf425603459d5",
+        "lane_blob": "3b225e8257de06ff01ac8f3a851bf425603459d5",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-36.mp3",
+        "historical_blob": "64cacc18f38de30adbc2adae3d2f1fc873e4397b",
+        "lane_blob": "64cacc18f38de30adbc2adae3d2f1fc873e4397b",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-37.mp3",
+        "historical_blob": "96daf4ca71557d52ecd202b39165dc405eef7239",
+        "lane_blob": "96daf4ca71557d52ecd202b39165dc405eef7239",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-38.mp3",
+        "historical_blob": "9eafc3e3f5a81b0c4b40fb131383723e1278e84e",
+        "lane_blob": "9eafc3e3f5a81b0c4b40fb131383723e1278e84e",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-39.mp3",
+        "historical_blob": "86953d405e7cc1b3728f266e885de75553c7db1b",
+        "lane_blob": "86953d405e7cc1b3728f266e885de75553c7db1b",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/instrucciones/line-40.mp3",
+        "historical_blob": "2dca6a07688e482b778f1066a00767326c5b6d01",
+        "lane_blob": "2dca6a07688e482b778f1066a00767326c5b6d01",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/leccion3/muy-bien.mp3",
+        "historical_blob": "d7c52c3102cbf8d7dab51de0e667512aa711d634",
+        "lane_blob": "d7c52c3102cbf8d7dab51de0e667512aa711d634",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/leccion3/p7-instr.mp3",
+        "historical_blob": "1a62e1847bb049ccd8686d0115e7831b8864b3ea",
+        "lane_blob": "1a62e1847bb049ccd8686d0115e7831b8864b3ea",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/leccion3/p8-instr.mp3",
+        "historical_blob": "04330c5bd006886c12ea583ff9854511b35c6726",
+        "lane_blob": "04330c5bd006886c12ea583ff9854511b35c6726",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/leccion3/p9-instr1.mp3",
+        "historical_blob": "23c9ea0e94e8febe898ee4956e59b56f4a5097c3",
+        "lane_blob": "23c9ea0e94e8febe898ee4956e59b56f4a5097c3",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/audio/leccion3/p9-instr2.mp3",
+        "historical_blob": "868a574eabc503ae96af85ca42ecd9de1b7b62c6",
+        "lane_blob": "868a574eabc503ae96af85ca42ecd9de1b7b62c6",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/components/cartilla/EscucharInstruccionButton.tsx",
+        "historical_blob": "26bcc6d8d26fc8d7d34b769e4e026d975fe476c2",
+        "lane_blob": "a2aaa24bad8c01a1db23c67adc91fd3d825eb648",
+        "main_blob": "b2e6fc54b08a91c8367fbcc4b5d5fb69ab59227b",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/content/games/__tests__/taught-order.test.ts",
+        "historical_blob": "3448782d0f1ca1db6eb17cbb38f20a83a8712d6c",
+        "lane_blob": "d8e01f6acdc531a89c1262ba1eda9655545d7180",
+        "main_blob": "d8e01f6acdc531a89c1262ba1eda9655545d7180",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/content/games/payaso-chano-ss.ts",
+        "historical_blob": "08974f321940b0549478d26bdc0e076b191ed880",
+        "lane_blob": "2dcddbb2531be9180a0d396aa27ef2d07604c680",
+        "main_blob": "2dcddbb2531be9180a0d396aa27ef2d07604c680",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/content/instruction-recordings.json",
+        "historical_blob": "360003db15859cc8aa25f0a85976bf9a86970ac8",
+        "lane_blob": "360003db15859cc8aa25f0a85976bf9a86970ac8",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/content/picture-name-recordings.json",
+        "historical_blob": "5a3a66ccc026836d72cf047900d7da9c18a59170",
+        "lane_blob": "1aff091d68584f508ada468d3bd23f531bbc3871",
+        "main_blob": "1aff091d68584f508ada468d3bd23f531bbc3871",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/lib/__tests__/gretel-voice-readiness.test.ts",
+        "historical_blob": "7f11cd9897a5642c821b5e23fa6be29db73b0f07",
+        "lane_blob": "8a57a69787143c2df83343f7e0fa6fdb54114610",
+        "main_blob": "8a57a69787143c2df83343f7e0fa6fdb54114610",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/lib/__tests__/gretel-voice.test.ts",
+        "historical_blob": "ac21e46abf9a161d2036875b7c67fe60af47d785",
+        "lane_blob": "6a84ac8f9717b1c83d7f6f7d1b2415abd7a1a326",
+        "main_blob": "6a84ac8f9717b1c83d7f6f7d1b2415abd7a1a326",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/lib/__tests__/instruction-audio.test.ts",
+        "historical_blob": "bb62f2113b71ab79ce98f8ce4c957812b4e52c1b",
+        "lane_blob": "f8fa7e7893c106629b7b4b1cd2dc867339715da7",
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/lib/__tests__/picture-name-recordings.test.ts",
+        "historical_blob": "25de78a589bfdda7fe9936bf8ef2b3aef6aa608c",
+        "lane_blob": "25de78a589bfdda7fe9936bf8ef2b3aef6aa608c",
+        "main_blob": "25de78a589bfdda7fe9936bf8ef2b3aef6aa608c",
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/lib/games/gameContent.ts",
+        "historical_blob": "d0ed32355264793e340fbf0012f6c7de79b1aa9f",
+        "lane_blob": "38289c3d761217a5822264373ed9bf3f3d43ce1b",
+        "main_blob": "38289c3d761217a5822264373ed9bf3f3d43ce1b",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/lib/gretel-voice.ts",
+        "historical_blob": "f1c6278e35c413b14b187d8f4c232fc30bc90a72",
+        "lane_blob": "8369974d0da621fce46a4e4ef0807c6c20d7e387",
+        "main_blob": "8369974d0da621fce46a4e4ef0807c6c20d7e387",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/lib/instruction-audio.ts",
+        "historical_blob": "74ba22c458f13fd73f370bf93f8d4d43acf02f72",
+        "lane_blob": "53c893ed4cfd1602b9626edbeaefe7e49e8c470e",
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/routes/cartilla/juego.$gameId.tsx",
+        "historical_blob": "1fb1af9ff21d9b11194977de6bf4771a9f5ef7b1",
+        "lane_blob": "f2d3ac0831c0b97661f08d66fc1af36d6545521a",
+        "main_blob": "f2d3ac0831c0b97661f08d66fc1af36d6545521a",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      }
+    ]
+  },
+  {
+    "historical_pr": 1207,
+    "historical_state": "OPEN",
+    "merged_at": null,
+    "historical_head": "e56f0a44592375b962765f0ed5d4d177cafcfff2",
+    "current_pr": 1325,
+    "current_head": "4605cdaa95b774b2e7ff2c0b04b0320e1b621464",
+    "files": [
+      {
+        "path": "docs/proofs/native-audio-rejection-2026-10-28/REPORT.md",
+        "historical_blob": "ea02c53b7a7e9a6a95931685ad588ed56b9bf98f",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "docs/proofs/native-audio-rejection-2026-10-28/checks.json",
+        "historical_blob": "ff081081df13a58cf06287f05358975865e780b8",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "docs/proofs/native-audio-rejection-2026-10-28/desktop.png",
+        "historical_blob": "7d5786898dffacc404c8db4c071bc3df7217f6e8",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "docs/proofs/native-audio-rejection-2026-10-28/desktop.webm",
+        "historical_blob": "a94c62baef76d1d6cd2f61e1138f7b744672992a",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "docs/proofs/native-audio-rejection-2026-10-28/phone.png",
+        "historical_blob": "5abae418ffe26e52e1049621a61f1a47a7e29b8f",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "docs/proofs/native-audio-rejection-2026-10-28/phone.webm",
+        "historical_blob": "66d2e8a5d285437729c339f884f64550b8696c02",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "scripts/proofs/check-native-audio-rejection.mjs",
+        "historical_blob": "1990e7497a0630a9bbb5a25a6df3e3bf57f1d673",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/components/audio/PictureAudioLifecycle.tsx",
+        "historical_blob": "08397da6a584413f9b50e46cecd082d06cbb5052",
+        "lane_blob": "637c0fa4cb2271adcd8f734042a1eaa524590566",
+        "main_blob": "637c0fa4cb2271adcd8f734042a1eaa524590566",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/components/audio/__tests__/PictureAudioLifecycle.test.tsx",
+        "historical_blob": "d2d2cf0e1572317a02592261cc1cec460e90b5d6",
+        "lane_blob": null,
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      }
+    ]
+  },
+  {
+    "historical_pr": 1015,
+    "historical_state": "OPEN",
+    "merged_at": null,
+    "historical_head": "10409fe824b78cce1c25825003a56337e3e0c1fd",
+    "current_pr": 1326,
+    "current_head": "8ec0aa5b35ac2cde7eb73d31bb664deeb24b7124",
+    "files": [
+      {
+        "path": "public/cartilla/art/chano-scene/ball-ma.svg",
+        "historical_blob": "6f375b3c7433c112616967d6b74f262b2f6939e8",
+        "lane_blob": "6f375b3c7433c112616967d6b74f262b2f6939e8",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/ball-me.svg",
+        "historical_blob": "c9d18e2d8378157e272fd19da6225f709aacbb7b",
+        "lane_blob": "c9d18e2d8378157e272fd19da6225f709aacbb7b",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/ball-mi.svg",
+        "historical_blob": "43ee0e0bf94f312bbe3b5891368714701e772c35",
+        "lane_blob": "43ee0e0bf94f312bbe3b5891368714701e772c35",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/ball-mu.svg",
+        "historical_blob": "26693878042a36964064c580ec339912b38ba47f",
+        "lane_blob": "26693878042a36964064c580ec339912b38ba47f",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/chano-arm-left.svg",
+        "historical_blob": "e63459816c67f1213918502a5c18c95466bd5075",
+        "lane_blob": "e63459816c67f1213918502a5c18c95466bd5075",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/chano-arm-right.svg",
+        "historical_blob": "88111110097fc8819e54d700967180160ad3f93f",
+        "lane_blob": "88111110097fc8819e54d700967180160ad3f93f",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/chano-body.svg",
+        "historical_blob": "3ee703972c2628fb1f5cca621208ccc84a6adb15",
+        "lane_blob": "3ee703972c2628fb1f5cca621208ccc84a6adb15",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/scene.svg",
+        "historical_blob": "47bb50f128ad5db0d1a5dc7888fdefe62b09d621",
+        "lane_blob": "47bb50f128ad5db0d1a5dc7888fdefe62b09d621",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/ChanoScene.tsx",
+        "historical_blob": "42d078154256fd1684f9c06079905b71129ae111",
+        "lane_blob": "0d253f558db272d71d8b32fa10a2ea292472c1b5",
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/chano.css",
+        "historical_blob": "17e455beac5d2cc475e39c03177d7fcf715c159b",
+        "lane_blob": "3eff1b7b129f4dba5d547198dd152fbf9f746f5e",
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/layout.ts",
+        "historical_blob": "6102254e46b209e38d41161c56a1311590d6f4e9",
+        "lane_blob": "6102254e46b209e38d41161c56a1311590d6f4e9",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/words.ts",
+        "historical_blob": "c87ecd0545b190fdaae1fcb2af3991c2f8fcdf39",
+        "lane_blob": "c87ecd0545b190fdaae1fcb2af3991c2f8fcdf39",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/routes/cartilla/juego.$gameId.tsx",
+        "historical_blob": "2a4dfaa50bbb963d149cadde733c5b1bf4042f7e",
+        "lane_blob": "447648be738d879b5723ccc439073d54d9aede57",
+        "main_blob": "f2d3ac0831c0b97661f08d66fc1af36d6545521a",
+        "disposition": "different or absent: preserve; not automatically transferable"
+      }
+    ]
+  },
+  {
+    "historical_pr": 1045,
+    "historical_state": "CLOSED",
+    "merged_at": null,
+    "historical_head": "c7c505952867cbdd9cea541f59c0cbea07598ca1",
+    "current_pr": 1326,
+    "current_head": "8ec0aa5b35ac2cde7eb73d31bb664deeb24b7124",
+    "files": [
+      {
+        "path": "public/cartilla/art/chano-scene/juggle-ball-ma.svg",
+        "historical_blob": "9f72eb351463ed45e85d1a9ed74c5f54123950c1",
+        "lane_blob": "9f72eb351463ed45e85d1a9ed74c5f54123950c1",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/juggle-ball-me.svg",
+        "historical_blob": "52ea1c85ef27d13b1f2b2eb94257d4f676e196d7",
+        "lane_blob": "52ea1c85ef27d13b1f2b2eb94257d4f676e196d7",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/juggle-ball-mi.svg",
+        "historical_blob": "caf3fb5c7dce87b2a220845084bcbd8c00aef026",
+        "lane_blob": "caf3fb5c7dce87b2a220845084bcbd8c00aef026",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/juggle-ball-mo.svg",
+        "historical_blob": "1e5168b8c9960125a11876287fe89a0d7c0191d9",
+        "lane_blob": "1e5168b8c9960125a11876287fe89a0d7c0191d9",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/juggle-ball-mu.svg",
+        "historical_blob": "a2e6d6964ce974ac1912cf649340b6449acfa57a",
+        "lane_blob": "a2e6d6964ce974ac1912cf649340b6449acfa57a",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "public/cartilla/art/chano-scene/scene-juggle-bg.svg",
+        "historical_blob": "bcbf94345e2ee0e06433527c326bb4f9febb0c92",
+        "lane_blob": "bcbf94345e2ee0e06433527c326bb4f9febb0c92",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/ChanoScene.tsx",
+        "historical_blob": "7580a27a75252b1caad0499cd60799aff8f83524",
+        "lane_blob": "0d253f558db272d71d8b32fa10a2ea292472c1b5",
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/__tests__/juggle.test.ts",
+        "historical_blob": "3e05bbfd730087abc195c6f7b22527670d260aa4",
+        "lane_blob": "3e05bbfd730087abc195c6f7b22527670d260aa4",
+        "main_blob": null,
+        "disposition": "same blob already on current lane"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/chano.css",
+        "historical_blob": "06e6edcf2f53a76cf4b8a35fa3f4e672876664ac",
+        "lane_blob": "3eff1b7b129f4dba5d547198dd152fbf9f746f5e",
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      },
+      {
+        "path": "src/components/cartilla/games/chano/juggle.ts",
+        "historical_blob": "860b43b29ce89ee1344cc5ae333355f0a5605322",
+        "lane_blob": "9c75efe10ee9717e0a40caf44add46e6d6e09e63",
+        "main_blob": null,
+        "disposition": "different or absent: preserve; not automatically transferable"
+      }
+    ]
+  }
+]

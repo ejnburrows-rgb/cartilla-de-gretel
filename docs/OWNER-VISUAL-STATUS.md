@@ -1,3 +1,42 @@
+### Delivery recovery checkpoint: 2026-11-27
+
+**OVERALL: NOT TESTED** for the complete client demonstration.
+This is recovery of existing work, not authorization for new implementation.
+
+```mermaid
+flowchart TD
+  A["La Cartilla: main 5e1c8378"] --> B["Production record 3c559eea: later main difference is documentation"]
+  A --> C["Existing five open PRs: preserved, none merged"]
+  C --> D["Curriculum: sanitized production evidence recovery only"]
+  C --> E["Audio / motion / images / performance: unfinished gates retained"]
+  B --> F["Current live user-flow acceptance: NOT TESTED in this recovery"]
+```
+
+```mermaid
+flowchart TD
+  A["Owner: recover authorized work; no new implementation"] --> B["Source Slack posts + exact GitHub blob comparisons"]
+  B --> C["Manifest / safe screenshots / historical dispositions"]
+  C --> D["Existing work/curriculum branch; verify remote commit"]
+  D --> E["Same consolidated report in issue 877"]
+  E --> F["WAITING: original-session receipts, sources, exact-head review and previews"]
+  F --> G["No paid worker resume / Tutor edit / merge / deployment / deletion"]
+```
+
+| Area | Evidence boundary and next action |
+| --- | --- |
+| Book Cover & Opening | Production cover capture recovered; candidate real-controls path NOT TESTED. |
+| Student Workbook | Production L7 evidence recovered. Current 24-lesson mounted acceptance NOT TESTED. |
+| Teacher Flip Chart | Selected production presenter screenshots recovered. Candidate 62-sheet acceptance NOT TESTED. L7 guide source WAITING. |
+| Artwork & Motion | Current #1326/#1327 preserved; source approvals and exact-head acceptance remain separate. |
+| Gretel Voice & Tutor | Tutor owned elsewhere and untouched. #1325 audio transfer discrepancy recorded, not repaired. |
+| Games & Activities | Twelve-game source reports recovered; no candidate-head verification inferred. |
+| Website & Publication | No publication performed. Missing-chunk/storage/offline proof still required from original performance session. |
+
+Proof: [delivery recovery receipt](consolidation/recovery-2026-11-27/README.md).
+Existing full repository map and historical branch inventories below remain dated evidence, not new live dispositions.
+
+---
+
 ### Current evidence checkpoint: 2026-11-26, round 2
 
 **OVERALL: NOT TESTED** for the complete client demonstration. New game/motion evidence and the first stability repair have arrived. No merge, deployment, artwork swap or deletion occurred.

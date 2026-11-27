@@ -1,0 +1,16 @@
+[
+  {
+    "artifact": "CHECKS.md",
+    "target": "docs/consolidation/CHECKS.md",
+    "local_blob": "9a50740ae7038435a7894a415b10833334244065",
+    "candidate_blob": "1e16d2f98a304b397b2d85ecfcb4adcf22b32b70",
+    "identical": false
+  },
+  {
+    "artifact": "OWNER-VISUAL-STATUS.md",
+    "target": "docs/OWNER-VISUAL-STATUS.md",
+    "local_blob": "2f78461fb487c0ec6a3ef09d6e499c838bab5412",
+    "candidate_blob": "9123944310c5cc97e51b481cd4444d64168337af",
+    "identical": false
+  }
+]
