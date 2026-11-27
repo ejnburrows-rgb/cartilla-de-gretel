@@ -1,0 +1,1417 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gretel Híbrida ($0) — Malla 2D, IK y Pizarra Viva</title>
+    <style>
+      @font-face {
+        font-family: "Caveat";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("/fonts/caveat-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Andika";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/andika-400-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Andika";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("/fonts/andika-700-latin.woff2") format("woff2");
+      }
+
+      :root {
+        --paper: #eef2ee;
+        --paper-card: #ffffff;
+        --ink: #2b1f16;
+        --ink-muted: #524336;
+        --accent: #1d4e89;
+        --accent-soft: #e6eef7;
+        --border: #cfd9cf;
+        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Andika", system-ui, -apple-system, sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.5;
+      }
+
+      .page {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 20px 16px 64px;
+      }
+
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 14px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.42rem;
+        line-height: 1.25;
+      }
+
+      h2 {
+        margin: 28px 0 12px;
+        font-size: 1.1rem;
+      }
+
+      .subtitle {
+        margin: 4px 0 0;
+        color: var(--ink-muted);
+        font-size: 0.92rem;
+        max-width: 66ch;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      button,
+      select {
+        font-family: inherit;
+        font-size: 0.88rem;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--paper-card);
+        color: var(--ink);
+        padding: 8px 13px;
+        cursor: pointer;
+        transition: background 140ms var(--ease-out), border-color 140ms var(--ease-out);
+      }
+
+      button:hover,
+      select:hover {
+        border-color: var(--accent);
+      }
+
+      button.primary {
+        background: var(--accent);
+        color: #ffffff;
+        border-color: var(--accent);
+        font-weight: 700;
+      }
+
+      button[aria-pressed="true"] {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+        color: #133661;
+        font-weight: 700;
+      }
+
+      .panel {
+        background: var(--paper-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 14px;
+      }
+
+      .stage-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .chip-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .viewport-frame {
+        margin: 0 auto;
+        padding: 12px;
+        border-radius: 16px;
+        background: #10251c;
+        color: #eef5ee;
+        overflow: hidden;
+        max-width: 100%;
+        transition: width 260ms var(--ease-out);
+      }
+
+      .viewport-frame.desktop {
+        width: 100%;
+      }
+
+      .viewport-frame.mobile {
+        width: 390px;
+        border-radius: 26px;
+        border: 5px solid #2b221b;
+      }
+
+      .stage-canvas-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .viewport-frame.mobile .stage-canvas-wrap {
+        aspect-ratio: 16 / 10;
+      }
+
+      .stage-canvas-wrap svg,
+      .stage-canvas-wrap canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+      }
+
+      .status-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px 16px;
+        margin-top: 10px;
+        font-size: 0.85rem;
+        color: #d6e6dc;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #f4f8f4;
+        font-weight: 700;
+        font-size: 0.8rem;
+      }
+
+      .scrub-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+        font-size: 0.86rem;
+        color: var(--ink-muted);
+      }
+
+      .scrub-row input[type="range"] {
+        flex: 1 1 240px;
+        accent-color: var(--accent);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--paper-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+      }
+
+      .card p {
+        margin: 8px 0 0;
+        font-size: 0.84rem;
+        color: var(--ink-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div>
+          <h1>Gretel Híbrida ($0) — Malla Suave + Brazo IK + Pizarra Sincronizada</h1>
+          <p class="subtitle">
+            Demostración interactiva continua: Gretel escucha al estudiante, asiente, gira hacia su
+            pizarra "Cartilla de Gretel", escribe y encierra sílabas con tiza en tiempo real, borra
+            una nota auxiliar con el borrador, vuelve a mirar al niño y pronuncia grabaciones
+            reales con sincronía fonética Rhubarb.
+          </p>
+        </div>
+        <div class="toolbar">
+          <button type="button" id="btnDesktop" aria-pressed="true">Escritorio (16:10)</button>
+          <button type="button" id="btnMobile" aria-pressed="false">Móvil (390×844)</button>
+          <button type="button" id="btnReduced" aria-pressed="false">Movimiento reducido</button>
+        </div>
+      </header>
+
+      <section class="panel" aria-label="Escenario interactivo de Gretel">
+        <div class="stage-controls">
+          <div class="chip-group">
+            <button type="button" id="btnRunSequence" class="primary">
+              ▶ Ejecutar secuencia completa (11.6 s)
+            </button>
+            <button type="button" data-jump="0.4">1. Escucha</button>
+            <button type="button" data-jump="4.6">2. Tiza e IK</button>
+            <button type="button" data-jump="6.6">3. Borrador</button>
+            <button type="button" data-jump="8.6">4. Voz Rhubarb</button>
+          </div>
+          <div class="chip-group">
+            <label for="wordSelect" style="font-size:0.86rem;color:var(--ink-muted)">Palabra:</label>
+            <select id="wordSelect">
+              <option value="abeja">abeja (a · be · ja)</option>
+              <option value="abanico">abanico (a · ba · ni · co)</option>
+              <option value="oso">oso (o · so)</option>
+              <option value="elefante">elefante (e · le · fan · te)</option>
+              <option value="escuela">escuela (es · cue · la)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="viewportFrame" class="viewport-frame desktop">
+          <div class="stage-canvas-wrap">
+            <svg
+              viewBox="0 0 1600 1000"
+              preserveAspectRatio="xMidYMid meet"
+              role="img"
+              aria-label="Pizarra escolar Cartilla de Gretel"
+            >
+              <defs>
+                <radialGradient id="hpSlateGrad" cx="42%" cy="44%" r="68%">
+                  <stop offset="0%" stop-color="#1b4331" />
+                  <stop offset="65%" stop-color="#143325" />
+                  <stop offset="100%" stop-color="#0d2319" />
+                </radialGradient>
+                <filter id="hpSlateNoise" x="0%" y="0%" width="100%" height="100%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="2" seed="7" result="n" />
+                  <feColorMatrix
+                    type="matrix"
+                    in="n"
+                    values="0 0 0 0 0.92 0 0 0 0 0.96 0 0 0 0 0.90 0 0 0 0.045 0"
+                  />
+                </filter>
+                <filter id="hpChalkFilter" x="-4%" y="-4%" width="108%" height="108%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.065" numOctaves="2" seed="3" result="c" />
+                  <feDisplacementMap in="SourceGraphic" in2="c" scale="1.6" />
+                </filter>
+                <clipPath id="hpWriteClip">
+                  <rect id="hpWriteRect" x="92" y="275" width="0" height="130" />
+                </clipPath>
+                <clipPath id="hpScratchClip">
+                  <rect id="hpScratchRect" x="405" y="196" width="235" height="86" />
+                </clipPath>
+              </defs>
+
+              <rect x="0" y="0" width="1600" height="1000" rx="22" fill="#5e371b" />
+              <rect x="10" y="10" width="1580" height="980" rx="16" fill="none" stroke="#8a5630" stroke-width="18" />
+              <rect x="22" y="22" width="1556" height="956" rx="10" fill="none" stroke="#462611" stroke-width="8" />
+              <rect x="28" y="28" width="1544" height="872" rx="6" fill="url(#hpSlateGrad)" />
+              <rect x="28" y="28" width="1544" height="872" rx="6" filter="url(#hpSlateNoise)" />
+              <ellipse cx="330" cy="410" rx="250" ry="125" fill="rgba(236, 242, 230, 0.032)" />
+              <line
+                x1="96"
+                y1="478"
+                x2="580"
+                y2="478"
+                stroke="rgba(238, 242, 228, 0.085)"
+                stroke-width="2"
+                stroke-dasharray="10 10"
+              />
+
+              <g filter="url(#hpChalkFilter)">
+                <text
+                  x="92"
+                  y="122"
+                  fill="#f4f1e4"
+                  fill-opacity="0.94"
+                  font-family="'Caveat', cursive"
+                  font-size="74"
+                  font-weight="700"
+                >
+                  Cartilla de Gretel
+                </text>
+                <path
+                  d="M 96 140 Q 256 148 446 136"
+                  fill="none"
+                  stroke="#f4f1e4"
+                  stroke-opacity="0.48"
+                  stroke-width="3.5"
+                  stroke-linecap="round"
+                />
+              </g>
+
+              <g id="hpScratchGroup" clip-path="url(#hpScratchClip)" filter="url(#hpChalkFilter)">
+                <text
+                  id="hpScratchText"
+                  x="418"
+                  y="248"
+                  fill="#e4eadf"
+                  fill-opacity="0.74"
+                  font-family="'Caveat', cursive"
+                  font-size="44"
+                  font-weight="600"
+                >
+                  práctica: a
+                </text>
+              </g>
+
+              <g clip-path="url(#hpWriteClip)" filter="url(#hpChalkFilter)">
+                <text
+                  id="hpWordText"
+                  x="120"
+                  y="356"
+                  fill="#f7f5ea"
+                  fill-opacity="0.96"
+                  font-family="'Andika', sans-serif"
+                  font-size="78"
+                  font-weight="700"
+                  letter-spacing="0.02em"
+                >
+                  abeja
+                </text>
+              </g>
+
+              <path
+                id="hpUnderline"
+                d="M 112 386 Q 246 394 382 384"
+                fill="none"
+                stroke="#f5db7f"
+                stroke-width="5.5"
+                stroke-linecap="round"
+                pathLength="100"
+                stroke-dasharray="100"
+                stroke-dashoffset="100"
+                filter="url(#hpChalkFilter)"
+              />
+
+              <g filter="url(#hpChalkFilter)">
+                <text
+                  id="hpSyllableText"
+                  x="124"
+                  y="456"
+                  fill="#d8eee1"
+                  fill-opacity="0"
+                  font-family="'Caveat', cursive"
+                  font-size="54"
+                  font-weight="700"
+                >
+                  a   be   ja
+                </text>
+              </g>
+
+              <ellipse
+                id="hpCircle"
+                cx="142"
+                cy="444"
+                rx="46"
+                ry="32"
+                fill="none"
+                stroke="#f3a692"
+                stroke-width="5"
+                stroke-linecap="round"
+                pathLength="100"
+                stroke-dasharray="100"
+                stroke-dashoffset="100"
+                filter="url(#hpChalkFilter)"
+              />
+
+              <g>
+                <rect x="24" y="896" width="1552" height="16" rx="3" fill="#8b5932" />
+                <rect x="20" y="910" width="1560" height="44" rx="5" fill="#633a1d" stroke="#3f220e" stroke-width="3" />
+                <line x1="26" y1="912" x2="1574" y2="912" stroke="#a67248" stroke-width="2.5" opacity="0.7" />
+                <g transform="translate(110, 868)">
+                  <rect x="4" y="20" width="128" height="14" rx="2" fill="#2c2e33" />
+                  <rect x="0" y="6" width="136" height="16" rx="4" fill="#8d5a34" stroke="#4c2c13" stroke-width="2" />
+                  <rect x="6" y="8" width="124" height="5" rx="2" fill="#ad774d" opacity="0.65" />
+                </g>
+                <g transform="translate(278, 886) rotate(-2)">
+                  <rect x="0" y="0" width="76" height="12" rx="5" fill="#f7f5eb" stroke="#d5d1c0" stroke-width="1.5" />
+                </g>
+                <g transform="translate(368, 888) rotate(3.5)">
+                  <rect x="0" y="0" width="52" height="11" rx="4.5" fill="#f4e08e" stroke="#cfba67" stroke-width="1.5" />
+                </g>
+                <g transform="translate(436, 887) rotate(-1.5)">
+                  <rect x="0" y="0" width="48" height="11" rx="4.5" fill="#f2aba0" stroke="#c98076" stroke-width="1.5" />
+                </g>
+              </g>
+            </svg>
+            <canvas id="hybridCanvas" width="1600" height="1000"></canvas>
+          </div>
+
+          <div class="status-bar">
+            <span>
+              <span class="badge" id="phaseBadge">1. Escuchando al estudiante</span>
+            </span>
+            <span id="telemetryText">Visema: X · Giro: 0 % · Modo: Malla 2D + IK local ($0)</span>
+          </div>
+        </div>
+
+        <div class="scrub-row">
+          <label for="timelineScrub">Línea de tiempo (0.0 – 11.6 s):</label>
+          <input id="timelineScrub" type="range" min="0" max="11.6" step="0.02" value="0.4" />
+          <span id="timeReadout">0.40 s</span>
+        </div>
+
+        <audio id="voiceAudio" preload="auto"></audio>
+      </section>
+
+      <h2>Candidatos de Poses, Articulaciones y Referencias para Google Flow (Pendiente de Aprobación)</h2>
+      <div class="gallery-grid">
+        <article class="card" style="grid-column: 1 / -1;">
+          <img
+            src="/cartilla/images/gretel/tutor/hybrid-candidates/poses/pose-approval-sheet.png"
+            alt="Pliego de poses de Gretel: frente, giro 3/4 izquierda y derecha, brazo superior, mano con tiza y borrador"
+          />
+          <p>
+            Pliego completo de partes articuladas conservando exactamente la identidad aprobada, el
+            vestido overol azul con flores, la blusa naranja a rayas y el lazo rojo.
+          </p>
+        </article>
+        <article class="card">
+          <img
+            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-listening.png"
+            alt="Referencia Google Flow: escucha natural frente a la pizarra"
+          />
+          <p>Ref. 1 — Escucha y asentimiento (frente al estudiante)</p>
+        </article>
+        <article class="card">
+          <img
+            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-turn-left.png"
+            alt="Referencia Google Flow: giro 3/4 hacia la pizarra"
+          />
+          <p>Ref. 2 — Giro 3/4 hacia el área de tiza</p>
+        </article>
+        <article class="card">
+          <img
+            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-writing.png"
+            alt="Referencia Google Flow: escribiendo con tiza"
+          />
+          <p>Ref. 3 — Mano escribiendo y subrayando con tiza</p>
+        </article>
+        <article class="card">
+          <img
+            src="/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-erasing.png"
+            alt="Referencia Google Flow: borrando la pizarra"
+          />
+          <p>Ref. 4 — Brazo limpiando con borrador escolar</p>
+        </article>
+      </div>
+    </div>
+
+    <script>
+      const RIG_BASE = "/cartilla/images/gretel/tutor/chalkboard-candidates/";
+      const HYB_BASE = "/cartilla/images/gretel/tutor/hybrid-candidates/poses/";
+      const POSE_W = 1024;
+      const POSE_H = 662;
+      const STAGE_W = 1600;
+      const STAGE_H = 1000;
+      const SEQ_DURATION = 11.6;
+
+      const AUDIO_SAMPLES = {
+        abeja: {
+          word: "abeja",
+          syllables: ["a", "be", "ja"],
+          audioSrc: "/audio/voz/vocabulario/abeja.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-abeja.visemes.json",
+          fallbackDuration: 1.56,
+        },
+        abanico: {
+          word: "abanico",
+          syllables: ["a", "ba", "ni", "co"],
+          audioSrc: "/audio/voz/vocabulario/abanico.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-abanico.visemes.json",
+          fallbackDuration: 2.05,
+        },
+        oso: {
+          word: "oso",
+          syllables: ["o", "so"],
+          audioSrc: "/audio/voz/vocabulario/oso.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-oso.visemes.json",
+          fallbackDuration: 1.49,
+        },
+        elefante: {
+          word: "elefante",
+          syllables: ["e", "le", "fan", "te"],
+          audioSrc: "/audio/voz/vocabulario/elefante.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-elefante.visemes.json",
+          fallbackDuration: 1.72,
+        },
+        escuela: {
+          word: "escuela",
+          syllables: ["es", "cue", "la"],
+          audioSrc: "/audio/voz/vocabulario/escuela.mp3",
+          visemeSrc: "/audio/voz/tutor/leccion-1/l1-model-escuela.visemes.json",
+          fallbackDuration: 1.65,
+        },
+      };
+
+      const IMAGE_URLS = {
+        faceBase: RIG_BASE + "gretel-face-base.png",
+        irisL: RIG_BASE + "iris-left.png",
+        irisR: RIG_BASE + "iris-right.png",
+        lashes: RIG_BASE + "eyelashes-frame.png",
+        lid25: RIG_BASE + "lid-25.png",
+        lid50: RIG_BASE + "lid-50.png",
+        lid75: RIG_BASE + "lid-75.png",
+        lid100: RIG_BASE + "lid-100.png",
+        browL: RIG_BASE + "brow-left.png",
+        browR: RIG_BASE + "brow-right.png",
+        mouthX: RIG_BASE + "mouth-X.png",
+        mouthA: RIG_BASE + "mouth-A.png",
+        mouthB: RIG_BASE + "mouth-B.png",
+        mouthC: RIG_BASE + "mouth-C.png",
+        mouthD: RIG_BASE + "mouth-D.png",
+        mouthE: RIG_BASE + "mouth-E.png",
+        mouthF: RIG_BASE + "mouth-F.png",
+        mouthG: RIG_BASE + "mouth-G.png",
+        pose3qLeft: HYB_BASE + "pose-3q-left.png",
+        armUpper: HYB_BASE + "arm-upper.png",
+        armForearmChalk: HYB_BASE + "arm-forearm-chalk.png",
+        armForearmEraser: HYB_BASE + "arm-forearm-eraser.png",
+      };
+
+      function clamp(v, lo, hi) {
+        return Math.max(lo, Math.min(hi, v));
+      }
+      function clamp01(v) {
+        return clamp(v, 0, 1);
+      }
+      function smoothstep(e0, e1, x) {
+        const t = clamp01((x - e0) / (e1 - e0));
+        return t * t * (3 - 2 * t);
+      }
+      function easeInOutCubic(t) {
+        const u = clamp01(t);
+        return u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+      }
+      function lerp(a, b, t) {
+        return a + (b - a) * clamp01(t);
+      }
+
+      function buildMesh(width, height, cols, rows) {
+        const vertices = [];
+        for (let r = 0; r <= rows; r++) {
+          const v = r / rows;
+          const y0 = v * height;
+          for (let c = 0; c <= cols; c++) {
+            const u = c / cols;
+            const x0 = u * width;
+            const headDist = Math.hypot((u - 0.51) / 0.24, (v - 0.44) / 0.36);
+            const wHead = clamp01(1 - smoothstep(0.55, 1.45, headDist)) * (1 - smoothstep(0.68, 0.92, v));
+            const wChest = smoothstep(0.65, 0.96, v) * (1 - Math.abs(u - 0.52) * 0.4);
+            const wHairLeft = smoothstep(0.32, 0.14, u) * smoothstep(0.24, 0.62, v);
+            const wHairRight = smoothstep(0.68, 0.86, u) * smoothstep(0.24, 0.62, v);
+            const wBow = clamp01(1 - smoothstep(0.18, 0.36, v)) * (1 - Math.abs(u - 0.52) * 1.4);
+            vertices.push({ u, v, x0, y0, wHead, wChest, wHairLeft, wHairRight, wBow });
+          }
+        }
+        const indices = [];
+        const stride = cols + 1;
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const tl = r * stride + c;
+            const tr = tl + 1;
+            const bl = (r + 1) * stride + c;
+            const br = bl + 1;
+            indices.push(tl, tr, bl, tr, br, bl);
+          }
+        }
+        return { width, height, cols, rows, vertices, indices };
+      }
+
+      function deformMesh(mesh, pose) {
+        const out = new Float32Array(mesh.vertices.length * 2);
+        const px = mesh.width * 0.5;
+        const py = mesh.height * 0.72;
+        const tilt = (clamp(pose.headTiltDeg, -5, 5) * Math.PI) / 180;
+        const yaw = clamp(pose.headYaw, -1, 1);
+        const breathe = clamp(pose.breathePhase, -1, 1);
+        const nodY = clamp(pose.headNodPx, -6, 6);
+        const hairL = (clamp(pose.hairSwayLeftDeg, -3, 3) * Math.PI) / 180;
+        const hairR = (clamp(pose.hairSwayRightDeg, -3, 3) * Math.PI) / 180;
+
+        for (let i = 0; i < mesh.vertices.length; i++) {
+          const vt = mesh.vertices[i];
+          let x = vt.x0;
+          let y = vt.y0;
+          if (vt.wHead > 0.001) {
+            const rx = x - px;
+            const ry = y - py;
+            const lt = tilt * vt.wHead;
+            const cosT = Math.cos(lt);
+            const sinT = Math.sin(lt);
+            const yawShift = yaw * 14 * vt.wHead * (1 - Math.abs(vt.u - 0.5) * 1.4);
+            x = px + (rx * cosT - ry * sinT) + yawShift;
+            y = py + (rx * sinT + ry * cosT) + nodY * vt.wHead;
+          }
+          if (vt.wChest > 0.001) {
+            x += (vt.u - 0.5) * breathe * 2.4 * vt.wChest;
+            y -= breathe * 2.8 * vt.wChest;
+          }
+          if (vt.wBow > 0.001) {
+            x += yaw * 4.5 * vt.wBow;
+            y += nodY * 0.15 * vt.wBow;
+          }
+          if (vt.wHairLeft > 0.001) {
+            const hx = mesh.width * 0.28;
+            const hy = mesh.height * 0.36;
+            const dx = x - hx;
+            const dy = y - hy;
+            const a = hairL * vt.wHairLeft;
+            x = hx + dx * Math.cos(a) - dy * Math.sin(a);
+            y = hy + dx * Math.sin(a) + dy * Math.cos(a);
+          }
+          if (vt.wHairRight > 0.001) {
+            const hx = mesh.width * 0.72;
+            const hy = mesh.height * 0.38;
+            const dx = x - hx;
+            const dy = y - hy;
+            const a = hairR * vt.wHairRight;
+            x = hx + dx * Math.cos(a) - dy * Math.sin(a);
+            y = hy + dx * Math.sin(a) + dy * Math.cos(a);
+          }
+          out[i * 2] = x;
+          out[i * 2 + 1] = y;
+        }
+        return out;
+      }
+
+      function solveTwoBoneIK(shoulder, target, upperLen, forearmLen, bendSign) {
+        const dx = target.x - shoulder.x;
+        const dy = target.y - shoulder.y;
+        const rawDist = Math.hypot(dx, dy);
+        const minR = Math.abs(upperLen - forearmLen) + 6;
+        const maxR = (upperLen + forearmLen) * 0.985;
+        const dist = clamp(rawDist, minR, maxR);
+        const base = Math.atan2(dy, dx);
+        const cosA = clamp(
+          (upperLen * upperLen + dist * dist - forearmLen * forearmLen) / (2 * upperLen * dist),
+          -1,
+          1,
+        );
+        const upperAngle = base + bendSign * Math.acos(cosA);
+        const elbow = {
+          x: shoulder.x + Math.cos(upperAngle) * upperLen,
+          y: shoulder.y + Math.sin(upperAngle) * upperLen,
+        };
+        const reachAngle = base;
+        const clampedTarget = {
+          x: shoulder.x + Math.cos(reachAngle) * dist,
+          y: shoulder.y + Math.sin(reachAngle) * dist,
+        };
+        const forearmAngle = Math.atan2(clampedTarget.y - elbow.y, clampedTarget.x - elbow.x);
+        return { shoulder, elbow, hand: clampedTarget, upperAngle, forearmAngle };
+      }
+
+      function computeChalkTip(p) {
+        const u = clamp01(p);
+        if (u < 0.45) {
+          const w = u / 0.45;
+          return { x: 120 + w * 250, y: 342 + Math.sin(w * Math.PI * 10) * 14 };
+        }
+        if (u < 0.68) {
+          const ul = (u - 0.45) / 0.23;
+          return { x: 112 + ul * 270, y: 386 + Math.sin(ul * Math.PI) * 5 };
+        }
+        const c = (u - 0.68) / 0.32;
+        const ang = -Math.PI * 0.5 + c * Math.PI * 2;
+        return { x: 142 + Math.cos(ang) * 46, y: 444 + Math.sin(ang) * 32 };
+      }
+
+      function evaluateDirector(timeSec, speechDur, reduced) {
+        if (reduced) {
+          return {
+            phase: "speak_rhubarb",
+            label: "Modo calmado",
+            turnBlend: 0,
+            expression: "smiling",
+            gaze: "student",
+            armRaise: 0,
+            tool: "none",
+            ikTarget: { x: 640, y: 740 },
+            writeP: 1,
+            underlineP: 1,
+            circleP: 1,
+            syllP: 1,
+            scratchEraseP: 1,
+            speechT: null,
+          };
+        }
+        const t = clamp(timeSec, 0, SEQ_DURATION);
+        const rest = { x: 640, y: 740 };
+        if (t < 1.7) {
+          return {
+            phase: "listen_1",
+            label: "1. Escuchando al estudiante",
+            turnBlend: 0,
+            expression: "listening",
+            gaze: "student",
+            armRaise: 0,
+            tool: "none",
+            ikTarget: rest,
+            writeP: 0,
+            underlineP: 0,
+            circleP: 0,
+            syllP: 0,
+            scratchEraseP: 0,
+            speechT: null,
+          };
+        }
+        if (t < 2.5) {
+          return {
+            phase: "acknowledge",
+            label: "2. Asintiendo con calidez",
+            turnBlend: 0,
+            expression: "encouraging",
+            gaze: "student",
+            armRaise: 0,
+            tool: "none",
+            ikTarget: rest,
+            writeP: 0,
+            underlineP: 0,
+            circleP: 0,
+            syllP: 0,
+            scratchEraseP: 0,
+            speechT: null,
+          };
+        }
+        if (t < 3.3) {
+          const p = easeInOutCubic((t - 2.5) / 0.8);
+          return {
+            phase: "turn_to_board",
+            label: "3. Girando hacia la pizarra",
+            turnBlend: p,
+            expression: "demonstrating",
+            gaze: "chalkboard-teaching",
+            armRaise: p,
+            tool: p > 0.2 ? "chalk" : "none",
+            ikTarget: { x: lerp(rest.x, 120, p), y: lerp(rest.y, 342, p) },
+            writeP: 0,
+            underlineP: 0,
+            circleP: 0,
+            syllP: 0,
+            scratchEraseP: 0,
+            speechT: null,
+          };
+        }
+        if (t < 6.1) {
+          const p = clamp01((t - 3.3) / 2.8);
+          return {
+            phase: "write_demonstrate",
+            label: "4. Escribiendo y subrayando en tiza",
+            turnBlend: 1,
+            expression: "demonstrating",
+            gaze: "chalkboard-teaching",
+            armRaise: 1,
+            tool: "chalk",
+            ikTarget: computeChalkTip(p),
+            writeP: clamp01(p / 0.45),
+            underlineP: clamp01((p - 0.45) / 0.23),
+            circleP: clamp01((p - 0.68) / 0.32),
+            syllP: clamp01((p - 0.38) / 0.25),
+            scratchEraseP: 0,
+            speechT: null,
+          };
+        }
+        if (t < 7.4) {
+          const p = clamp01((t - 6.1) / 1.3);
+          return {
+            phase: "erase_board",
+            label: "5. Borrando nota auxiliar",
+            turnBlend: 1,
+            expression: "demonstrating",
+            gaze: "chalkboard-teaching",
+            armRaise: 1,
+            tool: "eraser",
+            ikTarget: {
+              x: 415 + (0.5 - 0.5 * Math.cos(p * Math.PI * 3)) * 185,
+              y: 238 + Math.sin(p * Math.PI * 2) * 18,
+            },
+            writeP: 1,
+            underlineP: 1,
+            circleP: 1,
+            syllP: 1,
+            scratchEraseP: p,
+            speechT: null,
+          };
+        }
+        if (t < 8.2) {
+          const p = easeInOutCubic((t - 7.4) / 0.8);
+          return {
+            phase: "turn_back",
+            label: "6. Volviendo hacia el estudiante",
+            turnBlend: 1 - p,
+            expression: "smiling",
+            gaze: "student",
+            armRaise: 1 - p,
+            tool: p < 0.7 ? "eraser" : "none",
+            ikTarget: { x: lerp(540, rest.x, p), y: lerp(245, rest.y, p) },
+            writeP: 1,
+            underlineP: 1,
+            circleP: 1,
+            syllP: 1,
+            scratchEraseP: 1,
+            speechT: null,
+          };
+        }
+        if (t < 10.0) {
+          const st = Math.min(speechDur, t - 8.2);
+          return {
+            phase: "speak_rhubarb",
+            label: "7. Hablando con audio y Rhubarb",
+            turnBlend: 0,
+            expression: "speaking",
+            gaze: "student",
+            armRaise: 0,
+            tool: "none",
+            ikTarget: rest,
+            writeP: 1,
+            underlineP: 1,
+            circleP: 1,
+            syllP: 1,
+            scratchEraseP: 1,
+            speechT: st,
+          };
+        }
+        return {
+          phase: "listen_feedback",
+          label: "8. Escuchando nuevamente",
+          turnBlend: 0,
+          expression: t > 10.8 ? "encouraging" : "listening",
+          gaze: "student",
+          armRaise: 0,
+          tool: "none",
+          ikTarget: rest,
+          writeP: 1,
+          underlineP: 1,
+          circleP: 1,
+          syllP: 1,
+          scratchEraseP: 1,
+          speechT: null,
+        };
+      }
+
+      function resolveVisemeAt(cues, speechTimeSec) {
+        if (speechTimeSec === null || !cues || cues.length === 0) {
+          return { primary: "X", pAlpha: 1, secondary: null, sAlpha: 0 };
+        }
+        const blendSec = 0.045;
+        let idx = 0;
+        for (let i = 0; i < cues.length; i++) {
+          if (speechTimeSec >= cues[i].start && speechTimeSec <= cues[i].end) {
+            idx = i;
+            break;
+          }
+          if (speechTimeSec > cues[i].end) idx = i;
+        }
+        const cur = cues[idx] || { value: "X", start: 0, end: 1 };
+        const next = cues[idx + 1];
+        if (next && next.value !== cur.value && cur.end - speechTimeSec < blendSec) {
+          const ratio = clamp01((blendSec - (cur.end - speechTimeSec)) / blendSec);
+          return {
+            primary: cur.value === "H" ? "C" : cur.value,
+            pAlpha: 1 - ratio * 0.45,
+            secondary: next.value === "H" ? "C" : next.value,
+            sAlpha: ratio,
+          };
+        }
+        return {
+          primary: cur.value === "H" ? "C" : cur.value,
+          pAlpha: 1,
+          secondary: null,
+          sAlpha: 0,
+        };
+      }
+
+      function drawTri(ctx, img, sx0, sy0, sx1, sy1, sx2, sy2, dx0, dy0, dx1, dy1, dx2, dy2) {
+        const denom = sx0 * (sy1 - sy2) + sx1 * (sy2 - sy0) + sx2 * (sy0 - sy1);
+        if (Math.abs(denom) < 1e-4) return;
+        const cx = (dx0 + dx1 + dx2) / 3;
+        const cy = (dy0 + dy1 + dy2) / 3;
+        const exp = (px, py) => {
+          const vx = px - cx;
+          const vy = py - cy;
+          const len = Math.hypot(vx, vy) || 1;
+          return [px + (vx / len) * 1.45, py + (vy / len) * 1.45];
+        };
+        const [ex0, ey0] = exp(dx0, dy0);
+        const [ex1, ey1] = exp(dx1, dy1);
+        const [ex2, ey2] = exp(dx2, dy2);
+        const a = (dx0 * (sy1 - sy2) + dx1 * (sy2 - sy0) + dx2 * (sy0 - sy1)) / denom;
+        const b = (dy0 * (sy1 - sy2) + dy1 * (sy2 - sy0) + dy2 * (sy0 - sy1)) / denom;
+        const c = (dx0 * (sx2 - sx1) + dx1 * (sx0 - sx2) + dx2 * (sx1 - sx0)) / denom;
+        const d = (dy0 * (sx2 - sx1) + dy1 * (sx0 - sx2) + dy2 * (sx1 - sx0)) / denom;
+        const e =
+          (dx0 * (sx1 * sy2 - sx2 * sy1) +
+            dx1 * (sx2 * sy0 - sx0 * sy2) +
+            dx2 * (sx0 * sy1 - sx1 * sy0)) /
+          denom;
+        const f =
+          (dy0 * (sx1 * sy2 - sx2 * sy1) +
+            dy1 * (sx2 * sy0 - sx0 * sy2) +
+            dy2 * (sx0 * sy1 - sx1 * sy0)) /
+          denom;
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(ex0, ey0);
+        ctx.lineTo(ex1, ey1);
+        ctx.lineTo(ex2, ey2);
+        ctx.closePath();
+        ctx.clip();
+        ctx.transform(a, b, c, d, e, f);
+        ctx.drawImage(img, 0, 0);
+        ctx.restore();
+      }
+
+      const canvas = document.getElementById("hybridCanvas");
+      const mctx = canvas.getContext("2d");
+      const frontCanvas = document.createElement("canvas");
+      frontCanvas.width = POSE_W;
+      frontCanvas.height = POSE_H;
+      const fctx = frontCanvas.getContext("2d");
+      const meshScratch = document.createElement("canvas");
+      meshScratch.width = STAGE_W;
+      meshScratch.height = STAGE_H;
+      const meshCtx = meshScratch.getContext("2d");
+      const mesh = buildMesh(POSE_W, POSE_H, 14, 10);
+
+      const viewportFrame = document.getElementById("viewportFrame");
+      const phaseBadge = document.getElementById("phaseBadge");
+      const telemetryText = document.getElementById("telemetryText");
+      const timelineScrub = document.getElementById("timelineScrub");
+      const timeReadout = document.getElementById("timeReadout");
+      const wordSelect = document.getElementById("wordSelect");
+      const voiceAudio = document.getElementById("voiceAudio");
+      const hpWriteRect = document.getElementById("hpWriteRect");
+      const hpScratchRect = document.getElementById("hpScratchRect");
+      const hpScratchGroup = document.getElementById("hpScratchGroup");
+      const hpScratchText = document.getElementById("hpScratchText");
+      const hpWordText = document.getElementById("hpWordText");
+      const hpUnderline = document.getElementById("hpUnderline");
+      const hpSyllableText = document.getElementById("hpSyllableText");
+      const hpCircle = document.getElementById("hpCircle");
+
+      let imgs = null;
+      let sampleKey = "abeja";
+      let cues = [];
+      let speechDuration = 1.56;
+      let reducedMotion = false;
+      let sequenceRunning = false;
+      let seqStartMs = 0;
+      let currentTimeSec = 0.4;
+      let audioStartedForRun = false;
+
+      async function loadSample(key) {
+        sampleKey = key;
+        const spec = AUDIO_SAMPLES[key];
+        hpWordText.textContent = spec.word;
+        hpSyllableText.textContent = spec.syllables.join("   ");
+        hpScratchText.textContent = "práctica: " + spec.syllables[0];
+        voiceAudio.src = spec.audioSrc;
+        speechDuration = spec.fallbackDuration;
+        try {
+          const resp = await fetch(spec.visemeSrc);
+          if (resp.ok) {
+            const data = await resp.json();
+            cues = data.mouthCues || [];
+            if (data.metadata && typeof data.metadata.duration === "number") {
+              speechDuration = data.metadata.duration;
+            }
+          }
+        } catch {
+          cues = [];
+        }
+      }
+
+      function setTimeSec(sec) {
+        currentTimeSec = clamp(sec, 0, SEQ_DURATION);
+        timelineScrub.value = currentTimeSec.toFixed(2);
+        timeReadout.textContent = currentTimeSec.toFixed(2) + " s";
+      }
+
+      function startSequence() {
+        sequenceRunning = true;
+        seqStartMs = performance.now();
+        audioStartedForRun = false;
+        try {
+          voiceAudio.pause();
+          voiceAudio.currentTime = 0;
+        } catch {}
+        setTimeSec(0);
+      }
+
+      document.getElementById("btnRunSequence").addEventListener("click", startSequence);
+      document.querySelectorAll("[data-jump]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          sequenceRunning = false;
+          try {
+            voiceAudio.pause();
+          } catch {}
+          setTimeSec(parseFloat(btn.getAttribute("data-jump")));
+        });
+      });
+
+      timelineScrub.addEventListener("input", () => {
+        sequenceRunning = false;
+        setTimeSec(parseFloat(timelineScrub.value));
+      });
+
+      wordSelect.addEventListener("change", () => loadSample(wordSelect.value));
+
+      const btnDesktop = document.getElementById("btnDesktop");
+      const btnMobile = document.getElementById("btnMobile");
+      const btnReduced = document.getElementById("btnReduced");
+
+      function setViewport(isMobile) {
+        viewportFrame.classList.toggle("mobile", isMobile);
+        viewportFrame.classList.toggle("desktop", !isMobile);
+        btnDesktop.setAttribute("aria-pressed", String(!isMobile));
+        btnMobile.setAttribute("aria-pressed", String(isMobile));
+      }
+
+      btnDesktop.addEventListener("click", () => setViewport(false));
+      btnMobile.addEventListener("click", () => setViewport(true));
+      btnReduced.addEventListener("click", () => {
+        reducedMotion = !reducedMotion;
+        btnReduced.setAttribute("aria-pressed", String(reducedMotion));
+      });
+
+      function lidImgForClock(clockSec) {
+        const mod = clockSec % 3.9;
+        if (mod < 0.05) return imgs.lid25;
+        if (mod < 0.09) return imgs.lid75;
+        if (mod < 0.14) return imgs.lid100;
+        if (mod < 0.19) return imgs.lid50;
+        return null;
+      }
+
+      function mouthImg(shape) {
+        return imgs["mouth" + shape] || imgs.mouthX;
+      }
+
+      function renderFrame(nowMs) {
+        const clockSec = nowMs / 1000;
+        if (sequenceRunning && !reducedMotion) {
+          const elapsed = (nowMs - seqStartMs) / 1000;
+          if (elapsed >= SEQ_DURATION) {
+            setTimeSec(SEQ_DURATION);
+            sequenceRunning = false;
+          } else {
+            setTimeSec(elapsed);
+          }
+        }
+
+        const dir = evaluateDirector(currentTimeSec, speechDuration, reducedMotion);
+
+        if (sequenceRunning && dir.phase === "speak_rhubarb" && !audioStartedForRun) {
+          audioStartedForRun = true;
+          try {
+            voiceAudio.currentTime = 0;
+            voiceAudio.play().catch(() => {});
+          } catch {}
+        }
+
+        let effectiveSpeechT = dir.speechT;
+        if (sequenceRunning && !voiceAudio.paused && !voiceAudio.ended && voiceAudio.currentTime > 0) {
+          effectiveSpeechT = voiceAudio.currentTime;
+        }
+        const vis = resolveVisemeAt(cues, effectiveSpeechT);
+
+        // Update SVG chalkboard elements synced tightly to IK coordinates
+        hpWriteRect.setAttribute("width", String(470 * dir.writeP));
+        hpUnderline.setAttribute("stroke-dashoffset", String(100 * (1 - dir.underlineP)));
+        hpCircle.setAttribute("stroke-dashoffset", String(100 * (1 - dir.circleP)));
+        hpSyllableText.setAttribute("fill-opacity", String(Math.min(0.92, dir.syllP * 1.1)));
+        hpScratchRect.setAttribute("x", String(405 + 235 * dir.scratchEraseP));
+        hpScratchRect.setAttribute("width", String(Math.max(0, 235 * (1 - dir.scratchEraseP))));
+        hpScratchGroup.style.display = dir.scratchEraseP >= 0.99 ? "none" : "inline";
+
+        phaseBadge.textContent = dir.label;
+        telemetryText.textContent =
+          "Visema: " +
+          vis.primary +
+          " · Giro: " +
+          Math.round(dir.turnBlend * 100) +
+          " % · Fase: " +
+          dir.phase;
+        viewportFrame.dataset.hybridPhase = dir.phase;
+        viewportFrame.dataset.viseme = vis.primary;
+
+        if (imgs) {
+          const breathe = reducedMotion ? 0 : Math.sin(clockSec * ((2 * Math.PI) / 4.0));
+          const pupilX =
+            reducedMotion
+              ? 0
+              : dir.gaze === "chalkboard-teaching"
+                ? -3.5
+                : Math.sin(clockSec * 1.45) * 1.1;
+          const pupilY =
+            reducedMotion
+              ? 0
+              : dir.gaze === "chalkboard-teaching"
+                ? -0.3
+                : Math.cos(clockSec * 1.1) * 0.45;
+          const browY =
+            dir.expression === "listening"
+              ? -1.8
+              : dir.expression === "encouraging"
+                ? -2.2
+                : dir.expression === "speaking"
+                  ? -1.1
+                  : -1.4;
+
+          // Composite front face offscreen
+          fctx.clearRect(0, 0, POSE_W, POSE_H);
+          fctx.drawImage(imgs.faceBase, 0, 0);
+
+          fctx.save();
+          fctx.beginPath();
+          fctx.moveTo(442, 300);
+          fctx.quadraticCurveTo(464, 282, 489, 299);
+          fctx.quadraticCurveTo(467, 315, 442, 300);
+          fctx.closePath();
+          fctx.clip();
+          fctx.drawImage(imgs.irisL, pupilX, pupilY);
+          fctx.restore();
+
+          fctx.save();
+          fctx.beginPath();
+          fctx.moveTo(555, 316);
+          fctx.quadraticCurveTo(579, 298, 604, 314);
+          fctx.quadraticCurveTo(581, 330, 555, 316);
+          fctx.closePath();
+          fctx.clip();
+          fctx.drawImage(imgs.irisR, pupilX, pupilY);
+          fctx.restore();
+
+          fctx.drawImage(imgs.lashes, 0, 0);
+          const lid = reducedMotion ? null : lidImgForClock(clockSec);
+          if (lid) fctx.drawImage(lid, 0, 0);
+
+          fctx.save();
+          fctx.translate(0, browY);
+          fctx.drawImage(imgs.browL, 0, 0);
+          fctx.drawImage(imgs.browR, 0, 0);
+          fctx.restore();
+
+          fctx.save();
+          fctx.globalAlpha = vis.pAlpha;
+          fctx.drawImage(mouthImg(vis.primary), 0, 0);
+          fctx.restore();
+          if (vis.secondary && vis.sAlpha > 0.01) {
+            fctx.save();
+            fctx.globalAlpha = vis.sAlpha;
+            fctx.drawImage(mouthImg(vis.secondary), 0, 0);
+            fctx.restore();
+          }
+
+          mctx.clearRect(0, 0, STAGE_W, STAGE_H);
+          const scale = 1.12;
+          const leanLeft =
+            dir.armRaise > 0.05
+              ? Math.max(0, 340 - dir.ikTarget.x) * 0.25 * dir.armRaise
+              : 0;
+          const centerX = 1040 - dir.turnBlend * 195 - leanLeft;
+          const originX = centerX - (POSE_W * scale) * 0.5;
+          const originY = 900 - POSE_H * scale + 14 - dir.armRaise * 18;
+
+          const coords = deformMesh(mesh, {
+            breathePhase: breathe,
+            headTiltDeg:
+              reducedMotion
+                ? 0
+                : dir.expression === "listening"
+                  ? 1.9 + Math.sin(clockSec * 1.1) * 0.4
+                  : dir.expression === "encouraging"
+                    ? 1.4
+                    : Math.sin(clockSec * 0.9) * 0.6,
+            headYaw: -dir.turnBlend * 0.85,
+            headNodPx:
+              !reducedMotion && dir.expression === "encouraging"
+                ? Math.sin(clockSec * 5.2) * 3.2
+                : 0,
+            hairSwayLeftDeg: reducedMotion ? 0 : Math.sin(clockSec * 1.4 - 0.35) * 0.85,
+            hairSwayRightDeg: reducedMotion ? 0 : Math.cos(clockSec * 1.3 - 0.35) * 0.75,
+          });
+
+          // Drop shadow behind Gretel
+          mctx.save();
+          const sg = mctx.createRadialGradient(centerX + 26, 610, 70, centerX + 26, 610, 450);
+          sg.addColorStop(0, "rgba(7, 22, 14, 0.44)");
+          sg.addColorStop(1, "rgba(7, 22, 14, 0)");
+          mctx.fillStyle = sg;
+          mctx.fillRect(centerX - 440, 150, 920, 760);
+          mctx.restore();
+
+          // 2-bone IK Arm reaching out behind chest strap to chalkboard target
+          if (dir.armRaise > 0.02 && dir.tool !== "none") {
+            const shoulder = {
+              x: originX + 0.355 * POSE_W * scale,
+              y: originY + 0.775 * POSE_H * scale,
+            };
+            const armScale = 1.44;
+            const upperLen = 180.1 * armScale;
+            const isEraser = dir.tool === "eraser";
+            const forearmLen = (isEraser ? 233.6 : 268.9) * armScale;
+            const ik = solveTwoBoneIK(shoulder, dir.ikTarget, upperLen, forearmLen, -1);
+
+            mctx.save();
+            mctx.strokeStyle = "rgba(8, 24, 16, 0.32)";
+            mctx.lineWidth = 76;
+            mctx.lineCap = "round";
+            mctx.lineJoin = "round";
+            mctx.beginPath();
+            mctx.moveTo(shoulder.x + 14, shoulder.y + 18);
+            mctx.lineTo(ik.elbow.x + 14, ik.elbow.y + 18);
+            mctx.lineTo(ik.hand.x + 12, ik.hand.y + 16);
+            mctx.stroke();
+            mctx.restore();
+
+            mctx.save();
+            mctx.globalAlpha = Math.min(1, dir.armRaise * 1.35);
+            mctx.translate(shoulder.x, shoulder.y);
+            mctx.rotate(ik.upperAngle - 1.532);
+            mctx.scale(armScale, armScale);
+            mctx.drawImage(imgs.armUpper, -85, -36);
+            mctx.restore();
+
+            const fImg = isEraser ? imgs.armForearmEraser : imgs.armForearmChalk;
+            const restAng = isEraser ? -2.0041 : -2.1008;
+            mctx.save();
+            mctx.globalAlpha = Math.min(1, dir.armRaise * 1.35);
+            mctx.translate(ik.elbow.x, ik.elbow.y);
+            mctx.rotate(ik.forearmAngle - restAng);
+            mctx.scale(armScale, armScale);
+            mctx.drawImage(fImg, -174, -264);
+            mctx.restore();
+
+            if (dir.phase === "write_demonstrate" || dir.phase === "erase_board") {
+              mctx.save();
+              const dg = mctx.createRadialGradient(
+                ik.hand.x,
+                ik.hand.y,
+                2,
+                ik.hand.x,
+                ik.hand.y,
+                isEraser ? 52 : 24,
+              );
+              dg.addColorStop(
+                0,
+                isEraser ? "rgba(244,241,228,0.22)" : "rgba(255,252,235,0.28)",
+              );
+              dg.addColorStop(1, "rgba(244,241,228,0)");
+              mctx.fillStyle = dg;
+              mctx.beginPath();
+              mctx.arc(ik.hand.x, ik.hand.y, isEraser ? 52 : 24, 0, Math.PI * 2);
+              mctx.fill();
+              mctx.restore();
+            }
+          }
+
+          const drawMesh = (sourceImg, alpha, xOffset) => {
+            if (alpha <= 0.01) return;
+            const target = alpha >= 0.99 ? mctx : meshCtx;
+            if (alpha < 0.99) target.clearRect(0, 0, STAGE_W, STAGE_H);
+            const { vertices, indices } = mesh;
+            for (let i = 0; i < indices.length; i += 3) {
+              const i0 = indices[i];
+              const i1 = indices[i + 1];
+              const i2 = indices[i + 2];
+              const v0 = vertices[i0];
+              const v1 = vertices[i1];
+              const v2 = vertices[i2];
+              drawTri(
+                target,
+                sourceImg,
+                v0.x0,
+                v0.y0,
+                v1.x0,
+                v1.y0,
+                v2.x0,
+                v2.y0,
+                originX + xOffset + coords[i0 * 2] * scale,
+                originY + coords[i0 * 2 + 1] * scale,
+                originX + xOffset + coords[i1 * 2] * scale,
+                originY + coords[i1 * 2 + 1] * scale,
+                originX + xOffset + coords[i2 * 2] * scale,
+                originY + coords[i2 * 2 + 1] * scale,
+              );
+            }
+            if (alpha < 0.99) {
+              mctx.save();
+              mctx.globalAlpha = alpha;
+              mctx.drawImage(meshScratch, 0, 0);
+              mctx.restore();
+            }
+          };
+
+          const turnCross = smoothstep(0.25, 0.75, dir.turnBlend);
+          drawMesh(frontCanvas, 1 - turnCross, -dir.turnBlend * 28);
+          drawMesh(imgs.pose3qLeft, turnCross, (1 - dir.turnBlend) * 34);
+        }
+
+        requestAnimationFrame(renderFrame);
+      }
+
+      Promise.all([
+        loadSample("abeja"),
+        ...Object.entries(IMAGE_URLS).map(
+          ([k, url]) =>
+            new Promise((resolve, reject) => {
+              const im = new Image();
+              im.onload = () => resolve([k, im]);
+              im.onerror = () => reject(new Error(url));
+              im.src = url;
+            }),
+        ),
+      ]).then(([, ...pairs]) => {
+        imgs = Object.fromEntries(pairs);
+        window.__HYBRID_JUMP__ = (sec) => {
+          sequenceRunning = false;
+          try {
+            voiceAudio.pause();
+          } catch {}
+          setTimeSec(sec);
+          renderFrame(performance.now());
+        };
+        window.__HYBRID_READY__ = true;
+        const p = new URLSearchParams(window.location.search);
+        if (p.get("viewport") === "mobile") setViewport(true);
+        if (p.get("word") && AUDIO_SAMPLES[p.get("word")]) {
+          wordSelect.value = p.get("word");
+          loadSample(p.get("word"));
+        }
+        if (p.get("autostart") === "1") startSequence();
+        requestAnimationFrame(renderFrame);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "status": "pending-owner-approval",
+  "approved": false,
+  "note": "rive-cli is Apple Silicon only on macOS (x86_64 unsupported); native WebGL/Canvas 2D mesh skinning + 2-bone IK + Google Flow drop-in hybrid rig used cleanly at $0.",
+  "parts": [
+    {
+      "id": "pose-front",
+      "role": "pose-front",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/poses/pose-front.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "304b5d1bce2c2cdd23839a43e55d6f038eed5b6921449662d09770b8353d3dc0",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "pose-3q-right",
+      "role": "pose-3q-right",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/poses/pose-3q-right.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "d0f947e54063b0c8c49388b2f4d068277c67d4f58d98d14d661f48de89cdda51",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "pose-3q-left",
+      "role": "pose-3q-left",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/poses/pose-3q-left.png",
+      "width": 1024,
+      "height": 662,
+      "sha256": "bb3e6d68e3e591c5ffe496da46ae27d9a4c66dfdced78596368e779f4d93e5ca",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "arm-upper",
+      "role": "arm-upper",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/poses/arm-upper.png",
+      "width": 180,
+      "height": 260,
+      "sha256": "dfa2b201b91ffbfbe3f5080a9956b4569e5dabdd16b572985a4eb61d4560b538",
+      "ownerDecision": "pending",
+      "pivot": {
+        "x": 85,
+        "y": 36
+      },
+      "elbow": {
+        "x": 92,
+        "y": 216
+      }
+    },
+    {
+      "id": "arm-forearm-chalk",
+      "role": "arm-forearm-chalk",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/poses/arm-forearm-chalk.png",
+      "width": 240,
+      "height": 330,
+      "sha256": "6884a7a802bff516de1a6dc0734853f34f99cf335d6597a47711ff76c217fdb5",
+      "ownerDecision": "pending",
+      "elbowPivot": {
+        "x": 174,
+        "y": 264
+      },
+      "chalkTip": {
+        "x": 38,
+        "y": 32
+      }
+    },
+    {
+      "id": "arm-forearm-eraser",
+      "role": "arm-forearm-eraser",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/poses/arm-forearm-eraser.png",
+      "width": 240,
+      "height": 330,
+      "sha256": "cf08afd2fd363f24715a3710453e3167a9ed0383a73a6580f1b832dc3ebff7d3",
+      "ownerDecision": "pending",
+      "elbowPivot": {
+        "x": 174,
+        "y": 264
+      },
+      "eraserCenter": {
+        "x": 76,
+        "y": 52
+      }
+    },
+    {
+      "id": "ref-listening",
+      "role": "flow-reference",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-listening.png",
+      "width": 1280,
+      "height": 800,
+      "sha256": "9dc706dbff5f6573ae02a702b83a51a3df3b274bdb64af803c111ef2e82ae2e8",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "ref-turn-left",
+      "role": "flow-reference",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-turn-left.png",
+      "width": 1280,
+      "height": 800,
+      "sha256": "f84d77a587f3dbdff26b2a8ace9afcdd6f95f766f2fa3852e8931125c79353ad",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "ref-writing",
+      "role": "flow-reference",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-writing.png",
+      "width": 1280,
+      "height": 800,
+      "sha256": "214669ca3282974646aff05e20423624f473199ccbc6f528aa32d933d9fefca9",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "ref-erasing",
+      "role": "flow-reference",
+      "src": "/cartilla/images/gretel/tutor/hybrid-candidates/flow-refs/ref-erasing.png",
+      "width": 1280,
+      "height": 800,
+      "sha256": "f60d924f20424c5fa6709d7c06627c591df5c73d27d1dbd12f6a432398edee62",
+      "ownerDecision": "pending"
+    }
+  ]
+}

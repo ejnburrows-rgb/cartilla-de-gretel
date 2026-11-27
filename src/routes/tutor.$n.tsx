@@ -112,6 +112,10 @@ export const Route = createFileRoute("/tutor/$n")({
         ? search.slot
         : 1,
     previewRig: search.previewRig === 1 || search.previewRig === "1" || search.previewRig === true ? 1 : undefined,
+    previewHybrid:
+      search.previewHybrid === 1 || search.previewHybrid === "1" || search.previewHybrid === true
+        ? 1
+        : undefined,
   }),
   component: TutorSessionScreen,
   head: () => ({
@@ -129,6 +133,7 @@ interface TutorSessionSearch {
   code: string;
   slot: number;
   previewRig?: 1;
+  previewHybrid?: 1;
 }
 
 /** One-shot listen window (spec §18.3: silence at 6 s → gentle nudge). */
@@ -1408,6 +1413,7 @@ function ValidTutorSessionScreen({
           focusLetter={lessonGraph?.focus}
           layoutMode={shellSnapshot.layoutMode}
           previewChalkboardRig={search.previewRig === 1}
+          previewHybridRig={search.previewHybrid === 1}
         />
       }
       card={

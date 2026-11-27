@@ -37,6 +37,7 @@ const TUTOR_SPECS = [
   "**/tutor-teacher-review.spec.ts",
   "**/tutor-all-24-lessons.spec.ts",
   "**/tutor-chalkboard-preview.spec.ts",
+  "**/tutor-hybrid-demo.spec.ts",
 ];
 
 export default defineConfig({
@@ -99,6 +100,7 @@ export default defineConfig({
         "**/tutor-teacher-review.spec.ts",
         "**/tutor-all-24-lessons.spec.ts",
         "**/tutor-chalkboard-preview.spec.ts",
+        "**/tutor-hybrid-demo.spec.ts",
       ],
       use: {
         browserName: "chromium",

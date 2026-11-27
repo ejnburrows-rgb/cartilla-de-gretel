@@ -25,6 +25,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { GRETEL_APPROVED_MASTER_SRC } from "@/lib/gretel-master";
 import { TutorChalkboardStage } from "@/components/tutor/TutorChalkboardStage";
+import { TutorHybridStage } from "@/components/tutor/TutorHybridStage";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { TutorLayoutMode } from "@/lib/tutor-session";
 import {
@@ -86,6 +87,8 @@ export interface TutorGretelPuppetProps {
   className?: string;
   /** Preview opt-in ONLY: renders decomposed chalkboard stage before manifest activation. */
   previewChalkboardRig?: boolean;
+  /** Preview opt-in ONLY: renders 60fps mesh-skinned + 2-bone IK hybrid stage. */
+  previewHybridRig?: boolean;
   /** Active Cartilla target word displayed/demonstrated on the chalkboard. */
   lessonWord?: string;
   /** Focus letter or phoneme to underline/circle on the chalkboard. */
@@ -144,6 +147,7 @@ export function TutorGretelPuppet({
   gazeTarget = "student",
   className,
   previewChalkboardRig = false,
+  previewHybridRig = false,
   lessonWord = "",
   focusLetter,
   layoutMode = "call",
@@ -373,6 +377,47 @@ export function TutorGretelPuppet({
   const viewBoxAttr = `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`;
 
   const yAnimation = channels.nodSequenceY ? [...channels.nodSequenceY] : channels.headShiftY;
+
+  if (previewHybridRig) {
+    return (
+      <div
+        data-tutor-puppet=""
+        data-puppet-mode="hybrid-rig-preview"
+        data-puppet-framing={framing}
+        data-puppet-state={state}
+        data-puppet-expression={resolvedExpression}
+        data-puppet-gaze={gazeTarget}
+        data-puppet-viseme={lipSync.shape}
+        data-lipsync-source={lipSync.source}
+        data-lipsync-fallback={lipSync.isFallback ? "true" : "false"}
+        data-reduced-motion={reducedMotion ? "true" : "false"}
+        className={className ? `relative h-full w-full ${className}` : "relative h-full w-full"}
+      >
+        <TutorHybridStage
+          state={state}
+          playbackTime={effectiveTime}
+          isSpeaking={effectiveSpeaking}
+          isPaused={effectivePaused}
+          isMuted={effectiveMuted}
+          visemeTimeline={visemeTimeline}
+          propViseme={viseme}
+          lessonWord={lessonWord}
+          focusLetter={focusLetter}
+          chalkboardMode={
+            state === "cheering"
+              ? "celebrate"
+              : state === "gentle-error"
+                ? "correction"
+                : state === "help"
+                  ? "hint"
+                  : "model"
+          }
+          layoutMode={layoutMode}
+          onError={onError}
+        />
+      </div>
+    );
+  }
 
   if (previewChalkboardRig) {
     return (
