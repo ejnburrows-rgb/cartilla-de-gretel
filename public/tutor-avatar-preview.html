@@ -186,22 +186,25 @@
         width: 100%;
         height: 100%;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
-        padding: 20px 16px 0;
+        padding: 44px 16px 20px;
       }
 
       .puppet-rig {
-        width: min(360px, 88%);
-        aspect-ratio: 718 / 860;
+        width: min(520px, 96%);
+        aspect-ratio: 1024 / 662;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 12px 24px rgba(45, 32, 20, 0.14);
         transform-origin: 50% 78%;
         transition: transform 480ms var(--ease-out);
         will-change: transform;
       }
 
-      .puppet-rig[data-framing="full"] {
-        width: min(310px, 78%);
-        aspect-ratio: 1086 / 1448;
+      .puppet-rig[data-framing="face-closeup"] {
+        width: min(360px, 88%);
+        aspect-ratio: 664 / 662;
       }
 
       .puppet-breathe {
@@ -419,10 +422,10 @@
         <div>
           <h1>Gretel Tutor — Vista de Aprobación de Avatar</h1>
           <p class="subtitle">
-            Revisión web (HTTP/HTTPS) del recorte nativo torso-arriba (1:1 desde
-            <code>/cartilla/images/gretel/gretel-approved-master.png</code>, sin estiramiento),
-            piezas faciales candidatas y sincronización labial real con audio aprobado de Gretel y
-            timelines Rhubarb (<code>.visemes.json</code>).
+            Revisión web (HTTP/HTTPS) del retrato de videollamada aprobado
+            (<code>1024×662</code>, sin estiramiento), piezas faciales candidatas (parpadeo, cejas y
+            visemas Rhubarb A–G / X) y sincronización labial real con audio aprobado de Gretel
+            (<code>.visemes.json</code>).
           </p>
         </div>
         <div class="toolbar">
@@ -444,59 +447,60 @@
       <section class="preview-shell">
         <div class="card">
           <div id="viewportFrame" class="viewport-frame" data-viewport="desktop">
-            <span id="viewportBadge" class="viewport-badge">Escritorio · Torso-up 718×860 (1:1 nativo)</span>
+            <span id="viewportBadge" class="viewport-badge">Escritorio · Retrato videollamada 1024×662</span>
             <span id="telemetryBadge" class="telemetry-badge">Visema: X · reposo</span>
             <div class="puppet-stage">
-              <div id="puppetRig" class="puppet-rig" data-framing="torso-up">
+              <div id="puppetRig" class="puppet-rig" data-framing="call-portrait">
                 <div class="puppet-breathe">
                   <svg
                     id="puppetSvg"
                     class="puppet-svg"
-                    viewBox="184 0 718 860"
+                    viewBox="0 0 1024 662"
                     role="img"
                     aria-label="Vista previa animada de Gretel Tutor"
                   >
                     <image
-                      href="/cartilla/images/gretel/gretel-approved-master.png"
+                      id="layerBasePortrait"
+                      href="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg"
                       x="0"
                       y="0"
-                      width="1086"
-                      height="1448"
+                      width="1024"
+                      height="662"
                     />
                     <image
                       id="layerBrows"
-                      href="/cartilla/images/gretel/tutor/candidates/brows-soft-lift.png"
+                      href="/cartilla/images/gretel/tutor/call-candidates/brows-soft-lift.png"
                       x="0"
                       y="0"
-                      width="1086"
-                      height="1448"
+                      width="1024"
+                      height="662"
                       style="visibility: hidden"
                     />
                     <image
                       id="layerBlinkHalf"
-                      href="/cartilla/images/gretel/tutor/candidates/blink-half.png"
+                      href="/cartilla/images/gretel/tutor/call-candidates/blink-half.png"
                       x="0"
                       y="0"
-                      width="1086"
-                      height="1448"
+                      width="1024"
+                      height="662"
                       style="visibility: hidden"
                     />
                     <image
                       id="layerBlinkClosed"
-                      href="/cartilla/images/gretel/tutor/candidates/blink-closed.png"
+                      href="/cartilla/images/gretel/tutor/call-candidates/blink-closed.png"
                       x="0"
                       y="0"
-                      width="1086"
-                      height="1448"
+                      width="1024"
+                      height="662"
                       style="visibility: hidden"
                     />
                     <image
                       id="layerMouth"
-                      href="/cartilla/images/gretel/tutor/candidates/mouth-X.png"
+                      href="/cartilla/images/gretel/tutor/call-candidates/mouth-X.png"
                       x="0"
                       y="0"
-                      width="1086"
-                      height="1448"
+                      width="1024"
+                      height="662"
                       style="visibility: hidden"
                     />
                   </svg>
@@ -533,8 +537,8 @@
           <div class="control-group">
             <span class="group-label">Encuadre nativo (sin estiramiento)</span>
             <div class="pill-row">
-              <button type="button" data-framing-btn="torso-up" aria-pressed="true">Torso-up (718×860)</button>
-              <button type="button" data-framing-btn="full" aria-pressed="false">Cuerpo completo (1086×1448)</button>
+              <button type="button" data-framing-btn="call-portrait" aria-pressed="true">Retrato videollamada (1024×662)</button>
+              <button type="button" data-framing-btn="face-closeup" aria-pressed="false">Primer plano cuadrado (664×662)</button>
             </div>
           </div>
 
@@ -578,8 +582,30 @@
         </div>
       </section>
 
-      <h2>2. Comparación lado a lado: Maestro Aprobado vs. Recorte Nativo Torso-Up</h2>
+      <h2>2. Comparación lado a lado: Retratos Aprobados de Gretel Tutor vs. Maestro Completo</h2>
       <section class="side-by-side">
+        <div class="still-card">
+          <div class="still-thumb" style="aspect-ratio: 1024 / 662">
+            <img
+              src="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg"
+              alt="Gretel retrato aprobado de videollamada"
+            />
+          </div>
+          <div class="still-title">Retrato de videollamada (base Tutor)</div>
+          <div class="still-meta">1024×662 JPG · Aprobado 2026-11-26 · Base para capas faciales</div>
+        </div>
+
+        <div class="still-card">
+          <div class="still-thumb" style="aspect-ratio: 1 / 1">
+            <img
+              src="/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-presenting.jpg"
+              alt="Gretel retrato aprobado de presentación"
+            />
+          </div>
+          <div class="still-title">Retrato de saludo y presentación</div>
+          <div class="still-meta">1024×1024 JPG · Aprobado 2026-11-26 · Saludo y énfasis</div>
+        </div>
+
         <div class="still-card">
           <div class="still-thumb full-ratio">
             <img
@@ -587,19 +613,8 @@
               alt="Gretel maestro aprobado completo"
             />
           </div>
-          <div class="still-title">Maestro aprobado (intacto)</div>
-          <div class="still-meta">1086×1448 PNG · Sin modificaciones · Referencia canónica</div>
-        </div>
-
-        <div class="still-card">
-          <div class="still-thumb">
-            <img
-              src="/cartilla/images/gretel/tutor/gretel-torso-up.png"
-              alt="Gretel recorte nativo torso-arriba"
-            />
-          </div>
-          <div class="still-title">Recorte nativo Torso-Up (1:1)</div>
-          <div class="still-meta">718×860 PNG · Extraído en (184, 0) · 0% estiramiento</div>
+          <div class="still-title">Maestro cuerpo completo (intacto)</div>
+          <div class="still-meta">1086×1448 PNG · Sin modificaciones en el resto de la app</div>
         </div>
       </section>
 
@@ -630,8 +645,8 @@
     </main>
 
     <script>
-      const MASTER_SRC = "/cartilla/images/gretel/gretel-approved-master.png";
-      const CAND_BASE = "/cartilla/images/gretel/tutor/candidates/";
+      const MASTER_SRC = "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg";
+      const CAND_BASE = "/cartilla/images/gretel/tutor/call-candidates/";
 
       const AUDIO_SAMPLES = {
         abeja: {
@@ -717,12 +732,8 @@
 
       function setViseme(shape, sourceLabel = "manual") {
         const effective = reducedMotion ? "X" : shape;
-        if (effective === "X") {
-          layerMouth.style.visibility = "hidden";
-        } else {
-          layerMouth.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
-          layerMouth.style.visibility = "visible";
-        }
+        layerMouth.setAttribute("href", `${CAND_BASE}mouth-${effective}.png`);
+        layerMouth.style.visibility = "visible";
         telemetryBadge.textContent = `Visema: ${effective} · ${reducedMotion ? "reducir-movimiento" : sourceLabel}`;
         document.querySelectorAll("#visemePills button").forEach((btn) => {
           btn.setAttribute("aria-pressed", String(btn.dataset.viseme === effective));
@@ -845,14 +856,14 @@
         viewportFrame.dataset.viewport = "desktop";
         e.currentTarget.setAttribute("aria-pressed", "true");
         document.getElementById("btnMobile").setAttribute("aria-pressed", "false");
-        viewportBadge.textContent = "Escritorio · Torso-up 718×860 (1:1 nativo)";
+        viewportBadge.textContent = "Escritorio · Retrato videollamada 1024×662";
       });
 
       document.getElementById("btnMobile").addEventListener("click", (e) => {
         viewportFrame.dataset.viewport = "mobile";
         e.currentTarget.setAttribute("aria-pressed", "true");
         document.getElementById("btnDesktop").setAttribute("aria-pressed", "false");
-        viewportBadge.textContent = "Móvil 390×844 · Torso-up 718×860 (1:1 nativo)";
+        viewportBadge.textContent = "Móvil 390×844 · Retrato videollamada 1024×662";
       });
 
       document.getElementById("btnReduced").addEventListener("click", (e) => {
@@ -869,7 +880,7 @@
         btn.addEventListener("click", () => {
           const framing = btn.dataset.framingBtn;
           puppetRig.dataset.framing = framing;
-          puppetSvg.setAttribute("viewBox", framing === "full" ? "0 0 1086 1448" : "184 0 718 860");
+          puppetSvg.setAttribute("viewBox", framing === "call-portrait" ? "0 0 1024 662" : "180 0 664 662");
           document.querySelectorAll("[data-framing-btn]").forEach((b) => {
             b.setAttribute("aria-pressed", String(b === btn));
           });
@@ -922,13 +933,13 @@
         card.className = "still-card";
         card.innerHTML = `
           <div class="still-thumb face-zoom" style="aspect-ratio: 4 / 3">
-            <svg viewBox="390 155 370 278" role="img" aria-label="${c.label}">
-              <image href="${MASTER_SRC}" x="0" y="0" width="1086" height="1448" />
-              <image href="${CAND_BASE}${c.file}" x="0" y="0" width="1086" height="1448" />
+            <svg viewBox="360 200 304 260" role="img" aria-label="${c.label}">
+              <image href="${MASTER_SRC}" x="0" y="0" width="1024" height="662" />
+              <image href="${CAND_BASE}${c.file}" x="0" y="0" width="1024" height="662" />
             </svg>
           </div>
           <div class="still-title">${c.label}</div>
-          <div class="still-meta"><code>${c.file}</code> · 1086×1448 · Pendiente de aprobación</div>
+          <div class="still-meta"><code>${c.file}</code> · 1024×662 · Pendiente de aprobación</div>
         `;
         grid.appendChild(card);
 
@@ -936,7 +947,7 @@
         tr.innerHTML = `
           <td><strong>${c.label}</strong><br><span class="still-meta">${c.id}</span></td>
           <td>${c.role}</td>
-          <td>1086×1448</td>
+          <td>1024×662</td>
           <td>
             <div class="decision-pills">
               <button type="button" class="yes" aria-pressed="false">Sí</button>

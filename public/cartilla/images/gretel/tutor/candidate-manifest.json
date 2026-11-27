@@ -186,5 +186,160 @@
       "source": "candidate-overlay-sampled-from-master",
       "ownerDecision": "pending"
     }
-  ]
+  ],
+  "callPortraitCandidates": {
+    "status": "pending-owner-approval",
+    "approved": false,
+    "basePortrait": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg",
+    "presentingPortrait": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-presenting.jpg",
+    "width": 1024,
+    "height": 662,
+    "candidates": [
+      {
+        "id": "blink-half",
+        "role": "blink",
+        "label": "Eyelids half-closed",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/blink-half.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "a67dbbef6d205efc4edcbfbfaa1cc37e5cf151b4c6243499479f23f16b6ca1c6",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "blink-closed",
+        "role": "blink",
+        "label": "Eyelids fully closed",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/blink-closed.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "d35255a03bbaf219fdceb84422bc567eb50857cbe3dad5bb02a3324f3929c1e6",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "brows-soft-lift",
+        "role": "brows",
+        "label": "Eyebrows gently lifted",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/brows-soft-lift.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "9c64735eb9e0d2f34cace1f6f7149bbcad23c3f65c6506aa814d1308e4a6f9f6",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-C",
+        "role": "mouth",
+        "shapes": [
+          "C"
+        ],
+        "label": "Mouth C — Native open smile (exact owner portrait pixels)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-C.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "b148271def6720f2027f26417a6f5a66582ab08465af38249bbf8cedd55788c3",
+        "source": "native-extract-from-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-X",
+        "role": "mouth",
+        "shapes": [
+          "X"
+        ],
+        "label": "Mouth X — Resting closed smile",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-X.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "686ed018691fe28076c85e7b09bab1e94200b96130e11363f1a0dcd155806a8d",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-A",
+        "role": "mouth",
+        "shapes": [
+          "A"
+        ],
+        "label": "Mouth A — Closed bilabial (p, b, m)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-A.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "1c82e461c91646f07b96e518344d64910a4ec29707e89da574d5fbd5c9d4d086",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-B",
+        "role": "mouth",
+        "shapes": [
+          "B"
+        ],
+        "label": "Mouth B — Narrow smile (s, t, k, n, i, e)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-B.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "3b6cab66f52e48fda03d435a727925193947c43aac2dfe95eedb8cb40f1bbe19",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-D",
+        "role": "mouth",
+        "shapes": [
+          "D"
+        ],
+        "label": "Mouth D — Wide open (a)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-D.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "3d14c5a87a0f5a84fc9eeb46d0db583c14d4d4326030cae0d40c36ab6b05c34f",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-E",
+        "role": "mouth",
+        "shapes": [
+          "E"
+        ],
+        "label": "Mouth E — Rounded medium (o, e)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-E.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "64f9f7e762955c94b6d52013c46d4b9b46090ee325c27221a1e4644ca690f8b7",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-F",
+        "role": "mouth",
+        "shapes": [
+          "F"
+        ],
+        "label": "Mouth F — Upper teeth over lower lip (f, v)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-F.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "b4b7595132dedb26a6fd76cedbb7cfc3429c39ae0b039ca11e3fc74e95bd88f9",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-G",
+        "role": "mouth",
+        "shapes": [
+          "G"
+        ],
+        "label": "Mouth G — Tongue behind upper teeth (l, d)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-G.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "b08464c47b3334aee47c2d1f6c31b7d8916e894e13ae33f082b1dc1fc6b2e74d",
+        "source": "pixel-registered-on-owner-call-portrait",
+        "ownerDecision": "pending"
+      }
+    ]
+  }
 }
