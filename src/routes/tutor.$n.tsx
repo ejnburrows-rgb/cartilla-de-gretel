@@ -506,7 +506,7 @@ function ValidTutorSessionScreen({
     stopVisemePlayer();
   }
 
-  async function playLine(lineId: string): Promise<void> {
+  async function playLine(lineId: string, demonstrate = false): Promise<void> {
     const delivery = resolveLineDelivery(lineId);
     const rawText = delivery?.text ?? lineTextById.get(lineId);
     if (!rawText) {
@@ -530,9 +530,16 @@ function ValidTutorSessionScreen({
       boardRun = new AbortController();
       classroomRun.current = boardRun;
       setShowBoardAction(true);
-      await playBoardAction(video, boardRun.signal);
-      if (boardRun.signal.aborted) return;
-      if (video.error || video.currentTime < CLASSROOM_SPEECH_START) stopBoardAction();
+      if (demonstrate) {
+        setSilentLine(false);
+        setSpokenText("Observa cómo se escribe la a de abeja.");
+        controller.beginSpeaking(lineId, "", true);
+        await playBoardAction(video, boardRun.signal);
+        if (boardRun.signal.aborted) return;
+        if (video.error || video.currentTime < CLASSROOM_SPEECH_START) stopBoardAction();
+      } else {
+        video.currentTime = CLASSROOM_SPEECH_START;
+      }
     }
     setSilentLine(false);
     setSpokenText(cleanedCaption);
@@ -895,6 +902,13 @@ function ValidTutorSessionScreen({
       await Promise.all([...linePlaybacks, ...markWaiters]);
       if (!alive()) return;
 
+      const modeledItem = activeItemOf(state);
+      if (classroomEnabled && modeledItem?.id === "l3-word-abeja" &&
+          effects.some((effect) => effect.type === "markCorrect")) {
+        const delivery = modelDeliveryForItem(modeledItem);
+        if (delivery.lineId) await playLine(delivery.lineId, true);
+        if (!alive()) return;
+      }
       const after = brainRef.current;
       if (!after) return;
 
@@ -1415,7 +1429,7 @@ function ValidTutorSessionScreen({
     setReplaying(true);
     const delivery = modelDeliveryForItem(item);
     if (delivery.lineId) {
-      await playLine(delivery.lineId);
+      await playLine(delivery.lineId, true);
     } else {
       await playTextFallback(
         delivery.text,
