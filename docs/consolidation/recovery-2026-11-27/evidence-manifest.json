@@ -1,0 +1,2137 @@
+{
+  "scope": "Recovered production/private-review captures, not candidate PR verification",
+  "recovered_at": "2026-11-27",
+  "records": [
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795716079122919",
+      "source_ts": "1795716079.122919",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": null,
+      "bundle_basis": "not stated in this source post",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Visual QA batch 1.* Live private review site, desktop 1280x720, read-only. Not full coverage.\n\n*Observed working*\n• All 24 lessons open from the list. Presenter loads for all 24: lessons 1-6 have 1 sheet, 7-24 have 3 (only sheet 1 of each opened).\n• Workbook: stepped from page 1 to page 82 with no exercise completed, so demo unlock works. A page curl plays on each turn.\n\n*Observed defects (minor)*\n• Pages 69 and 77: word chips use a plain system font and uneven sizes, unlike the book fonts around them. An unlabeled empty yellow pill sits between the word grid and the story box.\n• Page 82: writing box sits tight against the Lección 22 label, not clipped.\n• Page 36: one possible broken image on a first read, not reproduced. Unconfirmed.\n\n*NOT VERIFIED*\n• Workbook 83-88 and answering behavior: pencil, eraser, grading, feedback.\n• Backward curls, gestures, all sound.\n• Presenter sheets 2-3 on lessons 7-24, pointer tools, fullscreen, teacher hub.\n• Every game and practice round, tablet, phone and projector sizes. No video: this browser can't record.\n\nNext: Workbook 83-88, presenter sheets 2-3, then each game round.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMDDMF7E0",
+          "name": "cloud-browser-20261126-175953-f023d492.png"
+        },
+        {
+          "slack_file_id": "F0CM9GW6AUA",
+          "name": "cloud-browser-20261126-180025-568d6e8a.png"
+        },
+        {
+          "slack_file_id": "F0CM7PANZ7Y",
+          "name": "cloud-browser-20261126-175150-5e419a33.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795716240638889",
+      "source_ts": "1795716240.638889",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": null,
+      "bundle_basis": "not stated in this source post",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Visual QA batch 2.* Live private review site, desktop 1280x720, read-only. Still not full coverage.\n\n*Observed working*\n• Workbook steps through the whole book with the next arrow, nothing completed. Counter runs 1 to 88 of 88 and skips 86-87 as specified. Last page is Lección 24 (p90). No broken images on any page except the unconfirmed flicker at p36.\n• Drill de sílabas: timer counts down, score went 0 to 1 on a correct answer, new card appears.\n\n*Observed defects*\n• Drill de sílabas: subtitle says \"Escucha la sílaba\", but the card says \"Lee la sílaba\" and shows the target syllable in large text. It is visual matching with no listening, and the answer is the text shown. One distractor was a vowel among syllables.\n• Workbook p88: all rows read \"0 de 6 respuestas correctas\" in a style different from other pages (screenshot).\n• Possible clipping: with the Juegos tab open, the minijuegos panel is cut off at the left edge. I may have caused it by scrolling sideways. Unconfirmed, being rechecked.\n\n*Opened, one look only*\nSílabas, Emparejar, Armar (4 slots, 5 letters, one spare), Trazar, Busca el sonido, Espejo, Juegos (Tren, Rompecabezas, Memoria, Rápido y atento), Piano Hablador.\n\n*NOT VERIFIED*\n• Answering, pencil, eraser, grading, feedback on workbook pages. Backward curl, swipe, all sound.\n• Piano Hablador and Espejo: this test browser has no speech recognition or microphone, so a real device is needed.\n• Complete rounds of any minijuego, wrong answers, final score screens. The authored games (cow, Chano, butterfly garden, board game) and where they live. Teacher hub, presenter sheets 2-3, tablet, phone, projector, video.\n\nNext: full rounds of each minijuego, recheck the clipping, then teacher hub and presenter sheets.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM7PTST62",
+          "name": "cloud-browser-20261126-180125-76851434.png"
+        },
+        {
+          "slack_file_id": "F0CM4E87KK7",
+          "name": "cloud-browser-20261126-180202-c2396c8a.png"
+        },
+        {
+          "slack_file_id": "F0CM9HC9ZKL",
+          "name": "cloud-browser-20261126-180321-db7b7999.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795716330920279",
+      "source_ts": "1795716330.920279",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": null,
+      "bundle_basis": "not stated in this source post",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Visual QA batch 3.* Live private review site, desktop 1280x720, read-only.\n\n*Correction to batch 2:* the Juegos panel clipping did not reproduce on a fresh load. It was a test artifact, not a defect.\n\n*Observed working*\n• Tren de sílabas: 5 of 5 correct. Each right answer shows \"¡Correcto!\" and Siguiente. The end shows \"¡Tren completo!\" and the tab gets a check mark.\n• Rompecabezas, word 1 (mamá): letters placed in order, \"¡Palabra completa!\" and Siguiente appear.\n• Teacher hub loads with the banner \"Acceso abierto · Clase de ejemplo\". Lesson dropdown, fullscreen button and sheet 1 of lesson 1 show.\n\n*Observed defects / questions*\n• Teacher hub header: the title \"La Cartill...\" is truncated and crowds the first nav item at 1280 wide.\n• Lesson dropdown lists Lección 17 and 18 both as \"La consonante Rr\". May be correct (Rr suave and fuerte). Needs the book owner to confirm. I did not check the source book.\n• Memoria: 10 cards in 3 columns leave one card alone on the fourth row. Minor.\n• The \"0 de 8 completados\" counter stayed at 0 after finishing the Tren. Not verified whether it counts only when all 8 are done.\n• The teacher panel opens with no sign-in (matches the earlier audit watch item).\n\n*Opened, not played:* Memoria, Rápido y atento, Emparejar, Armar, Trazar, Busca el sonido, Sílabas.\n\n*NOT VERIFIED:* presenter sheets 2-3 on lessons 7-24, pointer tools, other teacher tabs, wrong answers and end-of-round in every game, the authored games, workbook pencil, eraser, grading, feedback, all sound and voice, backward curls, gestures, tablet, phone, projector, video.\n\nContinuing: presenter sheets, then remaining minijuego rounds, then teacher tabs.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM9HM7F50",
+          "name": "cloud-browser-20261126-180421-da81bfe0.png"
+        },
+        {
+          "slack_file_id": "F0CMDEBQ6LC",
+          "name": "cloud-browser-20261126-180448-275031b4.png"
+        },
+        {
+          "slack_file_id": "F0CM9HM21GS",
+          "name": "cloud-browser-20261126-180502-5b595d8d.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795716622456609",
+      "source_ts": "1795716622.456609",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": null,
+      "bundle_basis": "not stated in this source post",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Visual QA batch 4.* Live private review site, desktop 1280x720, read-only.\n\n*Observed working*\n• Presenter sheets 1-3 on lessons 7-24: all load, 0 broken images, sheet counts correct, láminas numbered consecutively 9 to 62.\n• Rápido y atento: full round, 10 of 10, \"¡Bien! Ronda terminada.\"\n• Teacher pages crm, roster, gretel, progreso, reportes and ayuda load with 0 broken images. Guía, Imprimir and Dirección links exist. Demo class has 3 students.\n\n*Possible defect (unconfirmed)*\n• Lesson 24 sheet 3: the pumpkin-car leaves look cut off in a straight line at the right page edge (screenshot). Needs a human eye or the source art.\n\n*Needs the book owner's call*\n• /teacher/crm uses a different nav (Tablero, Alumnos, Progreso, Lecciones, Reportes, Arte, Ayuda) than the other teacher pages. Could be intended.\n• Lessons 17 and 18 are both titled \"La consonante Rr\".\n\n*NOT VERIFIED*\n• Rounds of Sílabas, Emparejar, Armar, Trazar, Busca el sonido, Memoria, Espejo, Piano. Wrong answers and end-of-round in any game.\n• Authored games under /cartilla/juego/ (cow, Chano, butterfly garden, board game): not opened.\n• Workbook pencil, eraser, grading, feedback. Backward curls, swipe, gestures. All sound and voice.\n• Presenter toolbar (Puntero, Enfoque, Mano Izq, fullscreen).\n• Teacher page actions (add student, export, print, reset). Skipped on purpose, they could change data.\n• Tablet, phone, projector sizes. Video.\n\nContinuing with game rounds and the authored games on a new browser session.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMBLKKQM7",
+          "name": "cloud-browser-20261126-180840-44c50be2.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795717126273029",
+      "source_ts": "1795717126.273029",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": null,
+      "bundle_basis": "not stated in this source post",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Visual QA batch 5.* Live private review site, desktop 1280x720, read-only, no teacher data touched.\n\n*Question for @Viktor or the owner:* /cartilla/juego/ returns 404 and I found no link to the authored games (cow, Chano, butterfly garden, board game) from home, lessons or presenter. Which exact URL should be tested?\n\n*Observed defects*\n1. Toast \"No se pudo reproducir la grabación.\" repeats in Emparejar and Armar. Cause unknown (missing audio or this headless browser). Check on a real device.\n2. Armar: the success banner overlaps the Piano, Busca, Espejo and Juegos buttons and the card title. \"0 de 8 completados\" stayed 0 after a word was completed.\n3. Wrong-answer feedback is missing or weak: Sílabas (4 wrong tries, no text), Emparejar (no error shown), Busca el sonido (3 wrong picks, no feedback). Armar shows only a faded \"Intenta otra vez\".\n4. Sílabas prompt is audio only with no visible target. With broken audio a child cannot play it.\n5. Espejo with no mic says \"Casi. Escucha y prueba otra vez.\", which misleads when capture failed.\n6. Art: oso image cut with a hard line at the bottom and ojos looks clipped in Busca el sonido. The Meme image is double height, so cards are uneven in Emparejar and Busca. Trazar guide dots sit slightly off the guide shape (minor).\n7. Presenter L7: the Demo panel overlaps the bottom Anterior and Siguiente nav.\n8. Workbook p1: clicking two pictures showed no visible circle. Possibly my automation, unconfirmed. I found no pencil or eraser controls on that page.\n\n*Passed (complete rounds)*\nSílabas 5/5, Emparejar 4/4, Armar word mamá, Trazar M at 100%, Busca el sonido 3/3, Memoria 5/5 pairs. Presenter L7: Puntero toggles, Mano Izq/Der moves the curl, Enfoque toggles. Teacher page viewer for lesson 7 loads.\n\n*NOT VERIFIED:* all sound and mic (Piano, Espejo, Cancionero), laser dot, fullscreen, demo lesson unlock, workbook pencil, eraser, grading, backward curls, swipe, Rompecabezas words 2-5, Armar full round, authored games, tablet, phone, projector, video.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM9KPG4PL",
+          "name": "cloud-browser-20261126-181343-fd411bee.png"
+        },
+        {
+          "slack_file_id": "F0CMDGEJU84",
+          "name": "cloud-browser-20261126-181737-3706f8d2.png"
+        },
+        {
+          "slack_file_id": "F0CMDGEU204",
+          "name": "cloud-browser-20261126-181235-68d7b44a.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795717281993149",
+      "source_ts": "1795717281.993149",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": null,
+      "bundle_basis": "not stated in this source post",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Visual QA batch 6.* Live private review site, desktop 1280x720, read-only, nothing saved to teacher data.\n\n*Observed working*\n• Rompecabezas: all 5 words complete and the tab gets a check. A wrong order shows a red \"Revisa el orden e inténtalo otra vez.\" This is the best wrong-answer feedback of any minijuego so far.\n• Workbook p3 (Lección 1, trace a line from the vowel to the picture): a real mouse drag from o to the ocho draws a green line. A drag from a to a wrong picture draws a red line.\n\n*Observed defects*\n1. Rompecabezas: the placeholder dots are not tied to word length (word 1 has 4 tiles but shows 3 dots first). Minor.\n2. Rompecabezas last word: no end-of-round message and no Siguiente, only \"¡Palabra completa!\" and the tab check. Other games show \"Completado\". A child may not know the round is over.\n3. Workbook trace page: the custom pencil cursor is very large and covers the next-page arrows and the page number near the bottom right. It could block tapping next while drawing.\n4. After \"Ampliar para trazar\" the red wrong line was gone and the green line stayed. Probably intended, owner to confirm.\n5. Workbook Siguiente: rapid programmatic clicks advanced the page only about every sixth click. Likely the curl animation absorbing clicks. Not verified with real taps.\n6. No eraser control found on workbook p3 (no button or label for borrar, goma or lápiz). If one is expected, it is not visible there.\n\n*NOT VERIFIED:* eraser behavior, pencil on writing-line and drawing-box pages, grading feedback on circle pages, Armar full 8-word round, Cancionero, Piano and Espejo with mic, all audio, Puntero laser, fullscreen, demo unlock, backward curls, swipe, tablet, phone, projector sizes, authored games (URL still needed).",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMDGTCHCL",
+          "name": "cloud-browser-20261126-181951-363ac840.png"
+        },
+        {
+          "slack_file_id": "F0CMDGTAKUL",
+          "name": "cloud-browser-20261126-182048-759652ed.png"
+        },
+        {
+          "slack_file_id": "F0CMDGSU23W",
+          "name": "cloud-browser-20261126-182006-f94c919b.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795724075116419",
+      "source_ts": "1795724075.116419",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": null,
+      "bundle_basis": "not stated in this source post",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Visual QA final report.* Live private review site, read-only. The demo select only changed the local view. Not complete: the authored games are blocked.\n\n*Blocker:* /cartilla/juego/ is a 404 and I found no link to the authored games (cow, Chano, butterfly garden, board game). Send the exact URL and I will test them.\n\n*Passed (observed)*\n• Armar with real drags: a wrong tile is rejected with \"Intenta otra vez\", a correct word gives \"¡Muy bien!\" and Siguiente loads word 2.\n• Workbook p1, real tap: a correct picture gets a green ring that persists after reload. p3 line drawing: green for correct, red for wrong.\n• Backward curl by drag works. Anterior is disabled on page 1.\n• Pantalla completa works with a real click.\n• Demo mode lists lessons 1 to 24 with none locked, and picking Lección 12 jumps the presenter to it.\n• Tablet (820x1180) and phone (390x844): workbook p1 and Armar have no horizontal overflow.\n\n*Observed defects*\n1. Armar counter \"0 de 8 completados\" stays 0 after 2 words. The 8 likely counts game tabs. Armar has no visible end state after 2 words (not run to the end).\n2. Armar banner overlaps the Piano, Busca, Espejo and Juegos buttons and the card title.\n3. Workbook p1: a wrong circle (oso) gets a plain gray ring with no wrong marking, and gray rings do not persist after reload. Intended or not is unconfirmed.\n4. Presenter demo panel covers the lower sheet and the bottom nav until Cerrar is clicked.\n5. Phone width: Armar slots wrap 3+1 and tiles wrap 3+2. Awkward but usable.\n6. Workbook Siguiente needed two real clicks from p1 to p2 in one test. Possibly the curl animation. Recheck on a real device.\nEarlier batches also logged: Drill de sílabas says \"Escucha\" but is visual only, Sílabas minijuego is audio-only with no visible target, weak wrong-answer feedback in Sílabas, Emparejar and Busca el sonido, Rompecabezas last word has no end message, oso and ojos art clipped, pencil cursor covers workbook nav, Lesson 24 sheet 3 leaves cut at the edge (unconfirmed), teacher hub header truncation, Lección 17 and 18 both titled \"La consonante Rr\".\n\n*NOT VERIFIED*\nEraser (no control found), pencil on writing-line pages, Armar words 3 to 8, Puntero laser, all sound and mic features (Piano, Espejo, audio playback toast, Cancionero), swipe on real touch, projector size, video, and the authored games.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM53Q3YP7",
+          "name": "cloud-browser-20261126-201211-b2afa9dd.png"
+        },
+        {
+          "slack_file_id": "F0CMC908MEV",
+          "name": "cloud-browser-20261126-201145-3bcbd3e6.png"
+        },
+        {
+          "slack_file_id": "F0CM53KTFV3",
+          "name": "cloud-browser-20261126-201316-a83d05bc.png"
+        },
+        {
+          "slack_file_id": "F0CM45JPSE7",
+          "name": "cloud-browser-20261126-201400-dd3c5425.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795726446385859",
+      "source_ts": "1795726446.385859",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*QA wave 2, batch 1 (games 1-2 of 9).* Production preview <https://cartilla-de-gretel-psi.vercel.app>, desktop 1280x720, read-only.\n\n*Revision evidence:* the site exposes no git SHA (no version file, no meta tag). Build identifier is the bundle `/assets/index.DfVFm_LM.js`. Every unknown path (for example /version.json) returns 200 with HTML, so the SPA fallback defect is present on this site.\n\n*cow-game-m: full round passed*\n• 5 cows, tap cow then tap box. Correct placement shows \"¡Muy bien!\". Wrong placement shows \"Inténtalo otra vez\". Finishing all 5 shows \"¡Muy bien!\" and \"Jugar otra vez\".\n• Each move locks input about 4.7 s during the walk. Rapid clicks drop during the lock.\n• Silent: source plays no audio until the owner's recordings exist. Content gap, not a code defect.\n• Design call for the owner: cows return to the field with no label after delivering.\n\n*mariposas-p: full round passed, all 6 words (mapa, pomo, Mupi, Pepe, puma, Pupi)*\n• Repeated syllable (Pepe) works. A wrong answer ringed the wrong slot red, shook the card and sent it back.\n• *Defect:* after word 6 there is no end-of-round message and no check marks on the sign. The garden silently wraps to word 1 and clears progress.\n• Watering-can clipping did not reproduce in the settled state. On the first cold load the art painted late over a dark-green placeholder and the can looked cut off, so it is a transient loading artifact.\n• Audio intentionally empty.\n\n*payaso-chano-ss:* word 1 (paso) complete with \"¡Excelente!\" and Siguiente. Full 8-word round in progress.\n\nNext: Chano full round with wrong answers, then completar-palabras, vocal-a, fonetica-p, rima-p, palabras-minuto-p, dibujos-o, then the defect retest list.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CME8LHSBW",
+          "name": "cloud-browser-20261126-204840-bea840e6.png"
+        },
+        {
+          "slack_file_id": "F0CMCE1G8NM",
+          "name": "cloud-browser-20261126-205234-18da178a.png"
+        },
+        {
+          "slack_file_id": "F0CMCE26WQH",
+          "name": "cloud-browser-20261126-205246-03abb2c0.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795727110664629",
+      "source_ts": "1795727110.664629",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*QA wave 2, batch 2 (games 3-9). All nine game routes now covered.* Production preview <https://cartilla-de-gretel-psi.vercel.app>, bundle `/assets/index.DfVFm_LM.js` (no git SHA exposed), desktop 1280x720 for every game below.\n\n*Full rounds passed*\n• payaso-chano-ss: 8 of 8 words (paso, mesa, supo, asoma, sopa, suma, sapo, puso). Praise per word, a wrong order gives retry feedback.\n• vocal-a: 5 of 5 steps. A wrong answer locks input and turns the card red with no text. Final score shown (4/5 after one deliberate wrong).\n• fonetica-p: 3 of 3, \"3 de 3 palabras completadas\" and Repetir.\n• rima-p: \"2 de 2 rimas encontradas\" and Repetir. Wrong pick is color-only, retries allowed.\n• dibujos-o: \"3 de 3 dibujos correctos\" and Repetir.\n• palabras-minuto-p: 60 s timer, 18 words, \"Leíste 18 palabras.\" and Otra vez.\n\n*Defects and findings*\n• *completar-palabras ships as a placeholder.* Mm opens \"Fonética: Sílabas con Mm\" with 15 \"pendiente\" markers and \"Audio: pendiente\". Clicks do nothing and every other letter is locked. Unroute it or gate it before release.\n• *mariposas-p still has no end-of-round message* after word 6. Every other game has one.\n• *dibujos-o audio toast:* clicking a picture shows \"No se pudo reproducir la grabación.\" with zero audio requests and no 404s. Per the task's read of `PictureAudioLifecycle.tsx`, \"failed\" shows that message and a separate \"aún no está disponible\" message exists for a missing recording. The recording is likely missing and misclassified as failed. Real-device audio confirmation still needs Computer or another worker.\n• Wrong-answer feedback is inconsistent across games: cow and Chano give text plus retry, mariposas gives red and green slot rings, vocal-a and rima-p are color-only.\n\nBatch 3 (final) follows with the wave-1 retests: page 7 eye over several reloads, Armar banner and counter, Espejo no-mic message, presenter demo panel, teacher header, L24 sheet 3 art, pencil obstruction, mobile wrap.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM5AALXV3",
+          "name": "cloud-browser-20261126-205827-42893e88.png"
+        },
+        {
+          "slack_file_id": "F0CMEA63CHJ",
+          "name": "cloud-browser-20261126-205919-d65046f7.png"
+        },
+        {
+          "slack_file_id": "F0CMADENLCS",
+          "name": "cloud-browser-20261126-210041-95bdd410.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795727553087899",
+      "source_ts": "1795727553.087899",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/cuaderno"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*QA wave 2, batch 3 (final): retests of wave-1 defects.* Site <https://cartilla-de-gretel-psi.vercel.app>, bundle `/assets/index.DfVFm_LM.js`. Desktop 1280x720, phone 390x844 via viewport override.\n\n*Still defective (reproduced)*\n• *Espejo mic message (390x844):* with no microphone, \"Ahora tú\" shows \"Casi. Escucha y prueba otra vez.\" That is a near-miss pronunciation message, not a mic-unavailable message. Misleading.\n• *Teacher header (1280x720):* the logo truncates to \"La Cartill...\". Rest of the nav is fine.\n• *Presenter demo panel (1280x720):* with MODO DEMO ACTIVO on, the bottom panel covers \"Anterior\" and part of \"Siguiente\". It has its own \"Cerrar\". In non-demo presenter mode the small chip does not overlap.\n• *Pencil obstruction (1280x720):* workbook page 19 hides the cursor over the writing canvas and draws a ~400px photoreal pencil at the pointer. It covers swatches, canvas and text. Drawing still works.\n• *Mobile Armar wrap (390x844):* slots wrap 3+1, tiles 3+2, no horizontal overflow. Cosmetic.\n\n*Cleared or corrected*\n• *Page 7 eye (Viktor's report):* NOT REPRODUCED. 4 fresh loads of /cartilla/cuaderno all showed the approved single-eye asset. Art pops in after text on slow loads, so a reload caught mid-load could look like a missing eye. Singular \"ojo\" not reopened.\n• *Armar counter \"0 de 8 completados\":* not stuck. It counts completed minigames above the 8 tabs. By design. The Armar banner overlap needs a real drag to reproduce and was not re-verified. Wave-1 evidence stands.\n• *L24 sheet 3 pumpkin-car art:* fully visible once settled. The clipping is the page-curl animation, which double-renders for about 1.5s during turns. Likely also why \"Siguiente\" needed two clicks in wave 1.\n• *Watering-can clipping:* not reproduced settled, cold-load only.\n\n*NOT VERIFIED, needs Computer or another authorized worker with a real device:* Espejo mic flow end to end, dibujos-o picture audio (the error toast fires with zero audio requests), general audio playback, real touch gestures. No candidate preview URL was supplied, so every result is from the production preview only.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CLV8PHMGF",
+          "name": "cloud-browser-20261126-210645-d95480ce.png"
+        },
+        {
+          "slack_file_id": "F0CMAECPYEN",
+          "name": "cloud-browser-20261126-210801-12bf1f3d.png"
+        },
+        {
+          "slack_file_id": "F0CMCGKDAG1",
+          "name": "cloud-browser-20261126-210810-91e3d051.png"
+        },
+        {
+          "slack_file_id": "F0CMCGKN2BT",
+          "name": "cloud-browser-20261126-210901-a34d9110.png"
+        },
+        {
+          "slack_file_id": "F0CN51DNX7A",
+          "name": "cloud-browser-20261126-211017-e0b816c3.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795740582967199",
+      "source_ts": "1795740582.967199",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/cow-game-m"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*cow-game-m: DESKTOP 1280x720.* Route <https://cartilla-de-gretel-psi.vercel.app/cartilla/juego/cow-game-m>, production preview, bundle `/assets/index.DfVFm_LM.js` (no git SHA exposed). Status: WORKS. Fresh state, one real round.\n1 start: 5 cows, 5 fence boxes. 2 action: the \"mi\" cow walks to the fence. 3 incorrect: \"mi\" cow to \"ma\" box shows \"Inténtalo otra vez\", cow returns. 4 correction: card sits in the \"mi\" box (\"¡Muy bien!\" is transient and fades before a screenshot holds it). 5 completion: \"¡Muy bien!\" and \"Jugar otra vez\".\nAudio: not tested, no audio device. Video: needs Computer. Each move locks input about 4.7s during the walk.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CLW6A8AET",
+          "name": "cloud-browser-20261127-004559-9fa06eda.png"
+        },
+        {
+          "slack_file_id": "F0CM9JBRFLN",
+          "name": "cloud-browser-20261127-004621-f53c4f87.png"
+        },
+        {
+          "slack_file_id": "F0CN5UE0JM6",
+          "name": "cloud-browser-20261127-004635-884cc248.png"
+        },
+        {
+          "slack_file_id": "F0CLW6AJ56K",
+          "name": "cloud-browser-20261127-004649-11ebfe05.png"
+        },
+        {
+          "slack_file_id": "F0CN5UE5XHN",
+          "name": "cloud-browser-20261127-004732-b64df0d2.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795740585910239",
+      "source_ts": "1795740585.910239",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/cow-game-m"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*cow-game-m: PHONE 390x844.* Same route and bundle, one real round. Status: WORKS. Layout fits, no overflow. Correction shot is caught mid-drop; the placed card is visible in the desktop set. Audio and video: not captured, needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CN5UEH6RE",
+          "name": "cloud-browser-20261127-004750-dea5d9bc.png"
+        },
+        {
+          "slack_file_id": "F0CM5AR4UTV",
+          "name": "cloud-browser-20261127-004757-9fc43fdc.png"
+        },
+        {
+          "slack_file_id": "F0CLW6ADYEB",
+          "name": "cloud-browser-20261127-004811-96c54629.png"
+        },
+        {
+          "slack_file_id": "F0CMBC04C0J",
+          "name": "cloud-browser-20261127-004819-a664bf62.png"
+        },
+        {
+          "slack_file_id": "F0CMDE6C6SD",
+          "name": "cloud-browser-20261127-004911-872535b0.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741015390159",
+      "source_ts": "1795741015.390159",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/mariposas-p"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*mariposas-p: DESKTOP 1280x720.* Route <https://cartilla-de-gretel-psi.vercel.app/cartilla/juego/mariposas-p>, production preview, bundle `/assets/index.DfVFm_LM.js`. Status: WORKS, with one DEFECT (no end-of-round message). Full 6-word list played.\n1 start. 2 action: \"ma\" butterfly flies to slot 1. 3 incorrect: wrong \"mo\" plus check gives a red ring, correct \"ma\" gets green. Wrong syllables are accepted until check is pressed. 4 correction: \"ma\" + \"pa\" in order shows \"¡Muy bien!\" with no check needed. 5 after the last word, the watering can silently restarts at \"mapa\". No completion message.\nAudio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMF9S3QQ4",
+          "name": "cloud-browser-20261127-004947-6fa6529a.png"
+        },
+        {
+          "slack_file_id": "F0CM69WU1SR",
+          "name": "cloud-browser-20261127-004949-30ab74ed.png"
+        },
+        {
+          "slack_file_id": "F0CM5BR8JKD",
+          "name": "cloud-browser-20261127-005012-3b651839.png"
+        },
+        {
+          "slack_file_id": "F0CMDF79T4Z",
+          "name": "cloud-browser-20261127-005048-ef606717.png"
+        },
+        {
+          "slack_file_id": "F0CMDF79XPB",
+          "name": "cloud-browser-20261127-005312-5c1a7a04.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741025073359",
+      "source_ts": "1795741025.073359",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/mariposas-p"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*mariposas-p: PHONE 390x844.* Same route and bundle, full list played. Status: WORKS with the same DEFECT: no completion message after word 6, the watering can restarts at \"mapa\". Layout fits with no clipping. Shot 5 was re-captured after the first attempt rendered at desktop width; it is verified 390px wide.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMDF7JJ0H",
+          "name": "cloud-browser-20261127-005327-3b1b61e5.png"
+        },
+        {
+          "slack_file_id": "F0CM69T9BNZ",
+          "name": "cloud-browser-20261127-005329-9d0d7a3e.png"
+        },
+        {
+          "slack_file_id": "F0CM9KH1W22",
+          "name": "cloud-browser-20261127-005341-d8ef9e8d.png"
+        },
+        {
+          "slack_file_id": "F0CN601U9FA",
+          "name": "cloud-browser-20261127-005400-d7e9577f.png"
+        },
+        {
+          "slack_file_id": "F0CLW7CP3AB",
+          "name": "cloud-browser-20261127-005616-651362e8.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741479811199",
+      "source_ts": "1795741479.811199",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/payaso-chano-ss"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*payaso-chano-ss: DESKTOP 1280x720.* Route <https://cartilla-de-gretel-psi.vercel.app/cartilla/juego/payaso-chano-ss>, production preview, bundle `/assets/index.DfVFm_LM.js`. Status: WORKS, with one DEFECT (no end-of-game message). All 8 words played.\n1 start. 2 action: \"so\" tile placed in slot 1. 3 incorrect: wrong order \"so pa\" gives the \"Intenta otra vez\" dialog. \"Intentar\" alone does not clear the board, Reiniciar is also needed. 4 correct order \"pa so\" after Reiniciar (the green \"¡Muy bien!\" dialog follows the check, not shown here). 5 after word 8 of 8, \"Siguiente con Chano\" silently restarts at \"Palabra 1 de 8\". No completion message. The cow game does show one.\nAudio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM9LVH50W",
+          "name": "cloud-browser-20261127-005658-b5ec43cd.png"
+        },
+        {
+          "slack_file_id": "F0CMDGLSREV",
+          "name": "cloud-browser-20261127-005700-5ad4ab44.png"
+        },
+        {
+          "slack_file_id": "F0CM5D5GBJP",
+          "name": "cloud-browser-20261127-005710-7f2d8e11.png"
+        },
+        {
+          "slack_file_id": "F0CLW8R1YFR",
+          "name": "cloud-browser-20261127-005803-82a58f2b.png"
+        },
+        {
+          "slack_file_id": "F0CMDGLMJ2D",
+          "name": "cloud-browser-20261127-010156-ea1b1987.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741495569699",
+      "source_ts": "1795741495.569699",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/payaso-chano-ss"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*payaso-chano-ss: PHONE 390x844.* Same route and bundle, all 8 words played, width verified 390px. Status: WORKS with the same DEFECT: no completion message after word 8, the game restarts at word 1. Layout stacks cleanly with no overflow. The instruction card text is cut at the top on first paint (page loads slightly scrolled), a scroll fixes it. The correct answer shows both the \"¡Excelente! Palabra «paso» completa.\" banner and the \"¡Muy bien!\" sheet.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM5D6L7AP",
+          "name": "cloud-browser-20261127-010222-fa8e972b.png"
+        },
+        {
+          "slack_file_id": "F0CMDGN8JJD",
+          "name": "cloud-browser-20261127-010224-dfb3158d.png"
+        },
+        {
+          "slack_file_id": "F0CM5D6DYHZ",
+          "name": "cloud-browser-20261127-010234-7dc68cdb.png"
+        },
+        {
+          "slack_file_id": "F0CN61G4H2L",
+          "name": "cloud-browser-20261127-010245-ad712ac7.png"
+        },
+        {
+          "slack_file_id": "F0CMFB6SW9J",
+          "name": "cloud-browser-20261127-010407-b098a9bc.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741568963419",
+      "source_ts": "1795741568.963419",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/completar-palabras"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*completar-palabras: DESKTOP 1280x720.* Route /cartilla/juego/completar-palabras, bundle /assets/index.DfVFm_LM.js. Status: PLACEHOLDER (partially shipped), captured as-is. Only Mm is unlocked, the other 17 letters are locked. The Mm activity shows \"¿? pendiente\" in every picture slot, \"Audio: pendiente\" in the header, and no feedback logic, so there are no incorrect, correction or completion stages to show. Word list includes pseudo-words \"Momi\" and \"Mumi\" next to real words, flagged in case that is unintended. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFBE8LUU",
+          "name": "cloud-browser-20261127-010445-a53b5349.png"
+        },
+        {
+          "slack_file_id": "F0CMDGVHZT3",
+          "name": "cloud-browser-20261127-010535-cc78fda0.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741582756619",
+      "source_ts": "1795741582.756619",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/completar-palabras"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*completar-palabras: PHONE 390x844.* Same route and bundle. Status: PLACEHOLDER, same as desktop. Locked letter grid renders cleanly in 3 columns, and the Mm activity shows the same \"pendiente\" markers with the layout holding.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFBFCW3E",
+          "name": "cloud-browser-20261127-010520-cb79822c.png"
+        },
+        {
+          "slack_file_id": "F0CM5DEQH8T",
+          "name": "cloud-browser-20261127-010544-048773a7.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741740712779",
+      "source_ts": "1795741740.712779",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/vocal-a"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*vocal-a: DESKTOP 1280x720.* Route /cartilla/juego/vocal-a, bundle /assets/index.DfVFm_LM.js. Status: WORKS, fully playable (5 picture cards, \"¿Comienza con A?\"). Incorrect shows a red card with locked buttons. Correct shows a green card and the star counter advances. Completion shows a red \"4 de 5 correctas\" banner with a \"Repetir\" button. Note: each card locks permanently once answered, there is no per-card retry (only full Repetir), and card feedback is color-only until the final banner. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CN623SU48",
+          "name": "cloud-browser-20261127-010653-b37727b4.png"
+        },
+        {
+          "slack_file_id": "F0CM5DU6HSP",
+          "name": "cloud-browser-20261127-010702-c98a6013.png"
+        },
+        {
+          "slack_file_id": "F0CMDHA74FK",
+          "name": "cloud-browser-20261127-010713-035c20a9.png"
+        },
+        {
+          "slack_file_id": "F0CM5DU8M5Z",
+          "name": "cloud-browser-20261127-010721-c9a34492.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741749112339",
+      "source_ts": "1795741749.112339",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/vocal-a"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*vocal-a: PHONE 390x844.* Same route and bundle. Status: WORKS. Same flow as desktop: incorrect gives a red locked card, correct gives a green locked card, completion shows \"4 de 5 correctas\" with \"Repetir\". Single column, no layout defects. Same lock behavior, no per-card correction stage.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CLW9F3N1M",
+          "name": "cloud-browser-20261127-010813-ac1ce68b.png"
+        },
+        {
+          "slack_file_id": "F0CN624CV8Q",
+          "name": "cloud-browser-20261127-010820-02f001a0.png"
+        },
+        {
+          "slack_file_id": "F0CLW9F4VJB",
+          "name": "cloud-browser-20261127-010823-9e18a47a.png"
+        },
+        {
+          "slack_file_id": "F0CMDHB61DF",
+          "name": "cloud-browser-20261127-010835-484c02d0.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741843531919",
+      "source_ts": "1795741843.531919",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/fonetica-p"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*fonetica-p: DESKTOP 1280x720.* Route /cartilla/juego/fonetica-p, bundle /assets/index.DfVFm_LM.js. Status: WORKS, fully playable (\"Completa la palabra\", 3 words: papi, papá, pomo). Incorrect: slot turns red with \"Esa sílaba no completa la palabra.\" (banner fades in about 1.5s). Correct: slot turns green with \"¡Correcto!\" and the star counter advances, then it auto-advances in about 2s. Retry is allowed: a wrong pick does not lock or advance. Completion: \"3 de 3 palabras completadas\" with \"Repetir\". Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM9MUAX2S",
+          "name": "cloud-browser-20261127-010913-27e86655.png"
+        },
+        {
+          "slack_file_id": "F0CLW9PFR1V",
+          "name": "cloud-browser-20261127-010933-291105ee.png"
+        },
+        {
+          "slack_file_id": "F0CM5E37XEX",
+          "name": "cloud-browser-20261127-010937-f8043346.png"
+        },
+        {
+          "slack_file_id": "F0CM9MTSN5U",
+          "name": "cloud-browser-20261127-010959-c5bdc502.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741853815089",
+      "source_ts": "1795741853.815089",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/fonetica-p"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*fonetica-p: PHONE 390x844.* Same route and bundle. Status: WORKS. Options wrap to two rows (3+2), the incorrect banner wraps to two lines with no overlap, correct and completion match desktop. No phone layout defects.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFC4FGDS",
+          "name": "cloud-browser-20261127-011010-d9e4dab8.png"
+        },
+        {
+          "slack_file_id": "F0CMDHKQ3K3",
+          "name": "cloud-browser-20261127-011011-fd52d63a.png"
+        },
+        {
+          "slack_file_id": "F0CMFC4J012",
+          "name": "cloud-browser-20261127-011015-a298059a.png"
+        },
+        {
+          "slack_file_id": "F0CMBFDRCN6",
+          "name": "cloud-browser-20261127-011027-9740a096.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741902974459",
+      "source_ts": "1795741902.974459",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/rima-p"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*rima-p: DESKTOP 1280x720.* Route /cartilla/juego/rima-p, bundle /assets/index.DfVFm_LM.js. Status: WORKS, fully playable (\"¿Qué palabra rima con...?\", 2 rounds). Incorrect: banner \"Busca la misma sílaba final.\" and the options stay live, so retry is allowed. Correct: \"¡Riman!\" and the star counter advances, then auto-advance. Completion: \"2 de 2 rimas encontradas\" with \"Repetir\". Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM6CE1J9K",
+          "name": "cloud-browser-20261127-011047-291ea126.png"
+        },
+        {
+          "slack_file_id": "F0CN62JDFCG",
+          "name": "cloud-browser-20261127-011050-2cc85811.png"
+        },
+        {
+          "slack_file_id": "F0CMDHQACD7",
+          "name": "cloud-browser-20261127-011053-b0489214.png"
+        },
+        {
+          "slack_file_id": "F0CM5E8RU9Z",
+          "name": "cloud-browser-20261127-011105-2dd898b6.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795741916222849",
+      "source_ts": "1795741916.222849",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/rima-p"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*rima-p: PHONE 390x844.* Same route and bundle. Status: WORKS. Options stack vertically, the incorrect banner fits on one line, correct and completion match desktop. No phone layout defects.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFC9U7HA",
+          "name": "cloud-browser-20261127-011113-46db7df7.png"
+        },
+        {
+          "slack_file_id": "F0CM9N0CA86",
+          "name": "cloud-browser-20261127-011114-2c3bf850.png"
+        },
+        {
+          "slack_file_id": "F0CLW9W0TPZ",
+          "name": "cloud-browser-20261127-011118-f6540518.png"
+        },
+        {
+          "slack_file_id": "F0CM9N10E86",
+          "name": "cloud-browser-20261127-011125-4549f7b7.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795742086861369",
+      "source_ts": "1795742086.861369",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/palabras-minuto-p"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*palabras-minuto-p: DESKTOP 1280x720.* Route /cartilla/juego/palabras-minuto-p, bundle /assets/index.DfVFm_LM.js. Status: WORKS. 60s timer, 18 word tiles, sequential mechanic (only the highlighted word counts). An out-of-turn click is silently ignored: no banner, no red, counter unchanged. All 18 read at 35s left. Correction to my batch 2 note: the shot at 0s shows the board frozen with \"Leídas: 18\" and no end message in the visible area. Batch 2 recorded \"Leíste 18 palabras.\" and \"Otra vez\". The viewport only shows the top of the board, so the end message may sit below the fold. Treat the end-of-round message as NOT VERIFIED in this set, I am re-checking below the fold. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CN62Z7P3J",
+          "name": "cloud-browser-20261127-011145-75a80060.png"
+        },
+        {
+          "slack_file_id": "F0CMDJ5F8BT",
+          "name": "cloud-browser-20261127-011153-a843806a.png"
+        },
+        {
+          "slack_file_id": "F0CN62Z7072",
+          "name": "cloud-browser-20261127-011158-f0661b81.png"
+        },
+        {
+          "slack_file_id": "F0CMFCQJ536",
+          "name": "cloud-browser-20261127-011216-8a4f1721.png"
+        },
+        {
+          "slack_file_id": "F0CM9NE957Y",
+          "name": "cloud-browser-20261127-011300-fe5ba4b2.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ],
+      "correction_receipt": "https://app.slack.com/archives/C0CM2CMH68K/p1795742267606549",
+      "correction_note": "Earlier no-end-message claim corrected by the original reviewer; see later report."
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795742097170299",
+      "source_ts": "1795742097.170299",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/palabras-minuto-p"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*palabras-minuto-p: PHONE 390x844.* Same route and bundle. Status: WORKS. Two-column tile grid, clean, no clipping. Out-of-turn taps are silently ignored. The end-of-round message and replay button are NOT VERIFIED in this set (the viewport shows only the top of the board at 0s). A below-the-fold check is pending.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CN63080G0",
+          "name": "cloud-browser-20261127-011308-6bf5c8af.png"
+        },
+        {
+          "slack_file_id": "F0CM6CWK205",
+          "name": "cloud-browser-20261127-011313-c7e68f6a.png"
+        },
+        {
+          "slack_file_id": "F0CLWAB7N07",
+          "name": "cloud-browser-20261127-011416-eef1bf3a.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ],
+      "correction_receipt": "https://app.slack.com/archives/C0CM2CMH68K/p1795742267606549",
+      "correction_note": "Earlier no-end-message claim corrected by the original reviewer; see later report."
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795742267606549",
+      "source_ts": "1795742267.606549",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/palabras-minuto-p"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*palabras-minuto-p: CORRECTION (desktop and phone).* My earlier note that there is no end-of-round message was wrong. At timer 0 a green banner \"Leíste 18 palabras.\" and an \"Otra vez\" replay button render below the board, off-viewport at scroll top. Verified on desktop 1280x720 and phone 390x844. Status: WORKS. There is no consistency gap with the other games on this point. Findings that stand: sequential yellow target, out-of-turn taps silently ignored. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM9NWMQ14",
+          "name": "cloud-browser-20261127-011616-830197e4.png"
+        },
+        {
+          "slack_file_id": "F0CMDJM9RQ9",
+          "name": "cloud-browser-20261127-011624-5271da3a.png"
+        },
+        {
+          "slack_file_id": "F0CM9NX6UBG",
+          "name": "cloud-browser-20261127-011728-3a6e7856.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744191207659",
+      "source_ts": "1795744191.207659",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/dibujos-o"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*dibujos-o: DESKTOP 1280x720.* Route /cartilla/juego/dibujos-o, bundle /assets/index.DfVFm_LM.js. Status: DEFECT. Mechanic: pick the picture that matches the word (OSO), 3 words per round, star counter 0/3. Wrong pick: red banner \"Busca el dibujo que corresponde a la palabra.\", free retry. Right pick: green banner \"¡Ese es el dibujo!\", then auto-advance. Completion: \"3 de 3 dibujos correctos\" and Repetir. DEFECT: the toast \"No se pudo reproducir la grabación.\" appears on card clicks. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFHX5H28",
+          "name": "cloud-browser-20261127-014847-444b7179.png"
+        },
+        {
+          "slack_file_id": "F0CMFHXSR7E",
+          "name": "cloud-browser-20261127-014901-74a9ebae.png"
+        },
+        {
+          "slack_file_id": "F0CM9TNEBPG",
+          "name": "cloud-browser-20261127-014908-882d0915.png"
+        },
+        {
+          "slack_file_id": "F0CM6J39ZDK",
+          "name": "cloud-browser-20261127-014931-9d6077b9.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744212214959",
+      "source_ts": "1795744212.214959",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/dibujos-o"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*dibujos-o: PHONE 390x844.* Same route and bundle. Status: DEFECT (same recording toast \"No se pudo reproducir la grabación.\" on card clicks). Cards stack vertically, layout clean, no clipping. The green \"¡Ese es el dibujo!\" banner renders below the fold on phone. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CN6890N48",
+          "name": "cloud-browser-20261127-014943-6f02777d.png"
+        },
+        {
+          "slack_file_id": "F0CM6J4CXV3",
+          "name": "cloud-browser-20261127-014946-ad48dff7.png"
+        },
+        {
+          "slack_file_id": "F0CM6HYCHHB",
+          "name": "cloud-browser-20261127-014949-7c231d7c.png"
+        },
+        {
+          "slack_file_id": "F0CM9TQCYVC",
+          "name": "cloud-browser-20261127-014958-5ac0483d.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744276399979",
+      "source_ts": "1795744276.399979",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/silabas-o"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*silabas-o: DESKTOP 1280x720.* Route /cartilla/juego/silabas-o, bundle /assets/index.DfVFm_LM.js. Status: DEFECT. Build the word from syllable tiles (oso, ola, oveja), 3 words. Wrong: both slots red and \"Casi. Inténtalo otra vez.\" Correction: tap a placed slot to return the tile to the tray. Right: green slots, \"¡Muy bien!\", Siguiente. DEFECT: after word 3, Terminar silently restarts at Palabra 1 de 3 with reshuffled tiles. No score or summary screen and no replay control, unlike dibujos-o (\"3 de 3 dibujos correctos\" + Repetir). Flag for #877 consistency. The word 3 green state (o-ve-ja with Terminar) was captured but is not in this set. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM6J9J1D3",
+          "name": "cloud-browser-20261127-015012-2dc17a90.png"
+        },
+        {
+          "slack_file_id": "F0CM9TVMDJS",
+          "name": "cloud-browser-20261127-015019-e23a3082.png"
+        },
+        {
+          "slack_file_id": "F0CM5L4QURH",
+          "name": "cloud-browser-20261127-015030-16cc2cfc.png"
+        },
+        {
+          "slack_file_id": "F0CM9TVDVUN",
+          "name": "cloud-browser-20261127-015037-fc4e1186.png"
+        },
+        {
+          "slack_file_id": "F0CMDPLNTDF",
+          "name": "cloud-browser-20261127-015055-021bae3d.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744306268509",
+      "source_ts": "1795744306.268509",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/silabas-o"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*silabas-o: PHONE 390x844.* Same route and bundle. Status: DEFECT (same as desktop: Terminar on word 3 silently restarts at Palabra 1 de 3 with reshuffled tiles, no summary or replay). Tapping a placed slot returns its tile to the tray, verified. Layout clean, tiles wrap to 3 rows, no clipping. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFJ7L09J",
+          "name": "cloud-browser-20261127-015110-7341af9b.png"
+        },
+        {
+          "slack_file_id": "F0CM9TT297G",
+          "name": "cloud-browser-20261127-015116-add468ec.png"
+        },
+        {
+          "slack_file_id": "F0CM9TXVBTQ",
+          "name": "cloud-browser-20261127-015124-fd3a287e.png"
+        },
+        {
+          "slack_file_id": "F0CN68GJ0M6",
+          "name": "cloud-browser-20261127-015130-8708367e.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744344353149",
+      "source_ts": "1795744344.353149",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/silabas-m"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*silabas-m: DESKTOP 1280x720.* Route /cartilla/juego/silabas-m, bundle /assets/index.DfVFm_LM.js. Status: DEFECT. Build the word from syllable tiles, 2 words per round (mamá, mono). Wrong: red slots and \"Casi. Inténtalo otra vez.\" Right: green slots, \"¡Muy bien!\", Siguiente, then Terminar on the last word. DEFECT: Terminar silently restarts at Palabra 1 de 2, no summary or replay (same as silabas-o). Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM6JFPUTX",
+          "name": "cloud-browser-20261127-015140-a63d08a1.png"
+        },
+        {
+          "slack_file_id": "F0CM9U18Y06",
+          "name": "cloud-browser-20261127-015148-66ab6ccb.png"
+        },
+        {
+          "slack_file_id": "F0CMBMKD8R0",
+          "name": "cloud-browser-20261127-015151-480e8b90.png"
+        },
+        {
+          "slack_file_id": "F0CMDPRRXCH",
+          "name": "cloud-browser-20261127-015200-bc623e9f.png"
+        },
+        {
+          "slack_file_id": "F0CMDPSDEJV",
+          "name": "cloud-browser-20261127-015202-f419f94b.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744359729639",
+      "source_ts": "1795744359.729639",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/silabas-m"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*silabas-m: PHONE 390x844.* Same route and bundle. Status: DEFECT (same as desktop: Terminar restarts at Palabra 1 de 2 with reshuffled tiles, no summary or replay). Layout clean, tiles in 2 rows, no clipping. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMDPMR5DF",
+          "name": "cloud-browser-20261127-015214-b94c882a.png"
+        },
+        {
+          "slack_file_id": "F0CMFJBUC1J",
+          "name": "cloud-browser-20261127-015215-3e8e0816.png"
+        },
+        {
+          "slack_file_id": "F0CMDPTCW9X",
+          "name": "cloud-browser-20261127-015218-91272c30.png"
+        },
+        {
+          "slack_file_id": "F0CMDPTCHLH",
+          "name": "cloud-browser-20261127-015221-be262155.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744398629659",
+      "source_ts": "1795744398.629659",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/silabas-p"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*silabas-p: DESKTOP 1280x720.* Route /cartilla/juego/silabas-p, bundle /assets/index.DfVFm_LM.js. Status: DEFECT (Terminar silently restarts at Palabra 1 de 2, no summary or replay). Minor: the father-and-child picture is cropped on the right edge (arm cut off). Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM5LESE4B",
+          "name": "cloud-browser-20261127-015232-b54e996e.png"
+        },
+        {
+          "slack_file_id": "F0CM6JL1LTF",
+          "name": "cloud-browser-20261127-015240-50d2c588.png"
+        },
+        {
+          "slack_file_id": "F0CLWG0PEPR",
+          "name": "cloud-browser-20261127-015243-e20941e9.png"
+        },
+        {
+          "slack_file_id": "F0CM9U5DDU6",
+          "name": "cloud-browser-20261127-015252-155fde6d.png"
+        },
+        {
+          "slack_file_id": "F0CLWG0LT8F",
+          "name": "cloud-browser-20261127-015253-e50ca354.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744407897069",
+      "source_ts": "1795744407.897069",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/silabas-p"
+      ],
+      "route_basis": "paired same-game desktop source; not extracted from phone address bar",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*silabas-p: PHONE 390x844.* Same route and bundle. Status: DEFECT (Terminar restarts at Palabra 1 de 2 with reshuffled tiles, no summary or replay). Tiles in 2 rows, no clipping. The picture crop on the right edge is the same as desktop. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFJAJ5TN",
+          "name": "cloud-browser-20261127-015304-e93a5cd2.png"
+        },
+        {
+          "slack_file_id": "F0CN68QUL00",
+          "name": "cloud-browser-20261127-015305-2b537963.png"
+        },
+        {
+          "slack_file_id": "F0CN68QSR3J",
+          "name": "cloud-browser-20261127-015308-2cb2a16b.png"
+        },
+        {
+          "slack_file_id": "F0CMFJGD0EQ",
+          "name": "cloud-browser-20261127-015312-003f0b9e.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744436668749",
+      "source_ts": "1795744436.668749",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/practica"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Practice modes 1/2: PHONE 390x844.* Route /cartilla/practica, bundle /assets/index.DfVFm_LM.js. Registered modes: 8 tabs under \"A jugar\" (0 de 8 completados): Silabas, Emparejar, Armar, Trazar, Piano, Busca el sonido, Espejo, Juegos. Plus a \"Drill de silabas\" card (60/90/120 s, 91 silabas). Shown: start states only for Silabas, Emparejar, Armar, Trazar. Action states, Piano onward and the desktop pass still to come. Status: NOT VERIFIED beyond start states. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CLWG3V1AT",
+          "name": "cloud-browser-20261127-015323-f1b22620.png"
+        },
+        {
+          "slack_file_id": "F0CM5LHHW83",
+          "name": "cloud-browser-20261127-015328-8293d397.png"
+        },
+        {
+          "slack_file_id": "F0CLWG428LF",
+          "name": "cloud-browser-20261127-015329-adf4e752.png"
+        },
+        {
+          "slack_file_id": "F0CM9U8TFPY",
+          "name": "cloud-browser-20261127-015330-3a1d2a2d.png"
+        },
+        {
+          "slack_file_id": "F0CM5LHNJD9",
+          "name": "cloud-browser-20261127-015331-e76b1b03.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744445243649",
+      "source_ts": "1795744445.243649",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/juego/piano-hablador",
+        "/cartilla/practica"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Practice modes 2/2: PHONE 390x844.* Route /cartilla/practica, bundle /assets/index.DfVFm_LM.js. Shown: Piano (Piano Hablador, sub-tabs Piano | Cancionero), Busca el sonido, Espejo, Juegos (Tren de silabas, Rompecabezas, Memoria, Rapido y atento).\n- Piano Hablador: this browser has no mic. Banner says the browser lacks local recognition and HABLAR is disabled. Mic and voice flow: NOT VERIFIED, needs Computer or a real device.\n- /cartilla/juego/piano-hablador is not a registered route (\"Juego no encontrado\"). It only lives in this tab.\nStatus: start states only, NOT VERIFIED beyond that. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM9U9NXN2",
+          "name": "cloud-browser-20261127-015333-9e9602f6.png"
+        },
+        {
+          "slack_file_id": "F0CM9U50KFG",
+          "name": "cloud-browser-20261127-015334-d3bb6c3f.png"
+        },
+        {
+          "slack_file_id": "F0CM5LJMF9R",
+          "name": "cloud-browser-20261127-015335-d449284f.png"
+        },
+        {
+          "slack_file_id": "F0CMDQ0CWSD",
+          "name": "cloud-browser-20261127-015336-9dc45142.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744490206479",
+      "source_ts": "1795744490.206479",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Workbook 1/2: PHONE 390x844.* Bundle /assets/index.DfVFm_LM.js.\n- Cover: \"La cartilla de Gretel, Libro del alumno\", Comenzar, Soy maestro (not opened).\n- Mis lecciones: \"Llevas 0 de 24\", Cuaderno Completo, El Piano Hablador, Minijuegos y Practica, 24 lesson tiles.\n- Leccion 7 page: trace-the-M cards with Puntos toggle, write-m field, prev/next buttons, Demo L7 control.\n- Siguiente without finishing: WORKS as a gate. Page does not turn, dashed yellow outlines on unfinished items, toast \"Casi! Antes de seguir, termina el trazo de la letra M, el trazo de la letra m y tu dibujo.\"\n- Cancionero / Piano tab: mic unavailable banner, HABLAR disabled.\nNOT VERIFIED: page curl mid-frame, pencil/eraser/color strokes, flip-chart, lesson illustration motion, save/resume. They need real pointer or touch input (Computer). Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMBMXHP2N",
+          "name": "cloud-browser-20261127-015356-14616532.png"
+        },
+        {
+          "slack_file_id": "F0CM9UD543Y",
+          "name": "cloud-browser-20261127-015403-fe1cfb1e.png"
+        },
+        {
+          "slack_file_id": "F0CM5LNHQTD",
+          "name": "cloud-browser-20261127-015410-3a169af1.png"
+        },
+        {
+          "slack_file_id": "F0CMBMXGXV0",
+          "name": "cloud-browser-20261127-015427-b052f5fd.png"
+        },
+        {
+          "slack_file_id": "F0CMFJP0BA8",
+          "name": "cloud-browser-20261127-015418-a13e9135.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744497385079",
+      "source_ts": "1795744497.385079",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/leccion/7",
+        "/cartilla/practica",
+        "/cartilla/teacher/crm"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "kind": "simulated viewport, not physical phone"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Workbook 2/2: PHONE.* /cartilla/leccion/7, tab \"Practica y Actividades\": \"Repaso final: La consonante Mm\", same 8-mode selector (0 de 8), Silabas \"Lee y elige 0 de 5\" start state. Matches /cartilla/practica.\n\n*Showcase status:* all 12 game IDs posted desktop + phone, practice modes (phone, 8 tabs + Piano Hablador) and workbook entry/gate/tabs (phone) posted. NOT VERIFIED / need real input or Computer: desktop shots of practice and workbook, action states of the 8 practice tabs, workbook strokes, page curl, eraser, green feedback, teacher controls (/cartilla/teacher/crm not opened), video, sound, mic Piano.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM6JUA6S1",
+          "name": "cloud-browser-20261127-015420-da46658a.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744579698109",
+      "source_ts": "1795744579.698109",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Workbook DESKTOP 1280x720: Leccion 7, page 19.* Bundle /assets/index.DfVFm_LM.js. Demo mode on (browser-local only). Trace-the-M works with clicks on dots.\n- WORKS: wrong-order dot gives a red hint, mid-trace draws ink and progress bar, completion turns the M green with \"Muy bien!\" and a full bar.\n- DEFECT: a giant animated pencil cursor (about 400px, diagonal) covers the page while tracing, including the hint text and write lines. It was still on screen 2 s after finishing.\n- Demo panel: Cuaderno, Proyectar Rotafolio, Guia Docente, Panel Maestro, Gestionar Alumnos y Maestros (not touched).\nNOT VERIFIED: write lines, colors, eraser, page curl, drawing box. Audio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMFJWC3PW",
+          "name": "cloud-browser-20261127-015503-7c93ccdd.png"
+        },
+        {
+          "slack_file_id": "F0CM5LW7VV1",
+          "name": "cloud-browser-20261127-015543-c0cd2f40.png"
+        },
+        {
+          "slack_file_id": "F0CMDQBMMPT",
+          "name": "cloud-browser-20261127-015548-55f6ce35.png"
+        },
+        {
+          "slack_file_id": "F0CMFJW2ZDJ",
+          "name": "cloud-browser-20261127-015554-07ef6ce8.png"
+        },
+        {
+          "slack_file_id": "F0CM9UM2878",
+          "name": "cloud-browser-20261127-015510-5d06e0b5.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744614896329",
+      "source_ts": "1795744614.896329",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Workbook DESKTOP p.19: writing and eraser (real mouse drags).*\n- WORKS: black and red strokes draw in the \"m\" write line, Listo enables.\n- Eraser: red stroke is cut away in the swept band, black stroke is still intact. Whether the black stroke was inside the swept area is NOT VERIFIED, so \"eraser only removes red\" is not proven. The tracer M stays green.\n- DEFECT (same as before): the oversized pencil/eraser cursor covers the page.\nAudio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMDQEE0P3",
+          "name": "cloud-browser-20261127-015636-4e341a98.png"
+        },
+        {
+          "slack_file_id": "F0CMBN7SNF4",
+          "name": "cloud-browser-20261127-015637-a1f65f0c.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744688947959",
+      "source_ts": "1795744688.947959",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/practica"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Practice DESKTOP 1280x720.* /cartilla/practica, bundle /assets/index.DfVFm_LM.js, Leccion 7, clicks only.\n- WORKS: Silabas tab, clicking \"ma\" shows \"Correcto\" and \"Siguiente sonido\".\n- Start states only: Drill, Emparejar (drag not performed), Armar, Trazar.\n- DEFECT: in Armar, Trazar, Espejo and Juegos the game panel is shifted left and clipped inside the Minijuegos card (title reads \"uegos de la cartilla\", left edge cut off, empty space on the right). Silabas, Piano and Busca el sonido render centered. Seen in images 4 and 5. Cause (layout vs horizontal scroll) NOT VERIFIED.\nAudio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CMBNE08KU",
+          "name": "cloud-browser-20261127-015727-14693e67.png"
+        },
+        {
+          "slack_file_id": "F0CMDQM5EHX",
+          "name": "cloud-browser-20261127-015732-b30e796d.png"
+        },
+        {
+          "slack_file_id": "F0CN69EFKLG",
+          "name": "cloud-browser-20261127-015733-756ae89b.png"
+        },
+        {
+          "slack_file_id": "F0CMBNEA41G",
+          "name": "cloud-browser-20261127-015734-27a5c861.png"
+        },
+        {
+          "slack_file_id": "F0CMFK51S5S",
+          "name": "cloud-browser-20261127-015741-a94e2e40.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744723412709",
+      "source_ts": "1795744723.412709",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/practica"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Practice DESKTOP 1280x720 (continued).* /cartilla/practica, bundle /assets/index.DfVFm_LM.js, Leccion 7, clicks only.\n- WORKS: Piano and Busca el sonido render centered, start states only.\n- DEFECT: Espejo and Juegos panels are clipped on the left (images 3 and 4), same as Armar and Trazar.\n- WORKS: Workbook p.19, after both M traces the gate toast \"Casi! Antes de seguir, termina tu dibujo.\" shows and the next arrow is disabled (image 5).\n- NOT VERIFIED: the Listo click on the drawing box did not register by synthetic click, so the page turn after the gate was not captured. Mic (Ahora tu) not exercised.\n- Visible on image 5: the oversized pencil cursor covers the page.\nAudio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM6KD6NSZ",
+          "name": "cloud-browser-20261127-015743-e56762f6.png"
+        },
+        {
+          "slack_file_id": "F0CN69GRERE",
+          "name": "cloud-browser-20261127-015744-47c76552.png"
+        },
+        {
+          "slack_file_id": "F0CM9UYHZN2",
+          "name": "cloud-browser-20261127-015745-19c701bb.png"
+        },
+        {
+          "slack_file_id": "F0CM5M7KMRR",
+          "name": "cloud-browser-20261127-015747-12372a93.png"
+        },
+        {
+          "slack_file_id": "F0CLWGTUUP9",
+          "name": "cloud-browser-20261127-015722-68564b8c.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744735587029",
+      "source_ts": "1795744735.587029",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/presentar/7"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Workbook / presenter / teacher, DESKTOP 1280x720.* Bundle /assets/index.DfVFm_LM.js, Demo mode (browser-local), view only. Nothing in \"Gestionar Alumnos y Maestros\" touched.\n- WORKS: Demo panel (image 1) shows Alumno Visitante Libre, Maestro [demo teacher name omitted], Cuaderno / Proyectar Rotafolio / Guia Docente / Panel Maestro.\n- WORKS: Flipchart /cartilla/presentar/7, sheet 1 of 3 (image 2) and sheet 2 of 3 (image 4) with Puntero, Mano Izq, Enfoque, Pantalla completa, thumbnails.\n- WORKS: page turn animates, sheet skewed in perspective mid-frame (image 3).\n- Image 5 is the teacher Guia L7, not the Panel (the agent's label was wrong). It shows a yellow warning: pages 20-21 of the teacher guide are missing from the transcription, \"pendiente de recuperar\". Content gap, DEFECT.\n- NOT VERIFIED: Enfoque and Puntero show only the active button state in stills, no visible overlay seen. Teacher Panel screenshot not captured yet.\nAudio: not tested. Video: needs Computer.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM5M83ULT",
+          "name": "cloud-browser-20261127-015803-f50f144a.png"
+        },
+        {
+          "slack_file_id": "F0CLWGUPHP1",
+          "name": "cloud-browser-20261127-015811-76d3e699.png"
+        },
+        {
+          "slack_file_id": "F0CMBNJ34P4",
+          "name": "cloud-browser-20261127-015826-3d2b990a.png"
+        },
+        {
+          "slack_file_id": "F0CMFK9B52Q",
+          "name": "cloud-browser-20261127-015828-514ef76a.png"
+        },
+        {
+          "slack_file_id": "F0CM6KEQY2Z",
+          "name": "cloud-browser-20261127-015815-ff7878e5.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    },
+    {
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744740824959",
+      "source_ts": "1795744740.824959",
+      "capture_origin": "https://cartilla-de-gretel-psi.vercel.app",
+      "capture_source": "Instinct Slack report; not independently rerun",
+      "tested_bundle": "/assets/index.DfVFm_LM.js",
+      "bundle_basis": "explicit or paired same-bundle desktop/phone report",
+      "candidate_pr_verified": false,
+      "source_revision_sha": null,
+      "routes": [
+        "/cartilla/teacher"
+      ],
+      "route_basis": "literal source report; empty means not stated",
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 720,
+          "kind": "desktop capture"
+        }
+      ],
+      "viewport_limit": "1280x720 is not the required 1366x768 candidate acceptance size",
+      "reported_observations": "*Teacher Panel del Docente, DESKTOP 1280x720.* /cartilla/teacher, bundle /assets/index.DfVFm_LM.js, view only. WORKS: cards Clase, Guia, Presentar, Reportes, Asistente Gretel, Maestra suplente, Ayuda render, banner \"Acceso abierto, Clase de ejemplo, los cambios se guardan solo en este navegador\". This is the Panel screenshot missing from the previous post. Card actions not exercised, NOT VERIFIED.",
+      "source_screenshot_receipts": [
+        {
+          "slack_file_id": "F0CM6KEBRC5",
+          "name": "cloud-browser-20261127-015818-ec765c95.png"
+        }
+      ],
+      "limits": [
+        "no audible playback verification",
+        "no video recording",
+        "mic and real touch not verified",
+        "screenshots do not establish completed gameplay"
+      ]
+    }
+  ],
+  "published_screenshots": [
+    {
+      "artifact": "practice-clipping-desktop.png",
+      "slack_file_id": "F0CMBNEA41G",
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744688947959",
+      "original_sha256": "28c9ee4243875f76adb9fa2d4c66ef715c3cc8cabff4029d2dd536085503d8a8",
+      "published_sha256": "28c9ee4243875f76adb9fa2d4c66ef715c3cc8cabff4029d2dd536085503d8a8",
+      "original_published": true,
+      "transformation": "unmodified",
+      "published_dimensions": [
+        1280,
+        720
+      ],
+      "privacy_review": "Opened by Viktor; no student data shown; teacher name omitted from guide artifact"
+    },
+    {
+      "artifact": "cow-phone-production.png",
+      "slack_file_id": "F0CN5UEH6RE",
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795740585910239",
+      "original_sha256": "dcf90e62e3e302b3cd2eb3bc11512817257097ef4327cc8e427c1d4576b80d56",
+      "published_sha256": "dcf90e62e3e302b3cd2eb3bc11512817257097ef4327cc8e427c1d4576b80d56",
+      "original_published": true,
+      "transformation": "unmodified",
+      "published_dimensions": [
+        390,
+        844
+      ],
+      "privacy_review": "Opened by Viktor; no student data shown; teacher name omitted from guide artifact"
+    },
+    {
+      "artifact": "teacher-guide-gap-desktop-cropped.png",
+      "slack_file_id": "F0CM6KEQY2Z",
+      "source_slack_message": "https://app.slack.com/archives/C0CM2CMH68K/p1795744735587029",
+      "original_sha256": "8f69f2e63e8e006f5f38777b8dd535423bcb1ee69a82198567a4e563add17e3f",
+      "published_sha256": "6249421c7329cb720be82e30ec9989d6ce18bff2aebc61655ac8dda4ba4f43ce",
+      "original_published": false,
+      "transformation": "top 270 rows omitted; crop labeled, no content rewritten",
+      "published_dimensions": [
+        1280,
+        478
+      ],
+      "privacy_review": "Opened by Viktor; no student data shown; teacher name omitted from guide artifact"
+    }
+  ],
+  "privacy": "No private originals, recordings, student data, or signed download URLs published"
+}

@@ -1,3 +1,598 @@
+### Delivery recovery checkpoint: 2026-11-27
+
+**OVERALL: NOT TESTED** for the complete client demonstration.
+This is recovery of existing work, not authorization for new implementation.
+
+```mermaid
+flowchart TD
+  A["La Cartilla: main 5e1c8378"] --> B["Production record 3c559eea: later main difference is documentation"]
+  A --> C["Existing five open PRs: preserved, none merged"]
+  C --> D["Curriculum: sanitized production evidence recovery only"]
+  C --> E["Audio / motion / images / performance: unfinished gates retained"]
+  B --> F["Current live user-flow acceptance: NOT TESTED in this recovery"]
+```
+
+```mermaid
+flowchart TD
+  A["Owner: recover authorized work; no new implementation"] --> B["Source Slack posts + exact GitHub blob comparisons"]
+  B --> C["Manifest / safe screenshots / historical dispositions"]
+  C --> D["Existing work/curriculum branch; verify remote commit"]
+  D --> E["Same consolidated report in issue 877"]
+  E --> F["WAITING: original-session receipts, sources, exact-head review and previews"]
+  F --> G["No paid worker resume / Tutor edit / merge / deployment / deletion"]
+```
+
+| Area | Evidence boundary and next action |
+| --- | --- |
+| Book Cover & Opening | Production cover capture recovered; candidate real-controls path NOT TESTED. |
+| Student Workbook | Production L7 evidence recovered. Current 24-lesson mounted acceptance NOT TESTED. |
+| Teacher Flip Chart | Selected production presenter screenshots recovered. Candidate 62-sheet acceptance NOT TESTED. L7 guide source WAITING. |
+| Artwork & Motion | Current #1326/#1327 preserved; source approvals and exact-head acceptance remain separate. |
+| Gretel Voice & Tutor | Tutor owned elsewhere and untouched. #1325 audio transfer discrepancy recorded, not repaired. |
+| Games & Activities | Twelve-game source reports recovered; no candidate-head verification inferred. |
+| Website & Publication | No publication performed. Missing-chunk/storage/offline proof still required from original performance session. |
+
+Proof: [delivery recovery receipt](consolidation/recovery-2026-11-27/README.md).
+Existing full repository map and historical branch inventories below remain dated evidence, not new live dispositions.
+
+---
+
+### Current evidence checkpoint: 2026-11-26, round 2
+
+**OVERALL: NOT TESTED** for the complete client demonstration. New game/motion evidence and the first stability repair have arrived. No merge, deployment, artwork swap or deletion occurred.
+
+Current full metadata capture: **271 remote branches, 93 open PRs, 75 drafts**. New draft #1328 is the existing Performance lane's first proposal, not an additional development lane. Main remains `5e1c8378d15ca6aa1120683149e9e722084aa93d`. Five current lane diffs have no shared changed paths; semantic and assembled-app acceptance remain separate checks. Captured identities and all open proposals are retained in [round-2 verification](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/work/curriculum/docs/consolidation/ROUND2-VERIFICATION-2026-11-26.json). This metadata is not Gitar's still-missing substantive disposition inventory.
+
+| Lane | Inspected head | Current result / remaining gate |
+| --- | --- | --- |
+| Curriculum | 8eec3ec6770893e0a92b0a9fb413f3d9471e82f1 | Existing bounded repair unchanged; this checkpoint changes documentation/evidence only |
+| Audio/interactions | 4605cdaa95b774b2e7ff2c0b04b0320e1b621464 | Real-controls demo navigation, audio and interaction acceptance remain NOT TESTED |
+| Images | aa0920b7a9b9ddebc9b8a0dfefee77580928ca43 | All 88 pages now represented in image sweep; seeded bookmarks are not real-controls navigation proof; candidates remain disconnected |
+| Assets/motion | 1471c8280cba15e757651b94d36b8350f3314447 | New raw results, screenshots and recordings reviewed; complete game acceptance remains NOT TESTED |
+| Performance | a333df7e37238e06a28d4030bb53e3278b140db5 | Missing-code/cache/retry patch exists in draft1328; storage-access edge reproduced and returned to its writer; hosted 404 behavior NOT TESTED |
+
+#### What the new evidence establishes
+
+- **Cow:** opened phone and ultrawide before/after comparisons. The drawing is narrower, and repeated sharp-edged wide-screen scene copies are replaced by softened sides. Raw 13-test output and ratio/input-lock measurement source are still requested; exact numerical timing and all-round success remain lane-reported, not independently rerun. Further optional speed changes are not required to complete the bounded repair.
+- **Chano:** opened source, placed/repeated-word screenshots and timestamped samples from the two 14-second recordings. Samples corroborate selected balls moving onto the board, other balls remaining in the juggle and balls returning on Next. These cover only words 1–2. Current full five-word rounds, touch drag, wrong/clear/reset and reduced-motion acceptance remain NOT TESTED. A repeated syllable currently appears as chalk in the second slot; this does not establish compliance with the owner's two-ball requirement. Landscape now uses the portrait scene at full height with softened sides; matching the approved edge-to-edge reference remains WAITING for acceptance. No word replacement or new art directed.
+- **Vocal A:** corrected raw rounds report phone 5/5 and desktop 4/5 with one deliberate wrong answer, both reset successfully. Opened the phone completion screenshot and desktop recording samples, including the red wrong answer and final score. The earlier timeouts were an evidence-script assertion error, now rerun, not a repaired game defect. No Vocal A code change claimed.
+- **Elephant:** exact source delta removes only the `p006-elefante` hold. The revised test retains the other six holds and checks the approved still's digest against the motion manifest. Presenter phone/projector screenshots, four motion frames and raw results now exist; raw results show animated SVG normally and unchanged PNG under projector reduced motion. Narrow handoff is implemented; complete teacher-sheet acceptance remains NOT TESTED.
+- **Failure reconciliation:** independently compared every name in both committed lists: 24 unique main failures, 22 unique candidate failures, no candidate-only names and exactly two removed elephant-route failures. This verifies the name sets, not identical failure causes or that all remaining failures are stale. Three microphone tests, sixteen motion-discipline checks and three garden/hub checks remain unresolved. Protected Butterfly Garden and shimmer remain unchanged.
+- **Performance:** read the complete six-file proposal. Missing asset routing, HTML cache rejection, cache invalidation and guarded reload are present; automatic deployment stays disabled. Independently transpiled the exact recovery source and invoked its installed listener: a blocked `sessionStorage` property getter throws before the helper's try/catch. Requested a protected access boundary and installer-level regression test from the existing writer. PR narrative describes a phone browser run but contains no committed raw browser artifact; phone/desktop first-recovery and persistent-failure evidence plus cache regression proof are requested. Actual Vercel 404 behavior needs separately authorized publication and is NOT TESTED.
+- **Images:** inspected the complete four-path delta. It adds six no-picture CSV rows for pages89–90 and adjusts the seeded-bookmark sweep; no production file or candidate binary changes. All88 available pages now have image-sweep rows. These text/writing pages still need Devin's real-controls verification. Other source and candidate-fidelity boundaries remain unchanged.
+
+Reviewed proof publication `1471c828` separately from its recorded tested source: cow `d4f4cb8`, Chano `0b59012`, elephant `c925073`. Lane-reported checks at `c925073`: typecheck, worker, policy and unit suite (246 files / 2336 passes plus two expected failures); no coordinator full-suite rerun or new executable change in this checkpoint.
+
+Existing-lane follow-ups: [Motion](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1326#issuecomment-7204269236), [Images](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1327#issuecomment-7204269246), [Performance](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1328#issuecomment-7204269208). No replacement assignment, sixth branch, new art/voice, Supabase change or paid rerun.
+
+#### Complete repository and release map
+
+```mermaid
+flowchart TD
+ A["La Cartilla: 271 captured remote branches"] --> B["main 5e1c8378: seven product areas"]
+ A --> C["Five approved development lanes; 265 other refs preserved"]
+ C --> D["93 open proposals /75 drafts; exact-content dispositions WAITING"]
+ D --> E["Independent review and integration approval WAITING"]
+ E --> F["No merge or release authorized"]
+ B --> G["Last verified successful production record3c559eea"]
+ G --> H["main is one documentation-only commit ahead"]
+ H --> I["Current complete public demonstration NOT TESTED"]
+```
+
+Main and the five approved lanes are retained. Historical refs remain BLOCKED/unverified for disposition, not proven obsolete. No new approved-for-integration or delete-candidate classification is invented. Deployment7964470967 still has a successful latest status; that is not a fresh served-revision or public-flow check.
+
+#### This session's work map
+
+```mermaid
+flowchart TD
+ A["Continue existing parallel work"] --> B["Read new game, image and stability evidence"]
+ B --> C["Vocal A timeout rerun and elephant handoff evidenced"]
+ B --> D["Cow and Chano comparisons/recording samples reviewed"]
+ B --> E["Blocked-storage recovery edge reproduced"]
+ E --> F["Performance writer receives exact regression case"]
+ D --> G["Complete game/demo and independent QA NOT TESTED"]
+ C --> H["Same shared report and curriculum evidence mirror"]
+ G --> H
+ H --> I["Publication and destructive cleanup WAITING for approval"]
+```
+
+#### Seven-area current reading
+
+| Area | Status and next dependency |
+| --- | --- |
+| Book Cover & Opening | NOT TESTED: full current opening path not certified |
+| Student Workbook | NOT TESTED overall: all88 available pages now in image sweep; real navigation, activities and physical-source acceptance outstanding;86–87 excluded |
+| Teacher Flip Chart | NOT TESTED overall: narrow elephant switch and presenter evidence reviewed; full content/interaction acceptance outstanding |
+| Artwork & Motion | NOT TESTED overall: cow comparisons and elephant motion proof reviewed; artwork candidates disconnected, ten Workbook/shared provenance rows unresolved |
+| Gretel Voice & Tutor | WAITING: recovered instructions remain disconnected pending permitted-source resolution; browser audio/microphone and separate Tutor acceptance outstanding |
+| Games & Activities | NOT TESTED overall: Vocal A corrected round proof reviewed; Chano full five-word/touch coverage and other games' full rounds outstanding |
+| Website & Publication | WAITING: proposed stability repair needs correction/proof/review, and no release is authorized; current complete public demonstration NOT TESTED |
+
+What can be used: committed comparisons and silent recordings for review, not a certified combined client demonstration. Ready but not live: the previously tested curriculum source-reader repair; newer lane changes remain subject to their bounded evidence and outstanding acceptance above.
+
+Next three actions: obtain exact-current-source game/demo proof; resolve the reproduced stability guard gap and inspect its regression evidence; obtain exhaustive substantive branch/draft dispositions and independent review. No owner action is requested to coordinate these technical steps. Repeated-ball and landscape presentation questions remain recorded, not silently approved; optional extra cow speed is not an owner blocker.
+
+
+---
+
+### Images correction and motion dependency receipt: 2026-11-26
+
+Images draft #1327 inspected at65d3361ef92db7951320fc91fab2da9e1287e9d3. Its new33-path delta contains evidence/scripts only: no production source/art path or candidate binary changed. [Lane receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7203476286). Coordinator opened nine visual artifacts and the raw source-reconciliation records; no full browser rerun claimed.
+
+- **Preserve six Flip Chart exceptions.** Independently compared all six current blobs with the recorded historical sources: five match dc20ffb and p003-scene matches65f30fe. These scan differences do not require replacement or another owner decision. Singular ojo is now correctly documented as approved as-is.
+- **Recovered a useful equals-sign original.** The69-file October14 intake contains a1254x1254 owner equals sign. The opened comparison shows it has a brown outline, unlike the current bars; it is a disconnected candidate, not an exact same-drawing source replacement. Owner approval remains required. The sharpened enlargement is correctly labelled as adding no detail.
+- **Bound the remaining source gaps.** Opened the lane's two69-original contact sheets and independently checked eight additional saved files across the October20-recovered/October22 folders against the seven current drawings. No same-drawing HD match for niño, pájaro, pera, taza, ola, águila or ardilla was found in these three known intake directories. This does not prove absence across every historical ref. Existing low-resolution files remain intact.
+- **Candidate fidelity:** opened removed-speck and bear overlays; they corroborate the sampled removal audit. Other12-crop details remain lane-reviewed, not independently fully certified. New evidence changed none of the13 candidate binaries. No artwork swap authorized.
+- **Chano source identity:** independently checked all14 recovered scene-file blobs against10409fe/c7c5059 via GitHub; every one matches. Opened the background/ball comparison. This closes the recovered-file identity question, not full gameplay acceptance.
+- **Elephant handoff:** opened comparison/raw frame results: lane reports reduced-motion equality with the approved still and up to2.19% changed pixels in sampled motion. Images relinquishes only the elephant's motionDisabled line to Motion, paired with the rebuilt SVG; other six sheet6 holds stay. [Coordinator handoff on #1326](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1326#issuecomment-7203657042). Actual presenter phone/projector and reduced-motion acceptance remains NOT TESTED.
+- **New motion source:** inspected e9872187...0b59012c delta. Cow proportions/seam changes and Chano exact-ball/landscape changes now exist in source; the added catch unit tests and complete Chano source were read. Old recordings do not certify this new implementation. Exact-head browser results, corrected VocalA and deduplicated baseline failures remain outstanding.
+
+[Independent identity proof and search boundaries](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/work/curriculum/docs/consolidation/IMAGE-FOLLOWUP-2026-11-26.json). Coordinator mirror contains only documentation/evidence. No merge, deployment, deletion, additional branch, production art edit or new voice wiring.
+
+```mermaid
+flowchart TD
+ A["Repository: last complete capture271 refs /92 PRs /74 drafts"] --> B["main5e1c8378; five approved lanes"]
+ B --> C["Historical work preserved; cleanup review WAITING"]
+ B --> D["Images65d3361 and motion0b59012c proposals"]
+ D --> E["Exact-head browser and independent acceptance WAITING"]
+ E --> F["Merge/publication not authorized"]
+ B --> G["Last successful production record3c559eea; docs-only main difference"]
+ G --> H["Current complete public demonstration NOT TESTED"]
+```
+
+```mermaid
+flowchart TD
+ A["New images source-reconciliation receipt"] --> B["Six approved Flip Chart drawings retained"]
+ A --> C["Equals-sign original recovered as an option"]
+ A --> D["14 Chano source identities independently matched"]
+ D --> E["Motion owns only elephant registry handoff"]
+ E --> F["Phone/projector and exact-head game proof WAITING"]
+ C --> G["Artwork swaps WAITING for owner choice"]
+ B --> H["Evidence saved on curriculum lane and same report"]
+```
+
+
+---
+
+### Continuation checkpoint: 2026-11-26T21:00:43.225829+00:00
+
+Current-source check: **271 remote branches, 92 open PRs, 74 drafts**. The two additional drafts are #1326 and #1327; retained earlier snapshots remain unchanged. [Complete new capture and five-lane changed-path evidence](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/work/curriculum/docs/consolidation/CONTINUATION-2026-11-26.json) includes every current branch and open PR, not substantive cleanup dispositions.
+
+All five current lane diffs were compared against main `5e1c8378d15ca6aa1120683149e9e722084aa93d`. **No shared changed paths** between the five lanes at the captured heads. This does not establish semantic compatibility or assembled-app acceptance.
+
+| Lane | Captured head | Changed files | Current boundary |
+| --- | --- | --- | --- |
+| Curriculum | 3558317d | 11 | Source-reader repair/test and coordinator evidence |
+| Audio/interactions | 4605cdaa | 58 | Browser acceptance and pages 89–90 still need proof |
+| Images | 26f59842 | 55 | New delta changes script output paths/docs only; candidate fidelity and approved-eye reconciliation remain unresolved |
+| Assets/motion | e9872187 | 49 | Corrected full-round results and existing Chano requirements still outstanding |
+| Performance | 5e1c8378 | 0 | Branch still equals main; no proposed repair commit or PR found |
+
+Gitar's actual-content disposition inventory remains WAITING on its receipt. Metadata capture is not its completion. The confirmed missing-JS routing/cache issue remains unresolved in the performance branch. Existing lane owners were asked to resume their precise outstanding deliverables in the original Slack thread; no duplicate implementation or additional branch created.
+
+Latest successful GitHub production record rechecked: `3c559eea6813b882ce51590ff112dfc99a26fec5`, deployment7964470967. Main remains one documentation-only commit ahead. Actual currently served public revision and complete client demonstration remain NOT TESTED. Exact environment names matter: generic Production records refer to older failed deployments, not the current `Production – cartilla-de-gretel` record.
+
+No product code changed in this checkpoint. No merge, deployment, deletion, art swap, recovered-voice wiring or additional implementation lane authorized. Prior runtime checks remain dated evidence, not reruns.
+
+```mermaid
+flowchart TD
+  A["Repository: 271 remote branches"] --> B["main: 5e1c8378"]
+  B --> C["Five approved development lanes"]
+  A --> D["265 other refs preserved: dispositions WAITING"]
+  C --> E["92 open proposals / 74 drafts overall"]
+  E --> F["Integration: WAITING for review, proof and owner approval"]
+  B --> G["Production record: 3c559eea; one docs-only commit behind"]
+  G --> H["Current complete public demonstration: NOT TESTED"]
+```
+
+```mermaid
+flowchart TD
+  A["Continue existing assignments"] --> B["Rechecked all five current lane diffs"]
+  B --> C["No shared changed paths found"]
+  B --> D["Performance branch still equals main"]
+  C --> E["Complete current metadata + evidence saved on curriculum lane"]
+  D --> F["Missing-JS/offline repair receipt WAITING"]
+  E --> G["Art fidelity, real-controls and full-game proof WAITING"]
+  G --> H["Merge and publication not authorized"]
+```
+
+
+---
+
+# OWNER VISUAL STATUS: LA CARTILLA DE GRETEL
+
+Shared current report: https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7199730025
+
+<!-- cartilla-parallel-report-2026-11-26 -->
+## LA CARTILLA: parallel completion report
+
+Last verified: 2026-11-26. Owner scope: [coordination thread](https://app.slack.com/archives/C0CM2CMH68K/p1795715194468199). This is the single consolidated lane report; historical approvals and proof are preserved, not reinterpreted as current authorization.
+
+**OVERALL: NOT TESTED** for the complete client demonstration. Source inspection and the first bounded repair are evidenced below. Nothing merged, deployed or deleted.
+
+```mermaid
+flowchart TD
+  A["Owner: five development branches only"] --> B["Initial: 265 refs / 88 open PRs / 72 drafts"]
+  B --> C["Latest capture: 271 refs / 90 PRs / 72 drafts"]
+  C --> D["Five approved work lanes established; old work preserved"]
+  D --> E["Curriculum source coverage and provenance repair checked"]
+  D --> F["Audio PR proposed; browser and voice-policy checks pending"]
+  D --> G["Draft1326 motion + draft1327 images; samples reviewed, full acceptance pending"]
+  E --> H["Independent exact-head review"]
+  F --> H
+  G --> H
+  H --> I["Integration / publication / destructive cleanup: WAITING for scoped approval"]
+```
+
+### Shared report
+
+| Agent | Assignment | Branch | Progress | Defects | PR | Evidence | Blocker |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Viktor | Coordination + curriculum | work/curriculum | DONE but not live: bounded source-reader provenance repair and complete source coverage report; overall curriculum runtime NOT TESTED | Wrong legacy image provenance; excluded p87 leaked image references; both reproduced before repair | [#1324](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1324) | 24 lessons / 88 available pages / 62 teacher sheets inventoried; 115 focused tests; full unit suite 2326 pass + 2 expected failures; typecheck, scoped lint, worker and policy checks pass | Independent final-head review; full physical-source and runtime acceptance outstanding |
+| Devin | Audio, speech, demo navigation and interactions | work/audio-interactions | NOT TESTED: proposed implementation unit-tested by lane; browser acceptance outstanding | Demo progression isolation proposed; recorded instruction recovery has unresolved approval/provenance conflict | [#1325](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1325), inspected head 3cdaad6c | [Lane receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7199844638); reported 2333 tests/typecheck/policy; coordinator read PR and recovery document | Browser proof and voice-policy resolution; global Muy bien remains unbound pending approval |
+| hoplite, images thread | All Workbook / teacher / game artwork | work/images | NOT TESTED for full acceptance: audit/candidates proposed; sampled comparisons inspected; no production image changed | Crops/mirroring, soft igual, six scan differences; approved singular-eye exception must be retained; p89-90 not reached by audit | [#1327 draft](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1327), head73faf514 | [Images receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7201306008);1897 checks reported, raw summary and six artifacts opened | Candidate fidelity/approval reconciliation, missing HD sources, complete coverage and independent QA pending |
+| hoplite, assets thread | Living illustrations, games and motion | work/assets-motion | NOT TESTED for full acceptance: draft proposed; cow before/after screenshots inspected, not a coordinator browser rerun | Cow stacking fix, three motion rebuilds and Chano recovery proposed; Chano exact-ball catch/landscape unfinished; raw Vocal A runs time out | [#1326 draft](https://github.com/ejnburrows-rgb/cartilla-de-gretel/pull/1326), verified head bd62f2c6 | [Lane receipt](https://github.com/ejnburrows-rgb/cartilla-de-gretel/issues/877#issuecomment-7200584312); committed screenshots/results opened; 2329 unit tests reported by lane | Tested-revision pin, failure-list reconciliation, corrected Vocal A run, independent full-round QA and images handoff pending |
+| Computer | Performance, layout and stability | work/performance | NOT TESTED: inspection acknowledged | Repository-wide lint fails (8058 errors / 59 warnings); GitHub reports dependency alerts, exploitability not assessed | Existing performance proposals retained | Slack receipt; coordinator full-lint output; GitHub push alert summary | Full health findings/browser evidence pending; cross-lane source changes require writer handoff |
+| Instinct | Independent visual/interaction QA | None, read-only | NOT TESTED: read-only inspection acknowledged | Findings must distinguish observed failures from untested behavior | None | Slack receipt: testing private review site; cannot record browser video | Exact revision, screenshots and complete coverage receipt pending; video evidence must come from another authorized lane |
+| CodeRabbit | Independent integration and cleanup review | None, read-only | WAITING for material exact-head review receipt | Check fixes, overlap, security and incomplete claims | #1324 / #1325 and every later proposal | Review requested in Slack; PR review checks are not assumed approvals | No final-head independent approval receipt yet |
+| Gitar | Exhaustive branch/draft disposition comparison | None, read-only | WAITING for exhaustive actual-comparison receipt | Every current ref and PR must be classified with evidence, destination and rationale | All 90 captured open PRs, including all 72 drafts | Exhaustive metadata CSVs retained; no substantive dispositions invented | Full commit/asset/test comparisons and independent CodeRabbit cleanup review pending |
+
+### Source coverage and recovery
+
+- All 24 lessons have native representation; all 88 available Workbook leaves have populated layouts and repository scans. Every one of the 62 Flip Chart sheets has a source image; sheets 3–62 have digital text, while 1–2 are frontmatter. [Detailed audit with every lesson/page/sheet and 25 inspected PR heads](https://github.com/ejnburrows-rgb/cartilla-de-gretel/blob/work/curriculum/docs/consolidation/CURRICULUM-SOURCE-AUDIT-2026-11-26.md).
+- Registry coverage and fixture agreement do not certify physical-source fidelity or rendered activity correctness. Teacher guide originals remain partly missing. No invented answer keys or content.
+- Existing lesson drafts remain preserved. They overlap shared renderers, routes and interactions and must only contribute a demonstrated missing delta. #1210's caption reversal conflicts with the approved singular ojo lock; do not recover that hunk. #1022 carries useful old geometry/interaction candidates, not missing lesson registrations.
+- The narrow repair touches only workbook-source.ts and its focused coverage test. It chooses canonical printed-page scan references and returns no image metadata for excluded 86–87. The helper has no located mounted learner consumer. No claim of a current visible lesson fix or UI change. Existing six legacy text flags are preserved, not treated as newly verified Workbook transcription.
+
+### Writer reservations and sequencing
+
+- Viktor: docs/OWNER-VISUAL-STATUS.md, docs/consolidation/, src/lib/workbook-source.ts, src/lib/__tests__/native-workbook-coverage.test.tsx. No shared renderer, route, artwork, audio or Tutor edit.
+- Devin: interaction/demo/audio changes listed in #1325. These do not overlap the two curriculum source files. Exact-file review is required before further pushes.
+- Images owns image evidence/approved source pixels. Motion owns game/living behavior. Computer owns art-delivery.ts and delivery-output recovery from #1171; images supplies comparisons. Do not independently port the same delivery patch twice. Shared living tests require a handoff to the motion writer.
+- Recover approved source mappings first; then consumers and shared interaction behavior; then complete assembled curriculum/game QA and performance regression checks. Independent review must reference the exact proposed head. No blanket approval or fixed merge order is inferred.
+
+### Seven product areas
+
+| Area | Current session status | Next check / dependency |
+| --- | --- | --- |
+| Book Cover & Opening | NOT TESTED | Existing main preserved; current opening/browser acceptance |
+| Student Workbook | NOT TESTED overall; source-reader repair DONE but not live | 24 lessons / 88 pages source-covered; image audit visited86 pages; real demo-control check for89-90 and full source/interaction acceptance pending;86-87 excluded |
+| Teacher Flip Chart | NOT TESTED | 62 source sheets inventoried; verify content/rendered classroom behavior; preserve Candidate A and approved whole-sheet exceptions |
+| Artwork & Motion | NOT TESTED overall | Draft1327 supplies disconnected crop candidates and audit; preserve singular ojo; scan differences need approval reconciliation. Draft1326 motion and image handoffs remain pending |
+| Gretel Voice & Tutor | WAITING for audio approval/provenance resolution | #1325 recovered-master document names WhatsApp MP3s and pending approval; current AGENTS allows newly wired approved-original audio only. Preserve files; provide exact later approval or leave wiring silent. Tutor #1073/#1322/#1323 retains separate approval boundaries |
+| Games & Activities | NOT TESTED overall | Draft1326 has cow screenshots and lane-reported rounds; Chano exact-ball/landscape requirements unfinished, Vocal A rerun and remaining full-round coverage pending |
+| Website & Publication | WAITING for separately authorized release | Main 5e1c8378 differs from latest recorded production 3c559eea only in owner-status documentation. Actual served revision and complete demonstration not reverified here |
+
+### Complete repository and release map
+
+```mermaid
+flowchart TD
+  R["La Cartilla"] --> M["main 5e1c8378: GitHub verified"]
+  M --> A["Workbook / teacher / art / audio / games / website"]
+  A --> W["Five approved work/* lanes"]
+  W --> U["Latest capture: 90 open PRs; 72 drafts"]
+  U --> C["Compare and preserve unique historical work"]
+  C --> X["Merge: WAITING for exact approval"]
+  X --> P["Production record: 3c559eea, successful Nov 21"]
+  P --> V["Actual public flows: NOT TESTED this session"]
+```
+
+Main is one documentation-only commit ahead of the latest successful GitHub production record. This is not proof of a missing app release or current domain alignment.
+
+### This session's work map
+
+```mermaid
+flowchart TD
+  R["Request: parallel completion and consolidation"] --> E["Existing curriculum, sources and lesson candidates read"]
+  E --> F["Two legacy source-reference failures reproduced"]
+  F --> S["Canonical scan and excluded-page guard repaired"]
+  S --> T["Focused/full unit checks, typecheck, policy and worker checks passed"]
+  T --> L["Full-repository lint: WAITING; thousands of unrelated-file findings"]
+  T --> P["PR1324: distinct projector fixture catches wrong-mode mutation; full2326 pass"]
+  P --> Q["Independent review; motion candidate c303ead3 needs provenance and recordings"]
+  Q --> D["No merge / deployment / deletion without scoped approval"]
+```
+
+### Repository inventory and new arrivals
+
+- [Initial snapshot](https://github.com/ejnburrows-rgb/cartilla-de-gretel/tree/work/curriculum/docs/consolidation): 265 original branches, then five approved refs = 270 captured rows; 88 initial PRs / 72 drafts. Both original CSVs retained.
+- Refreshed exhaustive metadata: branch-current.csv contains 271 refs; open-pr-current.csv contains 90 PRs, all 72 drafts. Includes new #1324, #1325 and backup/local-main-workbook-polish-20261126 at 03f09d21. Backup creator/preservation purpose requested; keep it intact. No sixth implementation lane approved. Snapshots record heads at capture time, not a claim of a timeless latest count.
+- KEEP only identifies main, owner-approved lanes and current lane proposals. Other rows remain BLOCKED until actual commit/change/asset/test/dependency comparison. These metadata rows are not Gitar's completed substantive dispositions and do not authorize archive/delete/merge.
+
+### What can be used / ready but not live / next actions / decisions
+
+- This session proves source metadata, the bounded API repair and automated checks, not premium client-demo readiness. Historical live proof remains dated.
+- Next: independent #1324/#1325 review and voice-policy resolution; collect full browser QA and image/motion/performance evidence; complete Gitar's exhaustive actual-comparison inventory and independent review. Emilio is not asked to coordinate the agents.
+- Merges, destructive cleanup, publication and new art/voice approvals remain separately gated. Pages 86–87 are permanently excluded. No paid service, Supabase change, student-data use, TTS, new artwork or Tutor rebuild.
+
+### Proof / last verified
+
+- Main: [5e1c8378](https://github.com/ejnburrows-rgb/cartilla-de-gretel/commit/5e1c8378d15ca6aa1120683149e9e722084aa93d). [Recorded production comparison](https://github.com/ejnburrows-rgb/cartilla-de-gretel/compare/3c559eea6813b882ce51590ff112dfc99a26fec5...5e1c8378d15ca6aa1120683149e9e722084aa93d): one documentation file only.
+- Two new regression tests failed before repair and pass after. Focused five files: 112 baseline / 115 after. Full unit suite: 244 files, 2326 passed + 2 expected failures. Typecheck, scoped ESLint, verify:worker and all 95 policy tests pass; asset verifier: 588 checks / no errors, with artwork warnings retained for images lane.
+- Repository-wide lint: 8117 findings = 8058 errors + 59 warnings. The two changed TypeScript files pass scoped lint; no blind repo-wide formatting applied. Baseline scoped test had one existing formatting error, corrected within that already edited test file. App production build and browser flows not run for this latent API-only change.
+- GitHub reported 75 dependency alerts: 1 critical / 40 high / 24 moderate / 10 low. Alert counts are not exploitability findings; Computer/Gitar asked to reconcile paths and exposure.
+
+
+<details><summary>Complete captured branch map: 271 exact references</summary>
+
+Capture-time identities from branch-current.csv, not moving live heads. In particular, work/assets-motion was captured at 5e1c8378 before its later c303ead3 implementation. Later evidence is pinned separately below; do not rewrite the captured map or CSV to match a newer head.
+
+- `activity/chano-rebuild-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `87ba23cc`
+- `activity/completar-palabras`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `22a179df`
+- `activity/cow-game`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0f88b8f5`
+- `activity/cow-game-18247010529815853258`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `92553687`
+- `activity/cow-wip-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `5a035b53`
+- `activity/lectura-de-palabras`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7030e13e`
+- `activity/letter-picker`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6428ccd5`
+- `activity/palabras-por-minuto`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `97f8dd8b`
+- `activity/palabras-por-minuto-11657455097900780082`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a41c7fd4`
+- `activity/rima`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4c9eb455`
+- `approval-pack-issue-1047-9061935140164812217`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a08e65c0`
+- `art-board-repair-4`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `5381f531`
+- `art-inventory-live`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `3ed9b22a`
+- `art-inventory-page`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b8457a32`
+- `artwork-optimization-batch-d-10885364352039601684`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `84ef8ce7`
+- `artwork/flipchart-approved-seven-20261020`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0245228f`
+- `artwork/lesson3-approved-five`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1e53e9dd`
+- `asignado-error-20261025`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `db6cf9e1`
+- `audio/owner-instructions-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `5364b587`
+- `audio/owner-instructions-20261019-15155392506160733243`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `deb326fc`
+- `audit/picture-slot-manifest`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ae26ec3e`
+- `backup/local-main-workbook-polish-20261126`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `03f09d21`
+- `bolt-memoize-cartilla-drawings-1554907485128515753`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d66d3b18`
+- `bolt-memoize-cartilla-svgs-12548474222664525219`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `824ea75c`
+- `bolt-performance-audio-multiple-choice-9425995739704249950`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `84ee7007`
+- `bolt-performance-improvement-17643219387104126685`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b21a0bf9`
+- `chore-art-board-7570696409652978848`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b4e0caff`
+- `chore/approval-pack-20261020-3539923526613815335`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e0a4017b`
+- `chore/art-audit-regen-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `9c366b48`
+- `chore/proofs-completar-palabras-2619655779682505490`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `627b734c`
+- `chore/regenerate-delivery-art-20261017`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `29878827`
+- `chore/screenshot-all-lessons-14098848796302342076`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `37b4758c`
+- `ci/pr-lightweight-verification-20261101`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c2dadf94`
+- `cleanup/remove-dead-workbook-components`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ff8d7315`
+- `code-health-remove-illustrationword-6678577113224792752`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `79790c9d`
+- `code-health/remove-unused-import-check-15160267718005428107`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d0efbb0e`
+- `codex/mariposas-mm-prototype-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `231c45b8`
+- `continuation/1247-review`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `34f899b7`
+- `continuation/1247-source-recovery`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `51d2eb8d`
+- `continuation/1247-test-repairs`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `69325f0d`
+- `controller/jobs/d258e76a-4875-4178-b06f-0c0bf03e48c4-8404474860463475856`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1627114b`
+- `controls/execution-gate-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `725a5a4a`
+- `devin/1795540156-demo-handoff-20261124`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `11fef427`
+- `docs/20261022-integration-recovery`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `053a167d`
+- `docs/branch-rules-20261109`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `28831181`
+- `docs/chano-proof-pack-20261021`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `03cb133a`
+- `docs/marking-rule-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b7e77bbe`
+- `docs/owner-artwork-single-source-20261022`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4b1ae3e7`
+- `docs/owner-communication-rules-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `38969c3e`
+- `docs/owner-in-chat-visual-explorer-20261104`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1d54c996`
+- `docs/two-map-standard-main`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d766a7d8`
+- `draft/lane-b-workbook-lessons-8-18`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `fed42a78`
+- `draft/lane-c-lessons-19-24`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `bad11f7f`
+- `draft/one-book-marking-feel`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `73576fda`
+- `empty-branch-no-changes-3809743601414912744`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `473b7e87`
+- `evidence/artwork-coverage-20261014`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `54a21ee0`
+- `feat/art-board-owner-replacement-intake-20261031`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d6025bc3`
+- `feat/flipchart-living-book-finish`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b0a1e3f6`
+- `feat/games-realism-overhaul`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8d333a74`
+- `feat/generic-mini-games`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `16a197bd`
+- `feat/gretel-resumable-cloned-voice-20261014`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `237920f7`
+- `feat/gretel-tutor-l1-3`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `12e9adf5`
+- `feat/palabras-parejas-pencil-game`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `eb9fcd78`
+- `feat/workbook-card-living-motion`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a40a6f66`
+- `feature/ash-pencil-marking-9614802336538650232`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `fea63535`
+- `feature/issue-1035-welcome-video-7305563812994230697`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d4b70c1e`
+- `feature/payaso-chano-carnival-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `13d525b4`
+- `feature/payaso-chano-carnival-web-game-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2a479367`
+- `fix-871-872-7318880132108269741`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `cfda0fc6`
+- `fix-991-4215791666087499065`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7f12907d`
+- `fix-console-error-officialworkbookpage-12555708987254256699`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `bc8884e6`
+- `fix-cow-game-lean-16082532411393598020`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `92623c5d`
+- `fix-cow-mouth-card-20261024`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b487aa5c`
+- `fix-flipchart-turn-and-wire-37-pictures-12753578012614389808`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4a0cbe24`
+- `fix-student-session-tests-88203299015634`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8a1b5fc4`
+- `fix-teacher-crm-shell-save-error-7559252086311291039`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ae282a40`
+- `fix-teacher-test-debt-4790278902171163137`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a53ed4bb`
+- `fix-unused-useeffect-8831633729390263123`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `53c07878`
+- `fix-workbook-page-turn-desync-1138-16785535596755229948`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `238784c0`
+- `fix-workbook-page-turn-desync-2720709663285410452`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4d4f2087`
+- `fix/airplane-asset-provenance`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `51b2de01`
+- `fix/arbol-faithful-derivative-20261022`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `297031e7`
+- `fix/art-audit-regen`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e7fad79b`
+- `fix/canonical-artwork-authority-20261025`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e54d620e`
+- `fix/cow-restart-cancel-pending-round-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4820bd2b`
+- `fix/current-art-test-snapshot-sync-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `862ad9db`
+- `fix/cutoffs-l11-l12-l16`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `70348c20`
+- `fix/diamond-phone-lessons-17-20-3497466308479212378`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `32495121`
+- `fix/e2e-lcp-safety-and-traces-20261101`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `37f7c7e8`
+- `fix/fit-l1-l6`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d45f937b`
+- `fix/fit-l8-l10-l14`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `dfbea7fb`
+- `fix/flipchart-focus-aware-keys-20261015`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `467c872c`
+- `fix/game-shell-rescue-14192818795883780064`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4681f541`
+- `fix/issue-988-989-990-diamond-inward-520135429275310444`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `67a15b98`
+- `fix/keyboard-rewards-pipeline-20261010`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `329683dd`
+- `fix/landscape-shared`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b678c23f`
+- `fix/lesson-3-vocal-a-proof-20261016`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `57533f2d`
+- `fix/lesson23-p85-phone-overflow-987-6451529366738365361`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2c0860b6`
+- `fix/oveja-stale-guard-20261022-5450269019429767951`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `5f3c4e51`
+- `fix/page-seven-caption-fidelity`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f4cc2c4a`
+- `fix/page24-syllable-completion-gate-20261109`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1a849c7e`
+- `fix/payaso-chano-verified-followup-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `45c6379c`
+- `fix/production-art-audit-regen`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `89f5d84d`
+- `fix/remove-mariposas-live-registration`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4a3b6196`
+- `fix/remove-unused-playWrongBuzz-7053316289168893159`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `288e3d06`
+- `fix/seroval-security-20261101`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c64efb3c`
+- `fix/shared-landscape-844x390-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f7e19800`
+- `fix/silent-picture-audio-failures`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e56f0a44`
+- `fix/teacher-crm-student-consolidated`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `af73cc9e`
+- `fix/tutor-continuation-rule-20261029`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a767b3e8`
+- `fix/unused-import-cinemanarrativedrawer-4604672354116594366`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `cd47ffa9`
+- `fix/workbook-connector-drawing-space`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `5da7e927`
+- `frontier-check-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `060ed58d`
+- `game/chano-scene`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `10409fe8`
+- `game/chano-scene-16399726599125817738`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `da35efcd`
+- `game/chano-scene-17875816284526073266`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `cf6d0cb8`
+- `game/chano-scene-2427511210327751668`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `925ed11c`
+- `game/chano-scene-9446293887144111614`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a6470e10`
+- `game/chano-scene-juggling-16811216930405402616`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `70d64964`
+- `game/mariposas-fullscreen-scene`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6add8567`
+- `games-author-template-verify`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f41be5c8`
+- `import/lovable-bubble-organ-20261030`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d4bd70c4`
+- `instinct/cream-all-lessons-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `9aaca48c`
+- `instinct/job-board-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `753e5630`
+- `instinct/rima-scene-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `fdbdb232`
+- `instinct/wave1-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `889eb8c4`
+- `jules-10937107692939251673-3b15676f`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8872cbfb`
+- `jules-11052285982503720401-048387d0`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0a2b5770`
+- `jules-11874299200599553645-8ee4205d`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e6fa9015`
+- `jules-1275602888818406371-617a156f`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a6399690`
+- `jules-13699223239101851335-0efdec33`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4b9f8788`
+- `jules-1423541094767325541-117935ca`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `08f5dd0a`
+- `jules-1517843779007712447-6b84b75e`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6b49404c`
+- `jules-15206535600738043919-43d5a913`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1e2bada9`
+- `jules-17338434147384551620-a9907333`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2a19f061`
+- `jules-2549739456209738351-fde48e41`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c3a801d2`
+- `jules-4841332487619244204-b64ab120`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `53dae356`
+- `jules-5656770027037775722-ddcc791f`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `dfbc3cf1`
+- `jules-7049793572056880761-11799e44`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `959b2c26`
+- `jules-7483093215117529689-1faaabff`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1824c3bd`
+- `jules-8032766179509994640-76600f65`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a9542521`
+- `jules-9858490964964928859-89a60369`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1e92eff7`
+- `jules-lane-1-lesson-3-combine-222380543456646405`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0203b080`
+- `jules-route-health-sweep-11626026226717544025-13219304021638505007`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2e3e0a57`
+- `jules/cow-game-nocut-13353135867314472258`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `37c1f035`
+- `jules/fix-issue-990-49148494207121750`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b0643477`
+- `jules/l16-diamond-proofs-20261020`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `3361e0ce`
+- `jules/l17-diamond-port-20261020`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `9e1e650c`
+- `jules/workbook-navigation-investigation-17936492558897187064`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b412de4b`
+- `kill-robot-voice-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `3a9a518a`
+- `lane-7-narration-wiring-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `471eaa96`
+- `lane-7/lesson-narration-player-5760229778479782012`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d479b95c`
+- `lane-8-silent-pictures-20261017`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c1d9bc8c`
+- `lane-8/piano-hablador`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `5c4cd360`
+- `lane-9-7984685098851494986`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2c3179ba`
+- `lane-907-marking-doc-20261017`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7419912a`
+- `lane/j14-student-bugs-20261023-2793417054701129627`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `84e178db`
+- `lane/j6-lesson3-archetype-20261023-16670984364862698664`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `76d249d9`
+- `lesson-14-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `975e90c9`
+- `lessons/13-21-polish`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f209d76e`
+- `lessons/15-19-22`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4a29efd1`
+- `lessons/24-finish`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `964a439a`
+- `main`: canonical main, KEEP; `5e1c8378`
+- `motion/d-estrella-unicornio`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8107c83c`
+- `motion/l1-lane`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `caecf185`
+- `motion/l12-lane`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `5f2795a8`
+- `motion/l3-lane-a-vocal-a`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `19d1ffad`
+- `motion/l3-lane-b-vocal-o`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7228e407`
+- `motion/l3-lane-c-elefante-iman`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `40cea41c`
+- `motion/l3-lane-rest`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `809e5cd0`
+- `motion/l4-lane`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ede84e25`
+- `motion/l4-lane-8427355322964240127`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `3d99b843`
+- `motion/l9-lane`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `adf51074`
+- `motion/original-art-integration`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4e5318ef`
+- `motion/rigid-originals-review`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7419c229`
+- `muse/lesson-1-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `649020e9`
+- `muse/lesson-10-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `d7fcc2bc`
+- `muse/lesson-11-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `532e796c`
+- `muse/lesson-12-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c31eb1de`
+- `muse/lesson-13-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `56755bb1`
+- `muse/lesson-15-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `995c8383`
+- `muse/lesson-16-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c31e9fca`
+- `muse/lesson-17-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `77239bdb`
+- `muse/lesson-18-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a0553862`
+- `muse/lesson-19-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a9b00f7d`
+- `muse/lesson-2-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a6efd31d`
+- `muse/lesson-20-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `70af52ec`
+- `muse/lesson-22-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6fb3da8c`
+- `muse/lesson-23-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c70067b7`
+- `muse/lesson-23-wide-20261018-1285022184792102783`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4151136a`
+- `muse/lesson-24-phonefit-906-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ecc79cff`
+- `muse/lesson-4-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ea2a28bc`
+- `muse/lesson-5-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f6c08f35`
+- `muse/lesson-6-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e41315ed`
+- `muse/lesson-7-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c403a0e0`
+- `muse/lesson-8-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `26465840`
+- `muse/lesson-9-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f24db653`
+- `optimize-pencilconnector-usememo-4373553605638722711`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8dddd08a`
+- `owner-approved-art-2026-10-13`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ce689b45`
+- `owner-refs/20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `30dcbf61`
+- `palabras-minuto-scene-mockup`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `681e8db7`
+- `palette-add-aria-labels-teacher-crm-4986591068699995326`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b066d2f6`
+- `palette-ux-improvement-aria-label-student-table-14691290425896954333`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0f369213`
+- `perf-optimize-catalog-lookup-14430398800763446712`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2c9ac1d6`
+- `perf-optimize-identical-panels-3-17329093555446895783`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c3b2e777`
+- `perf/bolt-svg-memo-9657023661306970366`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `3ef48360`
+- `perf/pencil-connector-targets-map-8456917166198423599`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a98d7f86`
+- `perf/teacher-crm-lesson-title-optimization-9326228577634488353`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a9b345be`
+- `proof/demo-2026-10-30`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7baa5f1d`
+- `recover-batch-d-4111911948674152905`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `85e9384e`
+- `recovery/initial-restore-28dcc6d1aebc-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `28dcc6d1`
+- `recovery/initial-restore-bb958b513b5b-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `bb958b51`
+- `rescue-chano-proof-1046-4937915492600183092`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6e5baa9b`
+- `retarget-1182-main-hb2105-17669066341744211388`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a459fb0c`
+- `retarget/student-bugs-1157-20261024`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2521a07d`
+- `revert/pr-944-chano-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `08240984`
+- `review/lesson-cream-reconcile-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ca36c733`
+- `review/lesson-middle-proof-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `1eb716ee`
+- `review/lesson13-21-existing-reconcile-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a29f193d`
+- `review/lesson23-existing-reconcile-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e23129ef`
+- `review/lesson24-existing-reconcile-20261023`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c4b99381`
+- `review/owner-visual-artwork-inventory-20261014`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `ca9e771a`
+- `security-hardening-9621522486306465010`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `47d76a85`
+- `shared/landscape-844x390-fix-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6a79bd5a`
+- `swarm/lesson-20-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8af5eadf`
+- `swarm/lesson-21-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `a741a40c`
+- `swarm/lesson-24-20261016`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0b4c500d`
+- `swarm/lesson-24-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7f7b7d63`
+- `swarm/lesson-4-wide-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0afe96ee`
+- `swarm/track-h-video-slot`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `cb064001`
+- `swarm/wb-syllable-recognition`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `658671e4`
+- `swarm/wb-viewport-a11y`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0282529d`
+- `teacher-publish-surgical-20261025`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `be3c9d39`
+- `teacher/metodos-lectura-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4d6cded2`
+- `tembo/tutor-dialogue-atlas`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6b3933b6`
+- `tembo/tutor-lesson-sources`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `feae79d7`
+- `tembo/tutor-private-intake`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `84f3a937`
+- `test-use-idle-callback-2909133618559058829`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `6a09fa79`
+- `test-use-install-prompt-17996289134560944949`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `de5eb479`
+- `test-usePrefersReducedData-14886858556649185926`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `164b90f0`
+- `test/csv-export-coverage-20261018`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e8707b5f`
+- `test/e2e-contract-repairs`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `31b3f8a1`
+- `test/intro-splash-coverage-5910386834210651247`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `dab6a252`
+- `test/useIdleCallback-5246638543812982644`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `fd97eb8b`
+- `tests/use-prefers-reduced-data-7467721207963361358`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7bfc7759`
+- `tmp/l21-bin-test`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `c95c541e`
+- `verify-merge-queue-20261026-8172618744504956494`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `9cd7bf04`
+- `verify/art-served-20261022`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8bd0c1a8`
+- `verify/cowgame-proof-1081`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `7ccbffb5`
+- `verify/pre-final-baseline-hb0305-8432968757821635112`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `b6c4a02d`
+- `verify/teacher-routes-20261022-retry`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `fc86481b`
+- `verify/teacher-routes-20261022-retry-11188047359894174848`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `684b77e9`
+- `verify/wordmatch-proof-1077`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `47191626`
+- `verify/workbook-fit-1063-proofs`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `8aa7e82c`
+- `voice/lesson-3-owner-only`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e9aa8f05`
+- `wave1/completar-clean`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0c21983d`
+- `wave1/cutoff-l11-l12-l16`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `dd2e3561`
+- `wave1/diamond-l8-l10-l14`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4681b5cf`
+- `wave1/lesson16-clean`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `4356c0ae`
+- `wave1/letter-picker-clean`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `e19b4468`
+- `work/assets-motion`: owner-approved development lane, KEEP; `5e1c8378`
+- `work/audio-interactions`: owner-approved development lane, KEEP; `3cdaad6c`
+- `work/curriculum`: owner-approved development lane, KEEP; `b966d886`
+- `work/images`: owner-approved development lane, KEEP; `5e1c8378`
+- `work/performance`: owner-approved development lane, KEEP; `5e1c8378`
+- `workbook/pages-A-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f6a609c4`
+- `workbook/pages-B-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `2ac141fa`
+- `workbook/pages-C-20261019`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `258f6dd7`
+- `ws2-recovery/p1-11-whitespace-password`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0cc93c0b`
+- `ws2b-recovery-1614-supabase-kit`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `0cc93c0b`
+- `ws2b-recovery-7816-pdf-thumbnails`: BLOCKED: preservation/content comparison pending, no deletion recommendation; `f06643f8`
+
+</details>
+
+<details><summary>Previous dated board: historical evidence, not a current-session live claim</summary>
+
 # OWNER VISUAL STATUS — LA CARTILLA DE GRETEL
 
 **Repository:** `https://github.com/ejnburrows-rgb/cartilla-de-gretel`  
@@ -52,3 +647,58 @@ flowchart TD
 1. **Rebuild 3 Stale Living-Motion Files:** Re-check coordinates and rebuild `wb-p1/abeja.svg`, `p006-elefante.png`, and `vocal-a/abeja.webp` via `scripts/living-motion/` and present on `/revision`.
 2. **Integrate Owner Nov 19 PC Artwork Folder & Page 16 Crops (`pez`, `traje`, `arco`):** Place all replacement candidates on `/revision#art` for owner A/B approval before going live.
 3. **Incorporate Owner Human Voice & Gretel Welcome Video Drops:** 59 human voice MP3s + 24 lesson narrations + 1 Gretel welcome MP4 loop (zero TTS).
+
+
+</details>
+
+
+### Motion dependency checkpoint: 2026-11-26 (post-capture source review at c303ead3)
+
+Coordinator compared main 5e1c8378 to work/assets-motion c303ead3: two commits, 33 changed paths. The source contains the cow stacking-order repair, Chano route recovery, three rebuilt motion files, and an emptied stale-motion index. This is source evidence, not independent visual acceptance. No open PR was returned for that branch at this check.
+
+- Motion reserves CowGame.tsx, games/chano/, the game route juego.$gameId.tsx, scripts/living-motion/, the three rebuilt motion outputs, stale-motion-art.json, current-art-precedence.test.ts and the new cow browser test. GameShell.tsx is unchanged. Current PR1325 file list does not overlap this motion diff.
+- Images retains flipchart-native-assets.json and approved-pixel/provenance decisions. Coordinator confirmed p006-elefante still has motionDisabled=true on work/images. Images and motion must establish whether that restriction is intentional before any change; do not bulk-enable sheet 4.
+- Images must verify recovered Chano scene artwork against the approved originals. Rebuilt motion and an empty stale list alone are not visual acceptance. Requested current-still comparisons and rendered motion recordings.
+- Lane reports 24 identical browser failures on baseline and candidate, including three Piano microphone tests. Requested exact test names/output and audio-lane coordination; not independently rerun. Keep other failures explicitly unresolved, not assumed obsolete tests.
+- Lane reports board game missing. The universal claim across every branch is not coordinator-verified; Gitar's actual-content inventory must locate any historical candidate. No new educational game invented.
+- Existing owner decisions for Rima, Palabras, other game candidates and source audio remain gates. All historical refs are retained. No merge, deployment, paid service, new voice or destructive cleanup authorized.
+
+### CodeRabbit mode-distinction regression proof: 2026-11-26
+
+Review6078849732 correctly identified that enhanced/projection used the same fixture path. Added distinct remasteredPathV2 metadata and independent literal expectations for source/enhanced/projection, plus the returned V2-field assertion. No artwork file or runtime resolver change.
+
+Mutation proof: temporarily forced projection through enhanced mode. Old fixture passed (exit0); strengthened fixture failed on the wrong image path (exit1); restored the exact resolver and the strengthened fixture passed (exit0). The deliberate mutation is not committed.
+
+Current checks: focused file10 pass; full244 files,2326 pass plus2 expected failures; typecheck, scoped ESLint, policy95 and snapshot-integrity271 branch heads/25 curriculum PR heads pass. Full lint remains8117 findings (8058 errors/59 warnings), identical to the prior run. No unrelated cleanup applied. Independent newest-head review remains pending. No merge or deployment.
+
+### Qodo snapshot-boundary clarification: 2026-11-26
+
+Confirmed baseline CSV270 rows including five approved refs; corrected SNAPSHOT-NOTES wording rather than rewriting retained evidence. Captured motion head5e1c8378 and post-capture reviewed headc303ead3 are now explicitly separated. A subsequent live-ref check returned bd62f2c66be2d6866d8b93ca0d69a26c380eff1b; that newer motion delta is not accepted by the prior c303ead3 source inspection. Remaster inventory re-read at curriculum389eb9b6:121 entries, all pending, none canonical-keyed. No verified same-page mapping exists to implement the requested alias safely; candidate assets remain preserved. No runtime or test changes in this clarification.
+
+### Motion draft and evidence checkpoint: 2026-11-26
+
+Draft PR1326 is open on work/assets-motion at bd62f2c66be2d6866d8b93ca0d69a26c380eff1b. This is a post-capture arrival, not a change to the preserved90-PR snapshot. Lane receipt names65310d0; requested an exact tested-source revision for the recordings and test outputs. Compared c303ead3 to bd62f2c6: two further commits, proof files plus a17-line fit.py update. Earlier c303ead3 inspection does not constitute full newer-head acceptance.
+
+Coordinator opened committed cow before/after screenshots, Chano phone end-screen, changed-pixel motion image and raw results.json. Cow visibility is corroborated by those screenshots; no independent browser or full recording rerun is claimed. Lane reports full cow rounds at four sizes, five Chano words at three sizes, typecheck/worker/policy and245 files/2329 unit tests. Those remain lane-reported runs.
+
+Raw results contain two Vocal A timeouts (phone/desktop); README attributes these to a wrong success-text assertion, but a corrected rerun is still required. Other games mostly have only a correct move, timer start or mount evidence; these are not complete-round acceptance. Piano results say keys:0; microphone gameplay remains NOT TESTED. The reported24 baseline failures and references to21 motion checks plus microphone/other failures need an exact deduplicated baseline/candidate list.
+
+Chano remains unfinished: the existing owner instructions in PR1015 comment6281235425 require catching the exact juggling ball into its slot and edge-to-edge phone landscape. Those requirements were passed directly to motion without requesting another owner decision. Images retains the recovered-artwork provenance check and elephant registry switch; motion must not bulk-enable sheet4. Shimmer introduced by8280dc6c is a verified source change, but the claimed conflict with an earlier owner rule is not yet resolved against later approvals, so no shimmer change directed. Other historical game candidates remain preserved and gated. The universal board-game absence claim remains unverified pending exhaustive actual-content review.
+
+CodeRabbit and Instinct were asked to review/test the draft at its exact head. No full demonstration certification, merge, deployment, destructive cleanup, new voice or sixth development branch.
+
+### Images draft checkpoint: 2026-11-26
+
+Draft PR1327 verified at73faf514e63d24bdb94653a1f8e79af3cedf807d (receipt names earliera171662). Diff contains47 proof/candidate files and8 inspection scripts, no production art/layout changes. This post-capture arrival is separate from the retained90-PR snapshot. Main rechecked unchanged at5e1c8378.
+
+Lane reports1897 picture checks:480 Workbook,1173 Flip Chart,244 games;291 unique pictures. Coordinator opened README, raw summary, candidate manifest, derivation script and six committed comparisons/screens. These are lane-run measurements and sampled artifact review, not a coordinator rerun of every picture. Workbook476/480 and Flip Chart1173/1173 are rendered-size/load checks, not blanket art/provenance or full lesson acceptance. Only86 Workbook pages were visited (1-85,88);89-90 were not reached via resume. Sent that gap to audio/demo for a real-controls check, not a claim of a confirmed defect. Covers1-2 also remain outside image inspection.
+
+Uno reversal and cropped bear/fox are visible in opened comparisons. Thirteen proposed candidates remain disconnected; twelve derive from recorded HD scan crops, while igual is only a4x enlargement with sharpening and adds no source detail. The derivation also removes edge-connected/small/disconnected regions, so requested verification that authentic drawing detail is not removed. Seven missing HD sources remain lane-reported; originals are not requested again until available owner-intake sources are reconciled.
+
+The p7 decision sheet treats printed two eyes as a replacement question, but current PROJECT_SOURCE_OF_TRUTH explicitly preserves singular ojo/ojo.png unless the owner reverses it. Directed images to retain that approved exception and reconcile its decision sheet before requesting a new choice. The six Flip Chart source differences must likewise be checked against existing approvals before being labeled replacement defects. Lane reports106 of112 pending Flip Chart layers match their scans; remaining6 differ. Of12 Workbook/shared flags,10 remain unverified and2 refer to unused nonexistent blink files. These findings do not constitute new source approvals.
+
+Handoffs sent: motion owns cow aspect ratio and wide-screen seams (no rejected redesign); Instinct checks intermittent blank p7 eye and protected Butterfly Garden icon clipping, without rebuilding the garden; images retains pending Chano source and elephant-switch review. Performance retains delivery/loading ownership: passing upscaling checks do not cancel #1171's separate performance assessment. CodeRabbit asked to review draft1327 and method.
+
+PR1326 live head nowe9872187c51292ab147fcfb775a97cb7fc42d8ae; compared newer delta tobd62f2c6: only fit.py changed (registered-image loading and embedded-base selection). This does not resolve the existing Chano or gameplay-evidence gaps. No merge, deployment, artwork swap, new voice, destructive cleanup or sixth branch.
+
+Existing-originals recovery check: coordinator opened the three owner-intake directories and the October14 manifest. That manifest lists69 uploaded originals, many with opaque names and pending-exact-page-mapping; filename/metadata search found no reliable match for the seven reported gaps. This does not prove absence. Directed Images to visually reconcile those saved originals before requesting new files from the owner or treating a missing Flip Chart registry entry as a missing owner source. No source was altered.
