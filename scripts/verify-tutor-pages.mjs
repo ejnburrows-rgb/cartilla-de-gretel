@@ -14,6 +14,9 @@ const flipchartText = Object.assign(
   ...["3-22", "23-42", "43-62"].map((range) => read(`src/data/flipchart-text-${range}.json`)),
 );
 const workbookLayouts = read("src/data/page-layouts.json").pages;
+const recordedLines = new Map(read("src/content/tutor-lines.json").approved.map((line) =>
+  [line.lineId, line.src],
+));
 const frontMatter = {
   1: ["La Cartilla de Gretel", "Autora: Leonor Lopetegui"],
   2: ["Copyright © 2004", "Revisión 2010", "Leonor Lopetegui"],
@@ -26,11 +29,14 @@ const textInRegions = (page) => (workbookLayouts[page]?.regions ?? [])
 const sizes = { desktop: { width: 1366, height: 768 }, phone: { width: 390, height: 844 } };
 
 function expectedSpeech(items) {
-  return items.map((item) => ({
-    text: item.text ?? item.word,
-    recording: item.approvedAudioSrc ?? null,
-    delivery: item.approvedAudioSrc && asset(item.approvedAudioSrc) ? "recorded model" : "text only",
-  }));
+  return items.map((item) => {
+    const recording = item.approvedAudioSrc ?? recordedLines.get(item.tutorLineId) ?? null;
+    return {
+      text: item.text ?? item.word,
+      recording,
+      delivery: recording && asset(recording) ? "recorded model" : "text only",
+    };
+  });
 }
 
 const workbook = lessons.flatMap((lesson) =>

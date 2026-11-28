@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/tutor/leccion-0/l0-vowel-model-o.mp3",
+    "duration": 0.67,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "15fb5196cf8883ef233e16fc6e6368c841f59fcff79064b36e82f517ae527b84",
+    "cueReview": "Isolated Spanish vowel, aligned to measured speech onset and release"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.13,
+      "value": "X"
+    },
+    {
+      "start": 0.13,
+      "end": 0.51,
+      "value": "E"
+    },
+    {
+      "start": 0.51,
+      "end": 0.67,
+      "value": "X"
+    }
+  ]
+}

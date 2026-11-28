@@ -600,7 +600,7 @@ function isRejectedTranscriptOrPath(segAlign, publicSrc) {
 }
 
 /**
- * Prove the intake pipeline on the 43 existing owner-approved recordings in
+ * Prove the intake pipeline on the approved word and vowel models in
  * `src/content/tutor-lines.json` (dry-run verification confirming IDs, checksums,
  * and Rhubarb visemes match without altering any approved audio or manifests).
  */
@@ -608,7 +608,7 @@ export async function proveApprovedRecordings({
   repoRoot,
   privateDir = DEFAULT_PRIVATE_VOICE_DIR,
   date = new Date().toISOString().slice(0, 10),
-  batchId = "approved-43-dry-run",
+  batchId = "approved-models-dry-run",
   writeReport = true,
   tools = null,
 } = {}) {
@@ -667,7 +667,7 @@ export async function proveApprovedRecordings({
     if (!cuesValid) errors.push(`${entry.lineId}: invalid mouthCues`);
     if (!soundFileMatches) errors.push(`${entry.lineId}: visemes soundFile mismatch`);
 
-    const idWord = entry.lineId.replace(/^l\d+-model-/, "");
+    const idWord = entry.lineId.replace(/^l\d+-(?:vowel-)?model-/, "");
     const sim = computeTranscriptSimilarity(idWord, entry.text);
     if (!sim.exactTextMatch) {
       errors.push(`${entry.lineId}: text "${entry.text}" does not match lineId word "${idWord}"`);
@@ -714,7 +714,7 @@ export async function proveApprovedRecordings({
     privateDir,
     guard,
     matchedBatch: {
-      batchId: "tutor-lines-v1-approved-43",
+      batchId: "tutor-lines-v1-approved-models",
       score: 1,
       matchedLinesCount: items.length,
       totalLinesCount: approved.length,
@@ -754,7 +754,7 @@ export async function proveApprovedRecordings({
   }
 
   return {
-    ok: errors.length === 0 && items.length === 43,
+    ok: errors.length === 0 && approved.length > 0 && items.length === approved.length,
     errors,
     verifiedCount: items.length,
     expectedCount: approved.length,

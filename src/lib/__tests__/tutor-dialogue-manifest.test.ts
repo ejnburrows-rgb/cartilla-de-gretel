@@ -46,8 +46,8 @@ describe("tutor-dialogue-manifest v2 schema & loader", () => {
     expect(report.errors).toEqual([]);
     expect(report.ok).toBe(true);
     expect(report.counts.v2Files).toBe(25); // universal.json + lesson-01..24.json
-    expect(report.counts.legacyApproved).toBe(43);
-    expect(report.counts.legacyPending).toBe(77);
+    expect(report.counts.legacyApproved).toBe(48);
+    expect(report.counts.legacyPending).toBe(72);
     expect(report.counts.v2Entries).toBeGreaterThanOrEqual(1100);
     expect(report.counts.v2Entries).toBeLessThanOrEqual(1500);
     expect(report.counts.totalMerged).toBe(120 + report.counts.v2Entries);
@@ -81,12 +81,13 @@ describe("tutor-dialogue-manifest v2 schema & loader", () => {
       expect(entry.audio.src).toBeUndefined();
       expect(entry.audio.visemes).toBeNull();
     }
-    // Only the 43 owner-approved legacy recordings are playable.
+    // The active legacy bank contains 43 picture models and five vowel models.
     const playable = getPlayableEntries();
-    expect(playable).toHaveLength(43);
+    expect(playable).toHaveLength(48);
     for (const entry of playable) {
       expect(entry.batch).toBe("LEGACY-APPROVED");
-      expect(entry.audio.src).toMatch(/^\/audio\/voz\/vocabulario\//);
+      const source = entry.role === "vowel-model" ? "/audio/voz/tutor/leccion-0/" : "/audio/voz/vocabulario/";
+      expect(entry.audio.src?.startsWith(source)).toBe(true);
     }
   });
 

@@ -243,7 +243,7 @@ describe("Milestone 9: 24-lesson pools, chaining & honest text-only fallback", (
     });
     expect(approved?.audioSrc).toBeTruthy();
 
-    const pendingLegacy = resolveLineDelivery("l0-vowel-model-a");
+    const pendingLegacy = resolveLineDelivery("l0-confusion-o");
     expect(pendingLegacy).toMatchObject({
       deliveryMode: "text-only-fallback",
       isSpeech: false,

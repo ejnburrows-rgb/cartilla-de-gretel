@@ -16,6 +16,7 @@ import { clearAllTutorMemory } from "@/lib/tutor-memory";
 import { clearTutorProgress } from "@/lib/tutor-progress";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { ALL_CURRICULUM_LESSONS, lessonGraphFor } from "@/lib/tutor-content";
+import { modelDeliveryForItem } from "@/lib/tutor-line-picker";
 
 export const Route = createFileRoute("/tutor")({
   validateSearch: (search: Record<string, unknown>): { demo?: boolean } => ({
@@ -67,7 +68,7 @@ function TutorPicker() {
     entry,
     graph,
   }: (typeof lessonEntries)[number]) => {
-    const approvedCount = graph?.summary.itemsWithApprovedAudio ?? 0;
+    const approvedCount = graph?.items.filter((item) => modelDeliveryForItem(item).isSpeech).length ?? 0;
     const totalCount = graph?.summary.totalItems ?? 0;
     const hasAudio = approvedCount > 0;
 

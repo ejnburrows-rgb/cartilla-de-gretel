@@ -204,7 +204,7 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
     expect(withNote?.lineId).toBe("l0-praise-01");
     expect(clean?.lineId).toBe("l0-praise-01");
 
-    expect(tutorLines.approved.length).toBe(43);
+    expect(tutorLines.approved.filter((line) => line.role === "word-model")).toHaveLength(43);
     expect(tutorLines.pending.length).toBeGreaterThan(0);
   });
   it("reads the shipped Rhubarb mouthCues format, mapping value to shape", async () => {
@@ -231,8 +231,9 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
       expect.arrayContaining([expect.objectContaining({ shape: expect.any(String) })]),
       "picture-model/erizo.mp3",
     );
-    expect(await speakTutorLine("a", {}, "l0-vowel-model-a")).toBe("silent");
-    expect(playSpy).toHaveBeenCalledTimes(1);
+    expect(await speakTutorLine("a", {}, "l0-vowel-model-a")).toBe("spoken");
+    expect(await speakTutorLine("Esa es la O.", {}, "l0-confusion-o")).toBe("silent");
+    expect(playSpy).toHaveBeenCalledTimes(2);
     expect(speakSpy).not.toHaveBeenCalled();
     unmount();
   });

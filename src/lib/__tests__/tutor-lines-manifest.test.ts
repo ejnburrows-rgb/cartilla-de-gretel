@@ -57,17 +57,26 @@ describe("tutor-lines manifest: real manifest passes the validator", () => {
     const result = validateTutorLines(tutorLines, realContext);
     expect(result.errors).toEqual([]);
     expect(result.ok).toBe(true);
-    expect(result.counts.approved).toBe(43);
-    expect(result.counts.pending).toBe(77);
+    expect(result.counts.approved).toBe(48);
+    expect(result.counts.pending).toBe(72);
   });
 
   it("has exactly 43 approved word models, all owner-approved picture-name recordings", () => {
-    const approved = tutorLines.approved as Array<{ role: string; src: string; approval: string }>;
-    expect(approved.length).toBe(43);
-    for (const entry of approved) {
-      expect(entry.role).toBe("word-model");
+    const wordModels = tutorLines.approved.filter((entry) => entry.role === "word-model");
+    expect(wordModels).toHaveLength(43);
+    for (const entry of wordModels) {
       expect(approvedRecordings.has(entry.src)).toBe(true);
       expect(entry.approval).toBe("picture-name-recordings.json (owner-approved 2026)");
+    }
+  });
+
+  it("uses the original master for each of the five shared vowel models", () => {
+    const vowelModels = tutorLines.approved.filter((entry) => entry.role === "vowel-model");
+    expect(vowelModels.map((entry) => entry.text)).toEqual(["a", "e", "i", "o", "u"]);
+    for (const entry of vowelModels) {
+      expect(entry.lesson).toBe(0);
+      expect(entry.lineId).toBe(`l0-vowel-model-${entry.text}`);
+      expect(entry.approval).toContain("ISOLATED-VOWELS.md");
     }
   });
 
@@ -91,7 +100,6 @@ describe("tutor-lines manifest: real manifest passes the validator", () => {
       "review-intro": 2,
       closing: 3,
       "idle-end": 1,
-      "vowel-model": 5,
     } as Record<string, number>;
     const actual: Record<string, number> = {};
     for (const entry of tutorLines.pending as Array<{ role: string }>) {

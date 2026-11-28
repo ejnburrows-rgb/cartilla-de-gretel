@@ -429,6 +429,56 @@
       "visemes": "/audio/voz/tutor/leccion-3/l3-model-oruga.visemes.json",
       "emotion": "warm",
       "approval": "picture-name-recordings.json (owner-approved 2026)"
+    },
+    {
+      "lineId": "l0-vowel-model-a",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "a",
+      "src": "/audio/voz/tutor/leccion-0/l0-vowel-model-a.mp3",
+      "visemes": "/audio/voz/tutor/leccion-0/l0-vowel-model-a.visemes.json",
+      "emotion": "warm",
+      "approval": "Verified owner master excerpt (docs/tutor/recording/ISOLATED-VOWELS.md)"
+    },
+    {
+      "lineId": "l0-vowel-model-e",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "e",
+      "src": "/audio/voz/tutor/leccion-0/l0-vowel-model-e.mp3",
+      "visemes": "/audio/voz/tutor/leccion-0/l0-vowel-model-e.visemes.json",
+      "emotion": "warm",
+      "approval": "Verified owner master excerpt (docs/tutor/recording/ISOLATED-VOWELS.md)"
+    },
+    {
+      "lineId": "l0-vowel-model-i",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "i",
+      "src": "/audio/voz/tutor/leccion-0/l0-vowel-model-i.mp3",
+      "visemes": "/audio/voz/tutor/leccion-0/l0-vowel-model-i.visemes.json",
+      "emotion": "warm",
+      "approval": "Verified owner master excerpt (docs/tutor/recording/ISOLATED-VOWELS.md)"
+    },
+    {
+      "lineId": "l0-vowel-model-o",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "o",
+      "src": "/audio/voz/tutor/leccion-0/l0-vowel-model-o.mp3",
+      "visemes": "/audio/voz/tutor/leccion-0/l0-vowel-model-o.visemes.json",
+      "emotion": "warm",
+      "approval": "Verified owner master excerpt (docs/tutor/recording/ISOLATED-VOWELS.md)"
+    },
+    {
+      "lineId": "l0-vowel-model-u",
+      "lesson": 0,
+      "role": "vowel-model",
+      "text": "u",
+      "src": "/audio/voz/tutor/leccion-0/l0-vowel-model-u.mp3",
+      "visemes": "/audio/voz/tutor/leccion-0/l0-vowel-model-u.visemes.json",
+      "emotion": "warm",
+      "approval": "Verified owner master excerpt (docs/tutor/recording/ISOLATED-VOWELS.md)"
     }
   ],
   "pending": [
@@ -935,41 +985,6 @@
       "role": "idle-end",
       "text": "[DRAFT — owner to approve] Descansa un poco. Nos vemos pronto.",
       "emotion": "calm"
-    },
-    {
-      "lineId": "l0-vowel-model-a",
-      "lesson": 0,
-      "role": "vowel-model",
-      "text": "[DRAFT — owner to approve] a",
-      "emotion": "warm"
-    },
-    {
-      "lineId": "l0-vowel-model-e",
-      "lesson": 0,
-      "role": "vowel-model",
-      "text": "[DRAFT — owner to approve] e",
-      "emotion": "warm"
-    },
-    {
-      "lineId": "l0-vowel-model-i",
-      "lesson": 0,
-      "role": "vowel-model",
-      "text": "[DRAFT — owner to approve] i",
-      "emotion": "warm"
-    },
-    {
-      "lineId": "l0-vowel-model-o",
-      "lesson": 0,
-      "role": "vowel-model",
-      "text": "[DRAFT — owner to approve] o",
-      "emotion": "warm"
-    },
-    {
-      "lineId": "l0-vowel-model-u",
-      "lesson": 0,
-      "role": "vowel-model",
-      "text": "[DRAFT — owner to approve] u",
-      "emotion": "warm"
     }
   ]
 }
