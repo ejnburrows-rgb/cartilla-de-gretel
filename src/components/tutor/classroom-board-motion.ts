@@ -2,7 +2,7 @@ import { chalkStrokes, type ChalkPoint, type ChalkStroke } from "./classroom-wri
 
 const WIDTH = 1280;
 const HEIGHT = 720;
-const PATCH = { x: 675, y: 245, width: 385, height: 280 };
+const PATCH = { x: 675, y: 245, width: 385, height: 345 };
 const CHALK_TIP = { x: 864, y: 309 };
 const FELT_CENTER = { x: 884, y: 434 };
 
@@ -192,10 +192,10 @@ function compose(
   for (let i = 0; i < pixels.length; i += 4) {
     const px = x + (i / 4) % width;
     const py = y + Math.floor(i / 4 / width);
-    const oldLetter = px >= 768 && px < 923 && py >= 296 && py <= 405;
-    const oldUnderline = px >= 735 && px <= 976 && py >= 411 && py <= 435;
-    const knuckleChalk = px >= 775 && px <= 800 && py >= 372 && py <= 390;
-    const dustSpeckles = px >= 835 && px <= 935 && py >= 450 && py <= 492;
+    const oldLetter = px >= 756 && px < 932 && py >= 286 && py <= 410;
+    const oldUnderline = px >= 728 && px <= 984 && py >= 406 && py <= 440;
+    const knuckleChalk = px >= 768 && px <= 804 && py >= 368 && py <= 394;
+    const dustSpeckles = px >= 724 && px <= 965 && py >= 440 && py <= 586;
     const red = pixels[i];
     const green = pixels[i + 1];
     const blue = pixels[i + 2];
@@ -203,11 +203,26 @@ function compose(
     // chalk itself. Keep the warm hand, sleeve and felt in front of the patch.
     const slate = green - red >= 5 && green - blue >= 5;
     const chalk = green > 105 && green >= red - 12 && green - blue < 45;
-    if (removeBakedLetter && (slate || (chalk && (oldLetter || oldUnderline || knuckleChalk || dustSpeckles)))) {
-      const edgeDistance = Math.min(px - x, x + width - 1 - px, py - y, y + height - 1 - py);
-      const opacity = Math.min(1, edgeDistance / 26);
-      for (let channel = 0; channel < 3; channel += 1) {
-        pixels[i + channel] += (clean.data[i + channel] - pixels[i + channel]) * opacity;
+    if (removeBakedLetter) {
+      let opacity = 0;
+      if (oldLetter || oldUnderline) {
+        if (slate || chalk) {
+          const letterDist = oldLetter
+            ? Math.min(px - 756, 931 - px, py - 286, 410 - py)
+            : -1;
+          const lineDist = oldUnderline
+            ? Math.min(px - 728, 984 - px, py - 406, 440 - py)
+            : -1;
+          const edgeDist = Math.max(letterDist, lineDist);
+          opacity = chalk ? 1 : Math.min(1, Math.max(0, edgeDist) / 14);
+        }
+      } else if (chalk && (knuckleChalk || dustSpeckles)) {
+        opacity = 1;
+      }
+      if (opacity > 0) {
+        for (let channel = 0; channel < 3; channel += 1) {
+          pixels[i + channel] += (clean.data[i + channel] - pixels[i + channel]) * opacity;
+        }
       }
     }
     if (!strokes) continue;

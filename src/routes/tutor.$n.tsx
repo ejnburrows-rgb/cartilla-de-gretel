@@ -1518,7 +1518,7 @@ function ValidTutorSessionScreen({
                   data-classroom-camera={writingTarget ? "board" : "call"}
                 >
                   <img ref={classroomStill} src={room + "/conversation.webp"} alt="Gretel en su aula"
-                    className="block w-full" />
+                    decoding="sync" fetchPriority="high" className="block w-full" />
                   <span className="tutor-classroom-breath" aria-hidden="true" />
                   <ClassroomExpression
                     reaction={analyzing || processingTurn ? "thinking" : mark?.isCorrect ? "acknowledging" : "attentive"}
