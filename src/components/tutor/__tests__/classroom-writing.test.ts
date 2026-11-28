@@ -1,7 +1,13 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { lessonGraphFor, type TutorItem } from "@/lib/tutor-content";
 import { letterStrokes, teachingTarget } from "../classroom-writing";
+import { animateClassroomFrame } from "../classroom-board-motion";
+
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
 
 describe("classroom writing follows the curriculum", () => {
   it("covers every vowel and syllable target across the 24 lessons", () => {
@@ -36,5 +42,32 @@ describe("classroom writing follows the curriculum", () => {
   it("does not substitute a letter for workbook sentences", () => {
     const sentence: TutorItem = { id: "sample", lesson: 8, text: "Papá.", kind: "sentence", printedPage: 23 };
     expect(teachingTarget(sentence, CATALOG.find((lesson) => lesson.n === 8))).toBeNull();
+  });
+});
+
+describe("classroom frame timing", () => {
+  it("starts at zero when a frame timestamp predates the start of the stroke", async () => {
+    const frames: FrameRequestCallback[] = [];
+    vi.spyOn(performance, "now").mockReturnValue(100);
+    vi.stubGlobal("requestAnimationFrame", (callback: FrameRequestCallback) => frames.push(callback));
+    vi.stubGlobal("cancelAnimationFrame", vi.fn());
+    const paint = vi.fn();
+    const done = animateClassroomFrame(10, paint, new AbortController().signal);
+    frames.shift()!(95);
+    frames.shift()!(111);
+    await done;
+    expect(paint.mock.calls).toEqual([[0], [1]]);
+  });
+
+  it("settles after a drawing failure so the session can fall back to a still board", async () => {
+    const frames: FrameRequestCallback[] = [];
+    vi.spyOn(performance, "now").mockReturnValue(100);
+    vi.stubGlobal("requestAnimationFrame", (callback: FrameRequestCallback) => frames.push(callback));
+    vi.stubGlobal("cancelAnimationFrame", vi.fn());
+    const done = animateClassroomFrame(10, () => { throw new Error("unavailable canvas"); },
+      new AbortController().signal);
+    const outcome = expect(done).rejects.toThrow("unavailable canvas");
+    frames.shift()!(105);
+    await outcome;
   });
 });

@@ -24,19 +24,28 @@ function canvas() {
   return surface;
 }
 
-function animate(ms: number, paint: Painter, signal: AbortSignal): Promise<void> {
-  return new Promise((resolve) => {
+export function animateClassroomFrame(ms: number, paint: Painter, signal: AbortSignal): Promise<void> {
+  return new Promise((resolve, reject) => {
     if (signal.aborted) return resolve();
     const start = performance.now();
     let frame = 0;
-    function finish() {
+    function cleanup() {
       cancelAnimationFrame(frame);
       signal.removeEventListener("abort", finish);
+    }
+    function finish() {
+      cleanup();
       resolve();
     }
     function update(now: number) {
-      const progress = Math.min(1, (now - start) / ms);
-      paint(progress);
+      const progress = Math.max(0, Math.min(1, (now - start) / ms));
+      try {
+        paint(progress);
+      } catch (error) {
+        cleanup();
+        reject(error);
+        return;
+      }
       if (progress < 1) frame = requestAnimationFrame(update);
       else finish();
     }
@@ -95,7 +104,12 @@ function playRange(
     }
     function failed() { finish(false); }
     function update() {
-      if (video.readyState >= 2) paint();
+      try {
+        if (video.readyState >= 2) paint();
+      } catch {
+        finish(false);
+        return;
+      }
       if (video.currentTime >= until) finish(true);
       else frame = requestAnimationFrame(update);
     }
@@ -254,10 +268,10 @@ export async function playClassroomWriting(
     if (signal.aborted) return false;
     onPhase(index === glyphs.length - 1 ? "underlining" : "writing");
     const previous = tip;
-    await animate(180, (t) => draw(interpolate(previous, stroke[0], ease(t)), CHALK_TIP), signal);
+    await animateClassroomFrame(180, (t) => draw(interpolate(previous, stroke[0], ease(t)), CHALK_TIP), signal);
     let last = stroke[0];
     let painted = 0;
-    await animate(Math.max(150, strokeDistance(stroke) * 4.0), (t) => {
+    await animateClassroomFrame(Math.max(150, strokeDistance(stroke) * 4.0), (t) => {
       const cursor = t * (stroke.length - 1);
       const vertex = Math.floor(cursor);
       while (painted < vertex) {
@@ -271,7 +285,7 @@ export async function playClassroomWriting(
     }, signal);
     tip = stroke[stroke.length - 1];
   }
-  await animate(450, () => draw(tip, CHALK_TIP), signal);
+  await animateClassroomFrame(450, () => draw(tip, CHALK_TIP), signal);
 
   if (!(await seek(video, 13.2, signal))) return false;
   onPhase("taking-eraser");
@@ -294,19 +308,19 @@ export async function playClassroomWriting(
     const start = { x: pass % 2 === 0 ? left + 6 : right - 6, y };
     const end = { x: pass % 2 === 0 ? right - 6 : left + 6, y };
     const previous = felt;
-    await animate(140, (t) => {
+    await animateClassroomFrame(140, (t) => {
       const center = interpolate(previous, start, ease(t));
       eraseFelt(trace, center);
       draw(center, FELT_CENTER);
     }, signal);
-    await animate(340, (t) => {
+    await animateClassroomFrame(340, (t) => {
       const center = interpolate(start, end, ease(t));
       eraseFelt(trace, center);
       draw(center, FELT_CENTER);
     }, signal);
     felt = end;
   }
-  await animate(210, (t) => draw(interpolate(felt, FELT_CENTER, ease(t)), FELT_CENTER), signal);
+  await animateClassroomFrame(210, (t) => draw(interpolate(felt, FELT_CENTER, ease(t)), FELT_CENTER), signal);
 
   onPhase("returning");
   return playRange(video, 25.5, () => {
