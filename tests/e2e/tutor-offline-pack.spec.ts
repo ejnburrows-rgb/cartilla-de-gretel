@@ -19,6 +19,9 @@ test("verified pack survives closing the page and cold-opens every tutor route o
     };
   });
   expect(marker.resources.some((asset) => asset.url.includes("vosk-model-small-es"))).toBe(true);
+  expect(marker.resources.map((asset) => asset.url)).toEqual(expect.arrayContaining(
+    Array.from({ length: 24 }, (_, index) => `/tutor/${index + 1}`),
+  ));
   expect(marker.resources.reduce((sum, asset) => sum + asset.bytes, 0)).toBeGreaterThan(40_000_000);
   // Keep a blank tab while closing the original app tab; avoids an embedded
   // headless browser terminating when its last tab closes.
@@ -26,7 +29,7 @@ test("verified pack survives closing the page and cold-opens every tutor route o
   await page.close();
   await context.setOffline(true);
   cold.on("pageerror", (error) => errors.push(error.message));
-  for (const route of ["/tutor", "/tutor/1?code=offline&slot=3", "/tutor/2", "/tutor/3"]) {
+  for (const route of ["/tutor", "/tutor/1?code=offline&slot=3", "/tutor/4?code=offline&slot=3", "/tutor/24"]) {
     const response = await cold.goto(route);
     expect(response?.fromServiceWorker()).toBe(true);
     if (route === "/tutor")

@@ -1,6 +1,7 @@
 import { webcrypto, createHash } from "node:crypto";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
+  TUTOR_ALL_ROUTES,
   TUTOR_BUILD_ID,
   TUTOR_PACK_CACHE_NAME,
   TUTOR_PACK_CONTROL_CACHE,
@@ -84,7 +85,7 @@ beforeEach(() => {
 
   for (const url of tutorPackFileList()) bodies.set(url, url.endsWith(".json") ? "{}" : "binary");
   bodies.set("/cartilla/images/gretel/layers/manifest.json", '{"layers":[]}');
-  for (const url of ["/tutor", "/tutor/1", "/tutor/2", "/tutor/3", "/tutor/7", "/tutor/24"]) {
+  for (const url of TUTOR_ALL_ROUTES) {
     bodies.set(url, '<html><script src="/assets/main.js"></script></html>');
   }
   bodies.set("/tutor-dialogue/universal.json", '{"version":2,"scope":"universal","entries":[]}');
@@ -190,7 +191,7 @@ async function registry() {
   return reg ? await reg.json() : null;
 }
 
-describe("verified tutor pack (full legacy pack)", () => {
+describe("verified tutor pack (all lessons)", () => {
   it("packs every required route, recording and lazy production chunk with MIME preserved", async () => {
     const shell = await cachesMock.open("cartilla:shell:existing");
     await shell.put("/", new Response("untouched"));
@@ -200,7 +201,11 @@ describe("verified tutor pack (full legacy pack)", () => {
     const cache = await cachesMock.open(marker.cacheName);
     for (const url of [...tutorPackFileList(), "/assets/lazy.js"])
       expect(await cache.match(url)).toBeDefined();
-    expect((await cache.match("/tutor"))!.headers.get("content-type")).toBe("text/html");
+    const cachedRoutes = [...cache.store.keys()].filter((url) => /^\/tutor(?:\/\d+)?$/.test(url));
+    expect(new Set(cachedRoutes)).toEqual(
+      new Set(["/tutor", ...Array.from({ length: 24 }, (_, index) => `/tutor/${index + 1}`)]),
+    );
+    expect((await cache.match("/tutor/24"))!.headers.get("content-type")).toBe("text/html");
     expect(await (await shell.match("/"))!.text()).toBe("untouched");
     expect(await getTutorPackStatus()).toMatchObject({
       state: "done",

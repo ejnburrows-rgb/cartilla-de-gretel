@@ -27,9 +27,6 @@ export const GRETEL_MASTER_PACK_PATH = "/cartilla/images/gretel/gretel-approved-
 const LAYERS_PATH = "/cartilla/images/gretel/layers/manifest.json";
 const ASSETS_PATH = "/tutor-assets.json";
 
-/** Core legacy routes required by the full offline pack. */
-export const TUTOR_ROUTES = ["/tutor", "/tutor/1", "/tutor/2", "/tutor/3"] as const;
-
 /** All 24 curriculum lesson numbers. */
 export const ALL_PACK_LESSONS = Array.from({ length: 24 }, (_, idx) => idx + 1) as readonly number[];
 
@@ -211,7 +208,7 @@ export function isTutorRouteUrl(url: string): boolean {
 
 export function tutorPackFileList(): string[] {
   const files = new Set<string>([
-    ...TUTOR_ROUTES,
+    ...TUTOR_ALL_ROUTES,
     VOSK_MODEL_PACK_PATH,
     GRETEL_MASTER_PACK_PATH,
     LAYERS_PATH,

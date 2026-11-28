@@ -225,6 +225,7 @@ function ValidTutorSessionScreen({
   const classroomEnabled = !search.previewRig && !search.previewHybrid;
   const startOnAbeja = lesson === 3 && search.previewClassroom === 1;
   const classroomVideo = useRef<HTMLVideoElement>(null);
+  const classroomStill = useRef<HTMLImageElement>(null);
   const chalkboardCanvas = useRef<HTMLCanvasElement>(null);
   const classroomRun = useRef<AbortController | null>(null);
   const [writingTarget, setWritingTarget] = useState<string | null>(null);
@@ -529,12 +530,12 @@ function ValidTutorSessionScreen({
     setSpokenText(target);
     let animated = false;
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-        classroomVideo.current && chalkboardCanvas.current) {
+        classroomVideo.current && chalkboardCanvas.current && classroomStill.current) {
       const video = classroomVideo.current;
       if (video.readyState === 0) video.load();
       try {
         animated = await playClassroomWriting(
-          video, chalkboardCanvas.current, target, run.signal, setBoardPhase,
+          video, chalkboardCanvas.current, classroomStill.current, target, run.signal, setBoardPhase,
         );
       } catch {
         // Use the same target with a still board if a browser cannot draw the footage.
@@ -1498,7 +1499,7 @@ function ValidTutorSessionScreen({
                   <source media="(prefers-reduced-motion: reduce)" srcSet={room + "/conversation.webp"} />
                   <img src={room + "/listening.webp"} alt="Gretel escucha junto a la pizarra" style={{display:"block", width:"100%"}} />
                 </picture>
-                <img src={room + "/conversation.webp"} alt="Gretel en su aula"
+                <img ref={classroomStill} src={room + "/conversation.webp"} alt="Gretel en su aula"
                   style={{display: linePlaying ? "block" : "none", width:"100%"}} />
                 {linePlaying && mouthIndex >= 0 && (
                   <span aria-hidden="true" style={{position:"absolute",left:"28.046875%",top:"44.722222%",width:"7.65625%",height:"9.027778%",

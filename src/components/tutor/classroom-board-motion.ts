@@ -237,6 +237,7 @@ export function eraseFelt(marks: CanvasRenderingContext2D, center: Point) {
 export async function playClassroomWriting(
   video: HTMLVideoElement,
   output: HTMLCanvasElement,
+  blankSlate: HTMLImageElement,
   target: string,
   signal: AbortSignal,
   onPhase: (phase: string) => void,
@@ -253,7 +254,13 @@ export async function playClassroomWriting(
   trace.lineJoin = "round";
   trace.lineCap = "round";
 
-  scene.drawImage(video, 0, 0, WIDTH, HEIGHT);
+  try {
+    await blankSlate.decode();
+  } catch {
+    return false;
+  }
+  if (signal.aborted) return false;
+  scene.drawImage(blankSlate, 0, 0, WIDTH, HEIGHT);
   const clean = scene.getImageData(PATCH.x, PATCH.y, PATCH.width, PATCH.height);
   onPhase("turning");
   if (!(await playRange(video, 7, () => scene.drawImage(video, 0, 0, WIDTH, HEIGHT), signal))) return false;
