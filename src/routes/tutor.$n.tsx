@@ -706,6 +706,14 @@ function ValidTutorSessionScreen({
     const linePlaybacks: Promise<void>[] = [];
     const markWaiters: Promise<void>[] = [];
     try {
+      const respondingToAnswer = effects.some(
+        (effect) => effect.type === "markCorrect" || effect.type === "markWrongErase",
+      );
+      if (classroomEnabled && respondingToAnswer &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setProcessingTurn(true);
+        await sleep(320);
+      }
       for (const effect of effects) {
         if (!alive()) return;
         switch (effect.type) {
@@ -1504,7 +1512,7 @@ function ValidTutorSessionScreen({
                     className="block w-full" />
                   <span className="tutor-classroom-breath" aria-hidden="true" />
                   <ClassroomExpression
-                    reaction={mark?.isCorrect ? "acknowledging" : analyzing || processingTurn ? "thinking" : "attentive"}
+                    reaction={analyzing || processingTurn ? "thinking" : mark?.isCorrect ? "acknowledging" : "attentive"}
                     speaking={linePlaying}
                     board={Boolean(writingTarget)}
                   />

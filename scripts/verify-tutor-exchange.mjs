@@ -93,8 +93,19 @@ try {
       const praiseRecording = check.checkDrawer
         ? page.waitForResponse((response) => response.url().endsWith("/l0-praise-01.mp3") && response.ok())
         : null;
+      if (!check.reducedMotion) {
+        await expression.evaluate((node) => {
+          const observed = new MutationObserver(() => {
+            if (node.dataset.classroomExpression !== "thinking") return;
+            node.dataset.sawThinking = "true";
+            observed.disconnect();
+          });
+          observed.observe(node, { attributes: true, attributeFilter: ["data-classroom-expression"] });
+        });
+      }
       await submit.click({ timeout: 18000 });
       if (!check.reducedMotion) {
+        await expect(expression).toHaveAttribute("data-saw-thinking", "true");
         await expect(expression).toHaveAttribute("data-classroom-expression", "acknowledging");
       }
       if (praiseRecording) await praiseRecording;
