@@ -1817,6 +1817,31 @@ function ValidTutorSessionScreen({
         />
       }
       replaySlot={<TutorReplay session={sessionLog} />}
+      mobileTranscriptTarget={
+        item ? (
+          <>
+            <div className="tutor-transcript-target-main">
+              <strong className="tutor-transcript-target-word">{item.text}</strong>
+              {brain?.phase === "LISTEN" &&
+              (brain.stage === "QUESTION" || brain.stage === "REVIEW") ? (
+                <span className="tutor-transcript-target-prompt">
+                  {item.kind === "sentence" ? "Lee en voz alta" : "Tu turno"}
+                </span>
+              ) : null}
+            </div>
+            <button
+              type="button"
+              className="tutor-transcript-target-replay"
+              disabled={replayDisabled}
+              aria-label="Repetir palabra"
+              onClick={() => void handleReplayLast()}
+            >
+              <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
+              <span>Repetir</span>
+            </button>
+          </>
+        ) : undefined
+      }
       onReplayLast={() => void handleReplayLast()}
       replayDisabled={replayDisabled}
       textInputDisabled={!brain}

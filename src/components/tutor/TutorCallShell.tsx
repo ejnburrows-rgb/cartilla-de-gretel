@@ -78,6 +78,8 @@ export interface TutorCallShellProps {
   consentSlot?: ReactNode;
   /** Structured replay drawer/panel (`TutorReplay` from @replay-report). */
   replaySlot?: ReactNode;
+  /** Compact active-target reminder shown inside mobile transcript drawer in Call mode. */
+  mobileTranscriptTarget?: ReactNode;
   onReplayLast?: () => void;
   replayDisabled?: boolean;
   onTextSubmit?: (text: string) => void;
@@ -109,6 +111,7 @@ export function TutorCallShell({
   cameraSlot,
   consentSlot,
   replaySlot,
+  mobileTranscriptTarget,
   onReplayLast,
   replayDisabled = false,
   onTextSubmit,
@@ -120,6 +123,7 @@ export function TutorCallShell({
 
   const shellRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
+  const transcriptListRef = useRef<HTMLDivElement>(null);
   const [draftText, setDraftText] = useState("");
   const [consentOpen, setConsentOpen] = useState(false);
   const [replayOpen, setReplayOpen] = useState(false);
@@ -136,6 +140,20 @@ export function TutorCallShell({
     minY: number;
     maxY: number;
   } | null>(null);
+
+  // Keep the latest transcript bubble visible above the input bar.
+  useEffect(() => {
+    const el = transcriptListRef.current;
+    if (!el || !snapshot.transcriptOpen) return;
+    const scrollToBottom = () => {
+      el.scrollTop = el.scrollHeight;
+    };
+    scrollToBottom();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(scrollToBottom);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [snapshot.transcript.length, snapshot.transcriptOpen]);
 
   // Sync browser fullscreen changes back to controller.
   useEffect(() => {
@@ -507,8 +525,8 @@ export function TutorCallShell({
             ) : null}
 
             {snapshot.layoutMode === "practice" ? (
-              <div className="flex h-full w-full flex-col gap-3" data-tutor-practice-frame="">
-                <div className="tutor-practice-header flex items-center justify-between gap-2 pb-2">
+              <div className="flex h-full w-full flex-col gap-1.5 sm:gap-3" data-tutor-practice-frame="">
+                <div className="tutor-practice-header flex items-center justify-between gap-2 pb-1 sm:pb-2">
                   <span className="tutor-ink-strong text-sm font-bold">
                     Práctica guiada
                     {snapshot.activeWorkbookPage ? ` · Página ${snapshot.activeWorkbookPage}` : ""}
@@ -564,7 +582,12 @@ export function TutorCallShell({
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
-            <div className="tutor-transcript-list" role="log" aria-live="polite">
+            {mobileTranscriptTarget && snapshot.layoutMode === "call" ? (
+              <div className="tutor-transcript-target-bar" data-tutor-mobile-target="">
+                {mobileTranscriptTarget}
+              </div>
+            ) : null}
+            <div ref={transcriptListRef} className="tutor-transcript-list" role="log" aria-live="polite">
               {snapshot.transcript.length === 0 ? (
                 <p className="tutor-ink-soft text-sm">
                   Aquí aparecerán las intervenciones de la sesión.
@@ -595,7 +618,7 @@ export function TutorCallShell({
                 value={draftText}
                 disabled={textInputDisabled}
                 onChange={(event) => setDraftText(event.target.value)}
-                placeholder="Escribe una respuesta o pregunta…"
+                placeholder="Escribe tu respuesta…"
                 aria-label="Escribir respuesta o pregunta"
               />
               <button

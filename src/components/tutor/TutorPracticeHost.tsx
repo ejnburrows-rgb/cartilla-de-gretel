@@ -142,7 +142,7 @@ export function TutorPracticeHost({
         data-printed-page={pageNumber}
         aria-label={`Práctica en cuaderno — Página ${pageNumber}`}
       >
-        <header className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-[#e8dcc8] bg-white/90 px-4 py-2.5">
+        <header className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-[#e8dcc8] bg-white/90 px-3 py-1.5 sm:px-4 sm:py-2.5">
           <div className="flex items-center gap-2 min-w-0">
             <BookOpen className="h-4 w-4 shrink-0 text-[#bb0733]" aria-hidden="true" />
             <span className="text-xs font-extrabold text-stone-800">
@@ -204,7 +204,7 @@ export function TutorPracticeHost({
 
         {/* Dedicated unobstructed scrollable work area */}
         <div
-          className="relative min-h-0 flex-1 overflow-auto p-3 sm:p-4"
+          className="relative min-h-0 flex-1 overflow-auto p-2 sm:p-4"
           data-testid="tutor-practice-work-area"
         >
           {!validRange ? (
@@ -254,7 +254,7 @@ export function TutorPracticeHost({
       data-game-id={target.gameId}
       aria-label={game ? `Juego supervisado — ${game.id}` : "Juego no disponible"}
     >
-      <header className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-[#e8dcc8] bg-white/90 px-4 py-2.5">
+      <header className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-[#e8dcc8] bg-white/90 px-3 py-1.5 sm:px-4 sm:py-2.5">
         <div className="flex items-center gap-2 min-w-0">
           <Gamepad2 className="h-4 w-4 shrink-0 text-[#bb0733]" aria-hidden="true" />
           <span className="text-xs font-extrabold text-stone-800">
@@ -307,7 +307,7 @@ export function TutorPracticeHost({
       </header>
 
       <div
-        className="relative min-h-0 flex-1 overflow-auto p-3 sm:p-4"
+        className="relative min-h-0 flex-1 overflow-auto p-2 sm:p-4"
         data-testid="tutor-practice-work-area"
       >
         {game ? (

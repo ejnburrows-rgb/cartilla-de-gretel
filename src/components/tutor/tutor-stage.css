@@ -83,7 +83,6 @@
 }
 .tutor-word-card {
   position: relative;
-  container-type: inline-size;
   min-height: 180px;
   max-width: 100%;
   padding: 20px 24px;
@@ -91,6 +90,11 @@
   border: 1.5px solid var(--tutor-border);
   background: var(--tutor-surface);
   box-shadow: var(--tutor-shadow-sm);
+}
+.tutor-word-measure {
+  width: 100%;
+  min-width: 0;
+  container-type: inline-size;
 }
 .tutor-word-card .workbook-pencil-mark {
   position: absolute;
@@ -100,14 +104,18 @@
   pointer-events: none;
 }
 .tutor-word {
-  font-size: clamp(1.35rem, calc(120cqi / max(var(--tutor-word-chars, 6), 2.5)), 4.75rem);
+  font-size: clamp(0.95rem, calc(112cqi / max(var(--tutor-word-chars, 6), 2.6)), 4.5rem);
   overflow-wrap: normal;
   word-break: normal;
   max-width: 100%;
 }
 .tutor-word[data-multi-word="true"] {
-  font-size: clamp(1.15rem, 7.5cqi, 2.25rem);
-  line-height: 1.25;
+  font-size: clamp(
+    0.95rem,
+    min(7.2cqi, calc(112cqi / max(var(--tutor-word-chars, 6), 4.2))),
+    2.15rem
+  );
+  line-height: 1.28;
   row-gap: 0.25em;
 }
 .tutor-replay {
@@ -206,6 +214,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  max-width: 100%;
 }
 .tutor-call-title {
   margin: 0;
@@ -213,16 +222,16 @@
   font-weight: 800;
   line-height: 1.2;
   color: var(--tutor-ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-overflow: clip;
 }
 .tutor-call-subtitle {
   font-size: 0.8125rem;
   color: var(--tutor-ink-soft);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-overflow: clip;
 }
 
 /* Real session state pill */
@@ -632,7 +641,7 @@
 /* The classroom is filmed in 16:9. Size the call tile to that frame so it
    can keep both Gretel and the board at their intended scale. */
 .tutor-call-shell[data-layout-mode="call"] .tutor-call-canvas:has(.tutor-painted-classroom) {
-  grid-template-columns: minmax(0, 2.5fr) minmax(260px, 1fr);
+  grid-template-columns: minmax(0, 2.5fr) minmax(272px, 1.05fr);
 }
 
 .tutor-call-shell[data-layout-mode="call"] .tutor-call-avatar-host:has(.tutor-painted-classroom) {
@@ -774,6 +783,10 @@
   align-items: stretch;
   justify-content: flex-start;
   overflow: auto;
+}
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  [data-testid="tutor-practice-work-area"] {
+  padding-bottom: 200px;
 }
 
 /* Floating PiP treatment (shared by Mode C and Mode D when practiceDock=pip) */
@@ -937,6 +950,7 @@
   height: 100%;
   min-height: 0;
   min-width: 0;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1131,6 +1145,9 @@
   font-weight: 800;
   font-size: 0.9375rem;
 }
+.tutor-transcript-target-bar {
+  display: none;
+}
 .tutor-transcript-list {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -1164,12 +1181,12 @@
   flex: 1 1 auto;
   min-width: 0;
   min-height: 44px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 12px;
   border: 1.5px solid var(--tutor-border-strong);
   background: #fff;
   color: var(--tutor-ink);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 /* Recording / Consent floating popover */
@@ -1289,6 +1306,43 @@
   }
 }
 
+/* Narrow transcript drawer slightly on tablets/mid-width so word card & Gretel keep breathing room */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .tutor-call-workspace:has(.tutor-transcript-drawer) .tutor-transcript-drawer {
+    width: 256px;
+  }
+}
+
+/* Reserve bottom clearance in Mode C Flip Chart PiP on tablets & smaller screens so PiP never covers words */
+@media (max-width: 1023px) {
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="false"][data-pip-size="sm"])
+    .tutor-flipchart-frame {
+    padding-bottom: 178px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="false"][data-pip-size="md"])
+    .tutor-flipchart-frame {
+    padding-bottom: 208px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="false"][data-pip-size="lg"])
+    .tutor-flipchart-frame {
+    padding-bottom: 248px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="true"])
+    .tutor-flipchart-frame {
+    padding-bottom: 58px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tutor-transcript-input {
+    font-size: 1rem;
+  }
+}
+
 /* Tablet portrait split: give Flip Chart extra width without cramping Gretel */
 @media (min-width: 768px) and (max-width: 960px) and (orientation: portrait) {
   .tutor-call-shell[data-layout-mode="split"] .tutor-call-canvas {
@@ -1364,7 +1418,7 @@
   .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
     .tutor-call-canvas:has(.tutor-painted-classroom) {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 150px minmax(0, 1fr);
+    grid-template-rows: 132px minmax(0, 1fr);
   }
   .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
     .tutor-call-avatar-host {
@@ -1373,7 +1427,7 @@
   }
   .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
     .tutor-call-avatar-host:has(.tutor-painted-classroom) {
-    width: min(100%, calc(150px * 16 / 9));
+    width: min(100%, calc(132px * 16 / 9));
     height: auto;
     max-height: 100%;
     aspect-ratio: 16 / 9;
@@ -1384,6 +1438,18 @@
     .tutor-call-primary-surface {
     grid-column: 1;
     grid-row: 2;
+  }
+  .tutor-call-shell[data-layout-mode="practice"] .tutor-call-primary-surface {
+    padding: 8px;
+  }
+  .tutor-practice-header {
+    padding-bottom: 4px;
+  }
+  .tutor-practice-header .tutor-mode-btn {
+    flex: 0 0 auto;
+    min-height: 32px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
   }
 
   .tutor-transcript-drawer {
@@ -1402,6 +1468,63 @@
     top: calc(22px + (100cqw - 20px) * 9 / 16);
     border-top: 1px solid var(--tutor-border);
     border-left: 0;
+  }
+  .tutor-transcript-header {
+    padding: 8px 12px;
+  }
+  .tutor-transcript-target-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 10px;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--tutor-border);
+    background: var(--tutor-paper);
+  }
+  .tutor-transcript-target-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 8px;
+    min-width: 0;
+  }
+  .tutor-transcript-target-word {
+    font-size: clamp(1.05rem, 5vw, 1.35rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--tutor-ink);
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  .tutor-transcript-target-prompt {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--tutor-cobalt);
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  .tutor-transcript-target-replay {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 30px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--tutor-border-strong);
+    background: var(--tutor-surface);
+    color: var(--tutor-ink);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .tutor-transcript-target-replay:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .tutor-transcript-form {
+    padding: 8px 10px;
   }
 
   .tutor-dock-btn-label {
@@ -1467,6 +1590,26 @@
   }
 
   /* Compact PiP sizing on mobile so Flip Chart remains unobstructed */
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="false"][data-pip-size="sm"])
+    .tutor-flipchart-frame {
+    padding-bottom: 148px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="false"][data-pip-size="md"])
+    .tutor-flipchart-frame {
+    padding-bottom: 168px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="false"][data-pip-size="lg"])
+    .tutor-flipchart-frame {
+    padding-bottom: 190px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-canvas:has(.tutor-call-avatar-host[data-pip-minimized="true"])
+    .tutor-flipchart-frame {
+    padding-bottom: 50px;
+  }
   .tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-call-avatar-host,
   .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"] .tutor-call-avatar-host {
     bottom: 10px;

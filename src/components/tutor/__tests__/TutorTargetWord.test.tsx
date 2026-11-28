@@ -24,9 +24,12 @@ describe("TutorTargetWord", () => {
     expect(screen.getByLabelText("uña").textContent).toBe("uña");
   });
 
-  it("keeps single long words inside one unbroken word token and wraps multi-word sentences only at spaces", () => {
-    const { rerender } = render(<TutorTargetWord word="elefante" playing={false} />);
+  it("wraps target word inside .tutor-word-measure, keeps single long words unbroken, and wraps multi-word sentences only at spaces", () => {
+    const { container, rerender } = render(<TutorTargetWord word="elefante" playing={false} />);
+    const measure = container.querySelector(".tutor-word-measure");
+    expect(measure).not.toBeNull();
     const single = screen.getByLabelText("elefante");
+    expect(single.parentElement).toBe(measure);
     expect(single.getAttribute("data-multi-word")).toBe("false");
     expect(single.style.getPropertyValue("--tutor-word-chars")).toBe("8");
     const singleTokens = single.querySelectorAll(".tutor-word-token");
@@ -34,13 +37,26 @@ describe("TutorTargetWord", () => {
     expect(singleTokens[0].textContent).toBe("elefante");
     expect(singleTokens[0].className).toContain("whitespace-nowrap");
 
+    rerender(<TutorTargetWord word="arrullador" playing={false} />);
+    const tenChar = screen.getByLabelText("arrullador");
+    expect(tenChar.parentElement).toBe(container.querySelector(".tutor-word-measure"));
+    expect(tenChar.getAttribute("data-multi-word")).toBe("false");
+    expect(tenChar.style.getPropertyValue("--tutor-word-chars")).toBe("10");
+    const tenCharTokens = tenChar.querySelectorAll(".tutor-word-token");
+    expect(tenCharTokens).toHaveLength(1);
+    expect(tenCharTokens[0].textContent).toBe("arrullador");
+    expect(tenCharTokens[0].className).toContain("whitespace-nowrap");
+
     rerender(<TutorTargetWord word="Mi mamá me ama." playing={true} />);
     const sentence = screen.getByLabelText("Mi mamá me ama.");
+    expect(sentence.parentElement).toBe(container.querySelector(".tutor-word-measure"));
     expect(sentence.getAttribute("data-multi-word")).toBe("true");
+    expect(sentence.style.getPropertyValue("--tutor-word-chars")).toBe("4");
     expect(sentence.textContent).toBe("Mi mamá me ama.");
     const wordTokens = Array.from(sentence.querySelectorAll(".tutor-word-token")).map(
       (node) => node.textContent,
     );
     expect(wordTokens).toEqual(["Mi", "mamá", "me", "ama."]);
+    expect(sentence.querySelectorAll(".tutor-word-space")).toHaveLength(3);
   });
 });

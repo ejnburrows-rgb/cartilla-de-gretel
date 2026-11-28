@@ -198,6 +198,42 @@ describe("TutorCallShell & TutorSessionController (Milestone 6)", () => {
     expect(input.value).toBe("");
   });
 
+  it("renders mobileTranscriptTarget only in call mode, uses complete placeholder, and auto-scrolls transcript list", () => {
+    const controller = new TutorSessionController({
+      sessionId: "test-mobile-target",
+      lesson: 4,
+      initialLayoutMode: "call",
+    });
+
+    const { container } = render(
+      <TutorCallShell
+        controller={controller}
+        lessonTitle="Lección 4 · La vocal E"
+        avatar={<div>Gretel</div>}
+        card={<div>elefante</div>}
+        mic={<button type="button">Mic</button>}
+        mobileTranscriptTarget={<strong className="tutor-transcript-target-word">elefante</strong>}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Abrir transcripción" }));
+    const input = screen.getByPlaceholderText("Escribe tu respuesta…");
+    expect(input).toBeTruthy();
+
+    const mobileTarget = container.querySelector("[data-tutor-mobile-target]");
+    expect(mobileTarget?.textContent).toContain("elefante");
+
+    const list = container.querySelector(".tutor-transcript-list") as HTMLDivElement;
+    Object.defineProperty(list, "scrollHeight", { value: 420, configurable: true });
+    act(() => {
+      controller.appendTranscript({ speaker: "gretel", text: "¿Puedes decir «elefante»?" });
+    });
+    expect(list.scrollTop).toBe(420);
+
+    fireEvent.click(screen.getByRole("button", { name: "Pantalla dividida" }));
+    expect(container.querySelector("[data-tutor-mobile-target]")).toBeNull();
+  });
+
   it("supports Mode B keyboard resizing and Mode C PiP snap/resize/protected-region avoidance", () => {
     const controller = new TutorSessionController({
       sessionId: "test-modes-bc",
