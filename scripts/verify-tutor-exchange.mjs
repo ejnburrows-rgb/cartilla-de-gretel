@@ -79,6 +79,24 @@ try {
             return drawer && drawer.getBoundingClientRect().top >= node.getBoundingClientRect().bottom;
           })).toBeTruthy();
         }
+        if (check.target === "e" && phase === "taking-eraser") {
+          // The original classroom plate has both bright chalk and a green
+          // fringe here. These two pixels sit above the dynamic lowercase e.
+          await expect.poll(() => board.evaluate((node) => {
+            const still = node.parentElement.querySelector('img[alt="Gretel en su aula"]');
+            const reference = document.createElement("canvas");
+            reference.width = node.width;
+            reference.height = node.height;
+            const clean = reference.getContext("2d");
+            clean.drawImage(still, 0, 0, node.width, node.height);
+            const live = node.getContext("2d");
+            return Math.max(...[300, 305].flatMap((y) => {
+              const plate = clean.getImageData(822, y, 1, 1).data;
+              const result = live.getImageData(822, y, 1, 1).data;
+              return [0, 1, 2].map((channel) => Math.abs(plate[channel] - result[channel]));
+            }));
+          })).toBeLessThanOrEqual(2);
+        }
         if (check.interrupt) {
           await page.getByRole("button", { name: "Interrumpir a Gretel", exact: true }).click();
           await expect(page.locator("[data-board-target]:visible")).toHaveCount(0);

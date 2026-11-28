@@ -194,12 +194,19 @@ function compose(
     const py = y + Math.floor(i / 4 / width);
     const oldLetter = px >= 768 && px < 923 && py >= 296 && py <= 405;
     const oldUnderline = px >= 735 && px <= 976 && py >= 411 && py <= 435;
-    if (removeBakedLetter && (oldLetter || oldUnderline) &&
-        pixels[i] > 123 && pixels[i + 1] > 135 &&
-        Math.abs(pixels[i] - pixels[i + 1]) < 29 && pixels[i + 1] - pixels[i + 2] < 45) {
-      pixels[i] = clean.data[i];
-      pixels[i + 1] = clean.data[i + 1];
-      pixels[i + 2] = clean.data[i + 2];
+    const red = pixels[i];
+    const green = pixels[i + 1];
+    const blue = pixels[i + 2];
+    // Replace the slate-colored fringe around the old strokes as well as the
+    // chalk itself. Keep the warm hand, sleeve and felt in front of the patch.
+    const slate = green - red >= 5 && green - blue >= 5;
+    const chalk = green > 105 && green >= red - 12 && green - blue < 45;
+    if (removeBakedLetter && (slate || (chalk && (oldLetter || oldUnderline)))) {
+      const edgeDistance = Math.min(px - x, x + width - 1 - px, py - y, y + height - 1 - py);
+      const opacity = Math.min(1, edgeDistance / 26);
+      for (let channel = 0; channel < 3; channel += 1) {
+        pixels[i + channel] += (clean.data[i + channel] - pixels[i + channel]) * opacity;
+      }
     }
     if (!strokes) continue;
     const alpha = strokes[i + 3] / 255;
