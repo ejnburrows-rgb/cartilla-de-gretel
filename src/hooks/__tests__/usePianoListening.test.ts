@@ -78,6 +78,40 @@ describe("usePianoListening", () => {
     expect(onFinal.mock.calls.map((c) => c[0])).toEqual(["sa", "po"]);
   });
 
+  it("settles a hung availability check with the microphone safely off", async () => {
+    vi.useFakeTimers();
+    FakeRecognition.available.mockImplementationOnce(() => new Promise<string>(() => {}));
+    const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+    expect(result.current.processing).toBe("checking");
+    await act(async () => {
+      vi.advanceTimersByTime(5000);
+    });
+    expect(result.current.processing).toBe("unavailable");
+    expect(result.current.supported).toBe(false);
+    act(() => result.current.start());
+    expect(FakeRecognition.instances).toHaveLength(0);
+  });
+
+  it("ignores an availability answer arriving after the safe timeout", async () => {
+    vi.useFakeTimers();
+    let resolve: (value: string) => void = () => {};
+    FakeRecognition.available.mockImplementationOnce(
+      () =>
+        new Promise<string>((r) => {
+          resolve = r;
+        }),
+    );
+    const { result } = renderHook(() => usePianoListening({ onFinal: vi.fn() }));
+    await act(async () => {
+      vi.advanceTimersByTime(5000);
+    });
+    await act(async () => {
+      resolve("available");
+    });
+    expect(result.current.processing).toBe("unavailable");
+    expect(result.current.supported).toBe(false);
+  });
+
   describe("never falls back to an online recognizer", () => {
     const expectMicOff = (current: ReturnType<typeof usePianoListening>) => {
       expect(current.supported).toBe(false);

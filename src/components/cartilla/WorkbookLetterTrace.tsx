@@ -22,7 +22,7 @@ import {
   type Point,
 } from "./letter-stroke-templates";
 import { useLetterTapTrace, useTraceInputMode } from "./useLetterTraceInput";
-import { PencilShape } from "./WorkbookPencilMark";
+import { OwnerPhotoPencilSvg } from "@/components/StudentBook/OwnerPhotoPencilSvg";
 
 const VIEW_W = 100;
 const VIEW_H = 120;
@@ -471,23 +471,33 @@ export function WorkbookLetterTrace({
           />
         )}
 
-        {/* Approved classic wooden pencil tip following learner's touch/drag path */}
+        {/* Approved @image1 wooden pencil photo following learner's touch/drag path */}
         {livePoint && shownStatus !== "done" && (
           <g
-            transform={`translate(${livePoint.x}, ${livePoint.y}) rotate(55) scale(0.38)`}
+            transform={`translate(${livePoint.x}, ${livePoint.y})`}
             style={{ pointerEvents: "none" }}
           >
-            <PencilShape uid="letter-trace-live-pencil" />
+            <OwnerPhotoPencilSvg
+              width={36}
+              height={30}
+              className="fp-trace__pencil"
+              testId="letter-trace-live-pencil"
+            />
           </g>
         )}
 
-        {/* In tap mode, approved wooden pencil rests gracefully near the active checkpoint */}
+        {/* In tap mode, approved @image1 wooden pencil rests near the active checkpoint */}
         {isTap && activePoint && shownStatus !== "done" && (
           <g
-            transform={`translate(${activePoint.x + 3.5}, ${activePoint.y - 2.5}) rotate(55) scale(0.32)`}
+            transform={`translate(${activePoint.x + 3.5}, ${activePoint.y - 2.5})`}
             style={{ pointerEvents: "none", opacity: 0.9 }}
           >
-            <PencilShape uid="letter-trace-tap-pencil" />
+            <OwnerPhotoPencilSvg
+              width={30}
+              height={25}
+              className="fp-trace__pencil"
+              testId="letter-trace-tap-pencil"
+            />
           </g>
         )}
       </svg>
