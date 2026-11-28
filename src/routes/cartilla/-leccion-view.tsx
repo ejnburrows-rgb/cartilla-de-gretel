@@ -151,7 +151,6 @@ export function Leccion() {
     return pages.every((page) => page.id !== local.pageId);
   }, [scope, n, pages]);
 
-  useEffect(() => { if (progressReady && !storedPianoBookmarkUnavailable) saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id); }, [scope, n, progressReady, initialPage, pages, storedPianoBookmarkUnavailable]);
   useEffect(() => {
     setLessonTab(readInitialLessonTab());
     setReviewStarted(false);
@@ -226,6 +225,13 @@ export function Leccion() {
   const demoNavigation = typeof window !== "undefined" && isDemoNavigationEnabled();
   const startedAt = useRef<number>(Date.now());
 
+  // A rejected direct link must not replace the learner's Continue bookmark.
+  useEffect(() => {
+    if (entry && accessDecided && unlocked && progressReady && !storedPianoBookmarkUnavailable) {
+      saveLearnerResume(n, initialPage, pages[initialPage]?.pageNumber, pages[initialPage]?.id);
+    }
+  }, [scope, n, entry, accessDecided, unlocked, progressReady, initialPage, pages, storedPianoBookmarkUnavailable]);
+
   useEffect(() => {
     if (entry && accessDecided && !unlocked) navigate({ to: "/cartilla/lecciones" });
   }, [entry, navigate, unlocked, accessDecided]);
@@ -263,14 +269,14 @@ export function Leccion() {
       setLessonTab("review");
       return;
     }
-    // Demonstration browsing never records a lesson whose required page work is unfinished.
-    if (
-      demoNavigation &&
-      !pages.every(
-        (page) => typeof page.pageNumber !== "number" || pageCompletionState(page.pageNumber, n).complete,
-      )
-    ) {
-      advanceAfterCompletion();
+    // Recheck every required page at the award boundary for all learners.
+    // Demo navigation may browse onward, but must never award unfinished work.
+    const allPagesComplete = pages.every(
+      (page) => typeof page.pageNumber !== "number" || pageCompletionState(page.pageNumber).complete,
+    );
+    if (!allPagesComplete) {
+      if (demoNavigation) advanceAfterCompletion();
+      else setLessonTab("book");
       return;
     }
     markLessonCompleted(n);
