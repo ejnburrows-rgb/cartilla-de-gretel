@@ -3,11 +3,16 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { lazy, Suspense, useState } from "react";
 import "@testing-library/jest-dom";
 import { learnerStorageKey } from "@/lib/learner-storage";
+import { markLessonCompleted } from "@/lib/lesson-progress";
+import { recordEvent } from "@/lib/student-session";
 import { readLearnerResume, saveLearnerResume } from "@/lib/learner-resume";
 
 const identity = vi.hoisted(() => ({
   demo: null as null | { classId: string; studentId: string },
   lesson: 3,
+  unlocked: true,
+  demoNavigation: false,
+  pagesComplete: false,
   pianoSupported: false,
   pianoProcessing: "unavailable",
   session: null as null | { studentId: string; studentCode: string; classId: string },
@@ -33,8 +38,12 @@ vi.mock("@/lib/student.functions", () => ({ getMyProgress: vi.fn(), saveLastPage
 vi.mock("@/lib/student-session", () => ({ useStudentSession: () => identity.session, recordEvent: vi.fn() }));
 vi.mock("@/lib/lesson-progress", () => ({
   useLessonProgress: vi.fn(),
-  isLessonUnlocked: () => true,
+  isLessonUnlocked: () => identity.unlocked,
+  isDemoNavigationEnabled: () => identity.demoNavigation,
   markLessonCompleted: vi.fn(),
+}));
+vi.mock("@/lib/page-completion", () => ({
+  pageCompletionState: () => ({ required: [], remaining: [], complete: identity.pagesComplete }),
 }));
 vi.mock("@/lib/seed-data", () => ({ listSeedStudentAssignments: () => [] }));
 vi.mock("@/context/LanguageContext", () => ({ useLanguage: () => ({ lang: "es" }) }));
@@ -105,6 +114,10 @@ function select(id: string | null) {
 beforeEach(() => {
   cleanup();
   localStorage.clear();
+  vi.clearAllMocks();
+  identity.unlocked = true;
+  identity.demoNavigation = false;
+  identity.pagesComplete = false;
   identity.demo = null;
   identity.lesson = 3;
   identity.pianoSupported = false;
@@ -261,4 +274,39 @@ describe("complete Workbook bookmark", () => {
       expect(screen.getByRole("status").textContent).toBe("1");
     },
   );
+});
+
+
+describe("lesson completion and locked-lesson resume guards", () => {
+  it("does not award a normal student completion with unfinished required page work", async () => {
+    identity.session = { studentId: "student", studentCode: "123", classId: "class" };
+    await show(<Leccion />);
+    fireEvent.click(screen.getByText("Finish lesson"));
+    fireEvent.click(screen.getByRole("button", { name: "Terminar lección" }));
+    expect(markLessonCompleted).not.toHaveBeenCalled();
+    expect(recordEvent).not.toHaveBeenCalledWith(expect.objectContaining({ kind: "lesson_completed" }));
+  });
+  it("awards completion only after all required page work is complete", async () => {
+    identity.pagesComplete = true;
+    await show(<Leccion />);
+    fireEvent.click(screen.getByText("Finish lesson"));
+    fireEvent.click(screen.getByRole("button", { name: "Terminar lección" }));
+    expect(markLessonCompleted).toHaveBeenCalledWith(3);
+  });
+  it("allows unfinished Demo browsing without awarding completion", async () => {
+    identity.demoNavigation = true;
+    await show(<Leccion />);
+    fireEvent.click(screen.getByText("Finish lesson"));
+    fireEvent.click(screen.getByRole("button", { name: "Terminar lección" }));
+    expect(markLessonCompleted).not.toHaveBeenCalled();
+  });
+  it("does not replace Continue when a locked lesson is opened directly", async () => {
+    saveLearnerResume(2, 1, 2, "2");
+    identity.unlocked = false;
+    render(<Suspense fallback={<p>Loading</p>}><Leccion /></Suspense>);
+    await act(async () => {});
+    expect(readLearnerResume(3)).toBeNull();
+    expect(readLearnerResume()?.lesson).toBe(2);
+    expect(readLearnerResume(2)?.page).toBe(1);
+  });
 });

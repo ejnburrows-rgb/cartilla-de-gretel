@@ -148,12 +148,22 @@ export function usePianoListening({
     }
     setProcessing("checking");
     let cancelled = false;
+    let settled = false;
+    // A browser can leave its local-language availability promise pending
+    // indefinitely (for example offline). Never let this blank the Workbook.
+    const availabilityTimer = window.setTimeout(() => {
+      if (cancelled || settled) return;
+      settled = true;
+      unavailable();
+    }, 5000);
     const available = Ctor.available;
     // async wrapper: a synchronous throw becomes a rejection (handled below).
     const askOnDevice = async () => available.call(Ctor, { langs: [lang], processLocally: true });
     askOnDevice()
       .then((availability) => {
-        if (cancelled) return;
+        if (cancelled || settled) return;
+        settled = true;
+        window.clearTimeout(availabilityTimer);
         if (availability !== "available") {
           unavailable();
           return;
@@ -163,10 +173,14 @@ export function usePianoListening({
         setProcessing("on-device");
       })
       .catch(() => {
-        if (!cancelled) unavailable();
+        if (cancelled || settled) return;
+        settled = true;
+        window.clearTimeout(availabilityTimer);
+        unavailable();
       });
     return () => {
       cancelled = true;
+      window.clearTimeout(availabilityTimer);
     };
   }, [lang]);
 

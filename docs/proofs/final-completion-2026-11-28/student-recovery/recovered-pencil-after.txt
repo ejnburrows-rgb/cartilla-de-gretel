@@ -1,0 +1,13 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [32m✓[39m src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/WorkbookVowels.rollout.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[32m 228[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/WorkbookHandwriting.source.test.tsx [2m([22m[2m56 tests[22m[2m)[22m[33m 399[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/WorkbookLetterTrace.interaction.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 140[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m75 passed[39m[22m[90m (75)[39m
+[2m   Start at [22m 05:53:57
+[2m   Duration [22m 1.92s[2m (transform 497ms, setup 224ms, import 723ms, tests 772ms, environment 1.33s)[22m
+

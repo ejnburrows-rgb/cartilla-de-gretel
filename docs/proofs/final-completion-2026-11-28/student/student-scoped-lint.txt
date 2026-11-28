@@ -1,0 +1,6 @@
+
+/workspace/cartilla-de-gretel/src/routes/cartilla/-leccion-view.tsx
+  152:6  warning  React Hook useMemo has an unnecessary dependency: 'scope'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 1 problem (0 errors, 1 warning)
+

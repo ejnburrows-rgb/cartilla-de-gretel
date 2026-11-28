@@ -1,0 +1,1445 @@
+{
+  "sourceSha256": "89604a3a129e738b88ba3bc9bdbd690a03da4ba18afbfcd2314dbaeb5347281d",
+  "recordings": [
+    {
+      "line": 1,
+      "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+      "start": 4.639,
+      "end": 11.293,
+      "duration": 6.654,
+      "src": "/audio/instrucciones/line-01.mp3",
+      "sha256": "abeb32522c2315b2e02d384d3a33d04b0f165b3c5f419bfb2a2275f47fcb56a2",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 2,
+      "text": "Circula el dibujo que comienza con la vocal del recuadro.",
+      "start": 13.362,
+      "end": 17.238,
+      "duration": 3.876,
+      "src": "/audio/instrucciones/line-02.mp3",
+      "sha256": "3b9aef3161b11a8d7591ed0704c0f52a09497df86d874df1ea24319c30c07f9b",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 3,
+      "text": "Traza una línea de la vocal al dibujo que le corresponde.",
+      "start": 19.185,
+      "end": 23.572,
+      "duration": 4.386,
+      "src": "/audio/instrucciones/line-03.mp3",
+      "sha256": "2cc1a9c39e5f266edc5c2d27af5be9a6912241859add20cccf9f11cb6aa9f666",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 4,
+      "text": "Marca con una X los dibujos que comienzan con O o.",
+      "start": 26.202,
+      "end": 31.493,
+      "duration": 5.291,
+      "src": "/audio/instrucciones/line-04.mp3",
+      "sha256": "c204c07287a1bb7070412389e9a413b3e12a663fb8f5b98558dae7c3833cb399",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 5,
+      "text": "Traza una línea desde la vocal O hasta el dibujo de la palabra que comienza con O.",
+      "start": 34.066,
+      "end": 41.111,
+      "duration": 7.045,
+      "src": "/audio/instrucciones/line-05.mp3",
+      "sha256": "d089eb16c6dd4fa2589ec8d2cf55e75128eb89bae044f685495432860939b8cd",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 6,
+      "text": "Marca con una X los dibujos de las palabras que comienzan con A a.",
+      "start": 43.6,
+      "end": 49.761,
+      "duration": 6.161,
+      "src": "/audio/instrucciones/line-06.mp3",
+      "sha256": "bddc4c07f4d62d581375149568257dbf663a5816d05dc2952fd51e766aaa77a8",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 7,
+      "text": "Traza una línea desde la vocal A hasta el dibujo de la palabra que comienza con A.",
+      "start": 52.161,
+      "end": 59.204,
+      "duration": 7.043,
+      "src": "/audio/instrucciones/line-07.mp3",
+      "sha256": "18650e6cf676a5bb5096596869a94f026a5a33599769dbbe5caeecd207052e41",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 8,
+      "text": "Marca con una X los dibujos de las palabras que comienzan con E e.",
+      "start": 61.471,
+      "end": 67.593,
+      "duration": 6.122,
+      "src": "/audio/instrucciones/line-08.mp3",
+      "sha256": "125a4f4431d9e7dd07eab987bd8b3ac0e3a0d05476d3d9e4ce28946e88bde0cd",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 9,
+      "text": "Traza una línea desde la vocal E hasta el dibujo de la palabra que comienza con E.",
+      "start": 69.876,
+      "end": 76.978,
+      "duration": 7.102,
+      "src": "/audio/instrucciones/line-09.mp3",
+      "sha256": "32fbbf1635ad1409ea08f65d883c3a9f4e3bc6461ec678cb478f4fc02b892dc0",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 10,
+      "text": "Marca con una X los dibujos de las palabras que comienzan con I i.",
+      "start": 78.837,
+      "end": 84.889,
+      "duration": 6.052,
+      "src": "/audio/instrucciones/line-10.mp3",
+      "sha256": "655cd3c6e4ce5f9dd9a0e0c872cf1f3b96af19128654c46aead625c4c7e76670",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 11,
+      "text": "Traza una línea desde la vocal I hasta el dibujo de la palabra que comienza con I.",
+      "start": 86.788,
+      "end": 93.697,
+      "duration": 6.909,
+      "src": "/audio/instrucciones/line-11.mp3",
+      "sha256": "e9301cc8cd086623127e5910096b88eae388e8e2241575d6e4669971a893c925",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 12,
+      "text": "Marca con una X los dibujos de las palabras que comienzan con U u.",
+      "start": 95.602,
+      "end": 101.62,
+      "duration": 6.018,
+      "src": "/audio/instrucciones/line-12.mp3",
+      "sha256": "4ada9c351647950dc31de85e654285ffc0a6ad886ecd9201f6418b61f7c73534",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 13,
+      "text": "Traza una línea desde la vocal U hasta el dibujo de la palabra que comienza con U.",
+      "start": 103.512,
+      "end": 110.366,
+      "duration": 6.854,
+      "src": "/audio/instrucciones/line-13.mp3",
+      "sha256": "cac33410540261ea7f009a5200abf91ccc1e530edc2c7a2d144e317b1455a676",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 14,
+      "text": "Escribe con tu mejor letra.",
+      "start": 112.431,
+      "end": 114.704,
+      "duration": 2.273,
+      "src": "/audio/instrucciones/line-14.mp3",
+      "sha256": "40711b99cad9e8bf0646780cd01fcee51fa6b0f1f2c9f4470067f81693dcce91",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 15,
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "start": 116.605,
+      "end": 120.187,
+      "duration": 3.582,
+      "src": "/audio/instrucciones/line-15.mp3",
+      "sha256": "79b872ba11923ea1811ff27387ebba389acdce5f84a9dfab606fc0a3b55f7a1a",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 16,
+      "text": "Completa las palabras con la sílaba correcta.",
+      "start": 122.389,
+      "end": 125.566,
+      "duration": 3.177,
+      "src": "/audio/instrucciones/line-16.mp3",
+      "sha256": "67fe3c5d5e7983243250761bd3c0264ee67e515994ff679d3ef5c6af5fe6da1c",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 17,
+      "text": "Escribe oraciones.",
+      "start": 127.771,
+      "end": 129.575,
+      "duration": 1.804,
+      "src": "/audio/instrucciones/line-17.mp3",
+      "sha256": "8574c0bb1e6b09ab4c0d7248db9966465e31a4bd889968cdc09ca453b6da475c",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 18,
+      "text": "Usa las sílabas que aprendiste.",
+      "start": 131.721,
+      "end": 133.968,
+      "duration": 2.247,
+      "src": "/audio/instrucciones/line-18.mp3",
+      "sha256": "143305ea6b60bb6b4392b390cdc083759c6272a80d2691402906f2646aca616f",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 19,
+      "text": "Haz un dibujo que represente una palabra que comienza con O.",
+      "start": 136.121,
+      "end": 140.682,
+      "duration": 4.561,
+      "src": "/audio/instrucciones/line-19.mp3",
+      "sha256": "7701595d35e9e618c84fb385a13d91c20748ed7bcb359b2b883716283ca29c31",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 20,
+      "text": "Haz un dibujo que represente una palabra que comienza con A.",
+      "start": 142.649,
+      "end": 147.093,
+      "duration": 4.444,
+      "src": "/audio/instrucciones/line-20.mp3",
+      "sha256": "76a34d8a5cedccd98bdf431379ea15dbf5c76db7289335d459c5721fdb2a6127",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 21,
+      "text": "Haz un dibujo que represente una palabra que comienza con E.",
+      "start": 149.538,
+      "end": 154.066,
+      "duration": 4.528,
+      "src": "/audio/instrucciones/line-21.mp3",
+      "sha256": "738a688f7926ec1e2a28044816ab29deb8fa8b13cdea84f2310dd971963e2424",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 22,
+      "text": "Haz un dibujo que represente una palabra que comienza con I.",
+      "start": 156.557,
+      "end": 161.077,
+      "duration": 4.52,
+      "src": "/audio/instrucciones/line-22.mp3",
+      "sha256": "2d0fad031ea63f95f048e5c07f04dd6e3a153219b2480033490bd5317ceec1cd",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 23,
+      "text": "Haz un dibujo que represente una palabra que comienza con U.",
+      "start": 163.66,
+      "end": 168.153,
+      "duration": 4.493,
+      "src": "/audio/instrucciones/line-23.mp3",
+      "sha256": "31e36705e364e044851675beb73ff5785f5016b7e3b81835cd5c1d56a3dc21b8",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 24,
+      "text": "Haz un dibujo que represente una palabra que comienza con M.",
+      "start": 170.708,
+      "end": 175.341,
+      "duration": 4.633,
+      "src": "/audio/instrucciones/line-24.mp3",
+      "sha256": "f6ad96cbb7b05be120c58f5179ec359ae552aaf75178c016604c8442def9afb0",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 25,
+      "text": "Haz un dibujo que represente una palabra que comienza con P.",
+      "start": 177.914,
+      "end": 182.393,
+      "duration": 4.479,
+      "src": "/audio/instrucciones/line-25.mp3",
+      "sha256": "9dda6bf9b5d7460579b3c54d030deae802166ffd8460ebf2ff0b530eb51d9759",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 26,
+      "text": "Haz un dibujo que represente una palabra que comienza con S.",
+      "start": 184.985,
+      "end": 189.645,
+      "duration": 4.66,
+      "src": "/audio/instrucciones/line-26.mp3",
+      "sha256": "559f7522f7a6e522ea27f0b6247e5271c25d8015700dc2a333a3f413517e0cb9",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 27,
+      "text": "Haz un dibujo que represente una palabra que comienza con T.",
+      "start": 192.201,
+      "end": 196.668,
+      "duration": 4.467,
+      "src": "/audio/instrucciones/line-27.mp3",
+      "sha256": "ca2056ba83aeba6c7990b0a4fcc96d56fcc5db336ebae816e7e2fcfbde976121",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 28,
+      "text": "Haz un dibujo que represente una palabra que comienza con D.",
+      "start": 199.164,
+      "end": 203.604,
+      "duration": 4.44,
+      "src": "/audio/instrucciones/line-28.mp3",
+      "sha256": "1d775c91874dfb2193de418f124e8a6fe42861466eea0e11f04cbfcd9a47980d",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 29,
+      "text": "Haz un dibujo que represente una palabra que comienza con L.",
+      "start": 206.159,
+      "end": 210.759,
+      "duration": 4.6,
+      "src": "/audio/instrucciones/line-29.mp3",
+      "sha256": "409583b665f6b0baab405f4804c3b55bfa45f8cd99510d312a1b2c4314133b25",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 30,
+      "text": "Haz un dibujo que represente una palabra que comienza con N.",
+      "start": 212.91,
+      "end": 217.542,
+      "duration": 4.632,
+      "src": "/audio/instrucciones/line-30.mp3",
+      "sha256": "fd01069ba440c0103d6670a1d0b53a6e09dbfd7cd7d10d85226f5460470859bd",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 31,
+      "text": "Haz un dibujo que represente una palabra que comienza con Ñ.",
+      "start": 219.797,
+      "end": 224.632,
+      "duration": 4.835,
+      "src": "/audio/instrucciones/line-31.mp3",
+      "sha256": "774cc8ed849f072ee6bbbdd181f9805380885185624b32ff106651b25a9586c4",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 32,
+      "text": "Haz un dibujo que represente una palabra que comienza con B.",
+      "start": 226.65,
+      "end": 231.243,
+      "duration": 4.593,
+      "src": "/audio/instrucciones/line-32.mp3",
+      "sha256": "5d7b03c4c324bd82aa23695297ecf3943598fac73f50a0a8917ee65ade57cf41",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 33,
+      "text": "Haz un dibujo que represente una palabra que comienza con V.",
+      "start": 233.308,
+      "end": 238.059,
+      "duration": 4.751,
+      "src": "/audio/instrucciones/line-33.mp3",
+      "sha256": "11a6d7a5de553a1754121ac612bee401fb7538ed3c1f492784f5328f9a497eb9",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 34,
+      "text": "Haz un dibujo que represente una palabra que comienza con R.",
+      "start": 240.056,
+      "end": 244.861,
+      "duration": 4.805,
+      "src": "/audio/instrucciones/line-34.mp3",
+      "sha256": "6cd31ad2b28438f06f5607a9a463aee5f058b9b588309c3ba7154f9545daf74f",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 35,
+      "text": "Haz un dibujo que represente una palabra que contenga la letra RR.",
+      "start": 246.907,
+      "end": 252.629,
+      "duration": 5.722,
+      "src": "/audio/instrucciones/line-35.mp3",
+      "sha256": "e1cf14ff3e880dc6a893db290d2f7913204b5a27d32cdff7c13cb2abe6798720",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 36,
+      "text": "Haz un dibujo que represente una palabra que comienza con G.",
+      "start": 254.646,
+      "end": 259.214,
+      "duration": 4.568,
+      "src": "/audio/instrucciones/line-36.mp3",
+      "sha256": "77061ec57084acbfccdafd540aed4b7f124d4fb7c745b029acbf44059597f2f8",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 37,
+      "text": "Haz un dibujo que represente una palabra que comienza con F.",
+      "start": 261.203,
+      "end": 265.959,
+      "duration": 4.756,
+      "src": "/audio/instrucciones/line-37.mp3",
+      "sha256": "240ca7da62282b8497cf79f448b94d58119e7ccb13649cc514f56cfcf0949262",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 38,
+      "text": "Haz un dibujo que represente una palabra que comienza con J.",
+      "start": 267.914,
+      "end": 272.696,
+      "duration": 4.782,
+      "src": "/audio/instrucciones/line-38.mp3",
+      "sha256": "a35e0e25b6dfae3c6c4ad19f9d87cdbc878bdf3857011eb0332e2ee640e4ff6c",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 39,
+      "text": "Haz un dibujo que represente una palabra que comienza con C.",
+      "start": 274.612,
+      "end": 279.171,
+      "duration": 4.559,
+      "src": "/audio/instrucciones/line-39.mp3",
+      "sha256": "5c41cc9c9bdc40104fa575076a226802e4434a1021cdd614702ad82cf7f36e02",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    },
+    {
+      "line": 40,
+      "text": "Haz un dibujo que represente una palabra que comienza con Y.",
+      "start": 280.895,
+      "end": 285.966,
+      "duration": 5.071,
+      "src": "/audio/instrucciones/line-40.mp3",
+      "sha256": "8ec4b49f629c8d20092a762976b7e0b39311596c82bf56ce876a8cd35347e062",
+      "source": "audio-b10640b9.mp3",
+      "review": "complete phrase transcription checked; auditory quality pending owner review"
+    }
+  ],
+  "mappings": [
+    {
+      "page": 1,
+      "regionId": "p1-instr",
+      "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+      "lines": [
+        1
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 2,
+      "regionId": "p2-instr",
+      "text": "Circula el dibujo que comienza con la vocal del recuadro.",
+      "lines": [
+        2
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 3,
+      "regionId": "p3-instr",
+      "text": "Traza una línea de la vocal al dibujo que le corresponde.",
+      "lines": [
+        3
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 4,
+      "regionId": "p4-instr",
+      "text": "Marca con una x los dibujos que comienzan con O o.",
+      "lines": [
+        4
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 5,
+      "regionId": "p5-instr",
+      "text": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo.",
+      "lines": [
+        5
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 6,
+      "regionId": "p6-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 6,
+      "regionId": "p6-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con o.",
+      "lines": [
+        19
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 7,
+      "regionId": "p7-instr",
+      "text": "Marca con una x los dibujos de las palabras que comienzan con A a.",
+      "lines": [
+        6
+      ],
+      "overrideSrc": "/audio/leccion3/p7-instr.mp3"
+    },
+    {
+      "page": 8,
+      "regionId": "p8-instr",
+      "text": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+      "lines": [
+        7
+      ],
+      "overrideSrc": "/audio/leccion3/p8-instr.mp3"
+    },
+    {
+      "page": 9,
+      "regionId": "p9-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 9,
+      "regionId": "p9-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con a.",
+      "lines": [
+        20
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 10,
+      "regionId": "p10-instr",
+      "text": "Marca con una x los dibujos de las palabras que comienzan con E e.",
+      "lines": [
+        8
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 11,
+      "regionId": "p11-instr",
+      "text": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee.",
+      "lines": [
+        9
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 12,
+      "regionId": "p12-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 12,
+      "regionId": "p12-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con e.",
+      "lines": [
+        21
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 13,
+      "regionId": "p13-instr",
+      "text": "Marca con una x los dibujos de las palabras que comienzan con I i.",
+      "lines": [
+        10
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 14,
+      "regionId": "p14-instr",
+      "text": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii.",
+      "lines": [
+        11
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 15,
+      "regionId": "p15-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 15,
+      "regionId": "p15-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con i.",
+      "lines": [
+        22
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 16,
+      "regionId": "p16-instr",
+      "text": "Marca con una x los dibujos de las palabras que comienzan con U u.",
+      "lines": [
+        12
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 17,
+      "regionId": "p17-instr",
+      "text": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu.",
+      "lines": [
+        13
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 18,
+      "regionId": "p18-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 18,
+      "regionId": "p18-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con u.",
+      "lines": [
+        23
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 19,
+      "regionId": "p19-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 19,
+      "regionId": "p19-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con m.",
+      "lines": [
+        24
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 20,
+      "regionId": "p20-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 22,
+      "regionId": "p22-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 22,
+      "regionId": "p22-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 23,
+      "regionId": "p23-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 23,
+      "regionId": "p23-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con p.",
+      "lines": [
+        25
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 24,
+      "regionId": "p24-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 26,
+      "regionId": "p26-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 26,
+      "regionId": "p26-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 27,
+      "regionId": "p27-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 27,
+      "regionId": "p27-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con s.",
+      "lines": [
+        26
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 28,
+      "regionId": "p28-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 30,
+      "regionId": "p30-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 30,
+      "regionId": "p30-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 31,
+      "regionId": "p31-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 31,
+      "regionId": "p31-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con t.",
+      "lines": [
+        27
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 32,
+      "regionId": "p32-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 34,
+      "regionId": "p34-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 34,
+      "regionId": "p34-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 35,
+      "regionId": "p35-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 35,
+      "regionId": "p35-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con d.",
+      "lines": [
+        28
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 36,
+      "regionId": "p36-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 38,
+      "regionId": "p38-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 38,
+      "regionId": "p38-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 39,
+      "regionId": "p39-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 39,
+      "regionId": "p39-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con l.",
+      "lines": [
+        29
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 40,
+      "regionId": "p40-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 42,
+      "regionId": "p42-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 42,
+      "regionId": "p42-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 43,
+      "regionId": "p43-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 43,
+      "regionId": "p43-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con n.",
+      "lines": [
+        30
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 44,
+      "regionId": "p44-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 46,
+      "regionId": "p46-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 46,
+      "regionId": "p46-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 47,
+      "regionId": "p47-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 47,
+      "regionId": "p47-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con ñ.",
+      "lines": [
+        31
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 48,
+      "regionId": "p48-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 50,
+      "regionId": "p50-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 50,
+      "regionId": "p50-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 51,
+      "regionId": "p51-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 51,
+      "regionId": "p51-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con b.",
+      "lines": [
+        32
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 52,
+      "regionId": "p52-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 54,
+      "regionId": "p54-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 54,
+      "regionId": "p54-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 55,
+      "regionId": "p55-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 55,
+      "regionId": "p55-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con v.",
+      "lines": [
+        33
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 56,
+      "regionId": "p56-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 58,
+      "regionId": "p58-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 58,
+      "regionId": "p58-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 59,
+      "regionId": "p59-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 59,
+      "regionId": "p59-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con r.",
+      "lines": [
+        34
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 60,
+      "regionId": "p60-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 62,
+      "regionId": "p62-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 62,
+      "regionId": "p62-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 63,
+      "regionId": "p63-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 63,
+      "regionId": "p63-instr2",
+      "text": "Haz un dibujo que represente una palabra que contenga la letra rr.",
+      "lines": [
+        35
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 64,
+      "regionId": "p64-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 66,
+      "regionId": "p66-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 66,
+      "regionId": "p66-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 67,
+      "regionId": "p67-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 67,
+      "regionId": "p67-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con g.",
+      "lines": [
+        36
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 68,
+      "regionId": "p68-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 70,
+      "regionId": "p70-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 70,
+      "regionId": "p70-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 71,
+      "regionId": "p71-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 71,
+      "regionId": "p71-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con f.",
+      "lines": [
+        37
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 72,
+      "regionId": "p72-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 74,
+      "regionId": "p74-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 74,
+      "regionId": "p74-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 75,
+      "regionId": "p75-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 75,
+      "regionId": "p75-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con j.",
+      "lines": [
+        38
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 76,
+      "regionId": "p76-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 78,
+      "regionId": "p78-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 78,
+      "regionId": "p78-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 79,
+      "regionId": "p79-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 79,
+      "regionId": "p79-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con c.",
+      "lines": [
+        39
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 80,
+      "regionId": "p80-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 82,
+      "regionId": "p82-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 82,
+      "regionId": "p82-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 83,
+      "regionId": "p83-instr1",
+      "text": "Escribe con tu mejor letra.",
+      "lines": [
+        14
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 83,
+      "regionId": "p83-instr2",
+      "text": "Haz un dibujo que represente una palabra que comienza con y.",
+      "lines": [
+        40
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 84,
+      "regionId": "p84-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 88,
+      "regionId": "p88-instr",
+      "text": "Encierra en un círculo la sílaba correspondiente.",
+      "lines": [
+        15
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 90,
+      "regionId": "p90-instr",
+      "text": "Completa las palabras con la sílaba correcta.",
+      "lines": [
+        16
+      ],
+      "overrideSrc": null
+    },
+    {
+      "page": 90,
+      "regionId": "p90-instr2",
+      "text": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "lines": [
+        17,
+        18
+      ],
+      "overrideSrc": null
+    }
+  ]
+}

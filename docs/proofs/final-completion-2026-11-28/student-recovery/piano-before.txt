@@ -1,0 +1,66 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [31m❯[39m src/hooks/__tests__/usePianoListening.test.ts [2m([22m[2m21 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 43[2mms[22m[39m
+     [32m✓[39m opens one continuous es-MX session, on-device when available, and delivers each final once[32m 10[2mms[22m[39m
+[31m     [31m×[31m settles a hung availability check with the microphone safely off[39m[32m 6[2mms[22m[39m
+[31m     [31m×[31m ignores an availability answer arriving after the safe timeout[39m[32m 2[2mms[22m[39m
+       [32m✓[39m does not create a recognizer when on-device availability is "downloadable"[32m 2[2mms[22m[39m
+       [32m✓[39m does not create a recognizer when on-device availability is "downloading"[32m 1[2mms[22m[39m
+       [32m✓[39m does not create a recognizer when on-device availability is "unavailable"[32m 1[2mms[22m[39m
+       [32m✓[39m does not create a recognizer when on-device availability is ""[32m 1[2mms[22m[39m
+       [32m✓[39m does not create a recognizer when on-device availability is "weird"[32m 1[2mms[22m[39m
+       [32m✓[39m does not create a recognizer when the browser cannot report on-device availability[32m 3[2mms[22m[39m
+       [32m✓[39m does not use the prefixed webkit recognizer without on-device confirmation[32m 1[2mms[22m[39m
+       [32m✓[39m does not create a recognizer when the availability check rejects or throws[32m 2[2mms[22m[39m
+       [32m✓[39m keeps the microphone off while the on-device answer is still pending[32m 1[2mms[22m[39m
+       [32m✓[39m refuses to start if processLocally cannot be set on the recognizer[32m 1[2mms[22m[39m
+       [32m✓[39m turns the microphone off for good after "language-not-supported" instead of retrying online[32m 1[2mms[22m[39m
+       [32m✓[39m turns the microphone off for good after "service-not-allowed" instead of retrying online[32m 1[2mms[22m[39m
+       [32m✓[39m every recognizer it starts has processLocally = true[32m 1[2mms[22m[39m
+     [32m✓[39m reports the first sound early (provisional only) and clears it when the session ends[32m 1[2mms[22m[39m
+     [32m✓[39m maps permission and device errors to friendly problems[32m 1[2mms[22m[39m
+     [32m✓[39m reports unsupported browsers[32m 1[2mms[22m[39m
+     [32m✓[39m cancel aborts, clears provisional text and ignores late results[32m 1[2mms[22m[39m
+     [32m✓[39m releases the microphone when the page is hidden, on unmount and after the safety timeout[32m 2[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/hooks/__tests__/usePianoListening.test.ts[2m > [22musePianoListening[2m > [22msettles a hung availability check with the microphone safely off
+[31m[1mAssertionError[22m: expected 'checking' to be 'unavailable' // Object.is equality[39m
+
+Expected: [32m"unavailable"[39m
+Received: [31m"checking"[39m
+
+[36m [2m❯[22m src/hooks/__tests__/usePianoListening.test.ts:[2m87:39[22m[39m
+    [90m 85|[39m     [34mexpect[39m(result[33m.[39mcurrent[33m.[39mprocessing)[33m.[39m[34mtoBe[39m([32m"checking"[39m)[33m;[39m
+    [90m 86|[39m     [35mawait[39m [34mact[39m([35masync[39m () [33m=>[39m { vi[33m.[39m[34madvanceTimersByTime[39m([34m5000[39m)[33m;[39m })[33m;[39m
+    [90m 87|[39m     [34mexpect[39m(result[33m.[39mcurrent[33m.[39mprocessing)[33m.[39m[34mtoBe[39m([32m"unavailable"[39m)[33m;[39m
+    [90m   |[39m                                       [31m^[39m
+    [90m 88|[39m     [34mexpect[39m(result[33m.[39mcurrent[33m.[39msupported)[33m.[39m[34mtoBe[39m([35mfalse[39m)[33m;[39m
+    [90m 89|[39m     [34mact[39m(() [33m=>[39m result[33m.[39mcurrent[33m.[39m[34mstart[39m())[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/hooks/__tests__/usePianoListening.test.ts[2m > [22musePianoListening[2m > [22mignores an availability answer arriving after the safe timeout
+[31m[1mAssertionError[22m: expected 'on-device' to be 'unavailable' // Object.is equality[39m
+
+Expected: [32m"[7munavailabl[27me"[39m
+Received: [31m"[7mon-devic[27me"[39m
+
+[36m [2m❯[22m src/hooks/__tests__/usePianoListening.test.ts:[2m100:39[22m[39m
+    [90m 98|[39m     [35mawait[39m [34mact[39m([35masync[39m () [33m=>[39m { vi[33m.[39m[34madvanceTimersByTime[39m([34m5000[39m)[33m;[39m })[33m;[39m
+    [90m 99|[39m     [35mawait[39m [34mact[39m([35masync[39m () [33m=>[39m { [34mresolve[39m([32m"available"[39m)[33m;[39m })[33m;[39m
+    [90m100|[39m     [34mexpect[39m(result[33m.[39mcurrent[33m.[39mprocessing)[33m.[39m[34mtoBe[39m([32m"unavailable"[39m)[33m;[39m
+    [90m   |[39m                                       [31m^[39m
+    [90m101|[39m     [34mexpect[39m(result[33m.[39mcurrent[33m.[39msupported)[33m.[39m[34mtoBe[39m([35mfalse[39m)[33m;[39m
+    [90m102|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m19 passed[39m[22m[90m (21)[39m
+[2m   Start at [22m 05:51:22
+[2m   Duration [22m 564ms[2m (transform 47ms, setup 72ms, import 27ms, tests 43ms, environment 346ms)[22m
+

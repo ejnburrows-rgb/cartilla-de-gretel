@@ -1,0 +1,40 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [31m❯[39m src/components/audio/__tests__/PictureAudioLifecycle.test.tsx [2m([22m[2m2 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 75[2mms[22m[39m
+[31m     [31m×[31m silently clears a failed playback instead of interrupting the exercise[39m[32m 70[2mms[22m[39m
+     [32m✓[39m retains honest missing-recording feedback[32m 4[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/components/audio/__tests__/PictureAudioLifecycle.test.tsx[2m > [22mpassive picture audio feedback[2m > [22msilently clears a failed playback instead of interrupting the exercise
+[31m[1mAssertionError[22m: expected <p class="picture-audio-status" …(2)></p> to be null[39m
+
+[32m- Expected:[39m
+null
+
+[31m+ Received:[39m
+<p
+  aria-live="polite"
+  class="picture-audio-status"
+  role="status"
+>
+  No se pudo reproducir la grabación.
+</p>
+
+[36m [2m❯[22m src/components/audio/__tests__/PictureAudioLifecycle.test.tsx:[2m16:42[22m[39m
+    [90m 14|[39m     expect(screen.getByRole("status").textContent).toBe("El sonido est…
+    [90m 15|[39m     [34mstatus[39m([32m"failed"[39m)[33m;[39m
+    [90m 16|[39m     [34mexpect[39m(screen[33m.[39m[34mqueryByRole[39m([32m"status"[39m))[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m   |[39m                                          [31m^[39m
+    [90m 17|[39m   })[33m;[39m
+    [90m 18|[39m   [34mit[39m([32m"retains honest missing-recording feedback"[39m[33m,[39m () [33m=>[39m {
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (2)[39m
+[2m   Start at [22m 05:37:51
+[2m   Duration [22m 576ms[2m (transform 39ms, setup 72ms, import 20ms, tests 75ms, environment 333ms)[22m
+

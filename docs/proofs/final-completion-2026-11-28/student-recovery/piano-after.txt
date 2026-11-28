@@ -1,0 +1,12 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [32m✓[39m src/hooks/__tests__/usePianoListening.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx [2m([22m[2m19 tests[22m[2m)[22m[33m 641[2mms[22m[39m
+     [33m[2m✓[22m[39m opens the source-backed end-of-lesson review with mini-game tabs [33m 407[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m40 passed[39m[22m[90m (40)[39m
+[2m   Start at [22m 05:51:23
+[2m   Duration [22m 1.78s[2m (transform 546ms, setup 141ms, import 701ms, tests 681ms, environment 678ms)[22m
+

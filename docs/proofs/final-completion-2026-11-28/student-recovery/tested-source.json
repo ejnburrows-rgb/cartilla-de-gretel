@@ -1,0 +1,14 @@
+{
+  "base": "1289db9bebb4a7f312a2ea93b543f325fd3f5987",
+  "files": {
+    "src/hooks/usePianoListening.ts": "95ed9d97198c35053e459d4d70628a65e70f28c4d52eee216f1036b6ca0b334d",
+    "src/hooks/__tests__/usePianoListening.test.ts": "2342be1a9646105a59baf87fb77b673347cdd5ff28a084bb6268826c7689f319",
+    "src/components/cartilla/WorkbookLetterTrace.tsx": "aea14f85cde56473118a5e093739b4aac15536491cd77889adc75711926981f4",
+    "src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts": "adf43090e7b3a0a41c9f0052d75e5c62360e8a76ebf64ede040580f92a4216c5",
+    "tests/e2e/student-loading-photo-pencil.spec.ts": "0b58f641bea1616c55d1d26699451ee3e1a5994dc6f831609dfb9e14b1813386",
+    "scripts/audio/build-final-recording-manifest.py": "39bfa1360781ffd7a00690244f666623e98cd0b8ce2babf477e9704a97b6f540",
+    "docs/audio/FINAL-RECORDING-MANIFEST.csv": "bb47fe41b09211bacca96794d32e41b1b8bd4b850c5b4c879a62bf22669fab16"
+  },
+  "devices": "simulated viewports, mouse checkpoint input on both sizes; not physical touch or microphone",
+  "browser": "Chromium 1248"
+}

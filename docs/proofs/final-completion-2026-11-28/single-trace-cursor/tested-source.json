@@ -1,0 +1,8 @@
+{
+  "base": "6c8403c30d4f501af626bc1b34a7631a41edd9f2",
+  "files": {
+    "src/components/cartilla/WorkbookLetterTrace.tsx": "20ae9520351c152e506e350a234609be7adfef1227f7a3db55081ddb783e0606",
+    "src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts": "4538aa17882b71050638a0abb9ea05739ee937491d570ae0840b419da7c44a0d",
+    "tests/e2e/student-loading-photo-pencil.spec.ts": "a39452815967f56ad78ec145da6c042e38e2facb189a4a90fc93450cb749b306"
+  }
+}

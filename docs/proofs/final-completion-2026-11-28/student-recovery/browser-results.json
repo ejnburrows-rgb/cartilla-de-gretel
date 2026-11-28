@@ -1,0 +1,261 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/workspace/cartilla-de-gretel/node_modules/playwright/cli.js",
+      "test",
+      "tests/e2e/student-loading-photo-pencil.spec.ts",
+      "--workers=1",
+      "--reporter=json"
+    ],
+    "configFile": "/workspace/cartilla-de-gretel/playwright.config.ts",
+    "rootDir": "/workspace/cartilla-de-gretel/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/cartilla-de-gretel/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/workspace/cartilla-de-gretel/tests/e2e",
+        "testIgnore": [
+          "**/student-assignment-flow.spec.ts",
+          "**/classroom-readiness-gated.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "student-loading-photo-pencil.spec.ts",
+      "file": "student-loading-photo-pencil.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "390px",
+          "file": "student-loading-photo-pencil.spec.ts",
+          "line": 10,
+          "column": 8,
+          "specs": [
+            {
+              "title": "hung local-speech discovery cannot leave the Workbook blank",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12560,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-28T05:59:47.316Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/workspace/cartilla-de-gretel/test-results/student-loading-photo-penc-3f780-ot-leave-the-Workbook-blank-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "90f4d5649118d32a078a-66db996ac213e4385b90",
+              "file": "student-loading-photo-pencil.spec.ts",
+              "line": 12,
+              "column": 5
+            },
+            {
+              "title": "recovered letter tracing uses approved photo pencil at a real checkpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 560,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-28T06:00:00.090Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/workspace/cartilla-de-gretel/test-results/student-loading-photo-penc-d8ccc-pencil-at-a-real-checkpoint-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "90f4d5649118d32a078a-213f65317111a7475ad3",
+              "file": "student-loading-photo-pencil.spec.ts",
+              "line": 44,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "1366px",
+          "file": "student-loading-photo-pencil.spec.ts",
+          "line": 10,
+          "column": 8,
+          "specs": [
+            {
+              "title": "hung local-speech discovery cannot leave the Workbook blank",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11098,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-28T06:00:00.660Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/workspace/cartilla-de-gretel/test-results/student-loading-photo-penc-258f6-ot-leave-the-Workbook-blank-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "90f4d5649118d32a078a-39206f8bccfd636caabe",
+              "file": "student-loading-photo-pencil.spec.ts",
+              "line": 12,
+              "column": 5
+            },
+            {
+              "title": "recovered letter tracing uses approved photo pencil at a real checkpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 580,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-28T06:00:11.766Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/workspace/cartilla-de-gretel/test-results/student-loading-photo-penc-64dee-pencil-at-a-real-checkpoint-chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "90f4d5649118d32a078a-726c1d634c49f5ef8375",
+              "file": "student-loading-photo-pencil.spec.ts",
+              "line": 44,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-28T05:59:46.123Z",
+    "duration": 26342.192,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

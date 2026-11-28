@@ -1,0 +1,80 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [31m❯[39m src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx [2m([22m[2m19 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 634[2mms[22m[39m
+     [33m[2m✓[22m[39m opens the source-backed end-of-lesson review with mini-game tabs [33m 401[2mms[22m[39m
+     [32m✓[39m normalizes a backend Lesson 24 offset to the printed page before resolving Piano[32m 7[2mms[22m[39m
+     [32m✓[39m preserves the Piano bookmark during delayed capability detection and reopening[32m 15[2mms[22m[39m
+     [32m✓[39m keeps a stored Piano bookmark when Piano is unavailable after detection settles[32m 13[2mms[22m[39m
+     [32m✓[39m omits an unavailable Piano leaf only after detection settles[32m 7[2mms[22m[39m
+     [32m✓[39m A page 2 → B page 1 → A page 2, without overwriting B's bookmark[32m 12[2mms[22m[39m
+     [32m✓[39m preserves navigation after remount and isolates anonymous/demo learners[32m 20[2mms[22m[39m
+     [32m✓[39m saves and restores independently on remount, A→B→A and anonymous return[32m 17[2mms[22m[39m
+     [32m✓[39m keeps reader progress independent from lesson resume[32m 4[2mms[22m[39m
+     [32m✓[39m restores printed page 88 by identity, preserving the 85→88 gap[32m 8[2mms[22m[39m
+     [32m✓[39m ignores an invalid or unavailable printed page 86[32m 4[2mms[22m[39m
+     [32m✓[39m ignores an invalid or unavailable printed page 87[32m 4[2mms[22m[39m
+     [32m✓[39m ignores an invalid or unavailable printed page -1[32m 3[2mms[22m[39m
+     [32m✓[39m ignores an invalid or unavailable printed page garbage[32m 4[2mms[22m[39m
+     [32m✓[39m ignores an invalid or unavailable printed page 999[32m 4[2mms[22m[39m
+[31m     [31m×[31m does not award a normal student completion with unfinished required page work[39m[32m 39[2mms[22m[39m
+     [32m✓[39m awards completion only after all required page work is complete[32m 35[2mms[22m[39m
+     [32m✓[39m allows unfinished Demo browsing without awarding completion[32m 32[2mms[22m[39m
+[31m     [31m×[31m does not replace Continue when a locked lesson is opened directly[39m[32m 4[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx[2m > [22mlesson completion and locked-lesson resume guards[2m > [22mdoes not award a normal student completion with unfinished required page work
+[31m[1mAssertionError[22m: expected "vi.fn()" to not be called at all, but actually been called 1 times[90m
+
+Received:
+
+[1m  1st vi.fn() call:
+
+[22m    Array [
+      3,
+    ]
+[31m[90m
+
+Number of calls: [1m1[22m
+[31m[39m
+[36m [2m❯[22m src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx:[2m286:37[22m[39m
+    [90m284|[39m     fireEvent[33m.[39m[34mclick[39m(screen[33m.[39m[34mgetByText[39m([32m"Finish lesson"[39m))[33m;[39m
+    [90m285|[39m     fireEvent.click(screen.getByRole("button", { name: "Terminar lecci…
+    [90m286|[39m     [34mexpect[39m(markLessonCompleted)[33m.[39mnot[33m.[39m[34mtoHaveBeenCalled[39m()[33m;[39m
+    [90m   |[39m                                     [31m^[39m
+    [90m287|[39m     expect(recordEvent).not.toHaveBeenCalledWith(expect.objectContaini…
+    [90m288|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx[2m > [22mlesson completion and locked-lesson resume guards[2m > [22mdoes not replace Continue when a locked lesson is opened directly
+[31m[1mAssertionError[22m: expected { lesson: 3, page: +0, …(2) } to be null[39m
+
+[32m- Expected:[39m
+null
+
+[31m+ Received:[39m
+{
+  "lesson": 3,
+  "page": 0,
+  "pageId": "1",
+  "printedPage": 1,
+}
+
+[36m [2m❯[22m src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx:[2m308:34[22m[39m
+    [90m306|[39m     [34mrender[39m([33m<[39m[33mSuspense[39m [33mfallback[39m[33m=[39m[33m{[39m[33m<[39m[33mp[39m[33m>[39mLoading[33m<[39m[33m/[39m[33mp[39m[33m>[39m[33m}[39m[33m>[39m[33m<[39m[33mLeccion[39m [33m/[39m[33m>[39m[33m<[39m[33m/[39m[33mSuspense[39m[33m>[39m)[33m;[39m
+    [90m307|[39m     [35mawait[39m [34mact[39m([35masync[39m () [33m=>[39m {})[33m;[39m
+    [90m308|[39m     [34mexpect[39m([34mreadLearnerResume[39m([34m3[39m))[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m   |[39m                                  [31m^[39m
+    [90m309|[39m     [34mexpect[39m([34mreadLearnerResume[39m([34m2[39m)[33m?.[39mpage)[33m.[39m[34mtoBe[39m([34m1[39m)[33m;[39m
+    [90m310|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m17 passed[39m[22m[90m (19)[39m
+[2m   Start at [22m 05:36:52
+[2m   Duration [22m 2.14s[2m (transform 534ms, setup 105ms, import 771ms, tests 634ms, environment 547ms)[22m
+

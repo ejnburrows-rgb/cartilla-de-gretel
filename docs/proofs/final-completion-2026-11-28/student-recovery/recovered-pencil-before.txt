@@ -1,0 +1,578 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [31m❯[39m src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 8[2mms[22m[39m
+     [32m✓[39m does not contain the deleted rope component[32m 1[2mms[22m[39m
+     [32m✓[39m does not ship the retired rope markup or animation CSS[32m 1[2mms[22m[39m
+     [32m✓[39m keeps the real source-page printed X and routes to the shared pencil actor[32m 1[2mms[22m[39m
+     [32m✓[39m enforces approved classic wooden pencil scale(2.4) rotate(55) and permanently blocks rejected skinny miniature pencil (scale 0.65)[32m 0[2mms[22m[39m
+[31m     [31m×[31m ensures letter tracing exercises use the owner-approved @image1 wooden pencil photo[39m[32m 3[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts[2m > [22mowner-locked pencil-only Workbook runtime[2m > [22mensures letter tracing exercises use the owner-approved @image1 wooden pencil photo
+[31m[1mAssertionError[22m: expected '// WorkbookLetterTrace.tsx\n// The st…' to contain 'import { OwnerPhotoPencilSvg } from "…'[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- import { OwnerPhotoPencilSvg } from "@/components/StudentBook/OwnerPhotoPencilSvg"[39m
+[31m+ // WorkbookLetterTrace.tsx[39m
+[31m+ // The student-workbook letter-tracing exercise (the interactive replacement for[39m
+[31m+ // a static `writing-line` region). Unlike the games' DragLetterTrace, this[39m
+[31m+ // grades REAL path-following: while the child traces, the pointer's distance to[39m
+[31m+ // the current stroke polyline is measured continuously. To finish they must[39m
+[31m+ // still pass through every checkpoint IN ORDER (so it can't be tapped through),[39m
+[31m+ // and every excursion off the letter path is penalised — so a top score[39m
+[31m+ // genuinely means "stayed on the letter." Reports through the same pipeline as[39m
+[31m+ // the other interactive exercises (recordEvent + gretelEvent); student[39m
+[31m+ // workbook only.[39m
+[31m+ import { useCallback, useEffect, useMemo, useRef, useState } from "react";[39m
+[31m+ import { playNote, playCorrectChord } from "@/lib/piano-audio";[39m
+[31m+ import { useActivityEvents, useActivityState } from "@/lib/activity-events";[39m
+[31m+ import { useReducedMotion } from "@/hooks/useReducedMotion";[39m
+[31m+ import { useCursorMode } from "@/lib/cursor-mode";[39m
+[31m+ import { PENCIL_CONTRACT } from "@/lib/pencil-contract";[39m
+[31m+ import {[39m
+[31m+   getLetterTemplate,[39m
+[31m+   distanceToStroke,[39m
+[31m+   isActiveCheckpoint,[39m
+[31m+   isCheckpointDone,[39m
+[31m+   type Point,[39m
+[31m+ } from "./letter-stroke-templates";[39m
+[31m+ import { useLetterTapTrace, useTraceInputMode } from "./useLetterTraceInput";[39m
+[31m+ import { PencilShape } from "./WorkbookPencilMark";[39m
+[31m+[39m
+[31m+ const VIEW_W = 100;[39m
+[31m+ const VIEW_H = 120;[39m
+[31m+ const START_TOL = 14; // how near the first checkpoint you must press to begin[39m
+[31m+ const CHECKPOINT_TOL = 13; // how near a checkpoint counts as reached[39m
+[31m+ const MAX_DEVIATION = 16; // how far off the stroke path before it's an excursion[39m
+[31m+[39m
+[31m+ interface WorkbookLetterTraceProps {[39m
+[31m+   modelText: string; // the printed model letter, e.g. "O" or "o"[39m
+[31m+   accent?: string;[39m
+[31m+   lessonId?: string;[39m
+[31m+ }[39m
+[31m+[39m
+[31m+ type Status = "idle" | "tracing" | "holding" | "done";[39m
+[31m+[39m
+[31m+ export function WorkbookLetterTrace({[39m
+[31m+   modelText,[39m
+[31m+   accent = "#3FA9A6",[39m
+[31m+   lessonId,[39m
+[31m+ }: WorkbookLetterTraceProps) {[39m
+[31m+   const { emit: gretelEvent, record: recordEvent } = useActivityEvents();[39m
+[31m+   const reducedMotion = useReducedMotion();[39m
+[31m+   const cursorMode = useCursorMode();[39m
+[31m+   const explicitCursor =[39m
+[31m+     typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("cursor") : null;[39m
+[31m+   const hasContractHost =[39m
+[31m+     typeof document !== "undefined" &&[39m
+[31m+     (explicitCursor === "contract" ||[39m
+[31m+       document.documentElement.classList.contains("cartilla-cursor-contract") ||[39m
+[31m+       !!document.querySelector(".native-lesson-viewer, .contract-pencil-cursor"));[39m
+[31m+   const contract = cursorMode === "contract" && hasContractHost;[39m
+[31m+   const useCharcoalStroke = cursorMode === "contract";[39m
+[31m+   const [finishedWork, setFinishedWork] = useActivityState("finishedWork", false);[39m
+[31m+   useEffect(() => { if (finishedWork) gretelEvent("activity:complete", { restored: true }); }, [finishedWork, gretelEvent]);[39m
+[31m+   const strokes = useMemo(() => getLetterTemplate(modelText), [modelText]);[39m
+[31m+[39m
+[31m+   const [strokeIdx, setStrokeIdx] = useActivityState("traceStroke", 0);[39m
+[31m+   const [pointIdx, setPointIdx] = useActivityState("tracePoint", 0); // next checkpoint within current stroke[39m
+[31m+   const [completed, setCompleted] = useActivityState<Point[][]>("traceCompleted", []);[39m
+[31m+   const [current, setCurrent] = useActivityState<Point[]>("traceCurrent", []);[39m
+[31m+   const [status, setStatus] = useState<Status>("idle");[39m
+[31m+   const [holding, setHolding] = useState(false);[39m
+[31m+   const [slips, setSlips] = useActivityState("traceSlips", 0);[39m
+[31m+   const [offFlash, setOffFlash] = useState(false);[39m
+[31m+   const [livePoint, setLivePoint] = useState<Point | null>(null);[39m
+[31m+[39m
+[31m+   const slipsRef = useRef(slips);[39m
+[31m+   const offActiveRef = useRef(false);[39m
+[31m+   const reportedRef = useRef(false);[39m
+[31m+   const wrongFiredRef = useRef(false);[39m
+[31m+   const holdTimerRef = useRef<number | undefined>(undefined);[39m
+[31m+   useEffect(() => () => window.clearTimeout(holdTimerRef.current), []);[39m
+[31m+[39m
+[31m+   // Default gesture determined by primary pointer (mouse -> tap/checkpoint, touch -> drag/freehand)[39m
+[31m+   const defaultMode = useTraceInputMode();[39m
+[31m+   // State allows learner override via manual mode toggle[39m
+[31m+   const [overrideMode, setOverrideMode] = useActivityState<"drag" | "tap" | null>("userModeOverride", null);[39m
+[31m+   const inputMode = overrideMode ?? defaultMode;[39m
+[31m+[39m
+[31m+   /**[39m
+[31m+    * Single grading + reporting path, shared by BOTH modes so the completion[39m
+[31m+    * events are byte-for-byte the same shape — Gretel reactions and progress[39m
+[31m+    * logging cannot tell which input the child used. `slipCount` is off-path[39m
+[31m+    * excursions when dragging, fumbled checkpoints when tapping; both are[39m
+[31m+    * counted once per incident, never per frame or per repeated tap.[39m
+[31m+    */[39m
+[31m+   const report = useCallback([39m
+[31m+     (slipCount: number) => {[39m
+[31m+       const score = Math.max(0, 1 - slipCount * 0.25);[39m
+[31m+       const passed = score >= 0.75;[39m
+[31m+       gretelEvent(passed ? "answer:correct" : "answer:wrong");[39m
+[31m+       // Finishing the full path is completion; quality remains separate evidence.[39m
+[31m+       setFinishedWork(true);[39m
+[31m+       gretelEvent("activity:complete");[39m
+[31m+       if (!reportedRef.current) {[39m
+[31m+         reportedRef.current = true;[39m
+[31m+         recordEvent({[39m
+[31m+           lessonId: lessonId ?? "unknown",[39m
+[31m+           kind: "exercise",[39m
+[31m+           score: passed ? 1 : 0,[39m
+[31m+           total: 1,[39m
+[31m+           meta: {[39m
+[31m+             exercise: "workbook_letter_trace",[39m
+[31m+             letter: modelText,[39m
+[31m+             slips: slipCount,[39m
+[31m+             quality: score,[39m
+[31m+             completed: true,[39m
+[31m+           },[39m
+[31m+         });[39m
+[31m+       }[39m
+[31m+     },[39m
+[31m+     [lessonId, modelText, gretelEvent, recordEvent, setFinishedWork],[39m
+[31m+   );[39m
+[31m+[39m
+[31m+   const onTapComplete = useCallback([39m
+[31m+     (fumbles: number) => {[39m
+[31m+       if (contract && !reducedMotion) {[39m
+[31m+         setHolding(true);[39m
+[31m+         window.clearTimeout(holdTimerRef.current);[39m
+[31m+         holdTimerRef.current = window.setTimeout(() => {[39m
+[31m+           setHolding(false);[39m
+[31m+           setStatus("done");[39m
+[31m+           playCorrectChord();[39m
+[31m+           report(fumbles);[39m
+[31m+         }, PENCIL_CONTRACT.holdMs);[39m
+[31m+         return;[39m
+[31m+       }[39m
+[31m+       setStatus("done");[39m
+[31m+       playCorrectChord();[39m
+[31m+       report(fumbles);[39m
+[31m+     },[39m
+[31m+     [contract, reducedMotion, report],[39m
+[31m+   );[39m
+[31m+[39m
+[31m+   const tap = useLetterTapTrace({[39m
+[31m+     strokes,[39m
+[31m+     onComplete: onTapComplete,[39m
+[31m+     onCorrectTap: (idx) => playNote(261.63 + idx * 15, 0.08),[39m
+[31m+     onWrongTap: () => gretelEvent("answer:wrong"),[39m
+[31m+   });[39m
+[31m+[39m
+[31m+   // Guard: no faithful template (digraphs RR / Ñ, or a blank practice line) —[39m
+[31m+   // the caller falls back to a static line, but never render a broken trace.[39m
+[31m+   if (!strokes) return null;[39m
+[31m+[39m
+[31m+   const totalPoints = strokes.reduce((n, s) => n + s.length, 0);[39m
+[31m+   const nextCheckpoint = strokes[strokeIdx]?.[pointIdx];[39m
+[31m+[39m
+[31m+   function toViewport(e: React.PointerEvent<SVGSVGElement>): Point {[39m
+[31m+     const rect = e.currentTarget.getBoundingClientRect();[39m
+[31m+     const unit = Math.min(rect.width / VIEW_W, rect.height / VIEW_H);[39m
+[31m+     if (unit > 0) {[39m
+[31m+       const ox = rect.left + (rect.width - VIEW_W * unit) / 2;[39m
+[31m+       const oy = rect.top + (rect.height - VIEW_H * unit) / 2;[39m
+[31m+       return {[39m
+[31m+         x: (e.clientX - ox) / unit,[39m
+[31m+         y: (e.clientY - oy) / unit,[39m
+[31m+       };[39m
+[31m+     }[39m
+[31m+     return {[39m
+[31m+       x: ((e.clientX - rect.left) / (rect.width || VIEW_W)) * VIEW_W,[39m
+[31m+       y: ((e.clientY - rect.top) / (rect.height || VIEW_H)) * VIEW_H,[39m
+[31m+     };[39m
+[31m+   }[39m
+[31m+[39m
+[31m+   function finish() {[39m
+[31m+     setLivePoint(null);[39m
+[31m+     if (contract && !reducedMotion) {[39m
+[31m+       setHolding(true);[39m
+[31m+       window.clearTimeout(holdTimerRef.current);[39m
+[31m+       holdTimerRef.current = window.setTimeout(() => {[39m
+[31m+         setHolding(false);[39m
+[31m+         setStatus("done");[39m
+[31m+         playCorrectChord();[39m
+[31m+         // Real score: clean trace = 1.0; each off-path excursion costs 0.25, min 0.[39m
+[31m+         report(slipsRef.current);[39m
+[31m+       }, PENCIL_CONTRACT.holdMs);[39m
+[31m+       return;[39m
+[31m+     }[39m
+[31m+     setStatus("done");[39m
+[31m+     playCorrectChord();[39m
+[31m+     // Real score: clean trace = 1.0; each off-path excursion costs 0.25, min 0.[39m
+[31m+     report(slipsRef.current);[39m
+[31m+   }[39m
+[31m+[39m
+[31m+   function handlePointerDown(e: React.PointerEvent<SVGSVGElement>) {[39m
+[31m+     if (finishedWork || holding || status === "done" || !nextCheckpoint) return;[39m
+[31m+     const p = toViewport(e);[39m
+[31m+     if (Math.hypot(p.x - nextCheckpoint.x, p.y - nextCheckpoint.y) <= START_TOL) {[39m
+[31m+       e.currentTarget.setPointerCapture(e.pointerId);[39m
+[31m+       offActiveRef.current = false;[39m
+[31m+       setOffFlash(false);[39m
+[31m+       setLivePoint(p);[39m
+[31m+       // pressing exactly on the active checkpoint counts as reaching it[39m
+[31m+       setCurrent((prev) => (prev.length === 0 ? [nextCheckpoint] : prev));[39m
+[31m+       setPointIdx((i) => (i === 0 ? 1 : i));[39m
+[31m+       setStatus("tracing");[39m
+[31m+       playNote(261.63 + pointIdx * 15, 0.08);[39m
+[31m+     }[39m
+[31m+   }[39m
+[31m+[39m
+[31m+   function handlePointerMove(e: React.PointerEvent<SVGSVGElement>) {[39m
+[31m+     if (status !== "tracing" || !strokes) return;[39m
+[31m+     const stroke = strokes[strokeIdx];[39m
+[31m+     if (!stroke) return;[39m
+[31m+     const p = toViewport(e);[39m
+[31m+[39m
+[31m+     // Real path-following: measure distance to the current stroke polyline.[39m
+[31m+     if (distanceToStroke(p, stroke) > MAX_DEVIATION) {[39m
+[31m+       // Count one penalty per contiguous excursion (not once per frame), and[39m
+[31m+       // do not advance checkpoints while off the path.[39m
+[31m+       if (!offActiveRef.current) {[39m
+[31m+         offActiveRef.current = true;[39m
+[31m+         slipsRef.current += 1;[39m
+[31m+         setSlips(slipsRef.current);[39m
+[31m+         setOffFlash(true);[39m
+[31m+         if (!wrongFiredRef.current) {[39m
+[31m+           wrongFiredRef.current = true;[39m
+[31m+           gretelEvent("answer:wrong");[39m
+[31m+         }[39m
+[31m+       }[39m
+[31m+       return;[39m
+[31m+     }[39m
+[31m+     if (offActiveRef.current) {[39m
+[31m+       offActiveRef.current = false;[39m
+[31m+       setOffFlash(false);[39m
+[31m+     }[39m
+[31m+     setLivePoint(p);[39m
+[31m+[39m
+[31m+     const cp = stroke[pointIdx];[39m
+[31m+     if (cp && Math.hypot(p.x - cp.x, p.y - cp.y) <= CHECKPOINT_TOL) {[39m
+[31m+       const nextCurrent = [...current, cp];[39m
+[31m+       setCurrent(nextCurrent);[39m
+[31m+       playNote(261.63 + pointIdx * 15, 0.08);[39m
+[31m+       const nextIdx = pointIdx + 1;[39m
+[31m+       if (nextIdx < stroke.length) {[39m
+[31m+         setPointIdx(nextIdx);[39m
+[31m+       } else {[39m
+[31m+         // Stroke finished.[39m
+[31m+         const nextStrokeIdx = strokeIdx + 1;[39m
+[31m+         setCompleted((prev) => [...prev, nextCurrent]);[39m
+[31m+         setCurrent([]);[39m
+[31m+         setLivePoint(null);[39m
+[31m+         if (nextStrokeIdx < strokes.length) {[39m
+[31m+           setStrokeIdx(nextStrokeIdx);[39m
+[31m+           setPointIdx(0);[39m
+[31m+           setStatus("idle");[39m
+[31m+           offActiveRef.current = false;[39m
+[31m+           setOffFlash(false);[39m
+[31m+         } else {[39m
+[31m+           finish();[39m
+[31m+         }[39m
+[31m+       }[39m
+[31m+     }[39m
+[31m+   }[39m
+[31m+[39m
+[31m+   function handlePointerUp() {[39m
+[31m+     if (status === "tracing") {[39m
+[31m+       // Retain the partial path and resume at its next checkpoint.[39m
+[31m+       setStatus("idle");[39m
+[31m+       setLivePoint(null);[39m
+[31m+       offActiveRef.current = false;[39m
+[31m+     }[39m
+[31m+   }[39m
+[31m+[39m
+[31m+   function reset() {[39m
+[31m+     window.clearTimeout(holdTimerRef.current);[39m
+[31m+     setHolding(false);[39m
+[31m+     setFinishedWork(false);[39m
+[31m+     gretelEvent("activity:retry", { reason: "work-cleared" });[39m
+[31m+     setStrokeIdx(0);[39m
+[31m+     setPointIdx(0);[39m
+[31m+     setCompleted([]);[39m
+[31m+     setCurrent([]);[39m
+[31m+     setStatus("idle");[39m
+[31m+     setSlips(0);[39m
+[31m+     setOffFlash(false);[39m
+[31m+     setLivePoint(null);[39m
+[31m+     slipsRef.current = 0;[39m
+[31m+     offActiveRef.current = false;[39m
+[31m+     reportedRef.current = false;[39m
+[31m+     wrongFiredRef.current = false;[39m
+[31m+     tap.reset();[39m
+[31m+   }[39m
+[31m+[39m
+[31m+   // ── Tap mode (mouse-primary): same letter, same template, tapped in order ──[39m
+[31m+   const isTap = inputMode === "tap";[39m
+[31m+   const shownCompleted = finishedWork ? strokes : isTap ? tap.completedStrokes : completed;[39m
+[31m+   const shownCurrent = finishedWork ? [] : isTap ? tap.currentStrokePoints : current;[39m
+[31m+   const shownStatus: Status = finishedWork[39m
+[31m+     ? "done"[39m
+[31m+     : holding[39m
+[31m+       ? "holding"[39m
+[31m+       : isTap[39m
+[31m+         ? tap.finished[39m
+[31m+           ? "done"[39m
+[31m+           : shownCompleted.length || shownCurrent.length[39m
+[31m+             ? "tracing"[39m
+[31m+             : "idle"[39m
+[31m+         : status === "done"[39m
+[31m+           ? "done"[39m
+[31m+           : status === "tracing" || completed.length > 0 || current.length > 0[39m
+[31m+             ? "tracing"[39m
+[31m+             : "idle";[39m
+[31m+   const activeStrokeColor = useCharcoalStroke ? PENCIL_CONTRACT.charcoal : accent;[39m
+[31m+   const completedStrokeColor =[39m
+[31m+     shownStatus === "done"[39m
+[31m+       ? contract[39m
+[31m+         ? PENCIL_CONTRACT.correct[39m
+[31m+         : accent[39m
+[31m+       : useCharcoalStroke[39m
+[31m+         ? PENCIL_CONTRACT.charcoal[39m
+[31m+         : accent;[39m
+[31m+   const shownSlips = isTap ? tap.wrongCheckpoints : slips;[39m
+[31m+   const shownOff = isTap ? tap.wrongFlash : offFlash;[39m
+[31m+   const shownDone = shownCompleted.reduce((n, s) => n + s.length, 0) + shownCurrent.length;[39m
+[31m+   const shownProgress = Math.min(100, Math.round((shownDone / totalPoints) * 100));[39m
+[31m+   const activePoint = strokes[tap.position.strokeIdx]?.[tap.position.pointIdx];[39m
+[31m+[39m
+[31m+   return ([39m
+[31m+     <div[39m
+[31m+       className="fp-trace"[39m
+[31m+       data-status={shownStatus}[39m
+[31m+       data-slips={shownSlips}[39m
+[31m+       data-mode={inputMode}[39m
+[31m+     >[39m
+[31m+       <svg[39m
+[31m+         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}[39m
+[31m+         className="fp-trace__svg"[39m
+[31m+         onPointerDown={isTap ? undefined : handlePointerDown}[39m
+[31m+         onPointerMove={isTap ? undefined : handlePointerMove}[39m
+[31m+         onPointerUp={isTap ? undefined : handlePointerUp}[39m
+[31m+         onPointerCancel={isTap ? undefined : handlePointerUp}[39m
+[31m+         role="img"[39m
+[31m+         aria-label={[39m
+[31m+           isTap[39m
+[31m+             ? `Toca los puntos en orden para formar la letra ${modelText}`[39m
+[31m+             : `Traza la letra ${modelText}`[39m
+[31m+         }[39m
+[31m+       >[39m
+[31m+         {/* Guide outline (dotted) */}[39m
+[31m+         {strokes.map((stroke, sIdx) => ([39m
+[31m+           <path[39m
+[31m+             key={`bg-${sIdx}`}[39m
+[31m+             d={stroke.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}[39m
+[31m+             fill="none"[39m
+[31m+             stroke="#d8e6e5"[39m
+[31m+             strokeWidth="13"[39m
+[31m+             strokeLinecap="round"[39m
+[31m+             strokeLinejoin="round"[39m
+[31m+             strokeDasharray="1,11"[39m
+[31m+           />[39m
+[31m+         ))}[39m
+[31m+         {/* Completed strokes */}[39m
+[31m+         {shownCompleted.map((stroke, sIdx) => ([39m
+[31m+           <path[39m
+[31m+             key={`done-${sIdx}`}[39m
+[31m+             d={stroke.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}[39m
+[31m+             fill="none"[39m
+[31m+             stroke={completedStrokeColor}[39m
+[31m+             strokeWidth="9"[39m
+[31m+             strokeLinecap="round"[39m
+[31m+             strokeLinejoin="round"[39m
+[31m+           />[39m
+[31m+         ))}[39m
+[31m+         {/* Active stroke in progress — in tap mode this is what draws the[39m
+[31m+             letter progressively as each dot is hit, so the child still sees[39m
+[31m+             the correct formation and direction. */}[39m
+[31m+         {shownCurrent.length > 0 && ([39m
+[31m+           <path[39m
+[31m+             d={(status === "tracing" && !isTap && livePoint ? [...shownCurrent, livePoint] : shownCurrent).map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}[39m
+[31m+             fill="none"[39m
+[31m+             stroke={activeStrokeColor}[39m
+[31m+             strokeWidth="9"[39m
+[31m+             strokeLinecap="round"[39m
+[31m+             strokeLinejoin="round"[39m
+[31m+           />[39m
+[31m+         )}[39m
+[31m+[39m
+[31m+         {/* Tap mode: every remaining checkpoint is a target. The still-to-come[39m
+[31m+             ones are drawn FIRST and the active one LAST, on purpose: closed[39m
+[31m+             letterforms (O) end exactly where they start, and M's strokes share[39m
+[31m+             endpoints, so a later checkpoint's invisible hit area can sit right[39m
+[31m+             on top of the active dot. Drawing the active dot last guarantees it[39m
+[31m+             always wins the hit test. */}[39m
+[31m+         {isTap && !tap.finished && !finishedWork && ([39m
+[31m+           <>[39m
+[31m+             {strokes.map((stroke, sIdx) =>[39m
+[31m+               stroke.map((pt, pIdx) => {[39m
+[31m+                 if (isCheckpointDone(tap.position, sIdx, pIdx)) return null;[39m
+[31m+                 if (isActiveCheckpoint(tap.position, sIdx, pIdx)) return null;[39m
+[31m+                 return ([39m
+[31m+                   <g[39m
+[31m+                     key={`tap-${sIdx}-${pIdx}`}[39m
+[31m+                     role="button"[39m
+[31m+                     tabIndex={-1}[39m
+[31m+                     aria-label={`Punto ${pIdx + 1}`}[39m
+[31m+                     className="fp-trace__dot"[39m
+[31m+                     style={{ cursor: "pointer" }}[39m
+[31m+                     onClick={() => tap.tapCheckpoint(sIdx, pIdx)}[39m
+[31m+                   >[39m
+[31m+                     <circle cx={pt.x} cy={pt.y} r="10" fill="transparent" />[39m
+[31m+                     <circle[39m
+[31m+                       cx={pt.x}[39m
+[31m+                       cy={pt.y}[39m
+[31m+                       r={4}[39m
+[31m+                       fill="#ffffff"[39m
+[31m+                       stroke="#c7d6d5"[39m
+[31m+                       strokeWidth={1.5}[39m
+[31m+                     />[39m
+[31m+                   </g>[39m
+[31m+                 );[39m
+[31m+               }),[39m
+[31m+             )}[39m
+[31m+             {activePoint && ([39m
+[31m+               <g[39m
+[31m+                 role="button"[39m
+[31m+                 tabIndex={0}[39m
+[31m+                 aria-label={`Punto ${tap.position.pointIdx + 1}, toca aquí`}[39m
+[31m+                 data-gretel-target="primary"[39m
+[31m+                 className="fp-trace__dot fp-trace__dot--active"[39m
+[31m+                 style={{ cursor: "pointer" }}[39m
+[31m+                 onClick={() => tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx)}[39m
+[31m+                 onKeyDown={(e) => {[39m
+[31m+                   if (e.key === "Enter" || e.key === " ") {[39m
+[31m+                     e.preventDefault();[39m
+[31m+                     tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx);[39m
+[31m+                   }[39m
+[31m+                 }}[39m
+[31m+               >[39m
+[31m+                 {/* generous invisible hit area — small targets are hard for kids */}[39m
+[31m+                 <circle cx={activePoint.x} cy={activePoint.y} r="10" fill="transparent" />[39m
+[31m+                 <circle[39m
+[31m+                   cx={activePoint.x}[39m
+[31m+                   cy={activePoint.y}[39m
+[31m+                   r={6.5}[39m
+[31m+                   fill={shownOff ? "#e11d48" : accent}[39m
+[31m+                   stroke="#ffffff"[39m
+[31m+                   strokeWidth={1.8}[39m
+[31m+                 />[39m
+[31m+                 <text[39m
+[31m+                   x={activePoint.x}[39m
+[31m+                   y={activePoint.y + 2.6}[39m
+[31m+                   textAnchor="middle"[39m
+[31m+                   fontSize="7"[39m
+[31m+                   fontWeight="700"[39m
+[31m+                   fill="#ffffff"[39m
+[31m+                   pointerEvents="none"[39m
+[31m+                 >[39m
+[31m+                   {tap.position.pointIdx + 1}[39m
+[31m+                 </text>[39m
+[31m+               </g>[39m
+[31m+             )}[39m
+[31m+           </>[39m
+[31m+         )}[39m
+[31m+[39m
+[31m+         {/* Drag mode: next-checkpoint indicator (unchanged) */}[39m
+[31m+         {!isTap && shownStatus !== "done" && nextCheckpoint && ([39m
+[31m+           <circle[39m
+[31m+             cx={nextCheckpoint.x}[39m
+[31m+             cy={nextCheckpoint.y}[39m
+[31m+             r="4.5"[39m
+[31m+             fill={offFlash ? "#e11d48" : accent}[39m
+[31m+             stroke="#ffffff"[39m
+[31m+             strokeWidth="1.5"[39m
+[31m+           />[39m
+[31m+         )}[39m
+[31m+[39m
+[31m+         {/* Approved classic wooden pencil tip following learner's touch/drag path */}[39m
+[31m+         {livePoint && shownStatus !== "done" && ([39m
+[31m+           <g[39m
+[31m+             transform={`translate(${livePoint.x}, ${livePoint.y}) rotate(55) scale(0.38)`}[39m
+[31m+             style={{ pointerEvents: "none" }}[39m
+[31m+           >[39m
+[31m+             <PencilShape uid="letter-trace-live-pencil" />[39m
+[31m+           </g>[39m
+[31m+         )}[39m
+[31m+[39m
+[31m+         {/* In tap mode, approved wooden pencil rests gracefully near the active checkpoint */}[39m
+[31m+         {isTap && activePoint && shownStatus !== "done" && ([39m
+[31m+           <g[39m
+[31m+             transform={`translate(${activePoint.x + 3.5}, ${activePoint.y - 2.5}) rotate(55) scale(0.32)`}[39m
+[31m+             style={{ pointerEvents: "none", opacity: 0.9 }}[39m
+[31m+           >[39m
+[31m+             <PencilShape uid="letter-trace-tap-pencil" />[39m
+[31m+           </g>[39m
+[31m+         )}[39m
+[31m+       </svg>[39m
+[31m+[39m
+[31m+       <div className="fp-trace__footer">[39m
+[31m+         <div className="fp-trace__progress" aria-hidden="true">[39m
+[31m+           <span[39m
+[31m+             className="fp-trace__progress-fill"[39m
+[31m+             style={{ width: `${shownProgress}%`, backgroundColor: accent }}[39m
+[31m+           />[39m
+[31m+         </div>[39m
+[31m+         {shownOff && shownStatus !== "done" && ([39m
+[31m+           <span className="fp-trace__hint fp-trace__hint--off">[39m
+[31m+             {isTap ? "Toca el punto que brilla" : "Sigue la línea de la letra"}[39m
+[31m+           </span>[39m
+[31m+         )}[39m
+[31m+         {!shownOff && isTap && shownStatus !== "done" && ([39m
+[31m+           <span className="fp-trace__hint">Toca los puntos en orden</span>[39m
+[31m+         )}[39m
+[31m+         {shownStatus === "done" && ([39m
+[31m+           <span className="fp-trace__hint fp-trace__hint--ok">¡Muy bien!</span>[39m
+[31m+         )}[39m
+[31m+         <div className="fp-trace__actions">[39m
+[31m+           <button[39m
+[31m+             type="button"[39m
+[31m+             className="fp-trace__mode-toggle"[39m
+[31m+             onClick={() => {[39m
+[31m+               const nextMode = inputMode === "tap" ? "drag" : "tap";[39m
+[31m+               setOverrideMode(nextMode);[39m
+[31m+               reset();[39m
+[31m+             }}[39m
+[31m+             aria-label={`Cambiar a modo ${inputMode === "tap" ? "trazo libre" : "puntos"}`}[39m
+[31m+             title={`Modo actual: ${inputMode === "tap" ? "Puntos" : "Trazo libre"}. Toca para cambiar.`}[39m
+[31m+           >[39m
+[31m+             {inputMode === "tap" ? "✍️ Libres" : "🔴 Puntos"}[39m
+[31m+           </button>[39m
+[31m+           {shownStatus !== "idle" && ([39m
+[31m+             <button[39m
+[31m+               type="button"[39m
+[31m+               className="fp-trace__reset"[39m
+[31m+               onClick={reset}[39m
+[31m+               aria-label="Reiniciar el trazo"[39m
+[31m+             >[39m
+[31m+               ↺[39m
+[31m+             </button>[39m
+[31m+           )}[39m
+[31m+         </div>[39m
+[31m+       </div>[39m
+[31m+     </div>[39m
+[31m+   );[39m
+[31m+ }[39m
+[31m+[39m
+
+[36m [2m❯[22m src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts:[2m61:25[22m[39m
+    [90m 59|[39m   it("ensures letter tracing exercises use the owner-approved @image1 …
+    [90m 60|[39m     const letterTrace = source("src/components/cartilla/WorkbookLetter…
+    [90m 61|[39m     expect(letterTrace).toContain('import { OwnerPhotoPencilSvg } from…
+    [90m   |[39m                         [31m^[39m
+    [90m 62|[39m     [34mexpect[39m(letterTrace)[33m.[39mnot[33m.[39m[34mtoContain[39m([32m"PencilShape"[39m)[33m;[39m
+    [90m 63|[39m     [34mexpect[39m(letterTrace)[33m.[39m[34mtoContain[39m([32m"<OwnerPhotoPencilSvg"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m4 passed[39m[22m[90m (5)[39m
+[2m   Start at [22m 05:53:55
+[2m   Duration [22m 491ms[2m (transform 31ms, setup 73ms, import 9ms, tests 8ms, environment 328ms)[22m
+
