@@ -23,4 +23,24 @@ describe("TutorTargetWord", () => {
     render(<TutorTargetWord word="uña" playing={false} />);
     expect(screen.getByLabelText("uña").textContent).toBe("uña");
   });
+
+  it("keeps single long words inside one unbroken word token and wraps multi-word sentences only at spaces", () => {
+    const { rerender } = render(<TutorTargetWord word="elefante" playing={false} />);
+    const single = screen.getByLabelText("elefante");
+    expect(single.getAttribute("data-multi-word")).toBe("false");
+    expect(single.style.getPropertyValue("--tutor-word-chars")).toBe("8");
+    const singleTokens = single.querySelectorAll(".tutor-word-token");
+    expect(singleTokens).toHaveLength(1);
+    expect(singleTokens[0].textContent).toBe("elefante");
+    expect(singleTokens[0].className).toContain("whitespace-nowrap");
+
+    rerender(<TutorTargetWord word="Mi mamá me ama." playing={true} />);
+    const sentence = screen.getByLabelText("Mi mamá me ama.");
+    expect(sentence.getAttribute("data-multi-word")).toBe("true");
+    expect(sentence.textContent).toBe("Mi mamá me ama.");
+    const wordTokens = Array.from(sentence.querySelectorAll(".tutor-word-token")).map(
+      (node) => node.textContent,
+    );
+    expect(wordTokens).toEqual(["Mi", "mamá", "me", "ama."]);
+  });
 });

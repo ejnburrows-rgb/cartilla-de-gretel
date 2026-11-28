@@ -8,8 +8,11 @@ const desktop = { width: 1366, height: 768 };
 const phone = { width: 390, height: 844 };
 const checks = [
   { lesson: 3, target: "a", next: "abanico", viewport: desktop, wrong: "o" },
-  { lesson: 4, target: "e", next: "elefante", viewport: phone, checkDrawer: true },
+  { lesson: 4, target: "e", next: "elefante", viewport: desktop, checkUnbrokenTarget: true },
+  { lesson: 4, target: "e", next: "elefante", viewport: phone, checkDrawer: true, checkUnbrokenTarget: true },
   { lesson: 7, target: "ma", next: "me", viewport: phone, reducedMotion: true },
+  { lesson: 14, target: "ña", next: "ñe", viewport: desktop, reducedMotion: true },
+  { lesson: 18, target: "rra", next: "rre", viewport: desktop, reducedMotion: true },
   { lesson: 2, target: "o", next: "ola", viewport: desktop, interrupt: true },
 ];
 
@@ -119,11 +122,14 @@ try {
         await expect(camera).toHaveAttribute("data-classroom-camera", "board");
         await expect.poll(() => camera.evaluate((node) =>
           node.getBoundingClientRect().width / node.parentElement.getBoundingClientRect().width,
-        )).toBeLessThan(1.02);
+        )).toBeGreaterThanOrEqual(1.15);
+        await expect.poll(() => camera.evaluate((node) =>
+          node.getBoundingClientRect().width / node.parentElement.getBoundingClientRect().width,
+        )).toBeLessThanOrEqual(1.35);
         if (check.checkDrawer) {
-          expect(await board.evaluate((node) => {
+          expect(await page.locator(".tutor-painted-classroom-frame").evaluate((frame) => {
             const drawer = document.querySelector("[data-tutor-transcript-drawer]");
-            return drawer && drawer.getBoundingClientRect().top >= node.getBoundingClientRect().bottom;
+            return drawer && drawer.getBoundingClientRect().top >= frame.getBoundingClientRect().bottom;
           })).toBeTruthy();
         }
         if (check.target === "e" && phase === "taking-eraser") {
@@ -152,6 +158,26 @@ try {
       }
       await expect(prompt).toContainText(`«${check.next}»`, { timeout: 22000 });
       await expectCenteredCamera(camera);
+      if (check.checkUnbrokenTarget) {
+        const targetWord = page.locator("[data-tutor-target-word]");
+        await expect(targetWord).toHaveText(check.next);
+        const layout = await targetWord.evaluate((el) => {
+          const token = el.querySelector(".tutor-word-token");
+          if (!token) return { ok: false, reason: "missing .tutor-word-token" };
+          const spanTops = new Set(
+            Array.from(token.querySelectorAll("span")).map((s) => Math.round(s.getBoundingClientRect().top)),
+          );
+          const tokenRect = token.getBoundingClientRect();
+          const cardRect = el.closest("[data-tutor-word-card]").getBoundingClientRect();
+          return {
+            ok: spanTops.size === 1 && tokenRect.left >= cardRect.left && tokenRect.right <= cardRect.right,
+            distinctTops: spanTops.size,
+            tokenWidth: Math.round(tokenRect.width),
+            cardWidth: Math.round(cardRect.width),
+          };
+        });
+        expect(layout.ok, JSON.stringify(layout)).toBe(true);
+      }
       if (check.reducedMotion) {
         const duration = await camera.evaluate((node) => Number.parseFloat(getComputedStyle(node).transitionDuration));
         expect(duration).toBeLessThan(0.001);

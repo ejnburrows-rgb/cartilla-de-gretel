@@ -14,6 +14,13 @@ const flipchartText = Object.assign(
   ...["3-22", "23-42", "43-62"].map((range) => read(`src/data/flipchart-text-${range}.json`)),
 );
 const workbookLayouts = read("src/data/page-layouts.json").pages;
+const pictureModels = read("src/content/tutor-picture-models.json");
+const pictureModelByText = new Map(
+  Object.entries(pictureModels).map(([src, model]) => [
+    model.text.normalize("NFC").toLocaleLowerCase("es"),
+    src,
+  ]),
+);
 const recordedLines = new Map(read("src/content/tutor-lines.json").approved.map((line) =>
   [line.lineId, line.src],
 ));
@@ -30,9 +37,21 @@ const sizes = { desktop: { width: 1366, height: 768 }, phone: { width: 390, heig
 
 function expectedSpeech(items) {
   return items.map((item) => {
-    const recording = item.approvedAudioSrc ?? recordedLines.get(item.tutorLineId) ?? null;
+    const label = item.text ?? item.word ?? "";
+    const vowelLineId = item.kind === "vowel" ? `l0-vowel-model-${label}` : null;
+    const picBySrc = item.approvedAudioSrc && pictureModels[item.approvedAudioSrc]
+      ? item.approvedAudioSrc
+      : null;
+    const picByText = pictureModelByText.get(label.normalize("NFC").toLocaleLowerCase("es")) ?? null;
+    const recording =
+      item.approvedAudioSrc ??
+      recordedLines.get(item.tutorLineId) ??
+      (vowelLineId ? recordedLines.get(vowelLineId) : null) ??
+      picBySrc ??
+      picByText ??
+      null;
     return {
-      text: item.text ?? item.word,
+      text: label,
       recording,
       delivery: recording && asset(recording) ? "recorded model" : "text only",
     };

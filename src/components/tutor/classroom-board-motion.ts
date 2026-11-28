@@ -2,9 +2,9 @@ import { chalkStrokes, type ChalkPoint, type ChalkStroke } from "./classroom-wri
 
 const WIDTH = 1280;
 const HEIGHT = 720;
-const PATCH = { x: 675, y: 245, width: 385, height: 220 };
+const PATCH = { x: 675, y: 245, width: 385, height: 280 };
 const CHALK_TIP = { x: 864, y: 309 };
-const FELT_CENTER = { x: 862, y: 440 };
+const FELT_CENTER = { x: 884, y: 434 };
 
 type Point = ChalkPoint;
 type Frame = HTMLCanvasElement | HTMLVideoElement;
@@ -194,6 +194,8 @@ function compose(
     const py = y + Math.floor(i / 4 / width);
     const oldLetter = px >= 768 && px < 923 && py >= 296 && py <= 405;
     const oldUnderline = px >= 735 && px <= 976 && py >= 411 && py <= 435;
+    const knuckleChalk = px >= 775 && px <= 800 && py >= 372 && py <= 390;
+    const dustSpeckles = px >= 835 && px <= 935 && py >= 450 && py <= 492;
     const red = pixels[i];
     const green = pixels[i + 1];
     const blue = pixels[i + 2];
@@ -201,7 +203,7 @@ function compose(
     // chalk itself. Keep the warm hand, sleeve and felt in front of the patch.
     const slate = green - red >= 5 && green - blue >= 5;
     const chalk = green > 105 && green >= red - 12 && green - blue < 45;
-    if (removeBakedLetter && (slate || (chalk && (oldLetter || oldUnderline)))) {
+    if (removeBakedLetter && (slate || (chalk && (oldLetter || oldUnderline || knuckleChalk || dustSpeckles)))) {
       const edgeDistance = Math.min(px - x, x + width - 1 - px, py - y, y + height - 1 - py);
       const opacity = Math.min(1, edgeDistance / 26);
       for (let channel = 0; channel < 3; channel += 1) {
@@ -234,10 +236,10 @@ function strokeDistance(stroke: ChalkStroke) {
 export function eraseFelt(marks: CanvasRenderingContext2D, center: Point) {
   marks.save();
   marks.translate(center.x, center.y);
-  marks.rotate(-0.48);
+  marks.rotate(-0.54);
   marks.globalCompositeOperation = "destination-out";
   marks.fillStyle = "#000";
-  marks.fillRect(-70, -19, 140, 38);
+  marks.fillRect(-58, -12, 116, 24);
   marks.restore();
 }
 
@@ -305,7 +307,7 @@ export async function playClassroomWriting(
 
   if (!(await seek(video, 13.2, signal))) return false;
   onPhase("taking-eraser");
-  if (!(await playRange(video, 21, () => {
+  if (!(await playRange(video, 18.7, () => {
     scene.drawImage(video, 0, 0, WIDTH, HEIGHT);
     compose(scene, trace, clean, true);
   }, signal))) return false;
@@ -327,7 +329,7 @@ export async function playClassroomWriting(
   const top = Math.min(...allPoints.map((point) => point.y));
   const bottom = Math.max(...allPoints.map((point) => point.y));
   let felt = FELT_CENTER;
-  const passes = Math.ceil((bottom - top) / 34);
+  const passes = Math.ceil((bottom - top) / 22);
   for (let pass = 0; pass <= passes; pass += 1) {
     const y = top + (bottom - top) * pass / Math.max(1, passes);
     const start = { x: pass % 2 === 0 ? left + 6 : right - 6, y };
@@ -348,7 +350,7 @@ export async function playClassroomWriting(
   await animateClassroomFrame(210, (t) => draw(interpolate(felt, FELT_CENTER, ease(t)), FELT_CENTER), signal);
 
   onPhase("returning");
-  return playRange(video, 25.5, () => {
+  return playRange(video, 24.0, () => {
     scene.drawImage(video, 0, 0, WIDTH, HEIGHT);
     compose(scene, trace, clean, true);
   }, signal);

@@ -39,6 +39,12 @@ describe("classroom writing follows the curriculum", () => {
     expect(letterStrokes("🙂")).toBeNull();
   });
 
+  it("supports all 26 Spanish alphabet lowercase letters including h, k, q, w, x", () => {
+    for (const letter of Array.from("abcdefghijklmnopqrstuvwxyzñáéíóúü")) {
+      expect(letterStrokes(letter), letter).not.toBeNull();
+    }
+  });
+
   it("does not substitute a letter for workbook sentences", () => {
     const sentence: TutorItem = { id: "sample", lesson: 8, text: "Papá.", kind: "sentence", printedPage: 23 };
     expect(teachingTarget(sentence, CATALOG.find((lesson) => lesson.n === 8))).toBeNull();

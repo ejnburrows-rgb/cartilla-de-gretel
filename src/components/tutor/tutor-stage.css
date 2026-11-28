@@ -83,6 +83,7 @@
 }
 .tutor-word-card {
   position: relative;
+  container-type: inline-size;
   min-height: 180px;
   max-width: 100%;
   padding: 20px 24px;
@@ -99,8 +100,15 @@
   pointer-events: none;
 }
 .tutor-word {
-  font-size: clamp(2.25rem, 7vw, 5rem);
-  overflow-wrap: anywhere;
+  font-size: clamp(1.35rem, calc(120cqi / max(var(--tutor-word-chars, 6), 2.5)), 4.75rem);
+  overflow-wrap: normal;
+  word-break: normal;
+  max-width: 100%;
+}
+.tutor-word[data-multi-word="true"] {
+  font-size: clamp(1.15rem, 7.5cqi, 2.25rem);
+  line-height: 1.25;
+  row-gap: 0.25em;
 }
 .tutor-replay {
   min-height: 44px;
@@ -439,6 +447,12 @@
   transform: translateX(7.925%) scale(1.32);
 }
 
+/* Keep torso-up framing during board turns (shoulder, elbow, forearm, hand,
+   tool, unclipped bow, handwritten title, and dynamic chalk marks visible). */
+.tutor-classroom-camera[data-classroom-camera="board"] {
+  transform: translate(-8.8%, 0%) scale(1.22);
+}
+
 /* Extend the window into the narrow left edge with a reflection of the
    approved plate. The same edge meets the real window at every zoom level. */
 .tutor-classroom-camera::before {
@@ -643,6 +657,13 @@
   grid-column: 1;
   grid-row: 1;
 }
+.tutor-call-shell[data-layout-mode="split"] .tutor-call-avatar-host:has(.tutor-painted-classroom) {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, calc((100svh - 170px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+}
 .tutor-call-shell[data-layout-mode="split"] .tutor-split-divider {
   grid-column: 2;
   grid-row: 1;
@@ -720,9 +741,20 @@
   justify-content: flex-start;
   overflow: auto;
 }
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-canvas:has(.tutor-painted-classroom) {
+  grid-template-columns: minmax(0, 1fr) clamp(240px, 26vw, 320px);
+}
 .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-avatar-host {
   grid-column: 2;
   grid-row: 1;
+}
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
+  .tutor-call-avatar-host:has(.tutor-painted-classroom) {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, calc((100svh - 170px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
 }
 
 .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"] .tutor-call-canvas {
@@ -821,6 +853,43 @@
   .tutor-call-avatar-host[data-pip-size="lg"] {
   width: 264px;
   height: 328px;
+}
+
+/* Match 16:9 classroom tile in PiP so no empty green bands appear */
+.tutor-call-shell[data-layout-mode="flipchart-pip"]
+  .tutor-call-avatar-host[data-pip-minimized="false"]:has(.tutor-painted-classroom),
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+  height: auto;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"]
+  .tutor-call-avatar-host[data-pip-size="sm"][data-pip-minimized="false"]:has(.tutor-painted-classroom),
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-size="sm"][data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+  width: 216px;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"]
+  .tutor-call-avatar-host[data-pip-size="md"][data-pip-minimized="false"]:has(.tutor-painted-classroom),
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-size="md"][data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+  width: 272px;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"]
+  .tutor-call-avatar-host[data-pip-size="lg"][data-pip-minimized="false"]:has(.tutor-painted-classroom),
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-size="lg"][data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+  width: 344px;
+}
+.tutor-call-shell[data-layout-mode="flipchart-pip"]
+  .tutor-call-avatar-host[data-pip-minimized="false"]
+  .tutor-call-avatar-inner:has(.tutor-painted-classroom),
+.tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+  .tutor-call-avatar-host[data-pip-minimized="false"]
+  .tutor-call-avatar-inner:has(.tutor-painted-classroom) {
+  padding: 0;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 /* Minimized PiP: visually collapses without unmounting the avatar DOM node! */
@@ -1268,6 +1337,14 @@
     grid-column: 1;
     grid-row: 1;
   }
+  .tutor-call-shell[data-layout-mode="split"] .tutor-call-avatar-host:has(.tutor-painted-classroom) {
+    width: auto;
+    max-width: 100%;
+    height: min(100%, calc((100vw - 20px) * 9 / 16));
+    aspect-ratio: 16 / 9;
+    align-self: center;
+    justify-self: center;
+  }
   .tutor-call-shell[data-layout-mode="split"] .tutor-split-divider {
     grid-column: 1;
     grid-row: 2;
@@ -1283,7 +1360,9 @@
   }
 
   /* Mode D side dock becomes a non-overlapping top strip on portrait phone */
-  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-canvas {
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"] .tutor-call-canvas,
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
+    .tutor-call-canvas:has(.tutor-painted-classroom) {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: 150px minmax(0, 1fr);
   }
@@ -1291,6 +1370,15 @@
     .tutor-call-avatar-host {
     grid-column: 1;
     grid-row: 1;
+  }
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
+    .tutor-call-avatar-host:has(.tutor-painted-classroom) {
+    width: min(100%, calc(150px * 16 / 9));
+    height: auto;
+    max-height: 100%;
+    aspect-ratio: 16 / 9;
+    align-self: center;
+    justify-self: center;
   }
   .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="side"]
     .tutor-call-primary-surface {
@@ -1431,6 +1519,40 @@
     .tutor-call-avatar-host[data-pip-size="lg"] {
     width: 184px;
     height: 228px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-avatar-host[data-pip-minimized="false"]:has(.tutor-painted-classroom),
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+    .tutor-call-avatar-host[data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+    height: auto;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-avatar-host[data-pip-size="sm"][data-pip-minimized="false"]:has(.tutor-painted-classroom),
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+    .tutor-call-avatar-host[data-pip-size="sm"][data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+    width: 176px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-avatar-host[data-pip-size="md"][data-pip-minimized="false"]:has(.tutor-painted-classroom),
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+    .tutor-call-avatar-host[data-pip-size="md"][data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+    width: 208px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"]
+    .tutor-call-avatar-host[data-pip-size="lg"][data-pip-minimized="false"]:has(.tutor-painted-classroom),
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"]
+    .tutor-call-avatar-host[data-pip-size="lg"][data-pip-minimized="false"]:has(.tutor-painted-classroom) {
+    width: 248px;
+  }
+  .tutor-call-shell[data-layout-mode="flipchart-pip"] .tutor-live-caption,
+  .tutor-call-shell[data-layout-mode="practice"][data-practice-dock="pip"] .tutor-live-caption {
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    padding: 3px 6px;
+    border-radius: 8px;
+    font-size: 0.6875rem;
+    line-height: 1.2;
   }
   .tutor-call-shell[data-layout-mode="flipchart-pip"]
     .tutor-call-avatar-host[data-pip-minimized="true"],

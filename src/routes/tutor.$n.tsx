@@ -549,7 +549,16 @@ function ValidTutorSessionScreen({
       );
     }
     if (run.signal.aborted) return false;
-    stopBoardAction();
+    classroomVideo.current?.pause();
+    setWritingTarget(null);
+    setBoardPhase(null);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      await sleep(460, (cancel) =>
+        run.signal.addEventListener("abort", cancel, { once: true }),
+      );
+    }
+    if (run.signal.aborted) return false;
+    if (classroomRun.current === run) classroomRun.current = null;
     return true;
   }
 
