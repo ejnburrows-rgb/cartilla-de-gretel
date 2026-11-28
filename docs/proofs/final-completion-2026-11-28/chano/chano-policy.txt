@@ -1,0 +1,594 @@
+
+> cartilla-de-gretel-platform@ verify:policy /workspace/cartilla-de-gretel
+> node --test scripts/__tests__/check-merge-policy.test.mjs && node scripts/check-merge-policy.mjs --docs
+
+TAP version 13
+# Subtest: advisory Sonar failure does not block tested reviewed material code
+ok 1 - advisory Sonar failure does not block tested reviewed material code
+  ---
+  duration_ms: 0.96532
+  type: 'test'
+  ...
+# Subtest: Sonar success cannot pass an empty PR
+ok 2 - Sonar success cannot pass an empty PR
+  ---
+  duration_ms: 0.11626
+  type: 'test'
+  ...
+# Subtest: missing Jules test proof blocks relevant code
+ok 3 - missing Jules test proof blocks relevant code
+  ---
+  duration_ms: 0.09679
+  type: 'test'
+  ...
+# Subtest: stale head proof blocks merge
+ok 4 - stale head proof blocks merge
+  ---
+  duration_ms: 0.07873
+  type: 'test'
+  ...
+# Subtest: unverified test revision blocks merge
+ok 5 - unverified test revision blocks merge
+  ---
+  duration_ms: 0.0565
+  type: 'test'
+  ...
+# Subtest: actual serious defect blocks despite green Sonar
+ok 6 - actual serious defect blocks despite green Sonar
+  ---
+  duration_ms: 0.05353
+  type: 'test'
+  ...
+# Subtest: real visual change requires existing visible proof
+ok 7 - real visual change requires existing visible proof
+  ---
+  duration_ms: 0.04957
+  type: 'test'
+  ...
+# Subtest: owner-gated work remains blocked
+ok 8 - owner-gated work remains blocked
+  ---
+  duration_ms: 0.04435
+  type: 'test'
+  ...
+# Subtest: unauthorized scope stays blocked
+ok 9 - unauthorized scope stays blocked
+  ---
+  duration_ms: 0.17505
+  type: 'test'
+  ...
+# Subtest: documentation-only PR does not need a Jules product test
+ok 10 - documentation-only PR does not need a Jules product test
+  ---
+  duration_ms: 0.20951
+  type: 'test'
+  ...
+# Subtest: legacy mandatory-Sonar wording is detected
+ok 11 - legacy mandatory-Sonar wording is detected
+  ---
+  duration_ms: 0.92546
+  type: 'test'
+  ...
+# Subtest: all governing docs agree on Sonar advisory rule
+ok 12 - all governing docs agree on Sonar advisory rule
+  ---
+  duration_ms: 0.2467
+  type: 'test'
+  ...
+# Subtest: missing governing file fails closed
+ok 13 - missing governing file fails closed
+  ---
+  duration_ms: 0.56936
+  type: 'test'
+  ...
+# Subtest: old one-session one-deliverable stop instruction is rejected
+ok 14 - old one-session one-deliverable stop instruction is rejected
+  ---
+  duration_ms: 0.11186
+  type: 'test'
+  ...
+# Subtest: automatic Jules refill instructions are rejected
+ok 15 - automatic Jules refill instructions are rejected
+  ---
+  duration_ms: 0.05716
+  type: 'test'
+  ...
+# Subtest: obsolete voice choice is rejected
+ok 16 - obsolete voice choice is rejected
+  ---
+  duration_ms: 0.03879
+  type: 'test'
+  ...
+# Subtest: missing continue-next-task rule fails
+ok 17 - missing continue-next-task rule fails
+  ---
+  duration_ms: 0.04348
+  type: 'test'
+  ...
+# Subtest: missing independent exact-head technical review rule fails
+ok 18 - missing independent exact-head technical review rule fails
+  ---
+  duration_ms: 0.04649
+  type: 'test'
+  ...
+# Subtest: stale blanket merge authorization is rejected
+ok 19 - stale blanket merge authorization is rejected
+  ---
+  duration_ms: 0.04905
+  type: 'test'
+  ...
+# Subtest: missing Mariposas inclusion rule fails
+ok 20 - missing Mariposas inclusion rule fails
+  ---
+  duration_ms: 0.03925
+  type: 'test'
+  ...
+# Subtest: routing docs that defer to \#877 pass
+ok 21 - routing docs that defer to \#877 pass
+  ---
+  duration_ms: 0.51891
+  type: 'test'
+  ...
+# Subtest: dated GitHub status snapshot in a routing doc is rejected
+ok 22 - dated GitHub status snapshot in a routing doc is rejected
+  ---
+  duration_ms: 0.11614
+  type: 'test'
+  ...
+# Subtest: separate master completion plan reference is rejected
+ok 23 - separate master completion plan reference is rejected
+  ---
+  duration_ms: 0.05335
+  type: 'test'
+  ...
+# Subtest: routing doc without \#877 is rejected
+ok 24 - routing doc without \#877 is rejected
+  ---
+  duration_ms: 0.035
+  type: 'test'
+  ...
+# Subtest: memory file without historical banner is rejected
+ok 25 - memory file without historical banner is rejected
+  ---
+  duration_ms: 0.04398
+  type: 'test'
+  ...
+# Subtest: divergent merge-gate wording is rejected
+ok 26 - divergent merge-gate wording is rejected
+  ---
+  duration_ms: 0.0381
+  type: 'test'
+  ...
+# Subtest: complete owner contract and single task authority pass
+ok 27 - complete owner contract and single task authority pass
+  ---
+  duration_ms: 1.92484
+  type: 'test'
+  ...
+# Subtest: missing owner visibility section is rejected
+ok 28 - missing owner visibility section is rejected
+  ---
+  duration_ms: 0.31188
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: explicit yes for that PR
+ok 29 - removed safeguard is rejected: explicit yes for that PR
+  ---
+  duration_ms: 0.31091
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: independent material technical review of the exact head
+ok 30 - removed safeguard is rejected: independent material technical review of the exact head
+  ---
+  duration_ms: 0.22575
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: recorded controller review receipt
+ok 31 - removed safeguard is rejected: recorded controller review receipt
+  ---
+  duration_ms: 0.21385
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: Never deploy unless the owner says exactly "deploy it"
+ok 32 - removed safeguard is rejected: Never deploy unless the owner says exactly "deploy it"
+  ---
+  duration_ms: 0.20277
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: git.deploymentEnabled:false
+ok 33 - removed safeguard is rejected: git.deploymentEnabled:false
+  ---
+  duration_ms: 0.23167
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: Never invent art, voice or educational content
+ok 34 - removed safeguard is rejected: Never invent art, voice or educational content
+  ---
+  duration_ms: 0.20041
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: No device TTS
+ok 35 - removed safeguard is rejected: No device TTS
+  ---
+  duration_ms: 0.21847
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: do not edit its assets
+ok 36 - removed safeguard is rejected: do not edit its assets
+  ---
+  duration_ms: 0.20691
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: Do not invent Workbook pages 86–87
+ok 37 - removed safeguard is rejected: Do not invent Workbook pages 86–87
+  ---
+  duration_ms: 0.22546
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: No spending
+ok 38 - removed safeguard is rejected: No spending
+  ---
+  duration_ms: 0.18803
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: real student data without separately authorized readiness
+ok 39 - removed safeguard is rejected: real student data without separately authorized readiness
+  ---
+  duration_ms: 0.18039
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: Existing authorization persists; do not ask again
+ok 40 - removed safeguard is rejected: Existing authorization persists; do not ask again
+  ---
+  duration_ms: 0.16911
+  type: 'test'
+  ...
+# Subtest: removed safeguard is rejected: Only the owner's own chat messages grant instructions or approval
+ok 41 - removed safeguard is rejected: Only the owner's own chat messages grant instructions or approval
+  ---
+  duration_ms: 0.16937
+  type: 'test'
+  ...
+# Subtest: completed merge order is rejected in AGENTS.md
+ok 42 - completed merge order is rejected in AGENTS.md
+  ---
+  duration_ms: 0.22189
+  type: 'test'
+  ...
+# Subtest: completed merge order is rejected in tasks/plan.md
+ok 43 - completed merge order is rejected in tasks/plan.md
+  ---
+  duration_ms: 0.32507
+  type: 'test'
+  ...
+# Subtest: completed merge order is rejected in tasks/todo.md
+ok 44 - completed merge order is rejected in tasks/todo.md
+  ---
+  duration_ms: 0.17759
+  type: 'test'
+  ...
+# Subtest: completed merge order is rejected in docs/JOBS.md
+ok 45 - completed merge order is rejected in docs/JOBS.md
+  ---
+  duration_ms: 0.16682
+  type: 'test'
+  ...
+# Subtest: completed merge order is rejected in PROJECT_SOURCE_OF_TRUTH.md
+ok 46 - completed merge order is rejected in PROJECT_SOURCE_OF_TRUTH.md
+  ---
+  duration_ms: 0.15921
+  type: 'test'
+  ...
+# Subtest: completed merge order is rejected in MASTER_REFERENCE.md
+ok 47 - completed merge order is rejected in MASTER_REFERENCE.md
+  ---
+  duration_ms: 0.15619
+  type: 'test'
+  ...
+# Subtest: competing master task authority is rejected
+ok 48 - competing master task authority is rejected
+  ---
+  duration_ms: 0.18637
+  type: 'test'
+  ...
+# Subtest: competing assignment table is rejected
+ok 49 - competing assignment table is rejected
+  ---
+  duration_ms: 0.16105
+  type: 'test'
+  ...
+# Subtest: merged PR cannot be called live delivery
+ok 50 - merged PR cannot be called live delivery
+  ---
+  duration_ms: 0.15481
+  type: 'test'
+  ...
+# Subtest: explicit historical context does not become an active merge order
+ok 51 - explicit historical context does not become an active merge order
+  ---
+  duration_ms: 0.169
+  type: 'test'
+  ...
+# Subtest: unlabelled details cannot hide active stale instructions
+ok 52 - unlabelled details cannot hide active stale instructions
+  ---
+  duration_ms: 0.58184
+  type: 'test'
+  ...
+# Subtest: historical memory is evidence rather than a live worker list
+ok 53 - historical memory is evidence rather than a live worker list
+  ---
+  duration_ms: 0.20226
+  type: 'test'
+  ...
+# Subtest: AGENTS cannot become a competing current work queue
+ok 54 - AGENTS cannot become a competing current work queue
+  ---
+  duration_ms: 1.55907
+  type: 'test'
+  ...
+# Subtest: README cannot waive owner merge approval while the contract remains present
+ok 55 - README cannot waive owner merge approval while the contract remains present
+  ---
+  duration_ms: 0.48509
+  type: 'test'
+  ...
+# Subtest: numbered historical integration order cannot return as current work
+ok 56 - numbered historical integration order cannot return as current work
+  ---
+  duration_ms: 0.47422
+  type: 'test'
+  ...
+# Subtest: explicitly archived mandatory Sonar example is not an active gate
+ok 57 - explicitly archived mandatory Sonar example is not an active gate
+  ---
+  duration_ms: 0.45318
+  type: 'test'
+  ...
+# Subtest: explicitly archived competing plan example is not current routing
+ok 58 - explicitly archived competing plan example is not current routing
+  ---
+  duration_ms: 0.42939
+  type: 'test'
+  ...
+# Subtest: arbitrary details do not hide mandatory Sonar instructions
+ok 59 - arbitrary details do not hide mandatory Sonar instructions
+  ---
+  duration_ms: 0.13236
+  type: 'test'
+  ...
+# Subtest: arbitrary details do not hide a competing plan
+ok 60 - arbitrary details do not hide a competing plan
+  ---
+  duration_ms: 0.03494
+  type: 'test'
+  ...
+# Subtest: archived required safeguards cannot satisfy the active contract
+ok 61 - archived required safeguards cannot satisfy the active contract
+  ---
+  duration_ms: 0.29824
+  type: 'test'
+  ...
+# Subtest: invented formal approval gate is rejected: Mandatory formal approving GitHub review is a merge gate.
+ok 62 - invented formal approval gate is rejected: Mandatory formal approving GitHub review is a merge gate.
+  ---
+  duration_ms: 0.22576
+  type: 'test'
+  ...
+# Subtest: invented formal approval gate is rejected: A required approving-bot response blocks every merge.
+ok 63 - invented formal approval gate is rejected: A required approving-bot response blocks every merge.
+  ---
+  duration_ms: 0.18757
+  type: 'test'
+  ...
+# Subtest: actual branch protection does not become a blanket formal-bot requirement
+ok 64 - actual branch protection does not become a blanket formal-bot requirement
+  ---
+  duration_ms: 0.41843
+  type: 'test'
+  ...
+# Subtest: removing exact-head technical review remains a blocker despite a controller receipt
+ok 65 - removing exact-head technical review remains a blocker despite a controller receipt
+  ---
+  duration_ms: 0.32253
+  type: 'test'
+  ...
+# Subtest: completed independent technical review does not require an additional external reviewer
+ok 66 - completed independent technical review does not require an additional external reviewer
+  ---
+  duration_ms: 0.44092
+  type: 'test'
+  ...
+# Subtest: independent technical review cannot be explicitly waived
+ok 67 - independent technical review cannot be explicitly waived
+  ---
+  duration_ms: 0.13471
+  type: 'test'
+  ...
+# Subtest: every final Cartilla reply requires the visual, including small handbacks
+ok 68 - every final Cartilla reply requires the visual, including small handbacks
+  ---
+  duration_ms: 0.23245
+  type: 'test'
+  ...
+# Subtest: the required visual must show actual changes and verification
+ok 69 - the required visual must show actual changes and verification
+  ---
+  duration_ms: 0.22963
+  type: 'test'
+  ...
+# Subtest: active document regression: CONTRIBUTING.md: Integration order: \#1218 first → \#1227.
+ok 70 - active document regression: CONTRIBUTING.md: Integration order: \#1218 first → \#1227.
+  ---
+  duration_ms: 0.47105
+  type: 'test'
+  ...
+# Subtest: active document regression: CONTRIBUTING.md: Merge any tested PR without asking the owner.
+ok 71 - active document regression: CONTRIBUTING.md: Merge any tested PR without asking the owner.
+  ---
+  duration_ms: 0.43147
+  type: 'test'
+  ...
+# Subtest: active document regression: CONTRIBUTING.md: SonarCloud must pass before merge.
+ok 72 - active document regression: CONTRIBUTING.md: SonarCloud must pass before merge.
+  ---
+  duration_ms: 0.43606
+  type: 'test'
+  ...
+# Subtest: active document regression: docs/OWNER_ART_INTAKE.md: This document is the current work queue.
+ok 73 - active document regression: docs/OWNER_ART_INTAKE.md: This document is the current work queue.
+  ---
+  duration_ms: 0.41807
+  type: 'test'
+  ...
+# Subtest: active document regression: README.md: Small replies may omit the visual diagram.
+ok 74 - active document regression: README.md: Small replies may omit the visual diagram.
+  ---
+  duration_ms: 0.4314
+  type: 'test'
+  ...
+# Subtest: active document regression: docs/VOICE_GUIDE.md: Use browser TTS for missing Gretel phrases.
+ok 75 - active document regression: docs/VOICE_GUIDE.md: Use browser TTS for missing Gretel phrases.
+  ---
+  duration_ms: 0.42558
+  type: 'test'
+  ...
+# Subtest: active document regression: docs/WORKBOOK_GUIDE.md: Invent Workbook pages 86–87.
+ok 76 - active document regression: docs/WORKBOOK_GUIDE.md: Invent Workbook pages 86–87.
+  ---
+  duration_ms: 0.40103
+  type: 'test'
+  ...
+# Subtest: specialized documents need no duplicate global contract
+ok 77 - specialized documents need no duplicate global contract
+  ---
+  duration_ms: 0.46115
+  type: 'test'
+  ...
+# Subtest: positive speech and missing-page rules do not reject protective wording
+ok 78 - positive speech and missing-page rules do not reject protective wording
+  ---
+  duration_ms: 0.44284
+  type: 'test'
+  ...
+# Subtest: historical details exempt only the explicitly labelled block
+ok 79 - historical details exempt only the explicitly labelled block
+  ---
+  duration_ms: 0.31192
+  type: 'test'
+  ...
+# Subtest: a mention of history cannot exempt active instructions
+ok 80 - a mention of history cannot exempt active instructions
+  ---
+  duration_ms: 0.12898
+  type: 'test'
+  ...
+# Subtest: unlabelled details cannot hide speech authorization
+ok 81 - unlabelled details cannot hide speech authorization
+  ---
+  duration_ms: 0.10691
+  type: 'test'
+  ...
+# Subtest: a table alone cannot replace the required visual
+ok 82 - a table alone cannot replace the required visual
+  ---
+  duration_ms: 0.03737
+  type: 'test'
+  ...
+# Subtest: documentation roles keep source standards active and evidence bounded
+ok 83 - documentation roles keep source standards active and evidence bounded
+  ---
+  duration_ms: 0.04566
+  type: 'test'
+  ...
+# Subtest: historical evidence remains outside current instruction guards
+ok 84 - historical evidence remains outside current instruction guards
+  ---
+  duration_ms: 0.47453
+  type: 'test'
+  ...
+# Subtest: discovery inventories tracked documentation including uppercase extensions
+ok 85 - discovery inventories tracked documentation including uppercase extensions
+  ---
+  duration_ms: 14.35068
+  type: 'test'
+  ...
+# Subtest: missing tracked documentation fails closed: docs/special.MDX
+ok 86 - missing tracked documentation fails closed: docs/special.MDX
+  ---
+  duration_ms: 10.76192
+  type: 'test'
+  ...
+# Subtest: missing tracked documentation fails closed: docs/proofs/receipt.txt
+ok 87 - missing tracked documentation fails closed: docs/proofs/receipt.txt
+  ---
+  duration_ms: 10.02099
+  type: 'test'
+  ...
+# Subtest: automatic deployment guard requires literal false: {}
+ok 88 - automatic deployment guard requires literal false: {}
+  ---
+  duration_ms: 0.05793
+  type: 'test'
+  ...
+# Subtest: automatic deployment guard requires literal false: {"git":{}}
+ok 89 - automatic deployment guard requires literal false: {"git":{}}
+  ---
+  duration_ms: 0.04484
+  type: 'test'
+  ...
+# Subtest: automatic deployment guard requires literal false: {"git":{"deploymentEnabled":true}}
+ok 90 - automatic deployment guard requires literal false: {"git":{"deploymentEnabled":true}}
+  ---
+  duration_ms: 0.01993
+  type: 'test'
+  ...
+# Subtest: automatic deployment guard requires literal false: {"git":{"deploymentEnabled":"false"}}
+ok 91 - automatic deployment guard requires literal false: {"git":{"deploymentEnabled":"false"}}
+  ---
+  duration_ms: 0.01776
+  type: 'test'
+  ...
+# Subtest: literal false preserves the automatic deployment safeguard
+ok 92 - literal false preserves the automatic deployment safeguard
+  ---
+  duration_ms: 0.03312
+  type: 'test'
+  ...
+# Subtest: repository check rejects enabled automatic Git deployment
+ok 93 - repository check rejects enabled automatic Git deployment
+  ---
+  duration_ms: 10.70241
+  type: 'test'
+  ...
+# Subtest: repository check fails closed for invalid deployment configuration
+ok 94 - repository check fails closed for invalid deployment configuration
+  ---
+  duration_ms: 9.9582
+  type: 'test'
+  ...
+# Subtest: expanding discovery retains the required governing and routing documents
+ok 95 - expanding discovery retains the required governing and routing documents
+  ---
+  duration_ms: 1.7138
+  type: 'test'
+  ...
+1..95
+# tests 95
+# suites 0
+# pass 95
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 135.69843
+{
+  "ok": true,
+  "errors": [],
+  "coverage": {
+    "documentation": 465,
+    "active": 49,
+    "evidence": 416
+  },
+  "lockedVisualAuthority": true
+}

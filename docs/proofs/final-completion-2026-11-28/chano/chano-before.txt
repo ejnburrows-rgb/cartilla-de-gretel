@@ -1,0 +1,131 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [31m❯[39m src/components/cartilla/games/chano/__tests__/completion.test.tsx [2m([22m[2m4 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 199[2mms[22m[39m
+[31m     [31m×[31m does not finish a round by skipping every word[39m[32m 68[2mms[22m[39m
+[31m     [31m×[31m returns to unfinished words instead of completing after only the final answer[39m[32m 30[2mms[22m[39m
+[31m     [31m×[31m awards one complete round, then resets earned words on replay[39m[32m 72[2mms[22m[39m
+[31m     [31m×[31m does not award a wrong answer or a cleared board[39m[32m 27[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/components/cartilla/games/chano/__tests__/completion.test.tsx[2m > [22mmounted Chano completion[2m > [22mdoes not finish a round by skipping every word
+[31m[1mAssertionError[22m: expected "vi.fn()" to not be called at all, but actually been called 1 times[90m
+
+Received:
+
+[1m  1st vi.fn() call:
+
+[22m    Array [
+      Object {
+        "kind": "exercise",
+        "lessonId": "game:payaso-chano-ss",
+        "meta": Object {
+          "completed": true,
+          "exercise": "payaso-chano",
+          "gameId": "payaso-chano-ss",
+        },
+        "score": 0,
+        "total": 5,
+      },
+    ]
+[31m[90m
+
+Number of calls: [1m1[22m
+[31m[39m
+[36m [2m❯[22m src/components/cartilla/games/chano/__tests__/completion.test.tsx:[2m29:29[22m[39m
+    [90m 27|[39m     [34mrender[39m([33m<[39m[33mChanoScene[39m [33mcontent[39m[33m=[39m[33m{[39m[33mPAYASO_CHANO_SS[39m[33m}[39m [33m/[39m[33m>[39m)[33m;[39m
+    [90m 28|[39m     [35mfor[39m ([35mlet[39m i [33m=[39m [34m0[39m[33m;[39m i [33m<[39m [33mCHANO_WORDS[39m[33m.[39mlength[33m;[39m i[33m++[39m) [34mnext[39m()[33m;[39m
+    [90m 29|[39m     [34mexpect[39m(recordEvent)[33m.[39mnot[33m.[39m[34mtoHaveBeenCalled[39m()[33m;[39m
+    [90m   |[39m                             [31m^[39m
+    [90m 30|[39m     [34mexpect[39m(screen[33m.[39m[34mqueryByText[39m([32m"¡Terminaste!"[39m))[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m 31|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m"Palabra 1 de 5"[39m))[33m.[39m[34mtoBeTruthy[39m()[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/cartilla/games/chano/__tests__/completion.test.tsx[2m > [22mmounted Chano completion[2m > [22mreturns to unfinished words instead of completing after only the final answer
+[31m[1mAssertionError[22m: expected "vi.fn()" to not be called at all, but actually been called 1 times[90m
+
+Received:
+
+[1m  1st vi.fn() call:
+
+[22m    Array [
+      Object {
+        "kind": "exercise",
+        "lessonId": "game:payaso-chano-ss",
+        "meta": Object {
+          "completed": true,
+          "exercise": "payaso-chano",
+          "gameId": "payaso-chano-ss",
+        },
+        "score": 1,
+        "total": 5,
+      },
+    ]
+[31m[90m
+
+Number of calls: [1m1[22m
+[31m[39m
+[36m [2m❯[22m src/components/cartilla/games/chano/__tests__/completion.test.tsx:[2m38:29[22m[39m
+    [90m 36|[39m     [34msolve[39m([33mCHANO_WORDS[39m[33m.[39mlength [33m-[39m [34m1[39m)[33m;[39m
+    [90m 37|[39m     [34mnext[39m()[33m;[39m
+    [90m 38|[39m     [34mexpect[39m(recordEvent)[33m.[39mnot[33m.[39m[34mtoHaveBeenCalled[39m()[33m;[39m
+    [90m   |[39m                             [31m^[39m
+    [90m 39|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m"Palabra 1 de 5"[39m))[33m.[39m[34mtoBeTruthy[39m()[33m;[39m
+    [90m 40|[39m     for (let i = 0; i < CHANO_WORDS.length - 1; i++) { solve(i); next(…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/cartilla/games/chano/__tests__/completion.test.tsx[2m > [22mmounted Chano completion[2m > [22mawards one complete round, then resets earned words on replay
+[31m[1mAssertionError[22m: expected "vi.fn()" to be called 1 times, but got 2 times[39m
+[36m [2m❯[22m src/components/cartilla/games/chano/__tests__/completion.test.tsx:[2m51:25[22m[39m
+    [90m 49|[39m     [34mnext[39m()[33m;[39m
+    [90m 50|[39m     [35mfor[39m ([35mlet[39m i [33m=[39m [34m0[39m[33m;[39m i [33m<[39m [33mCHANO_WORDS[39m[33m.[39mlength[33m;[39m i[33m++[39m) [34mnext[39m()[33m;[39m
+    [90m 51|[39m     [34mexpect[39m(recordEvent)[33m.[39m[34mtoHaveBeenCalledTimes[39m([34m1[39m)[33m;[39m
+    [90m   |[39m                         [31m^[39m
+    [90m 52|[39m     [35mfor[39m ([35mlet[39m i [33m=[39m [34m0[39m[33m;[39m i [33m<[39m [33mCHANO_WORDS[39m[33m.[39mlength[33m;[39m i[33m++[39m) { [34msolve[39m(i)[33m;[39m [34mnext[39m()[33m;[39m }
+    [90m 53|[39m     [34mexpect[39m(recordEvent)[33m.[39m[34mtoHaveBeenCalledTimes[39m([34m2[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/cartilla/games/chano/__tests__/completion.test.tsx[2m > [22mmounted Chano completion[2m > [22mdoes not award a wrong answer or a cleared board
+[31m[1mAssertionError[22m: expected "vi.fn()" to not be called at all, but actually been called 1 times[90m
+
+Received:
+
+[1m  1st vi.fn() call:
+
+[22m    Array [
+      Object {
+        "kind": "exercise",
+        "lessonId": "game:payaso-chano-ss",
+        "meta": Object {
+          "completed": true,
+          "exercise": "payaso-chano",
+          "gameId": "payaso-chano-ss",
+        },
+        "score": 0,
+        "total": 5,
+      },
+    ]
+[31m[90m
+
+Number of calls: [1m1[22m
+[31m[39m
+[36m [2m❯[22m src/components/cartilla/games/chano/__tests__/completion.test.tsx:[2m63:29[22m[39m
+    [90m 61|[39m     fireEvent[33m.[39m[34mclick[39m(screen[33m.[39m[34mgetByRole[39m([32m"button"[39m[33m,[39m { name[33m:[39m [32m"Borrar"[39m }))[33m;[39m
+    [90m 62|[39m     [35mfor[39m ([35mlet[39m i [33m=[39m [34m0[39m[33m;[39m i [33m<[39m [33mCHANO_WORDS[39m[33m.[39mlength[33m;[39m i[33m++[39m) [34mnext[39m()[33m;[39m
+    [90m 63|[39m     [34mexpect[39m(recordEvent)[33m.[39mnot[33m.[39m[34mtoHaveBeenCalled[39m()[33m;[39m
+    [90m   |[39m                             [31m^[39m
+    [90m 64|[39m   })[33m;[39m
+    [90m 65|[39m })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m4 failed[39m[22m[90m (4)[39m
+[2m   Start at [22m 05:43:47
+[2m   Duration [22m 806ms[2m (transform 96ms, setup 74ms, import 125ms, tests 199ms, environment 332ms)[22m
+

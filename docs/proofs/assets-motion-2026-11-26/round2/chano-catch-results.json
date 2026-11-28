@@ -1,0 +1,134 @@
+{
+ "phone": {
+  "mi": {
+   "syl": "mi",
+   "ms": 2269,
+   "inSlot": true,
+   "statesSeen": [
+    "chosen",
+    "placing",
+    "on-board"
+   ],
+   "othersJuggling": true,
+   "ballCount": 5,
+   "slotText": ""
+  },
+  "ma": {
+   "syl": "ma",
+   "ms": 2760,
+   "inSlot": true,
+   "statesSeen": [
+    "chosen",
+    "placing",
+    "on-board"
+   ],
+   "othersJuggling": true,
+   "ballCount": 5,
+   "slotText": ""
+  },
+  "stillJuggling": [
+   "mo:moving",
+   "mu:moving",
+   "me:moving"
+  ],
+  "placedStay": [
+   "ma:stays",
+   "mi:stays"
+  ],
+  "word1": "¡Muy bien!",
+  "tossStates": [
+   "ma:tossing",
+   "mi:tossing"
+  ],
+  "backInJuggle": [
+   "ma:juggling",
+   "mi:juggling"
+  ],
+  "ma1": {
+   "syl": "ma",
+   "ms": 1145,
+   "inSlot": true,
+   "statesSeen": [
+    "chosen",
+    "placing",
+    "on-board"
+   ],
+   "othersJuggling": true,
+   "ballCount": 5,
+   "slotText": ""
+  },
+  "repeat": {
+   "slot2Text": "ma",
+   "ballCount": 5,
+   "maBalls": 1
+  },
+  "word2": "¡Muy bien!",
+  "errors": []
+ },
+ "phone-land": {
+  "mi": {
+   "syl": "mi",
+   "ms": 2252,
+   "inSlot": true,
+   "statesSeen": [
+    "chosen",
+    "placing",
+    "on-board"
+   ],
+   "othersJuggling": true,
+   "ballCount": 5,
+   "slotText": ""
+  },
+  "ma": {
+   "syl": "ma",
+   "ms": 2755,
+   "inSlot": true,
+   "statesSeen": [
+    "chosen",
+    "placing",
+    "on-board"
+   ],
+   "othersJuggling": true,
+   "ballCount": 5,
+   "slotText": ""
+  },
+  "stillJuggling": [
+   "mo:moving",
+   "mu:moving",
+   "me:moving"
+  ],
+  "placedStay": [
+   "ma:stays",
+   "mi:stays"
+  ],
+  "word1": "¡Muy bien!",
+  "tossStates": [
+   "ma:tossing",
+   "mi:tossing"
+  ],
+  "backInJuggle": [
+   "ma:juggling",
+   "mi:juggling"
+  ],
+  "ma1": {
+   "syl": "ma",
+   "ms": 1019,
+   "inSlot": true,
+   "statesSeen": [
+    "chosen",
+    "placing",
+    "on-board"
+   ],
+   "othersJuggling": true,
+   "ballCount": 5,
+   "slotText": ""
+  },
+  "repeat": {
+   "slot2Text": "ma",
+   "ballCount": 5,
+   "maBalls": 1
+  },
+  "word2": "¡Muy bien!",
+  "errors": []
+ }
+}

@@ -27,10 +27,22 @@ FITS = {
     'vocal-e-elefante': dict(a=3.706559, b=0.084929, tx=29.130916, ty=-7.543410, mirror=False, W1=222),
     'vocal-o-olla':     dict(a=4.0073, b=0.0002,  tx=6.41,  ty=7.90,   mirror=False, W1=213),
     'vocal-a-avion':    dict(a=3.9271, b=-0.0013, tx=9.48,  ty=189.56, mirror=False, W1=208),
-    'vocal-a-abeja':    dict(a=2.8071, b=0.0087,  tx=27.65, ty=21.45,  mirror=True,  W1=158),
+    # Fitted against the current colour Page 1 bee (316x322), not mirrored: 231 SIFT
+    # inliers, 0.64 px rms (scripts/living-motion/fit.py, 2026-11-26).
+    'vocal-a-abeja':    dict(a=3.133072, b=0.000145, tx=-32.438153, ty=-8.857606, mirror=False, W1=316),
     'vocal-a-abanico':  dict(a=3.8403, b=-0.0475, tx=5.52,  ty=4.98,   mirror=False, W1=220),
     'vocal-i-iman':     dict(a=3.9389, b=0.0011,  tx=10.45, ty=8.28,   mirror=False, W1=215),
 }
+
+# Colour Page 1 bee (wb-p1/abeja.svg, 316x322): wing outlines and the hinge each wing
+# turns about. The back wing starts below the antenna ball and stops short of the head.
+ABEJA_FRONT_WING = [(40, 70), (38, 45), (45, 24), (62, 12), (85, 15), (105, 30), (124, 60), (137, 95),
+                    (144, 128), (148, 152), (138, 156), (112, 150), (84, 148), (64, 141), (64, 127),
+                    (80, 121), (56, 92)]
+ABEJA_FRONT_HINGE = (142, 150)
+ABEJA_BACK_WING = [(137, 58), (150, 50), (172, 50), (190, 46), (194, 60), (182, 78), (164, 98),
+                   (154, 116), (150, 140), (143, 150), (136, 122), (134, 84)]
+ABEJA_BACK_HINGE = (149, 146)
 
 class Fit:
     def __init__(self, name):
@@ -163,11 +175,11 @@ def vocal_a_avion():
 # ---------- ABEJA (vowel a): wings flutter ----------
 def vocal_a_abeja():
     n = 'vocal-a-abeja'; t = Fit(n); base = load(n); size = base.size; svg = OriginalSvg(n, base)
-    wr = soft_mask(size, [('poly', t.poly([(97, 0), (152, 0), (152, 42), (132, 64), (104, 72), (94, 64)]))], t.d(1.6))
-    wl = soft_mask(size, [('poly', t.poly([(50, 4), (94, 2), (96, 58), (90, 62), (84, 40), (62, 34), (50, 30)]))], t.d(1.6))
-    vxr, vyr = field_rotate(size, wr, t.p(97, 68))
-    vxl, vyl = field_rotate(size, wl, t.p(92, 62))
-    svg.warp(vxr - vxl, vyr - vyl, [0, 0.07, 0, -0.03, 0], '0.26s', splines=False)
+    wf = soft_mask(size, [('poly', t.poly(ABEJA_FRONT_WING))], t.d(3.2))
+    wb = soft_mask(size, [('poly', t.poly(ABEJA_BACK_WING))], t.d(3.2))
+    vxf, vyf = field_rotate(size, wf, t.p(*ABEJA_FRONT_HINGE))
+    vxb, vyb = field_rotate(size, wb, t.p(*ABEJA_BACK_HINGE))
+    svg.warp(vxf - vxb, vyf - vyb, [0, 0.07, 0, -0.03, 0], '0.26s', splines=False)
     return svg.render(_out(n))
 
 # ---------- OSO (vowel o): breathing, blinking, the bee's wings buzz ----------

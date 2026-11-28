@@ -21,7 +21,9 @@ FITS = {
     'fc_p004_oso':      dict(tx=56, ty=44),
     'fc_p004_oveja':    dict(tx=52, ty=57),
     'fc_p004_olla':     dict(tx=53, ty=74),
-    'fc_p006_elefante': dict(a=1.316565, b=0.020121, tx=15.407558, ty=15.219690),
+    # Refit 2026-11-26 for the replaced 570x540 still: the earlier fit composed with
+    # SIFT/RANSAC old still -> new still (25 inliers, 1.46 px rms; scripts/living-motion/fit.py).
+    'fc_p006_elefante': dict(a=2.189082, b=-0.006907, tx=35.116107, ty=31.119770),
     'fc_p007_iman':     dict(tx=52, ty=59),
 }
 

@@ -1,0 +1,11 @@
+{
+  "base": "8ec0aa5b35ac2cde7eb73d31bb664deeb24b7124",
+  "files": {
+    "src/components/cartilla/games/chano/ChanoScene.tsx": "75a654b2a9827c3683236820e43eb454f0bc22014d0da386a2ad2174d5a21b03",
+    "src/components/cartilla/games/chano/__tests__/completion.test.tsx": "71e6614fb0e6f5bc308e8fa6c0b3cb2b73ea9a5531bfacaec05a324238791990",
+    "tests/e2e/chano-earned-completion.spec.ts": "8d99dd80a28c20fd1c2f2935fe5aea3581b630ba65ed6788c4adb5402676aa9b"
+  },
+  "browser": "Chromium 1248 via explicit installed executable; Playwright uses dependency-pinned version",
+  "devices": "simulated, not physical",
+  "audio": "not audited for sound or microphone"
+}

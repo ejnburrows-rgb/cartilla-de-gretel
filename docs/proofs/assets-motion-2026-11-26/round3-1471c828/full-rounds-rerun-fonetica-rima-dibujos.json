@@ -1,0 +1,68 @@
+[
+ {
+  "head": "1471c828",
+  "game": "fonetica-p",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "3 de 3 palabras completadas"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "rima-p",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "2 de 2 rimas encontradas"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "dibujos-o",
+  "vp": "phone",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "3 de 3 dibujos correctos"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "fonetica-p",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "3 de 3 palabras completadas"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "rima-p",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "2 de 2 rimas encontradas"
+  }
+ },
+ {
+  "head": "1471c828",
+  "game": "dibujos-o",
+  "vp": "desktop",
+  "ok": true,
+  "overflowX": false,
+  "errors": [],
+  "detail": {
+   "total": "3 de 3 dibujos correctos"
+  }
+ }
+]

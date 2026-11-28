@@ -1,0 +1,28 @@
+head: 64c3c3122ed7c8a9ed635da41f1ed4a8ad731905
+command: OPEN_ACCESS_ONLY=1 npx playwright test tests/e2e/cow-moving-cow-visible.spec.ts tests/e2e/review-cow-game.spec.ts tests/e2e/review-cow-hub.spec.ts tests/e2e/review-cow-variants.spec.ts tests/e2e/chano-touch-drag.spec.ts tests/e2e/butterfly-garden.spec.ts --project=chromium --reporter=list
+
+
+Running 20 tests using 1 worker
+
+  ✓   1 [chromium] › tests/e2e/butterfly-garden.spec.ts:38:1 › desktop reduced motion: round result, wrong answer, focus and reload persistence (16.0s)
+  ✓   2 [chromium] › tests/e2e/butterfly-garden.spec.ts:83:1 › phone touch: animated delivery, wrong return, correct word and help (16.2s)
+  ✓   3 [chromium] › tests/e2e/butterfly-garden.spec.ts:115:1 › tablet and projector: original images load and game controls fit (9.6s)
+  ✓   4 [chromium] › tests/e2e/butterfly-garden.spec.ts:149:1 › keyboard syllable controls retain a visible focus outline (2.7s)
+  ✓   5 [chromium] › tests/e2e/butterfly-garden.spec.ts:163:1 › instructions trap keyboard focus, close with Escape and restore the trigger (2.9s)
+  ✓   6 [chromium] › tests/e2e/butterfly-garden.spec.ts:186:1 › rotating during delivery and retrieval returns the butterfly to its current home (9.4s)
+  ✓   7 [chromium] › tests/e2e/review-cow-game.spec.ts:9:5 › mobile-emulated › cow game plays wrong, all five right, completion and reset (32.1s)
+  ✓   8 [chromium] › tests/e2e/review-cow-game.spec.ts:9:5 › desktop › cow game plays wrong, all five right, completion and reset (33.3s)
+  ✓   9 [chromium] › tests/e2e/review-cow-game.spec.ts:26:1 › reset during an active delivery does not resurrect the previous move (7.2s)
+  ✓  10 [chromium] › tests/e2e/review-cow-game.spec.ts:41:3 › reset during wrong feedback cancels remaining callbacks (8.9s)
+  ✓  11 [chromium] › tests/e2e/review-cow-game.spec.ts:41:3 › reset during correct return cancels remaining callbacks (10.5s)
+  ✓  12 [chromium] › tests/e2e/review-cow-variants.spec.ts:8:5 › free phone-emulated: wrong, retry, completion, replay (33.0s)
+  ✓  13 [chromium] › tests/e2e/review-cow-variants.spec.ts:8:5 › guided phone-emulated: wrong, retry, completion, replay (32.8s)
+  ✓  14 [chromium] › tests/e2e/review-cow-variants.spec.ts:8:5 › free desktop: wrong, retry, completion, replay (36.0s)
+  ✓  15 [chromium] › tests/e2e/review-cow-variants.spec.ts:8:5 › guided desktop: wrong, retry, completion, replay (35.0s)
+  ✓  16 [chromium] › tests/e2e/chano-touch-drag.spec.ts:5:1 › Chano: touch drag a ball, then the next tap still places a ball (2.6s)
+  ✓  17 [chromium] › tests/e2e/cow-moving-cow-visible.spec.ts:9:3 › moving cow stays visible with its card (desktop) (5.2s)
+  ✓  18 [chromium] › tests/e2e/cow-moving-cow-visible.spec.ts:9:3 › moving cow stays visible with its card (phone) (5.0s)
+  ✓  19 [chromium] › tests/e2e/review-cow-hub.spec.ts:3:3 › cow review links and choices 390×844 (3.3s)
+  ✓  20 [chromium] › tests/e2e/review-cow-hub.spec.ts:3:3 › cow review links and choices 1366×768 (2.8s)
+
+  20 passed (5.2m)

@@ -7,8 +7,7 @@
   "abeja": {
     "still": "public/cartilla/art/faithful/leccion-1/wb-p1/abeja.svg",
     "alive": "public/cartilla/art/faithful/leccion-1/wb-p1/abeja-alive.svg",
-    "stillSha256": "6f759e1b8dce95df661c1c943a83e34ca66831676ff7405e277ca25f97f6dca8",
-    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
+    "stillSha256": "4943f73101edebd566fb464d693777031ba55825d1ead20cca7b510861e1d351"
   },
   "avion": {
     "still": "public/cartilla/art/optimized/workbook/leccion-1/avion.svg",
@@ -38,7 +37,7 @@
   "fc_p006_elefante": {
     "still": "public/cartilla/art/optimized/flipchart-native/p006-elefante.png",
     "alive": "public/cartilla/art/optimized/flipchart-native/p006-elefante-alive.svg",
-    "stillSha256": "c79cd5920de38e1230df82d432184870e7e90a1cd1342d8513eff17ba6216662"
+    "stillSha256": "d0c044b079af68d6e7ca87c65a3cfa75dd9883b50e138b24be25f9777975b8fa"
   },
   "fc_p007_iman": {
     "still": "public/cartilla/art/optimized/flipchart-native/p007-iman.png",
@@ -78,8 +77,7 @@
   "vocal-a-abeja": {
     "still": "public/cartilla/art/faithful/vocal-a/abeja.webp",
     "alive": "public/cartilla/art/faithful/vocal-a/abeja-alive.svg",
-    "stillSha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef",
-    "motionStatus": "NOT VERIFIED - still replaced since motion was built"
+    "stillSha256": "4bf3d73b48d4fa7fa6bb38f8d16844134386be986a6028f4bb6f0f55a9386dd1"
   },
   "vocal-a-avion": {
     "still": "public/cartilla/art/faithful/vocal-a/avion.webp",
