@@ -28,3 +28,9 @@ Run `node scripts/verify-tutor-pages.mjs https://PREVIEW tutor-pages.json` from 
 Use the [existing intake instructions](intake/README.md) for continuous owner takes. Match each cut to the exact approved text before changing the dialogue status. Keep source takes private. Use `node scripts/build-tutor-visemes.mjs --all` for approved dialogue and `node scripts/build-tutor-picture-models.mjs` for additional picture models already approved in the picture bank and matched by the curriculum. The latter preserves cue timings when the recording's checksum matches and regenerates them if the recording changes.
 
 Run the Tutor line, viseme, and book-fidelity validators after changing recordings. Review the affected lessons through the Demo Mode path and check the actual recording with the underlying media clock, muted behavior, replay, interruption, and offline preparation. Log the revision, viewport, result, and remaining gaps in issue #877.
+
+### Offline playback check
+
+The full pack should contain `/tutor` and the 24 lesson routes, plus the classroom media, approved recordings and Spanish recognition model. Preparing the pack and seeing the ready badge checks download completion. Close the old Tutor tab, disconnect from the server, and reopen a saved lesson beyond Lesson 3. On Lesson 4, answer `e`, watch the board sequence and replay **elefante**. The service worker must supply partial cached video reads so the browser can seek through the board poses offline.
+
+In a production build of the fixes, this passed with the test web server stopped and unreachable. Chrome loaded Lesson 4 from the service worker, completed all six board phases, and played and replayed **elefante**. The preview test in `tests/e2e/tutor-offline-pack.spec.ts` checks all 24 cached lesson URLs, representative offline cold launches and a partial read from the cached classroom video.

@@ -36,6 +36,18 @@ test("verified pack survives closing the page and cold-opens every tutor route o
       await expect(cold.getByRole("heading", { name: "Tutor de Gretel" })).toBeVisible();
     else await expect(cold.locator("[data-tutor-target-word]")).toBeVisible({ timeout: 30_000 });
   }
+  const mediaRange = await cold.evaluate(async () => {
+    const response = await fetch("/cartilla/images/gretel/tutor/classroom-review/abeja.webm", {
+      headers: { Range: "bytes=0-31" },
+    });
+    return {
+      status: response.status,
+      contentRange: response.headers.get("content-range"),
+      length: (await response.arrayBuffer()).byteLength,
+    };
+  });
+  expect(mediaRange).toEqual({ status: 206, contentRange: expect.stringMatching(/^bytes 0-31\/\d+$/), length: 32 });
+
   // Return to the teacher control before simulating browser storage eviction.
   await cold.goto("/tutor");
   // A partial cache must immediately lose its ready status.

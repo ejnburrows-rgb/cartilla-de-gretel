@@ -17,11 +17,33 @@ const TUTOR_PACK_CACHE_PREFIX = "cartilla:tutor:";
 const TUTOR_PACK_VERSION = "v1.1.0";
 const TUTOR_ROUTE_PATTERN = /^\/tutor(?:\/(?:[1-9]|1[0-9]|2[0-4]))?\/?$/;
 
+async function withTutorByteRange(request, response) {
+  const range = request.headers.get("range");
+  if (!range || response.status !== 200) return response;
+
+  const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+  const body = await response.blob();
+  const { size } = body;
+  const start = match?.[1] ? Number(match[1]) : Math.max(0, size - Number(match?.[2]));
+  const end = match?.[1] && match[2] ? Math.min(size - 1, Number(match[2])) : size - 1;
+  const headers = new Headers(response.headers);
+  headers.set("Accept-Ranges", "bytes");
+  if (!match || !(match[1] || match[2]) || !Number.isSafeInteger(start) ||
+      !Number.isSafeInteger(end) || start >= size || start > end) {
+    headers.set("Content-Range", `bytes */${size}`);
+    headers.set("Content-Length", "0");
+    return new Response(null, { status: 416, headers });
+  }
+  headers.set("Content-Range", `bytes ${start}-${end}/${size}`);
+  headers.set("Content-Length", String(end - start + 1));
+  return new Response(body.slice(start, end + 1), { status: 206, headers });
+}
+
 async function matchInTutorCache(cacheName, request, url, decodedPath) {
   if (!cacheName?.startsWith(`${TUTOR_PACK_CACHE_PREFIX}${TUTOR_PACK_VERSION}:`)) return null;
   if (!(await caches.has(cacheName))) return null;
   const cache = await caches.open(cacheName);
-  return (
+  const hit = (
     (await cache.match(request, { ignoreVary: true })) ||
     (await cache.match(url.pathname, { ignoreVary: true })) ||
     (decodedPath !== url.pathname
@@ -34,6 +56,7 @@ async function matchInTutorCache(cacheName, request, url, decodedPath) {
       ? await cache.match(url.pathname.replace(/\/$/, ""), { ignoreVary: true })
       : null)
   );
+  return hit ? withTutorByteRange(request, hit) : null;
 }
 
 // Cache-first match against the active full tutor pack OR any committed modular
