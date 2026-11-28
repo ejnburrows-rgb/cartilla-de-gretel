@@ -1,0 +1,13 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90m/workspace/cartilla-de-gretel[39m
+
+ [32m✓[39m src/components/cartilla/games/chano/__tests__/completion.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 266[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/__tests__/PayasoChano.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 489[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/chano/__tests__/juggle.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 161[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/games/chano/__tests__/catch.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m19 passed[39m[22m[90m (19)[39m
+[2m   Start at [22m 05:43:48
+[2m   Duration [22m 1.72s[2m (transform 276ms, setup 241ms, import 438ms, tests 929ms, environment 1.36s)[22m
+

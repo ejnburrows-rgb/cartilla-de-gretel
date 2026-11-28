@@ -328,7 +328,7 @@ export function ChanoScene({ content }: { content: GameContent }) {
       setSolved(CHANO_WORDS.map(() => false));
       return;
     }
-    if (index >= CHANO_WORDS.length - 1) {
+    if (solved.every(Boolean)) {
       setFinished(true);
       recordEvent({
         lessonId: `game:${content.id}`,
@@ -339,7 +339,9 @@ export function ChanoScene({ content }: { content: GameContent }) {
       });
       return;
     }
-    setIndex((i) => i + 1);
+    // A skipped word remains unfinished. At the end, return to the first
+    // unsolved word rather than emitting a false completed-round event.
+    setIndex(index >= CHANO_WORDS.length - 1 ? solved.findIndex((done) => !done) : index + 1);
   };
 
   // Pointer → scene-art coordinates.
