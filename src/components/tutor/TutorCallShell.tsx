@@ -82,6 +82,7 @@ export interface TutorCallShellProps {
   replayDisabled?: boolean;
   onTextSubmit?: (text: string) => void;
   textInputDisabled?: boolean;
+  textSubmitDisabled?: boolean;
   onEndCall?: () => void;
 }
 
@@ -112,6 +113,7 @@ export function TutorCallShell({
   replayDisabled = false,
   onTextSubmit,
   textInputDisabled = false,
+  textSubmitDisabled = false,
   onEndCall,
 }: TutorCallShellProps) {
   const snapshot = useSyncExternalStore(controller.subscribe, controller.getSnapshot);
@@ -277,7 +279,7 @@ export function TutorCallShell({
   const handleTextFormSubmit = (event: FormEvent) => {
     event.preventDefault();
     const cleaned = draftText.trim();
-    if (!cleaned || textInputDisabled) return;
+    if (!cleaned || textInputDisabled || textSubmitDisabled) return;
     controller.appendTranscript({ speaker: "student", text: cleaned });
     onTextSubmit?.(cleaned);
     setDraftText("");
@@ -599,7 +601,7 @@ export function TutorCallShell({
               <button
                 type="submit"
                 className="tutor-dock-btn"
-                disabled={textInputDisabled || draftText.trim().length === 0}
+                disabled={textInputDisabled || textSubmitDisabled || draftText.trim().length === 0}
                 aria-label="Enviar mensaje"
               >
                 <Send className="h-4 w-4" aria-hidden="true" />

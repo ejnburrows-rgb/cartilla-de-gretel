@@ -1794,6 +1794,7 @@ function ValidTutorSessionScreen({
       onReplayLast={() => void handleReplayLast()}
       replayDisabled={replayDisabled}
       textInputDisabled={!brain}
+      textSubmitDisabled={brain?.phase !== "LISTEN" || capturing || replaying || linePlaying || effectsRunning}
       onTextSubmit={(text) => {
         resetIdleTimer();
         const trimmed = text.trim();

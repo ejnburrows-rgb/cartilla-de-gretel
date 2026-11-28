@@ -13,6 +13,16 @@ const flipchartText = Object.assign(
   {},
   ...["3-22", "23-42", "43-62"].map((range) => read(`src/data/flipchart-text-${range}.json`)),
 );
+const workbookLayouts = read("src/data/page-layouts.json").pages;
+const frontMatter = {
+  1: ["La Cartilla de Gretel", "Autora: Leonor Lopetegui"],
+  2: ["Copyright © 2004", "Revisión 2010", "Leonor Lopetegui"],
+};
+const compact = (text) => text.normalize("NFC").toLocaleLowerCase("es").replace(/[^\p{L}\p{N}]/gu, "");
+const textInRegions = (page) => (workbookLayouts[page]?.regions ?? [])
+  .filter((region) => !["footer", "page-number"].includes(region.regionType))
+  .flatMap((region) => [region.text, ...(region.sentences ?? [])])
+  .filter(Boolean);
 const sizes = { desktop: { width: 1366, height: 768 }, phone: { width: 390, height: 844 } };
 
 function expectedSpeech(items) {
@@ -29,7 +39,8 @@ const workbook = lessons.flatMap((lesson) =>
     number: page.printedPage,
     lesson: lesson.lesson,
     sourceExists: asset(`cartilla/art/source/workbook/page-${pad(page.printedPage)}.jpg`),
-    expectedContent: page.prompt ?? page.exerciseId,
+    expectedContent: textInRegions(page.printedPage).join(" | ") || page.prompt || page.exerciseId,
+    textRegions: textInRegions(page.printedPage),
     teachingAction: page.status === "absent-in-source" ? "skip unavailable original" : page.exerciseKind,
     expectedSpeech: expectedSpeech(lesson.items.filter((item) => item.printedPage === page.printedPage)),
     desktop: "NOT TESTED",
@@ -38,13 +49,16 @@ const workbook = lessons.flatMap((lesson) =>
 );
 const flipchart = read("src/data/teacher-flipchart.json").pages.map((sheet) => {
   const lesson = lessons.find((entry) => entry.lesson === sheet.lesson);
-  const text = flipchartText[sheet.flipchartPage]?.map((block) => block.text.trim()).filter(Boolean);
+  const text = frontMatter[sheet.flipchartPage] ?? [...new Set(
+    (flipchartText[sheet.flipchartPage] ?? []).map((block) => block.text.trim()).filter(Boolean),
+  )];
   return {
     id: `FC-${pad(sheet.flipchartPage)}`,
     number: sheet.flipchartPage,
     lesson: sheet.lesson || null,
     sourceExists: asset(sheet.path),
-    expectedContent: text?.length ? text.join(" ") : sheet.flipchartPage === 1 ? "Cubierta" : "Créditos",
+    expectedContent: text.join(" | "),
+    textRegions: text,
     teachingAction: lesson ? "present the sheet and point to its curriculum targets" : "show front matter",
     expectedSpeech: expectedSpeech(
       lesson?.flipchartVocab.filter((item) => item.flipchartPage === sheet.flipchartPage) ?? [],
@@ -67,6 +81,13 @@ function save() {
   writeFileSync(output, `${JSON.stringify({ base, sizes, rows }, null, 2)}\n`);
 }
 
+async function checkRegions(root, row) {
+  await expect(root).toBeVisible({ timeout: 12000 });
+  const rendered = compact(await root.innerText());
+  const missing = row.textRegions.filter((region) => !rendered.includes(compact(region)));
+  assert.deepEqual(missing, [], `Source text missing from rendered ${row.id}`);
+}
+
 async function walk(available, size, checkPage, forward, backward) {
   for (const [index, row] of available.entries()) {
     try {
@@ -86,11 +107,15 @@ if (base === "--sources-only") {
   save();
 } else {
   const browser = await chromium.launch({
-    ...(process.env.TUTOR_CHROME_PATH ? { executablePath: process.env.TUTOR_CHROME_PATH } : {}),
+    executablePath: process.env.TUTOR_CHROME_PATH || undefined,
+    proxy: process.env.TUTOR_PROXY_SERVER ? { server: process.env.TUTOR_PROXY_SERVER } : undefined,
   });
   try {
     await Promise.all(Object.entries(sizes).map(async ([size, viewport]) => {
-      const context = await browser.newContext({ viewport, reducedMotion: "reduce" });
+      const context = await browser.newContext({
+        viewport, reducedMotion: "reduce",
+        ignoreHTTPSErrors: process.env.TUTOR_TEST_IGNORE_CERT_ERRORS === "1",
+      });
       try {
         const book = await context.newPage();
         const chart = await context.newPage();
@@ -102,7 +127,7 @@ if (base === "--sources-only") {
             const previous = book.getByTestId("button-prev");
             await walk(
               workbook.filter((row) => row.sourceExists), size,
-              (row) => expect(visible(row)).toBeVisible({ timeout: 12000 }),
+              (row) => checkRegions(visible(row).locator(".native-lesson-viewer__content").first(), row),
               next, previous,
             );
             await expect(visible(workbook.at(-1))).toBeVisible();
@@ -122,6 +147,7 @@ if (base === "--sources-only") {
                 { exact: true },
               )).toBeVisible({ timeout: 12000 });
               await expect(counter).toContainText(`Lámina ${row.number} · Lección ${row.lesson ?? 0}`);
+              await checkRegions(chart.locator(".fc-board__page-inner"), row);
             };
             const previous = chart.getByRole("button", { name: "Lámina anterior", exact: true });
             await walk(flipchart, size, checkSheet,

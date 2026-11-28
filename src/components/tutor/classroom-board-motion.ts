@@ -181,13 +181,13 @@ function drawTriangle(
 /** Draw only on green slate pixels. Hands, fabric, chalk and felt sit in front. */
 function compose(
   scene: CanvasRenderingContext2D,
-  marks: CanvasRenderingContext2D,
+  marks: CanvasRenderingContext2D | null,
   clean: ImageData,
   removeBakedLetter: boolean,
 ) {
   const { x, y, width, height } = PATCH;
   const frame = scene.getImageData(x, y, width, height);
-  const strokes = marks.getImageData(x, y, width, height).data;
+  const strokes = marks?.getImageData(x, y, width, height).data;
   const pixels = frame.data;
   for (let i = 0; i < pixels.length; i += 4) {
     const px = x + (i / 4) % width;
@@ -201,6 +201,7 @@ function compose(
       pixels[i + 1] = clean.data[i + 1];
       pixels[i + 2] = clean.data[i + 2];
     }
+    if (!strokes) continue;
     const alpha = strokes[i + 3] / 255;
     if (!alpha || pixels[i + 1] - pixels[i] < 7 || pixels[i + 1] - pixels[i + 2] < 5) continue;
     for (let channel = 0; channel < 3; channel += 1) {
@@ -258,8 +259,9 @@ export async function playClassroomWriting(
   if (!(await playRange(video, 7, () => scene.drawImage(video, 0, 0, WIDTH, HEIGHT), signal))) return false;
   if (!(await seek(video, 7, signal))) return false;
 
+  let toolPose: Frame = video;
   const draw = (point: Point, origin: Point) => {
-    drawPose(scene, video, point.x - origin.x, point.y - origin.y);
+    drawPose(scene, toolPose, point.x - origin.x, point.y - origin.y);
     compose(scene, trace, clean, false);
   };
 
@@ -295,6 +297,15 @@ export async function playClassroomWriting(
   }, signal))) return false;
   if (!(await seek(video, 21, signal))) return false;
 
+  // The source still carries a short piece of its original underline here.
+  // Clean it before moving the pose so it cannot travel with the eraser.
+  const eraserPose = canvas();
+  const eraserFrame = eraserPose.getContext("2d");
+  if (!eraserFrame) return false;
+  eraserFrame.drawImage(video, 0, 0, WIDTH, HEIGHT);
+  compose(eraserFrame, null, clean, true);
+  toolPose = eraserPose;
+
   onPhase("erasing");
   const allPoints = glyphs.flat();
   const left = Math.min(...allPoints.map((point) => point.x));
@@ -325,6 +336,6 @@ export async function playClassroomWriting(
   onPhase("returning");
   return playRange(video, 25.5, () => {
     scene.drawImage(video, 0, 0, WIDTH, HEIGHT);
-    compose(scene, trace, clean, false);
+    compose(scene, trace, clean, true);
   }, signal);
 }

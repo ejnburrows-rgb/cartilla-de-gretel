@@ -165,6 +165,39 @@ describe("TutorCallShell & TutorSessionController (Milestone 6)", () => {
     expect(onEndCall).toHaveBeenCalledTimes(1);
   });
 
+  it("keeps a drafted answer while Gretel is busy and sends it once she is ready", () => {
+    const controller = new TutorSessionController({ sessionId: "test-typed-retry", lesson: 3 });
+    const onTextSubmit = vi.fn();
+    const renderShell = (textSubmitDisabled: boolean) => (
+      <TutorCallShell
+        controller={controller}
+        lessonTitle="La vocal A"
+        avatar={null}
+        card={null}
+        mic={null}
+        onTextSubmit={onTextSubmit}
+        textSubmitDisabled={textSubmitDisabled}
+      />
+    );
+
+    const { rerender } = render(renderShell(true));
+    fireEvent.click(screen.getByRole("button", { name: "Abrir transcripción" }));
+    const input = screen.getByRole<HTMLInputElement>("textbox", { name: "Escribir respuesta o pregunta" });
+    fireEvent.change(input, { target: { value: "a" } });
+    fireEvent.submit(input.closest("form")!);
+
+    expect(onTextSubmit).not.toHaveBeenCalled();
+    expect(controller.getSnapshot().transcript).toHaveLength(0);
+    expect(input.value).toBe("a");
+
+    rerender(renderShell(false));
+    fireEvent.click(screen.getByRole("button", { name: "Enviar mensaje" }));
+
+    expect(onTextSubmit).toHaveBeenCalledExactlyOnceWith("a");
+    expect(controller.getSnapshot().transcript.map((entry) => entry.text)).toEqual(["a"]);
+    expect(input.value).toBe("");
+  });
+
   it("supports Mode B keyboard resizing and Mode C PiP snap/resize/protected-region avoidance", () => {
     const controller = new TutorSessionController({
       sessionId: "test-modes-bc",

@@ -1200,6 +1200,17 @@
     max-width: 100%;
   }
 
+  /* Keep the painted lesson visible when a child answers by typing. */
+  .tutor-call-shell[data-layout-mode="call"] .tutor-call-workspace:has(.tutor-painted-classroom) {
+    container-type: inline-size;
+  }
+  .tutor-call-shell[data-layout-mode="call"] .tutor-call-workspace:has(.tutor-painted-classroom)
+    .tutor-transcript-drawer {
+    top: calc(22px + (100cqw - 20px) * 9 / 16);
+    border-top: 1px solid var(--tutor-border);
+    border-left: 0;
+  }
+
   .tutor-dock-btn-label {
     display: none;
   }
