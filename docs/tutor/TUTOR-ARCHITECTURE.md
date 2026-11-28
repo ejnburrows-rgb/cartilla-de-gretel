@@ -1,5 +1,7 @@
 # Tutor architecture — La Cartilla de Gretel
 
+Use the [canonical Tutor specification](TUTOR-SPEC.md) for current product behavior and acceptance. The original lessons 1–3 architecture is documented below.
+
 Concise architecture of the Gretel tutor (Lecciones 1–3), per build spec
 §2, §4, §5, §18. Owner decisions below are final and dated; see the build
 spec §0 for the full decision table.

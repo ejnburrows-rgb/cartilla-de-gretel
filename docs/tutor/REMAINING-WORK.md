@@ -1,5 +1,7 @@
 # Gretel Tutor — implementation and acceptance checkpoint
 
+This is a historical implementation checkpoint. Use the [canonical Tutor specification](TUTOR-SPEC.md) for current scope and acceptance.
+
 Scope: existing PR #1073, lessons 1–3 only. Draft; no merge, deployment, student-data service, new voice, or new artwork activated. README and the owner source-of-truth documents are unchanged.
 
 ## What changed

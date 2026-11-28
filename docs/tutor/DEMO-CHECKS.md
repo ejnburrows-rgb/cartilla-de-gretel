@@ -1,5 +1,7 @@
 # Gretel Tutor demo checks
 
+Use the [canonical Tutor specification](TUTOR-SPEC.md) for current acceptance criteria. Dated results below describe the revisions tested.
+
 Open `/cartilla/lecciones` on the approved preview. Use **Gestionar Alumnos y Maestros** to select a demo student. **Aprender con Gretel** opens the 24-lesson Tutor picker. The same choice in a lesson's demo panel opens that lesson directly. The Tutor uses the active synthetic student in the current tab. It saves completed vocabulary items on this device and begins at the first item without a saved result when that student returns.
 
 ## Workbook and Flip Chart
