@@ -70,6 +70,10 @@ Motion represents real physical actions with restrained mass.
 - use coherent timing/easing tokens rather than activity-local magic numbers;
 - reduced motion preserves state clarity without decorative 3D motion.
 
+### Gretel Tutor camera
+
+Gretel faces the child in a centered video-call composition during conversation and listening. The established classroom tile opens to the full painted board for teaching actions and returns to the centered view when she faces the child. The same camera applies in call, split and picture-in-picture modes. Reduced motion changes the framing immediately. The underlying tile and controls keep their position in both views.
+
 ### Signature page transitions
 
 **Workbook lesson screen (`/cartilla/leccion/$n`):** real-paper page turn on every page transition (owner decision 2026-10-09). Triggers: bottom-right corner tap/drag (next), bottom-left corner tap/drag (prev), Siguiente/Anterior buttons, and ArrowRight/ArrowLeft keyboard keys. Sequence: 0.3 s cinematic zoom toward the turning corner, then an elegant 2.0 s HD page curl revealing the destination page underneath, with a moving shadow and paper underside. Forward turns remain gated until page completion; back is always allowed. Soft paper sound plays on every turn (respecting mute). Reduced motion provides an immediate non-3D transition. Complete book (`/cartilla/cuaderno`) uses the same single-page native viewer — no two-page spread, raw scans, or Gretel companion (owner decision 2026-10-13).

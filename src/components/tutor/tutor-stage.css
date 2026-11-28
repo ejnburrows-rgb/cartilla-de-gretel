@@ -426,6 +426,41 @@
   container-type: inline-size;
 }
 
+.tutor-classroom-camera {
+  position: absolute;
+  inset: 0;
+  transform-origin: top left;
+  transition: transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* The face anchor sits at 31.875% of the wide plate. A modest crop and
+   horizontal shift center the face and retain the embroidered bib. */
+.tutor-classroom-camera[data-classroom-camera="call"] {
+  transform: translateX(7.925%) scale(1.32);
+}
+
+/* Extend the window into the narrow left edge with a reflection of the
+   approved plate. The same edge meets the real window at every zoom level. */
+.tutor-classroom-camera::before {
+  position: absolute;
+  inset: 0 100% 0 auto;
+  width: 6.05%;
+  background: url("/cartilla/images/gretel/tutor/classroom-review/conversation.webp") left top / 1652.893% 100% no-repeat;
+  transform: scaleX(-1);
+  content: "";
+  pointer-events: none;
+}
+
+.tutor-classroom-camera[data-classroom-camera="call"] .tutor-classroom-title {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tutor-classroom-camera {
+    transition: none;
+  }
+}
+
 .tutor-classroom-board-action {
   position: absolute;
   inset: 0;

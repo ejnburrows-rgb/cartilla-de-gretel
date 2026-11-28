@@ -1495,38 +1495,43 @@ function ValidTutorSessionScreen({
             <div data-tutor-puppet="" data-puppet-mode="painted-classroom" data-puppet-viseme={viseme}
               className="tutor-painted-classroom">
               <div className="tutor-painted-classroom-frame">
-                <picture style={{display: linePlaying ? "none" : "block"}}>
-                  <source media="(prefers-reduced-motion: reduce)" srcSet={room + "/conversation.webp"} />
-                  <img src={room + "/listening.webp"} alt="Gretel escucha junto a la pizarra" style={{display:"block", width:"100%"}} />
-                </picture>
-                <img ref={classroomStill} src={room + "/conversation.webp"} alt="Gretel en su aula"
-                  style={{display: linePlaying ? "block" : "none", width:"100%"}} />
-                {linePlaying && mouthIndex >= 0 && (
-                  <span aria-hidden="true" style={{position:"absolute",left:"28.046875%",top:"44.722222%",width:"7.65625%",height:"9.027778%",
-                    backgroundImage: "url(" + room + "/speech.webp)", backgroundSize:"700% 100%", backgroundPosition: (mouthIndex * 100 / 6) + "% center"}} />
-                )}
-                <video ref={classroomVideo} muted playsInline preload="none" hidden src={room + "/abeja.webm"} />
-                <canvas
-                  ref={chalkboardCanvas}
-                  className="tutor-classroom-board-action"
-                  hidden={!boardPhase || boardPhase === "still"}
-                  data-board-phase={boardPhase ?? undefined}
-                  data-board-target={writingTarget ?? undefined}
-                  aria-label={writingTarget ? `Pizarra: ${writingTarget}` : undefined}
-                  role="img"
-                />
-                {writingTarget && boardPhase === "still" && (
-                  <svg viewBox="0 0 1280 720" className="tutor-classroom-board-action" role="img"
-                    aria-label={`Pizarra: ${writingTarget}`} data-board-target={writingTarget} data-board-phase="still">
-                    {chalkStrokes(writingTarget).map((stroke, index) => (
-                      <polyline key={index} points={stroke.map(({ x, y }) => `${x},${y}`).join(" ")}
-                        fill="none" stroke="#f8f0da" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-                    ))}
-                  </svg>
-                )}
-                <span aria-hidden="true" style={{ position: "absolute", left: "55%", top: "11%", color: "#f3e8cd", fontFamily: '"Snell Roundhand", "Brush Script MT", cursive', fontStyle: "italic", fontSize: "3.3cqw", pointerEvents: "none" }}>
-                  Cartilla de Gretel
-                </span>
+                <div
+                  className="tutor-classroom-camera"
+                  data-classroom-camera={writingTarget ? "board" : "call"}
+                >
+                  <picture style={{display: linePlaying ? "none" : "block"}}>
+                    <source media="(prefers-reduced-motion: reduce)" srcSet={room + "/conversation.webp"} />
+                    <img src={room + "/listening.webp"} alt="Gretel escucha junto a la pizarra" style={{display:"block", width:"100%"}} />
+                  </picture>
+                  <img ref={classroomStill} src={room + "/conversation.webp"} alt="Gretel en su aula"
+                    style={{display: linePlaying ? "block" : "none", width:"100%"}} />
+                  {linePlaying && mouthIndex >= 0 && (
+                    <span aria-hidden="true" style={{position:"absolute",left:"28.046875%",top:"44.722222%",width:"7.65625%",height:"9.027778%",
+                      backgroundImage: "url(" + room + "/speech.webp)", backgroundSize:"700% 100%", backgroundPosition: (mouthIndex * 100 / 6) + "% center"}} />
+                  )}
+                  <video ref={classroomVideo} muted playsInline preload="none" hidden src={room + "/abeja.webm"} />
+                  <canvas
+                    ref={chalkboardCanvas}
+                    className="tutor-classroom-board-action"
+                    hidden={!boardPhase || boardPhase === "still"}
+                    data-board-phase={boardPhase ?? undefined}
+                    data-board-target={writingTarget ?? undefined}
+                    aria-label={writingTarget ? `Pizarra: ${writingTarget}` : undefined}
+                    role="img"
+                  />
+                  {writingTarget && boardPhase === "still" && (
+                    <svg viewBox="0 0 1280 720" className="tutor-classroom-board-action" role="img"
+                      aria-label={`Pizarra: ${writingTarget}`} data-board-target={writingTarget} data-board-phase="still">
+                      {chalkStrokes(writingTarget).map((stroke, index) => (
+                        <polyline key={index} points={stroke.map(({ x, y }) => `${x},${y}`).join(" ")}
+                          fill="none" stroke="#f8f0da" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                      ))}
+                    </svg>
+                  )}
+                  <span className="tutor-classroom-title" aria-hidden="true" style={{ position: "absolute", left: "55%", top: "11%", color: "#f3e8cd", fontFamily: '"Snell Roundhand", "Brush Script MT", cursive', fontStyle: "italic", fontSize: "3.3cqw", pointerEvents: "none" }}>
+                    Cartilla de Gretel
+                  </span>
+                </div>
               </div>
             </div>
           )}
