@@ -18,6 +18,8 @@ The digital product must:
 
 ## Authoritative sources
 
+The [Gretel Tutor Demo Mode specification](docs/tutor/TUTOR-SPEC.md) is the canonical specification for the Tutor’s camera, classroom performance, Demo Mode behavior, voice intake and acceptance.
+
 Google Drive originals:
 - `La Cartilla de Gretel Flip Chart.pdf`
 - `Libro del alumno - Rescan and Optimize (2).pdf`

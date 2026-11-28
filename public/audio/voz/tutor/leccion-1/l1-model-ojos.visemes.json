@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/ojos.mp3",
+    "duration": 1.65,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "1217d61f284e79e0d233d49f1d55224ebe98fe56d8514078cb9d5e90a2010941"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.26,
+      "value": "X"
+    },
+    {
+      "start": 0.26,
+      "end": 0.31,
+      "value": "B"
+    },
+    {
+      "start": 0.31,
+      "end": 0.42,
+      "value": "E"
+    },
+    {
+      "start": 0.42,
+      "end": 0.49,
+      "value": "F"
+    },
+    {
+      "start": 0.49,
+      "end": 0.77,
+      "value": "E"
+    },
+    {
+      "start": 0.77,
+      "end": 0.91,
+      "value": "F"
+    },
+    {
+      "start": 0.91,
+      "end": 1.26,
+      "value": "B"
+    },
+    {
+      "start": 1.26,
+      "end": 1.65,
+      "value": "X"
+    }
+  ]
+}

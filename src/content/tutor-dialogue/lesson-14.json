@@ -1,0 +1,4398 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 14,
+  "batchIds": [
+    "B020"
+  ],
+  "entries": [
+    {
+      "id": "v2-l14-01-greeting-first",
+      "text": "Te doy la bienvenida a esta nueva lección para conocer juntos nuestra querida letra eñe.",
+      "batch": "B020",
+      "seq": 1,
+      "file": "B020-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-14-greeting-first",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "te doy la bienvenida a esta nueva lección para conocer juntos nuestra querida letra eñe",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir leyendo las palabras y rimas de la letra eñe.",
+      "batch": "B020",
+      "seq": 2,
+      "file": "B020-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-14-greeting-return",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo las palabras y rimas de la letra eñe",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-03-review-intro",
+      "text": "Ya conocemos la ene de nido y mano; hoy descubrimos a su hermana, que lleva una tilde ondulada arriba.",
+      "batch": "B020",
+      "seq": 3,
+      "file": "B020-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-14-review-intro",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ya conocemos la ene de nido y mano hoy descubrimos a su hermana que lleva una tilde ondulada arriba",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-04-review-check",
+      "text": "¿En qué se parece la forma de la letra eñe a la de la letra ene que vimos antes?",
+      "batch": "B020",
+      "seq": 4,
+      "file": "B020-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-14-review-check",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en qué se parece la forma de la letra eñe a la de la letra ene que vimos antes",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido especial de la eñe, las sílabas ña, ñe, ñi, ño, ñu y la palabra del.",
+      "batch": "B020",
+      "seq": 5,
+      "file": "B020-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-14-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido especial de la eñe las sílabas ña ñe ñi ño ñu y la palabra del",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-06-letter-name",
+      "text": "Esta letra, hermana de la ene, se llama eñe y lleva encima un trazo ondulado que se llama tilde.",
+      "batch": "B020",
+      "seq": 6,
+      "file": "B020-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-14-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "esta letra hermana de la ene se llama eñe y lleva encima un trazo ondulado que se llama tilde",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-07-phonetic-sound",
+      "text": "Al pronunciarla apoyamos el centro de la lengua en el paladar para lograr su sonido característico: ñññ.",
+      "batch": "B020",
+      "seq": 7,
+      "file": "B020-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-14-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al pronunciarla apoyamos el centro de la lengua en el paladar para lograr su sonido característico ñññ",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-08-lesson-focus",
+      "text": "La eñe lleva una tilde ondulada arriba y suena suave desde el centro del paladar, como en piñata.",
+      "batch": "B020",
+      "seq": 8,
+      "file": "B020-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-14-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "la eñe lleva una tilde ondulada arriba y suena suave desde el centro del paladar como en piñata",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-09-sound-contrast",
+      "text": "Mientras la ene toca detrás de los dientes, la eñe apoya el centro de la lengua arriba.",
+      "batch": "B020",
+      "seq": 9,
+      "file": "B020-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-14-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "mientras la ene toca detrás de los dientes la eñe apoya el centro de la lengua arriba",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-10-explanation-primary",
+      "text": "Cuando unimos ese sonido especial con las vocales nacen las sílabas ña, ñe, ñi, ño, ñu.",
+      "batch": "B020",
+      "seq": 10,
+      "file": "B020-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-14-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando unimos ese sonido especial con las vocales nacen las sílabas ña ñe ñi ño ñu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-11-explanation-simple",
+      "text": "Con una leve sonrisa, apoya el centro de la lengua en el paladar y pronuncia piñata y moño.",
+      "batch": "B020",
+      "seq": 11,
+      "file": "B020-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-14-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "con una leve sonrisa apoya el centro de la lengua en el paladar y pronuncia piñata y moño",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para descubrir las sílabas, los dibujos y el poema La niña sueña.",
+      "batch": "B020",
+      "seq": 12,
+      "file": "B020-012.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-14-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para descubrir las sílabas los dibujos y el poema la niña sueña",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-sheet-30-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 30
+        },
+        {
+          "sourceLineId": "dialogue-l14-sheet-31-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 31
+        },
+        {
+          "sourceLineId": "dialogue-l14-sheet-32-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 32
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen una piñata festiva, Ñuno, un niñito, un moño y Meñe.",
+      "batch": "B020",
+      "seq": 13,
+      "file": "B020-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-14-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una piñata festiva ñuno un niñito un moño y meñe",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-sheet-30-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 30,
+          "expectedAnswer": "piñata"
+        },
+        {
+          "sourceLineId": "dialogue-l14-sheet-31-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 31,
+          "expectedAnswer": "ñame"
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-14-flipchart-illustration-2",
+      "text": "También observamos en el poema a Noña tapando con cariño a su niña dormida con el pañuelo.",
+      "batch": "B020",
+      "seq": 14,
+      "file": "B020-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-14-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "también observamos en el poema a noña tapando con cariño a su niña dormida con el pañuelo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-15-reading-order",
+      "text": "Lee las sílabas de izquierda a derecha, pasa por el vocabulario y luego lee el poema verso a verso.",
+      "batch": "B020",
+      "seq": 15,
+      "file": "B020-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-14-reading-order",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee las sílabas de izquierda a derecha pasa por el vocabulario y luego lee el poema verso a verso",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-16-flipchart-model",
+      "text": "Leamos juntos con voz clara las sílabas de la eñe: ña, ñe, ñi, ño, ñu.",
+      "batch": "B020",
+      "seq": 16,
+      "file": "B020-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-14-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la eñe ña ñe ñi ño ñu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: piñata, Ñuno, niñito, moño y Meñe.",
+      "batch": "B020",
+      "seq": 17,
+      "file": "B020-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-14-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio piñata ñuno niñito moño y meñe",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-18-flipchart-rhyme-1",
+      "text": "Leemos juntos el comienzo de La niña sueña: La niña de Noña tiene sueño, Noña la tapa con el pañuelo.",
+      "batch": "B020",
+      "seq": 18,
+      "file": "B020-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-14-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leemos juntos el comienzo de la niña sueña la niña de noña tiene sueño noña la tapa con el pañuelo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-sheet-30-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 30
+        },
+        {
+          "sourceLineId": "dialogue-l14-sheet-31-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 31
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-19-flipchart-rhyme-2",
+      "text": "Seguimos con los versos finales del poema: Sueña mi niña sueños bonitos. ¿Estás soñando con mis besitos?",
+      "batch": "B020",
+      "seq": 19,
+      "file": "B020-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-14-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "seguimos con los versos finales del poema sueña mi niña sueños bonitos estás soñando con mis besitos",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-20-comprehension-1",
+      "text": "Según el poema La niña sueña, ¿con qué tapa Noña a su niña que tiene sueño?",
+      "batch": "B020",
+      "seq": 20,
+      "file": "B020-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-14-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "según el poema la niña sueña con qué tapa noña a su niña que tiene sueño",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-21-comprehension-2",
+      "text": "¿De quién es la piñata del año pasado en la lectura de hoy?",
+      "batch": "B020",
+      "seq": 21,
+      "file": "B020-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-14-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "de quién es la piñata del año pasado en la lectura de hoy",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-22-comprehension-3",
+      "text": "¿Qué signo especial lleva encima la letra eñe para diferenciarse de la ene?",
+      "batch": "B020",
+      "seq": 22,
+      "file": "B020-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-14-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué signo especial lleva encima la letra eñe para diferenciarse de la ene",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-23-common-mistake-1",
+      "text": "Nunca olvides la tilde ondulada sobre la eñe; sin ella, una palabra como uña se leería una.",
+      "batch": "B020",
+      "seq": 23,
+      "file": "B020-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-14-common-mistake",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "nunca olvides la tilde ondulada sobre la eñe sin ella una palabra como uña se leería una",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-24-common-mistake-2",
+      "text": "Distingue muy bien la palabra niño de nido escuchando el sonido del centro del paladar.",
+      "batch": "B020",
+      "seq": 24,
+      "file": "B020-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-14-common-mistake",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "distingue muy bien la palabra niño de nido escuchando el sonido del centro del paladar",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-25-common-mistake-3",
+      "text": "Cuando leas Meñe, Noña y Ñuno, recuerda pronunciar suave la eñe aunque vaya al principio.",
+      "batch": "B020",
+      "seq": 25,
+      "file": "B020-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-14-common-mistake",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando leas meñe noña y ñuno recuerda pronunciar suave la eñe aunque vaya al principio",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-26-hint-1",
+      "text": "Busca la tilde ondulada sobre la letra y fíjate qué vocal la acompaña.",
+      "batch": "B020",
+      "seq": 26,
+      "file": "B020-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-14-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "busca la tilde ondulada sobre la letra y fíjate qué vocal la acompaña",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-sheet-32-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 32
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-maña-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ña",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-maña-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-pañito-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ñi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-pañito-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-niño-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-niño-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-moño-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-moño-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-año-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-año-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-puño-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-puño-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-27-hint-2",
+      "text": "Recuerda el sonido de piñata y moño para juntar la eñe con la vocal siguiente.",
+      "batch": "B020",
+      "seq": 27,
+      "file": "B020-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-14-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "recuerda el sonido de piñata y moño para juntar la eñe con la vocal siguiente",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: piñata.",
+      "batch": "B020",
+      "seq": 28,
+      "file": "B020-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-14-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy piñata",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para trazar la eñe y leer la historia de Meñe y Noña.",
+      "batch": "B020",
+      "seq": 29,
+      "file": "B020-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-14-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para trazar la eñe y leer la historia de meñe y noña",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-30-page-instruction-1",
+      "text": "Escribe la eñe mayúscula y minúscula sin olvidar su tilde ondulada y haz un dibujo de una palabra con eñe.",
+      "batch": "B020",
+      "seq": 30,
+      "file": "B020-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-14-page-instruction",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escribe la eñe mayúscula y minúscula sin olvidar su tilde ondulada y haz un dibujo de una palabra con eñe",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-page-47-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-47-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l14-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l14-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l14-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-31-page-instruction-2",
+      "text": "Después encierra en un círculo la sílaba de la eñe dentro de palabras como araña, piñata y moño.",
+      "batch": "B020",
+      "seq": 31,
+      "file": "B020-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-14-page-instruction",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          48
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo la sílaba de la eñe dentro de palabras como araña piñata y moño",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-32-syllable-practice",
+      "text": "Rodea cada sílaba con cuidado: ña en maña y araña, ñe en Meñe, ñi en niñito, ño en moño y ñu en pañuelo.",
+      "batch": "B020",
+      "seq": 32,
+      "file": "B020-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-14-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          48
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "rodea cada sílaba con cuidado ña en maña y araña ñe en meñe ñi en niñito ño en moño y ñu en pañuelo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-page-48-find-ña",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 48,
+          "workbookPdfSheet": 54,
+          "relatedFlipchartSheets": [
+            30,
+            31
+          ],
+          "expectedAnswer": "ña"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-48-find-ñe",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 48,
+          "workbookPdfSheet": 54,
+          "relatedFlipchartSheets": [
+            30,
+            31
+          ],
+          "expectedAnswer": "ñe"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-48-find-ñi",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 48,
+          "workbookPdfSheet": 54,
+          "relatedFlipchartSheets": [
+            30,
+            31
+          ],
+          "expectedAnswer": "ñi"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-48-find-ño",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 48,
+          "workbookPdfSheet": 54,
+          "relatedFlipchartSheets": [
+            30,
+            31
+          ],
+          "expectedAnswer": "ño"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-48-find-ñu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 48,
+          "workbookPdfSheet": 54,
+          "relatedFlipchartSheets": [
+            30,
+            31
+          ],
+          "expectedAnswer": "ñu"
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: ñame, año, moñudo, moño, niña, sueña, Meñe y paño.",
+      "batch": "B020",
+      "seq": 33,
+      "file": "B020-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-14-word-practice",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras ñame año moñudo moño niña sueña meñe y paño",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo de palabras: piña, niñito, sueño, puño, uña, añitos y pañuelo.",
+      "batch": "B020",
+      "seq": 34,
+      "file": "B020-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-14-word-practice",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo de palabras piña niñito sueño puño uña añitos y pañuelo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-35-sight-or-vocab",
+      "text": "Hoy conocemos la palabra del, que nace cuando unimos de y el en una sola palabra corta.",
+      "batch": "B020",
+      "seq": 35,
+      "file": "B020-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-14-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy conocemos la palabra del que nace cuando unimos de y el en una sola palabra corta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-36-sentence-or-pair",
+      "text": "Lee con voz clara esta oración del libro: Meñe es dueña de esa piñata.",
+      "batch": "B020",
+      "seq": 36,
+      "file": "B020-036.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-14-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          49
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee con voz clara esta oración del libro meñe es dueña de esa piñata",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-ñame",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-año",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-moñudo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-moño",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-niña",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-sueña",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-meñe",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-paño",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-piña",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-niñito",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-sueño",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-puño",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-uña",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-añitos",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-49-read-pañuelo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 49,
+          "workbookPdfSheet": 55,
+          "relatedFlipchartSheets": [
+            31
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-37-page-instruction-final",
+      "text": "Al final completa cada palabra con su sílaba, como en maña, pañito, niño, moño, año y puño.",
+      "batch": "B020",
+      "seq": 37,
+      "file": "B020-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-14-page-instruction",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con su sílaba como en maña pañito niño moño año y puño",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva para identificar dónde va la eñe en las palabras del libro.",
+      "batch": "B020",
+      "seq": 38,
+      "file": "B020-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-14-game-intro",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva para identificar dónde va la eñe en las palabras del libro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-39-game-step",
+      "text": "Observa la palabra incompleta y elige entre ña, ñe, ñi, ño, ñu la sílaba que la completa bien.",
+      "batch": "B020",
+      "seq": 39,
+      "file": "B020-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-14-game-step",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige entre ña ñe ñi ño ñu la sílaba que la completa bien",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-40-game-correct",
+      "text": "Muy bien, colocaste la sílaba de la eñe en el lugar justo de la palabra.",
+      "batch": "B020",
+      "seq": 40,
+      "file": "B020-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-14-game-correct",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "muy bien colocaste la sílaba de la eñe en el lugar justo de la palabra",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-41-game-retry",
+      "text": "Repite el dibujo o la palabra en voz alta y escucha si suena ña, ñe, ñi, ño o ñu.",
+      "batch": "B020",
+      "seq": 41,
+      "file": "B020-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-14-game-retry",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite el dibujo o la palabra en voz alta y escucha si suena ña ñe ñi ño o ñu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Noña tiene una niña.",
+      "batch": "B020",
+      "seq": 42,
+      "file": "B020-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-14-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro noña tiene una niña",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-pañito",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ñi",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-niño",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-moño",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-año",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-puño",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ño",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-43-page-complete",
+      "text": "Completaste todas las actividades de la letra eñe cuidando siempre su tilde ondulada.",
+      "batch": "B020",
+      "seq": 43,
+      "file": "B020-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-14-page-complete",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades de la letra eñe cuidando siempre su tilde ondulada",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-page-47-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 47,
+          "workbookPdfSheet": 53,
+          "relatedFlipchartSheets": [
+            30
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-44-closing",
+      "text": "Terminamos todas las palabras y oraciones de la eñe. Ya pasas de la mitad de toda la cartilla.",
+      "batch": "B020",
+      "seq": 44,
+      "file": "B020-044.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-14-closing",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "terminamos todas las palabras y oraciones de la eñe ya pasas de la mitad de toda la cartilla",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-45-next-step",
+      "text": "En la próxima lección jugaremos con la pelota y conoceremos el sonido suave de la letra be.",
+      "batch": "B020",
+      "seq": 45,
+      "file": "B020-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-14-next-step",
+      "curriculumRefs": {
+        "lesson": 14,
+        "printedPages": [
+          47,
+          48,
+          49,
+          50
+        ],
+        "flipchartSheets": [
+          30,
+          31,
+          32
+        ],
+        "letters": [
+          "ñ"
+        ],
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu"
+        ],
+        "words": [
+          "piñata",
+          "Ñuno",
+          "niñito",
+          "moño",
+          "Meñe",
+          "ñame",
+          "año",
+          "moñudo",
+          "niña",
+          "sueña",
+          "paño",
+          "piña",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo",
+          "del"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en la próxima lección jugaremos con la pelota y conoceremos el sonido suave de la letra be",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l14-46-atlas-flipchart",
+      "text": "¿Con qué tapa Noña a la niña?",
+      "normalizedText": "con qué tapa noña a la niña",
+      "batch": "B020",
+      "seq": 46,
+      "file": "B020-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-14-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 14,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          32
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-sheet-32-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 32,
+          "expectedAnswer": "con el pañuelo"
+        }
+      ]
+    },
+    {
+      "id": "v2-l14-47-atlas-workbook",
+      "text": "Queremos escribir «maña». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir maña qué parte falta en el espacio",
+      "batch": "B020",
+      "seq": 47,
+      "file": "B020-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-14-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 14,
+        "sourceStatus": "verified",
+        "printedPages": [
+          50
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          14
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l14-page-50-fill-maña",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 50,
+          "workbookPdfSheet": 56,
+          "relatedFlipchartSheets": [
+            31
+          ],
+          "expectedAnswer": "ña",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    }
+  ]
+}

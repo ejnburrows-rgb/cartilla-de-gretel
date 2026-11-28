@@ -1,0 +1,763 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-09",
+  "lesson": 9,
+  "title": "Ss",
+  "kind": "consonant",
+  "focus": "S",
+  "printedWorkbookPages": {
+    "start": 27,
+    "end": 30,
+    "pages": [
+      27,
+      28,
+      29,
+      30
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 33,
+    "end": 36,
+    "sheets": [
+      33,
+      34,
+      35,
+      36
+    ]
+  },
+  "flipchartPages": [
+    15,
+    16,
+    17
+  ],
+  "prerequisiteLessons": [
+    "lesson-08"
+  ],
+  "nextLessons": [
+    "lesson-10"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [
+    {
+      "id": "payaso-chano-ss",
+      "type": "payaso-chano",
+      "answerKeyStatus": "verified"
+    }
+  ],
+  "pages": [
+    {
+      "printedPage": 27,
+      "pdfSheet": 33,
+      "status": "verified",
+      "exerciseId": "l9-p27-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con s.",
+      "flipchartPrimaryPages": [
+        15
+      ],
+      "flipchartSupplementalPages": [
+        16,
+        17
+      ]
+    },
+    {
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "status": "verified",
+      "exerciseId": "l9-p28-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        15,
+        16
+      ],
+      "flipchartSupplementalPages": [
+        17
+      ]
+    },
+    {
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "status": "verified",
+      "exerciseId": "l9-p29-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        16
+      ],
+      "flipchartSupplementalPages": [
+        17
+      ]
+    },
+    {
+      "printedPage": 30,
+      "pdfSheet": 36,
+      "status": "verified",
+      "exerciseId": "l9-p30-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        16
+      ],
+      "flipchartSupplementalPages": [
+        15,
+        17
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "Sesi",
+      "flipchartPage": 15,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-sesi.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/sesi.mp3"
+    },
+    {
+      "word": "sopa",
+      "flipchartPage": 15,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-sopa.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/sopa.mp3"
+    },
+    {
+      "word": "sapo",
+      "flipchartPage": 15,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-sapo.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/sapo.mp3"
+    },
+    {
+      "word": "pisa",
+      "flipchartPage": 15,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-pisa.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/pisa.mp3"
+    },
+    {
+      "word": "Susi",
+      "flipchartPage": 15,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p015-susi.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/susi.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l9-syllable-sa",
+      "lesson": 9,
+      "kind": "syllable",
+      "text": "sa",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-syllable-se",
+      "lesson": 9,
+      "kind": "syllable",
+      "text": "se",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-syllable-si",
+      "lesson": 9,
+      "kind": "syllable",
+      "text": "si",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-syllable-so",
+      "lesson": 9,
+      "kind": "syllable",
+      "text": "so",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-syllable-su",
+      "lesson": 9,
+      "kind": "syllable",
+      "text": "su",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-masa",
+      "lesson": 9,
+      "kind": "word",
+      "text": "masa",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-casa",
+      "lesson": 9,
+      "kind": "word",
+      "text": "casa",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/casa.mp3",
+      "tutorLineId": "l1-model-casa"
+    },
+    {
+      "id": "l9-word-pesa",
+      "lesson": 9,
+      "kind": "word",
+      "text": "pesa",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sala",
+      "lesson": 9,
+      "kind": "word",
+      "text": "sala",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-mesa",
+      "lesson": 9,
+      "kind": "word",
+      "text": "mesa",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sapo",
+      "lesson": 9,
+      "kind": "word",
+      "text": "sapo",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/sapo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sello",
+      "lesson": 9,
+      "kind": "word",
+      "text": "sello",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-pase",
+      "lesson": 9,
+      "kind": "word",
+      "text": "pase",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-caseta",
+      "lesson": 9,
+      "kind": "word",
+      "text": "caseta",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-seca",
+      "lesson": 9,
+      "kind": "word",
+      "text": "seca",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-semilla",
+      "lesson": 9,
+      "kind": "word",
+      "text": "semilla",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-secante",
+      "lesson": 9,
+      "kind": "word",
+      "text": "secante",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-silla",
+      "lesson": 9,
+      "kind": "word",
+      "text": "silla",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-casita",
+      "lesson": 9,
+      "kind": "word",
+      "text": "casita",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-cosita",
+      "lesson": 9,
+      "kind": "word",
+      "text": "cosita",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-pasito",
+      "lesson": 9,
+      "kind": "word",
+      "text": "pasito",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-osito",
+      "lesson": 9,
+      "kind": "word",
+      "text": "osito",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sitio",
+      "lesson": 9,
+      "kind": "word",
+      "text": "sitio",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-paso",
+      "lesson": 9,
+      "kind": "word",
+      "text": "paso",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sopa",
+      "lesson": 9,
+      "kind": "word",
+      "text": "sopa",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/sopa.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-soga",
+      "lesson": 9,
+      "kind": "word",
+      "text": "soga",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-oso",
+      "lesson": 9,
+      "kind": "word",
+      "text": "oso",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/oso.mp3",
+      "tutorLineId": "l1-model-oso"
+    },
+    {
+      "id": "l9-word-toso",
+      "lesson": 9,
+      "kind": "word",
+      "text": "toso",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-puso",
+      "lesson": 9,
+      "kind": "word",
+      "text": "puso",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-suyo",
+      "lesson": 9,
+      "kind": "word",
+      "text": "suyo",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-suma",
+      "lesson": 9,
+      "kind": "word",
+      "text": "suma",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-susi",
+      "lesson": 9,
+      "kind": "word",
+      "text": "Susi",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/susi.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-supo",
+      "lesson": 9,
+      "kind": "word",
+      "text": "supo",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sube",
+      "lesson": 9,
+      "kind": "word",
+      "text": "sube",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sudor",
+      "lesson": 9,
+      "kind": "word",
+      "text": "sudor",
+      "printedPage": 28,
+      "pdfSheet": 34,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-seso",
+      "lesson": 9,
+      "kind": "word",
+      "text": "seso",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-asi",
+      "lesson": 9,
+      "kind": "word",
+      "text": "así",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-supe",
+      "lesson": 9,
+      "kind": "word",
+      "text": "supe",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-sisi",
+      "lesson": 9,
+      "kind": "word",
+      "text": "Sisi",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-ese",
+      "lesson": 9,
+      "kind": "word",
+      "text": "ese",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-word-esa",
+      "lesson": 9,
+      "kind": "word",
+      "text": "esa",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sight-es",
+      "lesson": 9,
+      "kind": "sight-word",
+      "text": "es",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sight-de",
+      "lesson": 9,
+      "kind": "sight-word",
+      "text": "de",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sight-un",
+      "lesson": 9,
+      "kind": "sight-word",
+      "text": "un",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sight-esta",
+      "lesson": 9,
+      "kind": "sight-word",
+      "text": "está",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sight-en",
+      "lesson": 9,
+      "kind": "sight-word",
+      "text": "en",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sight-la",
+      "lesson": 9,
+      "kind": "sight-word",
+      "text": "la",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sight-el",
+      "lesson": 9,
+      "kind": "sight-word",
+      "text": "el",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sentence-01",
+      "lesson": 9,
+      "kind": "sentence",
+      "text": "La mesa es de Susi.",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sentence-02",
+      "lesson": 9,
+      "kind": "sentence",
+      "text": "La sopa está en la mesa.",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sentence-03",
+      "lesson": 9,
+      "kind": "sentence",
+      "text": "Papá pasa la sopa a Susi.",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sentence-04",
+      "lesson": 9,
+      "kind": "sentence",
+      "text": "Sisi pasa la sopa a mamá.",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sentence-05",
+      "lesson": 9,
+      "kind": "sentence",
+      "text": "Ese sapo es de Sisi. Es el sapo Samapo.",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sentence-06",
+      "lesson": 9,
+      "kind": "sentence",
+      "text": "Sisi pasa el sapo a Pepe.",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l9-sentence-07",
+      "lesson": 9,
+      "kind": "sentence",
+      "text": "Pepe puso un sapo en la mesa.",
+      "printedPage": 29,
+      "pdfSheet": 35,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 55,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 36,
+      "sight-word": 7,
+      "sentence": 7
+    },
+    "itemsWithApprovedAudio": 5,
+    "itemsAudioPending": 50
+  }
+}

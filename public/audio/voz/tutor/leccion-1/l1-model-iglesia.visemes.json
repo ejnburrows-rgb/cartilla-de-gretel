@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/iglesia.mp3",
+    "duration": 1.85,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "e44544523f41fd88a422a220c6f5a3d54cac299573dc21957a4fb527d4d2c94d"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.2,
+      "value": "X"
+    },
+    {
+      "start": 0.2,
+      "end": 0.67,
+      "value": "B"
+    },
+    {
+      "start": 0.67,
+      "end": 0.88,
+      "value": "C"
+    },
+    {
+      "start": 0.88,
+      "end": 1.09,
+      "value": "B"
+    },
+    {
+      "start": 1.09,
+      "end": 1.51,
+      "value": "C"
+    },
+    {
+      "start": 1.51,
+      "end": 1.58,
+      "value": "B"
+    },
+    {
+      "start": 1.58,
+      "end": 1.85,
+      "value": "X"
+    }
+  ]
+}

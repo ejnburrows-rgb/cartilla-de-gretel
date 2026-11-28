@@ -1,5 +1,25 @@
 # Gretel Voice Architecture & Final Owner Decision Packet
 
+## OWNER CLARIFICATION & AUTHORIZATION — RECORDING WORKFLOW & POLICY (2026-11-26)
+
+**Newest owner-approved source-of-truth clarification, effective 2026-11-26. Supersedes prior prohibitions on new owner-supplied recordings wherever they appear below or elsewhere in this repository.**
+
+1. **Owner-Configured Voice in ElevenReader:** The owner already has Gretel's cloned voice configured in ElevenReader. Do not propose or perform any additional voice cloning, new voice providers, or paid voice APIs.
+2. **Division of Responsibility:**
+   - **Agent owns:** Complete Spanish conversational and instructional scripts, segmentation, transcription, canonical naming, validation, viseme/lip-sync generation, expression mapping, and runtime integration.
+   - **Owner supplies:** Finished audio recordings produced from the agent's scripts.
+3. **Permitted Audio Sources:**
+   - Existing owner-approved recordings (e.g., approved vocabulary recordings in `public/audio/voz/vocabulario/`, verified instruction/Lección 3 cuts, and transcript-verified excerpts from `Gretel_558674_Original.m4a`).
+   - **Newly supplied and owner-approved recordings** delivered through the intake pipeline (explicitly superseding the 2026-10-15 prohibition against new owner-supplied recordings).
+   - Unrecorded or unverified phrases remain silent/unavailable under the Silent Respect policy.
+4. **Strictly Prohibited (Unchanged):**
+   - Runtime TTS, browser/device TTS (`window.speechSynthesis`), cloud TTS, additional voice cloning, new voice providers, and paid voice APIs.
+   - The rejected 67-clip ZIP (`Gretel_67_Audio_Lecciones_Listo.zip`) and legacy `rec_gretel_*` clips.
+   - `nina-sordita.mp3` (permanently retired/quarantined; replaced by "niña distraída").
+5. **Pre-Public-Release Rights Gate:** External-use and distribution rights verification is tracked as a **separate pre-public-release gate** and is **not** a blocker for scripting, local development, intake pipeline work, or testing with existing approved recordings.
+
+---
+
 ## NEWER OWNER CORRECTION — REJECT 67-CLIP MUSIC/STUTTER SOURCE (2026-10-15)
 
 **Overrides the earlier 2026-10-15 note wherever it mentioned 67 clips as potential playable recordings.** The owner listened to the former stitched demonstrations from `Gretel_67_Audio_Lecciones_Listo.zip` and explicitly rejected them: stuttering, background music, wrong source. The existence of 67 valid MP3 files is **not approval to play them**. They are archived evidence only. Never silently replay, auto-recommend, restitch, or deploy them, even if URLs exist in the branch.

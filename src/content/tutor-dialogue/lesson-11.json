@@ -1,0 +1,4492 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 11,
+  "batchIds": [
+    "B017"
+  ],
+  "entries": [
+    {
+      "id": "v2-l11-01-greeting-first",
+      "text": "Hoy comenzamos una nueva lección para descubrir y practicar el sonido suave de la letra de.",
+      "batch": "B017",
+      "seq": 1,
+      "file": "B017-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-11-greeting-first",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy comenzamos una nueva lección para descubrir y practicar el sonido suave de la letra de",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-02-greeting-return",
+      "text": "Qué alegría verte otra vez para seguir leyendo preguntas y palabras con la letra de.",
+      "batch": "B017",
+      "seq": 2,
+      "file": "B017-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-11-greeting-return",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez para seguir leyendo preguntas y palabras con la letra de",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-03-review-intro",
+      "text": "Ya conocemos el toque firme de la te; hoy aprendemos su compañera más suave, la letra de.",
+      "batch": "B017",
+      "seq": 3,
+      "file": "B017-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-11-review-intro",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ya conocemos el toque firme de la te hoy aprendemos su compañera más suave la letra de",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-04-review-check",
+      "text": "¿Recuerdas cómo leíamos palabras con te, como toma y pato, antes de conocer la de?",
+      "batch": "B017",
+      "seq": 4,
+      "file": "B017-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-11-review-check",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo leíamos palabras con te como toma y pato antes de conocer la de",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido de la de, sus sílabas da, de, di, do, du, y las palabras son y están.",
+      "batch": "B017",
+      "seq": 5,
+      "file": "B017-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-11-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido de la de sus sílabas da de di do du y las palabras son y están",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-06-letter-name",
+      "text": "Esta consonante se llama de, y en minúscula lleva una curva redonda hacia la izquierda junto a una línea alta.",
+      "batch": "B017",
+      "seq": 6,
+      "file": "B017-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-11-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama de y en minúscula lleva una curva redonda hacia la izquierda junto a una línea alta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-07-phonetic-sound",
+      "text": "Al pronunciarla apoyamos con suavidad la punta de la lengua entre o detrás de los dientes.",
+      "batch": "B017",
+      "seq": 7,
+      "file": "B017-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-11-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al pronunciarla apoyamos con suavidad la punta de la lengua entre o detrás de los dientes",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-08-lesson-focus",
+      "text": "La letra de vibra suavemente en la punta de la lengua cuando decimos dedo y dados.",
+      "batch": "B017",
+      "seq": 8,
+      "file": "B017-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-11-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "la letra de vibra suavemente en la punta de la lengua cuando decimos dedo y dados",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-09-sound-contrast",
+      "text": "A diferencia de la te, que es seca y sin vibración, la de hace vibrar suavemente la garganta.",
+      "batch": "B017",
+      "seq": 9,
+      "file": "B017-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-11-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "a diferencia de la te que es seca y sin vibración la de hace vibrar suavemente la garganta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-10-explanation-primary",
+      "text": "Cuando unimos esa vibración suave con las vocales formamos da, de, di, do, du.",
+      "batch": "B017",
+      "seq": 10,
+      "file": "B017-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-11-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando unimos esa vibración suave con las vocales formamos da de di do du",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-11-explanation-simple",
+      "text": "Acerca la punta de la lengua a los dientes y di despacio dedo y dado.",
+      "batch": "B017",
+      "seq": 11,
+      "file": "B017-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-11-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "acerca la punta de la lengua a los dientes y di despacio dedo y dado",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-12-flipchart-intro",
+      "text": "Abramos el rotafolio para practicar las palabras y buscar a Made en el poema Made y papá.",
+      "batch": "B017",
+      "seq": 12,
+      "file": "B017-012.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-11-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "abramos el rotafolio para practicar las palabras y buscar a made en el poema made y papá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-21-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 21
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-22-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 22
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-23-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 23
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-13-flipchart-illustration-1",
+      "text": "En las ilustraciones del rotafolio vemos un dedo, a Didi, unos dados, el número doce y a Dunia.",
+      "batch": "B017",
+      "seq": 13,
+      "file": "B017-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-11-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en las ilustraciones del rotafolio vemos un dedo a didi unos dados el número doce y a dunia",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-21-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 21,
+          "expectedAnswer": "dedo",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-22-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 22,
+          "expectedAnswer": "dedo",
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-14-flipchart-illustration-2",
+      "text": "También observamos en el poema a Made situada en medio y delante de mamá y papá.",
+      "batch": "B017",
+      "seq": 14,
+      "file": "B017-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-11-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "también observamos en el poema a made situada en medio y delante de mamá y papá",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-15-reading-order",
+      "text": "Lee las sílabas de izquierda a derecha, continúa con las palabras y luego lee las preguntas del poema.",
+      "batch": "B017",
+      "seq": 15,
+      "file": "B017-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-11-reading-order",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee las sílabas de izquierda a derecha continúa con las palabras y luego lee las preguntas del poema",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-16-flipchart-model",
+      "text": "Repite conmigo en voz clara las sílabas: da, de, di, do, du.",
+      "batch": "B017",
+      "seq": 16,
+      "file": "B017-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-11-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo en voz clara las sílabas da de di do du",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-17-flipchart-vocab",
+      "text": "Leamos juntos las palabras del rotafolio: dedo, Didi, dados, doce y Dunia.",
+      "batch": "B017",
+      "seq": 17,
+      "file": "B017-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-11-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos las palabras del rotafolio dedo didi dados doce y dunia",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-18-flipchart-rhyme-1",
+      "text": "Leamos del poema Made y papá: ¿Dónde está? Está en el medio de mamá y papá.",
+      "batch": "B017",
+      "seq": 18,
+      "file": "B017-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-11-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos del poema made y papá dónde está está en el medio de mamá y papá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-21-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 21,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-sheet-22-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 22,
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-19-flipchart-rhyme-2",
+      "text": "Seguimos con el final del poema: Made está delante de mamá y papá.",
+      "batch": "B017",
+      "seq": 19,
+      "file": "B017-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-11-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "seguimos con el final del poema made está delante de mamá y papá",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-20-comprehension-1",
+      "text": "En el poema del rotafolio, ¿dónde se encuentra Made respecto a mamá y papá?",
+      "batch": "B017",
+      "seq": 20,
+      "file": "B017-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-11-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en el poema del rotafolio dónde se encuentra made respecto a mamá y papá",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-21-comprehension-2",
+      "text": "¿Dónde coloca Dunia los dados según la lectura de hoy?",
+      "batch": "B017",
+      "seq": 21,
+      "file": "B017-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-11-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "dónde coloca dunia los dados según la lectura de hoy",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra dados?",
+      "batch": "B017",
+      "seq": 22,
+      "file": "B017-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-11-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra dados",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-23-common-mistake-1",
+      "text": "Traza primero la curva de la de minúscula hacia la izquierda antes de subir su línea vertical.",
+      "batch": "B017",
+      "seq": 23,
+      "file": "B017-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-11-common-mistake",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "traza primero la curva de la de minúscula hacia la izquierda antes de subir su línea vertical",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-24-common-mistake-2",
+      "text": "Observa las tildes de dónde y día al leer las preguntas con entonación curiosa.",
+      "batch": "B017",
+      "seq": 24,
+      "file": "B017-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-11-common-mistake",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa las tildes de dónde y día al leer las preguntas con entonación curiosa",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-25-common-mistake-3",
+      "text": "Evita pronunciar la de tan seca como la te; déjala vibrar suavemente en la punta de la lengua.",
+      "batch": "B017",
+      "seq": 25,
+      "file": "B017-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-11-common-mistake",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "evita pronunciar la de tan seca como la te déjala vibrar suavemente en la punta de la lengua",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-26-hint-1",
+      "text": "Apoya la lengua con suavidad en los dientes y escucha qué vocal suena después.",
+      "batch": "B017",
+      "seq": 26,
+      "file": "B017-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-11-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "apoya la lengua con suavidad en los dientes y escucha qué vocal suena después",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-23-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 23
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-dedo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-dedo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mide-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mide-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mudo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "do",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mudo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-ada-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "da",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-ada-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-pide-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-pide-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-duma-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "Du",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-duma-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-27-hint-2",
+      "text": "Compara el comienzo de la palabra con dedo o con dados para descubrir la sílaba.",
+      "batch": "B017",
+      "seq": 27,
+      "file": "B017-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-11-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "compara el comienzo de la palabra con dedo o con dados para descubrir la sílaba",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: dedo.",
+      "batch": "B017",
+      "seq": 28,
+      "file": "B017-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-11-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy dedo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la de y leer preguntas en plural.",
+      "batch": "B017",
+      "seq": 29,
+      "file": "B017-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-11-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la de y leer preguntas en plural",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-30-page-instruction-1",
+      "text": "Escribe la de mayúscula y minúscula con cuidado y haz un dibujo de algo que empiece con de.",
+      "batch": "B017",
+      "seq": 30,
+      "file": "B017-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-11-page-instruction",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escribe la de mayúscula y minúscula con cuidado y haz un dibujo de algo que empiece con de",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-35-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-35-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l11-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-31-page-instruction-2",
+      "text": "Después rodea esa sílaba en palabras como dado, dedo, dime y duda.",
+      "batch": "B017",
+      "seq": 31,
+      "file": "B017-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-11-page-instruction",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          36
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "después rodea esa sílaba en palabras como dado dedo dime y duda",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-32-syllable-practice",
+      "text": "Encierra con atención cada sílaba: da en dame, de en dedo, di en dime, do en dado y du en Duma.",
+      "batch": "B017",
+      "seq": 32,
+      "file": "B017-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-11-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          36
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "encierra con atención cada sílaba da en dame de en dedo di en dime do en dado y du en duma",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-da",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "da"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-de",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "de"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-di",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "di"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-do",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "do"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-36-find-du",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 36,
+          "workbookPdfSheet": 42,
+          "relatedFlipchartSheets": [
+            21,
+            22
+          ],
+          "expectedAnswer": "du"
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: dedo, dónde, deme, dame, Duma, de y día.",
+      "batch": "B017",
+      "seq": 33,
+      "file": "B017-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-11-word-practice",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          37
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras dedo dónde deme dame duma de y día",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: dime, duda, Ada, pide, mudo, moneda, mide y Dunia.",
+      "batch": "B017",
+      "seq": 34,
+      "file": "B017-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-11-word-practice",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          37
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo dime duda ada pide mudo moneda mide y dunia",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-35-sight-or-vocab",
+      "text": "Hoy aprendemos las palabras son y están, que usamos cuando hablamos de varias cosas.",
+      "batch": "B017",
+      "seq": 35,
+      "file": "B017-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-11-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          37
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos las palabras son y están que usamos cuando hablamos de varias cosas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-36-sentence-or-pair",
+      "text": "Lee con calma esta oración del libro: Los dados son de Dunia.",
+      "batch": "B017",
+      "seq": 36,
+      "file": "B017-036.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-11-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          37
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee con calma esta oración del libro los dados son de dunia",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dedo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dónde",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-deme",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dame",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-duma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-de",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-día",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dime",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-duda",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-ada",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-pide",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-mudo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-moneda",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-mide",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-37-read-dunia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 37,
+          "workbookPdfSheet": 43,
+          "relatedFlipchartSheets": [
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-37-page-instruction-final",
+      "text": "Para cerrar el cuaderno, completa cada palabra con su sílaba, como en dedo, mide, mudo y Ada.",
+      "batch": "B017",
+      "seq": 37,
+      "file": "B017-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-11-page-instruction",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para cerrar el cuaderno completa cada palabra con su sílaba como en dedo mide mudo y ada",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva para usar da, de, di, do, du en palabras del libro.",
+      "batch": "B017",
+      "seq": 38,
+      "file": "B017-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-11-game-intro",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva para usar da de di do du en palabras del libro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-39-game-step",
+      "text": "Observa la palabra incompleta y selecciona la sílaba de la de que la completa correctamente.",
+      "batch": "B017",
+      "seq": 39,
+      "file": "B017-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-11-game-step",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y selecciona la sílaba de la de que la completa correctamente",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-40-game-correct",
+      "text": "¡Exacto! Completaste la palabra con la sílaba correcta de la letra de.",
+      "batch": "B017",
+      "seq": 40,
+      "file": "B017-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-11-game-correct",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "exacto completaste la palabra con la sílaba correcta de la letra de",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-41-game-retry",
+      "text": "Lee primero la parte de la palabra que ya está escrita y prueba con otra sílaba de la de.",
+      "batch": "B017",
+      "seq": 41,
+      "file": "B017-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-11-game-retry",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee primero la parte de la palabra que ya está escrita y prueba con otra sílaba de la de",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-42-assessment",
+      "text": "Para cerrar esta práctica, lee esta pregunta del libro: –¿Dónde están los dados?",
+      "batch": "B017",
+      "seq": 42,
+      "file": "B017-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-11-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para cerrar esta práctica lee esta pregunta del libro dónde están los dados",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mide",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-mudo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "do",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-ada",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "da",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-pide",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-duma",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "Du",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-43-page-complete",
+      "text": "Has terminado todas las actividades de la letra de. ¡Excelente avance!",
+      "batch": "B017",
+      "seq": 43,
+      "file": "B017-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-11-page-complete",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "has terminado todas las actividades de la letra de excelente avance",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-35-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 35,
+          "workbookPdfSheet": 41,
+          "relatedFlipchartSheets": [
+            21
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-44-closing",
+      "text": "Terminamos las preguntas y respuestas con la letra de. Seguimos adelante.",
+      "batch": "B017",
+      "seq": 44,
+      "file": "B017-044.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-11-closing",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "terminamos las preguntas y respuestas con la letra de seguimos adelante",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-45-next-step",
+      "text": "En la siguiente lección conoceremos el sonido claro de la letra ele.",
+      "batch": "B017",
+      "seq": 45,
+      "file": "B017-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-11-next-step",
+      "curriculumRefs": {
+        "lesson": 11,
+        "printedPages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "flipchartSheets": [
+          21,
+          22,
+          23
+        ],
+        "letters": [
+          "d"
+        ],
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du"
+        ],
+        "words": [
+          "dedo",
+          "Didi",
+          "dados",
+          "doce",
+          "Dunia",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "son",
+          "están"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en la siguiente lección conoceremos el sonido claro de la letra ele",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l11-46-atlas-flipchart",
+      "text": "¿Entre quiénes está Made al principio?",
+      "normalizedText": "entre quiénes está made al principio",
+      "batch": "B017",
+      "seq": 46,
+      "file": "B017-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-11-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 11,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          23
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-sheet-23-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 23,
+          "expectedAnswer": "entre mamá y papá"
+        }
+      ]
+    },
+    {
+      "id": "v2-l11-47-atlas-workbook",
+      "text": "Queremos escribir «dedo». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir dedo qué parte falta en el espacio",
+      "batch": "B017",
+      "seq": 47,
+      "file": "B017-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-11-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 11,
+        "sourceStatus": "verified",
+        "printedPages": [
+          38
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          11
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l11-page-38-fill-dedo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 38,
+          "workbookPdfSheet": 44,
+          "relatedFlipchartSheets": [
+            22
+          ],
+          "expectedAnswer": "de",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    }
+  ]
+}

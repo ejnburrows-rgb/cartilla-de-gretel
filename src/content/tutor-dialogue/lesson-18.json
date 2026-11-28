@@ -1,0 +1,4311 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 18,
+  "batchIds": [
+    "B024"
+  ],
+  "entries": [
+    {
+      "id": "v2-l18-01-greeting-first",
+      "text": "Te doy la bienvenida. Hoy vamos a practicar el sonido fuerte de la doble erre.",
+      "batch": "B024",
+      "seq": 1,
+      "file": "B024-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-18-greeting-first",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "te doy la bienvenida hoy vamos a practicar el sonido fuerte de la doble erre",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-02-greeting-return",
+      "text": "Qué alegría verte otra vez. Seguimos con la doble erre.",
+      "batch": "B024",
+      "seq": 2,
+      "file": "B024-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-18-greeting-return",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez seguimos con la doble erre",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-03-review-intro",
+      "text": "Ya vimos que una sola erre en medio suena suave; hoy aprendemos qué pasa cuando van dos juntas.",
+      "batch": "B024",
+      "seq": 3,
+      "file": "B024-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-18-review-intro",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ya vimos que una sola erre en medio suena suave hoy aprendemos qué pasa cuando van dos juntas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-04-review-check",
+      "text": "¿Recuerdas cómo cambia el sonido entre pera con una erre y perro con dos erres?",
+      "batch": "B024",
+      "seq": 4,
+      "file": "B024-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-18-review-check",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo cambia el sonido entre pera con una erre y perro con dos erres",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-05-lesson-objective",
+      "text": "Hoy aprenderemos a leer y escribir la doble erre en medio de vocales en rra, rre, rri, rro, rru.",
+      "batch": "B024",
+      "seq": 5,
+      "file": "B024-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-18-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos a leer y escribir la doble erre en medio de vocales en rra rre rri rro rru",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-06-letter-name",
+      "text": "Este dígrafo se llama doble erre, y siempre se escribe con dos erres juntas entre dos vocales.",
+      "batch": "B024",
+      "seq": 6,
+      "file": "B024-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-18-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "este dígrafo se llama doble erre y siempre se escribe con dos erres juntas entre dos vocales",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-07-phonetic-sound",
+      "text": "Cuando dos erres van juntas entre vocales vibran largo y fuerte como un motor: rrr.",
+      "batch": "B024",
+      "seq": 7,
+      "file": "B024-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-18-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando dos erres van juntas entre vocales vibran largo y fuerte como un motor rrr",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-08-lesson-focus",
+      "text": "Dos erres juntas entre vocales suenan fuerte, como en burro, perro, torre y carro.",
+      "batch": "B024",
+      "seq": 8,
+      "file": "B024-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-18-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "dos erres juntas entre vocales suenan fuerte como en burro perro torre y carro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-09-sound-contrast",
+      "text": "Una erre entre vocales suena suave como en pero; dos erres entre vocales suenan fuertes como en perro.",
+      "batch": "B024",
+      "seq": 9,
+      "file": "B024-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-18-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "una erre entre vocales suena suave como en pero dos erres entre vocales suenan fuertes como en perro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-10-explanation-primary",
+      "text": "Nunca ponemos doble erre al principio de una palabra; siempre vive en medio con rra, rre, rri, rro, rru.",
+      "batch": "B024",
+      "seq": 10,
+      "file": "B024-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-18-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "nunca ponemos doble erre al principio de una palabra siempre vive en medio con rra rre rri rro rru",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-11-explanation-simple",
+      "text": "Cuando veas dos erres juntas en medio de una palabra, haz vibrar tu lengua fuerte como en burro y carro.",
+      "batch": "B024",
+      "seq": 11,
+      "file": "B024-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-18-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando veas dos erres juntas en medio de una palabra haz vibrar tu lengua fuerte como en burro y carro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para recorrer las palabras nuevas y leer el poema ¡Rápido arriba!",
+      "batch": "B024",
+      "seq": 12,
+      "file": "B024-012.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-18-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para recorrer las palabras nuevas y leer el poema rápido arriba",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-42-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 42
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-43-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 43
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-44-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 44
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen un burro, un carrusel, una torre, un barril y el planeta Tierra.",
+      "batch": "B024",
+      "seq": 13,
+      "file": "B024-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-18-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen un burro un carrusel una torre un barril y el planeta tierra",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-42-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 42,
+          "expectedAnswer": "burro"
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-43-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 43,
+          "expectedAnswer": "tarro"
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-14-flipchart-illustration-2",
+      "text": "También observamos en el poema a Barri el burrito subiendo a la loma y a Perri el perrito.",
+      "batch": "B024",
+      "seq": 14,
+      "file": "B024-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-18-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "también observamos en el poema a barri el burrito subiendo a la loma y a perri el perrito",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-15-reading-order",
+      "text": "Lee primero las sílabas compuestas de izquierda a derecha y luego recorre el cuento de Rode y su perro.",
+      "batch": "B024",
+      "seq": 15,
+      "file": "B024-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-18-reading-order",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee primero las sílabas compuestas de izquierda a derecha y luego recorre el cuento de rode y su perro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-16-flipchart-model",
+      "text": "Leamos juntos con voz clara las sílabas fuertes: rra, rre, rri, rro, rru.",
+      "batch": "B024",
+      "seq": 16,
+      "file": "B024-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-18-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos con voz clara las sílabas fuertes rra rre rri rro rru",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: burro, carrusel, torre, barril y Tierra.",
+      "batch": "B024",
+      "seq": 17,
+      "file": "B024-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-18-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio burro carrusel torre barril y tierra",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-18-flipchart-rhyme-1",
+      "text": "Leemos el comienzo del poema ¡Rápido arriba!: Barri el burrito sube a la loma. Perri el perrito roba mi bola.",
+      "batch": "B024",
+      "seq": 18,
+      "file": "B024-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-18-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo del poema rápido arriba barri el burrito sube a la loma perri el perrito roba mi bola",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-42-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 42
+        },
+        {
+          "sourceLineId": "dialogue-l18-sheet-43-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 43
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-19-flipchart-rhyme-2",
+      "text": "Seguimos con el final del poema: Mi burro lindo muy bien mandado. Mi perro Perri arrebatado.",
+      "batch": "B024",
+      "seq": 19,
+      "file": "B024-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-18-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "seguimos con el final del poema mi burro lindo muy bien mandado mi perro perri arrebatado",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-20-comprehension-1",
+      "text": "En el poema ¡Rápido arriba!, ¿qué hace el burrito Barri?",
+      "batch": "B024",
+      "seq": 20,
+      "file": "B024-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-18-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en el poema rápido arriba qué hace el burrito barri",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-21-comprehension-2",
+      "text": "¿Qué animal tiene Rode según la lectura de hoy?",
+      "batch": "B024",
+      "seq": 21,
+      "file": "B024-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-18-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué animal tiene rode según la lectura de hoy",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-22-comprehension-3",
+      "text": "¿Dónde está la tina de barro del perro de Rode?",
+      "batch": "B024",
+      "seq": 22,
+      "file": "B024-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-18-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "dónde está la tina de barro del perro de rode",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-23-common-mistake-1",
+      "text": "Recuerda que jamás escribimos doble erre al inicio de una palabra; al principio basta una sola.",
+      "batch": "B024",
+      "seq": 23,
+      "file": "B024-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-18-common-mistake",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "recuerda que jamás escribimos doble erre al inicio de una palabra al principio basta una sola",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-24-common-mistake-2",
+      "text": "Fíjate si hay una o dos erres en medio, porque cambia la palabra entera entre caro y carro.",
+      "batch": "B024",
+      "seq": 24,
+      "file": "B024-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-18-common-mistake",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "fíjate si hay una o dos erres en medio porque cambia la palabra entera entre caro y carro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-25-common-mistake-3",
+      "text": "Cuida las tildes en alemán y arruinó al leer las oraciones del perro Tito.",
+      "batch": "B024",
+      "seq": 25,
+      "file": "B024-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-18-common-mistake",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuida las tildes en alemán y arruinó al leer las oraciones del perro tito",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-26-hint-1",
+      "text": "Mira si hay dos erres juntas en medio de la palabra para hacerlas vibrar con fuerza.",
+      "batch": "B024",
+      "seq": 26,
+      "file": "B024-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-18-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "mira si hay dos erres juntas en medio de la palabra para hacerlas vibrar con fuerza",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-44-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 44
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-perro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-perro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-barre-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-barre-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-torre-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-torre-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-burro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-burro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-carro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-carro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-amarro-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-amarro-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-27-hint-2",
+      "text": "Compara el sonido con burro o con perro para identificar la sílaba exacta.",
+      "batch": "B024",
+      "seq": 27,
+      "file": "B024-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-18-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "compara el sonido con burro o con perro para identificar la sílaba exacta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: burro.",
+      "batch": "B024",
+      "seq": 28,
+      "file": "B024-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-18-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy burro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir las dos erres juntas y leer sobre Rode.",
+      "batch": "B024",
+      "seq": 29,
+      "file": "B024-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-18-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir las dos erres juntas y leer sobre rode",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-30-page-instruction-1",
+      "text": "Escribe con cuidado las dos erres juntas en el renglón y haz un dibujo de una palabra con doble erre.",
+      "batch": "B024",
+      "seq": 30,
+      "file": "B024-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-18-page-instruction",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escribe con cuidado las dos erres juntas en el renglón y haz un dibujo de una palabra con doble erre",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-63-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-63-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-31-page-instruction-2",
+      "text": "Después encierra en un círculo la sílaba con doble erre en pizarra, torre, arriba, carro y arruga.",
+      "batch": "B024",
+      "seq": 31,
+      "file": "B024-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-18-page-instruction",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          64
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo la sílaba con doble erre en pizarra torre arriba carro y arruga",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-32-syllable-practice",
+      "text": "Rodea con atención cada sílaba: rra en barra, rre en torre, rri en arriba, rro en perro y rru en arruga.",
+      "batch": "B024",
+      "seq": 32,
+      "file": "B024-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-18-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          64
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "rodea con atención cada sílaba rra en barra rre en torre rri en arriba rro en perro y rru en arruga",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rra",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rra"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rre",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rre"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rri",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rri"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rro",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rro"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-64-find-rru",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 64,
+          "workbookPdfSheet": 70,
+          "relatedFlipchartSheets": [
+            42,
+            43
+          ],
+          "expectedAnswer": "rru"
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: tarro, burro, tierra, perro, amarro, carrusel, barro y arrebato.",
+      "batch": "B024",
+      "seq": 33,
+      "file": "B024-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-18-word-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras tarro burro tierra perro amarro carrusel barro y arrebato",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: torre, arroba, parra, burrito, arriba, arruina y carro.",
+      "batch": "B024",
+      "seq": 34,
+      "file": "B024-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-18-word-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo torre arroba parra burrito arriba arruina y carro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-35-sight-or-vocab",
+      "text": "Presta atención también al nombre Barri y Perri, que llevan doble erre en el poema.",
+      "batch": "B024",
+      "seq": 35,
+      "file": "B024-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-18-word-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "presta atención también al nombre barri y perri que llevan doble erre en el poema",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-36-sentence-or-pair",
+      "text": "Lee esta oración del libro en voz alta: El perro de Rode tiene una tina de barro.",
+      "batch": "B024",
+      "seq": 36,
+      "file": "B024-036.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-18-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          65
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee esta oración del libro en voz alta el perro de rode tiene una tina de barro",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-tarro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-burro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-tierra",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-perro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-amarro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-carrusel",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-barro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arrebato",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-torre",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arroba",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-parra",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-burrito",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arriba",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-arruina",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-65-read-carro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 65,
+          "workbookPdfSheet": 71,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-37-page-instruction-final",
+      "text": "Al final completa cada palabra con rra, rre, rri, rro, rru, como en perro, barre, torre y burro.",
+      "batch": "B024",
+      "seq": 37,
+      "file": "B024-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-18-page-instruction",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con rra rre rri rro rru como en perro barre torre y burro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva para distinguir y completar palabras con doble erre.",
+      "batch": "B024",
+      "seq": 38,
+      "file": "B024-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-18-game-intro",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva para distinguir y completar palabras con doble erre",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-39-game-step",
+      "text": "Observa cada palabra incompleta y elige la sílaba con doble erre que le da sentido.",
+      "batch": "B024",
+      "seq": 39,
+      "file": "B024-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-18-game-step",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa cada palabra incompleta y elige la sílaba con doble erre que le da sentido",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-40-game-correct",
+      "text": "¡Acertaste! Elegiste la sílaba exacta de doble erre para completar esa palabra.",
+      "batch": "B024",
+      "seq": 40,
+      "file": "B024-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-18-game-correct",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "acertaste elegiste la sílaba exacta de doble erre para completar esa palabra",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-41-game-retry",
+      "text": "Pronuncia la palabra completa despacio y fíjate qué vocal sigue después de las dos erres.",
+      "batch": "B024",
+      "seq": 41,
+      "file": "B024-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-18-game-retry",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pronuncia la palabra completa despacio y fíjate qué vocal sigue después de las dos erres",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Tito arruinó el carro de rosas.",
+      "batch": "B024",
+      "seq": 42,
+      "file": "B024-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-18-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro tito arruinó el carro de rosas",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-barre",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-torre",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rre",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-burro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-carro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-amarro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-43-page-complete",
+      "text": "Completaste todas las actividades de la doble erre. ¡Muy bien!",
+      "batch": "B024",
+      "seq": 43,
+      "file": "B024-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-18-page-complete",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "completaste todas las actividades de la doble erre muy bien",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-63-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 63,
+          "workbookPdfSheet": 69,
+          "relatedFlipchartSheets": [
+            42
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-44-closing",
+      "text": "Terminamos la lección de la doble erre y sus palabras fuertes.",
+      "batch": "B024",
+      "seq": 44,
+      "file": "B024-044.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-18-closing",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "terminamos la lección de la doble erre y sus palabras fuertes",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-45-next-step",
+      "text": "En la próxima lección conoceremos el sonido suave de la letra ge con a, o y u.",
+      "batch": "B024",
+      "seq": 45,
+      "file": "B024-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-18-next-step",
+      "curriculumRefs": {
+        "lesson": 18,
+        "printedPages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "flipchartSheets": [
+          42,
+          43,
+          44
+        ],
+        "letters": [
+          "rr"
+        ],
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru"
+        ],
+        "words": [
+          "burro",
+          "carrusel",
+          "torre",
+          "barril",
+          "Tierra",
+          "tarro",
+          "perro",
+          "amarro",
+          "barro",
+          "arrebato",
+          "arroba",
+          "parra",
+          "burrito",
+          "arriba",
+          "arruina",
+          "carro"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos el sonido suave de la letra ge con a o y u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l18-46-atlas-flipchart",
+      "text": "¿Quién sube a la loma?",
+      "normalizedText": "quién sube a la loma",
+      "batch": "B024",
+      "seq": 46,
+      "file": "B024-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-18-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 18,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          44
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-sheet-44-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 44,
+          "expectedAnswer": "Barri el burrito"
+        }
+      ]
+    },
+    {
+      "id": "v2-l18-47-atlas-workbook",
+      "text": "Queremos escribir «perro». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir perro qué parte falta en el espacio",
+      "batch": "B024",
+      "seq": 47,
+      "file": "B024-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-18-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 18,
+        "sourceStatus": "verified",
+        "printedPages": [
+          66
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          18
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l18-page-66-fill-perro",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 66,
+          "workbookPdfSheet": 72,
+          "relatedFlipchartSheets": [
+            43
+          ],
+          "expectedAnswer": "rro",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    }
+  ]
+}

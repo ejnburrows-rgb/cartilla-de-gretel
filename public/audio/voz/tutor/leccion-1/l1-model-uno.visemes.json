@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/uno.mp3",
+    "duration": 1.25,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "9394f8be0d29fa4e55b7411b8d385092e3a1f063490df76912c1ff43b00aae66"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.21,
+      "value": "X"
+    },
+    {
+      "start": 0.21,
+      "end": 0.25,
+      "value": "B"
+    },
+    {
+      "start": 0.25,
+      "end": 0.5,
+      "value": "F"
+    },
+    {
+      "start": 0.5,
+      "end": 0.57,
+      "value": "C"
+    },
+    {
+      "start": 0.57,
+      "end": 0.85,
+      "value": "D"
+    },
+    {
+      "start": 0.85,
+      "end": 0.99,
+      "value": "E"
+    },
+    {
+      "start": 0.99,
+      "end": 1.25,
+      "value": "X"
+    }
+  ]
+}

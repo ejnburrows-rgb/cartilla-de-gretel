@@ -1,0 +1,669 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-17",
+  "lesson": 17,
+  "title": "R inicial",
+  "kind": "consonant",
+  "focus": "R",
+  "printedWorkbookPages": {
+    "start": 59,
+    "end": 62,
+    "pages": [
+      59,
+      60,
+      61,
+      62
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 65,
+    "end": 68,
+    "sheets": [
+      65,
+      66,
+      67,
+      68
+    ]
+  },
+  "flipchartPages": [
+    39,
+    40,
+    41
+  ],
+  "prerequisiteLessons": [
+    "lesson-16"
+  ],
+  "nextLessons": [
+    "lesson-18"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "teacher-guide-verification"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 59,
+      "pdfSheet": 65,
+      "status": "verified",
+      "exerciseId": "l17-p59-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con r.",
+      "flipchartPrimaryPages": [
+        39
+      ],
+      "flipchartSupplementalPages": [
+        40,
+        41
+      ]
+    },
+    {
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "status": "verified",
+      "exerciseId": "l17-p60-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        39,
+        40
+      ],
+      "flipchartSupplementalPages": [
+        41
+      ]
+    },
+    {
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "status": "verified",
+      "exerciseId": "l17-p61-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        40
+      ],
+      "flipchartSupplementalPages": [
+        41
+      ]
+    },
+    {
+      "printedPage": 62,
+      "pdfSheet": 68,
+      "status": "verified",
+      "exerciseId": "l17-p62-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        40
+      ],
+      "flipchartSupplementalPages": [
+        39,
+        41
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "rana",
+      "flipchartPage": 39,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/rana.mp3"
+    },
+    {
+      "word": "remos",
+      "flipchartPage": 39,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/remos.mp3"
+    },
+    {
+      "word": "Rita",
+      "flipchartPage": 39,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rita.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/rita.mp3"
+    },
+    {
+      "word": "rosa",
+      "flipchartPage": 39,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/rosa.mp3"
+    },
+    {
+      "word": "rueda",
+      "flipchartPage": 39,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rueda.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/rueda.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l17-syllable-ra",
+      "lesson": 17,
+      "kind": "syllable",
+      "text": "ra",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-syllable-re",
+      "lesson": 17,
+      "kind": "syllable",
+      "text": "re",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-syllable-ri",
+      "lesson": 17,
+      "kind": "syllable",
+      "text": "ri",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-syllable-ro",
+      "lesson": 17,
+      "kind": "syllable",
+      "text": "ro",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-syllable-ru",
+      "lesson": 17,
+      "kind": "syllable",
+      "text": "ru",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rana",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rana",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/rana.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rama",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rama",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-raton",
+      "lesson": 17,
+      "kind": "word",
+      "text": "ratón",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rata",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rata",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-raso",
+      "lesson": 17,
+      "kind": "word",
+      "text": "raso",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-remo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "remo",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/remo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-reloj",
+      "lesson": 17,
+      "kind": "word",
+      "text": "reloj",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-relevo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "relevo",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rezo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rezo",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-revista",
+      "lesson": 17,
+      "kind": "word",
+      "text": "revista",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rema",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rema",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-riña",
+      "lesson": 17,
+      "kind": "word",
+      "text": "riña",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rima",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rima",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rimamos",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rimamos",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rita",
+      "lesson": 17,
+      "kind": "word",
+      "text": "Rita",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/rita.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-risa",
+      "lesson": 17,
+      "kind": "word",
+      "text": "risa",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rizo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rizo",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rosa",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rosa",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/rosa.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-roto",
+      "lesson": 17,
+      "kind": "word",
+      "text": "roto",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rolo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "Rolo",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-roca",
+      "lesson": 17,
+      "kind": "word",
+      "text": "roca",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rota",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rota",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-roberto",
+      "lesson": 17,
+      "kind": "word",
+      "text": "Roberto",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-ruta",
+      "lesson": 17,
+      "kind": "word",
+      "text": "ruta",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rufino",
+      "lesson": 17,
+      "kind": "word",
+      "text": "Rufino",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rubio",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rubio",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-ruso",
+      "lesson": 17,
+      "kind": "word",
+      "text": "ruso",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rutina",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rutina",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rudo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rudo",
+      "printedPage": 60,
+      "pdfSheet": 66,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-ramo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "ramo",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-ropa",
+      "lesson": 17,
+      "kind": "word",
+      "text": "ropa",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rosado",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rosado",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rulo",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rulo",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-roma",
+      "lesson": 17,
+      "kind": "word",
+      "text": "Roma",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-word-rebaño",
+      "lesson": 17,
+      "kind": "word",
+      "text": "rebaño",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-sight-bien",
+      "lesson": 17,
+      "kind": "sight-word",
+      "text": "bien",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-sentence-01",
+      "lesson": 17,
+      "kind": "sentence",
+      "text": "La bola de Roberto rueda bien.",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-sentence-02",
+      "lesson": 17,
+      "kind": "sentence",
+      "text": "Rolo patea la bola. La bola rueda y",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-sentence-03",
+      "lesson": 17,
+      "kind": "sentence",
+      "text": "le da a un bolo. El bolo se rompe y",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-sentence-04",
+      "lesson": 17,
+      "kind": "sentence",
+      "text": "Roberto se ríe. Rolo se ríe también.",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-sentence-05",
+      "lesson": 17,
+      "kind": "sentence",
+      "text": "Rita le da al bolo. Rita se ríe.",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l17-sentence-06",
+      "lesson": 17,
+      "kind": "sentence",
+      "text": "Rolo y Roberto se ríen también.",
+      "printedPage": 61,
+      "pdfSheet": 67,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 47,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 35,
+      "sight-word": 1,
+      "sentence": 6
+    },
+    "itemsWithApprovedAudio": 4,
+    "itemsAudioPending": 43
+  }
+}

@@ -8,6 +8,7 @@ import { readLearnerResume } from "@/lib/learner-resume";
 import { playUiTick } from "@/lib/piano-audio";
 import { requestLessonFullscreen } from "@/lib/lesson-fullscreen";
 import { audioEngine } from "@/lib/audio-engine";
+import { DemoControlCenter } from "@/components/cartilla/DemoControlCenter";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: Lecciones,
@@ -66,6 +67,7 @@ function Lecciones() {
 
   return (
     <main className="lc-lessons">
+      {import.meta.env.VITE_CRM_REVIEW === "true" && <DemoControlCenter />}
       <header className="lc-lessons__header">
         <Link to="/cartilla" className="lc-lessons__back">
           <ArrowLeft size={20} /> Cartilla
@@ -116,6 +118,14 @@ function Lecciones() {
       </header>
 
       <div className="mx-auto mb-4 flex max-w-[1280px] flex-wrap items-center gap-3">
+        {import.meta.env.VITE_CRM_REVIEW !== "true" && <Link
+          to="/tutor"
+          data-testid="link-tutor-gretel"
+          aria-label="Tutor interactivo de Gretel"
+          className="inline-flex items-center rounded-2xl bg-teal-700 px-4 py-2.5 text-sm font-bold text-white hover:bg-teal-800"
+        >
+          Practicar con Gretel (Tutor)
+        </Link>}
         <Link
           to="/cartilla/cuaderno"
           className="inline-flex items-center gap-2 rounded-2xl border border-amber-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-extrabold text-stone-800 shadow-2xs transition hover:bg-amber-50"

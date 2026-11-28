@@ -119,6 +119,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+.lc-welcome__tutor-pill {
+  left: max(16px, env(safe-area-inset-left));
+  right: auto;
+}
 .lc-welcome__teacher-pill:hover {
   background: #174b88;
   border-color: var(--cover-gold);

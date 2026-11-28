@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/escalera.mp3",
+    "duration": 1.7,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "b582c7fe5045be284065ea63123616772aa8ec902384620b1b9c4b1dbee9040c"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.25,
+      "value": "X"
+    },
+    {
+      "start": 0.25,
+      "end": 0.3,
+      "value": "B"
+    },
+    {
+      "start": 0.3,
+      "end": 0.34,
+      "value": "E"
+    },
+    {
+      "start": 0.34,
+      "end": 0.48,
+      "value": "F"
+    },
+    {
+      "start": 0.48,
+      "end": 0.55,
+      "value": "B"
+    },
+    {
+      "start": 0.55,
+      "end": 0.64,
+      "value": "A"
+    },
+    {
+      "start": 0.64,
+      "end": 0.85,
+      "value": "C"
+    },
+    {
+      "start": 0.85,
+      "end": 0.99,
+      "value": "F"
+    },
+    {
+      "start": 0.99,
+      "end": 1.06,
+      "value": "C"
+    },
+    {
+      "start": 1.06,
+      "end": 1.13,
+      "value": "B"
+    },
+    {
+      "start": 1.13,
+      "end": 1.2,
+      "value": "F"
+    },
+    {
+      "start": 1.2,
+      "end": 1.34,
+      "value": "C"
+    },
+    {
+      "start": 1.34,
+      "end": 1.48,
+      "value": "B"
+    },
+    {
+      "start": 1.48,
+      "end": 1.7,
+      "value": "X"
+    }
+  ]
+}

@@ -22,6 +22,9 @@ export function WelcomeSplash() {
       data-cover-failed={coverFailed || undefined}
     >
       <h1 className="lc-welcome__accessible-title">La Cartilla de Gretel</h1>
+      <Link to="/tutor" className="lc-welcome__teacher-pill lc-welcome__tutor-pill" data-testid="wc-tutor" aria-label="Tutor interactivo de Gretel">
+        Tutor Gretel
+      </Link>
       <Link to="/cartilla/teacher/crm" className="lc-welcome__teacher-pill">
         Soy maestro
       </Link>

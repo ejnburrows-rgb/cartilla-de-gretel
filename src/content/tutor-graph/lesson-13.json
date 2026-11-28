@@ -1,0 +1,713 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-13",
+  "lesson": 13,
+  "title": "Nn",
+  "kind": "consonant",
+  "focus": "N",
+  "printedWorkbookPages": {
+    "start": 43,
+    "end": 46,
+    "pages": [
+      43,
+      44,
+      45,
+      46
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 49,
+    "end": 52,
+    "sheets": [
+      49,
+      50,
+      51,
+      52
+    ]
+  },
+  "flipchartPages": [
+    27,
+    28,
+    29
+  ],
+  "prerequisiteLessons": [
+    "lesson-12"
+  ],
+  "nextLessons": [
+    "lesson-14"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 43,
+      "pdfSheet": 49,
+      "status": "verified",
+      "exerciseId": "l13-p43-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con n.",
+      "flipchartPrimaryPages": [
+        27
+      ],
+      "flipchartSupplementalPages": [
+        28,
+        29
+      ]
+    },
+    {
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "status": "verified",
+      "exerciseId": "l13-p44-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        27,
+        28
+      ],
+      "flipchartSupplementalPages": [
+        29
+      ]
+    },
+    {
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "status": "verified",
+      "exerciseId": "l13-p45-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        28
+      ],
+      "flipchartSupplementalPages": [
+        29
+      ]
+    },
+    {
+      "printedPage": 46,
+      "pdfSheet": 52,
+      "status": "verified",
+      "exerciseId": "l13-p46-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        28
+      ],
+      "flipchartSupplementalPages": [
+        27,
+        29
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "nido",
+      "flipchartPage": 27,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-nido.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/nido.mp3"
+    },
+    {
+      "word": "nudo",
+      "flipchartPage": 27,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-nudo.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/nudo.mp3"
+    },
+    {
+      "word": "mono",
+      "flipchartPage": 27,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-mono.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mono.mp3"
+    },
+    {
+      "word": "Napi",
+      "flipchartPage": 27,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-napi.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/napi.mp3"
+    },
+    {
+      "word": "tenedor",
+      "flipchartPage": 27,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p027-tenedor.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tenedor.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l13-syllable-na",
+      "lesson": 13,
+      "kind": "syllable",
+      "text": "na",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-syllable-ne",
+      "lesson": 13,
+      "kind": "syllable",
+      "text": "ne",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-syllable-ni",
+      "lesson": 13,
+      "kind": "syllable",
+      "text": "ni",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-syllable-no",
+      "lesson": 13,
+      "kind": "syllable",
+      "text": "no",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-syllable-nu",
+      "lesson": 13,
+      "kind": "syllable",
+      "text": "nu",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nata",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nata",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nariz",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nariz",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-tina",
+      "lesson": 13,
+      "kind": "word",
+      "text": "tina",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nada",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nada",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-napi",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Napi",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/napi.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-lana",
+      "lesson": 13,
+      "kind": "word",
+      "text": "lana",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nena",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Nena",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-negro",
+      "lesson": 13,
+      "kind": "word",
+      "text": "negro",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nela",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Nela",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-tenedor",
+      "lesson": 13,
+      "kind": "word",
+      "text": "tenedor",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tenedor.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-negar",
+      "lesson": 13,
+      "kind": "word",
+      "text": "negar",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nenita",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Nenita",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nido",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nido",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/nido.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-niño",
+      "lesson": 13,
+      "kind": "word",
+      "text": "niño",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/niño.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-poni",
+      "lesson": 13,
+      "kind": "word",
+      "text": "poni",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-sonido",
+      "lesson": 13,
+      "kind": "word",
+      "text": "sonido",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-anida",
+      "lesson": 13,
+      "kind": "word",
+      "text": "anida",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nino",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Nino",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-mono",
+      "lesson": 13,
+      "kind": "word",
+      "text": "mono",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mono.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nora",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Nora",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-pino",
+      "lesson": 13,
+      "kind": "word",
+      "text": "pino",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nono",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Nono",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-noche",
+      "lesson": 13,
+      "kind": "word",
+      "text": "noche",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-mano",
+      "lesson": 13,
+      "kind": "word",
+      "text": "mano",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nudo",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nudo",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/nudo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-menudo",
+      "lesson": 13,
+      "kind": "word",
+      "text": "menudo",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nulo",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nulo",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-anuca",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Anuca",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-anudo",
+      "lesson": 13,
+      "kind": "word",
+      "text": "anudo",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nube",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nube",
+      "printedPage": 44,
+      "pdfSheet": 50,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-nene",
+      "lesson": 13,
+      "kind": "word",
+      "text": "nené",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-tono",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Tono",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-alina",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Alina",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-luna",
+      "lesson": 13,
+      "kind": "word",
+      "text": "luna",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-neli",
+      "lesson": 13,
+      "kind": "word",
+      "text": "Neli",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-suena",
+      "lesson": 13,
+      "kind": "word",
+      "text": "suena",
+      "printedPage": 46,
+      "pdfSheet": 52,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-sano",
+      "lesson": 13,
+      "kind": "word",
+      "text": "sano",
+      "printedPage": 46,
+      "pdfSheet": 52,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-word-pone",
+      "lesson": 13,
+      "kind": "word",
+      "text": "pone",
+      "printedPage": 46,
+      "pdfSheet": 52,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sight-esa",
+      "lesson": 13,
+      "kind": "sight-word",
+      "text": "esa",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sight-a",
+      "lesson": 13,
+      "kind": "sight-word",
+      "text": "a",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sentence-01",
+      "lesson": 13,
+      "kind": "sentence",
+      "text": "Tomás dame esa tina. La tina es de Napi.",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sentence-02",
+      "lesson": 13,
+      "kind": "sentence",
+      "text": "Tono y Alina aman a Napi.",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sentence-03",
+      "lesson": 13,
+      "kind": "sentence",
+      "text": "Napi tiene pelo.",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sentence-04",
+      "lesson": 13,
+      "kind": "sentence",
+      "text": "Tono le pone la tina a Napi en el piso.",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sentence-05",
+      "lesson": 13,
+      "kind": "sentence",
+      "text": "Nono no le pone nada a esa tina.",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l13-sentence-06",
+      "lesson": 13,
+      "kind": "sentence",
+      "text": "Esa tina no tiene nada.",
+      "printedPage": 45,
+      "pdfSheet": 51,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 51,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 38,
+      "sight-word": 2,
+      "sentence": 6
+    },
+    "itemsWithApprovedAudio": 6,
+    "itemsAudioPending": 45
+  }
+}

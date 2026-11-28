@@ -1,0 +1,669 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-21",
+  "lesson": 21,
+  "title": "Jj",
+  "kind": "consonant",
+  "focus": "J",
+  "printedWorkbookPages": {
+    "start": 75,
+    "end": 78,
+    "pages": [
+      75,
+      76,
+      77,
+      78
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 81,
+    "end": 84,
+    "sheets": [
+      81,
+      82,
+      83,
+      84
+    ]
+  },
+  "flipchartPages": [
+    51,
+    52,
+    53
+  ],
+  "prerequisiteLessons": [
+    "lesson-20"
+  ],
+  "nextLessons": [
+    "lesson-22"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "teacher-guide-verification"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 75,
+      "pdfSheet": 81,
+      "status": "verified",
+      "exerciseId": "l21-p75-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con j.",
+      "flipchartPrimaryPages": [
+        51
+      ],
+      "flipchartSupplementalPages": [
+        52,
+        53
+      ]
+    },
+    {
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "status": "verified",
+      "exerciseId": "l21-p76-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        51,
+        52
+      ],
+      "flipchartSupplementalPages": [
+        53
+      ]
+    },
+    {
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "status": "verified",
+      "exerciseId": "l21-p77-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        52
+      ],
+      "flipchartSupplementalPages": [
+        53
+      ]
+    },
+    {
+      "printedPage": 78,
+      "pdfSheet": 84,
+      "status": "verified",
+      "exerciseId": "l21-p78-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        52
+      ],
+      "flipchartSupplementalPages": [
+        51,
+        53
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "jicotea",
+      "flipchartPage": 51,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jicotea.mp3"
+    },
+    {
+      "word": "jugo",
+      "flipchartPage": 51,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jugo.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jugo.mp3"
+    },
+    {
+      "word": "Jesús",
+      "flipchartPage": 51,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jesús.mp3"
+    },
+    {
+      "word": "ajo",
+      "flipchartPage": 51,
+      "illustrationSrc": null,
+      "approvedAudioSrc": "/audio/voz/vocabulario/ajo.mp3"
+    },
+    {
+      "word": "jarra",
+      "flipchartPage": 51,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jarra.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l21-syllable-ja",
+      "lesson": 21,
+      "kind": "syllable",
+      "text": "ja",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-syllable-je",
+      "lesson": 21,
+      "kind": "syllable",
+      "text": "je",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-syllable-ji",
+      "lesson": 21,
+      "kind": "syllable",
+      "text": "ji",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-syllable-jo",
+      "lesson": 21,
+      "kind": "syllable",
+      "text": "jo",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-syllable-ju",
+      "lesson": 21,
+      "kind": "syllable",
+      "text": "ju",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jaba",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jaba",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jabon",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jabón",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jamas",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jamás",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jarra",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jarra",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jarra.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jamon",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jamón",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-baja",
+      "lesson": 21,
+      "kind": "word",
+      "text": "baja",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jesus",
+      "lesson": 21,
+      "kind": "word",
+      "text": "Jesús",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jesús.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jefe",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jefe",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-baje",
+      "lesson": 21,
+      "kind": "word",
+      "text": "baje",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jefatura",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jefatura",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jerez",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jerez",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-ajeno",
+      "lesson": 21,
+      "kind": "word",
+      "text": "ajeno",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jicotea",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jicotea",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jicotea.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jibaro",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jíbaro",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jirafa",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jirafa",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jirafa.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-aji",
+      "lesson": 21,
+      "kind": "word",
+      "text": "ají",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-ajillo",
+      "lesson": 21,
+      "kind": "word",
+      "text": "ajillo",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jinete",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jinete",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jobo",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jobo",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jose",
+      "lesson": 21,
+      "kind": "word",
+      "text": "José",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-bajo",
+      "lesson": 21,
+      "kind": "word",
+      "text": "bajo",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-ajo",
+      "lesson": 21,
+      "kind": "word",
+      "text": "ajo",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ajo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jota",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jota",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jorobado",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jorobado",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jubilo",
+      "lesson": 21,
+      "kind": "word",
+      "text": "júbilo",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-julio",
+      "lesson": 21,
+      "kind": "word",
+      "text": "Julio",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jutia",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jutía",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-juventud",
+      "lesson": 21,
+      "kind": "word",
+      "text": "juventud",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jugo",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jugo",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/jugo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jugar",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jugar",
+      "printedPage": 76,
+      "pdfSheet": 82,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jura",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jura",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-vieja",
+      "lesson": 21,
+      "kind": "word",
+      "text": "vieja",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-julia",
+      "lesson": 21,
+      "kind": "word",
+      "text": "Julia",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-jarro",
+      "lesson": 21,
+      "kind": "word",
+      "text": "jarro",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-word-joven",
+      "lesson": 21,
+      "kind": "word",
+      "text": "joven",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-sentence-01",
+      "lesson": 21,
+      "kind": "sentence",
+      "text": "Jesús y Julia son amigos. A José le gusta",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-sentence-02",
+      "lesson": 21,
+      "kind": "sentence",
+      "text": "el jamón y a Julia le gusta el jugo de",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-sentence-03",
+      "lesson": 21,
+      "kind": "sentence",
+      "text": "tomate. Juan tiene una jutía y la baña con",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-sentence-04",
+      "lesson": 21,
+      "kind": "sentence",
+      "text": "jabón. José y Josefa juegan en la",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-sentence-05",
+      "lesson": 21,
+      "kind": "sentence",
+      "text": "laguna. Jabela es una jicotea.",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-sentence-06",
+      "lesson": 21,
+      "kind": "sentence",
+      "text": "A Jabela le gusta la laguna. A Jabela",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l21-sentence-07",
+      "lesson": 21,
+      "kind": "sentence",
+      "text": "no le gusta la espuma de jabón.",
+      "printedPage": 77,
+      "pdfSheet": 83,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 47,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 35,
+      "sight-word": 0,
+      "sentence": 7
+    },
+    "itemsWithApprovedAudio": 6,
+    "itemsAudioPending": 41
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "status": "pending-owner-approval",
+  "approved": false,
+  "note": "Unapproved candidates for owner side-by-side review in docs/tutor/AVATAR-APPROVAL-PREVIEW.html. Production public/cartilla/images/gretel/layers/manifest.json remains safely empty until explicit owner Yes per piece.",
+  "masterSource": {
+    "src": "/cartilla/images/gretel/gretel-approved-master.png",
+    "width": 1086,
+    "height": 1448
+  },
+  "ownerPortraitReferences": [
+    {
+      "id": "gretel-tutor-portrait-call",
+      "label": "Owner-approved torso-up video-call portrait (landscape, sunlit classroom)",
+      "src": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg",
+      "width": 1024,
+      "height": 662,
+      "sha256": "33c33572ad1fbef3a7ec1d0a2e06ed8c8b367ddd2d36fd61ce76b255d1fd7bdc",
+      "approvedOn": "2026-11-26"
+    },
+    {
+      "id": "gretel-tutor-portrait-presenting",
+      "label": "Owner-approved torso-up presenting portrait (square, welcoming raised hand)",
+      "src": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-presenting.jpg",
+      "width": 1024,
+      "height": 1024,
+      "sha256": "6e216a51c05599da220591bb02727b9180845a12e4202fd43db9ce7eb884415e",
+      "approvedOn": "2026-11-26"
+    }
+  ],
+  "torsoUpCrop": {
+    "src": "/cartilla/images/gretel/tutor/gretel-torso-up.png",
+    "left": 184,
+    "top": 0,
+    "width": 718,
+    "height": 860,
+    "scale": 1,
+    "sha256": "be4f9b90a99aec4d212fd79d468b97897de575c2b1bffeeb7c783993fbb545cb"
+  },
+  "excludedRecoveredAssets": {
+    "source": "~/Downloads/PNGs/",
+    "reason": "Inspected visually: vector/flat-shaded rig cutouts with freckles, missing red bow, and different face proportions. Excluded per LAYER-PACK-SPEC fallback rule (no off-model piece is ever used)."
+  },
+  "candidates": [
+    {
+      "id": "mouth-X",
+      "role": "mouth",
+      "shapes": [
+        "X"
+      ],
+      "label": "Mouth X — Native resting smile (exact pixels from approved master)",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-X.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "91c9b27ec64a6244f7559cb3bb5cc6ba05bfb871d53ee239bfb273065dd9e88e",
+      "source": "native-extract-from-approved-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "blink-half",
+      "role": "blink",
+      "label": "Eyelids half-closed",
+      "src": "/cartilla/images/gretel/tutor/candidates/blink-half.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "fe07cfc808d3ac92e75182ee0f06e7acb80794213235ada417311b584e0879d1",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "blink-closed",
+      "role": "blink",
+      "label": "Eyelids fully closed",
+      "src": "/cartilla/images/gretel/tutor/candidates/blink-closed.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "414962ab75d519cf12207ce266f381bbbe8d5550ab32b97ff6299a7480e2476c",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "mouth-A",
+      "role": "mouth",
+      "shapes": [
+        "A"
+      ],
+      "label": "Mouth A — Closed lips (M / B / P)",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-A.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "dcda8cc9740aed67d309f76dfd956747fd6800adf49b6a42855c6efbcddc6d7d",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "mouth-B",
+      "role": "mouth",
+      "shapes": [
+        "B"
+      ],
+      "label": "Mouth B — Slightly open consonants",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-B.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "dae29c76db5388d9222f972337471c21a06d33d070b14612692e30cd99f24696",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "mouth-C",
+      "role": "mouth",
+      "shapes": [
+        "C"
+      ],
+      "label": "Mouth C — Open vowels (E / A)",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-C.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "085c3f3787b74f183ee4d968135f15fd2234b1815090768f5150f18e9abc1760",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "mouth-D",
+      "role": "mouth",
+      "shapes": [
+        "D"
+      ],
+      "label": "Mouth D — Wide open vowel (A)",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-D.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "386dc76adf2edc2dedece2585be9532ce66f6a16e2348229f47ca3c7e78a267d",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "mouth-E",
+      "role": "mouth",
+      "shapes": [
+        "E"
+      ],
+      "label": "Mouth E — Rounded vowel (O)",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-E.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "677d5208fd489ed31f16826de3553c0fdfd5cc53f6971c51a9b524087c5d682c",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "mouth-F",
+      "role": "mouth",
+      "shapes": [
+        "F"
+      ],
+      "label": "Mouth F — Small puckered (U / W)",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-F.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "ea1dbd13361fe9dc84dd01af9628a6c0ee2576885db57f5168d7db677733e2a2",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "mouth-G",
+      "role": "mouth",
+      "shapes": [
+        "G"
+      ],
+      "label": "Mouth G — Upper teeth on lower lip (F / V)",
+      "src": "/cartilla/images/gretel/tutor/candidates/mouth-G.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "d257f3da9c520a60e57ebab41c441630b2b85d8a462f29bcb9fdb6da4be6eb38",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    },
+    {
+      "id": "brows-soft-lift",
+      "role": "brows",
+      "label": "Eyebrows — Gentle listening/encouragement lift",
+      "src": "/cartilla/images/gretel/tutor/candidates/brows-soft-lift.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "e0245dd9acc41f243b75e6d8e07306e246d5d1cfa4dc70ec95acce72dd5e8cbf",
+      "source": "candidate-overlay-sampled-from-master",
+      "ownerDecision": "pending"
+    }
+  ],
+  "callPortraitCandidates": {
+    "status": "pending-owner-approval",
+    "approved": false,
+    "basePortrait": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-call.jpg",
+    "presentingPortrait": "/cartilla/images/gretel/tutor/reference/gretel-tutor-portrait-presenting.jpg",
+    "width": 1024,
+    "height": 662,
+    "candidates": [
+      {
+        "id": "blink-half",
+        "role": "blink",
+        "label": "Eyelids half-closed (hand-painted mid-blink)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/blink-half.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "becc09e106229b3d8ed6b95e5ce80ba793de5cdee9f16fa2871a00202efa8619",
+        "source": "storybook-painted-variant:eyes-half.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "blink-closed",
+        "role": "blink",
+        "label": "Eyelids fully closed (hand-painted natural blink)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/blink-closed.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "8356ddca0eb2afb66fbb761ab1c17443a2edc270941ae276edd9b09a7d1437df",
+        "source": "storybook-painted-variant:eyes-closed.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "brows-soft-lift",
+        "role": "brows",
+        "label": "Eyebrows gently lifted (attentive listening arch)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/brows-soft-lift.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "a76bbff1a00b74dff7ca8e9158187b0254fe2627bb4eef546cc5fdf7e0eecba3",
+        "source": "storybook-painted-variant:thinking.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "expr-listening",
+        "role": "expression",
+        "label": "Attentive listening face (warm closed smile + soft lifted brows)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/expr-listening.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "50f7902f17f05f366e9a8f07ed3eed522c095f9a23ab7e5d7be475ac9cdbadf0",
+        "source": "storybook-painted-variant:listening+thinking-brows",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "expr-thinking",
+        "role": "expression",
+        "label": "Curious thinking face (upward reflective gaze + gentle closed smile)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/expr-thinking.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "ea4659016d2653bfafaee1f157f78769ba6fd39ac759cd9e1eda8cc9f3af718d",
+        "source": "storybook-painted-variant:thinking.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-X",
+        "role": "mouth",
+        "shapes": [
+          "X"
+        ],
+        "label": "Mouth X — Warm closed-mouth resting smile",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-X.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "b15524b3ed93877e33403f326d022ebcff72fe9724ffd0d71e2d605906e70327",
+        "source": "storybook-painted-variant:rest-smile.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-A",
+        "role": "mouth",
+        "shapes": [
+          "A"
+        ],
+        "label": "Mouth A — Closed bilabial (m, b, p)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-A.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "74a19574e5b6db005838bcdeaa2be958d6b0dabcd062f90ebc78504e43281b14",
+        "source": "storybook-painted-variant:speak-mbp.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-B",
+        "role": "mouth",
+        "shapes": [
+          "B"
+        ],
+        "label": "Mouth B — Slightly open wider smile (e, i, s, t, n)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-B.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "a05113086aeaecce352c2b1dae8a5af7a52f9ec89114a247ab25e1cec3970467",
+        "source": "storybook-painted-variant:speak-e.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-C",
+        "role": "mouth",
+        "shapes": [
+          "C"
+        ],
+        "label": "Mouth C — Natural open speaking smile (exact approved portrait mouth)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-C.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "484d100c1da3fe786b090784ea1bbd3a039e30a69c8663fdf752740b9eac94d5",
+        "source": "native-extract-from-owner-call-portrait",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-D",
+        "role": "mouth",
+        "shapes": [
+          "D"
+        ],
+        "label": "Mouth D — Open vowel (a)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-D.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "0df2cbfc7248b700acf3d73cfa73260b619ac5423ccfbdb2f38f8f60b7fb7c7a",
+        "source": "storybook-painted-variant:speak-ah.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-E",
+        "role": "mouth",
+        "shapes": [
+          "E"
+        ],
+        "label": "Mouth E — Rounded open vowel (o)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-E.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "d8c2c2be60720b9c11c186057a0a1ef4437e0201f275b18330bbbdc6577bfdb5",
+        "source": "storybook-painted-variant:speak-o.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-F",
+        "role": "mouth",
+        "shapes": [
+          "F"
+        ],
+        "label": "Mouth F — Small pursed rounded vowel (u)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-F.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "cbf8b613ec0fb3728f946be6b297cbaeb6dec879b8206a3529d933cb517a1156",
+        "source": "storybook-painted-variant:speak-u.jpg",
+        "ownerDecision": "pending"
+      },
+      {
+        "id": "mouth-G",
+        "role": "mouth",
+        "shapes": [
+          "G"
+        ],
+        "label": "Mouth G — Soft labiodental / coronal (f, v, l, d)",
+        "src": "/cartilla/images/gretel/tutor/call-candidates/mouth-G.png",
+        "width": 1024,
+        "height": 662,
+        "sha256": "4d5b43caeca18206a2b80114a7f12685d3e229370c9d53a82dcf30c2333e229e",
+        "source": "storybook-painted-variant:speak-fv.jpg",
+        "ownerDecision": "pending"
+      }
+    ]
+  }
+}

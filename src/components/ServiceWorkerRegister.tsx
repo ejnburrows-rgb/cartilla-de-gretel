@@ -17,7 +17,7 @@ export function ServiceWorkerRegister() {
     const host = window.location.hostname;
     const isLocalhost = host === "localhost" || host === "127.0.0.1";
 
-    if (inIframe || isLocalhost) {
+    if (inIframe || (isLocalhost && import.meta.env.DEV)) {
       navigator.serviceWorker
         .getRegistrations()
         .then((regs) => regs.forEach((r) => r.unregister()))

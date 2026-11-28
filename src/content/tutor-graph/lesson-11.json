@@ -1,0 +1,658 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-11",
+  "lesson": 11,
+  "title": "Dd",
+  "kind": "consonant",
+  "focus": "D",
+  "printedWorkbookPages": {
+    "start": 35,
+    "end": 38,
+    "pages": [
+      35,
+      36,
+      37,
+      38
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 41,
+    "end": 44,
+    "sheets": [
+      41,
+      42,
+      43,
+      44
+    ]
+  },
+  "flipchartPages": [
+    21,
+    22,
+    23
+  ],
+  "prerequisiteLessons": [
+    "lesson-10"
+  ],
+  "nextLessons": [
+    "lesson-12"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 35,
+      "pdfSheet": 41,
+      "status": "verified",
+      "exerciseId": "l11-p35-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con d.",
+      "flipchartPrimaryPages": [
+        21
+      ],
+      "flipchartSupplementalPages": [
+        22,
+        23
+      ]
+    },
+    {
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "status": "verified",
+      "exerciseId": "l11-p36-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        21,
+        22
+      ],
+      "flipchartSupplementalPages": [
+        23
+      ]
+    },
+    {
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "status": "verified",
+      "exerciseId": "l11-p37-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        22
+      ],
+      "flipchartSupplementalPages": [
+        23
+      ]
+    },
+    {
+      "printedPage": 38,
+      "pdfSheet": 44,
+      "status": "verified",
+      "exerciseId": "l11-p38-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        22
+      ],
+      "flipchartSupplementalPages": [
+        21,
+        23
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "Didi",
+      "flipchartPage": 21,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-didi.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/didi.mp3"
+    },
+    {
+      "word": "dados",
+      "flipchartPage": 21,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-dados.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/dados.mp3"
+    },
+    {
+      "word": "dedo",
+      "flipchartPage": 21,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-dedo.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/dedo.mp3"
+    },
+    {
+      "word": "doce",
+      "flipchartPage": 21,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-doce.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/doce.mp3"
+    },
+    {
+      "word": "Dunia",
+      "flipchartPage": 21,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p021-dunia.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/dunia.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l11-syllable-da",
+      "lesson": 11,
+      "kind": "syllable",
+      "text": "da",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-syllable-de",
+      "lesson": 11,
+      "kind": "syllable",
+      "text": "de",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-syllable-di",
+      "lesson": 11,
+      "kind": "syllable",
+      "text": "di",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-syllable-do",
+      "lesson": 11,
+      "kind": "syllable",
+      "text": "do",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-syllable-du",
+      "lesson": 11,
+      "kind": "syllable",
+      "text": "du",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dame",
+      "lesson": 11,
+      "kind": "word",
+      "text": "dame",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-ada",
+      "lesson": 11,
+      "kind": "word",
+      "text": "Ada",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-made",
+      "lesson": 11,
+      "kind": "word",
+      "text": "Made",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-duda",
+      "lesson": 11,
+      "kind": "word",
+      "text": "duda",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dado",
+      "lesson": 11,
+      "kind": "word",
+      "text": "dado",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/dado.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-poda",
+      "lesson": 11,
+      "kind": "word",
+      "text": "poda",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dedo",
+      "lesson": 11,
+      "kind": "word",
+      "text": "dedo",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/dedo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-ademas",
+      "lesson": 11,
+      "kind": "word",
+      "text": "además",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-deme",
+      "lesson": 11,
+      "kind": "word",
+      "text": "deme",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-modelo",
+      "lesson": 11,
+      "kind": "word",
+      "text": "modelo",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-pide",
+      "lesson": 11,
+      "kind": "word",
+      "text": "pide",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-debajo",
+      "lesson": 11,
+      "kind": "word",
+      "text": "debajo",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dime",
+      "lesson": 11,
+      "kind": "word",
+      "text": "dime",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-adi",
+      "lesson": 11,
+      "kind": "word",
+      "text": "Adi",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dice",
+      "lesson": 11,
+      "kind": "word",
+      "text": "dice",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dinero",
+      "lesson": 11,
+      "kind": "word",
+      "text": "dinero",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dia",
+      "lesson": 11,
+      "kind": "word",
+      "text": "día",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-didi",
+      "lesson": 11,
+      "kind": "word",
+      "text": "Didi",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/didi.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-podo",
+      "lesson": 11,
+      "kind": "word",
+      "text": "podo",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-doce",
+      "lesson": 11,
+      "kind": "word",
+      "text": "doce",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/doce.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-modo",
+      "lesson": 11,
+      "kind": "word",
+      "text": "modo",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-mudo",
+      "lesson": 11,
+      "kind": "word",
+      "text": "mudo",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-duma",
+      "lesson": 11,
+      "kind": "word",
+      "text": "Duma",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-duro",
+      "lesson": 11,
+      "kind": "word",
+      "text": "duro",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-durazno",
+      "lesson": 11,
+      "kind": "word",
+      "text": "durazno",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-maduro",
+      "lesson": 11,
+      "kind": "word",
+      "text": "maduro",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-ducha",
+      "lesson": 11,
+      "kind": "word",
+      "text": "ducha",
+      "printedPage": 36,
+      "pdfSheet": 42,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-donde",
+      "lesson": 11,
+      "kind": "word",
+      "text": "dónde",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-de",
+      "lesson": 11,
+      "kind": "word",
+      "text": "de",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-moneda",
+      "lesson": 11,
+      "kind": "word",
+      "text": "moneda",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-mide",
+      "lesson": 11,
+      "kind": "word",
+      "text": "mide",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-word-dunia",
+      "lesson": 11,
+      "kind": "word",
+      "text": "Dunia",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/dunia.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sight-son",
+      "lesson": 11,
+      "kind": "sight-word",
+      "text": "son",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sight-estan",
+      "lesson": 11,
+      "kind": "sight-word",
+      "text": "están",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sentence-01",
+      "lesson": 11,
+      "kind": "sentence",
+      "text": "Dime si Ada tiene dados.",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sentence-02",
+      "lesson": 11,
+      "kind": "sentence",
+      "text": "Los dados son de Dunia.",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sentence-03",
+      "lesson": 11,
+      "kind": "sentence",
+      "text": "– ¿Dónde están los dados?",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sentence-04",
+      "lesson": 11,
+      "kind": "sentence",
+      "text": "Dunia pone los dados en el pomo.",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sentence-05",
+      "lesson": 11,
+      "kind": "sentence",
+      "text": "– Dunia dame el pomo.",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sentence-06",
+      "lesson": 11,
+      "kind": "sentence",
+      "text": "El pomo de Dunia está en la mesa.",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l11-sentence-07",
+      "lesson": 11,
+      "kind": "sentence",
+      "text": "– Ada, ¿Dónde está Dunia?",
+      "printedPage": 37,
+      "pdfSheet": 43,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 46,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 32,
+      "sight-word": 2,
+      "sentence": 7
+    },
+    "itemsWithApprovedAudio": 5,
+    "itemsAudioPending": 41
+  }
+}

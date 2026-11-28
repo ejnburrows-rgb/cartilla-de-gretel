@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/escoba.mp3",
+    "duration": 1.7,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "cfd04fea55ed0196dd43766249d8c068cb94737680a8c7d538071646e685d800"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.2,
+      "value": "X"
+    },
+    {
+      "start": 0.2,
+      "end": 0.26,
+      "value": "B"
+    },
+    {
+      "start": 0.26,
+      "end": 0.31,
+      "value": "E"
+    },
+    {
+      "start": 0.31,
+      "end": 0.38,
+      "value": "F"
+    },
+    {
+      "start": 0.38,
+      "end": 0.73,
+      "value": "B"
+    },
+    {
+      "start": 0.73,
+      "end": 0.84,
+      "value": "E"
+    },
+    {
+      "start": 0.84,
+      "end": 0.96,
+      "value": "A"
+    },
+    {
+      "start": 0.96,
+      "end": 1.41,
+      "value": "C"
+    },
+    {
+      "start": 1.41,
+      "end": 1.7,
+      "value": "X"
+    }
+  ]
+}

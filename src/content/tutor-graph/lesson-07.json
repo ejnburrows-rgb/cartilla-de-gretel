@@ -1,0 +1,673 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-07",
+  "lesson": 7,
+  "title": "Mm",
+  "kind": "consonant",
+  "focus": "M",
+  "printedWorkbookPages": {
+    "start": 19,
+    "end": 22,
+    "pages": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 25,
+    "end": 28,
+    "sheets": [
+      25,
+      26,
+      27,
+      28
+    ]
+  },
+  "flipchartPages": [
+    9,
+    10,
+    11
+  ],
+  "prerequisiteLessons": [
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06"
+  ],
+  "nextLessons": [
+    "lesson-08"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text",
+    "game-answer-key"
+  ],
+  "games": [
+    {
+      "id": "payaso-chano-ss",
+      "type": "payaso-chano",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "silabas-m",
+      "type": "lectura-silabas",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "completar-palabras",
+      "type": "completar-palabras",
+      "answerKeyStatus": "source-pending"
+    },
+    {
+      "id": "cow-game-m",
+      "type": "cow-game",
+      "answerKeyStatus": "verified"
+    }
+  ],
+  "pages": [
+    {
+      "printedPage": 19,
+      "pdfSheet": 25,
+      "status": "verified",
+      "exerciseId": "l7-p19-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con m.",
+      "flipchartPrimaryPages": [
+        9
+      ],
+      "flipchartSupplementalPages": [
+        10,
+        11
+      ]
+    },
+    {
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "status": "verified",
+      "exerciseId": "l7-p20-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        9,
+        10
+      ],
+      "flipchartSupplementalPages": [
+        11
+      ]
+    },
+    {
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "status": "verified",
+      "exerciseId": "l7-p21-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        10
+      ],
+      "flipchartSupplementalPages": [
+        11
+      ]
+    },
+    {
+      "printedPage": 22,
+      "pdfSheet": 28,
+      "status": "verified",
+      "exerciseId": "l7-p22-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        10
+      ],
+      "flipchartSupplementalPages": [
+        9,
+        11
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "mamá",
+      "flipchartPage": 9,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-mama.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mamá.mp3"
+    },
+    {
+      "word": "amo",
+      "flipchartPage": 9,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-amo.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/amo.mp3"
+    },
+    {
+      "word": "mima",
+      "flipchartPage": 9,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-mima.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mima.mp3"
+    },
+    {
+      "word": "Meme",
+      "flipchartPage": 9,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-meme.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/meme.mp3"
+    },
+    {
+      "word": "Mumi",
+      "flipchartPage": 9,
+      "illustrationSrc": "/cartilla/art/optimized/flipchart-native/p009-mumi.png",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mumi.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l7-syllable-ma",
+      "lesson": 7,
+      "kind": "syllable",
+      "text": "ma",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-syllable-me",
+      "lesson": 7,
+      "kind": "syllable",
+      "text": "me",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-syllable-mi",
+      "lesson": 7,
+      "kind": "syllable",
+      "text": "mi",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-syllable-mo",
+      "lesson": 7,
+      "kind": "syllable",
+      "text": "mo",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-syllable-mu",
+      "lesson": 7,
+      "kind": "syllable",
+      "text": "mu",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mami",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mami",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-ama",
+      "lesson": 7,
+      "kind": "word",
+      "text": "ama",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mama",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mamá",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mamá.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mima",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mima",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mima.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-coloma",
+      "lesson": 7,
+      "kind": "word",
+      "text": "Coloma",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-manolo",
+      "lesson": 7,
+      "kind": "word",
+      "text": "Manolo",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-media",
+      "lesson": 7,
+      "kind": "word",
+      "text": "media",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-memo",
+      "lesson": 7,
+      "kind": "word",
+      "text": "Memo",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-melon",
+      "lesson": 7,
+      "kind": "word",
+      "text": "melón",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mesa",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mesa",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-meta",
+      "lesson": 7,
+      "kind": "word",
+      "text": "meta",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-meme",
+      "lesson": 7,
+      "kind": "word",
+      "text": "Meme",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/meme.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mio",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mío",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-amigo",
+      "lesson": 7,
+      "kind": "word",
+      "text": "amigo",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mira",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mira",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-misa",
+      "lesson": 7,
+      "kind": "word",
+      "text": "misa",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mimi",
+      "lesson": 7,
+      "kind": "word",
+      "text": "Mimí",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-amo",
+      "lesson": 7,
+      "kind": "word",
+      "text": "amo",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/amo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mono",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mono",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mono.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-como",
+      "lesson": 7,
+      "kind": "word",
+      "text": "como",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-moneda",
+      "lesson": 7,
+      "kind": "word",
+      "text": "moneda",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-moto",
+      "lesson": 7,
+      "kind": "word",
+      "text": "moto",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mulo",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mulo",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-muleta",
+      "lesson": 7,
+      "kind": "word",
+      "text": "muleta",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-muro",
+      "lesson": 7,
+      "kind": "word",
+      "text": "muro",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mudo",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mudo",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mujer",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mujer",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mumi",
+      "lesson": 7,
+      "kind": "word",
+      "text": "Mumi",
+      "printedPage": 20,
+      "pdfSheet": 26,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mumi.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-me",
+      "lesson": 7,
+      "kind": "word",
+      "text": "me",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mimo",
+      "lesson": 7,
+      "kind": "word",
+      "text": "Mimo",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mimame",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mímame",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-mia",
+      "lesson": 7,
+      "kind": "word",
+      "text": "mía",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-word-amame",
+      "lesson": 7,
+      "kind": "word",
+      "text": "ámame",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-sight-y",
+      "lesson": 7,
+      "kind": "sight-word",
+      "text": "y",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-sentence-01",
+      "lesson": 7,
+      "kind": "sentence",
+      "text": "Mi mamá me ama.",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-sentence-02",
+      "lesson": 7,
+      "kind": "sentence",
+      "text": "Amo a mami. Mamá mía.",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-sentence-03",
+      "lesson": 7,
+      "kind": "sentence",
+      "text": "Mamá ama a Meme y a Mimí.",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-sentence-04",
+      "lesson": 7,
+      "kind": "sentence",
+      "text": "Memo ama a Mumi.",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-sentence-05",
+      "lesson": 7,
+      "kind": "sentence",
+      "text": "Mamá mía ámame. Mímame a mí.",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l7-sentence-06",
+      "lesson": 7,
+      "kind": "sentence",
+      "text": "Mi mamá me mima.",
+      "printedPage": 21,
+      "pdfSheet": 27,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 45,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 33,
+      "sight-word": 1,
+      "sentence": 6
+    },
+    "itemsWithApprovedAudio": 6,
+    "itemsAudioPending": 39
+  }
+}

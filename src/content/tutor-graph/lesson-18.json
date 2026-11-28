@@ -1,0 +1,691 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-18",
+  "lesson": 18,
+  "title": "rr",
+  "kind": "consonant",
+  "focus": "rr",
+  "printedWorkbookPages": {
+    "start": 63,
+    "end": 66,
+    "pages": [
+      63,
+      64,
+      65,
+      66
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 69,
+    "end": 72,
+    "sheets": [
+      69,
+      70,
+      71,
+      72
+    ]
+  },
+  "flipchartPages": [
+    42,
+    43,
+    44
+  ],
+  "prerequisiteLessons": [
+    "lesson-17"
+  ],
+  "nextLessons": [
+    "lesson-19"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "teacher-guide-verification"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 63,
+      "pdfSheet": 69,
+      "status": "verified",
+      "exerciseId": "l18-p63-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que contenga la letra rr.",
+      "flipchartPrimaryPages": [
+        42
+      ],
+      "flipchartSupplementalPages": [
+        43,
+        44
+      ]
+    },
+    {
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "status": "verified",
+      "exerciseId": "l18-p64-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        42,
+        43
+      ],
+      "flipchartSupplementalPages": [
+        44
+      ]
+    },
+    {
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "status": "verified",
+      "exerciseId": "l18-p65-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        43
+      ],
+      "flipchartSupplementalPages": [
+        44
+      ]
+    },
+    {
+      "printedPage": 66,
+      "pdfSheet": 72,
+      "status": "verified",
+      "exerciseId": "l18-p66-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        43
+      ],
+      "flipchartSupplementalPages": [
+        42,
+        44
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "burro",
+      "flipchartPage": 42,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/burro.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/burro.mp3"
+    },
+    {
+      "word": "carrusel",
+      "flipchartPage": 42,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carrusel.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/carrusel.mp3"
+    },
+    {
+      "word": "torre",
+      "flipchartPage": 42,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/torre.mp3"
+    },
+    {
+      "word": "barril",
+      "flipchartPage": 42,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/barril.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/barril.mp3"
+    },
+    {
+      "word": "Tierra",
+      "flipchartPage": 42,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tierra.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l18-syllable-rra",
+      "lesson": 18,
+      "kind": "syllable",
+      "text": "rra",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-syllable-rre",
+      "lesson": 18,
+      "kind": "syllable",
+      "text": "rre",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-syllable-rri",
+      "lesson": 18,
+      "kind": "syllable",
+      "text": "rri",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-syllable-rro",
+      "lesson": 18,
+      "kind": "syllable",
+      "text": "rro",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-syllable-rru",
+      "lesson": 18,
+      "kind": "syllable",
+      "text": "rru",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-barra",
+      "lesson": 18,
+      "kind": "word",
+      "text": "barra",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-amarra",
+      "lesson": 18,
+      "kind": "word",
+      "text": "amarra",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-pizarra",
+      "lesson": 18,
+      "kind": "word",
+      "text": "pizarra",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-porra",
+      "lesson": 18,
+      "kind": "word",
+      "text": "Porra",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrasar",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrasar",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-perra",
+      "lesson": 18,
+      "kind": "word",
+      "text": "perra",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-torre",
+      "lesson": 18,
+      "kind": "word",
+      "text": "torre",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/torre.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-amarre",
+      "lesson": 18,
+      "kind": "word",
+      "text": "amarre",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrebatado",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrebatado",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-barre",
+      "lesson": 18,
+      "kind": "word",
+      "text": "barre",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrebatar",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrebatar",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrepiente",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrepiente",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arriba",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arriba",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrima",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrima",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-parrilla",
+      "lesson": 18,
+      "kind": "word",
+      "text": "parrilla",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-perrita",
+      "lesson": 18,
+      "kind": "word",
+      "text": "perrita",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-barril",
+      "lesson": 18,
+      "kind": "word",
+      "text": "barril",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/barril.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-carrito",
+      "lesson": 18,
+      "kind": "word",
+      "text": "carrito",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-carro",
+      "lesson": 18,
+      "kind": "word",
+      "text": "carro",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/carro.mp3",
+      "tutorLineId": "l1-model-carro"
+    },
+    {
+      "id": "l18-word-arroyo",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arroyo",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-burro",
+      "lesson": 18,
+      "kind": "word",
+      "text": "burro",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/burro.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-perro",
+      "lesson": 18,
+      "kind": "word",
+      "text": "perro",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/perro.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-amarro",
+      "lesson": 18,
+      "kind": "word",
+      "text": "amarro",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-tarro",
+      "lesson": 18,
+      "kind": "word",
+      "text": "tarro",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arruga",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arruga",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrugado",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrugado",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrullo",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrullo",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-verruga",
+      "lesson": 18,
+      "kind": "word",
+      "text": "verruga",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrullar",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrullar",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrullador",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrullador",
+      "printedPage": 64,
+      "pdfSheet": 70,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-tierra",
+      "lesson": 18,
+      "kind": "word",
+      "text": "tierra",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/tierra.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-carrusel",
+      "lesson": 18,
+      "kind": "word",
+      "text": "carrusel",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/carrusel.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-barro",
+      "lesson": 18,
+      "kind": "word",
+      "text": "barro",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arrebato",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arrebato",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arroba",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arroba",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-parra",
+      "lesson": 18,
+      "kind": "word",
+      "text": "parra",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-burrito",
+      "lesson": 18,
+      "kind": "word",
+      "text": "burrito",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-word-arruina",
+      "lesson": 18,
+      "kind": "word",
+      "text": "arruina",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-sentence-01",
+      "lesson": 18,
+      "kind": "sentence",
+      "text": "Rode tiene un perro. Es un perro alemán.",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-sentence-02",
+      "lesson": 18,
+      "kind": "sentence",
+      "text": "El perro de Rode tiene una tina de barro.",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-sentence-03",
+      "lesson": 18,
+      "kind": "sentence",
+      "text": "La tina de barro está en el piso.",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-sentence-04",
+      "lesson": 18,
+      "kind": "sentence",
+      "text": "Rosi amarra el perro en la mata.",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-sentence-05",
+      "lesson": 18,
+      "kind": "sentence",
+      "text": "El perro no muerde. El perro Tito mueve el",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l18-sentence-06",
+      "lesson": 18,
+      "kind": "sentence",
+      "text": "rabo. Tito arruinó el carro de rosas.",
+      "printedPage": 65,
+      "pdfSheet": 71,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 49,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 38,
+      "sight-word": 0,
+      "sentence": 6
+    },
+    "itemsWithApprovedAudio": 7,
+    "itemsAudioPending": 42
+  }
+}

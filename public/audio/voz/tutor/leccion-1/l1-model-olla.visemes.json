@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/olla.mp3",
+    "duration": 1.45,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "ec4ee54ac7c150ee4c7170c9a798cf72d67ef42dae35659a5bda5c169176f61f"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.35,
+      "value": "X"
+    },
+    {
+      "start": 0.35,
+      "end": 0.41,
+      "value": "B"
+    },
+    {
+      "start": 0.41,
+      "end": 0.46,
+      "value": "E"
+    },
+    {
+      "start": 0.46,
+      "end": 0.53,
+      "value": "F"
+    },
+    {
+      "start": 0.53,
+      "end": 0.6,
+      "value": "C"
+    },
+    {
+      "start": 0.6,
+      "end": 0.67,
+      "value": "B"
+    },
+    {
+      "start": 0.67,
+      "end": 0.74,
+      "value": "F"
+    },
+    {
+      "start": 0.74,
+      "end": 1.09,
+      "value": "C"
+    },
+    {
+      "start": 1.09,
+      "end": 1.45,
+      "value": "X"
+    }
+  ]
+}

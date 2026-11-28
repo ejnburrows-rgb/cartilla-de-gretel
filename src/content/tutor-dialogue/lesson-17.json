@@ -1,0 +1,4398 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 17,
+  "batchIds": [
+    "B023"
+  ],
+  "entries": [
+    {
+      "id": "v2-l17-01-greeting-first",
+      "text": "Hoy abrimos juntos una nueva lección para explorar el sonido de la erre al comenzar palabras.",
+      "batch": "B023",
+      "seq": 1,
+      "file": "B023-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-17-greeting-first",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy abrimos juntos una nueva lección para explorar el sonido de la erre al comenzar palabras",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir leyendo el cuento de Roberto, Rolo y Rita.",
+      "batch": "B023",
+      "seq": 2,
+      "file": "B023-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-17-greeting-return",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo el cuento de roberto rolo y rita",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-03-review-intro",
+      "text": "Ya navegamos con la uve de vela; hoy escuchamos la vibración alegre de la letra ere.",
+      "batch": "B023",
+      "seq": 3,
+      "file": "B023-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-17-review-intro",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ya navegamos con la uve de vela hoy escuchamos la vibración alegre de la letra ere",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-04-review-check",
+      "text": "¿Has sentido cómo vibra la lengua al pronunciar el comienzo de la palabra rana?",
+      "batch": "B023",
+      "seq": 4,
+      "file": "B023-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-17-review-check",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "has sentido cómo vibra la lengua al pronunciar el comienzo de la palabra rana",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-05-lesson-objective",
+      "text": "Hoy aprenderemos cómo suena la erre al principio de las palabras, leeremos ra, re, ri, ro, ru y bien.",
+      "batch": "B023",
+      "seq": 5,
+      "file": "B023-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-17-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos cómo suena la erre al principio de las palabras leeremos ra re ri ro ru y bien",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-06-letter-name",
+      "text": "Esta consonante se llama ere, y hoy la estudiamos como r inicial al comienzo de cada palabra.",
+      "batch": "B023",
+      "seq": 6,
+      "file": "B023-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-17-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ere y hoy la estudiamos como r inicial al comienzo de cada palabra",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-07-phonetic-sound",
+      "text": "Al iniciar una palabra vibra fuerte en el paladar: rrr, y en medio de vocales da un toque suave.",
+      "batch": "B023",
+      "seq": 7,
+      "file": "B023-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-17-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al iniciar una palabra vibra fuerte en el paladar rrr y en medio de vocales da un toque suave",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-08-lesson-focus",
+      "text": "Cuando la ere empieza una palabra vibra con energía como en rana, rosa y rueda.",
+      "batch": "B023",
+      "seq": 8,
+      "file": "B023-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-17-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando la ere empieza una palabra vibra con energía como en rana rosa y rueda",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-09-sound-contrast",
+      "text": "Escucha la diferencia: al inicio como en rana vibra fuerte, pero en medio como en pera da un solo toque.",
+      "batch": "B023",
+      "seq": 9,
+      "file": "B023-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-17-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha la diferencia al inicio como en rana vibra fuerte pero en medio como en pera da un solo toque",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-10-explanation-primary",
+      "text": "Cuando unimos la ere inicial con las vocales leemos las sílabas ra, re, ri, ro, ru.",
+      "batch": "B023",
+      "seq": 10,
+      "file": "B023-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-17-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando unimos la ere inicial con las vocales leemos las sílabas ra re ri ro ru",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-11-explanation-simple",
+      "text": "Sube la punta de la lengua hacia el paladar y deja que vibre al decir rana y remo.",
+      "batch": "B023",
+      "seq": 11,
+      "file": "B023-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-17-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sube la punta de la lengua hacia el paladar y deja que vibre al decir rana y remo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer los dibujos nuevos y la rima La rosca de Manolo.",
+      "batch": "B023",
+      "seq": 12,
+      "file": "B023-012.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-17-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer los dibujos nuevos y la rima la rosca de manolo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-39-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 39
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-40-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 40
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-41-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 41
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen una rana, unos remos, la niña Rita, una rosa y una rueda.",
+      "batch": "B023",
+      "seq": 13,
+      "file": "B023-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-17-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una rana unos remos la niña rita una rosa y una rueda",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-39-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 39,
+          "expectedAnswer": "rana"
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-40-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 40,
+          "expectedAnswer": "ramo"
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-14-flipchart-illustration-2",
+      "text": "También observamos en la escena al ratón, al mono risueño y la rosca redonda de Manolo.",
+      "batch": "B023",
+      "seq": 14,
+      "file": "B023-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-17-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "también observamos en la escena al ratón al mono risueño y la rosca redonda de manolo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-15-reading-order",
+      "text": "Lee primero las sílabas, luego las palabras del cuadro y después sigue el cuento completo en orden.",
+      "batch": "B023",
+      "seq": 15,
+      "file": "B023-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-17-reading-order",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee primero las sílabas luego las palabras del cuadro y después sigue el cuento completo en orden",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-16-flipchart-model",
+      "text": "Leamos juntos con voz clara las sílabas: ra, re, ri, ro, ru.",
+      "batch": "B023",
+      "seq": 16,
+      "file": "B023-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-17-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos con voz clara las sílabas ra re ri ro ru",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: rana, remos, Rita, rosa y rueda.",
+      "batch": "B023",
+      "seq": 17,
+      "file": "B023-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-17-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio rana remos rita rosa y rueda",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-18-flipchart-rhyme-1",
+      "text": "Leemos el comienzo de La rosca de Manolo: La r para la rama, para el roer del ratón.",
+      "batch": "B023",
+      "seq": 18,
+      "file": "B023-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-17-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de la rosca de manolo la r para la rama para el roer del ratón",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-39-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 39
+        },
+        {
+          "sourceLineId": "dialogue-l17-sheet-40-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 40
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-19-flipchart-rhyme-2",
+      "text": "Seguimos con la segunda parte de la rima: la rana, el remo, la rosa y la rosca de Manolo.",
+      "batch": "B023",
+      "seq": 19,
+      "file": "B023-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-17-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "seguimos con la segunda parte de la rima la rana el remo la rosa y la rosca de manolo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-20-comprehension-1",
+      "text": "Según la rima La rosca de Manolo, ¿qué animal roe en el poema?",
+      "batch": "B023",
+      "seq": 20,
+      "file": "B023-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-17-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "según la rima la rosca de manolo qué animal roe en el poema",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-21-comprehension-2",
+      "text": "¿Qué le pasa al bolo cuando la bola de Roberto rueda y le da en la historia?",
+      "batch": "B023",
+      "seq": 21,
+      "file": "B023-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-17-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué le pasa al bolo cuando la bola de roberto rueda y le da en la historia",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra rueda?",
+      "batch": "B023",
+      "seq": 22,
+      "file": "B023-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-17-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra rueda",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-23-common-mistake-1",
+      "text": "Cuando veas una sola erre entre vocales como en cara o pero, no la hagas vibrar fuerte; dale un toque suave.",
+      "batch": "B023",
+      "seq": 23,
+      "file": "B023-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-17-common-mistake",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando veas una sola erre entre vocales como en cara o pero no la hagas vibrar fuerte dale un toque suave",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-24-common-mistake-2",
+      "text": "Al inicio de palabra como en rana o Roberto sí vibra con fuerza aunque veas una sola erre.",
+      "batch": "B023",
+      "seq": 24,
+      "file": "B023-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-17-common-mistake",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al inicio de palabra como en rana o roberto sí vibra con fuerza aunque veas una sola erre",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-25-common-mistake-3",
+      "text": "Respeta la tilde en palabras como ratón, también y ríe al leer la historia de Rolo.",
+      "batch": "B023",
+      "seq": 25,
+      "file": "B023-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-17-common-mistake",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "respeta la tilde en palabras como ratón también y ríe al leer la historia de rolo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-26-hint-1",
+      "text": "Fíjate si la erre está al principio de la palabra para hacerla vibrar con fuerza.",
+      "batch": "B023",
+      "seq": 26,
+      "file": "B023-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-17-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "fíjate si la erre está al principio de la palabra para hacerla vibrar con fuerza",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-41-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 41
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rana-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ra",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rana-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rita-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "Ri",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rita-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-ruta-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-ruta-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-remo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "re",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-remo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rosa-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rosa-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rubio-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rubio-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-27-hint-2",
+      "text": "Compara el sonido inicial con rana o con rosa para elegir la sílaba exacta.",
+      "batch": "B023",
+      "seq": 27,
+      "file": "B023-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-17-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "compara el sonido inicial con rana o con rosa para elegir la sílaba exacta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: rana.",
+      "batch": "B023",
+      "seq": 28,
+      "file": "B023-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-17-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy rana",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la ere y leer nuestra primera historia larga.",
+      "batch": "B023",
+      "seq": 29,
+      "file": "B023-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-17-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la ere y leer nuestra primera historia larga",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-30-page-instruction-1",
+      "text": "Practica el trazo de la ere mayúscula y minúscula y haz un dibujo de algo que empiece con erre.",
+      "batch": "B023",
+      "seq": 30,
+      "file": "B023-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-17-page-instruction",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "practica el trazo de la ere mayúscula y minúscula y haz un dibujo de algo que empiece con erre",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-59-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-59-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l17-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l17-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l17-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-31-page-instruction-2",
+      "text": "Después encierra en un círculo las sílabas en palabras como rana, reloj, risa, rosa, Rolo y ruta.",
+      "batch": "B023",
+      "seq": 31,
+      "file": "B023-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-17-page-instruction",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          60
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo las sílabas en palabras como rana reloj risa rosa rolo y ruta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-32-syllable-practice",
+      "text": "Encierra con atención cada sílaba: ra en rana, re en remo, ri en risa, ro en rosa y ru en ruta.",
+      "batch": "B023",
+      "seq": 32,
+      "file": "B023-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-17-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          60
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "encierra con atención cada sílaba ra en rana re en remo ri en risa ro en rosa y ru en ruta",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ra",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ra"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-re",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "re"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ri",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ri"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ro",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ro"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-60-find-ru",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 60,
+          "workbookPdfSheet": 66,
+          "relatedFlipchartSheets": [
+            39,
+            40
+          ],
+          "expectedAnswer": "ru"
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: ramo, remo, ropa, rosa, rana, rosado, risa y ruta.",
+      "batch": "B023",
+      "seq": 33,
+      "file": "B023-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-17-word-practice",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras ramo remo ropa rosa rana rosado risa y ruta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: rulo, rata, Rita, Rolo, roto, Roma y rebaño.",
+      "batch": "B023",
+      "seq": 34,
+      "file": "B023-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-17-word-practice",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo rulo rata rita rolo roto roma y rebaño",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-35-sight-or-vocab",
+      "text": "Hoy aprendemos la palabra bien, que aparece para contar cómo rueda la bola de Roberto.",
+      "batch": "B023",
+      "seq": 35,
+      "file": "B023-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-17-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos la palabra bien que aparece para contar cómo rueda la bola de roberto",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-36-sentence-or-pair",
+      "text": "Lee con entusiasmo la historia de hoy: La bola de Roberto rueda bien.",
+      "batch": "B023",
+      "seq": 36,
+      "file": "B023-036.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-17-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          61
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee con entusiasmo la historia de hoy la bola de roberto rueda bien",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-ramo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-remo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-ropa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rosa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rana",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rosado",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-risa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-ruta",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rulo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rata",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rita",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rolo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-roto",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-roma",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-61-read-rebaño",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 61,
+          "workbookPdfSheet": 67,
+          "relatedFlipchartSheets": [
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-37-page-instruction-final",
+      "text": "Al final completa las palabras con ra, re, ri, ro, ru, como en rana, Rita, ruta, remo, rosa y rubio.",
+      "batch": "B023",
+      "seq": 37,
+      "file": "B023-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-17-page-instruction",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al final completa las palabras con ra re ri ro ru como en rana rita ruta remo rosa y rubio",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva para afianzar las sílabas ra, re, ri, ro, ru.",
+      "batch": "B023",
+      "seq": 38,
+      "file": "B023-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-17-game-intro",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva para afianzar las sílabas ra re ri ro ru",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-39-game-step",
+      "text": "Observa la palabra incompleta y elige cuál de las cinco sílabas la completa bien.",
+      "batch": "B023",
+      "seq": 39,
+      "file": "B023-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-17-game-step",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige cuál de las cinco sílabas la completa bien",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-40-game-correct",
+      "text": "¡Exacto! Elegiste la sílaba inicial correcta de la erre.",
+      "batch": "B023",
+      "seq": 40,
+      "file": "B023-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-17-game-correct",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "exacto elegiste la sílaba inicial correcta de la erre",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-41-game-retry",
+      "text": "Di el nombre del dibujo o la palabra en voz alta y escucha qué vocal acompaña a la erre.",
+      "batch": "B023",
+      "seq": 41,
+      "file": "B023-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-17-game-retry",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "di el nombre del dibujo o la palabra en voz alta y escucha qué vocal acompaña a la erre",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee estas oraciones del libro: Rolo patea la bola. La bola rueda y le da a un bolo.",
+      "batch": "B023",
+      "seq": 42,
+      "file": "B023-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-17-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee estas oraciones del libro rolo patea la bola la bola rueda y le da a un bolo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rita",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "Ri",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-ruta",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-remo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "re",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rosa",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ro",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rubio",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ru",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-43-page-complete",
+      "text": "Terminaste todas las actividades de la erre inicial y llegamos al final de la historia.",
+      "batch": "B023",
+      "seq": 43,
+      "file": "B023-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-17-page-complete",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la erre inicial y llegamos al final de la historia",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-59-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 59,
+          "workbookPdfSheet": 65,
+          "relatedFlipchartSheets": [
+            39
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-44-closing",
+      "text": "Terminamos toda la historia de Roberto, Rolo y Rita. ¡Qué buen recorrido hiciste!",
+      "batch": "B023",
+      "seq": 44,
+      "file": "B023-044.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-17-closing",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "terminamos toda la historia de roberto rolo y rita qué buen recorrido hiciste",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-45-next-step",
+      "text": "En la próxima lección conocerás la doble erre para que vibre fuerte en medio de las palabras.",
+      "batch": "B023",
+      "seq": 45,
+      "file": "B023-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-17-next-step",
+      "curriculumRefs": {
+        "lesson": 17,
+        "printedPages": [
+          59,
+          60,
+          61,
+          62
+        ],
+        "flipchartSheets": [
+          39,
+          40,
+          41
+        ],
+        "letters": [
+          "r"
+        ],
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru"
+        ],
+        "words": [
+          "rana",
+          "remos",
+          "Rita",
+          "rosa",
+          "rueda",
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño",
+          "bien"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conocerás la doble erre para que vibre fuerte en medio de las palabras",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l17-46-atlas-flipchart",
+      "text": "¿Qué comida aparece en el título?",
+      "normalizedText": "qué comida aparece en el título",
+      "batch": "B023",
+      "seq": 46,
+      "file": "B023-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-17-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 17,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          41
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-sheet-41-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 41,
+          "expectedAnswer": "la rosca"
+        }
+      ]
+    },
+    {
+      "id": "v2-l17-47-atlas-workbook",
+      "text": "Queremos escribir «rana». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir rana qué parte falta en el espacio",
+      "batch": "B023",
+      "seq": 47,
+      "file": "B023-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-17-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 17,
+        "sourceStatus": "verified",
+        "printedPages": [
+          62
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          17
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l17-page-62-fill-rana",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 62,
+          "workbookPdfSheet": 68,
+          "relatedFlipchartSheets": [
+            40
+          ],
+          "expectedAnswer": "ra",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    }
+  ]
+}

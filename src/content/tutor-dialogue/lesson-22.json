@@ -1,0 +1,4268 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 22,
+  "batchIds": [
+    "B028"
+  ],
+  "entries": [
+    {
+      "id": "v2-l22-01-greeting-first",
+      "text": "Te doy la bienvenida a esta lección para estudiar el sonido firme de la letra ce.",
+      "batch": "B028",
+      "seq": 1,
+      "file": "B028-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-22-greeting-first",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "te doy la bienvenida a esta lección para estudiar el sonido firme de la letra ce",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-02-greeting-return",
+      "text": "Qué alegría saludarte otra vez para seguir leyendo la historia de Cuco con la letra ce.",
+      "batch": "B028",
+      "seq": 2,
+      "file": "B028-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-22-greeting-return",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte otra vez para seguir leyendo la historia de cuco con la letra ce",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-03-review-intro",
+      "text": "Ya leemos con jota palabras como jugo y jabón; hoy la letra ce nos trae a Cuco Casanova.",
+      "batch": "B028",
+      "seq": 3,
+      "file": "B028-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-22-review-intro",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ya leemos con jota palabras como jugo y jabón hoy la letra ce nos trae a cuco casanova",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-04-review-check",
+      "text": "¿Recuerdas cómo suena el principio firme de palabras conocidas como casa y coco?",
+      "batch": "B028",
+      "seq": 4,
+      "file": "B028-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-22-review-check",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "recuerdas cómo suena el principio firme de palabras conocidas como casa y coco",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido fuerte de la ce con a, o, u en las sílabas ca, co, cu y el cuento de Cuco.",
+      "batch": "B028",
+      "seq": 5,
+      "file": "B028-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-22-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido fuerte de la ce con a o u en las sílabas ca co cu y el cuento de cuco",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-06-letter-name",
+      "text": "Esta consonante se llama ce, y tiene forma de media luna abierta hacia la derecha.",
+      "batch": "B028",
+      "seq": 6,
+      "file": "B028-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-22-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "esta consonante se llama ce y tiene forma de media luna abierta hacia la derecha",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-07-phonetic-sound",
+      "text": "Cuando acompaña a las vocales a, o y u suena firme desde atrás de la lengua como en casa.",
+      "batch": "B028",
+      "seq": 7,
+      "file": "B028-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-22-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando acompaña a las vocales a o y u suena firme desde atrás de la lengua como en casa",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-08-lesson-focus",
+      "text": "Con las vocales a, o y u la ce suena firme y clara en casa, coco y cuna.",
+      "batch": "B028",
+      "seq": 8,
+      "file": "B028-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-22-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "con las vocales a o y u la ce suena firme y clara en casa coco y cuna",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-09-sound-contrast",
+      "text": "En esta lección practicamos solamente ca, co y cu, donde la ce siempre suena firme y fuerte.",
+      "batch": "B028",
+      "seq": 9,
+      "file": "B028-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-22-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en esta lección practicamos solamente ca co y cu donde la ce siempre suena firme y fuerte",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-10-explanation-primary",
+      "text": "Cuando unimos la ce con las vocales a, o y u formamos las tres sílabas ca, co, cu.",
+      "batch": "B028",
+      "seq": 10,
+      "file": "B028-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-22-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando unimos la ce con las vocales a o y u formamos las tres sílabas ca co cu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-11-explanation-simple",
+      "text": "Haz un toque breve y firme con la parte posterior de la lengua al soltar la vocal, como en cuna y conejo.",
+      "batch": "B028",
+      "seq": 11,
+      "file": "B028-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-22-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "haz un toque breve y firme con la parte posterior de la lengua al soltar la vocal como en cuna y conejo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-12-flipchart-intro",
+      "text": "Abramos nuestro rotafolio para conocer los dibujos nuevos y la rima Los caramelos.",
+      "batch": "B028",
+      "seq": 12,
+      "file": "B028-012.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-22-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "abramos nuestro rotafolio para conocer los dibujos nuevos y la rima los caramelos",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-54-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 54
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-55-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 55
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-56-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 56
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio aparecen una cuna, un conejo, una casa, un cubo y la niña Catalina.",
+      "batch": "B028",
+      "seq": 13,
+      "file": "B028-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-22-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio aparecen una cuna un conejo una casa un cubo y la niña catalina",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-54-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 54,
+          "expectedAnswer": "cuna"
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-55-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 55,
+          "expectedAnswer": "carro"
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-14-flipchart-illustration-2",
+      "text": "También vemos a Cuco rodeado de ricos caramelos de miel compartiendo cariño con todos.",
+      "batch": "B028",
+      "seq": 14,
+      "file": "B028-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-22-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "también vemos a cuco rodeado de ricos caramelos de miel compartiendo cariño con todos",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-15-reading-order",
+      "text": "Lee las tres sílabas en orden, pasa por las palabras del cuadro y recorre el cuento de Cuco.",
+      "batch": "B028",
+      "seq": 15,
+      "file": "B028-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-22-reading-order",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee las tres sílabas en orden pasa por las palabras del cuadro y recorre el cuento de cuco",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-16-flipchart-model",
+      "text": "Leamos juntos con voz clara las sílabas de la lección: ca, co, cu.",
+      "batch": "B028",
+      "seq": 16,
+      "file": "B028-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-22-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos con voz clara las sílabas de la lección ca co cu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-17-flipchart-vocab",
+      "text": "Repite conmigo las palabras ilustradas del rotafolio: cuna, conejo, casa, cubo y Catalina.",
+      "batch": "B028",
+      "seq": 17,
+      "file": "B028-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-22-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo las palabras ilustradas del rotafolio cuna conejo casa cubo y catalina",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-18-flipchart-rhyme-1",
+      "text": "Leemos el comienzo de Los caramelos: Cuco tiene caramelos, caramelitos de miel.",
+      "batch": "B028",
+      "seq": 18,
+      "file": "B028-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-22-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leemos el comienzo de los caramelos cuco tiene caramelos caramelitos de miel",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-54-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 54
+        },
+        {
+          "sourceLineId": "dialogue-l22-sheet-55-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 55
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-19-flipchart-rhyme-2",
+      "text": "Seguimos con el segundo verso del poema: Cuco reparte cariño y caramelos también.",
+      "batch": "B028",
+      "seq": 19,
+      "file": "B028-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-22-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "seguimos con el segundo verso del poema cuco reparte cariño y caramelos también",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-20-comprehension-1",
+      "text": "Según el poema Los caramelos, ¿de qué son los caramelitos que tiene Cuco?",
+      "batch": "B028",
+      "seq": 20,
+      "file": "B028-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-22-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "según el poema los caramelos de qué son los caramelitos que tiene cuco",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-21-comprehension-2",
+      "text": "¿Con quién vive Cuco Casanova en el campo según la lectura de hoy?",
+      "batch": "B028",
+      "seq": 21,
+      "file": "B028-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-22-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "con quién vive cuco casanova en el campo según la lectura de hoy",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-22-comprehension-3",
+      "text": "¿Con qué sílaba comienza la palabra conejo?",
+      "batch": "B028",
+      "seq": 22,
+      "file": "B028-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-22-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "con qué sílaba comienza la palabra conejo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-23-common-mistake-1",
+      "text": "Cuida el trazo de la ce para que forme una curva abierta y proporcionada, como una media luna.",
+      "batch": "B028",
+      "seq": 23,
+      "file": "B028-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-22-common-mistake",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuida el trazo de la ce para que forme una curva abierta y proporcionada como una media luna",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-24-common-mistake-2",
+      "text": "Fíjate si la palabra lleva una o dos erres como en carro frente a coco y roca.",
+      "batch": "B028",
+      "seq": 24,
+      "file": "B028-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-22-common-mistake",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "fíjate si la palabra lleva una o dos erres como en carro frente a coco y roca",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-25-common-mistake-3",
+      "text": "Cuida la mayúscula inicial en los nombres propios Cuba, Colombia, Cuco y Catalina.",
+      "batch": "B028",
+      "seq": 25,
+      "file": "B028-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-22-common-mistake",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuida la mayúscula inicial en los nombres propios cuba colombia cuco y catalina",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-26-hint-1",
+      "text": "Mira si después de la ce viene a, o o u para leerla con sonido firme.",
+      "batch": "B028",
+      "seq": 26,
+      "file": "B028-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-22-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "mira si después de la ce viene a o o u para leerla con sonido firme",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-56-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 56
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-coma-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-coma-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cosa-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cosa-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-saca-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-saca-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cola-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cola-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-loca-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-loca-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cubo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "cu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cubo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-27-hint-2",
+      "text": "Compara el comienzo con casa, coco o cuna para reconocer ca, co o cu.",
+      "batch": "B028",
+      "seq": 27,
+      "file": "B028-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-22-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "compara el comienzo con casa coco o cuna para reconocer ca co o cu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de hoy: casa.",
+      "batch": "B028",
+      "seq": 28,
+      "file": "B028-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-22-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de hoy casa",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la ce y leer la historia de Cuco Casanova.",
+      "batch": "B028",
+      "seq": 29,
+      "file": "B028-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-22-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la ce y leer la historia de cuco casanova",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-30-page-instruction-1",
+      "text": "Traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo de algo que empiece con ce.",
+      "batch": "B028",
+      "seq": 30,
+      "file": "B028-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-22-page-instruction",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "traza la ce mayúscula y minúscula con una curva limpia y haz un dibujo de algo que empiece con ce",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-79-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-79-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-31-page-instruction-2",
+      "text": "Después encierra en un círculo ca, co y cu en palabras como cama, casa, copa, cola y cuna.",
+      "batch": "B028",
+      "seq": 31,
+      "file": "B028-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-22-page-instruction",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          80
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "después encierra en un círculo ca co y cu en palabras como cama casa copa cola y cuna",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-32-syllable-practice",
+      "text": "Encierra con cuidado cada sílaba: ca en cama y casa, co en coma y copa, cu en cuna y cubo.",
+      "batch": "B028",
+      "seq": 32,
+      "file": "B028-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-22-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          80
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "encierra con cuidado cada sílaba ca en cama y casa co en coma y copa cu en cuna y cubo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-80-find-ca",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 80,
+          "workbookPdfSheet": 86,
+          "relatedFlipchartSheets": [
+            54,
+            55
+          ],
+          "expectedAnswer": "ca"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-80-find-co",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 80,
+          "workbookPdfSheet": 86,
+          "relatedFlipchartSheets": [
+            54,
+            55
+          ],
+          "expectedAnswer": "co"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-80-find-cu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 80,
+          "workbookPdfSheet": 86,
+          "relatedFlipchartSheets": [
+            54,
+            55
+          ],
+          "expectedAnswer": "cu"
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-33-word-practice-1",
+      "text": "Lee conmigo el primer grupo de palabras: carro, boca, cuna, coco, Colombia, saco, casa y poco.",
+      "batch": "B028",
+      "seq": 33,
+      "file": "B028-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-22-word-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          81
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee conmigo el primer grupo de palabras carro boca cuna coco colombia saco casa y poco",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo: roca, Cuba, pico, cumbia, camisa, Cuco y colonia.",
+      "batch": "B028",
+      "seq": 34,
+      "file": "B028-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-22-word-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          81
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo roca cuba pico cumbia camisa cuco y colonia",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-35-sight-or-vocab",
+      "text": "Fíjate también en estas palabras del ejercicio final: coma, cosa, saca, cola y loca.",
+      "batch": "B028",
+      "seq": 35,
+      "file": "B028-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-22-word-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          81
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "fíjate también en estas palabras del ejercicio final coma cosa saca cola y loca",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-36-sentence-or-pair",
+      "text": "Lee con calma esta oración del libro: Cuco Casanova juega con los niños y los cuida también.",
+      "batch": "B028",
+      "seq": 36,
+      "file": "B028-036.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-22-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          81
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee con calma esta oración del libro cuco casanova juega con los niños y los cuida también",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-carro",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-boca",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cuna",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-coco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-colombia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-saco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-casa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-poco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-roca",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cuba",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-pico",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cumbia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-camisa",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-cuco",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-81-read-colonia",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 81,
+          "workbookPdfSheet": 87,
+          "relatedFlipchartSheets": [
+            55
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-37-page-instruction-final",
+      "text": "Al final completa cada palabra con ca, co o cu, como en coma, cosa, saca, cola, loca y cubo.",
+      "batch": "B028",
+      "seq": 37,
+      "file": "B028-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-22-page-instruction",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al final completa cada palabra con ca co o cu como en coma cosa saca cola loca y cubo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-38-game-intro",
+      "text": "Hagamos ahora una práctica interactiva con ca, co y cu para completar palabras del libro.",
+      "batch": "B028",
+      "seq": 38,
+      "file": "B028-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-22-game-intro",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hagamos ahora una práctica interactiva con ca co y cu para completar palabras del libro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-39-game-step",
+      "text": "Observa la palabra incompleta y elige la sílaba exacta entre ca, co y cu.",
+      "batch": "B028",
+      "seq": 39,
+      "file": "B028-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-22-game-step",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa la palabra incompleta y elige la sílaba exacta entre ca co y cu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-40-game-correct",
+      "text": "Muy bien elegido. Completaste esa palabra con la sílaba firme exacta.",
+      "batch": "B028",
+      "seq": 40,
+      "file": "B028-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-22-game-correct",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "muy bien elegido completaste esa palabra con la sílaba firme exacta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-41-game-retry",
+      "text": "Lee en voz alta la sílaba que ya está escrita y prueba con ca, co o cu.",
+      "batch": "B028",
+      "seq": 41,
+      "file": "B028-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-22-game-retry",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee en voz alta la sílaba que ya está escrita y prueba con ca co o cu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-42-assessment",
+      "text": "Para comprobar lo aprendido hoy, lee esta oración del libro: Todos en la casa de Paco aman a Cuco.",
+      "batch": "B028",
+      "seq": 42,
+      "file": "B028-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-22-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para comprobar lo aprendido hoy lee esta oración del libro todos en la casa de paco aman a cuco",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cosa",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-saca",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-cola",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-loca",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "ca",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-43-page-complete",
+      "text": "Terminaste todas las actividades de la letra ce. ¡Muy buen trabajo!",
+      "batch": "B028",
+      "seq": 43,
+      "file": "B028-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-22-page-complete",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "terminaste todas las actividades de la letra ce muy buen trabajo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-79-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "write",
+          "workbookPage": 79,
+          "workbookPdfSheet": 85,
+          "relatedFlipchartSheets": [
+            54
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-44-closing",
+      "text": "Terminamos las sílabas ca, co y cu. Solo nos quedan dos letras para completar el libro.",
+      "batch": "B028",
+      "seq": 44,
+      "file": "B028-044.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-22-closing",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "terminamos las sílabas ca co y cu solo nos quedan dos letras para completar el libro",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-45-next-step",
+      "text": "En la próxima lección navegaremos leyendo con la letra ye y el yate de Yayo.",
+      "batch": "B028",
+      "seq": 45,
+      "file": "B028-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-22-next-step",
+      "curriculumRefs": {
+        "lesson": 22,
+        "printedPages": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "flipchartSheets": [
+          54,
+          55,
+          56
+        ],
+        "letters": [
+          "c"
+        ],
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "cuna",
+          "conejo",
+          "casa",
+          "cubo",
+          "Catalina",
+          "carro",
+          "boca",
+          "coco",
+          "Colombia",
+          "saco",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en la próxima lección navegaremos leyendo con la letra ye y el yate de yayo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l22-46-atlas-flipchart",
+      "text": "¿De qué son los caramelitos de Cuco?",
+      "normalizedText": "de qué son los caramelitos de cuco",
+      "batch": "B028",
+      "seq": 46,
+      "file": "B028-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-22-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 22,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          56
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-sheet-56-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 56,
+          "expectedAnswer": "de miel"
+        }
+      ]
+    },
+    {
+      "id": "v2-l22-47-atlas-workbook",
+      "text": "Queremos escribir «coma». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir coma qué parte falta en el espacio",
+      "batch": "B028",
+      "seq": 47,
+      "file": "B028-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-22-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 22,
+        "sourceStatus": "verified",
+        "printedPages": [
+          82
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          22
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l22-page-82-fill-coma",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 82,
+          "workbookPdfSheet": 88,
+          "relatedFlipchartSheets": [
+            55
+          ],
+          "expectedAnswer": "co",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    }
+  ]
+}

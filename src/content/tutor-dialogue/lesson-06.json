@@ -1,0 +1,3165 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 6,
+  "batchIds": [
+    "B012"
+  ],
+  "entries": [
+    {
+      "id": "v2-l06-01-greeting-first",
+      "text": "Hoy completamos las cinco hermanitas con la última vocal de la cartilla, la traviesa u.",
+      "batch": "B012",
+      "seq": 1,
+      "file": "B012-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-06-greeting-first",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy completamos las cinco hermanitas con la última vocal de la cartilla la traviesa u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-02-greeting-return",
+      "text": "Qué alegría saludarte de nuevo para repasar la vocal u y cerrar el ciclo de las vocales.",
+      "batch": "B012",
+      "seq": 2,
+      "file": "B012-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-06-greeting-return",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué alegría saludarte de nuevo para repasar la vocal u y cerrar el ciclo de las vocales",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-03-review-intro",
+      "text": "Ya conocemos cuatro hermanitas vocales: o, a, e, i; hoy recibimos a la quinta hermana.",
+      "batch": "B012",
+      "seq": 3,
+      "file": "B012-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-06-review-intro",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ya conocemos cuatro hermanitas vocales o a e i hoy recibimos a la quinta hermana",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-04-review-check",
+      "text": "¿Puedes recordar en orden las cuatro vocales que ya hemos practicado?",
+      "batch": "B012",
+      "seq": 4,
+      "file": "B012-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-06-review-check",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "puedes recordar en orden las cuatro vocales que ya hemos practicado",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido cerrado de la vocal u y reuniremos las cinco vocales para empezar a leer sílabas.",
+      "batch": "B012",
+      "seq": 5,
+      "file": "B012-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-06-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido cerrado de la vocal u y reuniremos las cinco vocales para empezar a leer sílabas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-06-letter-name",
+      "text": "Esta quinta vocal se llama u, y tiene forma de curva abierta hacia arriba, como un columpio.",
+      "batch": "B012",
+      "seq": 6,
+      "file": "B012-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-06-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "esta quinta vocal se llama u y tiene forma de curva abierta hacia arriba como un columpio",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-07-phonetic-sound",
+      "text": "Para pronunciarla proyectamos los labios hacia adelante y dejamos salir un sonido suave: uuu.",
+      "batch": "B012",
+      "seq": 7,
+      "file": "B012-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-06-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para pronunciarla proyectamos los labios hacia adelante y dejamos salir un sonido suave uuu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-08-lesson-focus",
+      "text": "La vocal u tiene forma de herradura y suena acercando los labios hacia adelante con suavidad.",
+      "batch": "B012",
+      "seq": 8,
+      "file": "B012-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-06-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "la vocal u tiene forma de herradura y suena acercando los labios hacia adelante con suavidad",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-09-sound-contrast",
+      "text": "Mientras la o forma un círculo más amplio, la u recoge los labios hacia adelante.",
+      "batch": "B012",
+      "seq": 9,
+      "file": "B012-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-06-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "mientras la o forma un círculo más amplio la u recoge los labios hacia adelante",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-10-explanation-primary",
+      "text": "Cuando una palabra empieza con los labios redondeados hacia adelante, comienza con la vocal u.",
+      "batch": "B012",
+      "seq": 10,
+      "file": "B012-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-06-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando una palabra empieza con los labios redondeados hacia adelante comienza con la vocal u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-11-explanation-simple",
+      "text": "Imagina que soplas con suavidad hacia adelante y dejas salir el sonido uuu, igual que en uvas.",
+      "batch": "B012",
+      "seq": 11,
+      "file": "B012-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-06-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "imagina que soplas con suavidad hacia adelante y dejas salir el sonido uuu igual que en uvas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-12-flipchart-intro",
+      "text": "Abramos el rotafolio para disfrutar juntos la rima llamada La brujita.",
+      "batch": "B012",
+      "seq": 12,
+      "file": "B012-012.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-06-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "abramos el rotafolio para disfrutar juntos la rima llamada la brujita",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-sheet-8-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 8
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-13-flipchart-illustration-1",
+      "text": "En las ilustraciones del rotafolio vemos el número uno, unas uvas, una urraca y al niño Ulises.",
+      "batch": "B012",
+      "seq": 13,
+      "file": "B012-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-06-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en las ilustraciones del rotafolio vemos el número uno unas uvas una urraca y al niño ulises",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-14-flipchart-illustration-2",
+      "text": "También aparecen un unicornio y un uniforme junto a la U disfrazada con su traje de brujita.",
+      "batch": "B012",
+      "seq": 14,
+      "file": "B012-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-06-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "también aparecen un unicornio y un uniforme junto a la u disfrazada con su traje de brujita",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-15-reading-order",
+      "text": "Lee los versos del poema en orden de arriba hacia abajo y observa cada dibujo de izquierda a derecha.",
+      "batch": "B012",
+      "seq": 15,
+      "file": "B012-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-06-reading-order",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee los versos del poema en orden de arriba hacia abajo y observa cada dibujo de izquierda a derecha",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-16-flipchart-model",
+      "text": "Observa el número uno en el rotafolio mientras pronuncias su sonido inicial con los labios redondeados.",
+      "batch": "B012",
+      "seq": 16,
+      "file": "B012-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-06-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa el número uno en el rotafolio mientras pronuncias su sonido inicial con los labios redondeados",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-17-flipchart-vocab",
+      "text": "Leamos juntos las palabras del rotafolio: uno, uva, urraca, Ulises, unicornio y uniforme.",
+      "batch": "B012",
+      "seq": 17,
+      "file": "B012-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-06-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos las palabras del rotafolio uno uva urraca ulises unicornio y uniforme",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-18-flipchart-rhyme-1",
+      "text": "Leamos el comienzo de La brujita: Una, no tengo ninguna, dos, asustando voy, tres, me escondo otra vez, cuatro, asusto a los gatos.",
+      "batch": "B012",
+      "seq": 18,
+      "file": "B012-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-06-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos el comienzo de la brujita una no tengo ninguna dos asustando voy tres me escondo otra vez cuatro asusto a los gatos",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-19-flipchart-rhyme-2",
+      "text": "Seguimos con la segunda estrofa: La U está disfrazada con su traje de brujita y su carita alargada asusta a sus hermanitas.",
+      "batch": "B012",
+      "seq": 19,
+      "file": "B012-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-06-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "seguimos con la segunda estrofa la u está disfrazada con su traje de brujita y su carita alargada asusta a sus hermanitas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-20-comprehension-1",
+      "text": "Según la rima del rotafolio, ¿de qué se disfrazó la vocal u para asustar a sus hermanitas?",
+      "batch": "B012",
+      "seq": 20,
+      "file": "B012-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-06-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "según la rima del rotafolio de qué se disfrazó la vocal u para asustar a sus hermanitas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-21-comprehension-2",
+      "text": "¿A quiénes asusta la brujita cuando cuenta hasta cuatro en el poema?",
+      "batch": "B012",
+      "seq": 21,
+      "file": "B012-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-06-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "a quiénes asusta la brujita cuando cuenta hasta cuatro en el poema",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-22-comprehension-3",
+      "text": "¿Comienza la palabra unicornio con el mismo sonido que la palabra uniforme?",
+      "batch": "B012",
+      "seq": 22,
+      "file": "B012-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-06-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "comienza la palabra unicornio con el mismo sonido que la palabra uniforme",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-23-common-mistake-1",
+      "text": "Presta atención a la palabra uña; pronuncia claramente la u al inicio y luego la eñe.",
+      "batch": "B012",
+      "seq": 23,
+      "file": "B012-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-06-common-mistake",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "presta atención a la palabra uña pronuncia claramente la u al inicio y luego la eñe",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-24-common-mistake-2",
+      "text": "Evita marcar oveja, avión, estrella, elefante, árbol, águila, abeja o imán, porque no comienzan con u.",
+      "batch": "B012",
+      "seq": 24,
+      "file": "B012-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-06-common-mistake",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "evita marcar oveja avión estrella elefante árbol águila abeja o imán porque no comienzan con u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-25-common-mistake-3",
+      "text": "Si dudas entre u y o, acerca un poco más los labios hacia adelante, como al soplar suavemente.",
+      "batch": "B012",
+      "seq": 25,
+      "file": "B012-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-06-common-mistake",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "si dudas entre u y o acerca un poco más los labios hacia adelante como al soplar suavemente",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-26-hint-1",
+      "text": "Di el nombre del dibujo despacio y nota si tus labios se proyectan hacia adelante al empezar.",
+      "batch": "B012",
+      "seq": 26,
+      "file": "B012-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-06-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "di el nombre del dibujo despacio y nota si tus labios se proyectan hacia adelante al empezar",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-sheet-8-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 8
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-27-hint-2",
+      "text": "Compara el inicio de la palabra con uno y uvas para confirmar si comienzan igual.",
+      "batch": "B012",
+      "seq": 27,
+      "file": "B012-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-06-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "compara el inicio de la palabra con uno y uvas para confirmar si comienzan igual",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-28-hint-3",
+      "text": "Repite conmigo estas palabras de la lección: unicornio, uña, uvas, uniforme y uno.",
+      "batch": "B012",
+      "seq": 28,
+      "file": "B012-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-06-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo estas palabras de la lección unicornio uña uvas uniforme y uno",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para encontrar dibujos y escribir la vocal u.",
+      "batch": "B012",
+      "seq": 29,
+      "file": "B012-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-06-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para encontrar dibujos y escribir la vocal u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-30-page-instruction-1",
+      "text": "Marca con una equis todos los dibujos de la cuadrícula que comienzan con el sonido u.",
+      "batch": "B012",
+      "seq": 30,
+      "file": "B012-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-06-page-instruction",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "marca con una equis todos los dibujos de la cuadrícula que comienzan con el sonido u",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-page-16-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l06-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l06-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-31-page-instruction-2",
+      "text": "Después traza una línea desde la vocal u hasta cada dibujo que lleva ese sonido al principio.",
+      "batch": "B012",
+      "seq": 31,
+      "file": "B012-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-06-page-instruction",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          17
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "después traza una línea desde la vocal u hasta cada dibujo que lleva ese sonido al principio",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-page-17-instruction",
+          "sourcePr": "PR#1322",
+          "intent": "instructions",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 17,
+          "workbookPdfSheet": 23,
+          "relatedFlipchartSheets": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-32-syllable-practice",
+      "text": "Escucha cómo suenan al principio todas estas palabras: unicornio, uña, uvas, uniforme y uno.",
+      "batch": "B012",
+      "seq": 32,
+      "file": "B012-032.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-06-word-practice",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          17
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha cómo suenan al principio todas estas palabras unicornio uña uvas uniforme y uno",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-page-16-pair-0",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u"
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-16-initial-uvas-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-16-pair-1",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u"
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-16-initial-uno-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-16-initial-uniforme-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-16-pair-3",
+          "sourcePr": "PR#1322",
+          "intent": "compare-onset",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u"
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-17-initial-uniforme-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 17,
+          "workbookPdfSheet": 23,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-17-initial-uno-1",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 17,
+          "workbookPdfSheet": 23,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-17-initial-uvas-2",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 17,
+          "workbookPdfSheet": 23,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-17-initial-uña-4",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 17,
+          "workbookPdfSheet": 23,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u"
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-33-word-practice-1",
+      "text": "Repite conmigo el primer grupo de palabras: unicornio, uña, uvas y uniforme.",
+      "batch": "B012",
+      "seq": 33,
+      "file": "B012-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-06-word-practice",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo el primer grupo de palabras unicornio uña uvas y uniforme",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-34-word-practice-2",
+      "text": "Sigamos con estas palabras de la lección: uno, uva, urraca y Ulises.",
+      "batch": "B012",
+      "seq": 34,
+      "file": "B012-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-06-word-practice",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sigamos con estas palabras de la lección uno uva urraca y ulises",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-35-sight-or-vocab",
+      "text": "Recuerda que Ulises empieza con u mayúscula porque es el nombre propio de un niño.",
+      "batch": "B012",
+      "seq": 35,
+      "file": "B012-035.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-06-word-practice",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "recuerda que ulises empieza con u mayúscula porque es el nombre propio de un niño",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-36-sentence-or-pair",
+      "text": "Compara este par de dibujos: uvas empieza con u, mientras que oso comienza con o.",
+      "batch": "B012",
+      "seq": 36,
+      "file": "B012-036.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-06-word-practice",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "compara este par de dibujos uvas empieza con u mientras que oso comienza con o",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-37-page-instruction-final",
+      "text": "Para finalizar, escribe la vocal u con cuidado sobre los renglones del cuaderno.",
+      "batch": "B012",
+      "seq": 37,
+      "file": "B012-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-06-page-instruction",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para finalizar escribe la vocal u con cuidado sobre los renglones del cuaderno",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-page-18-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 18,
+          "workbookPdfSheet": 24,
+          "relatedFlipchartSheets": [
+            8
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-18-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 18,
+          "workbookPdfSheet": 24,
+          "relatedFlipchartSheets": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-38-game-intro",
+      "text": "Hagamos ahora un juego de cierre con las cinco vocales juntas para repasar lo aprendido.",
+      "batch": "B012",
+      "seq": 38,
+      "file": "B012-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-06-game-intro",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hagamos ahora un juego de cierre con las cinco vocales juntas para repasar lo aprendido",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-39-game-step",
+      "text": "Escucha cada palabra que te digo y elige cuál de las cinco hermanitas vocales suena al inicio.",
+      "batch": "B012",
+      "seq": 39,
+      "file": "B012-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-06-game-step",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha cada palabra que te digo y elige cuál de las cinco hermanitas vocales suena al inicio",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-40-game-correct",
+      "text": "Acertaste. Identificaste con acierto la vocal inicial de esa palabra.",
+      "batch": "B012",
+      "seq": 40,
+      "file": "B012-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-06-game-correct",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "acertaste identificaste con acierto la vocal inicial de esa palabra",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-41-game-retry",
+      "text": "Repite la palabra despacio y escucha si abres la boca como en a o la cierras como en u.",
+      "batch": "B012",
+      "seq": 41,
+      "file": "B012-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-06-game-retry",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite la palabra despacio y escucha si abres la boca como en a o la cierras como en u",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-42-assessment",
+      "text": "Para cerrar el grupo de vocales, dime en orden las cinco vocales que hemos estudiado.",
+      "batch": "B012",
+      "seq": 42,
+      "file": "B012-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-06-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para cerrar el grupo de vocales dime en orden las cinco vocales que hemos estudiado",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-43-page-complete",
+      "text": "Has completado las actividades de la vocal u y recorrido las cinco hermanitas vocales.",
+      "batch": "B012",
+      "seq": 43,
+      "file": "B012-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-06-page-complete",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "has completado las actividades de la vocal u y recorrido las cinco hermanitas vocales",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-page-18-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 18,
+          "workbookPdfSheet": 24,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-44-closing",
+      "text": "Felicidades por concluir las cinco vocales de la cartilla. Ahora comienza la etapa de leer sílabas.",
+      "batch": "B012",
+      "seq": 44,
+      "file": "B012-044.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-06-closing",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "felicidades por concluir las cinco vocales de la cartilla ahora comienza la etapa de leer sílabas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-45-next-step",
+      "text": "En la próxima lección conoceremos nuestra primera consonante, la letra eme, para formar palabras.",
+      "batch": "B012",
+      "seq": 45,
+      "file": "B012-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-06-next-step",
+      "curriculumRefs": {
+        "lesson": 6,
+        "printedPages": [
+          16,
+          17,
+          18
+        ],
+        "flipchartSheets": [
+          8
+        ],
+        "letters": [
+          "u"
+        ],
+        "words": [
+          "uno",
+          "uva",
+          "uvas",
+          "urraca",
+          "Ulises",
+          "unicornio",
+          "uniforme",
+          "uña"
+        ],
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos nuestra primera consonante la letra eme para formar palabras",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l06-46-atlas-flipchart",
+      "text": "¿Con qué se disfraza la vocal u en el poema?",
+      "normalizedText": "con qué se disfraza la vocal u en el poema",
+      "batch": "B012",
+      "seq": 46,
+      "file": "B012-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-06-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 6,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          8
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-sheet-8-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 8,
+          "expectedAnswer": "de brujita"
+        }
+      ]
+    },
+    {
+      "id": "v2-l06-47-atlas-workbook",
+      "text": "Pronuncia «unicornio» despacio. ¿Con qué vocal empieza?",
+      "normalizedText": "pronuncia unicornio despacio con qué vocal empieza",
+      "batch": "B012",
+      "seq": 47,
+      "file": "B012-047.mp3",
+      "intent": "identify-initial",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-06-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 6,
+        "sourceStatus": "verified",
+        "printedPages": [
+          16
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          6
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l06-page-16-initial-unicornio-0",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "picture-grid",
+          "workbookPage": 16,
+          "workbookPdfSheet": 22,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l06-page-17-initial-unicornio-3",
+          "sourcePr": "PR#1322",
+          "intent": "identify-initial",
+          "role": "workbook",
+          "activity": "vowel-line-match",
+          "workbookPage": 17,
+          "workbookPdfSheet": 23,
+          "relatedFlipchartSheets": [
+            8
+          ],
+          "expectedAnswer": "u",
+          "sharedClip": true
+        }
+      ]
+    }
+  ]
+}

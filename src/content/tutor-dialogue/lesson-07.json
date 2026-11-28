@@ -1,0 +1,4357 @@
+{
+  "version": 2,
+  "scope": "lesson",
+  "lesson": 7,
+  "batchIds": [
+    "B013"
+  ],
+  "entries": [
+    {
+      "id": "v2-l07-01-greeting-first",
+      "text": "Hoy vivimos un momento especial: conoceremos nuestra primera consonante, la letra eme.",
+      "batch": "B013",
+      "seq": 1,
+      "file": "B013-001.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-first",
+      "variationGroup": "lesson-07-greeting-first",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy vivimos un momento especial conoceremos nuestra primera consonante la letra eme",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-02-greeting-return",
+      "text": "Qué alegría verte otra vez para seguir leyendo sílabas y oraciones con la letra eme.",
+      "batch": "B013",
+      "seq": 2,
+      "file": "B013-002.mp3",
+      "intent": "lesson-greeting",
+      "role": "greeting-return",
+      "variationGroup": "lesson-07-greeting-return",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ],
+        "returning": true
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué alegría verte otra vez para seguir leyendo sílabas y oraciones con la letra eme",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-03-review-intro",
+      "text": "Ya conocemos las cinco vocales; hoy las uniremos con nuestra primera consonante para formar palabras.",
+      "batch": "B013",
+      "seq": 3,
+      "file": "B013-003.mp3",
+      "intent": "lesson-review",
+      "role": "review-intro",
+      "variationGroup": "lesson-07-review-intro",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ya conocemos las cinco vocales hoy las uniremos con nuestra primera consonante para formar palabras",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-04-review-check",
+      "text": "¿Recuerdas cuáles son las cinco vocales que hoy se unen con la eme?",
+      "batch": "B013",
+      "seq": 4,
+      "file": "B013-004.mp3",
+      "intent": "lesson-review",
+      "role": "review-check",
+      "variationGroup": "lesson-07-review-check",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "recuerdas cuáles son las cinco vocales que hoy se unen con la eme",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-05-lesson-objective",
+      "text": "Hoy aprenderemos el sonido de la eme, leeremos ma, me, mi, mo, mu y formaremos nuestras primeras oraciones.",
+      "batch": "B013",
+      "seq": 5,
+      "file": "B013-005.mp3",
+      "intent": "lesson-objective",
+      "role": "lesson-objective",
+      "variationGroup": "lesson-07-lesson-objective",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprenderemos el sonido de la eme leeremos ma me mi mo mu y formaremos nuestras primeras oraciones",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-06-letter-name",
+      "text": "Esta primera consonante se llama eme, y en minúscula se traza con dos arcos seguidos.",
+      "batch": "B013",
+      "seq": 6,
+      "file": "B013-006.mp3",
+      "intent": "letter-name",
+      "role": "letter-name-model",
+      "variationGroup": "lesson-07-letter-name-model",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "name-letter",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "esta primera consonante se llama eme y en minúscula se traza con dos arcos seguidos",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-07-phonetic-sound",
+      "text": "Su sonido nace juntando suavemente ambos labios: mmm, como cuando algo huele delicioso.",
+      "batch": "B013",
+      "seq": 7,
+      "file": "B013-007.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-07-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "sound-out",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "su sonido nace juntando suavemente ambos labios mmm como cuando algo huele delicioso",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-08-lesson-focus",
+      "text": "Al juntar los labios y dejar vibrar la voz nacen las sílabas de mamá y mami.",
+      "batch": "B013",
+      "seq": 8,
+      "file": "B013-008.mp3",
+      "intent": "lesson-intro",
+      "role": "lesson-focus",
+      "variationGroup": "lesson-07-lesson-focus",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al juntar los labios y dejar vibrar la voz nacen las sílabas de mamá y mami",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-09-sound-contrast",
+      "text": "Mientras las vocales salen con la boca abierta, la eme cierra suavemente ambos labios antes de abrirlos.",
+      "batch": "B013",
+      "seq": 9,
+      "file": "B013-009.mp3",
+      "intent": "phonetic-sound",
+      "role": "phonetic-sound-model",
+      "variationGroup": "lesson-07-phonetic-sound-model",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-letter",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "mientras las vocales salen con la boca abierta la eme cierra suavemente ambos labios antes de abrirlos",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-10-explanation-primary",
+      "text": "Cuando unimos el sonido mmm con cada vocal formamos cinco sílabas: ma, me, mi, mo, mu.",
+      "batch": "B013",
+      "seq": 10,
+      "file": "B013-010.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-primary",
+      "variationGroup": "lesson-07-explanation-primary",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "teach",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuando unimos el sonido mmm con cada vocal formamos cinco sílabas ma me mi mo mu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-11-explanation-simple",
+      "text": "Cierra suavemente los labios diciendo mmm y luego ábrelos con la vocal: así se forma mamá.",
+      "batch": "B013",
+      "seq": 11,
+      "file": "B013-011.mp3",
+      "intent": "lesson-explanation",
+      "role": "explanation-simple",
+      "variationGroup": "lesson-07-explanation-simple",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cierra suavemente los labios diciendo mmm y luego ábrelos con la vocal así se forma mamá",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-12-flipchart-intro",
+      "text": "Abramos el rotafolio para observar las sílabas, las palabras nuevas y el poema Mi mamá.",
+      "batch": "B013",
+      "seq": 12,
+      "file": "B013-012.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-intro",
+      "variationGroup": "lesson-07-flipchart-intro",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "abramos el rotafolio para observar las sílabas las palabras nuevas y el poema mi mamá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-sheet-9-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 9
+        },
+        {
+          "sourceLineId": "dialogue-l07-sheet-10-compare",
+          "sourcePr": "PR#1322",
+          "intent": "compare-words",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 10
+        },
+        {
+          "sourceLineId": "dialogue-l07-sheet-11-start",
+          "sourcePr": "PR#1322",
+          "intent": "present-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 11
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-13-flipchart-illustration-1",
+      "text": "En los dibujos del rotafolio vemos a mamá, a un niño diciendo amo, a Meme y a Mumi.",
+      "batch": "B013",
+      "seq": 13,
+      "file": "B013-013.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-07-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en los dibujos del rotafolio vemos a mamá a un niño diciendo amo a meme y a mumi",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-sheet-9-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 9,
+          "expectedAnswer": "mamá",
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l07-sheet-10-find",
+          "sourcePr": "PR#1322",
+          "intent": "locate-word",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 10,
+          "expectedAnswer": "mamá",
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-14-flipchart-illustration-2",
+      "text": "También observamos las palabras ilustradas mima y mamá junto a las cinco sílabas de la eme.",
+      "batch": "B013",
+      "seq": 14,
+      "file": "B013-014.mp3",
+      "intent": "flipchart-illustration",
+      "role": "flipchart-illustration",
+      "variationGroup": "lesson-07-flipchart-illustration",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "también observamos las palabras ilustradas mima y mamá junto a las cinco sílabas de la eme",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-15-reading-order",
+      "text": "Lee las sílabas primero de izquierda a derecha y luego en orden inverso para afianzar su sonido.",
+      "batch": "B013",
+      "seq": 15,
+      "file": "B013-015.mp3",
+      "intent": "reading-order",
+      "role": "reading-order",
+      "variationGroup": "lesson-07-reading-order",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee las sílabas primero de izquierda a derecha y luego en orden inverso para afianzar su sonido",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-16-flipchart-model",
+      "text": "Repite conmigo en voz clara las cinco sílabas del rotafolio: ma, me, mi, mo, mu.",
+      "batch": "B013",
+      "seq": 16,
+      "file": "B013-016.mp3",
+      "intent": "flipchart-sheet",
+      "role": "flipchart-model",
+      "variationGroup": "lesson-07-flipchart-model",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "repite conmigo en voz clara las cinco sílabas del rotafolio ma me mi mo mu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-17-flipchart-vocab",
+      "text": "Leamos juntos las palabras ilustradas del rotafolio: mamá, amo, mima, Meme y Mumi.",
+      "batch": "B013",
+      "seq": 17,
+      "file": "B013-017.mp3",
+      "intent": "flipchart-vocab",
+      "role": "flipchart-vocab",
+      "variationGroup": "lesson-07-flipchart-vocab",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos las palabras ilustradas del rotafolio mamá amo mima meme y mumi",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-18-flipchart-rhyme-1",
+      "text": "Leamos juntos el comienzo del poema Mi mamá: Mami me ama, amo a mamá.",
+      "batch": "B013",
+      "seq": 18,
+      "file": "B013-018.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-07-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos el comienzo del poema mi mamá mami me ama amo a mamá",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-sheet-9-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 9,
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l07-sheet-10-follow",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 10,
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-19-flipchart-rhyme-2",
+      "text": "Seguimos con el cierre del poema: ámame mami, mímame más.",
+      "batch": "B013",
+      "seq": 19,
+      "file": "B013-019.mp3",
+      "intent": "flipchart-rhyme",
+      "role": "flipchart-rhyme",
+      "variationGroup": "lesson-07-flipchart-rhyme",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "seguimos con el cierre del poema ámame mami mímame más",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-20-comprehension-1",
+      "text": "En el poema Mi mamá, ¿a quién ama con tanto cariño quien habla en los versos?",
+      "batch": "B013",
+      "seq": 20,
+      "file": "B013-020.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-07-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en el poema mi mamá a quién ama con tanto cariño quien habla en los versos",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-21-comprehension-2",
+      "text": "¿Qué sílaba escuchas al principio de la palabra Mumi?",
+      "batch": "B013",
+      "seq": 21,
+      "file": "B013-021.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-07-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "qué sílaba escuchas al principio de la palabra mumi",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-22-comprehension-3",
+      "text": "¿Cuántas sílabas escuchas cuando pronuncias despacio la palabra mamá?",
+      "batch": "B013",
+      "seq": 22,
+      "file": "B013-022.mp3",
+      "intent": "comprehension-question",
+      "role": "comprehension-question",
+      "variationGroup": "lesson-07-comprehension-question",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "listen",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "yes-no",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "cuántas sílabas escuchas cuando pronuncias despacio la palabra mamá",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-23-common-mistake-1",
+      "text": "Observa la tilde en mamá, Mimí, mío, mía y ámame para acentuar la sílaba correcta.",
+      "batch": "B013",
+      "seq": 23,
+      "file": "B013-023.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-07-common-mistake",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa la tilde en mamá mimí mío mía y ámame para acentuar la sílaba correcta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-24-common-mistake-2",
+      "text": "Evita separar demasiado la eme de la vocal; únelas en un solo impulso suave de voz.",
+      "batch": "B013",
+      "seq": 24,
+      "file": "B013-024.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-07-common-mistake",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "patient",
+      "gesture": "gentle-error",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "evita separar demasiado la eme de la vocal únelas en un solo impulso suave de voz",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-25-common-mistake-3",
+      "text": "Al trazar la eme minúscula, dibuja con calma sus dos arcos redondeados sobre el renglón.",
+      "batch": "B013",
+      "seq": 25,
+      "file": "B013-025.mp3",
+      "intent": "common-mistake",
+      "role": "common-mistake",
+      "variationGroup": "lesson-07-common-mistake",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "al trazar la eme minúscula dibuja con calma sus dos arcos redondeados sobre el renglón",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-26-hint-1",
+      "text": "Junta los labios primero y escucha qué vocal acompaña a la eme en esa palabra.",
+      "batch": "B013",
+      "seq": 26,
+      "file": "B013-026.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-07-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "highlight-item",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "junta los labios primero y escucha qué vocal acompaña a la eme en esa palabra",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-sheet-11-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 11
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-amo-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "mo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-amo-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-m-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "mo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-m-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mamá-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "má",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mamá-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mima-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "ma",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mima-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mumi-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "Mu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mumi-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mío-hint",
+          "sourcePr": "PR#1322",
+          "intent": "hint",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "mí",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mío-review",
+          "sourcePr": "PR#1322",
+          "intent": "after-correction",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-27-hint-2",
+      "text": "Observa las dos primeras letras juntas; si ves m con a, pronuncia ma de una sola vez.",
+      "batch": "B013",
+      "seq": 27,
+      "file": "B013-027.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-07-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 2,
+      "expression": "encouraging",
+      "gesture": "help",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa las dos primeras letras juntas si ves m con a pronuncia ma de una sola vez",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-28-hint-3",
+      "text": "Escucha y repite conmigo esta palabra clave de la lección: mamá.",
+      "batch": "B013",
+      "seq": 28,
+      "file": "B013-028.mp3",
+      "intent": "scaffolding-hint",
+      "role": "adaptive-coaching",
+      "variationGroup": "lesson-07-adaptive-coaching",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 3,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "repeat",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escucha y repite conmigo esta palabra clave de la lección mamá",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-29-workbook-transition",
+      "text": "Pasemos ahora a tu cuaderno de trabajo para escribir la eme y leer sus palabras y oraciones.",
+      "batch": "B013",
+      "seq": 29,
+      "file": "B013-029.mp3",
+      "intent": "workbook-transition",
+      "role": "workbook-transition",
+      "variationGroup": "lesson-07-workbook-transition",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "pasemos ahora a tu cuaderno de trabajo para escribir la eme y leer sus palabras y oraciones",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-30-page-instruction-1",
+      "text": "Escribe la eme mayúscula y minúscula con cuidado y haz un dibujo de algo que empiece con eme.",
+      "batch": "B013",
+      "seq": 30,
+      "file": "B013-030.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-07-page-instruction",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "calm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "escribe la eme mayúscula y minúscula con cuidado y haz un dibujo de algo que empiece con eme",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-page-19-model",
+          "sourcePr": "PR#1322",
+          "intent": "handwriting",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-19-draw",
+          "sourcePr": "PR#1322",
+          "intent": "drawing",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-objective",
+          "sourcePr": "PR#1322",
+          "intent": "lesson-objective",
+          "role": "lesson",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-alternative",
+          "sourcePr": "PR#1322",
+          "intent": "alternative-explanation",
+          "role": "lesson",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-review",
+          "sourcePr": "PR#1322",
+          "intent": "review",
+          "role": "lesson",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l07-transition",
+          "sourcePr": "PR#1322",
+          "intent": "workbook-transition",
+          "role": "lesson",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l07-completion",
+          "sourcePr": "PR#1322",
+          "intent": "completion",
+          "role": "lesson",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ],
+          "sharedClip": true
+        },
+        {
+          "sourceLineId": "dialogue-l07-recommend",
+          "sourcePr": "PR#1322",
+          "intent": "recommendation",
+          "role": "lesson",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-31-page-instruction-2",
+      "text": "Después rodea con un círculo esa sílaba en cada palabra de la lista.",
+      "batch": "B013",
+      "seq": 31,
+      "file": "B013-031.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-07-page-instruction",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          20
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "después rodea con un círculo esa sílaba en cada palabra de la lista",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-32-syllable-practice",
+      "text": "Busca cada sílaba encerrándola con cuidado: ma en mami, me en Memo, mi en mío, mo en mono y mu en muro.",
+      "batch": "B013",
+      "seq": 32,
+      "file": "B013-032.mp3",
+      "intent": "workbook-practice",
+      "role": "syllable-practice",
+      "variationGroup": "lesson-07-syllable-practice",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          20
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-syllable",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-syllable",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "busca cada sílaba encerrándola con cuidado ma en mami me en memo mi en mío mo en mono y mu en muro",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-page-20-find-ma",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 20,
+          "workbookPdfSheet": 26,
+          "relatedFlipchartSheets": [
+            9,
+            10
+          ],
+          "expectedAnswer": "ma"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-20-find-me",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 20,
+          "workbookPdfSheet": 26,
+          "relatedFlipchartSheets": [
+            9,
+            10
+          ],
+          "expectedAnswer": "me"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-20-find-mi",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 20,
+          "workbookPdfSheet": 26,
+          "relatedFlipchartSheets": [
+            9,
+            10
+          ],
+          "expectedAnswer": "mi"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-20-find-mo",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 20,
+          "workbookPdfSheet": 26,
+          "relatedFlipchartSheets": [
+            9,
+            10
+          ],
+          "expectedAnswer": "mo"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-20-find-mu",
+          "sourcePr": "PR#1322",
+          "intent": "locate-syllable",
+          "role": "workbook",
+          "activity": "circle",
+          "workbookPage": 20,
+          "workbookPdfSheet": 26,
+          "relatedFlipchartSheets": [
+            9,
+            10
+          ],
+          "expectedAnswer": "mu"
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-33-word-practice-1",
+      "text": "Leamos juntos el primer grupo de palabras del cuadro: mamá, mami, Mimo, mío y me.",
+      "batch": "B013",
+      "seq": 33,
+      "file": "B013-033.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-07-word-practice",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          21
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "leamos juntos el primer grupo de palabras del cuadro mamá mami mimo mío y me",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-34-word-practice-2",
+      "text": "Sigamos con el segundo grupo de palabras: Meme, ama, mía, Mumi, Memo y Mimí.",
+      "batch": "B013",
+      "seq": 34,
+      "file": "B013-034.mp3",
+      "intent": "workbook-practice",
+      "role": "word-practice",
+      "variationGroup": "lesson-07-word-practice",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          21
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "sigamos con el segundo grupo de palabras meme ama mía mumi memo y mimí",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-35-sight-or-vocab",
+      "text": "Hoy aprendemos una palabra breve muy útil, y, que nos sirve para unir dos ideas.",
+      "batch": "B013",
+      "seq": 35,
+      "file": "B013-035.mp3",
+      "intent": "workbook-page",
+      "role": "sight-word-intro",
+      "variationGroup": "lesson-07-sight-word-intro",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          21
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "teach",
+      "presentationAction": "show-word",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy aprendemos una palabra breve muy útil y que nos sirve para unir dos ideas",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-36-sentence-or-pair",
+      "text": "Lee siguiendo con tu dedo esta oración del libro: Mi mamá me ama.",
+      "batch": "B013",
+      "seq": 36,
+      "file": "B013-036.mp3",
+      "intent": "workbook-practice",
+      "role": "sentence-practice",
+      "variationGroup": "lesson-07-sentence-practice",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          21
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lee siguiendo con tu dedo esta oración del libro mi mamá me ama",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mamá",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mío",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-meme",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mumi",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-amo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mami",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-me",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-ama",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-memo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mimí",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mimo",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mímame",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mía",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-mima",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-21-read-ámame",
+          "sourcePr": "PR#1322",
+          "intent": "guided-reading",
+          "role": "workbook",
+          "activity": "letter",
+          "workbookPage": 21,
+          "workbookPdfSheet": 27,
+          "relatedFlipchartSheets": [
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-37-page-instruction-final",
+      "text": "Para cerrar el cuaderno, completa cada palabra eligiendo la sílaba que falta, como en amo y mima.",
+      "batch": "B013",
+      "seq": 37,
+      "file": "B013-037.mp3",
+      "intent": "workbook-page",
+      "role": "page-instruction",
+      "variationGroup": "lesson-07-page-instruction",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "point",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para cerrar el cuaderno completa cada palabra eligiendo la sílaba que falta como en amo y mima",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-38-game-intro",
+      "text": "Ahora nos esperan juegos con la letra eme, como guiar a cada vaca hasta su cerca o jugar con el Payaso Chano.",
+      "batch": "B013",
+      "seq": 38,
+      "file": "B013-038.mp3",
+      "intent": "game-launch",
+      "role": "game-intro",
+      "variationGroup": "lesson-07-game-intro",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "excited",
+      "gesture": "cheer",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "ahora nos esperan juegos con la letra eme como guiar a cada vaca hasta su cerca o jugar con el payaso chano",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-39-game-step",
+      "text": "Lleva cada vaca con su letrero hasta la cerca que corresponde entre ma, me, mi, mo, mu.",
+      "batch": "B013",
+      "seq": 39,
+      "file": "B013-039.mp3",
+      "intent": "game-coaching",
+      "role": "game-step",
+      "variationGroup": "lesson-07-game-step",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "point",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "tap-item",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "lleva cada vaca con su letrero hasta la cerca que corresponde entre ma me mi mo mu",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-40-game-correct",
+      "text": "Esa vaca encontró su cerca exacta. Elegiste la sílaba de eme correcta.",
+      "batch": "B013",
+      "seq": 40,
+      "file": "B013-040.mp3",
+      "intent": "game-feedback",
+      "role": "game-correct",
+      "variationGroup": "lesson-07-game-correct",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "esa vaca encontró su cerca exacta elegiste la sílaba de eme correcta",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-41-game-retry",
+      "text": "Observa de nuevo la vocal que acompaña a la eme en ese letrero y vuelve a intentarlo.",
+      "batch": "B013",
+      "seq": 41,
+      "file": "B013-041.mp3",
+      "intent": "game-feedback",
+      "role": "game-retry",
+      "variationGroup": "lesson-07-game-retry",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "game",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 1,
+      "expression": "gentle",
+      "gesture": "help",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "observa de nuevo la vocal que acompaña a la eme en ese letrero y vuelve a intentarlo",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-42-assessment",
+      "text": "Para cerrar esta práctica, lee en voz alta la oración: Mi mamá me mima.",
+      "batch": "B013",
+      "seq": 42,
+      "file": "B013-042.mp3",
+      "intent": "lesson-assessment",
+      "role": "assessment-prompt",
+      "variationGroup": "lesson-07-assessment-prompt",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "encouraging",
+      "gesture": "listen",
+      "presentationAction": "show-sentence",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "read-sentence",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "para cerrar esta práctica lee en voz alta la oración mi mamá me mima",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-m",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "mo",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mamá",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "má",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mima",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "ma",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mumi",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "Mu",
+          "commonError": "incorrect printed choice"
+        },
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-mío",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "mí",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-43-page-complete",
+      "text": "Has terminado todas las actividades y juegos de la letra eme. ¡Buen trabajo!",
+      "batch": "B013",
+      "seq": 43,
+      "file": "B013-043.mp3",
+      "intent": "workbook-complete",
+      "role": "page-complete",
+      "variationGroup": "lesson-07-page-complete",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "has terminado todas las actividades y juegos de la letra eme buen trabajo",
+      "sourcePr": "reconciled",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-page-19-check",
+          "sourcePr": "PR#1322",
+          "intent": "self-check",
+          "role": "workbook",
+          "activity": "writing",
+          "workbookPage": 19,
+          "workbookPdfSheet": 25,
+          "relatedFlipchartSheets": [
+            9
+          ],
+          "sharedClip": true
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-44-closing",
+      "text": "Hoy recorriste sílabas, palabras y oraciones completas con la eme. Has dado un gran paso.",
+      "batch": "B013",
+      "seq": 44,
+      "file": "B013-044.mp3",
+      "intent": "lesson-closing",
+      "role": "closing",
+      "variationGroup": "lesson-07-closing",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "proud",
+      "gesture": "cheer",
+      "presentationAction": "celebrate",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "hoy recorriste sílabas palabras y oraciones completas con la eme has dado un gran paso",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-45-next-step",
+      "text": "En la próxima lección conoceremos la letra pe para leer palabras como papá y Pepe.",
+      "batch": "B013",
+      "seq": 45,
+      "file": "B013-045.mp3",
+      "intent": "lesson-next-step",
+      "role": "next-step",
+      "variationGroup": "lesson-07-next-step",
+      "curriculumRefs": {
+        "lesson": 7,
+        "printedPages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "flipchartSheets": [
+          9,
+          10,
+          11
+        ],
+        "letters": [
+          "m"
+        ],
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu"
+        ],
+        "words": [
+          "mamá",
+          "amo",
+          "mima",
+          "Meme",
+          "Mumi",
+          "mami",
+          "Mimo",
+          "Memo",
+          "Mimí",
+          "mío",
+          "mía",
+          "me",
+          "ama",
+          "mímame",
+          "ámame",
+          "y"
+        ],
+        "gameId": "cow-game-m",
+        "sourceStatus": "verified"
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "warm",
+      "gesture": "wave",
+      "presentationAction": "none",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 350,
+        "syncWith": "before-item"
+      },
+      "expectedResponse": "none",
+      "cooldownTurns": 2,
+      "priority": 75,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "normalizedText": "en la próxima lección conoceremos la letra pe para leer palabras como papá y pepe",
+      "sourcePr": "PR#1073"
+    },
+    {
+      "id": "v2-l07-46-atlas-flipchart",
+      "text": "¿A quién le habla la voz que dice «mímame más»?",
+      "normalizedText": "a quién le habla la voz que dice mímame más",
+      "batch": "B013",
+      "seq": 46,
+      "file": "B013-046.mp3",
+      "intent": "comprehension",
+      "role": "atlas-flipchart-check",
+      "variationGroup": "lesson-07-atlas-flipchart",
+      "curriculumRefs": {
+        "lesson": 7,
+        "sourceStatus": "verified",
+        "flipchartSheets": [
+          11
+        ]
+      },
+      "scope": "flipchart",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "point",
+      "presentationAction": "show-flipchart",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-sheet"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-sheet-11-question",
+          "sourcePr": "PR#1322",
+          "intent": "comprehension",
+          "role": "flipchart",
+          "activity": "read-sheet",
+          "flipchartSheet": 11,
+          "expectedAnswer": "a su mamá"
+        }
+      ]
+    },
+    {
+      "id": "v2-l07-47-atlas-workbook",
+      "text": "Queremos escribir «amo». ¿Qué parte falta en el espacio?",
+      "normalizedText": "queremos escribir amo qué parte falta en el espacio",
+      "batch": "B013",
+      "seq": 47,
+      "file": "B013-047.mp3",
+      "intent": "complete-word",
+      "role": "atlas-workbook-check",
+      "variationGroup": "lesson-07-atlas-workbook",
+      "curriculumRefs": {
+        "lesson": 7,
+        "sourceStatus": "verified",
+        "printedPages": [
+          22
+        ]
+      },
+      "scope": "lesson",
+      "eligibility": {
+        "lessons": [
+          7
+        ]
+      },
+      "hintLevel": 0,
+      "expression": "curious",
+      "gesture": "teach",
+      "presentationAction": "point-workbook",
+      "cueTiming": {
+        "leadInMs": 150,
+        "pauseAfterMs": 400,
+        "syncWith": "on-highlight"
+      },
+      "expectedResponse": "read-word",
+      "cooldownTurns": 2,
+      "priority": 74,
+      "audio": {
+        "sha256": null,
+        "durationMs": null,
+        "visemes": null
+      },
+      "status": "scripted",
+      "sourcePr": "PR#1322",
+      "sourceContexts": [
+        {
+          "sourceLineId": "dialogue-l07-page-22-fill-amo",
+          "sourcePr": "PR#1322",
+          "intent": "complete-word",
+          "role": "workbook",
+          "activity": "complete",
+          "workbookPage": 22,
+          "workbookPdfSheet": 28,
+          "relatedFlipchartSheets": [
+            10
+          ],
+          "expectedAnswer": "mo",
+          "commonError": "incorrect printed choice"
+        }
+      ]
+    }
+  ]
+}

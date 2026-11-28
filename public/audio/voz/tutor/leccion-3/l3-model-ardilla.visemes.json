@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/ardilla.mp3",
+    "duration": 1.78,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "1cabe368982b6774aa2f160e9c2faa42d614c19e819cb0065202f0126e19eddd"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.21,
+      "value": "X"
+    },
+    {
+      "start": 0.21,
+      "end": 0.29,
+      "value": "A"
+    },
+    {
+      "start": 0.29,
+      "end": 0.42,
+      "value": "C"
+    },
+    {
+      "start": 0.42,
+      "end": 0.49,
+      "value": "B"
+    },
+    {
+      "start": 0.49,
+      "end": 0.56,
+      "value": "E"
+    },
+    {
+      "start": 0.56,
+      "end": 0.64,
+      "value": "A"
+    },
+    {
+      "start": 0.64,
+      "end": 1.03,
+      "value": "B"
+    },
+    {
+      "start": 1.03,
+      "end": 1.1,
+      "value": "G"
+    },
+    {
+      "start": 1.1,
+      "end": 1.31,
+      "value": "C"
+    },
+    {
+      "start": 1.31,
+      "end": 1.38,
+      "value": "E"
+    },
+    {
+      "start": 1.38,
+      "end": 1.52,
+      "value": "C"
+    },
+    {
+      "start": 1.52,
+      "end": 1.78,
+      "value": "X"
+    }
+  ]
+}

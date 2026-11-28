@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/alas.mp3",
+    "duration": 1.69,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "bc9d790b5a278fa40cc388f49d5ea8038e5928720be75af87700c16812949f44"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.26,
+      "value": "X"
+    },
+    {
+      "start": 0.26,
+      "end": 0.46,
+      "value": "C"
+    },
+    {
+      "start": 0.46,
+      "end": 0.67,
+      "value": "E"
+    },
+    {
+      "start": 0.67,
+      "end": 0.88,
+      "value": "C"
+    },
+    {
+      "start": 0.88,
+      "end": 1.37,
+      "value": "B"
+    },
+    {
+      "start": 1.37,
+      "end": 1.69,
+      "value": "X"
+    }
+  ]
+}

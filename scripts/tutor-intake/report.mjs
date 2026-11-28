@@ -1,0 +1,152 @@
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+
+export function formatIntakeReportMarkdown(report) {
+  const lines = [];
+  lines.push(`# Tutor Recording Intake Report — ${report.batchId} (${report.date})`);
+  lines.push("");
+  lines.push(`- **Mode:** \`${report.dryRun ? "dry-run" : "apply"}\``);
+  lines.push(`- **Authorization:** \`${report.authorized ? "authorized" : "unapproved-hold"}\``);
+  lines.push(`- **Private Originals Directory:** \`${report.privateDir}\``);
+  if (report.privateReviewDir) {
+    lines.push(`- **Private Review Pass Directory:** \`${report.privateReviewDir}\``);
+  }
+  lines.push(`- **Approved Original Master Match:** \`${Boolean(report.approvedOriginalMaster)}\``);
+  lines.push(`- **Repository Guard:** \`${report.guard?.ok ? "PASS" : "FAIL"}\``);
+  if (report.voskAlignment?.length) {
+    for (const va of report.voskAlignment) {
+      lines.push(
+        `- **Offline Vosk Alignment (\`${va.sourceName}\`):** status=\`${va.status}\`${va.reason ? ` (${va.reason})` : `, words=${va.wordCount}`}`,
+      );
+    }
+  }
+  if (report.tools) {
+    lines.push(
+      `- **Discovered Binaries:** ffmpeg=\`${report.tools.ffmpeg ?? "none"}\`, ffprobe=\`${report.tools.ffprobe ?? "none"}\`, rhubarb=\`${report.tools.rhubarb ?? "none"}\``,
+    );
+  }
+  if (report.exportDir) {
+    lines.push(
+      `- **Staging Export Directory:** \`${report.exportDir}\` (manifestWrite=${String(report.manifestWrite !== false)})`,
+    );
+  }
+  if (report.silenceSummary?.length) {
+    for (const ss of report.silenceSummary) {
+      lines.push(
+        `- **Silence Segmentation (\`${ss.sourceName}\`):** engine=\`${ss.engine}\`, intervals=${ss.silencesDetected}, duration=${ss.durationSec}s`,
+      );
+    }
+  }
+  if (report.matchedBatch) {
+    lines.push(
+      `- **Matched Batch:** \`${report.matchedBatch.batchId}\` (score=${report.matchedBatch.score}, coverage=${report.matchedBatch.matchedLinesCount}/${report.matchedBatch.totalLinesCount})`,
+    );
+  }
+  lines.push("");
+
+  lines.push("## 1. Source Checksums & Deduplication");
+  lines.push("");
+  lines.push("| Source | Status | Dedup | Bytes | SHA-256 (first 16) | Notes |");
+  lines.push("| :--- | :--- | :--- | ---: | :--- | :--- |");
+  for (const s of report.sources ?? []) {
+    const shaShort = s.sha256 ? `\`${s.sha256.slice(0, 16)}\`` : "—";
+    const notes = s.reasons?.length ? s.reasons.join("; ") : (s.privateOriginalPath ?? "ok");
+    lines.push(
+      `| \`${s.sourceName}\` | ${s.status} | ${s.dedupStatus} | ${s.bytes ?? 0} | ${shaShort} | ${notes} |`,
+    );
+  }
+  lines.push("");
+
+  if (report.alignment) {
+    const sum = report.alignment.summary;
+    lines.push("## 2. Transcript Matching & Needleman-Wunsch Alignment");
+    lines.push("");
+    lines.push(`- Expected lines: **${sum.expectedCount}**`);
+    lines.push(`- Heard segments: **${sum.heardCount}**`);
+    lines.push(`- Matched primary: **${sum.matchedCount}**`);
+    lines.push(`- Missing lines: **${sum.missingCount}**`);
+    lines.push(`- Repeated lines: **${sum.repeatedCount}**`);
+    lines.push(`- Reordered lines: **${sum.reorderedCount}**`);
+    lines.push(`- Wrong / deviated segments: **${sum.wrongCount}**`);
+    lines.push("");
+
+    if (report.alignment.missing.length > 0) {
+      lines.push("### Missing Lines");
+      for (const m of report.alignment.missing) {
+        lines.push(`- \`${m.lineId}\`: ${m.text}`);
+      }
+      lines.push("");
+    }
+    if (report.alignment.repeated.length > 0) {
+      lines.push("### Repeated Lines");
+      for (const r of report.alignment.repeated) {
+        lines.push(
+          `- \`${r.lineId}\`: ${r.count} takes (segments ${r.segmentIndices.join(", ")}; chosen #${r.chosenSegmentIndex})`,
+        );
+      }
+      lines.push("");
+    }
+    if (report.alignment.reordered.length > 0) {
+      lines.push("### Reordered Lines");
+      for (const o of report.alignment.reordered) {
+        lines.push(
+          `- \`${o.lineId}\` (segment #${o.segmentIndex}, expected index ${o.expectedIndex} appeared after ${o.previousMaxExpectedIndex})`,
+        );
+      }
+      lines.push("");
+    }
+  }
+
+  lines.push("## 3. Cut Points, QC, Visemes & Manifest Gate");
+  lines.push("");
+  lines.push(
+    "| Line ID | Cut Window | QC | Peak (dBFS) | RMS (dBFS) | Full-Scale | Noise (dBFS) | SNR (dB) | Flatness | Visemes | Manifest |",
+  );
+  lines.push("| :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | :--- | :--- |");
+  for (const item of report.items ?? []) {
+    const win =
+      item.cutStartSec != null && item.cutEndSec != null
+        ? `${item.cutStartSec.toFixed(3)}s–${item.cutEndSec.toFixed(3)}s`
+        : "—";
+    const qcText = item.qc?.passed ? "PASS" : `FAIL (${(item.qc?.failures ?? []).join(", ")})`;
+    const m = item.qc?.metrics ?? {};
+    const visText =
+      item.visemesCueCount > 0 && !String(item.visemesStatus ?? "").includes("cues")
+        ? `${item.visemesStatus} (${item.visemesCueCount} cues)`
+        : (item.visemesStatus ?? "—");
+    lines.push(
+      `| \`${item.lineId ?? "(unmapped)"}\` | ${win} | ${qcText} | ${m.peakDb ?? "—"} | ${m.rmsDbfs ?? "—"} | ${m.fullScaleSamples ?? "—"} | ${m.noiseFloorDb ?? "—"} | ${m.snrDb ?? "—"} | ${m.spectralFlatness ?? "—"} | ${visText} | ${item.manifestStatus ?? "—"} |`,
+    );
+  }
+  lines.push("");
+
+  if (report.manifestResult) {
+    lines.push("## 4. Manifest Update Summary");
+    lines.push("");
+    const modifiedCount = report.manifestResult.filesModified?.length ?? 0;
+    const modeNote =
+      modifiedCount === 0 && report.manifestResult.applied.length > 0
+        ? " (staging/dry-run — 0 repository manifest files modified)"
+        : ` (${modifiedCount} manifest file(s) modified)`;
+    lines.push(`- Applied updates: **${report.manifestResult.applied.length}**${modeNote}`);
+    lines.push(`- Skipped / gated updates: **${report.manifestResult.skipped.length}**`);
+    if (report.manifestResult.skipped.length > 0) {
+      lines.push("");
+      for (const sk of report.manifestResult.skipped) {
+        lines.push(`- Skipped \`${sk.lineId}\`: ${sk.reasons.join("; ")}`);
+      }
+    }
+    lines.push("");
+  }
+
+  return lines.join("\n");
+}
+
+export function writeIntakeReport({ repoRoot, date, batchId, report }) {
+  const safeDate = String(date || new Date().toISOString().slice(0, 10)).replace(/[^0-9-]/g, "");
+  const safeBatch = String(batchId || "batch").replace(/[^A-Za-z0-9._-]+/g, "-");
+  const outPath = join(repoRoot, "docs/tutor/intake", `${safeDate}-${safeBatch}.md`);
+  mkdirSync(dirname(outPath), { recursive: true });
+  writeFileSync(outPath, formatIntakeReportMarkdown(report) + "\n");
+  return outPath;
+}

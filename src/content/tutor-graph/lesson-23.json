@@ -1,0 +1,665 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-23",
+  "lesson": 23,
+  "title": "Yy",
+  "kind": "consonant",
+  "focus": "Y",
+  "printedWorkbookPages": {
+    "start": 83,
+    "end": 86,
+    "pages": [
+      83,
+      84,
+      85,
+      86
+    ],
+    "absentInSourcePages": [
+      86
+    ]
+  },
+  "pdfSheets": {
+    "start": 89,
+    "end": 91,
+    "sheets": [
+      89,
+      90,
+      91
+    ]
+  },
+  "flipchartPages": [
+    57,
+    58,
+    59
+  ],
+  "prerequisiteLessons": [
+    "lesson-22"
+  ],
+  "nextLessons": [
+    "lesson-24"
+  ],
+  "sourceStatus": "partial-absent-in-source",
+  "pendingSources": [
+    "teacher-guide-verification"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 83,
+      "pdfSheet": 89,
+      "status": "verified",
+      "exerciseId": "l23-p83-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con y.",
+      "flipchartPrimaryPages": [
+        57
+      ],
+      "flipchartSupplementalPages": [
+        58,
+        59
+      ]
+    },
+    {
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "status": "verified",
+      "exerciseId": "l23-p84-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        57,
+        58
+      ],
+      "flipchartSupplementalPages": [
+        59
+      ]
+    },
+    {
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "status": "verified",
+      "exerciseId": "l23-p85-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        58
+      ],
+      "flipchartSupplementalPages": [
+        59
+      ]
+    },
+    {
+      "printedPage": 86,
+      "pdfSheet": null,
+      "status": "absent-in-source",
+      "exerciseId": "l23-p86-absent-in-source",
+      "exerciseKind": "absent-in-source",
+      "prompt": null,
+      "flipchartPrimaryPages": [],
+      "flipchartSupplementalPages": []
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "yate",
+      "flipchartPage": 57,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yate.mp3"
+    },
+    {
+      "word": "yema",
+      "flipchartPage": 57,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yema.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yema.mp3"
+    },
+    {
+      "word": "Yayita",
+      "flipchartPage": 57,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yayita.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yayita.mp3"
+    },
+    {
+      "word": "mayúscula",
+      "flipchartPage": 57,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/mayúscula.mp3"
+    },
+    {
+      "word": "yoyo",
+      "flipchartPage": 57,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yoyo.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l23-syllable-ya",
+      "lesson": 23,
+      "kind": "syllable",
+      "text": "ya",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-syllable-ye",
+      "lesson": 23,
+      "kind": "syllable",
+      "text": "ye",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-syllable-yi",
+      "lesson": 23,
+      "kind": "syllable",
+      "text": "yi",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-syllable-yo",
+      "lesson": 23,
+      "kind": "syllable",
+      "text": "yo",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-syllable-yu",
+      "lesson": 23,
+      "kind": "syllable",
+      "text": "yu",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yate",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yate",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yate.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yara",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yara",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-payaso",
+      "lesson": 23,
+      "kind": "word",
+      "text": "payaso",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yana",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yana",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yagua",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yagua",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-maya",
+      "lesson": 23,
+      "kind": "word",
+      "text": "maya",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yegua",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yegua",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-enyesado",
+      "lesson": 23,
+      "kind": "word",
+      "text": "enyesado",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yema",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yema",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yema.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yesenia",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yesenia",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yeyo",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yeyo",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yeso",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yeso",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-mayito",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Mayito",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yayita",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yayita",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yayita.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yayi",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yayi",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yiguiro",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yigüiro",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yoyita",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yoyita",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-mayita",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Mayita",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-cayo",
+      "lesson": 23,
+      "kind": "word",
+      "text": "cayo",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yoyo",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yoyo",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/yoyo.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-rayo",
+      "lesson": 23,
+      "kind": "word",
+      "text": "rayo",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-coyote",
+      "lesson": 23,
+      "kind": "word",
+      "text": "coyote",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yo",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yo",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yayo",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yayo",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yucatan",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Yucatán",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-cayuco",
+      "lesson": 23,
+      "kind": "word",
+      "text": "Cayuco",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-ayudar",
+      "lesson": 23,
+      "kind": "word",
+      "text": "ayudar",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yuca",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yuca",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-ayuda",
+      "lesson": 23,
+      "kind": "word",
+      "text": "ayuda",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-desayuno",
+      "lesson": 23,
+      "kind": "word",
+      "text": "desayuno",
+      "printedPage": 84,
+      "pdfSheet": 90,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-ayer",
+      "lesson": 23,
+      "kind": "word",
+      "text": "ayer",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yute",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yute",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-joya",
+      "lesson": 23,
+      "kind": "word",
+      "text": "joya",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-word-yucateco",
+      "lesson": 23,
+      "kind": "word",
+      "text": "yucateco",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-01",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "El yate de Yayo está en Yateras. Yayo fue",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-02",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "a los cayos a pescar con sus amigas",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-03",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "yucatecas. Yayo tiene una soga de yute",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-04",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "para amarrar su yate. Yayo comió yuca y",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-05",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "guacamole. A Yayo le gusta el arroz con",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-06",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "yemas de huevos también. Su mamá le",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-07",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "dio el arroz con yemas de huevos ayer.",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l23-sentence-08",
+      "lesson": 23,
+      "kind": "sentence",
+      "text": "Yayo se lo comió todo.",
+      "printedPage": 85,
+      "pdfSheet": 91,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 47,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 34,
+      "sight-word": 0,
+      "sentence": 8
+    },
+    "itemsWithApprovedAudio": 4,
+    "itemsAudioPending": 43
+  }
+}

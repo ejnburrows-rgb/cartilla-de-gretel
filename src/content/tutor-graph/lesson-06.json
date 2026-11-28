@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-06",
+  "lesson": 6,
+  "title": "Uu",
+  "kind": "vowel",
+  "focus": "U",
+  "printedWorkbookPages": {
+    "start": 16,
+    "end": 18,
+    "pages": [
+      16,
+      17,
+      18
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 22,
+    "end": 24,
+    "sheets": [
+      22,
+      23,
+      24
+    ]
+  },
+  "flipchartPages": [
+    8
+  ],
+  "prerequisiteLessons": [
+    "lesson-01"
+  ],
+  "nextLessons": [
+    "lesson-07"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 16,
+      "pdfSheet": 22,
+      "status": "verified",
+      "exerciseId": "l6-p16-picture-grid",
+      "exerciseKind": "picture-grid",
+      "prompt": "Marca con una x los dibujos de las palabras que comienzan con U u.",
+      "flipchartPrimaryPages": [
+        8
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "printedPage": 17,
+      "pdfSheet": 23,
+      "status": "verified",
+      "exerciseId": "l6-p17-vowel-line-match",
+      "exerciseKind": "vowel-line-match",
+      "prompt": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu.",
+      "flipchartPrimaryPages": [
+        8
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "printedPage": 18,
+      "pdfSheet": 24,
+      "status": "verified",
+      "exerciseId": "l6-p18-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con u.",
+      "flipchartPrimaryPages": [
+        8
+      ],
+      "flipchartSupplementalPages": [
+        3
+      ]
+    }
+  ],
+  "flipchartVocab": [],
+  "items": [
+    {
+      "id": "l6-vowel-u",
+      "lesson": 6,
+      "kind": "vowel",
+      "text": "u",
+      "printedPage": 17,
+      "pdfSheet": 23,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-u"
+    },
+    {
+      "id": "l6-word-unicornio",
+      "lesson": 6,
+      "kind": "word",
+      "text": "unicornio",
+      "printedPage": 16,
+      "pdfSheet": 22,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/unicornio.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l6-word-uña",
+      "lesson": 6,
+      "kind": "word",
+      "text": "uña",
+      "printedPage": 16,
+      "pdfSheet": 22,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uña.mp3",
+      "tutorLineId": "l1-model-uña"
+    },
+    {
+      "id": "l6-word-uvas",
+      "lesson": 6,
+      "kind": "word",
+      "text": "uvas",
+      "printedPage": 16,
+      "pdfSheet": 22,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uvas.mp3",
+      "tutorLineId": "l2-model-uvas"
+    },
+    {
+      "id": "l6-word-uniforme",
+      "lesson": 6,
+      "kind": "word",
+      "text": "uniforme",
+      "printedPage": 16,
+      "pdfSheet": 22,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uniforme.mp3",
+      "tutorLineId": "l1-model-uniforme"
+    },
+    {
+      "id": "l6-word-uno",
+      "lesson": 6,
+      "kind": "word",
+      "text": "uno",
+      "printedPage": 16,
+      "pdfSheet": 22,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/uno.mp3",
+      "tutorLineId": "l1-model-uno"
+    }
+  ],
+  "summary": {
+    "totalItems": 6,
+    "byKind": {
+      "vowel": 1,
+      "syllable": 0,
+      "word": 5,
+      "sight-word": 0,
+      "sentence": 0
+    },
+    "itemsWithApprovedAudio": 5,
+    "itemsAudioPending": 1
+  }
+}

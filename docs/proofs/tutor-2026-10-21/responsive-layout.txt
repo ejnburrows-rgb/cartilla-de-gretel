@@ -1,0 +1,41 @@
+BROWSER 145.0.7632.6
+LAYOUT 390 844 {
+  scroll: [ 390, 844 ],
+  mic: { x: 147, y: 654.984375, w: 96, h: 96 },
+  word: 'o',
+  unavailable: undefined,
+  controls: true
+}
+LAYOUT 844 390 {
+  scroll: [ 844, 390 ],
+  mic: { x: 537.59375, y: 257.453125, w: 96, h: 96 },
+  word: 'o',
+  unavailable: undefined,
+  controls: true
+}
+LAYOUT 1280 800 {
+  scroll: [ 1280, 800 ],
+  mic: { x: 846, y: 523.1875, w: 96, h: 96 },
+  word: 'o',
+  unavailable: undefined,
+  controls: true
+}
+LAYOUT 1366 768 {
+  scroll: [ 1366, 768 ],
+  mic: { x: 906.1875, y: 510.203125, w: 96, h: 96 },
+  word: 'o',
+  unavailable: undefined,
+  controls: true
+}
+ENGINE Saltar al contenido principal
+Lecciones
+Sonido
+
+o
+
+Audio pendiente
+
+o
+
+ Escuchar otra vez
+Toca para hablar

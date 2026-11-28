@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/libro.mp3",
+    "duration": 1.37,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "4abd3646f35860e02690c827aebfe8c3bf5d7c0b30315baf63ababf747c8a24f"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.22,
+      "value": "X"
+    },
+    {
+      "start": 0.22,
+      "end": 0.46,
+      "value": "B"
+    },
+    {
+      "start": 0.46,
+      "end": 0.58,
+      "value": "A"
+    },
+    {
+      "start": 0.58,
+      "end": 0.67,
+      "value": "B"
+    },
+    {
+      "start": 0.67,
+      "end": 1.02,
+      "value": "C"
+    },
+    {
+      "start": 1.02,
+      "end": 1.09,
+      "value": "E"
+    },
+    {
+      "start": 1.09,
+      "end": 1.37,
+      "value": "X"
+    }
+  ]
+}

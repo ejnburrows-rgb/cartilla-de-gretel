@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/escuela.mp3",
+    "duration": 1.69,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "fe900a5a5a1c22fab64b5d8a1271e8ac4b509a0883975e5d4d309f5bb4fd0bf6"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.26,
+      "value": "X"
+    },
+    {
+      "start": 0.26,
+      "end": 0.3,
+      "value": "B"
+    },
+    {
+      "start": 0.3,
+      "end": 0.41,
+      "value": "E"
+    },
+    {
+      "start": 0.41,
+      "end": 0.72,
+      "value": "F"
+    },
+    {
+      "start": 0.72,
+      "end": 0.79,
+      "value": "B"
+    },
+    {
+      "start": 0.79,
+      "end": 0.86,
+      "value": "E"
+    },
+    {
+      "start": 0.86,
+      "end": 0.93,
+      "value": "B"
+    },
+    {
+      "start": 0.93,
+      "end": 1,
+      "value": "C"
+    },
+    {
+      "start": 1,
+      "end": 1.14,
+      "value": "F"
+    },
+    {
+      "start": 1.14,
+      "end": 1.28,
+      "value": "C"
+    },
+    {
+      "start": 1.28,
+      "end": 1.37,
+      "value": "A"
+    },
+    {
+      "start": 1.37,
+      "end": 1.45,
+      "value": "C"
+    },
+    {
+      "start": 1.45,
+      "end": 1.69,
+      "value": "X"
+    }
+  ]
+}

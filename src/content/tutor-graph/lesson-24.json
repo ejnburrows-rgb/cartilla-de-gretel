@@ -1,0 +1,609 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-24",
+  "lesson": 24,
+  "title": "Zz",
+  "kind": "consonant",
+  "focus": "Z",
+  "printedWorkbookPages": {
+    "start": 87,
+    "end": 90,
+    "pages": [
+      87,
+      88,
+      89,
+      90
+    ],
+    "absentInSourcePages": [
+      87
+    ]
+  },
+  "pdfSheets": {
+    "start": 92,
+    "end": 94,
+    "sheets": [
+      92,
+      93,
+      94
+    ]
+  },
+  "flipchartPages": [
+    60,
+    61,
+    62
+  ],
+  "prerequisiteLessons": [
+    "lesson-23"
+  ],
+  "nextLessons": [],
+  "sourceStatus": "partial-absent-in-source",
+  "pendingSources": [
+    "teacher-guide-verification"
+  ],
+  "games": [],
+  "pages": [
+    {
+      "printedPage": 87,
+      "pdfSheet": null,
+      "status": "absent-in-source",
+      "exerciseId": "l24-p87-absent-in-source",
+      "exerciseKind": "absent-in-source",
+      "prompt": null,
+      "flipchartPrimaryPages": [],
+      "flipchartSupplementalPages": []
+    },
+    {
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "status": "verified",
+      "exerciseId": "l24-p88-syllable-match",
+      "exerciseKind": "syllable-match",
+      "prompt": "Encierra en un círculo la sílaba correspondiente.",
+      "flipchartPrimaryPages": [
+        60,
+        61
+      ],
+      "flipchartSupplementalPages": [
+        62
+      ]
+    },
+    {
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "status": "verified",
+      "exerciseId": "l24-p89-reading-sentences",
+      "exerciseKind": "reading-sentences",
+      "prompt": null,
+      "flipchartPrimaryPages": [
+        61
+      ],
+      "flipchartSupplementalPages": [
+        60,
+        62
+      ]
+    },
+    {
+      "printedPage": 90,
+      "pdfSheet": 94,
+      "status": "verified",
+      "exerciseId": "l24-p90-fill-in-blank",
+      "exerciseKind": "fill-in-blank",
+      "prompt": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+      "flipchartPrimaryPages": [
+        61
+      ],
+      "flipchartSupplementalPages": [
+        60,
+        62
+      ]
+    }
+  ],
+  "flipchartVocab": [
+    {
+      "word": "zapato",
+      "flipchartPage": 60,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zapato.mp3"
+    },
+    {
+      "word": "zig-zag",
+      "flipchartPage": 60,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zig-zag.mp3"
+    },
+    {
+      "word": "zorro",
+      "flipchartPage": 60,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zorro.mp3"
+    },
+    {
+      "word": "zepelín",
+      "flipchartPage": 60,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zepelin.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zepelín.mp3"
+    },
+    {
+      "word": "Zulema",
+      "flipchartPage": 60,
+      "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zulema.webp",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zulema.mp3"
+    }
+  ],
+  "items": [
+    {
+      "id": "l24-syllable-za",
+      "lesson": 24,
+      "kind": "syllable",
+      "text": "za",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-syllable-ze",
+      "lesson": 24,
+      "kind": "syllable",
+      "text": "ze",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-syllable-zi",
+      "lesson": 24,
+      "kind": "syllable",
+      "text": "zi",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-syllable-zo",
+      "lesson": 24,
+      "kind": "syllable",
+      "text": "zo",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-syllable-zu",
+      "lesson": 24,
+      "kind": "syllable",
+      "text": "zu",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-taza",
+      "lesson": 24,
+      "kind": "word",
+      "text": "taza",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/taza.mp3",
+      "tutorLineId": "l1-model-taza"
+    },
+    {
+      "id": "l24-word-caza",
+      "lesson": 24,
+      "kind": "word",
+      "text": "caza",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zapatero",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zapatero",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-plaza",
+      "lesson": 24,
+      "kind": "word",
+      "text": "plaza",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zapato",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zapato",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zapato.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zapote",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zapote",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zepelin",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zepelín",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zepelín.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zebra",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zebra",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zenaida",
+      "lesson": 24,
+      "kind": "word",
+      "text": "Zenaida",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zeta",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zeta",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zegri",
+      "lesson": 24,
+      "kind": "word",
+      "text": "Zegrí",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zema",
+      "lesson": 24,
+      "kind": "word",
+      "text": "Zema",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zig-zag",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zig-zag",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zig-zag.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zimba",
+      "lesson": 24,
+      "kind": "word",
+      "text": "Zimba",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zila",
+      "lesson": 24,
+      "kind": "word",
+      "text": "Zila",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zita",
+      "lesson": 24,
+      "kind": "word",
+      "text": "Zita",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zorro",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zorro",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zorro.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-portazo",
+      "lesson": 24,
+      "kind": "word",
+      "text": "portazo",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zocato",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zocato",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-azotes",
+      "lesson": 24,
+      "kind": "word",
+      "text": "azotes",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zopilote",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zopilote",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-lazo",
+      "lesson": 24,
+      "kind": "word",
+      "text": "lazo",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-azucar",
+      "lesson": 24,
+      "kind": "word",
+      "text": "azúcar",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zurra",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zurra",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-azucarado",
+      "lesson": 24,
+      "kind": "word",
+      "text": "azucarado",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-azules",
+      "lesson": 24,
+      "kind": "word",
+      "text": "azules",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zulema",
+      "lesson": 24,
+      "kind": "word",
+      "text": "Zulema",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/zulema.mp3",
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-azulado",
+      "lesson": 24,
+      "kind": "word",
+      "text": "azulado",
+      "printedPage": 88,
+      "pdfSheet": 92,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-calabaza",
+      "lesson": 24,
+      "kind": "word",
+      "text": "calabaza",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-zumo",
+      "lesson": 24,
+      "kind": "word",
+      "text": "zumo",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-word-azul",
+      "lesson": 24,
+      "kind": "word",
+      "text": "azul",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-sentence-01",
+      "lesson": 24,
+      "kind": "sentence",
+      "text": "Zulema toma zumo de melón.",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-sentence-02",
+      "lesson": 24,
+      "kind": "sentence",
+      "text": "A Zulema le gusta el zumo con azúcar.",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-sentence-03",
+      "lesson": 24,
+      "kind": "sentence",
+      "text": "Ella se bebe el zumo y se pone sus zapatos",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-sentence-04",
+      "lesson": 24,
+      "kind": "sentence",
+      "text": "azules.",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-sentence-05",
+      "lesson": 24,
+      "kind": "sentence",
+      "text": "Zila va con Zulema, van en un carro con",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    },
+    {
+      "id": "l24-sentence-06",
+      "lesson": 24,
+      "kind": "sentence",
+      "text": "ruedas de calabazas.",
+      "printedPage": 89,
+      "pdfSheet": 93,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": null
+    }
+  ],
+  "summary": {
+    "totalItems": 42,
+    "byKind": {
+      "vowel": 0,
+      "syllable": 5,
+      "word": 31,
+      "sight-word": 0,
+      "sentence": 6
+    },
+    "itemsWithApprovedAudio": 6,
+    "itemsAudioPending": 36
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "lesson-02",
+  "lesson": 2,
+  "title": "Oo",
+  "kind": "vowel",
+  "focus": "O",
+  "printedWorkbookPages": {
+    "start": 4,
+    "end": 6,
+    "pages": [
+      4,
+      5,
+      6
+    ],
+    "absentInSourcePages": []
+  },
+  "pdfSheets": {
+    "start": 10,
+    "end": 12,
+    "sheets": [
+      10,
+      11,
+      12
+    ]
+  },
+  "flipchartPages": [
+    4
+  ],
+  "prerequisiteLessons": [
+    "lesson-01"
+  ],
+  "nextLessons": [
+    "lesson-03",
+    "lesson-07"
+  ],
+  "sourceStatus": "verified",
+  "pendingSources": [
+    "guia-rhyme-text"
+  ],
+  "games": [
+    {
+      "id": "silabas-o",
+      "type": "lectura-silabas",
+      "answerKeyStatus": "verified"
+    },
+    {
+      "id": "dibujos-o",
+      "type": "dibujos",
+      "answerKeyStatus": "verified"
+    }
+  ],
+  "pages": [
+    {
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "status": "verified",
+      "exerciseId": "l2-p4-picture-grid",
+      "exerciseKind": "picture-grid",
+      "prompt": "Marca con una x los dibujos que comienzan con O o.",
+      "flipchartPrimaryPages": [
+        4
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 5,
+      "pdfSheet": 11,
+      "status": "verified",
+      "exerciseId": "l2-p5-vowel-line-match",
+      "exerciseKind": "vowel-line-match",
+      "prompt": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo.",
+      "flipchartPrimaryPages": [
+        4
+      ],
+      "flipchartSupplementalPages": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "printedPage": 6,
+      "pdfSheet": 12,
+      "status": "verified",
+      "exerciseId": "l2-p6-writing-line",
+      "exerciseKind": "writing-line",
+      "prompt": "Escribe con tu mejor letra. Haz un dibujo que represente una palabra que comienza con o.",
+      "flipchartPrimaryPages": [
+        4
+      ],
+      "flipchartSupplementalPages": [
+        3
+      ]
+    }
+  ],
+  "flipchartVocab": [],
+  "items": [
+    {
+      "id": "l2-vowel-o",
+      "lesson": 2,
+      "kind": "vowel",
+      "text": "o",
+      "printedPage": 5,
+      "pdfSheet": 11,
+      "source": "workbook",
+      "approvedAudioSrc": null,
+      "tutorLineId": "l0-vowel-model-o"
+    },
+    {
+      "id": "l2-word-ola",
+      "lesson": 2,
+      "kind": "word",
+      "text": "ola",
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ola.mp3",
+      "tutorLineId": "l2-model-ola"
+    },
+    {
+      "id": "l2-word-oso",
+      "lesson": 2,
+      "kind": "word",
+      "text": "oso",
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/oso.mp3",
+      "tutorLineId": "l1-model-oso"
+    },
+    {
+      "id": "l2-word-oveja",
+      "lesson": 2,
+      "kind": "word",
+      "text": "oveja",
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/oveja.mp3",
+      "tutorLineId": "l1-model-oveja"
+    },
+    {
+      "id": "l2-word-oreja",
+      "lesson": 2,
+      "kind": "word",
+      "text": "oreja",
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/oreja.mp3",
+      "tutorLineId": "l1-model-oreja"
+    },
+    {
+      "id": "l2-word-olla",
+      "lesson": 2,
+      "kind": "word",
+      "text": "olla",
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/olla.mp3",
+      "tutorLineId": "l1-model-olla"
+    },
+    {
+      "id": "l2-word-ocho",
+      "lesson": 2,
+      "kind": "word",
+      "text": "ocho",
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ocho.mp3",
+      "tutorLineId": "l1-model-ocho"
+    },
+    {
+      "id": "l2-word-ojos",
+      "lesson": 2,
+      "kind": "word",
+      "text": "ojos",
+      "printedPage": 4,
+      "pdfSheet": 10,
+      "source": "workbook",
+      "approvedAudioSrc": "/audio/voz/vocabulario/ojos.mp3",
+      "tutorLineId": "l1-model-ojos"
+    }
+  ],
+  "summary": {
+    "totalItems": 8,
+    "byKind": {
+      "vowel": 1,
+      "syllable": 0,
+      "word": 7,
+      "sight-word": 0,
+      "sentence": 0
+    },
+    "itemsWithApprovedAudio": 7,
+    "itemsAudioPending": 1
+  }
+}

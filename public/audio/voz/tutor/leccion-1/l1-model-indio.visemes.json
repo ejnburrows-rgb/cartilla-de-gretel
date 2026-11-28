@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "soundFile": "/audio/voz/vocabulario/indio.mp3",
+    "duration": 1.49,
+    "rhubarbVersion": "1.14.0",
+    "recognizer": "phonetic",
+    "extendedShapes": "GX",
+    "sourceSha256": "e5953fc78997eeb2c90f2df085a80d0e589013cf3878dd7446fed10f1f50b95b"
+  },
+  "mouthCues": [
+    {
+      "start": 0,
+      "end": 0.26,
+      "value": "X"
+    },
+    {
+      "start": 0.26,
+      "end": 0.85,
+      "value": "B"
+    },
+    {
+      "start": 0.85,
+      "end": 1.06,
+      "value": "C"
+    },
+    {
+      "start": 1.06,
+      "end": 1.13,
+      "value": "E"
+    },
+    {
+      "start": 1.13,
+      "end": 1.27,
+      "value": "B"
+    },
+    {
+      "start": 1.27,
+      "end": 1.49,
+      "value": "X"
+    }
+  ]
+}
