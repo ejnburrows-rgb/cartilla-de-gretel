@@ -56,13 +56,15 @@ describe("owner-locked pencil-only Workbook runtime", () => {
     expect(connector).toContain('stroke="#3a3a38"');
   });
 
-  it("ensures letter tracing exercises use the owner-approved @image1 wooden pencil photo", () => {
+  it("keeps letter tracing on the single unclipped owner-photo cursor host", () => {
     const letterTrace = source("src/components/cartilla/WorkbookLetterTrace.tsx");
-    expect(letterTrace).toContain('import { OwnerPhotoPencilSvg } from "@/components/StudentBook/OwnerPhotoPencilSvg"');
+    const host = source("src/components/StudentBook/ContractPencilCursor.tsx");
     expect(letterTrace).not.toContain("PencilShape");
-    expect(letterTrace).toContain("<OwnerPhotoPencilSvg");
-    expect(letterTrace).toContain('testId="letter-trace-live-pencil"');
-    expect(letterTrace).toContain('testId="letter-trace-tap-pencil"');
+    expect(letterTrace).not.toContain("<OwnerPhotoPencilSvg");
+    expect(letterTrace).not.toContain('testId="letter-trace-live-pencil"');
+    expect(letterTrace).not.toContain('testId="letter-trace-tap-pencil"');
+    expect(host).toContain("<OwnerPhotoPencilSvg");
+    expect(host).toContain("createPortal");
+    expect(host).toContain('toolSize("tip")');
   });
 });
-

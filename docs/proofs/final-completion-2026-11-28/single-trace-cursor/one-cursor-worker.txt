@@ -1,0 +1,51 @@
+
+> cartilla-de-gretel-platform@ verify:worker /workspace/cartilla-de-gretel
+> pnpm audit:art && pnpm verify:assets && pnpm typecheck
+
+
+> cartilla-de-gretel-platform@ audit:art /workspace/cartilla-de-gretel
+> node scripts/prepare-art-assets.mjs --check
+
+ART_ASSET_AUDIT {"manifestEntries":158,"quarantinedAssets":35,"wiredProductionAssets":96,"processedCanonicalAssets":108,"unavailableManifestAssets":0,"wiredQaPass":96,"backgroundCleaned":98,"paddingTrimmed":103,"edgeTouchWarnings":7,"duplicateContentGroups":0,"errors":0,"warnings":23,"flipchartCanonicalMasters":62,"flipchartNativeBoards":62,"flipchartNativeCrops":167}
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-a/abeja.webp: visible content touches canonical crop edge; source recrop may be required
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-a/alas.webp: suspiciously small cropBox 29x38
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-a/arana.webp: suspiciously small cropBox 105x9
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-e/escalera.webp: crop/canonical aspect drift 50%
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-o/ocho.webp: suspiciously small cropBox 4x8
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-o/oreja.webp: suspiciously small cropBox 11x12
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-e/espejo.webp: crop/canonical aspect drift 56%
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-u/uno.webp: suspiciously small cropBox 18x27
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-a/avion.webp: suspiciously small cropBox 3x5
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-1/ojos.webp: visible content touches canonical crop edge; source recrop may be required
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-i/igual.webp: low-resolution canonical 106x61
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-i/igual.webp: visible content touches canonical crop edge; source recrop may be required
+ART_ASSET_WARNING /cartilla/art/faithful/vocal-i/invierno.webp: visible content touches canonical crop edge; source recrop may be required
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-7-m/mama.webp: crop/canonical aspect drift 46%
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-8-p/papa.webp: crop/canonical aspect drift 50%
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-8-p/papa.webp: visible content touches canonical crop edge; source recrop may be required
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-14-n/nino.webp: crop/canonical aspect drift 46%
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-14-n/nino.webp: visible content touches canonical crop edge; source recrop may be required
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-18-rr/torre.webp: crop/canonical aspect drift 72%
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-18-rr/barril.webp: crop/canonical aspect drift 53%
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-22-y/yema.webp: crop/canonical aspect drift 47%
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-23-z/zorro.webp: visible content touches canonical crop edge; source recrop may be required
+ART_ASSET_WARNING /cartilla/art/faithful/leccion-19-c/catalina.webp: crop/canonical aspect drift 48%
+
+> cartilla-de-gretel-platform@ verify:assets /workspace/cartilla-de-gretel
+> node scripts/verify-production-assets.mjs
+
+{
+  "workbook": 74,
+  "flipchart": 171,
+  "gretel": 1,
+  "backgrounds": 148,
+  "delivery": 106,
+  "sourceScans": 88,
+  "checked": 588,
+  "location": "local",
+  "errors": []
+}
+
+> cartilla-de-gretel-platform@ typecheck /workspace/cartilla-de-gretel
+> tsc --noEmit
+

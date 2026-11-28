@@ -1,0 +1,191 @@
+{
+  "main": "5e1c8378d15ca6aa1120683149e9e722084aa93d",
+  "main_errors": 8059,
+  "head_errors": 8062,
+  "introduced_messages": [
+    {
+      "file": "src/components/StudentBook/NativeLessonViewer.tsx",
+      "rule": "prettier/prettier",
+      "message": "Insert `\u00b7\u00b7`",
+      "severity": 2,
+      "count": 3
+    },
+    {
+      "file": "src/components/StudentBook/NativeLessonViewer.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7},\u00b7Math.round(LESSON_PAGE_TURN_MS\u00b7*\u00b7(1\u00b7-\u00b7progress))` with `\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7},\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7Math.round(LESSON_PAGE_TURN_MS\u00b7*\u00b7(1\u00b7-\u00b7progress)),\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/StudentBook/NativeLessonViewer.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7canTurnForward\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7?\u00b7undefined\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7:\u00b7\"Termina\u00b7la\u00b7actividad\u00b7de\u00b7esta\u00b7p\u00e1gina\u00b7para\u00b7seguir\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7` with `canTurnForward\u00b7?\u00b7undefined\u00b7:\u00b7\"Termina\u00b7la\u00b7actividad\u00b7de\u00b7esta\u00b7p\u00e1gina\u00b7para\u00b7seguir\"`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/audio/PictureAudioLifecycle.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `status\u00b7===\u00b7'missing-recording'\u00b7?\u00b7'El\u00b7audio\u00b7de\u00b7este\u00b7dibujo\u00b7a\u00fan\u00b7no\u00b7est\u00e1\u00b7disponible.'\u00b7:\u00b7status\u00b7===\u00b7'muted'\u00b7?\u00b7'El\u00b7sonido\u00b7est\u00e1\u00b7silenciado.'\u00b7:\u00b7''` with `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7status\u00b7===\u00b7\"missing-recording\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7?\u00b7\"El\u00b7audio\u00b7de\u00b7este\u00b7dibujo\u00b7a\u00fan\u00b7no\u00b7est\u00e1\u00b7disponible.\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7:\u00b7status\u00b7===\u00b7\"muted\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7?\u00b7\"El\u00b7sonido\u00b7est\u00e1\u00b7silenciado.\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7:\u00b7\"\",\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/audio/PictureAudioLifecycle.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `<p\u00b7className=\"picture-audio-status\"\u00b7role=\"status\"\u00b7aria-live=\"polite\">{message}</p>` with `(\u23ce\u00b7\u00b7\u00b7\u00b7<p\u00b7className=\"picture-audio-status\"\u00b7role=\"status\"\u00b7aria-live=\"polite\">\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7{message}\u23ce\u00b7\u00b7\u00b7\u00b7</p>\u23ce\u00b7\u00b7)`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7useLessonProgress,\u00b7isDemoNavigationEnabled,\u00b7isLessonUnlocked,\u00b7markLessonCompleted\u00b7` with `\u23ce\u00b7\u00b7useLessonProgress,\u23ce\u00b7\u00b7isDemoNavigationEnabled,\u23ce\u00b7\u00b7isLessonUnlocked,\u23ce\u00b7\u00b7markLessonCompleted,\u23ce`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Insert `\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Insert `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `(e)\u00b7=>\u00b7e.event_kind\u00b7===\u00b7\"lesson_completed\"\u00b7&&\u00b7e.lesson_id\u00b7===\u00b7previous` with `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7(e)\u00b7=>\u00b7e.event_kind\u00b7===\u00b7\"lesson_completed\"\u00b7&&\u00b7e.lesson_id\u00b7===\u00b7previous,\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `scope,\u00b7n,\u00b7entry,\u00b7accessDecided,\u00b7unlocked,\u00b7progressReady,\u00b7initialPage,\u00b7pages,\u00b7storedPianoBookmarkUnavailable` with `\u23ce\u00b7\u00b7\u00b7\u00b7scope,\u23ce\u00b7\u00b7\u00b7\u00b7n,\u23ce\u00b7\u00b7\u00b7\u00b7entry,\u23ce\u00b7\u00b7\u00b7\u00b7accessDecided,\u23ce\u00b7\u00b7\u00b7\u00b7unlocked,\u23ce\u00b7\u00b7\u00b7\u00b7progressReady,\u23ce\u00b7\u00b7\u00b7\u00b7initialPage,\u23ce\u00b7\u00b7\u00b7\u00b7pages,\u23ce\u00b7\u00b7\u00b7\u00b7storedPianoBookmarkUnavailable,\u23ce\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `<p\u00b7role=\"status\"\u00b7className=\"p-6\u00b7text-center\">Preparando\u00b7las\u00b7p\u00e1ginas\u2026</p>` with `(\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7<p\u00b7role=\"status\"\u00b7className=\"p-6\u00b7text-center\">\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7Preparando\u00b7las\u00b7p\u00e1ginas\u2026\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7</p>\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7)`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx",
+      "rule": "prettier/prettier",
+      "message": "Delete `\u23ce`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `expect.objectContaining({\u00b7kind:\u00b7\"lesson_completed\"\u00b7})` with `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7expect.objectContaining({\u00b7kind:\u00b7\"lesson_completed\"\u00b7}),\u23ce\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/__tests__/learner-resume-isolation.test.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `<Suspense\u00b7fallback={<p>Loading</p>}><Leccion\u00b7/></Suspense>` with `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7<Suspense\u00b7fallback={<p>Loading</p>}>\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7<Leccion\u00b7/>\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7</Suspense>,\u23ce\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    }
+  ],
+  "removed_messages": [
+    {
+      "file": "src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts",
+      "rule": "prettier/prettier",
+      "message": "Replace `\"<PencilShape\u00b7uid=\\\"letter-trace-live-pencil\\\"\u00b7/>\"` with `'<PencilShape\u00b7uid=\"letter-trace-live-pencil\"\u00b7/>'`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/cartilla/interactions/__tests__/owner-approved-pencil-only.test.ts",
+      "rule": "prettier/prettier",
+      "message": "Delete `\u23ce`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/StudentBook/NativeLessonViewer.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7` with `\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 2
+    },
+    {
+      "file": "src/components/StudentBook/NativeLessonViewer.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7` with `\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/StudentBook/NativeLessonViewer.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `},\u00b7Math.round(LESSON_PAGE_TURN_MS\u00b7*\u00b7(1\u00b7-\u00b7progress))` with `\u00b7\u00b7},\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7Math.round(LESSON_PAGE_TURN_MS\u00b7*\u00b7(1\u00b7-\u00b7progress)),\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/StudentBook/NativeLessonViewer.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7?\u00b7undefined\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7` with `\u00b7?\u00b7undefined`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/audio/PictureAudioLifecycle.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `status\u00b7===\u00b7'missing-recording'\u00b7?\u00b7'El\u00b7audio\u00b7de\u00b7este\u00b7dibujo\u00b7a\u00fan\u00b7no\u00b7est\u00e1\u00b7disponible.'\u00b7:\u00b7status\u00b7===\u00b7'failed'\u00b7?\u00b7'No\u00b7se\u00b7pudo\u00b7reproducir\u00b7la\u00b7grabaci\u00f3n.'\u00b7:\u00b7status\u00b7===\u00b7'muted'\u00b7?\u00b7'El\u00b7sonido\u00b7est\u00e1\u00b7silenciado.'\u00b7:\u00b7''` with `\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7status\u00b7===\u00b7\"missing-recording\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7?\u00b7\"El\u00b7audio\u00b7de\u00b7este\u00b7dibujo\u00b7a\u00fan\u00b7no\u00b7est\u00e1\u00b7disponible.\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7:\u00b7status\u00b7===\u00b7\"failed\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7?\u00b7\"No\u00b7se\u00b7pudo\u00b7reproducir\u00b7la\u00b7grabaci\u00f3n.\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7:\u00b7status\u00b7===\u00b7\"muted\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7?\u00b7\"El\u00b7sonido\u00b7est\u00e1\u00b7silenciado.\"\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7:\u00b7\"\",\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/audio/PictureAudioLifecycle.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7<p\u00b7className=\"picture-audio-status\"\u00b7role=\"status\"\u00b7aria-live=\"polite\">{message}</p>` with `\u00b7(\u23ce\u00b7\u00b7\u00b7\u00b7<p\u00b7className=\"picture-audio-status\"\u00b7role=\"status\"\u00b7aria-live=\"polite\">\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7{message}\u23ce\u00b7\u00b7\u00b7\u00b7</p>\u23ce\u00b7\u00b7)`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/components/cartilla/EscucharInstruccionButton.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7text,\u00b7label\u00b7=\u00b7\"Escuchar\u00b7instrucci\u00f3n\",\u00b7className\u00b7=\u00b7\"\"\u00b7` with `\u23ce\u00b7\u00b7text,\u23ce\u00b7\u00b7label\u00b7=\u00b7\"Escuchar\u00b7instrucci\u00f3n\",\u23ce\u00b7\u00b7className\u00b7=\u00b7\"\",\u23ce`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7\u00b7` with `\u00b7\u00b7\u00b7\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7if\u00b7(progressReady\u00b7&&\u00b7!storedPianoBookmarkUnavailable)\u00b7saveLearnerResume(n,\u00b7initialPage,\u00b7pages[initialPage]?.pageNumber,\u00b7pages[initialPage]?.id);` with `\u23ce\u00b7\u00b7\u00b7\u00b7if\u00b7(progressReady\u00b7&&\u00b7!storedPianoBookmarkUnavailable)\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7saveLearnerResume(n,\u00b7initialPage,\u00b7pages[initialPage]?.pageNumber,\u00b7pages[initialPage]?.id);\u23ce\u00b7`",
+      "severity": 2,
+      "count": 1
+    },
+    {
+      "file": "src/routes/cartilla/-leccion-view.tsx",
+      "rule": "prettier/prettier",
+      "message": "Replace `\u00b7<p\u00b7role=\"status\"\u00b7className=\"p-6\u00b7text-center\">Preparando\u00b7las\u00b7p\u00e1ginas\u2026</p>` with `\u00b7(\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7<p\u00b7role=\"status\"\u00b7className=\"p-6\u00b7text-center\">\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7Preparando\u00b7las\u00b7p\u00e1ginas\u2026\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7</p>\u23ce\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7)`",
+      "severity": 2,
+      "count": 1
+    }
+  ]
+}

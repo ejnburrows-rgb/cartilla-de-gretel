@@ -41,7 +41,7 @@ for (const viewport of [
       await expect(page.locator(".piano-hablador")).toHaveAttribute("data-done", "false");
       await page.screenshot({ path: info.outputPath("piano-safe-unavailable.png") });
     });
-    test("recovered letter tracing uses approved photo pencil at a real checkpoint", async ({
+    test("letter tracing uses one full-size shared photo cursor, never a clipped duplicate", async ({
       page,
     }, info) => {
       await page.addInitScript(() => {
@@ -57,19 +57,28 @@ for (const viewport of [
         localStorage.setItem("cartilla.learner-resume.v1:2", resume);
         localStorage.setItem("cartilla.learner-resume.v1", resume);
       });
-      await page.goto("/cartilla/leccion/2?cursor=normal");
+      await page.goto("/cartilla/leccion/2?cursor=contract");
       await expect(page.locator(".native-lesson-viewer")).toHaveAttribute("data-native-page", "6", {
         timeout: 15000,
       });
       const trace = page.locator(".fp-trace").first();
       await expect(trace).toHaveAttribute("data-mode", "tap");
-      await expect(trace.getByTestId("letter-trace-tap-pencil")).toBeVisible();
-      await expect(trace.getByTestId("contract-pencil-photo-head")).toHaveCount(1);
-      await expect(trace.getByTestId("contract-pencil-barrel-extension")).toHaveCount(1);
-      await expect(trace.locator(".workbook-pencil__shape")).toHaveCount(0);
+      await expect(trace.getByTestId("contract-pencil-photo-head")).toHaveCount(0);
+      const cursor = page.locator(".contract-pencil-cursor");
+      await expect(cursor).toHaveCount(1);
+      await expect(cursor.getByTestId("contract-pencil-photo-head")).toHaveCount(1);
+      await expect(cursor.locator("svg").first()).toHaveAttribute("width", "252");
+      await expect(cursor).toHaveCSS("position", "fixed");
+      await expect(cursor.locator("svg").first()).toHaveCSS("overflow", "visible");
       await trace.locator(".fp-trace__dot--active").click();
       await expect(trace).toHaveAttribute("data-status", "tracing");
+      await expect(cursor).toHaveAttribute("data-visible", "true");
       await page.screenshot({ path: info.outputPath("approved-photo-pencil-tracing.png") });
+      await page.goto("/cartilla/leccion/2?cursor=normal");
+      await expect(page.locator(".contract-pencil-cursor")).toHaveCount(0);
+      await expect(page.locator(".fp-trace [data-testid=contract-pencil-photo-head]")).toHaveCount(
+        0,
+      );
     });
   });
 }

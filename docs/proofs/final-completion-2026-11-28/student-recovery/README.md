@@ -1,3 +1,5 @@
+> Intermediate evidence. The pencil recovery below was visually rejected and corrected in [single-trace-cursor](../single-trace-cursor/README.md). Use that proof for the final cursor implementation.
+
 # Student selective recovery and loading safety, 28 November 2026
 
 - A browser local-speech discovery promise that never resolves now becomes safely unavailable after five seconds. Microphone stays off, late discovery is ignored, and Workbook rendering recovers. Two new hook tests failed before and pass after.
