@@ -57,8 +57,8 @@ describe("tutor-lines manifest: real manifest passes the validator", () => {
     const result = validateTutorLines(tutorLines, realContext);
     expect(result.errors).toEqual([]);
     expect(result.ok).toBe(true);
-    expect(result.counts.approved).toBe(48);
-    expect(result.counts.pending).toBe(72);
+    expect(result.counts.approved).toBe(49);
+    expect(result.counts.pending).toBe(71);
   });
 
   it("has exactly 43 approved word models, all owner-approved picture-name recordings", () => {
@@ -84,7 +84,7 @@ describe("tutor-lines manifest: real manifest passes the validator", () => {
     const expected = {
       "greeting-first": 9,
       "greeting-return": 3,
-      praise: 12,
+      praise: 11,
       "praise-streak": 4,
       "praise-after-retry": 4,
       "close-miss": 4,

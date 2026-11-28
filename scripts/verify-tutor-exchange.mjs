@@ -43,9 +43,38 @@ try {
       await page.getByRole("link", { name: new RegExp(`^Lección ${check.lesson}\\s`) }).click();
       const prompt = page.locator("[data-tutor-question-prompt]");
       const camera = page.locator(".tutor-classroom-camera");
+      const expression = camera.locator("[data-classroom-expression]");
       await expect(prompt).toContainText(`«${check.target}»`, { timeout: 22000 });
 
       await expectCenteredCamera(camera);
+      if (check.reducedMotion) {
+        await expect(expression).toBeHidden();
+      } else if (check.wrong) {
+        await expect(expression).toHaveCSS("background-image", /expressions\.webp/);
+        const spriteReady = await expression.evaluate(async (node) => {
+          const image = new Image();
+          image.src = getComputedStyle(node).backgroundImage.slice(5, -2);
+          await image.decode();
+          return image.naturalWidth === 990 && image.naturalHeight === 531;
+        });
+        expect(spriteReady).toBe(true);
+        // A blink is shorter than the assertion's polling intervals.
+        const blink = await expression.evaluate((node) => new Promise((resolve) => {
+          const observer = new MutationObserver(() => {
+            if (node.dataset.classroomExpression === "blink") {
+              observer.disconnect();
+              window.clearTimeout(deadline);
+              resolve(true);
+            }
+          });
+          const deadline = window.setTimeout(() => {
+            observer.disconnect();
+            resolve(false);
+          }, 9000);
+          observer.observe(node, { attributes: true, attributeFilter: ["data-classroom-expression"] });
+        }));
+        expect(blink).toBe(true);
+      }
       await page.getByRole("button", { name: "Abrir transcripción", exact: true }).click();
       const input = page.getByRole("textbox", { name: "Escribir respuesta o pregunta", exact: true });
       const submit = page.getByRole("button", { name: "Enviar mensaje", exact: true });
@@ -61,7 +90,14 @@ try {
       } else {
         await input.fill(check.target);
       }
+      const praiseRecording = check.checkDrawer
+        ? page.waitForResponse((response) => response.url().endsWith("/l0-praise-01.mp3") && response.ok())
+        : null;
       await submit.click({ timeout: 18000 });
+      if (!check.reducedMotion) {
+        await expect(expression).toHaveAttribute("data-classroom-expression", "acknowledging");
+      }
+      if (praiseRecording) await praiseRecording;
 
       const phases = check.reducedMotion
         ? ["still"]

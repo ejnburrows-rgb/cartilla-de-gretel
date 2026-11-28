@@ -555,9 +555,9 @@ describe("proof on the approved word and vowel recordings", () => {
     });
     expect(proof.errors).toEqual([]);
     expect(proof.ok).toBe(true);
-    expect(proof.verifiedCount).toBe(48);
-    expect(proof.expectedCount).toBe(48);
-    expect(proof.uniqueAudioHashes).toBe(48);
+    expect(proof.verifiedCount).toBe(49);
+    expect(proof.expectedCount).toBe(49);
+    expect(proof.uniqueAudioHashes).toBe(49);
 
     // Also confirm generalized build-tutor-visemes.mjs --dry-run passes cleanly
     const out = execFileSync(
@@ -565,8 +565,8 @@ describe("proof on the approved word and vowel recordings", () => {
       [join(REPO_ROOT, "scripts/build-tutor-visemes.mjs"), "--dry-run"],
       { cwd: REPO_ROOT, encoding: "utf8" },
     );
-    expect(out).toContain("48 approved entries processed");
-    expect(out).toContain("48 already up to date");
+    expect(out).toContain("49 approved entries processed");
+    expect(out).toContain("49 already up to date");
   }, 60_000);
 });
 
@@ -747,7 +747,7 @@ describe("PR #1323 security hardening and S4036 fixed binary resolution", () => 
 
   it("matches incoming audio content hashes against installed approved speech", async () => {
     const hashIndex = buildApprovedSpeechHashIndex(REPO_ROOT);
-    expect(hashIndex.size).toBe(48);
+    expect(hashIndex.size).toBe(49);
 
     const osoPath = join(REPO_ROOT, "public/audio/voz/vocabulario/oso.mp3");
     const privateDir = makeTempDir("gretel-priv-hash-");

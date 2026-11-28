@@ -455,9 +455,79 @@
   visibility: hidden;
 }
 
+.tutor-classroom-breath {
+  position: absolute;
+  left: 10.546875%;
+  top: 32.083333%;
+  width: 38.671875%;
+  height: 67.916667%;
+  background: url("/cartilla/images/gretel/tutor/classroom-review/breathing.webp") no-repeat;
+  background-size: 500% 100%;
+  animation: tutor-classroom-express 2650ms steps(4, end) infinite alternate;
+  pointer-events: none;
+}
+
+.tutor-classroom-expression {
+  position: absolute;
+  /* The sprite is registered to pixels (306, 189) of the classroom still. */
+  left: 23.90625%;
+  top: 26.25%;
+  width: 15.46875%;
+  height: 24.583333%;
+  background: url("/cartilla/images/gretel/tutor/classroom-review/expressions.webp") no-repeat;
+  background-size: 500% 300%;
+  animation: tutor-classroom-express 280ms steps(4, end) both;
+  pointer-events: none;
+}
+
+.tutor-classroom-expression[data-classroom-speaking="true"] {
+  clip-path: inset(0 0 27% 0);
+}
+
+.tutor-classroom-expression[data-classroom-expression="still"] {
+  animation: none;
+}
+
+.tutor-classroom-camera[data-classroom-camera="board"] :is(.tutor-classroom-breath, .tutor-classroom-expression) {
+  visibility: hidden;
+}
+
+.tutor-classroom-expression[data-classroom-expression="blink"] {
+  animation-duration: 120ms;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+.tutor-classroom-expression[data-classroom-expression="glance"],
+.tutor-classroom-expression[data-classroom-expression="thinking"] {
+  background-position-y: 50%;
+}
+
+.tutor-classroom-expression[data-classroom-expression="glance"] {
+  animation: tutor-classroom-glance 960ms steps(4, end) both;
+}
+
+.tutor-classroom-expression[data-classroom-expression="acknowledging"] {
+  background-position-y: 100%;
+}
+
+@keyframes tutor-classroom-express {
+  from { background-position-x: 0%; }
+  to { background-position-x: 100%; }
+}
+
+@keyframes tutor-classroom-glance {
+  0%, 100% { background-position-x: 0%; }
+  34%, 66% { background-position-x: 100%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tutor-classroom-camera {
     transition: none;
+  }
+  .tutor-classroom-breath,
+  .tutor-classroom-expression {
+    display: none;
   }
 }
 

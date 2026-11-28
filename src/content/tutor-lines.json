@@ -479,6 +479,16 @@
       "visemes": "/audio/voz/tutor/leccion-0/l0-vowel-model-u.visemes.json",
       "emotion": "warm",
       "approval": "Verified owner master excerpt (docs/tutor/recording/ISOLATED-VOWELS.md)"
+    },
+    {
+      "lineId": "l0-praise-01",
+      "lesson": 0,
+      "role": "praise",
+      "text": "¡Muy bien! (reuse: buildSuccessLine)",
+      "src": "/audio/voz/tutor/leccion-0/l0-praise-01.mp3",
+      "visemes": "/audio/voz/tutor/leccion-0/l0-praise-01.visemes.json",
+      "emotion": "excited",
+      "approval": "Verified owner master excerpt (docs/tutor/recording/PRAISE.md)"
     }
   ],
   "pending": [
@@ -565,13 +575,6 @@
       "role": "greeting-return",
       "text": "[DRAFT — owner to approve] ¡Qué bueno verte de nuevo! Vamos a continuar.",
       "emotion": "warm"
-    },
-    {
-      "lineId": "l0-praise-01",
-      "lesson": 0,
-      "role": "praise",
-      "text": "¡Muy bien! (reuse: buildSuccessLine)",
-      "emotion": "excited"
     },
     {
       "lineId": "l0-praise-02",

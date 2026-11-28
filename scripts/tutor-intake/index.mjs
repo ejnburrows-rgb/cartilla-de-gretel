@@ -667,9 +667,8 @@ export async function proveApprovedRecordings({
     if (!cuesValid) errors.push(`${entry.lineId}: invalid mouthCues`);
     if (!soundFileMatches) errors.push(`${entry.lineId}: visemes soundFile mismatch`);
 
-    const idWord = entry.lineId.replace(/^l\d+-(?:vowel-)?model-/, "");
-    const sim = computeTranscriptSimilarity(idWord, entry.text);
-    if (!sim.exactTextMatch) {
+    const idWord = /^l\d+-(?:vowel-)?model-(.+)$/.exec(entry.lineId)?.[1];
+    if (idWord && !computeTranscriptSimilarity(idWord, entry.text).exactTextMatch) {
       errors.push(`${entry.lineId}: text "${entry.text}" does not match lineId word "${idWord}"`);
     }
 

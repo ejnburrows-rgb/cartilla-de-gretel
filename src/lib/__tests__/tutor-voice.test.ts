@@ -129,7 +129,7 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
   it("resolves pending, reused, and unknown lines to gentle silence with no error", async () => {
     const onSilentLine = vi.fn();
     const unmount = mountTutorVoice({ onSilentLine });
-    const reusedText = "¡Muy bien! (reuse: buildSuccessLine)";
+    const reusedText = "¡Excelente! (reuse: buildSuccessLine)";
 
     const pending = await speakTutorLine(PENDING_TEXT);
     const reused = await speakTutorLine(reusedText);
@@ -198,7 +198,7 @@ describe("tutor voice (recorded line bank, no TTS path)", () => {
     expect(approvedEntry?.lineId).toBe("l1-model-oso");
     expect(approvedEntry?.src).toBe(APPROVED_SRC);
 
-    // Reused-but-unrecorded wording resolves by its exact text or clean wording.
+    // Reused wording resolves by its exact text or clean wording.
     const withNote = findTutorLineByText("¡Muy bien! (reuse: buildSuccessLine)");
     const clean = findTutorLineByText("¡Muy bien!");
     expect(withNote?.lineId).toBe("l0-praise-01");

@@ -83,7 +83,7 @@ export interface TutorAssetsManifest {
 }
 
 const TUTOR_PACK_VERSION = "v1.1.0";
-const classroomAssets = ["listening.webp", "conversation.webp", "speech.webp", "abeja.webm"].map(
+const classroomAssets = ["expressions.webp", "breathing.webp", "conversation.webp", "speech.webp", "abeja.webm"].map(
   (file) => "/cartilla/images/gretel/tutor/classroom-review/" + file,
 );
 

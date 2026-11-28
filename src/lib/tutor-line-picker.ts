@@ -340,7 +340,11 @@ export function pickLine(
     (entry) => !recent.includes(entry.lineId) && !isOnCooldown(entry, state),
   );
   const offRecent = pool.filter((entry) => !recent.includes(entry.lineId));
-  const candidates = fresh.length > 0 ? fresh : offRecent.length > 0 ? offRecent : pool;
+  const spokenPraise = opts.role === "praise"
+    ? fresh.filter((entry) => entry.src && !isRejectedAudioSource(entry.src))
+    : [];
+  const candidates = spokenPraise.length > 0 ? spokenPraise
+    : fresh.length > 0 ? fresh : offRecent.length > 0 ? offRecent : pool;
   const chosen = weightedPick(
     candidates,
     state.plays[opts.role] ?? {},

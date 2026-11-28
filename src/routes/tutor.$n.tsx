@@ -25,6 +25,7 @@ import {
   getFlipchartImportantRects,
 } from "@/components/tutor/TutorFlipchartPresenter";
 import { playClassroomWriting } from "@/components/tutor/classroom-board-motion";
+import { ClassroomExpression } from "@/components/tutor/ClassroomExpression";
 import { chalkStrokes, teachingTarget } from "@/components/tutor/classroom-writing";
 import { useLearnerScope } from "@/lib/learner-storage";
 import { TutorGretelPuppet } from "@/components/tutor/TutorGretelPuppet";
@@ -1499,12 +1500,14 @@ function ValidTutorSessionScreen({
                   className="tutor-classroom-camera"
                   data-classroom-camera={writingTarget ? "board" : "call"}
                 >
-                  <picture style={{display: linePlaying ? "none" : "block"}}>
-                    <source media="(prefers-reduced-motion: reduce)" srcSet={room + "/conversation.webp"} />
-                    <img src={room + "/listening.webp"} alt="Gretel escucha junto a la pizarra" style={{display:"block", width:"100%"}} />
-                  </picture>
                   <img ref={classroomStill} src={room + "/conversation.webp"} alt="Gretel en su aula"
-                    style={{display: linePlaying ? "block" : "none", width:"100%"}} />
+                    className="block w-full" />
+                  <span className="tutor-classroom-breath" aria-hidden="true" />
+                  <ClassroomExpression
+                    reaction={mark?.isCorrect ? "acknowledging" : analyzing || processingTurn ? "thinking" : "attentive"}
+                    speaking={linePlaying}
+                    board={Boolean(writingTarget)}
+                  />
                   {linePlaying && mouthIndex >= 0 && (
                     <span aria-hidden="true" style={{position:"absolute",left:"28.046875%",top:"44.722222%",width:"7.65625%",height:"9.027778%",
                       backgroundImage: "url(" + room + "/speech.webp)", backgroundSize:"700% 100%", backgroundPosition: (mouthIndex * 100 / 6) + "% center"}} />

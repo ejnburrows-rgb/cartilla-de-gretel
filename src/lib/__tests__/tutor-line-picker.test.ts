@@ -55,6 +55,13 @@ describe("poolForRole", () => {
 });
 
 describe("pickLine: no-repeat window (last 5 of the same role)", () => {
+  it("uses the recorded praise when fresh and rotates away on the next answer", () => {
+    const first = pickLine(createLinePickerState(), { role: "praise", lesson: 4 }, () => 0.99);
+    expect(first?.lineId).toBe("l0-praise-01");
+    expect(pickLine(first!.state, { role: "praise", lesson: 4 }, () => 0)?.lineId)
+      .not.toBe("l0-praise-01");
+  });
+
   it("never repeats a line within the last 5 plays of the role", () => {
     let state = createLinePickerState();
     const rng = seededRng(7);
@@ -95,9 +102,10 @@ describe("pickLine: least-played weighting", () => {
       plays.praise[entry.lineId] = 5; // heavily played
     }
     plays.praise["l0-praise-07"] = 0; // the fresh one
-    const state: LinePickerState = { recent: {}, plays };
+    const state: LinePickerState = { recent: { praise: ["l0-praise-01"] }, plays };
 
-    // Every line except -07 has weight 1/6; -07 has weight 1. With rng in
+    // With the recording in the recent window, every other line except -07
+    // has weight 1/6, while -07 has weight 1. With rng in
     // the middle, the pick must land in -07's dominant slice.
     const result = pickLine(state, { role: "praise", lesson: 1 }, () => 0.5);
     expect(result?.lineId).toBe("l0-praise-07");
